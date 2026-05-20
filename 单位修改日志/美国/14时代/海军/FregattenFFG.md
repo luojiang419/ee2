@@ -254,3 +254,24 @@
 
 ### 修改依据
 - 需求: 倍率全部调为1，恢复原始属性
+
+---
+
+## 第9次修改 — 2026-05-20 13:32
+
+**关联快照**: 进度快照\023-E14超级主力舰三倍属性v2.md
+**修改类型**: 数值调整 — 超级主力舰×3(重新应用)
+
+### E14修改后数据 (×3)
+| 属性 | 值 | 来源文件 | 行号 |
+|:-----|:---|:--------|:-----|
+| HP | 28,350 | upgrade_unittypes.csv | 1022 |
+| DAMAGE | 1,740 | Yuanhang_Tao_13naval_units.ddf | 5133 |
+| RANGE | 60 | Yuanhang_Tao_13naval_units.ddf | 5133 |
+| SPEED | 7.80 | Yuanhang_Tao_13naval_units.ddf | 5134 |
+| angSpeed | 255 | Yuanhang_Tao_13naval_units.ddf | 5134 |
+| BUILDTIME | 210 | upgrade_unittypes.csv | 1022 |
+| 全资源 | ×3 | upgrade_unittypes.csv | 1022 |
+
+### 修改依据
+- 需求: 重新确认×3方案，佩里级全属性三倍
