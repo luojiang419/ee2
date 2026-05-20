@@ -32,3 +32,19 @@
 - 化工厂满进驻产出从4.8 Uranium/秒提升至20 Uranium/秒
 - 与UraniumMine(铀提炼厂)的人口上限产生差异化(UraniumMine仍为6格)
 - 无科技树或升级联动影响
+
+---
+
+## 第2次修改 — 2026-05-20 (ZIP同步修复)
+
+**关联快照**: `进度快照\029-提炼厂化工厂进驻人口调整.md`
+**修改类型**: 部署修复
+
+### 问题
+DDF修改正确(numOfSlots=25)但游戏内仍显示6格进驻。根因: 只改了`game-metadata\EE2X_db\`工作目录，未更新`Empire Earth II\zips_ee2x\EE2X_db.zip`。
+
+### 修复
+将修改后的 `Yuanhang_720_units.ddf` 重新打包到 `EE2X_db.zip`，游戏验证通过。
+
+### 经验教训
+详见 `地2方案文档\数据库修改生效链路与ZIP同步规则.md`
