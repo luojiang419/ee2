@@ -1,0 +1,178 @@
+//------------------------------------------------------------------------------------------------
+//	EPOCH 4 UPGRADES 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	MAIN BRANCH
+//------------------------------------------------
+UpgradeSet AdvanceEpoch4 {
+	upgrades = [
+		UpgradeEpoch {epoch = 4;}
+	]
+}
+
+// Main4
+UpgradeRefSet MainEpoch4 {
+	upgrades = [
+		AdvanceEpoch4
+		HeavyArtilleryUpgradeEpoch4
+		LightMounted1UpgradeEpoch4
+		HeavyMounted1UpgradeEpoch4
+		FortressUpgradeEpoch4
+		UniversityUpgradeEpoch4
+		TempleUpgradeEpoch4
+		CityCenterUpgradeEpoch4
+		WarehouseUpgradeEpoch4
+		MyOutpostUpgradeEpoch4
+		CitizenUpgradeEpoch4
+		CitizenFUpgradeEpoch4
+		OutpostUpgradeEpoch4
+		Outpost2UpgradeEpoch4
+		ScoutUpgradeEpoch4
+		BarracksUpgradeEpoch4
+		PalisadeUpgradeEpoch4
+		PalisadeConnectorUpgradeEpoch4
+		PalisadeFragmentUpgradeEpoch4
+		PalisadeGateUpgradeEpoch4
+		DockUpgradeEpoch4
+		PriestUpgradeEpoch4
+		SpyUpgradeEpoch4
+		ResourceIronUpgradeEpoch04
+		// new unit
+		AIResource1UpgradeEpoch4
+		MinegoldUpgradeEpoch4
+		TavernUpgradeEpoch4
+		MiddleEastBoatUpgradeEpoch4
+		MesoAmerBoatUpgradeEpoch4
+		AfricanBoatUpgradeEpoch4
+		WesternBoat1UpgradeEpoch4
+		WesternBoat2UpgradeEpoch4
+		guichuanUpgradeEpoch4
+		JapanBoat2UpgradeEpoch4
+		JapanBoat1UpgradeEpoch4
+		MaChuanUpgradeEpoch4
+		ZhengHeUpgradeEpoch4
+		dapaoUpgradeEpoch4
+		MyEngineer2UpgradeEpoch4
+		// LEADERS
+		LeaderEconomicUpgradeEpoch4
+		LeaderMilitaryUpgradeEpoch4
+		LeaderImperialUpgradeEpoch4
+		KingRegicideUpgradeEpoch4
+		
+		// EE2X HERO UPGRADES
+		LightMountedHeroUpgradeEp4
+		HeavyMountedHeroUpgradeEp4
+		HeavyArtilleryHeroUpgradeEp4
+
+		// EE2X Egypt Campaign Upgrades
+		EgyptFortressUpgradeEpoch4
+		LeaderKemsa
+		EgyptCrocodileUpgrade1
+	]
+}
+
+//------------------------------------------------
+//	MILITARY BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet MilitaryEpoch4Slot1 {
+	upgrades = [
+		MilitaryTechUpgrade_E4_Slot1a
+		SpyTechTreeUpgradeEpoch4
+	]
+}
+
+// Slot 2
+UpgradeRefSet MilitaryEpoch4Slot2 {
+	upgrades = [
+		MilitaryTechUpgrade_E4_Slot2a
+	]
+}
+
+// Slot 3
+UpgradeRefSet MilitaryEpoch4Slot3 {
+	upgrades = [
+		MilitaryTechUpgrade_E4_Slot3a
+	]
+} 
+
+// Slot 4
+UpgradeRefSet MilitaryEpoch4Slot4 {
+	upgrades = [
+		MilitaryTechUpgrade_E4_Slot4a
+		MilitaryTechUpgrade_E4_Slot4b
+	]
+} 
+
+
+//------------------------------------------------
+//	ECONOMIC BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet EconomicEpoch4Slot1 {
+	upgrades = [
+		EconomicTechUpgrade_E4_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet EconomicEpoch4Slot2 {
+	upgrades = [
+		//EconomicTechUpgrade_E4_Slot2a
+		// These are declared in upgrade_factorset.csv
+		SpecialGather_Tin_NoTooltip
+		SpecialGather_Iron_NoTooltip
+		SpecialGather_Saltpeter_NoTT
+		SpecialGather_Oil_NoTooltip
+		SpecialGather_Uranium_NoTooltip
+		SpecialGather_Tooltip
+	]
+}
+
+// Slot 3
+UpgradeRefSet EconomicEpoch4Slot3 {
+	upgrades = [
+		EconomicTechUpgrade_E4_Slot3a
+		EconomicTechUpgrade_E4_Slot3b
+	]
+}
+
+// Slot 4
+UpgradeRefSet EconomicEpoch4Slot4 {
+	upgrades = [
+		EconomicTechUpgrade_E4_Slot4a
+		EconomicTechUpgrade_E4_Slot4b
+	]
+}
+
+//------------------------------------------------
+//	IMPERIAL BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet ImperialEpoch4Slot1 {
+	upgrades = [
+		ImperialTechUpgrade_E4_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet ImperialEpoch4Slot2 {
+	upgrades = [
+		ImperialTechUpgrade_E4_Slot2a
+	]
+}
+
+// Slot 3
+UpgradeRefSet ImperialEpoch4Slot3 {
+	upgrades = [
+		ImperialTechUpgrade_E4_Slot3a
+		ImperialTechUpgrade_E4_Slot3b
+	]
+}
+
+// Slot 4
+UpgradeRefSet ImperialEpoch4Slot4 {
+	upgrades = [
+		ImperialTechUpgrade_E4_Slot4a
+	]
+}

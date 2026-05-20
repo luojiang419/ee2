@@ -1,0 +1,40 @@
+﻿// NAME,TEXT
+// Region power verbose tooltips,
+text_misc_donotuse,"""零式入口－不要使用"""
+
+// default player names
+tx_playername_world,"""世界玩家"""
+tx_playername_default,"""玩家%d"""
+
+// player info display strings
+tx_playerinfo_observer,"""（观战者）"""
+
+// resource display names (should be named with programmatic res name as suffix),
+text_resource_food,"""食物"""
+text_resource_wood,"""木材"""
+text_resource_stone,"""石头"""
+text_resource_gold,"""黄金"""
+text_resource_tin,"""锡"""
+text_resource_iron,"""铁"""
+text_resource_saltpeter,"""硝石"""
+text_resource_oil,"""石油"""
+text_resource_uranium,"""铀"""
+text_resource_techpoints,"""科技点数"""
+text_resource_popcap,"""人口数"""
+
+// misc fullmap stuff,
+text_warplans_default,"""作战计划"""
+text_warplans_notsent,"""未送出"""
+text_warplans_pending,"""暂缓中"""
+text_warplans_accepted,"""接受"""
+text_warplans_rejected,"""拒绝"""
+text_warplans_mixed,"""拒绝"""
+text_warplans_notrecipient,"""非收件人"""
+text_warplans_rename,"""更改作战计划名称："""
+text_warplans_addlabel,"""增加标题："""
+text_warplans_addlabel_desc,"""指定标题文字："""
+text_warplans_changelabel,"""更改标题："""
+text_warplans_changelabel_desc,"""指定标题文字："""
+
+// territory stuff
+text_territory_unclaimed,"""未占领的地区"""

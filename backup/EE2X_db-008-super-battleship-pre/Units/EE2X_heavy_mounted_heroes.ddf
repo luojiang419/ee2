@@ -1,0 +1,124 @@
+//------------------------------------------------------------------------------------------------
+//	HEAVY MOUNTED HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType HeavyMountedHero
+{
+	parent = HeavyMounted1
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	properties {
+		SizeX = 0.46
+		SizeY = 0.23
+	}
+	abilities = [
+		Hero { HeroClass = HeavyMounted; HeroForUnit = HeavyMounted1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyMountedHeroEp2Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 1.0 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyMountedHeroEp4Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.8 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyMountedHeroEp6Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyMountedHeroEp8Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyMountedHeroEp10Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5 }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HEAVY MOUNTED HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+UnitModel HeavyMountedHero_02
+{
+	Parent		= HeavyMounted1_02
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+UnitModel HeavyMountedHero_04
+{
+	Parent		= HeavyMounted1_04
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+UnitModel HeavyMountedHero_06
+{
+	Parent		= HeavyMounted1_06
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+UnitModel HeavyMountedHero_08
+{
+	Parent		= HeavyMounted1_08
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel HeavyMountedHero_10
+{
+	Parent		= HeavyMounted1_10
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

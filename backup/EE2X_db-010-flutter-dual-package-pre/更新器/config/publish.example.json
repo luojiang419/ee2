@@ -1,0 +1,10 @@
+{
+  "sshHost": "example.com",
+  "sshPort": 22,
+  "sshUsername": "deploy",
+  "sshPassword": "",
+  "sshPrivateKey": "",
+  "remoteRoot": "/var/www/ee2x",
+  "publicBaseUrl": "https://example.com",
+  "channel": "stable"
+}

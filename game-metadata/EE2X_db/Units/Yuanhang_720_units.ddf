@@ -18623,7 +18623,7 @@ UnitType Oilref
 		LOS { range = 8 }
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 6;
+			numOfSlots = 25;
 			gatherRate = 0.8;	
 			gatherType = Oil;
             rightClickToGarrison = 1;
@@ -18910,7 +18910,7 @@ UnitType Chemistry
 		LOS { range = 8 }
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 6;
+			numOfSlots = 25;
 			gatherRate = 0.8;	
 			gatherType = Uranium;
             rightClickToGarrison = 1;

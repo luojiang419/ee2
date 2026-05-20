@@ -1,0 +1,279 @@
+//------------------------------------------------------------------------------------------------
+//	TRADE CART - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType TradeCart
+{
+	properties {
+		rps = LandNonCombat
+		SizeX = 0.4
+		SizeY = 0.4
+		mass = 1
+		displayName = tx_utn_TradeCart_name
+		moveType = WheeledTrade
+		hitpoints = 0
+		VerboseTooltip = vtt_unit_TradeCart
+		FootprintType = Ellipse
+		popCount = 2
+	}
+	sounds {
+		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+    	}
+	abilities = [
+		Convertable { }
+		VehicleMove {speed = 1.5; angSpeed = 180; followTerrainSlope = 0}
+		LOS { range = 0 }
+		Trade { MarketType = Markets; 
+				GoldPerTile = 0.12; 
+				TechPerTile = 0.0; 
+				TechBonusEpochDiff = 0.0;
+				TechBonusLikelyhood = [ .10 .15 .20 .25 .30 ] 
+				ForeignTradeAllowed = false
+				timeToLoad = 5}
+		Garrisonable { garrisonTypes = [ NavalTransport ] }
+	]
+	attributes = [ 
+		HealedByMedic 
+	]
+	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
+}
+
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+// TradeCartUpgradeEpoch2 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 3 TECH TREE UPGRADE
+//------------------------------------------------
+// Upgrade purchased through the tech tree that allows the player to trade with other players
+UpgradeAbilities TradeCartTechTreeUpgrade
+{
+	UnitType = TradeCart
+	upgradedAbilities = [
+		Trade { MarketType = Markets; 
+				GoldPerTile = 0.12; 
+				TechPerTile = 0.0; 
+				TechBonusEpochDiff = 0.0;
+				TechBonusLikelyhood = [ .10 .15 .20 .25 .30 ] 
+				ForeignTradeAllowed = true
+				timeToLoad = 5}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+// TradeCartUpgradeEpoch6 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// TradeCartUpgradeEpoch11 is in upgrade_unittypes.csv
+
+//------------------------------------------------------------------------------------------------
+//	TRADE CART - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+UnitModel TradeCart
+{
+	ScaleType 	= kScaleUnit
+	OutlineType	= kOutlineMake
+	DefaultModel 	= LSF2_tradecart.NIF
+	DefaultState 	= Idle
+	ChildNames 		= [ UnitShadow TheHealthBar SelectCircleMedium SmallGlow ExplSelectorHuman01 Footprints TheTradePath SinkCorpse ]
+	States 		= [
+		{	StateName = Idle	AnimName = LSF2_tradecart_idle01.KF
+                              AnimVariants = [ LSF2_tradecart_idle02.KF ]
+                              AnimVariantsWeights = [ 0.3 ]
+                 }
+
+			{ StateName = Walk 	AnimName = LSF2_tradecart_walk01.kf }
+			{ StateName = Death 	AnimName = LSF2_tradecart_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.72
+		zOffset = -5.04
+		scale = 2.56
+		angle = 23.68
+		rotationSpeed = 0.00
+		pitch = 9.47
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+UnitModel TradeCart_6
+{
+	ScaleType 	= kScaleUnit
+	OutlineType	= kOutlineMake
+	DefaultModel 	= LSF6_tradecart.NIF
+	DefaultState 	= Idle
+	ChildNames 		= [UnitShadow TheHealthBar SelectCircleMounted SmallGlow ExplSelectorHuman01 Footprints TheTradePath DustHeavyMonted SinkCorpse ]
+	States 		= [
+		{	StateName = Idle	AnimName = LSF6_tradecart_idle01.KF
+                              AnimVariants = [ LSF6_tradecart_idle02.KF LSF6_tradecart_idle03.KF ]
+                              AnimVariantsWeights = [ 0.05 0.01 ]              }
+			{ StateName = Walk 	AnimName = LSF6_tradecart_walk01.kf	}
+			{ StateName = Death 	AnimName = LSF6_tradecart_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.21
+		zOffset = 0.36
+		scale = 1.28
+		angle = 331.58
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel TradeCart_11
+{
+	ScaleType 	= kScaleUnit
+	OutlineType	= kOutlineMake
+	DefaultModel 	= LSF11_tradecart.NIF
+	ForceScale = 0.3
+	DefaultState 	= Idle
+	ChildNames 		= [UnitShadow TheHealthBar SelectCircleMedium SmallGlow TheTradePath TankTracks DustHeavyMonted ExplSelectorTank01 TradeCart11_FlyingParts ]
+	States 		= [
+			{ StateName = Idle	AnimName = LSF11_tradecart_idle.KF   }
+			{ StateName = Walk 	AnimName = LSF11_tradecart_walk.kf  
+               			TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_motorized_02 KeyTime = 0.5 }]}
+			{ StateName = Death 	AnimName = LSF11_tradecart_idle.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.88
+		zOffset = 0.68
+		scale = 1.40
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+UnitModel TradeCart_12
+{
+	ScaleType 	= kScaleUnit
+	ForceScale = 0.18
+      OutlineType	= kOutlineMake
+	DefaultModel 	= opel.NIF
+	DefaultState 	= Idle
+	ChildNames 		= [UnitShadow TheHealthBar SelectCircleMedium SmallGlow TheTradePath TankTracks  ExplSelectorTank01 TradeCart11_FlyingParts ]
+	States 		= [
+			{ StateName = Idle	AnimName = LLM13_rpgstriker_idle.KF
+				}
+			{ StateName = Walk	AnimName = LLM13_rpgstriker_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0}
+					   ]
+				}				
+			{ StateName = Death 	AnimName = LSF11_tradecart_idle.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.88
+		zOffset = 0.68
+		scale = 1.40
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel TradeCart_13
+{
+	ScaleType 	= kScaleUnit
+	ForceScale = 0.26
+      OutlineType	= kOutlineMake
+	DefaultModel 	= iveco.NIF
+	DefaultState 	= Idle
+	ChildNames 		= [UnitShadow TheHealthBar SelectCircleMedium SmallGlow TheTradePath TankTracks  ExplSelectorTank01 TradeCart11_FlyingParts ]
+	States 		= [
+			{ StateName = Idle	AnimName = LLM13_rpgstriker_idle.KF
+				}
+			{ StateName = Walk	AnimName = LLM13_rpgstriker_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0}
+					   ]
+				}				
+			{ StateName = Death 	AnimName = LSF11_tradecart_idle.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.88
+		zOffset = 0.68
+		scale = 1.40
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+UnitModel TradeCart_15
+{
+	DefaultModel 	= tracar15.NIF
+	DefaultState 	= Idle
+	ForceScale      = 0.12
+	ChildNames 		= [UnitShadow TheHealthBar SelectCircleMedium SmallGlow TheTradePath TankTracks  ExplSelectorTank01 TradeCart11_FlyingParts ]
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0 }
+					   ] 
+				}
+			{ StateName= Death AnimName = LSF11_tradecart_idle.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.88
+		zOffset = 0.68
+		scale = 1.40
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

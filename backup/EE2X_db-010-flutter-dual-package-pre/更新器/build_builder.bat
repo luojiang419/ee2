@@ -1,0 +1,11 @@
+@echo off
+setlocal
+cd /d "%~dp0"
+py -3.12 -m PyInstaller ^
+  --noconfirm ^
+  --onefile ^
+  --windowed ^
+  --name ee2x-pack-builder ^
+  --paths src ^
+  src\ee2x_update_suite\builder_gui\__main__.py
+endlocal

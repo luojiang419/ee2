@@ -1,0 +1,2013 @@
+UnitType T50
+{
+	parent = Aircraft
+    VisualName=T50UnitModel
+	icon = icon_unit_Su57
+      properties {
+		rps = AirSuperiority 
+        SizeX = 1
+		SizeY = 1
+		mass = 0
+		popCount = 2
+        displayName = tx_utn_T50_name
+		VerboseTooltip = vtt_unit_T50
+		HitPoints = 2100
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8.8; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+            Attack { damage = 950; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+		LOS { range = 24 }
+		AreaEffect {
+			effects = [ 
+				SuperVision,
+			]
+		}
+		SpecialPower { 		
+			effects = [ Air_anti_missle Radardetectioning]
+		}
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+}
+
+
+UnitModel T50UnitModel
+{
+	Parent		= BaseAircraft
+	//DefaultModel 	= t50new.nif
+    //ForceScale=0.30
+	DefaultModel 	= Su57.nif
+    ForceScale=0.2
+    DefaultState 	= Idle
+    ChildNames 	= [ StealthFighter_FlyingParts  VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_04  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]
+			//	AnimVariants = [j11_walk.kf j11_walk_02.kf j11_walk_free.kf]
+			 //  AnimVariantsWeights = [0.01  0.01  0.01]
+				}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+
+}
+UnitType Su75
+{
+	parent = Aircraft
+    VisualName=Su75UnitModel
+      properties {
+		rps = Animal //AirSuperiority
+        SizeX = 1
+		SizeY = 1
+		mass = 0
+		popCount = 2
+        displayName = tx_utn_Su75_name
+		VerboseTooltip = vtt_unit_Su75
+		HitPoints = 2000
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8.7; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+            Attack { damage = 880; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+		LOS { range = 24 }
+		AreaEffect {
+			effects = [ 
+				SuperVision,
+			]
+		}
+		SpecialPower { 		
+			effects = [ Air_anti_missle Radardetectioning]
+		}
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	icon = icon_unit_Su75
+}
+
+
+UnitModel Su75UnitModel
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Su75.nif
+   ForceScale=0.25
+    DefaultState 	= Idle
+    ChildNames 	= [ StealthFighter_FlyingParts  VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_04  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]
+				}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+
+}
+//----------------Su34-------------------
+UnitType Su34
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber // AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2000
+		displayName = tx_utn_Su34_name
+		verboseTooltip = vtt_unit_Su34
+		popCount = 2
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+	AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 1000; range = 20; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;
+				areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+		LOS { range 17 }
+		SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+attributes [
+		GoesOnAirMissions
+	]
+	icon = icon_unit_Su34
+}
+
+UnitModel Su34
+{
+	Parent	= BaseAircraft
+
+	DefaultModel 	= Su34.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4    fighterShadow_03 StrikeFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+//DamageDecalsSetName = BuildingDamageDecals
+}
+
+//=============Su47===============
+UnitType su47
+{
+	parent = Aircraft
+	properties {
+		rps = Animal
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2200
+		displayName = tx_utn_Su47_name
+verboseTooltip = vtt_unit_Su47
+		popCount = 2
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+	LOS { range = 17 }
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		} 
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Su47
+}
+
+UnitModel su47
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Su47.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+//DamageDecalsSetName = BuildingDamageDecals
+}
+
+
+//=============MiG29k===============
+UnitType mig29k
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority //AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1900
+		displayName = tx_utn_Mig29k_name
+verboseTooltip = vtt_unit_Mig29k
+		popCount = 2
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+	LOS { range = 17 }
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+    attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Mig29k
+}
+UnitModel mig29k_11
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Fighter2.nif
+	ChildNames 	= [  fighterShadow_01 Biplane_FlyingParts Beam_Tracer01 Muzzle_Rifleman  ]
+	States 		= [
+		{	StateName = Idle	AnimName = af11_biplane_idle.KF		
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = af11_biplane_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_04 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = af11_biplane_attack.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_04 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_battle_assrifle_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_04 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = af11_biplane_death.KF	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+UnitModel mig29k_12
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= YAK9.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel mig29k_13
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Mig19S.nif
+	ForceScale = 0.18
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitModel mig29k_14
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Mig29.nif
+	ForceScale = 0.22
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_04 JetFighter_FlyingParts  ]
+		States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitModel mig29k_15
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= t50new.nif
+    ForceScale=0.30
+    DefaultState 	= Idle
+    ChildNames 	= [ StealthFighter_FlyingParts  VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_04  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]
+			//	AnimVariants = [j11_walk.kf j11_walk_02.kf j11_walk_free.kf]
+			 //  AnimVariantsWeights = [0.01  0.01  0.01]
+				}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitModel mig29k_Su57
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= MOG41.nif
+	ForceScale = 0.18
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail5 VaporTrail6  fighterShadow_05 Atmospheric_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = af15_atmospheric_idle.kf		
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = af15_atmospheric_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = af15_atmospheric_attack.kf	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = af15_atmospheric_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = af15_atmospheric_death.kf	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+					]}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.50
+		zOffset = 0.70
+		scale = 2.05
+		angle = 18.95
+	}
+}
+UnitType Mig29Naval
+{
+	parent = Aircraft
+	properties {
+               //AirSuperiority
+		rps = Animal     
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1260
+		displayName = tx_utn_Mig29k_name
+		verboseTooltip = vtt_unit_Mig29k
+		popCount = 1
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8; angSpeed = 78; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 900; range = 11; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+	LOS { range = 11 }
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Mig29k
+}
+
+
+UnitModel Mig29Naval
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Mig29Naval.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+
+}
+
+
+//=============Su27===============
+UnitType su27
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2100
+		displayName = tx_utn_Su27_name
+verboseTooltip = vtt_unit_Su27
+		popCount = 2
+	}
+sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+		LOS { range = 17 }
+		SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Su27
+}
+UnitModel su27_13
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Mig21F.nif
+	ForceScale = 0.2
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitModel su27_14
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Rus_Su27.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+//DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel su27_15
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Su67.nif
+	ForceScale = 0.18
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail5 VaporTrail6  fighterShadow_05 Atmospheric_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = af15_atmospheric_idle.kf		
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = af15_atmospheric_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = af15_atmospheric_attack.kf	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = af15_atmospheric_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = af15_atmospheric_death.kf	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+					]}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.50
+		zOffset = 0.70
+		scale = 2.05
+		angle = 18.95
+	}
+}
+
+UnitType MiG31
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority //AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1900
+		displayName = tx_utn_MiG31_name
+verboseTooltip = vtt_unit_MiG31
+		popCount = 2
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+	LOS { range = 17 }
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_MiG31
+}
+
+
+UnitModel MiG31
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= MiG31.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitType MiG35
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority // AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1900
+		displayName = tx_utn_MiG35_name
+verboseTooltip = vtt_unit_MiG35
+		popCount = 2
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+	LOS { range = 17 }
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_MiG35
+}
+
+
+UnitModel MiG35
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= MiG35.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitType su25
+{
+	parent = Aircraft
+	properties {
+		rps = CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+HitPoints = 1900
+		displayName = tx_utn_su25_name
+verboseTooltip = vtt_unit_su25
+		popCount = 2
+	}
+	sounds = {
+		sndSelection = ["CWCruSu25T_AN_sel_01" 
+				"CWCruSu25T_AN_sel_02"
+				"CWCruSu25T_AN_sel_03"
+				"CWCruSu25T_AN_sel_04"
+		]
+		sndCmdMove = ["CWCruSu25T_AN_mov_01" 
+	      		      "CWCruSu25T_AN_mov_02"
+			      "CWCruSu25T_AN_mov_03"
+			      "CWCruSu25T_AN_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu25T_AN_att_01"
+				"CWCruSu25T_AN_att_02"
+				"CWCruSu25T_AN_att_03"
+				"CWCruSu25T_AN_att_04"
+		]
+		sndDeath =  ["CWCruSu25T_AN_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 7; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 500; range = 15; reloadTime = 0.2; angularRange = 60; applyDamageTime = 0; missileName = "GroundRocketHerc"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;
+				areaDamageRadius = 2.0; areaDamageFriendlyRatio = 0.5;throwUnits = true }
+		LOS { range 16 }
+			SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+attributes [
+		GoesOnAirMissions
+	]
+	icon = icon_unit_su25
+}
+UnitModel su25_11
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Fighter1.nif
+	ChildNames 	= [  fighterShadow_01 Biplane_FlyingParts Beam_Tracer01 Muzzle_Rifleman  ]
+	States 		= [
+		{	StateName = Idle	AnimName = af11_biplane_idle.KF		
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = af11_biplane_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_04 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = af11_biplane_attack.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_04 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_battle_assrifle_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_04 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = af11_biplane_death.KF	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+UnitModel su25_12
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= IL2Shturmovik.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel su25_13
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Su7B.nif
+	ForceScale = 0.18
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitModel su25_14
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= su25.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4    fighterBomberShadow_03 StrikeFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = afb13_StrikeFighter_idle.KF		
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = afb13_StrikeFighter_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = afb13_StrikeFighter_takeoff.KF	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = afb13_StrikeFighter_attack.KF
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = afb13_StrikeFighter_death.KF		
+				TextKeys = [
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+				]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.08
+		zOffset = -0.38
+		scale = 2.05
+		angle = 18.95
+	}
+}
+UnitModel su25_15
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= MIG151.nif
+	ForceScale = 0.18
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail5 VaporTrail6  fighterShadow_05 Atmospheric_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = af15_atmospheric_idle.kf		
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = af15_atmospheric_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = af15_atmospheric_attack.kf	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = af15_atmospheric_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = af15_atmospheric_death.kf	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+					]}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.50
+		zOffset = 0.70
+		scale = 2.05
+		angle = 18.95
+	}
+}
+
+UnitType su33
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority //AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1900
+		displayName = tx_utn_su33_name
+verboseTooltip = vtt_unit_su33
+		popCount = 2
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+	LOS { range = 17 }
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_su33
+}
+
+
+UnitModel su33
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= su33.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf	
+			TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]
+			AnimVariants = [j11_walk.kf j11_walk_02.kf j11_walk_free.kf]
+			   AnimVariantsWeights = [0.01  0.01  0.01]
+				}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitType su37
+{
+	parent = Aircraft
+	properties {
+		rps = Animal
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2200
+		displayName = tx_utn_su37_name
+verboseTooltip = vtt_unit_su37
+		popCount = 2
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+	LOS { range = 17}
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_su37
+}
+
+UnitModel su37_13
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Mig25P.nif
+	ForceScale = 0.20
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitModel su37_14
+{
+	Parent	= BaseAircraft
+	//DefaultModel 	= Rus_Su37.nif
+	DefaultModel 	= Su35BM.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitModel su37_15
+{
+	Parent	= BaseAircraft
+	//DefaultModel 	= NightHunter.nif
+	DefaultModel 	= Su77M.nif
+	ForceScale = 0.18
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2 fighterShadow_04 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+        { 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0} { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]
+		}	
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitType tu160
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber //CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		displayName = tx_utn_tu160_name
+verboseTooltip = vtt_unit_tu160
+		popCount = 5
+HitPoints = 1800
+	}
+	sounds = {
+		sndSelection = ["CWCruTu160_AN_sel_01" 
+				"CWCruTu160_AN_sel_02"
+				"CWCruTu160_AN_sel_03"
+		]
+		sndCmdMove = ["CWCruTu160_AN_lea_01" 
+	      		      "CWCruTu160_AN_lea_02"
+			      "CWCruTu160_AN_lea_03"
+			      "CWCruTu160_AN_lea_04"
+		]
+		sndCmdAttack = ["CWCruTu160_AN_eje_01"
+				"CWCruTu160_AN_eje_02"
+				"CWCruTu160_AN_eje_03"
+		]
+		sndDeath =  []
+	}
+	abilities = [
+		AircraftMove {speed = 7.0; angSpeed = 35; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
+		Attack { damage = 35000; range = 60; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
+				
+		LOS { range = 28 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_tu160
+}
+
+
+UnitModel tu160
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Tu160A.nif
+	ForceScale = 0.17
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = ab13_jetenginebomber_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = ab13_jetenginebomber_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = ab13_jetenginebomber_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}
+								]}
+		{ 	StateName = TakeOff	AnimName = ab13_jetenginebomber_takeoff.kf
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = ab13_jetenginebomber_death.kf }
+			]
+	ChildNames 	= [VaporTrail5 VaporTrail6 EngineTrail1 EngineTrail2 TheAmmoBar BomberShadow3 JetEngineBomber_FlyingParts expl_heli_Tandrill ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 1.73
+		scale = 1.79
+		angle = 18.95
+	}
+
+}
+UnitType PAKDA
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber //CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		displayName = tx_utn_PAKDA_name
+		verboseTooltip = vtt_unit_PAKDA
+		popCount = 5
+		HitPoints = 1900
+	}
+	sounds = {
+		sndSelection = ["CWCruTu160_AN_sel_01" 
+				"CWCruTu160_AN_sel_02"
+				"CWCruTu160_AN_sel_03"
+		]
+		sndCmdMove = ["CWCruTu160_AN_lea_01" 
+	      		      "CWCruTu160_AN_lea_02"
+			      "CWCruTu160_AN_lea_03"
+			      "CWCruTu160_AN_lea_04"
+		]
+		sndCmdAttack = ["CWCruTu160_AN_eje_01"
+				"CWCruTu160_AN_eje_02"
+				"CWCruTu160_AN_eje_03"
+		]
+		sndDeath =  []
+	}
+	abilities = [
+		AircraftMove {speed = 7.0; angSpeed = 35; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
+		Attack { damage = 35000; range = 60; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
+				
+		LOS { range = 28 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_PAKDA
+}
+
+
+UnitModel PAKDA
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= PAKDA.nif
+	ForceScale = 0.22
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = ab14_stealthbomber_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = ab14_stealthbomber_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = ab14_stealthbomber_attck.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = TakeOff	AnimName = ab14_stealthbomber_takeoff.kf
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = ab14_stealthbomber_death.kf }
+			]
+	ChildNames 	= [VaporTrail5 VaporTrail6 EngineTrail1 EngineTrail2  BomberShadow4 StealthBomber_FlyingParts  ]
+	
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+
+}
+
+UnitType Tu22M
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		displayName = tx_utn_Tu22M_name
+verboseTooltip = vtt_unit_Tu22M
+		popCount = 3
+HitPoints = 1900
+	}
+	sounds = {
+		sndSelection = ["CWCruTu160_AN_sel_01" 
+				"CWCruTu160_AN_sel_02"
+				"CWCruTu160_AN_sel_03"
+		]
+		sndCmdMove = ["CWCruTu160_AN_lea_01" 
+	      		      "CWCruTu160_AN_lea_02"
+			      "CWCruTu160_AN_lea_03"
+			      "CWCruTu160_AN_lea_04"
+		]
+		sndCmdAttack = ["CWCruTu160_AN_eje_01"
+				"CWCruTu160_AN_eje_02"
+				"CWCruTu160_AN_eje_03"
+		]
+		sndDeath =  []
+	}
+	abilities = [
+		AircraftMove {speed = 7.5; angSpeed = 60; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 10000; range = 50; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 2;areaDamageRadius =5.0; }
+		LOS { range = 29 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Tu22M
+}
+UnitModel Tu22M_11
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= IlyaMuromets.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 paratooperShadow_01 ParatrooperPlane_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = anc12_ParatrooperPlane_idle.kf	}
+		{ 	StateName = Walk	AnimName = anc12_ParatrooperPlane_walk.kf	
+               			TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_plane_03 KeyTime = 0.5 }]}
+		{ 	StateName = Death	AnimName = anc12_ParatrooperPlane_death.kf	}
+		{ 	StateName = Takeoff	AnimName = anc12_ParatrooperPlane_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.63
+		zOffset = 0.86
+		scale = 1.79
+		angle = 18.95
+	}
+}
+UnitModel Tu22M_12
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= pe2.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BuildingShadow TheAmmoBar QuadEngineBomber_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel Tu22M_13
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Tu142A.nif
+	ForceScale = 0.2
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_nuclearbomber_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_nuclearbomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_nuclearbomber_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.5 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_nuclearbomber_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_nuclearbomber_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 1.73
+		scale = 1.79
+		angle = 18.95
+	}
+}
+UnitModel Tu22M_14
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Tu22M3.nif
+	ForceScale = 0.16
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = ab13_jetenginebomber_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = ab13_jetenginebomber_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = ab13_jetenginebomber_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}
+								]}
+		{ 	StateName = TakeOff	AnimName = ab13_jetenginebomber_takeoff.kf
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = ab13_jetenginebomber_death.kf }
+			]
+	ChildNames 	= [VaporTrail5 VaporTrail6 EngineTrail1 EngineTrail2 TheAmmoBar BomberShadow3 JetEngineBomber_FlyingParts  ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 1.73
+		scale = 1.79
+		angle = 18.95
+	}
+}
+UnitModel Tu22M_15
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Tu222.nif
+	ForceScale = 0.18
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = ab13_jetenginebomber_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = ab13_jetenginebomber_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = ab13_jetenginebomber_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}
+								]}
+		{ 	StateName = TakeOff	AnimName = ab13_jetenginebomber_takeoff.kf
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = ab13_jetenginebomber_death.kf }
+			]
+	ChildNames 	= [VaporTrail5 VaporTrail6 EngineTrail1 EngineTrail2 TheAmmoBar BomberShadow3 JetEngineBomber_FlyingParts  ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 1.73
+		scale = 1.79
+		angle = 18.95
+	}
+}
+UnitType Tu142
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		popCount = 2
+displayName = tx_utn_Tu142_name
+verboseTooltip = vtt_unit_Tu142
+HitPoints = 1900
+	}
+	sounds = {
+		sndSelection = ["CWCruTu160_AN_sel_01" 
+				"CWCruTu160_AN_sel_02"
+				"CWCruTu160_AN_sel_03"
+		]
+		sndCmdMove = ["CWCruTu160_AN_lea_01" 
+	      		      "CWCruTu160_AN_lea_02"
+			      "CWCruTu160_AN_lea_03"
+			      "CWCruTu160_AN_lea_04"
+		]
+		sndCmdAttack = ["CWCruTu160_AN_eje_01"
+				"CWCruTu160_AN_eje_02"
+				"CWCruTu160_AN_eje_03"
+		]
+		sndDeath =  []
+	}
+	abilities = [
+		AircraftMove {speed = 7; angSpeed = 46; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 1500; range = 15; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 10 }
+
+		LOS { range = 15 }
+		AreaEffect {
+			effects = [ 
+				SuperVision
+			]
+		}
+		
+		SpecialPower { 		
+			effects = [ Air_anti_missle Stealthing]
+			range = 0.1; 
+			canDisguise = true;
+			
+			spottedTextDBI = tx_f35_spotted_owner
+			spotterTextDBI = tx_f35_spotted_spotter
+			//doesNotRequirePowerReserve = false;
+		}
+	]
+attributes [
+		GoesOnAirMissions
+	]
+	icon = icon_unit_Tu142
+}
+
+
+UnitModel Tu142
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Tu142A.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_nuclearbomber_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_nuclearbomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_nuclearbomber_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.5 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_nuclearbomber_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_nuclearbomber_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 1.73
+		scale = 1.79
+		angle = 18.95
+	}
+}
+
+UnitType yake38
+{
+	parent = Aircraft
+	properties {
+		rps = Animal
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1700
+		displayName = tx_utn_yake38_name
+		verboseTooltip = vtt_unit_yake38
+		popCount = 2
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 7; angSpeed = 68; CruisingHeight = 8.5; ElevChangeRate = 0.5}
+		Attack { damage = 800; range = 15; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+	LOS { range = 16}
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_yake38
+}
+
+
+UnitModel yake38
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= yake38.nif
+	ChildNames 	= [   VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2  fighterShadow_03 JetFighter_FlyingParts  ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+}
+UnitType IL78
+{
+	parent = Aircraft
+      properties {
+        SizeX = 2.5
+		SizeY = 2.5
+		mass = 0
+		popCount = 3
+       displayName = tx_utn_IL78_name
+		VerboseTooltip = vtt_unit_IL78
+		HitPoints = 2500
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		LOS { range = 20 }
+            Garrison { 
+			garrisonType = NavalTransport; 
+			numOfSlots = 50;
+					}
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	icon = icon_unit_IL78
+}
+
+// Visuals Model
+UnitModel IL78
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= IL78.nif
+	ScaleType 	= kScaleVehicle
+    ForceScale=0.3
+    DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = ab13_jetenginebomber_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = ab13_jetenginebomber_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = ab13_jetenginebomber_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}
+								]}
+		{ 	StateName = TakeOff	AnimName = ab13_jetenginebomber_takeoff.kf
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = ab13_jetenginebomber_death.kf }
+			]
+	ChildNames 	= [VaporTrail5 VaporTrail6 EngineTrail1 EngineTrail2 TheAmmoBar BomberShadow3 JetEngineBomber_FlyingParts expl_heli_Tandrill ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 1.73
+		scale = 1.79
+		angle = 18.95
+	}
+}
+UnitType A100
+{
+	parent = Aircraft 	
+      properties {
+        SizeX = 2
+		SizeY = 2
+		mass = 0
+		popCount = 2            
+		 displayName = tx_utn_A100_name
+		VerboseTooltip = vtt_unit_A100
+		HitPoints = 1000
+	}
+	sounds = {
+		sndSelection = ["CWCruSu27_MA_sel_01" 
+				"CWCruSu27_MA_sel_02"
+				"CWCruSu27_MA_sel_03"
+				"CWCruSu27_MA_sel_04"
+		]
+		sndCmdMove = ["CWCruSu27_MA_mov_01" 
+	      		      "CWCruSu27_MA_mov_02"
+			      "CWCruSu27_MA_mov_03"
+			      "CWCruSu27_MA_mov_04"
+		]
+		sndCmdAttack = ["CWCruSu27_MA_att_01"
+				"CWCruSu27_MA_att_02"
+				"CWCruSu27_MA_att_03"
+				"CWCruSu27_MA_att_04"
+		]
+		sndDeath =  ["CWCruSu27_MA_fue_01"]
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 58; CruisingHeight = 9.0 }
+            Attack { range = 0; reloadTime = 0; applyDamageTime = 0; damage = 0; missileName = "Arrow" }
+            AreaEffect {
+			effects = [ 
+				Awacs,SuperVision
+			]
+		}
+        LOS { range = 30 } 		
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	icon = icon_unit_A100
+}
+UnitModel A100
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= A100.nif
+      ScaleType 	= kScaleVehicle
+      ForceScale=0.15     
+	ChildNames 	= [ VaporTrail1 VaporTrail5 VaporTrail6 TheAmmoBar BomberShadow3 JetEngineBomber_FlyingParts expl_heli_Tandrill ]
+	DefaultState	= Idle	
+	States 		= [
+		{	StateName = Idle	AnimName = afb15_smartplane_idle.kf			
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_jet_03 }
+					]}
+		{ 	StateName = Walk	AnimName = mona_slow_helicopter.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_jet_03 }
+					]}
+		{ 	StateName = Attack1	AnimName = llm13_missilehelicopter_attack.kf	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = fx_battle_rocket_launch }
+					]}
+
+		{ 	StateName = Takeoff	AnimName = afb15_smartplane_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = afb15_smartplane_death.kf
+			TextKeys = [ { Name = PLAY_SOUND Data = v_Bomber_13_death KeyTime = 0} { Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+			]
+			}
+]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.57
+		zOffset = -0.43
+		scale = 1.79
+		angle = 18.95
+	}
+
+}
+
+//------------------------------------------------
+//	EPOCH 11 - RUSSIAN AIR FORCE UPGRADES
+//------------------------------------------------
+// Attack Ability Upgrade - MiG-29K
+UpgradeAbilities Mig29kEpoch11Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 7.6; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "OutpostBullet";ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50 }
+	]
+}
+
+// Attack Ability Upgrade - Su-25
+UpgradeAbilities Su25Epoch11Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 6.0; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "OutpostBullet";ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50 }
+	]
+}
+
+// Attack Ability Upgrade - Tu-22M
+UpgradeAbilities Tu22MEpoch11Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 4.5; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 24;
+				areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities Mig29kEpoch14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 8.0; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
+	]
+}
+
+UpgradeAbilities Su25Epoch14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 6.0; angSpeed = 80; CruisingHeight = 8.5; ElevChangeRate = 1.0}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 16;
+				areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+
+UpgradeAbilities Tu22MEpoch14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 7.0; angSpeed = 46; CruisingHeight = 10.0; ElevChangeRate = 1.0; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "Bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;
+				areaDamageRadius = 2.75; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}

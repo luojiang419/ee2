@@ -1,0 +1,565 @@
+//,UNIT,UNIT TYPE ATTRIBUTE,AFFECTED UNITS TOOLTIP,USE TEXT INSTEAD OF AFFECTED UNIT ICONS?,FACTOR,METHOD,VALUE,CHILDREN,FLAG RESEARCH TYPE
+// ---------- EPOCH 1 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E1_Slot1a,,TT_CityCenterHouse,,0,Cost,AddPermMul,-5,0,None
+EconomicTechUpgrade_E1_Slot1b,,TT_CityCenterHouse,,0,BuildTime,AddPermMul,-10,0,None
+//EconomicTechUpgrade_E1_Slot2a,,,,,see Epoch1_upgrades.ddf,,,,
+EconomicTechUpgrade_E1_Slot3a,,LightInfantry,,0,Cost,AddPermMul,-10,0,Infantry
+EconomicTechUpgrade_E1_Slot3b,,LightInfantry,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E1_Slot4a,,TT_CitizenScout,,0,Cost,AddPermMul,-10,0,None
+EconomicTechUpgrade_E1_Slot4b,,TT_CitizenScout,,0,BuildTime,AddPermMul,-10,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E1_Slot1a,,TT_CityCenterHouse,,0,HitPoints,AddPermMul,10,0,None
+ImperialTechUpgrade_E1_Slot1b,,TT_CityCenterHouse,,0,LOS,Add,1,0,None
+ImperialTechUpgrade_E1_Slot2a,,TT_Outpost,,0,LatentAttackAbility,Set,0,0,None
+ImperialTechUpgrade_E1_Slot3a,,LightInfantry,,0,HitPoints,AddPermMul,10,0,Infantry
+ImperialTechUpgrade_E1_Slot4a,,TT_PriestSpy,,0,HitPoints,AddPermMul,10,0,PriestSpy
+ImperialTechUpgrade_E1_Slot4b,,TT_PriestSpy,,0,Speed,AddPermMul,10,0,None
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E1_Slot1a,,Citizens,,0,HitPoints,AddPermMul,50,0,None
+MilitaryTechUpgrade_E1_Slot2a,,SubjectToCapture,tt_tt_allBuildings,1,CaptureResistance,AddPermMul,10,0,None
+MilitaryTechUpgrade_E1_Slot3a,,HeavyInfantry1,,0,Damage,AddPermMul,10,0,Infantry
+MilitaryTechUpgrade_E1_Slot3b,,HeavyInfantry2,,0,Damage,AddPermMul,10,0,None
+MilitaryTechUpgrade_E1_Slot4a,,LightArtillery1,,0,Speed,AddPermMul,10,0,Machine
+
+// ---------- EPOCH 2 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E2_Slot1a,,TT_PriestSpy,,0,Cost,AddPermMul,-10,0,PriestSpy
+EconomicTechUpgrade_E2_Slot1b,,TT_PriestSpy,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E2_Slot2a,,FortressOutpostWallTower,,0,Cost,AddPermMul,-10,0,None
+EconomicTechUpgrade_E2_Slot2b,,FortressOutpostWallTower,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E2_Slot3a,,TempleUniversityWonder,,0,Cost,AddPermMul,-10,0,TempleUniversity
+EconomicTechUpgrade_E2_Slot3b,,TempleUniversityWonder,,0,BuildTime,AddPermMul,-10,0,TempleUniversity
+EconomicTechUpgrade_E2_Slot4a,,NavalUnits,tt_tt_allNaval,1,Cost,AddPermMul,-10,0,Naval
+EconomicTechUpgrade_E2_Slot4b,,NavalUnits,tt_tt_allNaval,1,BuildTime,AddPermMul,-10,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E2_Slot1a,,LightMounted1,,0,HitPoints,AddPermMul,10,0,Mobile
+ImperialTechUpgrade_E2_Slot2a,,WallsPalisades,,0,HitPoints,AddPermMul,10,0,None
+ImperialTechUpgrade_E2_Slot2b,,WallsPalisades,,0,LOS,Add,1,0,None
+ImperialTechUpgrade_E2_Slot3a,,LightArtillery1,,0,HitPoints,AddPermMul,10,0,Machine
+ImperialTechUpgrade_E2_Slot4a,,Priests,,0,ConvertTimeModifier,AddPermMul,-10,0,Priest
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E2_Slot1a,,LightMounted1,,0,Damage,AddPermMul,10,0,Mobile
+MilitaryTechUpgrade_E2_Slot2a,,BarracksStableMill,,0,Cost,AddPermMul,-10,0,None
+MilitaryTechUpgrade_E2_Slot2b,,BarracksStableMill,,0,BuildTime,AddPermMul,-10,0,None
+MilitaryTechUpgrade_E2_Slot3a,,FortressOutpostWallTower,,0,LOS,Add,1,0,None
+MilitaryTechUpgrade_E2_Slot3b,,FortressOutpostWallTower,,0,Range,Add,1,0,None
+MilitaryTechUpgrade_E2_Slot4a,,HeavyMounted1,,0,Damage,AddPermMul,10,0,Mobile
+
+// ---------- EPOCH 3 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUIDummy_E3_Slot1,,TT_TradeUnit,,0,Currency,,0,0,Trade
+EconomicTechUpgrade_E3_Slot2a,,,,0,TributeTax,Add,-10,0,Trade
+//EconomicTechUpgrade_E3_Slot2b,,,,,,,,,
+EconomicTechUpgrade_E3_Slot3a,,LightArtillery1,,0,Cost,AddPermMul,-10,0,Machine
+EconomicTechUpgrade_E3_Slot3b,,LightArtillery1,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E3_Slot4a,,LightMounted1,,0,Cost,AddPermMul,-10,0,Mobile
+EconomicTechUpgrade_E3_Slot4b,,LightMounted1,,0,BuildTime,AddPermMul,-10,0,Mobile
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E3_Slot1a,,House,,0,PopCap,Add,2,0,None
+ImperialTechUpgrade_E3_Slot2a,,Fortress,,0,GarrisonSlots,Add,2,0,None
+ImperialTechUpgrade_E3_Slot2b,,WallTower,,0,GarrisonSlots,Add,2,0,None
+ImperialTechUpgrade_E3_Slot3a,,WallsPalisades,,0,Cost,AddPermMul,-10,0,None
+ImperialTechUpgrade_E3_Slot3b,,WallsPalisades,,0,BuildTime,AddPermMul,-10,0,None
+ImperialTechUpgrade_E3_Slot4a,,FortressOutpostWallTower,,0,HitPoints,AddPermMul,10,0,None
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E3_Slot1a,,NavalUnitsAttack,,0,Damage,AddPermMul,10,0,Naval
+MilitaryTechUIDummy_E3_Slot2a,,UniqueUnits,,0,EliteUpgrade,,0,0,None
+MilitaryTechUpgrade_E3_Slot3a,,LightInfantry,,0,Damage,AddPermMul,10,0,Infantry
+MilitaryTechUpgrade_E3_Slot4a,,LightArtillery1,,0,Damage,AddPermMul,10,0,Machine
+
+// ---------- EPOCH 4 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E4_Slot1a,,TT_TradeUnit,tt_tt_allTrade,0,TradeRouteDrop,AddPermMul,10,0,Trade
+//EconomicTechUpgrade_E4_Slot2a,,,,,see Epoch4_upgrades.ddf,,,,
+EconomicTechUpgrade_E4_Slot3a,,HeavyInfantryAll,,0,Cost,AddPermMul,-10,0,Infantry
+EconomicTechUpgrade_E4_Slot3b,,HeavyInfantryAll,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E4_Slot4a,,HeavyArtillery,,0,Cost,AddPermMul,-10,0,Machine
+EconomicTechUpgrade_E4_Slot4b,,HeavyArtillery,,0,BuildTime,AddPermMul,-10,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E4_Slot1a,,HeavyInfantryAll,,0,HitPoints,AddPermMul,10,0,Infantry
+ImperialTechUpgrade_E4_Slot2a,,HeavyArtillery,,0,HitPoints,AddPermMul,10,0,Machine
+ImperialTechUpgrade_E4_Slot3a,,TempleUniversityWonder,,0,HitPoints,AddPermMul,10,0,TempleUniversity
+ImperialTechUpgrade_E4_Slot3b,,TempleUniversityWonder,,0,LOS,Add,1,0,None
+ImperialTechUpgrade_E4_Slot4a,,TempleUniversity,,0,GarrisonSlots,Add,1,0,TempleUniversity
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E4_Slot1a,,Spies,,0,SpySabotageRestore,Set,0,0,Spy
+MilitaryTechUpgrade_E4_Slot2a,,HeavyArtillery,,0,Damage,AddPermMul,10,0,Machine
+MilitaryTechUpgrade_E4_Slot3a,,NavalUnits,tt_tt_allNaval,1,Speed,AddPermMul,10,0,Naval
+MilitaryTechUpgrade_E4_Slot4a,,LightInfantry1,,0,LOS,Add,1,0,Infantry
+MilitaryTechUpgrade_E4_Slot4b,,LightInfantry1,,0,Range,Add,1,0,None
+
+// ---------- EPOCH 5 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E5_Slot1a,,TradeCart,,0,HitPoints,AddPermMul,10,0,Trade
+EconomicTechUpgrade_E5_Slot1b,,TradeCart,,0,Speed,AddPermMul,10,0,None
+EconomicTechUpgrade_E5_Slot2a,,HeavyMounted1,,0,Cost,AddPermMul,-10,0,Mobile
+EconomicTechUpgrade_E5_Slot2b,,HeavyMounted1,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E5_Slot3a,,CityCenterWarehouse,,0,GarrisonSlots,Add,10,0,None
+EconomicTechUpgrade_E5_Slot4a,,TT_TradeUnit,,0,TradeLoadTime,AddPermMul,-20,0,Trade
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E5_Slot1a,,LeaderPriestSpy,,0,PowerRechargeTime,AddPermMul,-15,0,PriestSpy
+ImperialTechUpgrade_E5_Slot2a,,,,0,RegionalPowerDuration,AddPermMul,25,0,None
+ImperialTechUpgrade_E5_Slot3a,,HeavyMounted1,,0,HitPoints,AddPermMul,10,0,Mobile
+ImperialTechUpgrade_E5_Slot4a,,NavalUnitsHP,tt_tt_allNaval,1,HitPoints,AddPermMul,10,0,Naval
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E5_Slot1a,,HeavyArtillery,,0,AreaDamageRadius,Add,2,0,Machine
+MilitaryTechUpgrade_E5_Slot2a,,HeavyArtillery,,0,Speed,AddPermMul,20,0,None
+MilitaryTechUpgrade_E5_Slot3a,,TT_ConversionResistance,tt_tt_allUnits,1,ConversionResistance,AddPermMul,10,0,None
+MilitaryTechUpgrade_E5_Slot4a,,,tt_tt_territories,1,TerritoryMoraleBonus,Add,3,0,None
+MilitaryTechUpgrade_E5_Slot4b,,,tt_tt_territories,1,TerritoryFervorBonus,Add,3,0,None
+
+// ---------- EPOCH 6 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E6_Slot1a,,TT_CityCenterHouse,,0,Cost,AddPermMul,-10,0,None
+EconomicTechUpgrade_E6_Slot1b,,TT_CityCenterHouse,,0,BuildTime,AddPermMul,-10,0,None
+//EconomicTechUpgrade_E6_Slot2a,,,,,see Epoch6_upgrades.ddf,,,,
+EconomicTechUpgrade_E6_Slot3a ,,LightMounted1,,0,Cost,AddPermMul,-10,0,Mobile
+EconomicTechUpgrade_E6_Slot3b,,LightMounted1,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E6_Slot4a,,NavalUnitsEpoch6,,0,Cost,AddPermMul,-10,0,Naval
+EconomicTechUpgrade_E6_Slot4b,,NavalUnitsEpoch6,,0,BuildTime,AddPermMul,-10,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E6_Slot1a,,Priests,,0,LOS,Add,1,0,Priest
+ImperialTechUpgrade_E6_Slot1b,,Priests,,0,ConversionRange,Add,1,0,None
+ImperialTechUpgrade_E6_Slot2a,,TT_CityCenterHouse,,0,HitPoints,AddPermMul,10,0,None
+ImperialTechUpgrade_E6_Slot2b,,TT_CityCenterHouse,,0,LOS,Add,1,0,None
+ImperialTechUpgrade_E6_Slot3a,,HeavyArtillery,,0,HitPoints,AddPermMul,10,0,Machine
+ImperialTechUpgrade_E6_Slot4a,,TT_PriestSpy,,0,HitPoints,AddPermMul,10,0,PriestSpy
+ImperialTechUpgrade_E6_Slot4b,,TT_PriestSpy,,0,Speed,AddPermMul,10,0,PriestSpy
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E6_Slot1a,,Citizens,,0,HitPoints,AddPermMul,100,0,None
+MilitaryTechUpgrade_E6_Slot2a,,SubjectToCapture,tt_tt_allBuildings,1,CaptureResistance,AddPermMul,10,0,None
+MilitaryTechUpgrade_E6_Slot3a,,HeavyMounted1,,0,Damage,AddPermMul,10,0,Mobile
+MilitaryTechUpgrade_E6_Slot4a,,NavalUnitsEpoch6,,0,Speed,AddPermMul,10,0,Naval
+
+// ---------- EPOCH 7 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E7_Slot1a,,TT_PriestSpy,,0,Cost,AddPermMul,-10,0,Priest
+EconomicTechUpgrade_E7_Slot1b,,TT_PriestSpy,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E7_Slot2a,,FortressOutpostWallTower,,0,Cost,AddPermMul,-10,0,None
+EconomicTechUpgrade_E7_Slot2b,,FortressOutpostWallTower,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E7_Slot3a ,,TempleUniversityWonder,,0,Cost,AddPermMul,-10,0,TempleUniversity
+EconomicTechUpgrade_E7_Slot3b,,TempleUniversityWonder,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E7_Slot4a,,TT_CitizenScout,,0,Cost,AddPermMul,-10,0,None
+EconomicTechUpgrade_E7_Slot4b,,TT_CitizenScout,,0,BuildTime,AddPermMul,-10,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E7_Slot1a,,LightInfantry,,0,HitPoints,AddPermMul,10,0,Infantry
+ImperialTechUpgrade_E7_Slot2a,,WallsPalisades,,0,HitPoints,AddPermMul,10,0,None
+ImperialTechUpgrade_E7_Slot2b,,WallsPalisades,,0,LOS,Add,1,0,None
+ImperialTechUpgrade_E7_Slot3a,,LightArtillery1,,0,HitPoints,AddPermMul,10,0,Machine
+ImperialTechUpgrade_E7_Slot4a,,Spies,,0,TechOnGatherIntel,Set,3,0,Spy
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E7_Slot1a,,LightInfantry,,0,Damage,AddPermMul,10,0,Infantry
+MilitaryTechUpgrade_E7_Slot2a,,BarracksStableMill,,0,Cost,AddPermMul,-10,0,None
+MilitaryTechUpgrade_E7_Slot2b,,BarracksStableMill,,0,BuildTime,AddPermMul,-10,0,None
+MilitaryTechUpgrade_E7_Slot3a,,FortressOutpostWallTower,,0,Range,Add,1,0,None
+MilitaryTechUpgrade_E7_Slot3b,,FortressOutpostWallTower,,0,LOS,Add,1,0,None
+MilitaryTechUpgrade_E7_Slot4a,,HeavyInfantryAll,,0,Damage,AddPermMul,10,0,Infantry
+
+// ---------- EPOCH 8 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUIDummy_E8_Slot1a,,UniqueUnits,,0,EliteUpgrade,,0,0,None
+EconomicTechUpgrade_E8_Slot2a,,,,0,TributeTax,Add,-10,0,Trade
+//EconomicTechUpgrade_E8_Slot2b,,,,,,,,,
+EconomicTechUpgrade_E8_Slot3a,,LightArtillery1,,0,Cost,AddPermMul,-10,0,Machine
+EconomicTechUpgrade_E8_Slot3b,,LightArtillery1,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E8_Slot4a,,LightInfantry,,0,Cost,AddPermMul,-10,0,Infantry
+EconomicTechUpgrade_E8_Slot4b,,LightInfantry,,0,BuildTime,AddPermMul,-10,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E8_Slot1a,,House,,0,PopCap,Add,2,0,None
+ImperialTechUpgrade_E8_Slot2a,,Fortress,,0,GarrisonSlots,Add,2,0,None
+ImperialTechUpgrade_E8_Slot2b,,WallTower,,0,GarrisonSlots,Add,2,0,None
+ImperialTechUpgrade_E8_Slot3a,,WallsPalisades,,0,Cost,AddPermMul,-10,0,None
+ImperialTechUpgrade_E8_Slot3b,,WallsPalisades,,0,BuildTime,AddPermMul,-10,0,None
+ImperialTechUpgrade_E8_Slot4a,,LightMounted1,,0,HitPoints,AddPermMul,10,0,Mobile
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E8_Slot1a,,NavalUnitsAttackEpoch8,,0,Damage,AddPermMul,10,0,Naval
+MilitaryTechUpgrade_E8_Slot2a,,LightMounted1,,0,Damage,AddPermMul,10,0,Mobile
+MilitaryTechUpgrade_E8_Slot3a,,LightArtillery1,,0,AreaDamageRadius,Add,0.5,0,Infantry
+MilitaryTechUpgrade_E8_Slot4a,,LightArtillery1,,0,Damage,AddPermMul,10,0,Machine
+
+// ---------- EPOCH 9 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E9_Slot1a,,TT_TradeUnit,tt_tt_allTrade,0,TradeRouteDrop,AddPermMul,10,0,Trade
+//EconomicTechUpgrade_E9_Slot2a,,,,,see Epoch9_upgrades.ddf,,,,
+EconomicTechUpgrade_E9_Slot3a,,HeavyInfantryAll,,0,Cost,AddPermMul,-10,0,Infantry
+EconomicTechUpgrade_E9_Slot3b,,HeavyInfantryAll,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E9_Slot4a,,HeavyArtillery,,0,Cost,AddPermMul,-10,0,Machine
+EconomicTechUpgrade_E9_Slot4b,,HeavyArtillery,,0,BuildTime,AddPermMul,-10,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E9_Slot1a,,HeavyInfantryAll,,0,HitPoints,AddPermMul,10,0,Infantry
+ImperialTechUpgrade_E9_Slot2a,,FortressOutpostWallTower,,0,HitPoints,AddPermMul,10,0,None
+ImperialTechUpgrade_E9_Slot3a,,TempleUniversityWonder,,0,HitPoints,AddPermMul,10,0,TempleUniversity
+ImperialTechUpgrade_E9_Slot3b,,TempleUniversityWonder,,0,LOS,Add,1,0,None
+ImperialTechUpgrade_E9_Slot4a,,TempleUniversity,,0,GarrisonSlots,Add,1,0,TempleUniversity
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E9_Slot1a,,Spies,,0,SpyContamDecon,Set,0,0,Spy
+MilitaryTechUpgrade_E9_Slot2a,,HeavyArtillery,,0,Damage,AddPermMul,10,0,Machine
+MilitaryTechUpgrade_E9_Slot3a,,LightArtillery1,,0,Speed,AddPermMul,10,0,Machine
+MilitaryTechUpgrade_E9_Slot4a,,LightArtillery1,,0,AreaDamageRadius,Add,0.5,0,Machine
+
+// ---------- EPOCH 10 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E10_Slot1a,,TradeCart,,0,HitPoints,AddPermMul,10,0,Trade
+EconomicTechUpgrade_E10_Slot1b,,TradeCart,,0,Speed,AddPermMul,10,0,None
+EconomicTechUpgrade_E10_Slot2a,,HeavyMounted1,,0,Cost,AddPermMul,-10,0,Mobile
+EconomicTechUpgrade_E10_Slot2b,,HeavyMounted1,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E10_Slot3a,,CityCenterWarehouse,,0,GarrisonSlots,Add,10,0,None
+EconomicTechUpgrade_E10_Slot4a,,TT_TradeUnit,,0,TradeLoadTime,AddPermMul,-20,0,Trade
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E10_Slot1a,,LeaderPriestSpy,,0,PowerRechargeTime,AddPermMul,-15,0,PriestSpy
+ImperialTechUpgrade_E10_Slot2a,,,,0,RegionalPowerDuration,AddPermMul,25,0,None
+ImperialTechUpgrade_E10_Slot3a,,HeavyMounted1,,0,HitPoints,AddPermMul,10,0,Mobile
+ImperialTechUpgrade_E10_Slot4a,,Naval,tt_tt_allNaval,1,HitPoints,AddPermMul,10,0,Naval
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E10_Slot1a,,HeavyInfantry1,,0,LOS,Add,1,0,Infantry
+MilitaryTechUpgrade_E10_Slot1b,,HeavyInfantry1,,0,Range,Add,1,0,None
+MilitaryTechUpgrade_E10_Slot2a,,HeavyArtillery,,0,Speed,AddPermMul,70,0,Machine
+MilitaryTechUpgrade_E10_Slot3a,,TT_ConversionResistance,tt_tt_allUnits,1,ConversionResistance,AddPermMul,10,0,None
+MilitaryTechUpgrade_E10_Slot4a,,,tt_tt_territories,1,TerritoryMoraleBonus,Add,3,0,None
+MilitaryTechUpgrade_E10_Slot4b,,,tt_tt_territories,1,TerritoryFervorBonus,Add,3,0,None
+
+// ---------- EPOCH 11 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E11_Slot1a,,TT_CityCenterHouse,,0,Cost,AddPermMul,-5,0,None
+EconomicTechUpgrade_E11_Slot1b,,TT_CityCenterHouse,,0,BuildTime,AddPermMul,-10,0,None
+//EconomicTechUpgrade_E11_Slot2a,,,,,see Epoch11_upgrades.ddf,,,,
+EconomicTechUpgrade_E11_Slot3a,,LightInfantry,,0,Cost,AddPermMul,-10,0,Infantry
+EconomicTechUpgrade_E11_Slot3b,,LightInfantry,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E11_Slot4a,,TT_CitizenScout,,0,Cost,AddPermMul,-10,0,None
+EconomicTechUpgrade_E11_Slot4b,,TT_CitizenScout,,0,BuildTime,AddPermMul,-10,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E11_Slot1a,,AllTanks,,0,TanksFullMove,Set,0,0,Mobile
+ImperialTechUpgrade_E11_Slot2a,,TT_CityCenterHouse,,0,HitPoints,AddPermMul,10,0,None
+ImperialTechUpgrade_E11_Slot2b,,TT_CityCenterHouse,,0,LOS,Add,1,0,None
+ImperialTechUpgrade_E11_Slot3a,,LightArtillery1,,0,HitPoints,AddPermMul,10,0,Machine
+ImperialTechUpgrade_E11_Slot4a,,WallsPalisades,,0,HitPoints,AddPermMul,10,0,None
+ImperialTechUpgrade_E11_Slot4b,,WallsPalisades,,0,LOS,Add,1,0,None
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E11_Slot1a,,Citizens,,0,HitPoints,AddPermMul,100,0,None
+MilitaryTechUpgrade_E11_Slot2a,,SubjectToCapture,tt_tt_allBuildings,1,CaptureResistance,AddPermMul,10,0,None
+MilitaryTechUpgrade_E11_Slot3a,,HeavyInfantryAll,,0,Damage,AddPermMul,10,0,Infantry
+MilitaryTechUpgrade_E11_Slot4a,,FortressOutpostWallTower,,0,LOS,Add,1,0,None
+MilitaryTechUpgrade_E11_Slot4b,,FortressOutpostWallTower,,0,Range,Add,1,0,None
+
+// ---------- EPOCH 12 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E12_Slot1a,,HeavyInfantryAll,,0,Cost,AddPermMul,-10,0,Infantry
+EconomicTechUpgrade_E12_Slot1b,,HeavyInfantryAll,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E12_Slot2a,,FortressOutpostWallTower,,0,Cost,AddPermMul,-10,0,None
+EconomicTechUpgrade_E12_Slot2b,,FortressOutpostWallTower,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E12_Slot3a,,,,0,TributeTax,Add,-10,0,Trade
+//EconomicTechUpgrade_E12_Slot3b,,,,,,,,,
+EconomicTechUpgrade_E12_Slot4a,,Naval,tt_tt_allNaval,1,Cost,AddPermMul,-10,0,Naval
+EconomicTechUpgrade_E12_Slot4b,,Naval,tt_tt_allNaval,1,BuildTime,AddPermMul,-10,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E12_Slot1a,,Fortress,,0,GarrisonSlots,Add,2,0,None
+ImperialTechUpgrade_E12_Slot1b,,WallTower,,0,GarrisonSlots,Add,2,0,None
+ImperialTechUpgrade_E12_Slot2a,,TT_PriestSpy,,0,HitPoints,AddPermMul,10,0,PriestSpy
+ImperialTechUpgrade_E12_Slot2b,,TT_PriestSpy,,0,Speed,AddPermMul,10,0,None
+ImperialTechUpgrade_E12_Slot3a,,HeavyArtillery,,0,HitPoints,AddPermMul,5,0,Machine
+ImperialTechUpgrade_E12_Slot4a,,Battleships,,0,AreaDamageRadius,Add,3,0,Naval
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E12_Slot1a,,LightTank,,0,Damage,AddPermMul,10,0,Mobile
+MilitaryTechUpgrade_E12_Slot2a,,BarracksStableMill,,0,Cost,AddPermMul,-10,0,None
+MilitaryTechUpgrade_E12_Slot2b,,BarracksStableMill,,0,BuildTime,AddPermMul,-10,0,None
+MilitaryTechUpgrade_E12_Slot3a,,LightArtillery1,,0,Speed,AddPermMul,10,0,Machine
+MilitaryTechUpgrade_E12_Slot4a,,HeavyTank,,0,Damage,AddPermMul,5,0,Mobile
+
+// ---------- EPOCH 13 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUIDummy_E13_Slot1a,,UniqueUnits,,0,EliteUpgrade,,0,0,None
+EconomicTechUpgrade_E13_Slot2a,,HeavyTank,,0,Cost,AddPermMul,-5,0,Mobile
+EconomicTechUpgrade_E13_Slot2b,,HeavyTank,,0,BuildTime,AddPermMul,-5,0,None
+EconomicTechUpgrade_E13_Slot3a,,LightArtillery1,,0,Cost,AddPermMul,-5,0,Machine
+EconomicTechUpgrade_E13_Slot3b ,,LightArtillery1,,0,BuildTime,AddPermMul,-5,0,None
+EconomicTechUpgrade_E13_Slot4a,,TT_TradeUnit,tt_tt_allTrade,0,TradeRouteDrop,AddPermMul,10,0,Trade
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E13_Slot1a,,House,,0,PopCap,Add,2,0,None
+ImperialTechUpgrade_E13_Slot2a,,LightTank,,0,HitPoints,AddPermMul,5,0,Mobile
+ImperialTechUpgrade_E13_Slot3a,,WallsPalisades,,0,Cost,AddPermMul,-10,0,None
+ImperialTechUpgrade_E13_Slot3b,,WallsPalisades,,0,BuildTime,AddPermMul,-10,0,None
+ImperialTechUpgrade_E13_Slot4a,,FortressOutpostWallTower,,0,HitPoints,AddPermMul,10,0,None
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E13_Slot1a,,NavalUnitsAttackEpoch13,,0,Damage,AddPermMul,5,0,Naval
+MilitaryTechUpgrade_E13_Slot2a,,LightInfantry,,0,Damage,AddPermMul,10,0,Infantry
+MilitaryTechUpgrade_E13_Slot3a,,ParatrooperPlane,,0,ParatrooperPlaneCapacity,Add,4,0,None
+MilitaryTechUpgrade_E13_Slot4a,,HeavyArtillery,,0,Damage,AddPermMul,5,0,Machine
+
+// ---------- EPOCH 14 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E14_Slot1a,,LightTank,,0,Cost,AddPermMul,-5,0,Mobile
+EconomicTechUpgrade_E14_Slot1b,,LightTank,,0,BuildTime,AddPermMul,-5,0,None
+//EconomicTechUpgrade_E14_Slot2a,,,,,see Epoch14_upgrades.ddf,,,,
+EconomicTechUpgrade_E14_Slot3a,,TT_PriestSpy,,0,Cost,AddPermMul,-10,0,PriestSpy
+EconomicTechUpgrade_E14_Slot3b,,TT_PriestSpy,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E14_Slot4a,,HeavyArtillery,,0,Cost,AddPermMul,-5,0,Machine
+EconomicTechUpgrade_E14_Slot4b,,HeavyArtillery,,0,BuildTime,AddPermMul,-5,0,None
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E14_Slot1a,,HeavyInfantryAll,,0,HitPoints,AddPermMul,10,0,Infantry
+ImperialTechUpgrade_E14_Slot2a,,LightInfantry,,0,HitPoints,AddPermMul,10,0,Infantry
+ImperialTechUpgrade_E14_Slot3a,,TempleUniversityWonder,,0,HitPoints,AddPermMul,10,0,TempleUniversity
+ImperialTechUpgrade_E14_Slot3b,,TempleUniversityWonder,,0,LOS,Add,1,0,None
+ImperialTechUpgrade_E14_Slot4a,,TempleUniversity,,0,GarrisonSlots,Add,1,0,TempleUniversity
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E14_Slot1a,,Spies,,0,SpySabBonus,Add,0,0,Spy
+MilitaryTechUpgrade_E14_Slot1b,,Spies,,0,SpyContamBonus,Add,0,0,None
+MilitaryTechUpgrade_E14_Slot2a,,LightArtillery1,,0,Damage,AddPermMul,5,0,Machine
+MilitaryTechUpgrade_E14_Slot3a,,Naval,tt_tt_allNaval,1,Speed,AddPermMul,5,0,Naval
+MilitaryTechUpgrade_E14_Slot4a,,TT_AirDefenses,,0,ICBMTargetingProbability,Add,5,0,None
+
+// ---------- EPOCH 15 UPGRADES ----------,,,,,,,,,
+// ECONOMIC,,,,,,,,,
+EconomicTechUpgrade_E15_Slot1a,,TradeCart,,0,HitPoints,AddPermMul,10,0,Trade
+EconomicTechUpgrade_E15_Slot1b,,TradeCart,,0,Speed,AddPermMul,10,0,None
+EconomicTechUpgrade_E15_Slot2a,,TempleUniversityWonder,,0,Cost,AddPermMul,-10,0,TempleUniversity
+EconomicTechUpgrade_E15_Slot2b,,TempleUniversityWonder,,0,BuildTime,AddPermMul,-10,0,None
+EconomicTechUpgrade_E15_Slot3a,,CityCenterWarehouse,,0,GarrisonSlots,Add,10,0,None
+EconomicTechUpgrade_E15_Slot4a,,TT_TradeUnit,,0,TradeLoadTime,AddPermMul,-20,0,Trade
+// IMPERIAL,,,,,,,,,
+ImperialTechUpgrade_E15_Slot1a,,LeaderPriestSpy,,0,PowerRechargeTime,AddPermMul,-15,0,PriestSpy
+ImperialTechUpgrade_E15_Slot2a,,,,0,RegionalPowerDuration,AddPermMul,25,0,None
+ImperialTechUpgrade_E15_Slot3a,,HeavyTank,,0,HitPoints,AddPermMul,5,0,Mobile
+ImperialTechUpgrade_E15_Slot4a,,Naval,tt_tt_allNaval,1,HitPoints,AddPermMul,10,0,Naval
+// MILITARY,,,,,,,,,
+MilitaryTechUpgrade_E15_Slot1a,,Medic,,0,HealingRadius,Add,3,0,None
+MilitaryTechUpgrade_E15_Slot2a,,HeavyArtillery,,0,Speed,AddPermMul,10,0,Machine
+MilitaryTechUpgrade_E15_Slot3a,,TT_ConversionResistance,tt_tt_allUnits,1,ConversionResistance,AddPermMul,10,0,None
+MilitaryTechUpgrade_E15_Slot4a,,,tt_tt_territories,1,TerritoryMoraleBonus,Add,3,0,None
+MilitaryTechUpgrade_E15_Slot4b,,,tt_tt_territories,1,TerritoryFervorBonus,Add,3,0,None
+
+// ---------- REGIONAL TRAITS ----------,,,,,,,,,
+// WESTERN,,,,,,,,,
+RegionalTraitUpgrade_WE_01,,UniversitiesAndTemples,,0,GatherTech,AddPermMul,10,0,None
+RegionalTraitUpgrade_WE_02,,Universities,,0,CaptureResistance,AddPermMul,20,0,None
+RegionalTraitUpgrade_WE_03,,Universities,,0,HitPoints,AddPermMul,20,0,None
+// MIDDLE EASTERN,,,,,,,,,
+RegionalTraitUpgrade_ME_01,,TT_TradeUnit,,0,TradeRouteDrop,AddPermMul,10,0,None
+RegionalTraitUpgrade_ME_02,,ResourceDropoffSites,,0,DropoffBonusStone,Add,0.1,0,None
+RegionalTraitUpgrade_ME_03,,Markets,,0,HitPoints,AddPermMul,20,0,None
+// FAR EASTERN,,,,,,,,,
+RegionalTraitUpgrade_FE_02,,ResourceDropoffSites,,0,DropoffBonusWood,Add,0.1,0,None
+RegionalTraitUpgrade_FE_03,,CityCenters,,0,HitPoints,AddPermMul,20,0,None
+RegionalTraitUpgrade_FE_04,,CityCenters,,0,PopCap,AddPermMul,25,0,None
+// MESO AMERICAN,,,,,,,,,
+RegionalTraitUpgrade_AM_01,,ResourceDropoffSites,,0,DropoffBonusGold,Add,0.1,0,None
+RegionalTraitUpgrade_AM_02,,Temples,,0,CaptureResistance,AddPermMul,20,0,None
+RegionalTraitUpgrade_AM_03,,Temples,,0,HitPoints,AddPermMul,20,0,None
+// AFRICAN,,,,,,,,,
+RegionalTraitUpgrade_AF_01,,ResourceDropoffSites,,0,DropoffBonusFood,Add,0.1,0,None
+RegionalTraitUpgrade_AF_02,,LightAndHeavyInfantry,,0,BuildTime,AddPermMul,-10,0,None
+RegionalTraitUpgrade_AF_04,,Barracks,,0,CaptureResistance,AddPermMul,20,0,None
+
+
+// ---------- CIVILIZATION ATTRIBUTES ----------,,,,,,,,,
+
+// These are available to custom civs,,,,,,,,,
+CivUpgd_HInf_Health,,HeavyInfantryAll,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_HInf_Dmg,,HeavyInfantryAll,,0,Damage,AddPermMul,10,0,None
+CivUpgd_LInf_Health,,LightInfantry,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_LInf_Dmg,,LightInfantry,,0,Damage,AddPermMul,10,0,None
+CivUpgd_HMount_Health,,HeavyMountedAll,,0,HitPoints,AddPermMul,5,0,None
+CivUpgd_HMount_Dmg,,HeavyMountedAll,,0,Damage,AddPermMul,5,0,None
+CivUpgd_LMount_Health,,LightMounted,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_LMount_Dmg,,LightMounted,,0,Damage,AddPermMul,10,0,None
+CivUpgd_HArt_Health,,HeavyArtillery,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_HArt_Dmg,,HeavyArtillery,,0,Damage,AddPermMul,5,0,None
+CivUpgd_LArt_Health,,LightArtilleryAll,,0,HitPoints,AddPermMul,20,0,None
+CivUpgd_LArt_Dmg,,LightArtilleryAll,,0,Damage,AddPermMul,10,0,None
+CivUpgd_BarrStab_Cost,,BarracksStables ,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_BarrWkshp_Cost,,BarracksWorkshop,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_WkshpStab_Cost,,WorkshopsStables,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_CCenter_Cost,,CityCenters,,0,Cost,AddPermMul,-3,0,None
+CivUpgd_UnivTemp_Cost,,TT_TempleUniversity,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_FortOutp_Cost,,TT_FortressOutpost,,0,Cost,AddPermMul,-15,0,None
+CivUpgd_FortOutp_Health,,TT_FortressOutpost,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_WallPal_Cost,,WallsPalisadesTowers,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_WallPal_Health,,WallsPalisadesTowers,,0,HitPoints,AddPermMul,15,0,None
+CivUpgd_CoastAirDef_Health,,TT_AirCoastalDefenses,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_CoastAirDef_Dmg,,TT_AirCoastalDefenses,,0,Damage,AddPermMul,10,0,None
+CivUpgd_MarkDock_Cost,,MarketsDocks,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_Boat1_Dmg,,CivAtt_BoatGroup1,,0,Damage,AddPermMul,5,0,None
+CivUpgd_Boat1_Cost,,CivAtt_BoatGroup1,,0,Cost,AddPermMul,-5,0,None
+CivUpgd_Boat2_Health,,CivAtt_BoatGroup2,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_Boat2_Cost,,CivAtt_BoatGroup2,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_Boat3_Health,,CivAtt_BoatGroup3,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_Boat3_Cost,,CivAtt_BoatGroup3,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_Plane_Health,,FightersAndBombers,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_Plane_Dmg,,FightersAndBombers,,0,Damage,AddPermMul,5,0,None
+CivUpgd_AirpHangar_Cost,,AirportsAndHangars,,0,Cost,AddPermMul,-15,0,None
+CivUpgd_ConversionResist,,TT_ConversionResistance,,0,ConversionResistance,AddPermMul,10,0,None
+CivUpgd_PriestSpy_Recharge,,TT_PriestSpy,,0,PowerRechargeTime,AddPermMul,-10,0,None
+CivUpgd_PriestSpy_Health,,TT_PriestSpy,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_Heli_Health25,,AttackHelicopters,,0,HitPoints,AddPermMul,10,0,None
+CivUpgd_Heli_Dmg25,,AttackHelicopters,,0,Damage,AddPermMul,10,0,None
+CivUpgd_Trade_Drop,,TT_TradeUnit,,0,TradeRouteDrop,AddPermMul,10,0,None
+CivUpgd_Wond_Cost,,Wonders,,0,Cost,AddPermMul,-10,0,None
+
+// These are only used by built-in civs,,,,,,,,,
+CivUpgd_Cit_Gthr_Gold,,Citizens,,0,GatherGold,AddPermMul,10,0,None
+CivUpgd_Spy_Recharge,,Spies,,0,PowerRechargeTime,AddPermMul,-15,0,None
+CivUpgd_FightBomb_Dmg,,FightersAndBombers,,0,Damage,AddPermMul,10,0,None
+CivUpgd_FightFBomb_Dmg,,FighterandFighterBomber,,0,Damage,AddPermMul,10,0,None
+CivUpgd_Heli_Dmg10,,AttackHelicopters,,0,Damage,AddPermMul,10,0,None
+CivUpgd_Herc_Dmg,,AllHercs,,0,Damage,AddPermMul,10,0,None
+CivUpgd_Wkshp_Cost,,Mills,,0,Cost,AddPermMul,-25,0,None
+CivUpgd_Univ_Cost,,Universities,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_Wall_Cost,,WallsGatesTowers,,0,Cost,AddPermMul,-10,0,None
+CivUpgd_Fort_Health,,Fortress,,0,HitPoints,AddPermMul,15,0,None
+CivUpgd_Pallisade_Health,,PalisadesGates,,0,HitPoints,AddPermMul,15,0,None
+
+// OTHER,,,,,,,,,
+// general resource gathering upgrades,,,,,,,,,
+BasicGather_Food,,TT_BasicGathering,,0,GatherFood,AddPermMul,30,0,None
+BasicGather_Ftree,,TT_BasicGathering,,0,GatherFoodT_NoTooltip,AddPermMul,30,0,None
+BasicGather_Animal,,TT_BasicGathering,,0,GatherFoodA_NoTooltip,AddPermMul,30,0,None
+BasicGather_Wood,,Citizens,,0,GatherWood,AddPermMul,30,0,None
+BasicGather_Stone,,Citizens,,0,GatherStone,AddPermMul,30,0,None
+BasicGather_Gold,,Citizens,,0,GatherGold,AddPermMul,30,0,None
+BasicGather_Food_NoTooltip,,TT_BasicGathering,,0,GatherFood_NoTooltip,AddPermMul,30,0,None
+BasicGather_Wood_NoTooltip,,Citizens,,0,GatherWood_NoTooltip,AddPermMul,30,0,None
+BasicGather_Stone_NoTooltip,,Citizens,,0,GatherStone_NoTooltip,AddPermMul,30,0,None
+BasicGather_Gold_NoTooltip,,Citizens,,0,GatherGold_NoTooltip,AddPermMul,30,0,None
+BasicGather_Tooltip,,TT_BasicGathering,,0,GatherBasic_Tooltip,,30,0,None
+SpecialGather_Tin,,Citizens,,0,GatherTin,AddPermMul,30,0,None
+SpecialGather_Iron,,Citizens,,0,GatherIron,AddPermMul,30,0,None
+SpecialGather_Saltpeter,,Citizens,,0,GatherSaltpeter,AddPermMul,30,0,None
+SpecialGather_Oil,OilRig,,,0,GatherOil,AddPermMul,30,0,None
+SpecialGather_Uranium,UraniumMine,,,0,GatherUranium,AddPermMul,30,0,None
+SpecialGather_Tin_NoTooltip,,Citizens,,0,GatherTin_NoTooltip,AddPermMul,30,0,None
+SpecialGather_Iron_NoTooltip,,Citizens,,0,GatherIron_NoTooltip,AddPermMul,30,0,None
+SpecialGather_Saltpeter_NoTT,,Citizens,,0,GatherSaltpeter_NoTooltip,AddPermMul,30,0,None
+SpecialGather_Oil_NoTooltip,OilRig,,,0,GatherOil_NoTooltip,AddPermMul,30,0,None
+SpecialGather_Uranium_NoTooltip,UraniumMine,,,0,GatherUranium_NoTooltip,AddPermMul,30,0,None
+SpecialGather_Tooltip,,Citizens,,0,GatherSpecial_Tooltip,,30,0,None
+
+//General Use Upgrades,,,,,,,,,
+TurnOffOutpostAttackAbility,,TT_Outpost,,0,LatentAttackAbility,Set,1,0,None
+TurnOffRadarICBMtagProbability,,AntiMissileDefense,,0,LatentAttackAbility,Set,1,0,None
+
+//Unofficial Patch 1.5,,,,,,,,
+RadarICBMTargEnable,,TT_AMissileDefense,,0,ICBMTargetingProbability,Add,80,0,None
+
+// ---------- VETERAN/ELITE IMPROVEMENTS ----------,,,,,,,,,
+
+LightInfantry_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+LightInfantry_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+LightInfantry_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+LightInfantry_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+HeavyInfantry_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+HeavyInfantry_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+HeavyInfantry_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+HeavyInfantry_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+LightArtillery_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+LightArtillery_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+LightArtillery_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+LightArtillery_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+LightArtillery2_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+LightArtillery2_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+LightArtillery2_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+LightArtillery2_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+HeavyArtillery_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+HeavyArtillery_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+HeavyArtillery_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+HeavyArtillery_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+LightMounted_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+LightMounted_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+LightMounted_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+LightMounted_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+HeavyMounted_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+HeavyMounted_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+HeavyMounted_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+HeavyMounted_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+Ram_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+Ram_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+Ram_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+Ram_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+SiegeTower_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+SiegeTower_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+
+WarGalley_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+WarGalley_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+WarGalley_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+WarGalley_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+Galleon_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+Galleon_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+Galleon_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+Galleon_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+FightingSail_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+FightingSail_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+FightingSail_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+FightingSail_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+Frigate_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+Frigate_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+Frigate_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+Frigate_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+Submarine_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+Submarine_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+Submarine_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+Submarine_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+Destroyer_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+Destroyer_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+Destroyer_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+Destroyer_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+Battleship_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+Battleship_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+Battleship_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+Battleship_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+Fighter_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+Fighter_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+Fighter_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+Fighter_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+FighterBomber_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+FighterBomber_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+FighterBomber_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+FighterBomber_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+Bomber_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+Bomber_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+Bomber_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+Bomber_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+HercElecWarfare_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+HercElecWarfare_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+HercRepair_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+HercRepair_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+
+UniqueUnit_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+UniqueUnit_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+UniqueUnit_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+UniqueUnit_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+UniqueUnit_Improve1_5,,,,0,HitPoints,AddTempMul,5,0,None
+UniqueUnit_Improve1_2_5,,,,0,HitPoints,AddTempMul,2.5,0,None
+
+UniqueUnit_Improve2_5,,,,0,Damage,AddTempMul,5,0,None
+UniqueUnit_Improve2_2_5,,,,0,Damage,AddTempMul,2.5,0,None
+
+UniqueUnitHP_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+UniqueUnitHP_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+
+AircraftCarrier_Improve_1,,,,0,HitPoints,AddTempMul,10,0,None
+AircraftCarrier_Improve_2,,,,0,Damage,AddTempMul,10,0,None
+AircraftCarrier_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+AircraftCarrier_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+
+Cruiser_Improve_1,,,,0,HitPoints,AddTempMul,30,0,None
+Cruiser_Improve_2,,,,0,Damage,AddTempMul,30,0,None
+Cruiser_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
+Cruiser_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None

@@ -1,0 +1,62 @@
+RegionalSetting West
+{
+	Region = West
+	TradeItems = [ 
+		TradeItem { name = tx_tradeitem_beer 		GoldBonus = 0.2 }	// just for testing
+		TradeItem { name = tx_tradeitem_tools 		GoldBonus = 0.2 }
+		TradeItem { name = tx_tradeitem_clothing 	GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_figs 		GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_flints 		GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_trinkets 	GoldBonus = 0.1 }
+	]
+}
+
+RegionalSetting FarEast
+{
+	Region = FarEast
+	TradeItems = [ 
+		TradeItem { name = tx_tradeitem_silk  	GoldBonus = 0.2 }
+		TradeItem { name = tx_tradeitem_tea  	GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_herbs  	GoldBonus = 0.1 }		
+		TradeItem { name = tx_tradeitem_art  	GoldBonus = 0.2 }
+		TradeItem { name = tx_tradeitem_rice  	GoldBonus = 0.1 }				
+	]
+}
+
+RegionalSetting MiddleEast
+{
+	Region = MiddleEast
+	TradeItems = [ 
+		TradeItem { name = tx_tradeitem_wool  		GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_art		GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_lemons  	GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_pottery  	GoldBonus = 0.2 }
+		TradeItem { name = tx_tradeitem_turquoise  	GoldBonus = 0.2 }
+	]
+}
+
+RegionalSetting MesoAmerican
+{
+	Region = MesoAmerican
+	TradeItems = [
+		TradeItem { name = tx_tradeitem_gems  		GoldBonus = 0.2 }
+		TradeItem { name = tx_tradeitem_obsidian  	GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_jade		GoldBonus = 0.2 }
+		TradeItem { name = tx_tradeitem_rubber  	GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_cotton  	GoldBonus = 0.1 }
+
+	]
+}
+
+RegionalSetting African
+{
+	Region = African
+	TradeItems = [
+		TradeItem { name = tx_tradeitem_Ivory			GoldBonus = 0.2 }
+		TradeItem { name = tx_tradeitem_Diamonds  		GoldBonus = 0.2 }
+		TradeItem { name = tx_tradeitem_Exotic_Animals		GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_Gold  			GoldBonus = 0.1 }
+		TradeItem { name = tx_tradeitem_Textiles  		GoldBonus = 0.1 }
+
+	]
+}	

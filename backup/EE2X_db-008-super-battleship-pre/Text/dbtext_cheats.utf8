@@ -1,0 +1,57 @@
+﻿// NAME,TEXT
+
+// messages
+db_cheat_sysdisabled,"""密技关闭！"""
+
+// Enable cheat system
+db_cheat_enable_system,"""icheat"""
+db_cheat_enable_system_d,"""**  密技启用  **"""
+
+// Disable cheat system
+db_cheat_disable_system,"""idontcheat"""
+db_cheat_disable_system_d,"""**  密技停用  **"""
+
+//  Add 10,000 of each resource
+db_cheat_tons_resources,"""loot"""
+db_cheat_tons_resources_d,"""资源增加10,000"""
+
+// Subtract 100 of each resource
+db_cheat_lose_resources,"""taxes"""
+db_cheat_lose_resources_d,"""资源减少100"""
+
+// Inflict 20 points of damage on selected unit
+db_cheat_hurt_selection,"""punish"""
+db_cheat_hurt_selection_d,"""使被选择的部队受到伤害"""
+
+// Convert selected unit
+db_cheat_convert_selection,"""convert"""
+db_cheat_convert_selection_d,"""使被选择的部队变节到你的阵营中"""
+
+// Instant recharge power
+db_cheat_instant_recharge_pow,"""recharge me"""
+db_cheat_instant_recharge_pow_d,"""使被选择的部队能力恢复为100%"""
+
+// Instantly win scenario
+db_cheat_win_game,"""win"""
+db_cheat_win_game_d,"""你在此剧本中获胜！"""
+
+// Toggle the fog of war on\off
+db_cheat_toggle_fogofwar,"""toggle fog"""
+db_cheat_toggle_fogofwar_d,"""切换战争迷雾。"""
+
+// Toggle instant build on\off
+db_cheat_toggle_instantbuild,"""sea monkeys"""
+db_cheat_toggle_instantbuild_d,"""切换为立即完成建设"""
+
+// Advance an epoch without meeting any of the requirements
+db_cheat_advance_epoch,"""epoch up"""
+db_cheat_advance_epoch_d,"""你已经进入下一个纪元！"""
+
+// Add 50 technology points
+db_cheat_add_techpoints,"""give tech"""
+db_cheat_add_techpoints_d,"""科技点数增加50"""
+
+// God Mode
+db_cheat_god_mode, """play god"""
+db_cheat_god_mode_d,"""切换为天神模式"""
+
