@@ -177,3 +177,57 @@
 ### 已知影响
 - RPS修正后飞机可正常造成伤害（CAS=95%, AirSup=110%, Bomber=150%）
 - 防空护卫舰对飞机的200%克制不受影响
+
+---
+
+## 第7次修改 — 2026-05-20 13:15
+
+**关联快照**: 进度快照\021-E14超级主力舰三倍属性.md
+**修改类型**: 数值调整 — 超级主力舰三倍属性
+
+### E14修改前数据
+| 属性 | 值 | 来源文件 | 行号 |
+|:-----|:---|:--------|:-----|
+| HP | 9,450 | upgrade_unittypes.csv | 1022 |
+| LOS | 24 | upgrade_unittypes.csv | 1022 |
+| DAMAGE | 580 | upgrade_unittypes.csv; Yuanhang_Tao_13naval_units.ddf | CSV:1022; DDF:5133 |
+| RANGE | 20 | upgrade_unittypes.csv; Yuanhang_Tao_13naval_units.ddf | CSV:1022; DDF:5133 |
+| SPEED | 2.60 | Yuanhang_Tao_13naval_units.ddf | 5134 |
+| angSpeed | 85 | Yuanhang_Tao_13naval_units.ddf | 5134 |
+| BUILDTIME | 70 | upgrade_unittypes.csv | 1022 |
+| Food | 400 | upgrade_unittypes.csv | 1022 |
+| Wood | 650 | upgrade_unittypes.csv | 1022 |
+| Stone | 450 | upgrade_unittypes.csv | 1022 |
+| Gold | 650 | upgrade_unittypes.csv | 1022 |
+| Oil | 650 | upgrade_unittypes.csv | 1022 |
+| Uranium | 650 | upgrade_unittypes.csv | 1022 |
+
+### E14修改后数据 (×3)
+| 属性 | 值 | 来源文件 | 行号 |
+|:-----|:---|:--------|:-----|
+| HP | 28,350 | upgrade_unittypes.csv | 1022 |
+| LOS | 72 | upgrade_unittypes.csv | 1022 |
+| DAMAGE | 1,740 | upgrade_unittypes.csv; Yuanhang_Tao_13naval_units.ddf | CSV:1022; DDF:5133 |
+| RANGE | 60 | upgrade_unittypes.csv; Yuanhang_Tao_13naval_units.ddf | CSV:1022; DDF:5133 |
+| SPEED | 7.80 | Yuanhang_Tao_13naval_units.ddf | 5134 |
+| angSpeed | 255 | Yuanhang_Tao_13naval_units.ddf | 5134 |
+| BUILDTIME | 210 | upgrade_unittypes.csv | 1022 |
+| Food | 1,200 | upgrade_unittypes.csv | 1022 |
+| Wood | 1,950 | upgrade_unittypes.csv | 1022 |
+| Stone | 1,350 | upgrade_unittypes.csv | 1022 |
+| Gold | 1,950 | upgrade_unittypes.csv | 1022 |
+| Oil | 1,950 | upgrade_unittypes.csv | 1022 |
+| Uranium | 1,950 | upgrade_unittypes.csv | 1022 |
+
+### 关联文件
+- EE2X_db/TechTree/upgrade_unittypes.csv — FregattenFFGUpgradeEpoch14行 (行1022)
+- EE2X_db/Units/Yuanhang_Tao_13naval_units.ddf — FregattenFFGEpoch14Attack块 (行5133-5134)
+- Empire Earth II/zips_ee2x/EE2X_db.zip — 双路径同步更新
+
+### 修改依据
+- 需求: 佩里级护卫舰升级为超级主力舰，所有属性×3
+- 理由: E14时代中美俄各一艘主力舰升级为超级舰
+
+### 已知影响
+- 装填时间 (reloadTime=1.0) 保持不变
+- 与中国Ch054A(×3)持平，俄Type22350则血厚攻强但速度慢
