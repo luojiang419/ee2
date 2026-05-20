@@ -1,9 +1,0 @@
-LightArtillery1 [All]: icon=tx_utn_LightArt1_e13_name => 反坦克装甲车
-LightArtillery2 [All]: icon=tx_utn_LightArt2_e13_name => 刺针型高机动性多用途四驱车
-HeavyArtillery [All]: icon=tx_utn_heavyArt14_name => 自行榴弹砲
-HeavyTank [All]: icon=tx_utn_HvyMntd1_e14 => ??? (tx_utn_HvyMntd1_e14)
-Machinegunnest [All]: icon=tx_utn_Machinegunnest_u14_name => 升级后的机枪碉堡(1.5)
-Thaad [All]: icon=tx_utn_thaad14_name => ??? (tx_utn_thaad14_name)
-American_M1A2 [American]: icon=tx_utn_M1A2_name => M1A2主战坦克
-T90M [Russian]: icon=tx_utn_T90A_name => T-90主战坦克
-type90 [Japanese]: icon=tx_utn_type90_name => 90式主战坦克
