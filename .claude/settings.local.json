@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(git -C \"g:\\\\ee2\" log --oneline -5)"
+    ]
+  }
+}

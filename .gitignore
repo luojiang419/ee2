@@ -1,7 +1,4 @@
 /Empire Earth II
 __pycache__/
-更新器/config/publish.local.json
-更新器/dist/*
-!更新器/dist/.gitkeep
-更新器/releases/*
-!更新器/releases/.gitkeep
+更新器/
+backup/
