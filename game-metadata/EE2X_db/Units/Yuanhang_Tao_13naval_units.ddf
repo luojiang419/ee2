@@ -244,7 +244,7 @@ UpgradeAbilities Ch054AAAEpoch13Attack
 UpgradeAbilities Ch054AAAEpoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1605; range = 54; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+		Attack { damage = 2350; range = 54; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
 	            NavalMove {speed = 7.65; accel = 1; angSpeed = 240}
 	]
 }
@@ -2484,7 +2484,7 @@ UpgradeAbilities Type22350Epoch13Attack
 UpgradeAbilities Type22350Epoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1690; range = 51; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+		Attack { damage = 2450; range = 51; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
 	            NavalMove {speed = 5.51; accel = 1; angSpeed = 169}
 	]
 }
@@ -5130,7 +5130,7 @@ UpgradeAbilities FregattenFFGEpoch13Attack
 UpgradeAbilities FregattenFFGEpoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1740; range = 60; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+		Attack { damage = 2250; range = 60; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
 	            NavalMove {speed = 7.80; accel = 1; angSpeed = 255}
 	]
 }
