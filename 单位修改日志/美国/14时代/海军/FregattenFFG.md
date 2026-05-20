@@ -231,3 +231,26 @@
 ### 已知影响
 - 装填时间 (reloadTime=1.0) 保持不变
 - 与中国Ch054A(×3)持平，俄Type22350则血厚攻强但速度慢
+
+---
+
+## 第8次修改 — 2026-05-20 13:23
+
+**关联快照**: 进度快照\022-超级主力舰倍率回滚.md
+**修改类型**: 数值回滚
+
+### 回滚说明
+第7次修改（超级主力舰×3）撤销，全部属性恢复至原始值（倍率=1）。
+
+### 当前E14数据 (还原后)
+| 属性 | 值 | 来源文件 | 行号 |
+|:-----|:---|:--------|:-----|
+| HP | 9,450 | upgrade_unittypes.csv | 1022 |
+| DAMAGE | 580 | Yuanhang_Tao_13naval_units.ddf | 5133 |
+| RANGE | 20 | Yuanhang_Tao_13naval_units.ddf | 5133 |
+| SPEED | 2.60 | Yuanhang_Tao_13naval_units.ddf | 5134 |
+| angSpeed | 85 | Yuanhang_Tao_13naval_units.ddf | 5134 |
+| BUILDTIME | 70 | upgrade_unittypes.csv | 1022 |
+
+### 修改依据
+- 需求: 倍率全部调为1，恢复原始属性

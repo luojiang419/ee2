@@ -244,8 +244,8 @@ UpgradeAbilities Ch054AAAEpoch13Attack
 UpgradeAbilities Ch054AAAEpoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1605; range = 54; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
-	            NavalMove {speed = 7.65; accel = 1; angSpeed = 240}
+		Attack { damage = 535; range = 18; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+	            NavalMove {speed = 2.55; accel = 1; angSpeed = 80}
 	]
 }
 //------------------------------------------------
@@ -2484,8 +2484,8 @@ UpgradeAbilities Type22350Epoch13Attack
 UpgradeAbilities Type22350Epoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1690; range = 51; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
-	            NavalMove {speed = 5.51; accel = 1; angSpeed = 169}
+		Attack { damage = 490; range = 17; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+	            NavalMove {speed = 2.45; accel = 1; angSpeed = 75}
 	]
 }
 //------------------------------------------------
@@ -5130,8 +5130,8 @@ UpgradeAbilities FregattenFFGEpoch13Attack
 UpgradeAbilities FregattenFFGEpoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1740; range = 60; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
-	            NavalMove {speed = 7.80; accel = 1; angSpeed = 255}
+		Attack { damage = 580; range = 20; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+	            NavalMove {speed = 2.60; accel = 1; angSpeed = 85}
 	]
 }
 //------------------------------------------------
