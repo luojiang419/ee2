@@ -1,8 +1,0 @@
-﻿// NAME,TEXT
-dbt_ui_donotuse_EE2X,"""零式入口－不要使用"""
-
-// Modified Text for the Pause panel dialog boxes in Tug of War
-dbt_pausepanel_quit_ToW,"""你确定你要完全离开此拉锯战游戏？"""
-dbt_pausepanel_resign_ToW,"""你确定你要从这场战争中撤退？"""
-dbt_pausepanel_resign_ToW_MP,"""你确定你要从这场战争中撤退并成为观战者？"""
-dbt_pausepanel_forfeit_ToW,"""你确定你要放弃这场战争？"""

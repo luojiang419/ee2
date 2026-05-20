@@ -5,7 +5,7 @@ UnitType Radar
 	ownerType = PlayerOnly
 	parent = NoProduceBuilding
 	properties {
-		rps = LandNonCombat
+		rps = AntiAircraft
 		SizeX = 2.0
 		SizeY = 2.0
 		mass = 1
@@ -149,7 +149,7 @@ UnitType AMissileDefense
 	ownerType = PlayerOnly
 	parent = NoProduceBuilding
 	properties {
-		rps = LandNonCombat
+		rps = AntiAircraft
 		SizeX = 1
 		SizeY = 1
 		FootprintSizeX = 2.5
@@ -172,7 +172,7 @@ UnitType AMissileDefense
 			]
 		}
 		// @AA - removed: 'missileName = "Flak01"' from attack ability, this one wants to have instant hits
-		Attack {latent=true; damage = 250; range = 30; reloadTime = 3; angularRange = 360; missileName = "SA2Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5; throwUnits = true }
+		Attack { damage = 250; range = 30; reloadTime = 3; angularRange = 360; missileName = "SA2Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5; throwUnits = true }
 		LOS { range = 40 }
 	]
 	icon = icon_unit_sa2
@@ -184,7 +184,7 @@ UnitType AMissileDefense
 UpgradeAbilities AMissileDefenseEpoch12Attack
 {
 	upgradedAbilities = [
-	Attack {latent=true; damage = 250; range = 20; reloadTime = 5; angularRange = 360; missileName = "SA2Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5;  }
+	Attack { damage = 800; range = 20; reloadTime = 5; angularRange = 360; missileName = "SA2Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5;  }
 	]
 }
 //------------------------------------------------
@@ -194,7 +194,7 @@ UpgradeAbilities AMissileDefenseEpoch12Attack
 UpgradeAbilities AMissileDefenseEpoch13Attack
 {
 	upgradedAbilities = [
-	Attack {latent=true; damage = 250; range = 30; reloadTime = 3; angularRange = 360; missileName = "SA2Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5;  }
+	Attack { damage = 1500; range = 30; reloadTime = 3; angularRange = 360; missileName = "SA2Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5;  }
 	]
 }
 //------------------------------------------------
@@ -204,7 +204,7 @@ UpgradeAbilities AMissileDefenseEpoch13Attack
 UpgradeAbilities AMissileDefenseEpoch14Attack
 {
 	upgradedAbilities = [
-	Attack {latent=true; damage = 0; range = 0; reloadTime = 666; angularRange = 360; missileName = "SA5Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5;  }
+	Attack { damage = 2300; range = 30; reloadTime = 3; angularRange = 360; missileName = "SA5Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5;  }
 	
 	]
 }
@@ -215,7 +215,7 @@ UpgradeAbilities AMissileDefenseEpoch14Attack
 UpgradeAbilities AMissileDefenseEpoch15Attack
 {
 	upgradedAbilities = [
-	Attack {latent=true; damage = 250; range = 30; reloadTime = 3; angularRange = 360; missileName = "MIM23Missile"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret;areaDamageRadius = 1.5;  }
+	Attack { damage = 3000; range = 30; reloadTime = 3; angularRange = 360; missileName = "MIM23Missile"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret;areaDamageRadius = 1.5;  }
 	
 	]
 }
