@@ -72,6 +72,7 @@ UpgradeRefSet MainEpoch14 {
 		NonCombatAir2UpgradeEpoch14
 		CoastalDefenseUpgradeEpoch14
 		AICoastalDefenseUpgradeEpoch14
+		dapaoUpgradeEpoch14
 		WallUpgradeEpoch14
 		WallConnectorUpgradeEpoch14
 		WallFragmentUpgradeEpoch14
