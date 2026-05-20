@@ -1,0 +1,827 @@
+//------------------------------------------------------------------------------------------------
+//	WAREHOUSE - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType tallbuildings1
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings1
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings1.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings2
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings2
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings2.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings3
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings3
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings3.NIF
+	ForceScale      = 0.09
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings4
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings4
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings4.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings5
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings5
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings5.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings6
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings6
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings6.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings7_1
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings7_1
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings7_1.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings7_2
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings7_2
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings7_2.NIF
+	ForceScale      = 0.04
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings7_3
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings7_3
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings7_3.NIF
+	ForceScale      = 0.04
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+
+UnitType tallbuildings9
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings9
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings9.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings10
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings10
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings10.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings11
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings11
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings11.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings12_1
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings12_1
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings12_1.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings12_2
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings12_2
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings12_2.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings13
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings13
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings13.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings14
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings14
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings14.NIF
+	ForceScale      = 0.045
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings15
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings15
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings15.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings16_1
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings16_1
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings16_1.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings16_2
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings16_2
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings16_2.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings17_1
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings17_1
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings17_1.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings17_2
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings17_2
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings17_2.NIF
+	ForceScale      = 0.20
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings17_3
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings17_3
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings17_3.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings18
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings18
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings18.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings19_1
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings19_1
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings19_1.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings20
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 1
+		UndertextureSizeX = 2
+		UndertextureSizeY = 1
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+UnitModel tallbuildings20
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings20.NIF
+	ForceScale      = 0.05
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType tallbuildings21
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 3.5
+		SizeY = 3
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_gaolou_sname
+		displayName = tx_utn_gaolou_name
+		VerboseTooltip = vtt_unit_gaolou
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel tallbuildings21
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= tallbuildings21.NIF
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}
+UnitType OilStation
+{
+	OwnerType = WorldOnly
+	parent = Building
+	properties {
+		SizeX = 6.5
+		SizeY = 6
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		DisplayNameScenEdit = tx_utn_OilStation_sname
+		displayName = tx_utn_OilStation_name
+		VerboseTooltip = vtt_unit_OilStation
+		HitPoints = 90000000
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+}
+UnitModel OilStation
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= OilStation.NIF
+	ForceScale      = 0.07
+	ChildNames =[ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsConcrete ShowMeMyChristmasTreeAOS]
+	
+}

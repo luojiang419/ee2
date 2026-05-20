@@ -1,0 +1,61 @@
+//------------------------------------------------------------------------------------------------
+//	MOUNTED
+//------------------------------------------------------------------------------------------------
+UnitType Mounted
+{
+	properties {
+		moveType = kUnitMoveType_Mounted
+		rps = LandNonCombat
+		FootprintType = Ellipse
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 1
+		hitpoints = 666
+		
+		stance = Defensive
+	}
+	sounds {
+		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+    	}
+	abilities [
+		Move {speed = 1.725; angSpeed = 180}
+		LOS { range = 5 }
+		Convertable { convertTimeModifier = 3.0; }
+		Garrisonable { garrisonTypes = [ Fortress Tower NavalTransport ] }
+	]
+	attributes = [ 
+		HealedByMedic
+	]
+	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
+	icon = icon_unit_default_human
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	HEAVY MOUNTED - Visual info common to all heavy mounted
+//------------------------------------------------------------------------------------------------
+UnitModel	BaseLightMonted
+{
+	OutlineType		= kOutlineMake
+	ScaleType 		= kScaleMountedUnit
+	ChildNames 		= [ TheHealthBar SelectCircleMounted SwordStreak DustHeavyMonted 
+						SmallGlow ExplSelectorMounted01 VisualThrownUnit
+						HemisphereLighting_Unit DynamicLighting_Unit
+					  ]
+	DefaultState 		= Idle
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 2.03
+		zOffset = -2.21
+		scale = 1.53
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}	
+}
+

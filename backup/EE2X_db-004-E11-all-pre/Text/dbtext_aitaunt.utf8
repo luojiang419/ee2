@@ -1,0 +1,192 @@
+﻿// NAME,TEXT
+
+// Human player has sent multiple alliances requests to same AI player over a short period of time.
+// Standard AI Personality
+text_ai_repeatalliance,"""你八成就是最后一个牺牲者，对吧？"""
+// Aggressive AI Personality
+text_ai_repeatalliance2,"""你算哪根葱啊？过气的家伙吗？滚吧。"""
+// Defensive AI Personality
+text_ai_repeatalliance3,"""你又想提议甚么？我说过了─我正在考虑！"""
+
+// Human player sends a treaty request to an AI player with whom he had previously broken a treaty.  
+// Standard AI Personality
+text_ai_traitoralliance,"""叛徒，我不会上第二次当的！"""
+// Aggressive AI Personality
+text_ai_traitoralliance1,"""叛徒！我早知道就和一群猩猩结盟！"""
+// Defensive AI Personality
+text_ai_traitoralliance2,"""被你骗第一次是丢你的脸…被你骗第二次是丢我的脸。我不会再上当了。"""
+
+// Human player sends a treaty request to an AI player who already has allies and doesn’t need any more.
+// Standard AI Personality
+text_ai_unneededalliance,"""把你那可笑的技俩拿去骗别人吧，我们已经全副武装了。"""
+// Aggressive AI Personality
+text_ai_unneededalliance1,"""我？和你结盟？！哈哈哈哈哈哈！"""
+// Defensive AI Personality
+text_ai_unneededalliance2,"""为甚么？有甚么用？我要如何和我其他的盟友们交待呢？"""
+
+// AI player accepts human players treaty request because the AI was bribed with resources or units.
+// Standard AI Personality
+text_ai_bribedalliance,"""也许你不是最坚强的盟友，但是我相信你办得到的。"""
+// Aggressive AI Personality
+text_ai_bribedalliance1,"""不错的礼物，我愿意加入你的阵营。"""
+// Defensive AI Personality
+text_ai_bribedalliance2,"""谢谢你的贡品，我已经预见了我们光明的未来了。"""
+
+// AI player accepts human players treaty request even though he broke previous treaties because it was bribed with resources or units.
+// Standard AI Personality
+text_ai_bribedtraitoralliance,"""我不太信任你，不过你没有浪费我的时间。从现在开始，我们就是同一阵营的了。"""
+// Aggressive AI Personality
+text_ai_bribedtraitoralliance1,"""我接受你的提议…不过我会注意你的，只要你敢妄动，我就毁了你…"""
+// Defensive AI Personality
+text_ai_bribedtraitoralliance2,"""我们接受你的条约…不过我们还不是很信任你。"""
+
+// AI player accepts human players treaty request.
+// Standard AI Personality
+text_ai_successfulalliance,"""你看起来很有主见，我会加入你。"""
+// Aggressive AI Personality
+text_ai_successfulalliance1,"""哈！我们可以携手摧毁我们的敌人！"""
+// Defensive AI Personality
+text_ai_successfulalliance2,"""我很高兴我们达成了协议，我们会变得更加强大的。"""
+
+// AI player rejects human players treaty request.
+// Standard AI Personality
+text_ai_unsuccessfulalliance,"""你想要和我作朋友？不，谢了，我的朋友已经够多了。"""
+// Aggressive AI Personality
+text_ai_unsuccessfulalliance1,"""你我两个帝国之间是不可能成为盟友的…至少现在不可能。"""
+// Defensive AI Personality
+text_ai_unsuccessfulalliance2,"""我们还没有打算和任何国家结盟，以后再说吧。"""
+
+// AI player cannot meet the tribute request for a treaty.
+// Standard AI Personality
+text_ai_nocashalliancefailure,"""你疯了吗？！你仔细看一下…你觉得我有嫌钱太多吗？"""
+// Aggressive AI Personality
+text_ai_nocashalliancefailure1,"""你要求得太多了。"""
+// Defensive AI Personality
+text_ai_nocashalliancefailure2,"""我没办法付那么多钱…不过别以为那代表我很好欺负…"""
+
+// AI player offers to surrender to human player.
+// Standard AI Personality
+text_ai_surrenderrequest,"""我输了！请接受我的投降。"""
+// Aggressive AI Personality
+text_ai_surrenderrequest1,"""被你这等货色打败？！真是丢脸，不过我会投降的…"""
+// Defensive AI Personality
+text_ai_surrenderrequest2,"""我恭敬地向你投降。"""
+
+// Human player breaks treaty with AI player.
+// Standard AI Personality
+text_ai_brokealliance,"""你这个无耻的叛徒，你会不得好死的！！"""
+// Aggressive AI Personality
+text_ai_brokealliance1,"""叛徒！骗子！卖友求荣的畜生…你给我小心点！"""
+// Defensive AI Personality
+text_ai_brokealliance2,"""啥？我做了甚么吗？很好…你给我小心点。"""
+
+// taunt when AI decides to betray you
+// Standard AI Personality
+text_ai_betraysyou,"""我猜我需要一些更好的朋友。你算哪门子同盟！"""
+// Aggressive AI Personality
+text_ai_betraysyou1,"""我已经受够这个同盟了，你没有给过我任何有用的东西。"""
+// Defensive AI Personality
+text_ai_betraysyou2,"""我希望我不会因为这件事后悔，但是我无法再留在你这一队了。"""
+
+
+// AI player accepts war plan from human player.
+// Standard AI Personality
+text_ai_acceptedwarplan,"""好主意，我马上就过去。"""
+// Aggressive AI Personality
+text_ai_acceptedwarplan1,"""有趣的战术，朋友…我看看我能做甚么。"""
+// Defensive AI Personality
+text_ai_acceptedwarplan2,"""你要我…到那边去？呃，好吧…没问题。"""
+
+// Allied AI player rejects war plan from human player.
+// Standard AI Personality
+text_ai_rejectedwarplan,"""呃，不，我不这么认为。"""
+// Aggressive AI Personality
+text_ai_rejectedwarplan1,"""你一定是在开玩笑…想想别的方法吧，我不要把军队派到那里去…"""
+// Defensive AI Personality
+text_ai_rejectedwarplan2,"""朋友，你的计划很差，等你想到另一个计划时再通知我。"""
+
+// Neutral or Hostile AI player rejects war plan from human player.
+// Standard AI Personality
+text_ai_rejectedwarplanenemy,"""哈啰…白痴，我们在打仗耶…我才不会把军队派到你说的地方去！"""
+// Aggressive AI Personality
+text_ai_rejectedwarplanenemy1,"""哈！你要我帮你打仗！哈！"""
+// Defensive AI Personality
+text_ai_rejectedwarplanenemy2,"""不，我不这么认为，我现在有自己的要事要做。"""
+
+// Human player captures territory from AI player.
+// Standard AI Personality
+text_ai_capturedterritory,"""你以为你可以抢走我的土地吗？你等著，你给我等著…"""
+// Aggressive AI Personality
+text_ai_capturedterritory1,"""干得好啊，可是你确定你能守得住吗？"""
+// Defensive AI Personality
+text_ai_capturedterritory2,"""好，很好。那块地是你的了，反正也是块烂地。"""
+
+// Human player captures a building from AI player.
+// Standard AI Personality
+text_ai_capturedbuilding,"""你是没办法自己建造建筑物吗？"""
+// Aggressive AI Personality
+text_ai_capturedbuilding1,"""你竟敢抢我的建筑物？你这白痴会付出代价的！"""
+// Defensive AI Personality
+text_ai_capturedbuilding2,"""你为甚么抢走我的一栋建筑物？"""
+
+// Human player wins a crown.  Allied AI player responds.
+// Standard AI Personality
+text_ai_winscrown_allied,"""恭喜赢得桂冠，我的朋友！"""
+// Aggressive AI Personality
+text_ai_winscrown_allied1,"""好消息！现在没有人能挡得了我们了！"""
+// Defensive AI Personality
+text_ai_winscrown_allied2,"""喔，太好了！赢得桂冠对我们大有助益。"""
+
+// Human player wins a crown.  Neutral\Hostile AI player responds.
+// Standard AI Personality
+text_ai_winscrown,"""嗯，来看看获得那桂冠对你有啥好处吧…"""
+// Aggressive AI Personality
+text_ai_winscrown1,"""啊，原来你还是有点技术的…好，那会让我的胜利的果实变得更加甜美…"""
+// Defensive AI Personality
+text_ai_winscrown2,"""赢得一顶桂冠并不能保障你的胜利。"""
+
+// Human player advances an epoch.  Allied AI Player responds.
+// Standard AI Personality
+text_ai_advancesepoch_allied,"""继续奋斗吧！"""
+// Aggressive AI Personality
+text_ai_advancesepoch_allied1,"""哇哈哈！又有更多的科技可以用来对付这些可怜虫了！"""
+// Defensive AI Personality
+text_ai_advancesepoch_allied2,"""嗯，这对你而言是好事！我们可以在你使用新科技的这段期间继续维持著我们的防御！"""
+
+// Human player advances an epoch.  Neutral\Hostile AI Player responds.
+
+// These are if the Player is AHEAD of the AI
+// Standard AI Personality
+text_ai_advancesepochahead,"""科技发展不能确保胜利…你必须要善用之。"""
+// Aggressive AI Personality
+text_ai_advancesepochahead1,"""我喜欢有挑战性的朋友，我的大军总有一天会把你的文明彻底摧毁！"""
+// Defensive AI Personality
+text_ai_advancesepochahead2,"""你只是暂时领先罢了，我会追上来的！"""
+
+// These are if the Player epochs up and is BEHIND the AI
+// Standard AI Personality
+text_ai_advancesepochbehind,"""看来你似乎还落后蛮多的嘛，我的蠢材朋友！"""
+// Aggressive AI Personality
+text_ai_advancesepochbehind1,"""你还停在那个纪元？最好赶上来，慢郎中！"""
+// Defensive AI Personality
+text_ai_advancesepochbehind2,"""你永远追不上的的！"""
+
+// These are if the Player epochs up and is now EVEN WITH the AI
+// Standard AI Personality
+text_ai_advancesepocheven,"""你终于追上我了阿，呃？这还花了你真多时间阿。"""
+// Aggressive AI Personality
+text_ai_advancesepocheven1,"""我们现在虽然处于相同的纪元，可是我仍然是比较优秀的玩家！"""
+// Defensive AI Personality
+text_ai_advancesepocheven2,"""你要如何才能追的上我？"""
+
+// Random taunts from AI.
+text_ai_timetick,"""听到那排山倒海而来的声音没？那是老子来教训你了…哈哈哈！"""
+text_ai_timetick2,"""要不要放弃啊？现在投降，就不用领教我为你安排好的重大挫败喔。"""
+text_ai_timetick3,"""你盖的这个小帝国不错…不过很遗憾的是它经不起时代的考验。"""
+text_ai_timetick4,"""你很快就会领教到我的大军的威力了。"""
+text_ai_timetick5,"""你觉得你的军队挡得住我吗？"""
+text_ai_timetick6,"""搞不好你该用一下密技…这是你唯一可以打败我的方式！"""
+text_ai_timetick7,"""哇，看起来你根本就招架不住嘛！"""
+text_ai_timetick8,"""你的名字会名垂千古的…失败者！"""
+text_ai_timetick9,"""我不会手下留情的！"""
+text_ai_timetick10,"""要知道，人要这么优秀是很难的…啊，对喔…你是不可能会知道的。"""

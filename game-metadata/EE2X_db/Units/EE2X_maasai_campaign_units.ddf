@@ -1,0 +1,503 @@
+//------------------------------------------------
+//	COW
+//------------------------------------------------
+UnitType MaasaiCow
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_cow_name
+		VerboseTooltip = vtt_unit_cow
+		hitpoints = 100
+		SizeX = 0.3
+		SizeY = 0.3
+	}
+	sounds {
+		sndSelection = ["fx_animal_cow_sel_01" "fx_animal_cow_sel_02"]
+	}
+	abilities = [
+							 //having these move slower than the sheperds is skill testing and a little fun (if frustrating, so not TOO slow)
+// 		Move { mustMoveToTurn = 0; speed = 0.92; angSpeed = 180 }
+		Move { mustMoveToTurn = 0; speed = 0.80; angSpeed = 180 }
+		LOS { range = 3 }
+	]
+}
+
+UnitModel MaasaiCow
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= faucow.nif
+	ChildNames 		= [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_faucow_idle01.kf
+			AnimVariants = [ sh_faucow_idle02.kf sh_faucow_idle03.kf ] AnimVariantsWeights = [ 0.3 0.1 ]
+		}
+		{ 	StateName = Walk	AnimName = sh_faucow_walk01.kf }
+		{ 	StateName = Death	AnimName = sh_faucow_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_cow_die_01 KeyTime = 0}]}
+			]
+	UIRenderingParams {
+		xOffset = -2.89
+		yOffset = 1.34
+		zOffset = 0.04
+		scale = 1.02
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//UnitType DeadAnimalMaasaiCow
+//{
+//	parent = DeadAnimal_MediumFood
+//	properties {
+//		displayName = tx_utn_DeadCow_name
+//		VerboseTooltip = vtt_unit_DeadCow
+//		SizeX = 0.3
+//		SizeY = 0.3
+//	}
+//}
+
+//UnitModel DeadAnimalMaasaiCow
+//{
+//	Parent 		= Cow
+//	DefaultModel 	= faucow.nif
+//	ChildNames 		= [ UnitShadow ]
+//	States 		= [
+//		{ 	StateName = Death	AnimName = sh_faucow_death01.kf }
+//			]
+//	UIRenderingParams {
+//		xOffset = -1.84
+//		yOffset = 1.58
+//		zOffset = 0.79
+//		scale = 1.02
+//		angle = 47.37
+//		rotationSpeed = 0.00
+//		pitch = 0.01
+//		lightAngle = 30.00
+//		lightPitch = 90.00
+//		lightDiffuse = [50 50 45 255]
+//		lightSpecular = [0 0 0 255]
+//		lightAmbient = [40 40 40 255]
+//	}
+//}
+
+//------------------------------------------------
+//	MAASAI SPECIAL RESOURCE		
+//------------------------------------------------
+UnitModel ResourceMaasaiSpecial
+{
+	Parent = ResourceNotTreeBaseModel
+	DefaultModelList = [res_berinium_01.nif res_berinium_02.nif res_berinium_03.nif]
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.31
+		zOffset = 0.70
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 70.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType ResourceMaasaiSpecial
+{
+	parent = Ambient
+	visualName = ResourceMaasaiSpecial
+	properties {
+		DisplayName = tx_utn_ResourceMaasai_name
+		DisplayNameScenEdit = tx_utn_ResourceMaasai_sname
+		mmColor = [64,64,64,255]
+		VerboseTooltip = vtt_unit_MaasaiResource
+	}
+	abilities [ 
+	//	Resource { maxNumOfWorkers = 0}
+	]
+}
+
+//------------------------------------------------
+//	MAASAI RESOURCE HARVESTER		
+//------------------------------------------------
+UnitType MaasaiResourceHarvester
+{
+	parent = AmbientCampaignBuilding
+	placementType = OnResource
+	placementTargetType = ResourceMaasaiSpecial
+	icon = icon_unit_berinium_bld
+	properties {
+		SizeX = 1.5
+		SizeY = 1.5
+		displayName = tx_utn_HarvesterMaasai_name
+		displayNameScenEdit = tx_utn_HarvesterMaasai_sname
+		VerboseTooltip = vtt_unit_MaasaiHarvester
+		HitPoints = 7500
+		Mass = 1
+	}
+	abilities = [
+		LOS { range = 4 }
+	]
+}
+
+UnitModel MaasaiResourceHarvester
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_berinium_mine.nif
+	ChildNames 			= [TheAmbientPlacer LargeGlow]  //UnderTemple
+//	States = [
+//		{ StateName="Idle" AnimName = Bld_oilrig_idle.kf}
+//	    { StateName="Garrisoned"   AnimName = bld_OilRig_walk.kf 
+//				TextKeys = [{ Name = START_SOUND Data = Resource_oil KeyTime = 0}]}	
+//		 ]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	Maasai Special TRADE CART - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType MaasaiTradeCart
+{
+	icon = icon_unit_beriniumtruck
+	properties {
+		rps = LandNonCombat
+		SizeX = 1.0
+		SizeY = 1.0
+		mass = 1
+		displayName = tx_maasai_Truck
+		moveType = WheeledTrade
+		hitpoints = 300
+		VerboseTooltip = vtt_maasai_Truck
+		FootprintType = Ellipse
+		popCount = 0
+	}
+	sounds {
+		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+    	}
+	abilities = [
+		Convertable { }
+		VehicleMove {speed = 2.3; angSpeed = 180; followTerrainSlope = 0}
+		LOS { range = 4 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
+}
+
+UnitModel MaasaiTradeCart
+{
+	ScaleType 	= kScaleUnit
+	OutlineType	= kOutlineMake
+	DefaultModel 	= amb_berinium_tanker.nif
+	DefaultState 	= Idle
+	ChildNames 		= [UnitShadow TheHealthBar SelectCircleMedium SmallGlow TheTradePath TankTracks DustHeavyMonted ExplSelectorTank01 TradeCart11_FlyingParts ]
+	States 		= [
+			{ StateName = Idle	AnimName = amb_berinium_tanker_idle.kf   }
+			{ StateName = Walk 	AnimName = amb_berinium_tanker_walk.kf  
+               			TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_motorized_02 KeyTime = 0.5 }]}
+			{ StateName = Death 	AnimName = amb_berinium_tanker_death.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.88
+		zOffset = 0.68
+		scale = 1.40
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+
+//------------------------------------------------------------------------------------------------
+//	The Maasai Chief
+//------------------------------------------------------------------------------------------------
+UnitType MaasaiChief
+{
+	icon = icon_unit_UUMaasai2
+	parent = HumanNoConvert
+	properties {
+		DisplayName = text_maasai_chief_name
+		DisplayNameScenEdit = text_maasai_chief_name
+		VerboseTooltip = text_maasai_chief_desc
+		HitPoints = 1000
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 1
+		rps = Priest
+	}
+	sounds = {	sndCmdMove = ["v_leader_mil_02_com01" "v_leader_mil_02_com02"]
+			sndCmdAttack = ["v_leader_mil_02_com01" "v_leader_mil_02_com02" "v_leader_mil_02_spe01"]
+			sndSelection = ["v_leader_mil_02_sel01"]
+	}
+	abilities = [
+		Move {speed = 1.7; angSpeed = 180}
+		PowerReserve { timeToRecharge = 45 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 8; reloadTime = 2; applyDamageTime = 0.5; }
+		Heal {range = 0.3; healRate = 10; healType = HealedByMedic requireAutoCastToSelfGoal = true}
+		AreaEffect {
+			effects = [ 
+				Discipline
+				Nationalism
+			]
+		}
+	]
+}
+
+//------------------------------------------------
+//	The Maasai Chief MODEL
+//------------------------------------------------
+UnitModel MaasaiChief
+{
+	ScaleType		= kScaleHero
+	Parent			= Priest
+	DefaultModel	= civ8_laibon_african.nif
+	ChildNames 		= [ UnitShadow ThePowerBar ]
+	States 			= [
+		{	StateName = Idle	AnimName = civ8_laibon_african_idle01.kf
+								AnimVariants = [ civ8_laibon_african_idle02.kf ]
+								AnimVariantsWeights = [ 0.2 ]
+		}
+		{ 	StateName = Walk	AnimName = civ8_laibon_african_walk01.kf	}
+		{ 	StateName = Run		AnimName = civ8_laibon_african_jog01.kf		}
+		{ 	StateName = Attack1	AnimName = civ8_laibon_african_attack01.kf	
+			TextKeys = [	{ Name = ATTACH_VISUAL	Data = FX_Conversion }
+		   					{ Name = PLAY_SOUND 	Data = fx_priest_convert KeyTime = 0.0 }
+						]
+		}
+		{	StateName = AttackTolerance AnimName = civ8_laibon_african_attack01.kf
+			TextKeys = [	{ Name = ATTACH_VISUAL	Data = FX_Tolerance_Priest } ]
+		}
+		{
+			StateName = Bless AnimName = civ8_laibon_african_bless01.kf
+			TextKeys = [	{ Name = ATTACH_VISUAL	Data = FX_Bless } ]
+		}
+		{ 	StateName = Death		AnimName = civ8_laibon_african_death01.kf }
+		{	StateName = Flinch		AnimName = civ8_laibon_african_protect01.kf }
+		{	StateName = BeingThrown	AnimName = civ8_laibon_african_flying01.kf
+									AnimVariants = [ civ8_laibon_african_flying02.kf ]
+									AnimVariantsWeights = [ 0.5 ]
+		}
+		{	StateName = ThrownDeath	AnimName = civ8_laibon_african_ground_death01.kf }
+	]
+
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.62
+		zOffset = -9.18
+		scale = 2.94
+		angle = 23.68
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//	The Maasai Hero
+//------------------------------------------------------------------------------------------------
+UnitType MaasaiHero
+{
+	icon = icon_unit_machinegunner
+	parent = HumanNoConvert
+	properties {
+		rps = HeavyInfantry
+		DisplayName = text_maasai_hero_name
+		DisplayNameScenEdit = text_maasai_hero_name
+		VerboseTooltip = text_maasai_hero_desc
+		HitPoints = 2000
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+	}
+	sounds {	sndCmdMove = ["v_leader_mil_02_com01" "v_leader_mil_02_com02"]
+			sndCmdAttack = ["v_leader_mil_02_com01" "v_leader_mil_02_com02" "v_leader_mil_02_spe01"]
+			sndSelection = ["v_leader_mil_02_sel01"]
+	}
+	abilities = [
+		Attack { range = 9.0; reloadTime = 1.5; applyDamageTime = 0.5; damage = 15 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 10.0 }
+		Move {speed = 1.8; angSpeed = 720}
+		SpecialPower {
+			effects = [
+				Rally
+			]	
+		}
+		AreaEffect {
+			effects = [ 
+				HighFervor
+				HighMorale		
+				Loyalty
+			]
+		}
+	]
+	attributes = [
+		CanJoinHeroArmy
+	]
+}
+
+UnitModel MaasaiHero
+{
+	ScaleType	= kScaleHero
+	Parent		= BaseHuman
+	DefaultModel 	= LHI11_machinegunner.nif
+	ChildNames 	= [ UnitShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_machinegunner_idle01.KF	  
+								AnimVariants = [ sh_machinegunner_idle02.KF sh_machinegunner_idle03.KF sh_machinegunner_idle04.KF ]
+								AnimVariantsWeights = [ 0.05 0.05 0.05 ]
+		}
+		{	StateName = UnpackedIdle	AnimName = sh_machinegunner_unpackidle01.KF   }
+		{ 	StateName = Walk			AnimName = sh_machinegunner_walk01.KF	  }
+		{ 	StateName = Run				AnimName = sh_machinegunner_jog01.KF	  }
+		{ 	StateName = Attack1			AnimName = sh_machinegunner_attack02.KF 
+										//	AnimVariants = [ sh_machinegunner_attack01.KF  ]
+										//	AnimVariantsWeights = [ 0.5 ]
+			TextKeys = [ { Name = PLAY_SOUND Data = fx_machine_gun_fire KeyTime = 0.16 } ]
+		}
+		{ 	StateName = CaptureAttack1	AnimName = sh_machinegunner_capture01.kf
+										AnimVariants = [ sh_machinegunner_capture02.kf ]
+										AnimVariantsWeights = [0.3]
+		} 
+		{ 	StateName = Pack	AnimName = sh_machinegunner_pack02.KF  
+								//	AnimVariants = [ sh_machinegunner_pack01.KF ]
+								//	AnimVariantsWeights = [ 0.5 ] 
+		}
+		{ 	StateName = Unpack	AnimName = sh_machinegunner_unpack02.KF
+								//	AnimVariants = [ sh_machinegunner_unpack01.KF ]
+								//	AnimVariantsWeights = [ 0.5 ] 
+		}                                
+		{	StateName = PackedDeath	AnimName = sh_machinegunner_death04.KF		}                      
+		{ 	StateName = Death		AnimName = sh_machinegunner_unpackdeath01.KF	}
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	Kesho Mwizi
+//------------------------------------------------------------------------------------------------
+UnitType Kesho
+{
+	icon = icon_unit_machinegunner
+	parent = HumanNoConvert
+	properties {
+		rps = HeavyInfantry
+		DisplayName = text_maasai_warlord_name
+		DisplayNameScenEdit = text_maasai_warlord_name
+		VerboseTooltip = text_maasai_warlord_name
+		HitPoints = 4000
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+	}
+	sounds {	sndCmdMove = ["v_leader_mil_02_com01" "v_leader_mil_02_com02"]
+			sndCmdAttack = ["v_leader_mil_02_com01" "v_leader_mil_02_com02" "v_leader_mil_02_spe01"]
+			sndSelection = ["v_leader_mil_02_sel01"]
+	}
+	abilities = [
+		Attack { range = 9.0; reloadTime = 1.5; applyDamageTime = 0.5; damage = 15 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 10.0 }
+		Move {speed = 1.8; angSpeed = 720}
+		SpecialPower {
+			effects = [
+				Rally
+			]	
+		}
+		AreaEffect {
+			effects = [ 
+				HighFervor
+				HighMorale		
+				Discipline
+				Loyalty
+				Nationalism
+			]
+		}
+	]
+	attributes = [
+		CanJoinHeroArmy
+	]
+}
+
+UnitModel Kesho
+{
+	ScaleType	= kScaleHero
+	Parent		= BaseHuman
+	DefaultModel 	= LHI11_machinegunner.nif
+	ChildNames 	= [ UnitShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_machinegunner_idle01.KF	  
+								AnimVariants = [ sh_machinegunner_idle02.KF sh_machinegunner_idle03.KF sh_machinegunner_idle04.KF ]
+								AnimVariantsWeights = [ 0.05 0.05 0.05 ]
+		}
+		{	StateName = UnpackedIdle	AnimName = sh_machinegunner_unpackidle01.KF   }
+		{ 	StateName = Walk			AnimName = sh_machinegunner_walk01.KF	  }
+		{ 	StateName = Run				AnimName = sh_machinegunner_jog01.KF	  }
+		{ 	StateName = Attack1			AnimName = sh_machinegunner_attack02.KF 
+										//	AnimVariants = [ sh_machinegunner_attack01.KF  ]
+										//	AnimVariantsWeights = [ 0.5 ]
+			TextKeys = [ { Name = PLAY_SOUND Data = fx_machine_gun_fire KeyTime = 0.16 } ]
+		}
+		{ 	StateName = CaptureAttack1	AnimName = sh_machinegunner_capture01.kf
+										AnimVariants = [ sh_machinegunner_capture02.kf ]
+										AnimVariantsWeights = [0.3]
+		} 
+		{ 	StateName = Pack	AnimName = sh_machinegunner_pack02.KF  
+								//	AnimVariants = [ sh_machinegunner_pack01.KF ]
+								//	AnimVariantsWeights = [ 0.5 ] 
+		}
+		{ 	StateName = Unpack	AnimName = sh_machinegunner_unpack02.KF
+								//	AnimVariants = [ sh_machinegunner_unpack01.KF ]
+								//	AnimVariantsWeights = [ 0.5 ] 
+		}                                
+		{	StateName = PackedDeath	AnimName = sh_machinegunner_death04.KF		}                      
+		{ 	StateName = Death		AnimName = sh_machinegunner_unpackdeath01.KF	}
+	]
+}
+
+//for maasai 2
+// //------------------------------------------------------------------------------------------------
+// //	SHEPHERD (copied from Engineer)
+// //------------------------------------------------------------------------------------------------
+// UnitType Shepherd
+// {
+// 	parent = Citizen
+// 	properties {
+// 		displayName = tx_m2_name_shepherd
+// 		displayNamePlural = tx_m2_name_shepherd_p
+// 		DisplayNameScenEdit = tx_m2_name_shepherd
+// 		VerboseTooltip = tx_m2_name_shepherd_vtt
+// 		hitpoints = 60
+// 	}
+// 	sounds {
+// 		sndCmdMove = ["v_cit_m_ack_01" "v_cit_m_ack_02" "v_cit_m_ack_03" "v_cit_m_ack_04"]
+// 		sndSelection = ["v_cit_m_sel_01" "v_cit_m_sel_02" "v_cit_m_sel_03" "v_cit_m_sel_04"]
+// 		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+//     	}
+// 	icon = icon_unit_engineer
+
+// }
+
+//alredy defined elsewhere
+// UnitModel Engineer
+// {
+// 	Parent = CitizenM
+// 	DefaultModel 		= lsf5_engineer_fe.nif
+// }
+
+// UnitModel Engineer_12
+// {
+// 	Parent = CitizenM
+// 	DefaultModel 		= lsf12_engineer_we.nif
+// }

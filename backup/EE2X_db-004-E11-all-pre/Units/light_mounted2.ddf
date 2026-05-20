@@ -1,0 +1,274 @@
+//------------------------------------------------------------------------------------------------
+//	LIGHT MOUNTED 2 - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightMounted2
+{
+	parent = Helicopter
+	visualName = LightMounted2_13
+	properties {
+		rps = Helicopter
+		SizeX = 1
+		SizeY = 0.7
+		mass = 1
+		HitPoints = 500
+	}
+	abilities = [
+		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0;CanHover = 1 }
+		Attack { range = 7; reloadTime = 2; applyDamageTime = 0; damage = 50; missileName = "GuidedMissile" }
+		LOS { range = 8 }
+	]
+	attributes = [
+		CanJoinHeroArmy
+	]
+}
+
+// Add to mobile units for a blobby ellipsoid shadow
+ShadowData        missileHelicopterShadow_01
+{
+	Flags = (IsMobile | ImmutableBounds)
+	FlatBillboard
+	{
+		TextureFilename = LLM13_MissileHelicopter_shadow.tga
+		WidthScale = 0.9
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+ShadowData        missileHelicopterShadow_02
+{
+	Flags = (IsMobile | ImmutableBounds)
+	FlatBillboard
+	{
+		TextureFilename = llm15_HeavyMissileHelicopter_shadow.tga
+		WidthScale = 0.9
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightMounted2Epoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightMounted2Epoch13Veteran
+{
+	unitType = LightMounted2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightMounted_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightMounted2Epoch13Elite
+{
+	unitType = LightMounted2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+	]
+}
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightMounted2Epoch14Veteran
+{
+	unitType = LightMounted2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightMounted_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightMounted2Epoch14Elite
+{
+	unitType = LightMounted2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+	]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightMounted2Epoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0; missileName = "GuidedMissile";ignoreBlocking = 1; }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightMounted2Epoch15Veteran
+{
+	unitType = LightMounted2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightMounted_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightMounted2Epoch15Elite
+{
+	unitType = LightMounted2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT MOUNTED 2 - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel LightMounted2_13
+{
+	Parent		= BaseHelicopter
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= llm13_missilehelicopter.nif
+      ChildNames 	= [ SelectCircleHelicopter Muzzle_MissHelicopter expl_heli_Tandrill MissileHelicopter_FlyingParts missileHelicopterShadow_01 ]
+	States 		= 
+[
+		{	StateName = Idle	AnimName = llm13_missilehelicopter_idle.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Walk	AnimName = llm13_missilehelicopter_walk.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Attack1	AnimName = llm13_missilehelicopter_attack.kf	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = fx_battle_rocket_launch }
+					]}
+		{ 	StateName = Death	AnimName = llm13_missilehelicopter_death.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					]}
+]
+
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel LightMounted2_14
+{
+	Parent		= BaseHelicopter
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= AH64_APACHE.nif
+	//DefaultModel 	= llm13_blackhawk2.nif
+      ForceScale = 0.150
+      ChildNames 	= [ SelectCircleHelicopter Muzzle_MissHelicopter expl_heli_Tandrill MissileHelicopter_FlyingParts missileHelicopterShadow_01 ]
+	States 		= 
+[
+		{	StateName = Idle	AnimName = llm13_missilehelicopter_idle.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Walk	AnimName = llm13_missilehelicopter_walk.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Attack1	AnimName = llm13_missilehelicopter_attack.kf	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = fx_battle_rocket_launch }
+					]}
+		{ 	StateName = Death	AnimName = llm13_missilehelicopter_death.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					]}
+]
+
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel LightMounted2_15
+{
+	Parent		= BaseHelicopter
+	DefaultModel 	= LLM15_HeavyMissileHelicopter.nif
+	ScaleType 	= kScaleVehicle
+	ChildNames 	= [ SelectCircleHelicopter Muzzle_MissHelicopter expl_heli_Tandrill HeavyMissHeli_FlyingParts missileHelicopterShadow_02 ]
+	States 		= 
+		[
+		{	StateName = Idle		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Walk		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Attack1	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = fx_battle_rocket_launch }
+					]}
+		{ 	StateName = Death		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					]}
+]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.05
+		zOffset = 0.26
+		scale = 1.53
+		angle = 42.63
+	}
+
+}
+
+//------------------------------------------------
+//	Helicopter E3 Demo
+//------------------------------------------------
+UnitModel HelicopterE3Demo
+{
+	Parent		= BaseHelicopter
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= LLM13_MissileHelicopter.nif
+	States 		= 
+[
+		{	StateName = Idle	AnimName = llm13_missilehelicopter_idle.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Walk	AnimName = llm13_missilehelicopter_walk.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Attack1	AnimName = llm13_missilehelicopter_attack.kf	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = fx_battle_rocket_launch }
+					]}
+		{ 	StateName = Death	AnimName = llm13_missilehelicopter_death.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					]}
+]
+	ChildNames 		= [ TheHealthBar expl_heli_Tandrill SelectCircleHelicopter Muzzle_MissHelicopter missileHelicopterShadow_02 ]
+}

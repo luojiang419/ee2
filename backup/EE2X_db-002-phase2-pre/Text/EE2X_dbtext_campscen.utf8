@@ -1,0 +1,26 @@
+﻿// NAME,TEXT
+
+// MAP NAMES
+//EXAMPLE: tx_mpnm_bnile,"""Battle for the Nile"""
+
+
+// CAMPAIGNS,
+//EXAMPLE: text_camp_amer_name,"""American"""
+//EXAMPLE: text_camp_amer_desc,"""Campaign Description:\n\nAs the 19th century gave way to the 20th, the United States was beginning to realize that it was no longer a second rate power in the world. Not only would it begin to play an important role on the world stage, it would soon come to dominate it. Along the way, its commitment to liberty and peace would be sorely tested, but it would be the United States who would be the uncontested leader as the world moved into the 21st century. The challenges that awaited it there, however, would dramatically prove just how lonely it is at the top."""
+
+text_camp_egypt_name,"""埃及"""
+text_camp_egypt_desc,"""战役说明：\n\n从历史一开始，埃及就想办法对抗大自然的力量，而且对邻国不友善以建立历史上最伟大的一个文明。这一个战役是要重建古埃及历史的荣景，也就是在赫拉克莱奥波利坦王国的艰困时期对抗饥荒、盗贼以及强大底比斯王国的势力。"""
+text_camp_russian_name,"""俄国"""
+text_camp_russian_desc,"""战役说明：\n\n拿破仑·波拿巴的兴衰是历史上知名的一段故事，但是较不为人知的是有关他的敌人与朋友的故事。在拿破仑时期与俄国之间的故事是一段让法国皇帝又爱又恨的故事。说的更清楚一点，那就是俄国沙皇亚历山大，他非常的狡猾而且足智多谋，不只让他的国家生存下来，而且还从法国中独立出来，但是最后拿破仑还是难逃被围勦的局面，而结束了拿破仑对于欧洲大陆的暴政统治。"""
+text_camp_ee2x_tpoint_name,"""EE2X转折点"""
+text_camp_ee2x_tpoint_desc,"""转折点说明：\n\n转折点是重现历史上一些决定性的战役，玩家可以任选一方进行游戏。\n\n你想要扭转历史吗？"""
+
+
+
+
+// EGYPT, =MOVED TO INDIVIDUAL FILES
+// 1,
+// 2,
+// 3,
+// 4,
+// 5,

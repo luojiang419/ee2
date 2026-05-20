@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>地球帝国2 — E11-E15 单位克制关系图</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Microsoft YaHei','PingFang SC',sans-serif; background:#1a1a2e; color:#e0e0e0; min-height:100vh; }
+.header { background:linear-gradient(135deg,#16213e,#0f3460); padding:20px; text-align:center; border-bottom:2px solid #e94560; }
+.header h1 { font-size:24px; color:#fff; margin-bottom:5px; }
+.header p { font-size:13px; color:#8899aa; }
+
+/* Tabs */
+.tabs { display:flex; justify-content:center; gap:4px; padding:15px 20px; background:#16213e; flex-wrap:wrap; }
+.tab { padding:12px 32px; border:none; background:#1a1a2e; color:#8899aa; cursor:pointer; font-size:16px; font-weight:bold; border-radius:6px 6px 0 0; transition:all .2s; border:1px solid transparent; }
+.tab:hover { color:#fff; background:#0f3460; }
+.tab.active { background:#e94560; color:#fff; border-color:#e94560; }
+
+/* Legend */
+.legend { display:flex; justify-content:center; gap:25px; padding:12px; background:#16213e; flex-wrap:wrap; font-size:13px; }
+.legend-item { display:flex; align-items:center; gap:6px; }
+.leg-line { display:inline-block; width:40px; height:4px; border-radius:2px; }
+.leg-strong { background:#ff4444; }
+.leg-moderate { background:#ff8800; }
+.leg-soft { background:#ffcc00; }
+.leg-weak { background:#666; }
+
+/* Main */
+.main { padding:20px; max-width:1400px; margin:0 auto; }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+/* Domain section */
+.domain { margin-bottom:25px; }
+.domain-title { font-size:16px; font-weight:bold; padding:8px 14px; border-radius:6px; margin-bottom:12px; display:inline-block; }
+.domain-land { background:#2d5a27; color:#8fdf82; }
+.domain-sea { background:#1a3a5c; color:#82c8f0; }
+.domain-air { background:#5a3a6e; color:#d4a0f0; }
+.domain-defense { background:#5a4a1a; color:#f0d482; }
+
+/* Unit cards */
+.units-row { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px; }
+.unit-card { padding:8px 14px; border-radius:6px; font-size:13px; text-align:center; min-width:100px; position:relative; border:1px solid rgba(255,255,255,.15); transition:transform .15s; }
+.unit-card:hover { transform:translateY(-2px); z-index:10; }
+.unit-card .name { font-weight:bold; display:block; }
+.unit-card .type { font-size:10px; opacity:.7; display:block; }
+.unit-card .rps { font-size:9px; opacity:.5; display:block; margin-top:2px; }
+
+.card-land { background:linear-gradient(135deg,#2d5a27,#1a3d15); }
+.card-sea { background:linear-gradient(135deg,#1a3a5c,#0d2240); }
+.card-air { background:linear-gradient(135deg,#5a3a6e,#2d1a40); }
+.card-defense { background:linear-gradient(135deg,#5a4a1a,#3d2a0d); }
+
+/* Counter flow arrows section */
+.flow-section { margin:20px 0; padding:15px; background:rgba(255,255,255,.03); border-radius:10px; border:1px solid rgba(255,255,255,.08); }
+.flow-title { font-size:14px; font-weight:bold; margin-bottom:12px; color:#ccc; }
+.flow-list { display:flex; flex-wrap:wrap; gap:8px; }
+.flow-item { display:flex; align-items:center; gap:6px; font-size:12px; padding:5px 10px; border-radius:4px; background:rgba(0,0,0,.3); }
+.flow-arrow { font-size:16px; font-weight:bold; }
+.flow-strong { color:#ff4444; }
+.flow-moderate { color:#ff8800; }
+.flow-soft { color:#ffcc00; }
+.flow-unit { padding:2px 6px; border-radius:3px; font-weight:bold; font-size:11px; }
+
+/* Epoch info */
+.epoch-info { text-align:center; padding:8px; margin-bottom:15px; font-size:12px; color:#667; }
+.epoch-info span { color:#e94560; font-weight:bold; }
+
+/* Responsive */
+@media (max-width:768px) {
+  .units-row { gap:6px; }
+  .unit-card { min-width:80px; padding:6px 10px; font-size:11px; }
+  .flow-list { gap:4px; }
+  .flow-item { font-size:10px; padding:3px 6px; }
+}
+
+/* Tooltip */
+.tooltip { display:none; position:absolute; bottom:100%; left:50%; transform:translateX(-50%); background:#000; color:#fff; padding:6px 12px; border-radius:4px; font-size:11px; white-space:nowrap; z-index:100; pointer-events:none; }
+.unit-card:hover .tooltip { display:block; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>地球帝国2 — 单位克制关系图</h1>
+  <p>E11-E15 各时代 海·陆·空·防御 四维克制体系 | 箭头方向 = 攻击方→防御方 | 颜色深浅 = 克制强度</p>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('E11')">E11 工业时代</button>
+  <button class="tab" onclick="switchTab('E12')">E12 二战时代</button>
+  <button class="tab" onclick="switchTab('E13')">E13 冷战时代</button>
+  <button class="tab" onclick="switchTab('E14')">E14 现代</button>
+  <button class="tab" onclick="switchTab('E15')">E15 近未来</button>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="leg-line leg-strong"></span> 强克制 (200-400%伤害)</div>
+  <div class="legend-item"><span class="leg-line leg-moderate"></span> 中克制 (150-200%伤害)</div>
+  <div class="legend-item"><span class="leg-line leg-soft"></span> 弱克制 (120-150%伤害)</div>
+  <div class="legend-item"><span class="leg-line leg-weak"></span> 被压制 (30-75%伤害)</div>
+</div>
+
+<div class="main" id="main"></div>
+
+<script>
+// ==================== UNIT DATA ====================
+const data = {};
+
+// --- E11 ---
+data.E11 = {
+  label:'E11 工业/早期现代',
+  land:[
+    {id:'LM',name:'装甲车/APC',type:'LightMounted',rps:'反步兵·侦察',css:'card-land'},
+    {id:'LT',name:'轻型坦克',type:'HeavyMounted',rps:'反装甲车·骚扰',css:'card-land'},
+    {id:'MBT',name:'主战坦克',type:'HeavyMounted',rps:'全能战线核心',css:'card-land'},
+    {id:'INF',name:'反坦步兵',type:'HeavyInfantry2',rps:'反坦歼·反建筑',css:'card-land'},
+    {id:'ART',name:'自行火炮',type:'HeavyArtillery',rps:'远程曲射·反建筑',css:'card-land'},
+    {id:'AAA',name:'自行防空',type:'AntiAircraft',rps:'反空军',css:'card-land'},
+  ],
+  sea:[
+    {id:'DD',name:'驱逐舰',type:'Destroyer',rps:'反潜·护卫',css:'card-sea'},
+    {id:'BB',name:'巡洋舰/战列',type:'Battleship',rps:'反驱逐舰·主力',css:'card-sea'},
+    {id:'CV',name:'航空母舰',type:'Carrier',rps:'舰载机平台',css:'card-sea'},
+    {id:'SUB',name:'潜艇',type:'Submarine',rps:'反主力舰·反航母',css:'card-sea'},
+    {id:'AAS',name:'防空护卫舰',type:'Aaship',rps:'纯防空·对海极弱',css:'card-sea'},
+  ],
+  air:[
+    {id:'ASF',name:'制空战斗机',type:'AirSuperiority',rps:'反轰炸机·制空',css:'card-air'},
+    {id:'MRF',name:'多用途战机',type:'FighterBomber',rps:'对地·对舰',css:'card-air'},
+    {id:'NAF',name:'舰载机',type:'AirSuperiority',rps:'航母搭载·制空',css:'card-air'},
+    {id:'BOM',name:'战略轰炸机',type:'Bomber',rps:'反舰·反坦克·反建筑',css:'card-air'},
+  ],
+  defense:[
+    {id:'FOR',name:'要塞',type:'Fortress',rps:'反步兵·反轻甲',css:'card-defense'},
+    {id:'CD',name:'海岸防御炮',type:'CoastalDefense',rps:'反水面舰艇',css:'card-defense'},
+    {id:'AD',name:'防空阵地',type:'AirDefense',rps:'反所有空军',css:'card-defense'},
+  ],
+  flows:[
+    // 陆军内部
+    ['LM','INF',2,'装甲车→步兵 (1.8x)'],['LT','LM',2,'轻坦→装甲车 (2.0x)'],['MBT','LT',2,'主战→轻坦 (1.6x)'],
+    ['INF','ART',3,'步兵→坦歼/火炮 (2.0x)'],['ART','MBT',2,'坦歼→主战 (1.5x)'],
+    ['AAA','ASF',3,'自行防空→战斗机 (2.5x)'],['AAA','BOM',3,'自行防空→轰炸机 (3.5x)'],['AAA','MRF',3,'自行防空→多用途 (2.5x)'],
+    // 空军内部
+    ['ASF','BOM',3,'战斗机→轰炸机 (3.5x)'],['ASF','MRF',2,'战斗机→多用途 (2.0x)'],
+    // 空军 vs 陆军
+    ['BOM','MBT',2,'轰炸机→坦克 (2.5x)'],['BOM','ART',3,'轰炸机→火炮 (3.0x)'],['ASF','AAA',2,'战斗机→自行防空 (2.0x)'],
+    // 空军 vs 海军
+    ['BOM','BB',3,'轰炸机→主力舰 (2.5x)'],['BOM','CV',3,'轰炸机→航母 (2.0x)'],['BOM','DD',2,'轰炸机→驱逐舰 (2.0x)'],
+    ['MRF','DD',2,'多用途→小型舰 (1.8x)'],
+    // 海军内部
+    ['DD','SUB',3,'驱逐舰→潜艇 (2.5x)'],['BB','DD',2,'巡洋舰→驱逐舰 (2.0x)'],
+    ['SUB','BB',3,'潜艇→主力舰 (3.0x)'],['SUB','CV',3,'潜艇→航母 (3.5x)'],
+    // 防空护卫舰
+    ['AAS','ASF',3,'防空舰→战斗机 (3.0x)'],['AAS','BOM',3,'防空舰→轰炸机 (4.0x)'],['AAS','MRF',3,'防空舰→多用途 (3.0x)'],
+    // 建筑
+    ['FOR','INF',2,'要塞→步兵 (2.0x)'],['FOR','LM',2,'要塞→装甲车 (2.0x)'],
+    ['CD','BB',3,'海岸炮→主力舰 (3.0x)'],['CD','DD',3,'海岸炮→驱逐舰 (3.0x)'],['CD','CV',2,'海岸炮→航母 (2.0x)'],
+    ['AD','ASF',3,'防空阵地→战斗机 (3.5x)'],['AD','BOM',3,'防空阵地→轰炸机 (4.0x)'],['AD','MRF',3,'防空阵地→多用途 (3.0x)'],
+    // 轰炸机 vs 建筑
+    ['BOM','FOR',3,'轰炸机→要塞 (2.5x)'],['BOM','CD',2,'轰炸机→海岸炮 (1.5x)'],
+  ]
+};
+
+// --- E12 (WWII) ---
+data.E12 = {
+  label:'E12 二战时代',
+  land:[
+    {id:'LM12',name:'装甲车/侦察',type:'M3/BT2',rps:'快速侦察·反步兵',css:'card-land'},
+    {id:'LT12',name:'轻型坦克',type:'M24/BT7',rps:'反装甲车·骚扰',css:'card-land'},
+    {id:'MBT12',name:'中型/主战',type:'M4/KV1/T-34',rps:'全能战线核心',css:'card-land'},
+    {id:'HT12',name:'重型坦克',type:'IS2/IS3/KV2',rps:'突破·反中坦',css:'card-land'},
+    {id:'TD12',name:'坦克歼击车',type:'M10/M18/SU100',rps:'远程狙杀重坦',css:'card-land'},
+    {id:'INF12',name:'反坦步兵',type:'HeavyInfantry2',rps:'反坦歼·反建筑',css:'card-land'},
+    {id:'ART12',name:'自行火炮',type:'HeavyArtillery',rps:'远程曲射',css:'card-land'},
+  ],
+  sea:[
+    {id:'DD12',name:'驱逐舰',type:'Destroyer',rps:'反潜',css:'card-sea'},
+    {id:'BB12',name:'战列舰',type:'Battleship',rps:'主力决战',css:'card-sea'},
+    {id:'CV12',name:'航空母舰',type:'Carrier',rps:'舰载机平台',css:'card-sea'},
+    {id:'SUB12',name:'潜艇',type:'Submarine',rps:'反主力舰',css:'card-sea'},
+    {id:'AAS12',name:'防空护卫舰',type:'Aaship',rps:'纯防空',css:'card-sea'},
+  ],
+  air:[
+    {id:'ASF12',name:'制空战斗机',type:'AirSuperiority',rps:'反轰炸机',css:'card-air'},
+    {id:'MRF12',name:'战斗轰炸机',type:'FighterBomber',rps:'对地·对舰',css:'card-air'},
+    {id:'NAF12',name:'舰载机',type:'AirSuperiority',rps:'航母搭载',css:'card-air'},
+    {id:'BOM12',name:'战略轰炸机',type:'Bomber',rps:'反舰·反坦',css:'card-air'},
+  ],
+  defense:[
+    {id:'FOR12',name:'要塞',type:'Fortress',rps:'反步兵',css:'card-defense'},
+    {id:'CD12',name:'海岸防御炮',type:'CoastalDefense',rps:'反水面舰',css:'card-defense'},
+    {id:'AD12',name:'防空阵地',type:'AirDefense',rps:'反空军',css:'card-defense'},
+  ],
+  flows:[
+    ['LM12','INF12',2,'装甲车→步兵 (1.8x)'],['LT12','LM12',2,'轻坦→装甲车 (2.0x)'],
+    ['MBT12','LT12',2,'中坦→轻坦 (1.6x)'],['HT12','MBT12',2,'重坦→中坦 (1.5x)'],
+    ['TD12','HT12',3,'坦歼→重坦 (2.5x)'],['TD12','MBT12',2,'坦歼→中坦 (2.0x)'],
+    ['INF12','TD12',3,'步兵→坦歼 (2.0x)'],['INF12','FOR12',2,'步兵→要塞 (1.8x)'],
+    ['ART12','FOR12',3,'火炮→要塞 (2.5x)'],
+    ['ASF12','BOM12',3,'战斗机→轰炸机 (3.5x)'],['ASF12','MRF12',2,'战斗机→多用途 (2.0x)'],
+    ['BOM12','BB12',3,'轰炸机→战列舰 (2.5x)'],['BOM12','CV12',3,'轰炸机→航母 (2.0x)'],
+    ['BOM12','HT12',2,'轰炸机→重坦 (2.5x)'],['BOM12','ART12',3,'轰炸机→火炮 (3.0x)'],
+    ['MRF12','DD12',2,'多用途→驱逐舰 (1.8x)'],
+    ['DD12','SUB12',3,'驱逐舰→潜艇 (2.5x)'],['BB12','DD12',2,'战列舰→驱逐舰 (2.0x)'],
+    ['SUB12','BB12',3,'潜艇→战列舰 (3.0x)'],['SUB12','CV12',3,'潜艇→航母 (3.5x)'],
+    ['AAS12','ASF12',3,'防空舰→战斗机 (3.0x)'],['AAS12','BOM12',3,'防空舰→轰炸机 (4.0x)'],
+    ['FOR12','INF12',2,'要塞→步兵 (2.0x)'],['FOR12','LM12',2,'要塞→装甲车 (2.0x)'],
+    ['CD12','BB12',3,'海岸炮→战列舰 (3.0x)'],['CD12','DD12',3,'海岸炮→驱逐舰 (3.0x)'],
+    ['AD12','ASF12',3,'防空阵地→战斗机 (3.5x)'],['AD12','BOM12',3,'防空阵地→轰炸机 (4.0x)'],
+    ['BOM12','FOR12',3,'轰炸机→要塞 (2.5x)'],
+  ]
+};
+
+// --- E13 (Cold War) ---
+data.E13 = {
+  label:'E13 冷战时代',
+  land:[
+    {id:'LM13',name:'装甲车/APC',type:'Stryker/BTR80',rps:'快速运输·反步兵',css:'card-land'},
+    {id:'LT13',name:'轻型坦克',type:'M48/T-62/Type62',rps:'反装甲车',css:'card-land'},
+    {id:'MBT13',name:'主战坦克',type:'M60/T-64/ZTZ',rps:'全能战线核心',css:'card-land'},
+    {id:'IFV13',name:'步兵战车IFV',type:'Bradley/BMP3',rps:'伴随步兵·火力支援',css:'card-land'},
+    {id:'AM13',name:'两栖坦克',type:'ZTQ15/T90A_Naval',rps:'两栖突击',css:'card-land'},
+    {id:'INF13',name:'反坦步兵',type:'HeavyInfantry2',rps:'反坦歼·反建筑',css:'card-land'},
+    {id:'ART13',name:'自行火炮',type:'HeavyArtillery',rps:'远程曲射',css:'card-land'},
+    {id:'AAA13',name:'自行防空',type:'AntiAircraft',rps:'反空军',css:'card-land'},
+    {id:'ROCK13',name:'火箭炮',type:'LightArtillery2',rps:'饱和火力',css:'card-land'},
+  ],
+  sea:[
+    {id:'DD13',name:'驱逐舰',type:'Destroyer',rps:'反潜·护卫',css:'card-sea'},
+    {id:'BB13',name:'巡洋舰',type:'Battleship',rps:'主力决战',css:'card-sea'},
+    {id:'CV13',name:'航空母舰',type:'Carrier',rps:'舰载机平台',css:'card-sea'},
+    {id:'SUB13',name:'核潜艇',type:'Submarine',rps:'反主力·反航母',css:'card-sea'},
+    {id:'AAS13',name:'防空护卫舰',type:'Aaship',rps:'纯防空',css:'card-sea'},
+  ],
+  air:[
+    {id:'ASF13',name:'制空战斗机',type:'F-15/Su-27/J-11',rps:'反轰炸机·制空',css:'card-air'},
+    {id:'MRF13',name:'多用途战机',type:'F-16/Su-25/JH-7',rps:'对地·对舰',css:'card-air'},
+    {id:'NAF13',name:'舰载机',type:'F-14/MiG-29K/J-15',rps:'航母搭载·制空',css:'card-air'},
+    {id:'BOM13',name:'战略轰炸机',type:'B-1B/Tu-22M/H-6K',rps:'反舰·反坦',css:'card-air'},
+    {id:'HEL13',name:'武装直升机',type:'AH-64/Mi-28/WZ-10',rps:'反坦克·火力支援',css:'card-air'},
+  ],
+  defense:[
+    {id:'FOR13',name:'要塞',type:'Fortress',rps:'反步兵·反轻甲',css:'card-defense'},
+    {id:'CD13',name:'海岸防御炮',type:'CoastalDefense',rps:'反水面舰',css:'card-defense'},
+    {id:'AD13',name:'防空阵地',type:'AirDefense',rps:'反空军',css:'card-defense'},
+    {id:'MD13',name:'反导阵地',type:'MissileDefense',rps:'反战略导弹',css:'card-defense'},
+  ],
+  flows:[
+    ['LM13','INF13',2,'装甲车→步兵 (1.8x)'],['LT13','LM13',2,'轻坦→装甲车 (2.0x)'],
+    ['MBT13','LT13',2,'主战→轻坦 (1.6x)'],['IFV13','LM13',2,'IFV→装甲车 (1.5x)'],
+    ['MBT13','IFV13',2,'主战→IFV (2.0x)'],['AM13','LT13',2,'两栖坦→轻坦 (1.5x)'],
+    ['INF13','IFV13',2,'步兵→IFV (2.0x)'],['ART13','FOR13',3,'火炮→要塞 (2.5x)'],
+    ['ROCK13','FOR13',3,'火箭炮→要塞 (3.0x)'],['ROCK13','ART13',2,'火箭炮→火炮 (1.8x)'],
+    ['AAA13','ASF13',3,'自行防空→战斗机 (2.5x)'],['AAA13','BOM13',3,'自行防空→轰炸机 (3.5x)'],
+    ['AAA13','HEL13',3,'自行防空→直升机 (3.0x)'],['AAA13','MRF13',2,'自行防空→多用途 (2.5x)'],
+    ['ASF13','BOM13',3,'战斗机→轰炸机 (3.5x)'],['ASF13','MRF13',2,'战斗机→多用途 (2.0x)'],
+    ['ASF13','HEL13',3,'战斗机→直升机 (2.5x)'],
+    ['HEL13','MBT13',3,'武直→坦克 (2.5x)'],['HEL13','HT12',3,'武直→重坦 (2.5x)'],
+    ['BOM13','BB13',3,'轰炸机→主力舰 (2.5x)'],['BOM13','CV13',3,'轰炸机→航母 (2.0x)'],
+    ['BOM13','MBT13',2,'轰炸机→坦克 (2.5x)'],['BOM13','CD13',2,'轰炸机→海岸炮 (1.5x)'],
+    ['MRF13','DD13',2,'多用途→驱逐舰 (1.8x)'],
+    ['DD13','SUB13',3,'驱逐舰→潜艇 (2.5x)'],['BB13','DD13',2,'巡洋舰→驱逐舰 (2.0x)'],
+    ['SUB13','BB13',3,'潜艇→主力舰 (3.0x)'],['SUB13','CV13',3,'潜艇→航母 (3.5x)'],
+    ['AAS13','ASF13',3,'防空舰→战斗机 (3.0x)'],['AAS13','BOM13',3,'防空舰→轰炸机 (4.0x)'],
+    ['AAS13','HEL13',3,'防空舰→直升机 (3.0x)'],
+    ['FOR13','INF13',2,'要塞→步兵 (2.0x)'],['FOR13','LM13',2,'要塞→装甲车 (2.0x)'],
+    ['CD13','BB13',3,'海岸炮→主力舰 (3.0x)'],['CD13','DD13',3,'海岸炮→驱逐舰 (3.0x)'],
+    ['CD13','CV13',2,'海岸炮→航母 (2.0x)'],
+    ['AD13','ASF13',3,'防空阵地→战斗机 (3.5x)'],['AD13','BOM13',3,'防空阵地→轰炸机 (4.0x)'],
+    ['AD13','HEL13',3,'防空阵地→直升机 (3.5x)'],
+    ['BOM13','FOR13',3,'轰炸机→要塞 (2.5x)'],['ASF13','AAA13',2,'战斗机→自行防空 (2.0x)'],
+  ]
+};
+
+// --- E14 (Modern) ---
+data.E14 = {
+  label:'E14 现代',
+  land:[
+    {id:'LM14',name:'装甲车/APC',type:'Stryker/BTR80/ZSL92',rps:'快速运输·反步兵',css:'card-land'},
+    {id:'LT14',name:'轻型坦克',type:'Am_M1A1/t80u/T99A',rps:'反装甲车·骚扰',css:'card-land'},
+    {id:'MBT14',name:'主战坦克',type:'M1A2/T90M/99A',rps:'全能战线核心',css:'card-land'},
+    {id:'IFV14',name:'步兵战车IFV',type:'Bradley/BMP3',rps:'伴随步兵·火力支援',css:'card-land'},
+    {id:'INST14',name:'反坦步兵',type:'标枪/短号/红箭',rps:'反坦歼·反建筑',css:'card-land'},
+    {id:'ART14',name:'自行火炮',type:'M109/2S35/PLZ-05',rps:'远程曲射',css:'card-land'},
+    {id:'AAA14',name:'野战防空',type:'THAAD/S-400/HQ-9',rps:'反空军',css:'card-land'},
+    {id:'ROCK14',name:'远程火箭炮',type:'HIMARS/龙卷风/PHL-03',rps:'饱和火力',css:'card-land'},
+  ],
+  sea:[
+    {id:'DD14',name:'驱逐舰',type:'052D/阿利伯克/无畏',rps:'反潜·护卫',css:'card-sea'},
+    {id:'BB14',name:'巡洋舰',type:'055/提康德罗加/基洛夫',rps:'主力决战',css:'card-sea'},
+    {id:'CV14',name:'航空母舰',type:'辽宁/尼米兹/库兹涅佐夫',rps:'舰载机平台',css:'card-sea'},
+    {id:'SUB14',name:'核潜艇',type:'093/弗吉尼亚/亚森',rps:'反主力·反航母',css:'card-sea'},
+    {id:'AAS14',name:'防空护卫舰',type:'054A/FFG/22350',rps:'纯防空·对海极弱',css:'card-sea'},
+  ],
+  air:[
+    {id:'ASF14',name:'制空战斗机',type:'J-20/F-22/Su-57',rps:'隐身制空·反轰炸机',css:'card-air'},
+    {id:'MRF14',name:'多用途战机',type:'J-16/F-35/Su-35',rps:'对地·对舰',css:'card-air'},
+    {id:'NAF14',name:'舰载机',type:'J-15/F-35C/MiG-29K',rps:'航母搭载·制空',css:'card-air'},
+    {id:'BOM14',name:'隐身轰炸机',type:'H-20/B-2/Tu-160',rps:'反舰·反坦·突防',css:'card-air'},
+    {id:'HEL14',name:'武装直升机',type:'WZ-10/AH-64E/Ka-52',rps:'反坦克·火力支援',css:'card-air'},
+  ],
+  defense:[
+    {id:'FOR14',name:'要塞',type:'Fortress',rps:'反步兵·反轻甲',css:'card-defense'},
+    {id:'CD14',name:'海岸防御炮',type:'CoastalDefense',rps:'反水面舰',css:'card-defense'},
+    {id:'AD14',name:'防空阵地',type:'AirDefense',rps:'反空军',css:'card-defense'},
+    {id:'MD14',name:'反导阵地',type:'MissileDefense',rps:'反战略导弹',css:'card-defense'},
+    {id:'MG14',name:'机枪碉堡',type:'Machinegunnest',rps:'反步兵',css:'card-defense'},
+  ],
+  flows:[
+    ['LM14','INST14',2,'装甲车→步兵 (1.8x)'],['LT14','LM14',2,'轻坦→装甲车 (2.0x)'],
+    ['MBT14','LT14',2,'主战→轻坦 (1.6x)'],['MBT14','IFV14',2,'主战→IFV (2.0x)'],
+    ['INST14','IFV14',2,'步兵→IFV (2.0x)'],['INST14','ART14',2,'步兵→火炮 (1.8x)'],
+    ['ART14','FOR14',3,'火炮→要塞 (2.5x)'],['ROCK14','FOR14',3,'火箭炮→要塞 (3.0x)'],
+    ['ROCK14','ART14',2,'火箭炮→火炮 (1.8x)'],
+    ['AAA14','ASF14',3,'野战防空→战斗机 (2.5x)'],['AAA14','BOM14',3,'野战防空→轰炸机 (3.5x)'],
+    ['AAA14','HEL14',3,'野战防空→直升机 (3.0x)'],['AAA14','MRF14',2,'野战防空→多用途 (2.5x)'],
+    ['ASF14','BOM14',3,'隐身战机→轰炸机 (3.5x)'],['ASF14','MRF14',2,'战机→多用途 (2.0x)'],
+    ['ASF14','HEL14',3,'战机→直升机 (2.5x)'],
+    ['HEL14','MBT14',3,'武直→坦克 (2.5x)'],
+    ['BOM14','BB14',3,'轰炸机→主力舰 (2.5x)'],['BOM14','CV14',3,'轰炸机→航母 (2.0x)'],
+    ['BOM14','DD14',2,'轰炸机→驱逐舰 (2.0x)'],['BOM14','MBT14',2,'轰炸机→坦克 (2.5x)'],
+    ['BOM14','FOR14',3,'轰炸机→要塞 (2.5x)'],
+    ['MRF14','DD14',2,'多用途→驱逐舰 (1.8x)'],
+    ['DD14','SUB14',3,'驱逐舰→潜艇 (2.5x)'],['BB14','DD14',2,'巡洋舰→驱逐舰 (2.0x)'],
+    ['SUB14','BB14',3,'潜艇→主力舰 (3.0x)'],['SUB14','CV14',3,'潜艇→航母 (3.5x)'],
+    ['AAS14','ASF14',3,'防空舰→战斗机 (3.0x)'],['AAS14','BOM14',3,'防空舰→轰炸机 (4.0x)'],
+    ['AAS14','HEL14',3,'防空舰→直升机 (3.0x)'],
+    ['FOR14','INST14',2,'要塞→步兵 (2.0x)'],['FOR14','LM14',2,'要塞→装甲车 (2.0x)'],
+    ['CD14','BB14',3,'海岸炮→主力舰 (3.0x)'],['CD14','DD14',3,'海岸炮→驱逐舰 (3.0x)'],
+    ['CD14','CV14',2,'海岸炮→航母 (2.0x)'],
+    ['AD14','ASF14',3,'防空阵地→战斗机 (3.5x)'],['AD14','BOM14',3,'防空阵地→轰炸机 (4.0x)'],
+    ['AD14','HEL14',3,'防空阵地→直升机 (3.5x)'],
+    ['ASF14','AAA14',2,'战斗机→野战防空 (2.0x)'],
+    ['MG14','INST14',2,'机枪碉堡→步兵 (2.5x)'],
+  ]
+};
+
+// --- E15 (Near Future) ---
+data.E15 = {
+  label:'E15 近未来',
+  land:[
+    {id:'LM15',name:'装甲车/APC',type:'下一代轮式平台',rps:'快速运输·反步兵',css:'card-land'},
+    {id:'LT15',name:'轻型坦克',type:'无人炮塔轻坦',rps:'反装甲车·侦察',css:'card-land'},
+    {id:'MBT15',name:'主战坦克',type:'第四代MBT',rps:'全能战线核心',css:'card-land'},
+    {id:'IFV15',name:'重型IFV',type:'下一代步战',rps:'伴随步兵·火力支援',css:'card-land'},
+    {id:'INST15',name:'反坦步兵',type:'智能反坦导弹',rps:'反坦歼·反建筑',css:'card-land'},
+    {id:'ART15',name:'自行火炮',type:'电磁/增程火炮',rps:'远程曲射',css:'card-land'},
+    {id:'AAA15',name:'激光防空',type:'定向能防空',rps:'反空军·反导弹',css:'card-land'},
+    {id:'ROCK15',name:'高超音速火箭',type:'战术高超音速',rps:'饱和火力·突防',css:'card-land'},
+  ],
+  sea:[
+    {id:'DD15',name:'驱逐舰',type:'下一代驱逐舰',rps:'反潜·护卫',css:'card-sea'},
+    {id:'BB15',name:'巡洋舰',type:'武库舰/电磁炮',rps:'主力决战',css:'card-sea'},
+    {id:'CV15',name:'航空母舰',type:'福特/004/风暴',rps:'舰载机/无人机平台',css:'card-sea'},
+    {id:'SUB15',name:'核潜艇',type:'下一代核潜艇',rps:'反主力·反航母',css:'card-sea'},
+    {id:'AAS15',name:'防空护卫舰',type:'激光防空舰',rps:'纯防空·对海极弱',css:'card-sea'},
+  ],
+  air:[
+    {id:'ASF15',name:'六代战斗机',type:'NGAD/米格-41/歼-X',rps:'AI协同·反轰炸机',css:'card-air'},
+    {id:'MRF15',name:'忠诚僚机',type:'无人协同平台',rps:'对地·对舰·侦察',css:'card-air'},
+    {id:'NAF15',name:'舰载无人机',type:'航母搭载无人机',rps:'侦察·打击',css:'card-air'},
+    {id:'BOM15',name:'隐身轰炸机',type:'B-21/H-20M/PAK DA',rps:'反舰·反坦·突防',css:'card-air'},
+    {id:'HEL15',name:'高速直升机',type:'倾转旋翼/共轴',rps:'反坦克·快速投送',css:'card-air'},
+  ],
+  defense:[
+    {id:'FOR15',name:'智能要塞',type:'Fortress',rps:'反步兵·反轻甲',css:'card-defense'},
+    {id:'CD15',name:'高超音速岸防',type:'CoastalDefense',rps:'反水面舰',css:'card-defense'},
+    {id:'AD15',name:'激光防空阵',type:'AirDefense',rps:'反空军·反高超',css:'card-defense'},
+    {id:'MD15',name:'天基反导',type:'MissileDefense',rps:'反战略导弹',css:'card-defense'},
+  ],
+  flows:[
+    ['LM15','INST15',2,'装甲车→步兵 (1.8x)'],['LT15','LM15',2,'轻坦→装甲车 (2.0x)'],
+    ['MBT15','LT15',2,'主战→轻坦 (1.6x)'],['MBT15','IFV15',2,'主战→IFV (2.0x)'],
+    ['INST15','IFV15',2,'步兵→IFV (2.0x)'],['INST15','ART15',2,'步兵→火炮 (1.8x)'],
+    ['ART15','FOR15',3,'火炮→要塞 (2.5x)'],['ROCK15','FOR15',3,'高超火箭→要塞 (3.0x)'],
+    ['ROCK15','ART15',2,'火箭→火炮 (1.8x)'],
+    ['AAA15','ASF15',3,'激光防空→六代机 (2.5x)'],['AAA15','BOM15',3,'激光防空→轰炸机 (3.5x)'],
+    ['AAA15','HEL15',3,'激光防空→直升机 (3.0x)'],['AAA15','MRF15',2,'激光防空→僚机 (2.5x)'],
+    ['AAA15','ROCK15',2,'激光防空→高超火箭 (1.5x)'],
+    ['ASF15','BOM15',3,'六代机→轰炸机 (3.5x)'],['ASF15','MRF15',2,'六代机→僚机 (2.0x)'],
+    ['ASF15','HEL15',3,'六代机→直升机 (2.5x)'],
+    ['HEL15','MBT15',3,'武直→坦克 (2.5x)'],
+    ['BOM15','BB15',3,'轰炸机→主力舰 (2.5x)'],['BOM15','CV15',3,'轰炸机→航母 (2.0x)'],
+    ['BOM15','DD15',2,'轰炸机→驱逐舰 (2.0x)'],['BOM15','MBT15',2,'轰炸机→坦克 (2.5x)'],
+    ['BOM15','FOR15',3,'轰炸机→要塞 (2.5x)'],
+    ['MRF15','DD15',2,'僚机→驱逐舰 (1.8x)'],
+    ['DD15','SUB15',3,'驱逐舰→潜艇 (2.5x)'],['BB15','DD15',2,'巡洋舰→驱逐舰 (2.0x)'],
+    ['SUB15','BB15',3,'潜艇→主力舰 (3.0x)'],['SUB15','CV15',3,'潜艇→航母 (3.5x)'],
+    ['AAS15','ASF15',3,'防空舰→六代机 (3.0x)'],['AAS15','BOM15',3,'防空舰→轰炸机 (4.0x)'],
+    ['AAS15','HEL15',3,'防空舰→直升机 (3.0x)'],
+    ['FOR15','INST15',2,'要塞→步兵 (2.0x)'],['FOR15','LM15',2,'要塞→装甲车 (2.0x)'],
+    ['CD15','BB15',3,'海岸炮→主力舰 (3.0x)'],['CD15','DD15',3,'海岸炮→驱逐舰 (3.0x)'],
+    ['CD15','CV15',2,'海岸炮→航母 (2.0x)'],
+    ['AD15','ASF15',3,'激光阵→六代机 (3.5x)'],['AD15','BOM15',3,'激光阵→轰炸机 (4.0x)'],
+    ['AD15','HEL15',3,'激光阵→直升机 (3.5x)'],
+    ['ASF15','AAA15',2,'六代机→激光防空 (2.0x)'],
+    ['MD15','ROCK15',3,'反导阵地→高超火箭 (3.0x)'],
+  ]
+};
+
+// ==================== COLORS ====================
+const strengthColors = {
+  3: {bg:'rgba(255,68,68,.2)',border:'#ff4444',arrow:'#ff4444',label:'强克'},
+  2: {bg:'rgba(255,136,0,.15)',border:'#ff8800',arrow:'#ff8800',label:'克制'},
+  1: {bg:'rgba(255,204,0,.1)',border:'#ffcc00',arrow:'#ffcc00',label:'弱克'},
+};
+
+const domainColors = {
+  land:'#8fdf82',
+  sea:'#82c8f0',
+  air:'#d4a0f0',
+  defense:'#f0d482',
+};
+
+// ==================== RENDER ====================
+function switchTab(epoch) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('content-'+epoch).classList.add('active');
+}
+
+function buildAll() {
+  const main = document.getElementById('main');
+  let html = '';
+  const epochs = ['E11','E12','E13','E14','E15'];
+
+  epochs.forEach((epoch, idx) => {
+    const d = data[epoch];
+    html += `<div class="tab-content${idx===0?' active':''}" id="content-${epoch}">`;
+    html += `<div class="epoch-info">${d.label} — 共 ${d.land.length+d.sea.length+d.air.length+d.defense.length} 个单位，${d.flows.length} 条克制关系</div>`;
+
+    // Unit cards
+    const sections = [
+      {title:'陆军单位',cls:'domain-land',items:d.land},
+      {title:'海军单位',cls:'domain-sea',items:d.sea},
+      {title:'空军单位',cls:'domain-air',items:d.air},
+      {title:'防御建筑',cls:'domain-defense',items:d.defense},
+    ];
+
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">';
+    sections.forEach(sec => {
+      html += `<div class="domain">`;
+      html += `<div class="domain-title ${sec.cls}">${sec.title} (${sec.items.length})</div>`;
+      html += '<div class="units-row">';
+      sec.items.forEach(u => {
+        html += `<div class="unit-card ${u.css}" id="card-${epoch}-${u.id}">
+          <span class="name">${u.name}</span>
+          <span class="type">${u.type}</span>
+          <span class="rps">${u.rps}</span>
+        </div>`;
+      });
+      html += '</div></div>';
+    });
+    html += '</div>';
+
+    // Flow arrows
+    html += '<div class="flow-section">';
+    html += '<div class="flow-title">克制关系流向（攻击方 → 防御方 | 倍率）</div>';
+    html += '<div class="flow-list">';
+
+    // Group flows by strength
+    const flowGroups = {3:[],2:[],1:[]};
+    d.flows.forEach(f => {
+      const strength = f[2];
+      if (flowGroups[strength]) flowGroups[strength].push(f);
+    });
+
+    [3,2,1].forEach(s => {
+      flowGroups[s].forEach(f => {
+        const color = strengthColors[s];
+        // Find unit names
+        const allUnits = [...d.land, ...d.sea, ...d.air, ...d.defense];
+        const fromUnit = allUnits.find(u => u.id === f[0]);
+        const toUnit = allUnits.find(u => u.id === f[1]);
+        if (fromUnit && toUnit) {
+          const domCls = fromUnit.css.replace('card-','');
+          html += `<div class="flow-item" style="border-left:3px solid ${color.border}">
+            <span class="flow-unit" style="background:${fromUnit.css.includes('land')?'#2d5a27':fromUnit.css.includes('sea')?'#1a3a5c':fromUnit.css.includes('air')?'#5a3a6e':'#5a4a1a'}">${fromUnit.name}</span>
+            <span class="flow-arrow flow-${s===3?'strong':s===2?'moderate':'soft'}">→</span>
+            <span class="flow-unit" style="background:${toUnit.css.includes('land')?'#2d5a27':toUnit.css.includes('sea')?'#1a3a5c':toUnit.css.includes('air')?'#5a3a6e':'#5a4a1a'}">${toUnit.name}</span>
+            <span style="color:${color.border};font-size:10px;margin-left:2px">${f[3]}</span>
+          </div>`;
+        }
+      });
+    });
+
+    html += '</div></div>';
+    html += '</div>';
+  });
+
+  main.innerHTML = html;
+}
+
+buildAll();
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+//------------------------------------------------------------------------------------------------
+//	TEST_BUILDING
+//------------------------------------------------------------------------------------------------
+UnitType TestBuildingParent
+{
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 2
+		mass = 1
+	}
+	sounds {
+	}
+	abilities = [
+		LOS { range = 4 }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	TEST - UnitType INFO
+//------------------------------------------------------------------------------------------------
+UnitType TestBuilding
+{
+	parent = TestBuildingParent
+	properties {		
+		displayName = tx_utn_TestBuilding_name	
+		hitpoints = 1
+	}
+	abilities = [
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	TEST - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+UnitModel TestBuilding
+{
+	ScaleType 	= kScaleBuilding
+	DefaultModel 	= bld_fort4.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = }
+		{ 	StateName = Walk	AnimName = }
+		{ 	StateName = Attack1	AnimName = }
+		{ 	StateName = Death	AnimName = }
+			]
+}

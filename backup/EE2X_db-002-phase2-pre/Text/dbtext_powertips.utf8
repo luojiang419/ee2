@@ -1,0 +1,293 @@
+﻿// NAME,TEXT
+tt_power_zero_entry,"""@TEMP@ do not use"""
+
+// ECONOMIC CROWN POWERS,
+tt_power_AirSuperiority,"""航空专业知识"""
+vtt_power_unitinfo_AirSuper,"""这个建筑物生产出来的单位比较廉价，而且建造速度较快。"""
+tt_power_Farming,"""农耕"""
+vtt_power_unitinfo_Farming,"""这个单位能以更快的速度来采集食物。"""
+tt_power_FoodProc,"""食物加工"""
+vtt_power_unitinfo_FoodProc,"""这个单位可以用更快的速度，从粮草堆中采集食物。"""
+tt_power_Immigration,"""移民"""
+vtt_power_unitinfo_Immigration,"""最近抵达的移民会集结在城市中心。"""
+tt_power_IncomeTax,"""税收"""
+vtt_power_unitinfo_IncomeTax,"""这个单位可以用更快的速度采集黄金。"""
+tt_power_Lumbering,"""伐木"""
+vtt_power_unitinfo_Lumbering,"""这个单位以更快的速度采集木材。"""
+tt_power_MarketStabl,"""市场稳定性"""
+vtt_power_unitinfo_MarketStabl,"""在此效果的持续时间内，你透过市场买卖资源时受货币增值或贬值的影响会变小。"""
+tt_power_Quarrying,"""采石"""
+vtt_power_unitinfo_Quarrying,"""这个单位能以更快的速度采集石头。"""
+tt_power_Retooling,"""机件调度"""
+vtt_power_unitinfo_Retooling,"""这个单位能以更快的速度采集特殊资源。"""
+tt_power_RuleWaves,"""潮汐控制"""
+vtt_power_unitinfo_RuleWaves,"""这个建筑物生产出来的单位比较廉价，而且建造速度较快。"""
+tt_power_WarEconomy,"""战争经济"""
+vtt_power_unitinfo_WarEcon,"""这个建筑物生产出来的单位比较廉价，而且建造速度较快。"""
+
+// IMPERIAL CROWN POWERS,
+tt_power_Centralize,"""中央集权制度"""
+vtt_power_unitinfo_Centralize,"""这个建筑物所受到的伤害降低，而且对占领的抵抗能力增强。"""
+tt_power_Drills,"""演习"""
+vtt_power_unitinfo_Drills,"""这个单位移动速度加快。"""
+tt_power_Expansionism,"""扩张主义"""
+vtt_power_unitinfo_Expansion,"""这个单位的人口容量增加了。"""
+tt_power_Exploration,"""探险"""
+vtt_power_unitinfo_Exploration,"""这个单位的速度与视野获得了提升。"""
+tt_power_Fanaticism,"""狂热教义"""
+vtt_power_unitinfo_Fanaticism,"""这个单位对变节免疫。"""
+tt_power_FiringRange,"""射程"""
+vtt_power_unitinfo_FiringRange,"""这个单位的射程增加了。"""
+tt_power_Missionaries,"""传教"""
+vtt_power_unitinfo_Mission_T,"""祭司的生产成本降低。"""
+vtt_power_unitinfo_Mission_P,"""这个单位的移动速度变快，而且有更远的煽动变节范围。"""
+tt_power_Piracy,"""海盗"""
+vtt_power_unitinfo_Piracy,"""如果这艘船是由帝国桂冠的拥有者击沉的话，那么该玩家将可以获得它总资源成本的一定比例。"""
+tt_power_SocMedicine,"""公费医疗制度"""
+vtt_power_unitinfo_SocMedicine,"""这个单位已经强化了医疗能力。"""
+tt_power_SuperSpies,"""超级间谍"""
+vtt_power_unitinfo_SuperSpies,"""这个单位的移动速度加快，而且增加了生命点数；此外他所破坏的目标会有更长的时间失去功效。"""
+tt_power_ThinkTank,"""智库"""
+vtt_power_unitinfo_ThinkTank,"""这个建筑物能以更快的速度产生科技点数。"""
+
+// MILITARY CROWN POWERS,
+tt_power_DoctrineAir,"""空中优势战术"""
+vtt_power_unitinfo_DoctrineAir,"""这个单位造成的伤害增加，而且生命值提升。"""
+tt_power_DoctrineAmph,"""两栖作战战术"""
+vtt_power_unitinfo_DoctrineAmph,"""这个单位的移动速度变快，而且生命点数也获得提升。"""
+tt_power_DoctrineFire,"""火力支持战术"""
+vtt_power_unitinfo_DoctrineFire,"""这个单位造成的伤害增加，而且生命值提升。"""
+tt_power_DoctrineInf,"""步兵战术"""
+vtt_power_unitinfo_DoctrineInf,"""这个单位造成的伤害增加，而且生命值提升。"""
+tt_power_DoctrineMob,"""机动作战战术"""
+vtt_power_unitinfo_DoctrineMob,"""这个单位造成的伤害增加，而且生命值提升。"""
+tt_power_DoctrineSea,"""航路政策"""
+vtt_power_unitinfo_DoctrineSea,"""这个单位造成的伤害增加，而且生命值提升。"""
+tt_power_DoctrineStat,"""固定防御战术"""
+vtt_power_unitinfo_DoctrineStat,"""这个单位增加了生命值与射程。"""
+tt_power_DoctrineBomb,"""战略轰炸战术"""
+vtt_power_unitinfo_DoctrineBomb,"""这个单位造成的伤害增加，而且生命值提升。"""
+tt_power_DoctrineVert,"""垂直包围战术"""
+vtt_power_unitinfo_DocVert_Para,"""这个单位的生命值增加了。"""
+
+// VERBOSE POWER TIPS,
+vtt_power_Propaganda,"""此项能力可以让领袖在一定的范围内煽动数个单位集体变节。如果领袖的纪元数比目标还高，成功的机会就会更大。"""
+vtt_power_HealGroup,"""此项能力可以让阿兹特克巫医医疗一群单位，只要待在指定目标旁边一定的范围内。"""
+vtt_power_BreathOfDragon,"""此项能力在一段时间中增加了单位的攻击速度。"""
+vtt_power_FireAndManeuver,"""附近友方单位的移动速度会增加50%，而附近的敌方单位在30秒内无法移动。"""
+vtt_power_DeadlyAim,"""此项能力在一段时间中增加了单位的伤害力。"""
+vtt_power_Bless,"""祭司的祈福可以为指定的单位增加攻击力。"""
+vtt_power_Rally,"""此项能力可以让领袖医疗附近的友方单位。"""
+vtt_power_Forage,"""此项能力可以让阿迪提得以靠着粮草在农场或是粮草堆中自行医疗。"""
+vtt_power_FastTracking,"""此项能力会让任何建筑物马上盖好，世界奇观与城市中心除外。"""
+
+// CONCISE POWER TIPS,
+tt_power_Propaganda,"""宣传教义"""
+tt_power_HealGroup,"""医疗小组"""
+tt_power_BreathOfDragon,"""龙息"""
+tt_power_FireAndManeuver,"""声东击西"""
+tt_power_DeadlyAim,"""致命一击"""
+tt_power_Bless,"""祈福"""
+tt_power_Rally,"""重整旗鼓"""
+tt_power_Forage,"""粮草"""
+tt_power_Loyalty,"""忠诚度"""
+tt_power_HighFervor,"""狂热"""
+tt_power_HighMorale,"""高度士气"""
+tt_power_Tolerance,"""容忍度"""
+tt_power_Discipline,"""纪律"""
+tt_power_Resourcefullness,"""资源全满"""
+tt_power_ProjMan,"""项目管理"""
+tt_power_Lectures,"""演说"""
+tt_power_Customs,"""海关"""
+tt_power_FastTracking,"""并行作业"""
+
+// VERBOSE TOOLTIPS FOR DESCRIBING WHAT PASSIVE POWERS A LEADER HAS
+vtt_power_pl_Customs,"""藉由成功的贸易，在这个领袖附近的贸易建筑物可以赚取更多的黄金。"""
+vtt_power_pl_Priority,"""在这个领袖附近的人民可以用更快的速度修护。"""
+vtt_power_pl_ProjMan,"""在这个领袖附近采集的单位效率会更高。"""
+vtt_power_pl_Loyalty,"""在这个领袖附近的单位不会变节。"""
+vtt_power_pl_Lectures,"""在这个领袖附近的寺庙或是大学，会提升科技点数的增加速度。"""
+vtt_power_pl_national,"""当这个领袖在你所控制的地区里，该地区的热情与士气加成就会增加。"""
+
+// TOOLTIPS FOR UNITS BEING AFFECTED BY SPECIAL POWERS,
+vtt_power_unitinfo_Loyalty,"""这个单位对变节免疫。"""
+vtt_power_unitinfo_HighFervor,"""这个单位的伤害力增加。"""
+vtt_power_unitinfo_HighMorale,"""这个单位所造成的伤害力降低。"""
+vtt_power_unitinfo_FaM_slow,"""这个单位的移动受限。"""
+vtt_power_unitinfo_FaM_fast,"""这个单位的移动速度加快。"""
+vtt_power_unitinfo_Tolerance,"""这个单位回复能力加快50%。"""
+vtt_power_unitinfo_Discipline,"""这个单位受到的区域伤害已经减少。"""
+vtt_power_unitinfo_Resourcefull,"""这个单位能以更快的速度回复能力。"""
+vtt_power_unitinfo_ProjMan,"""这个单位能以更快的速度采集资源。"""
+vtt_power_unitinfo_DocVert_FB,"""这个单位造成的伤害增加，而且生命值提升。"""
+vtt_power_unitinfo_Lectures,"""这栋建筑物可以用更快的速度产生科技点数。"""
+vtt_power_unitinfo_Customs,"""这栋建筑物已经从成功的贸易中得到2倍的黄金。"""
+vtt_power_unitinfo_Bless,"""这个单位受到祈福，攻击强度增加了。"""
+vtt_power_unitinfo_FavorOfGods,"""这个单位受到了天神之光的洗礼，之后受到的伤害值会减轻。"""
+vtt_power_unitinfo_tradsanc,"""这个市场已经因为贸易制裁而关闭。"""
+vtt_power_unitinfo_burgmarkets,"""除了黄金以外的多种资源已经送往这个市场，这都要感谢新兴市场的魔力。"""
+vtt_power_unitinfo_tribcust,"""这个单位以更快的速度采集资源。"""
+vtt_power_unitinfo_mobilize,"""这栋建筑物处于全面动员状态，能以超快的速度生产单位。"""
+vtt_power_unitinfo_national,"""这个单位受到民族主义热情与士气加成的强化。"""
+vtt_power_unitinfo_imperial,"""这栋建筑物暂时处于攻击无效状态，而且无法被攻占。"""
+vtt_power_unitinfo_priority,"""这个单位已经被优先化，任何建造或是维修的工作都会加速。"""
+vtt_power_unitinfo_MassConv,"""当他们进入这个城市时，所有的敌方单位都有可能变节。"""
+vtt_power_unitinfo_citadel,"""此单位不会受到伤害。"""
+
+// ART OF WAR,
+tt_power_ArtOfWar,"""这项能力让敌人的所有房舍提供你的进攻部队与他们的守军相同的士气／热情加成。"""
+vtt_power_unitinfo_ArtOfWar,"""这个单位从敌方玩家的建筑物中，获得士气/热情加成。"""
+
+// ENDEAVOR TIPS,
+tt_power_Endeavor,"""驱策"""
+vtt_power_Endeavor,"""降低任何选定城市中心或是世界奇观工地的建造时间。"""
+
+// SPY POWERS
+tt_power_Sabotage,"""破坏"""
+vtt_power_Sabotage,"""这个能力可让间谍破坏敌方的建筑，目标会暂时关闭，生产冻结、资源无法撤出，而且玩家的控制权会被死锁。"""
+vtt_power_unitinfo_Sabotage,"""这栋建筑物已经遭到破坏，而它的功能被暂时关闭。"""
+tt_power_Restore,"""复原"""
+vtt_power_Restore,"""此技能将让间谍移除某建筑物受到破坏行动的影响。"""
+tt_power_Extraction,"""脱身"""
+vtt_power_Extraction,"""此项能力启用时，地图上会出现一个撤离点。这个撤离点只会作用一小段时间，如果间谍能在时限内抵达这个撤离点，就可以安全的回到友方城市。"""
+vtt_power_ToxicSpill,"""此项技能可以让间谍对一个城市中心或是仓库下毒。任何与被感染的建筑物接触的单位在此效果的持续时间内将会生病并一直受到伤害。"""
+vtt_power_unitinfo_ToxicSpill,"""这个单位已经受到有毒物质的污染。"""
+tt_power_ToxicSpill,"""下毒"""
+tt_power_ToxicSick,"""中毒"""
+vtt_power_unitinfo_ToxicSick,"""中毒"""
+tt_power_ToxicCleanup,"""消毒"""
+vtt_power_ToxicCleanup,"""此项能力可以让间谍为被下毒的建筑物消毒。"""
+
+// TERRITORY POWERS
+tt_TerrAttack,"""保护家园"""
+vtt_unitinfo_TerrAttack,"""这个单位正在保卫国土，而且攻击能力也提高了。"""
+
+// HERC - anti-missile system
+tt_power_antimissile,"""反飞弹系统"""
+vtt_power_antimissile,"""创造出一个球状的能源力场，在有限的时间中免于受到飞弹的攻击"""
+
+// HERC - shield
+tt_power_shield,"""施放护盾"""
+vtt_power_shield,"""可以在另一个机甲上面施放防御性护盾"""
+
+// HERC - EMP - disabled (cannot move / attack)
+tt_power_EMP,"""电磁脉冲波"""
+vtt_power_unitinfo_EMP,"""这个单位已经受到电磁脉冲波（EMP）的攻击，暂时无法活动"""
+vtt_power_EMP,"""此能力会在指定地点投射出一道电磁脉冲波，并在5格的范围内让所有载具与机甲停摆。"""
+
+// Great Pyramid of Tenotchtitlan -- The Lost City
+tt_power_LostCity,"""失落的城市"""
+vtt_power_unitinfo_LostCity,"""这个单位暂时处于隐形状态，所以敌人无法看到或是进行攻击。"""
+
+// Robotics Factory -- Overtime
+tt_power_Overtime,"""超时工作"""
+vtt_power_unitinfo_Overtime,"""有效率的工人超时工作，提高了这个建筑物的生产能力。"""
+
+// nuclear fall out area effect
+tt_power_nuclear_fallout,"""核子辐射尘"""
+vtt_power_nuclear_fallout,"""核子爆炸之后残存下来的核辐射伤害。"""
+
+// Rapid deployment tooltips
+// First one for the button
+vtt_power_rapidDep_fortress,"""按下此钮可以从远处让此建筑物中的单位解除驻扎。你只能在选择了一座堡垒后使用此指令。"""
+// Second one for the glow icon
+vtt_power_rapidDep_fortress2,"""该单位可以从远处解除其单位的驻扎状态。"""
+
+// REGIONAL POWER - SUPREME EFFORT
+tt_power_supreme,"""全力赶工"""
+vtt_power_unitinfo_supreme,"""在效果持续的时间内，此单位的建造和维修速度将增加100%。"""
+
+// AWACE POWER - SPECIAL
+tt_power_awacontroler,"""预警机控制系统"""
+vtt_power_awacontroler,"""可以引导战机制导攻击敌人的目标，在35预警机控制范围内的战机自主攻击，战机生命力增加25%"""
+
+// Can be Spy area effect
+tt_power_stealth_fallout,"""隐身单位"""
+vtt_power_stealth_fallout,"""这个单位是隐形的，大部分单位看不到他，只有具有超级视觉能力的单位能识别！"""
+
+// Can be Finder area effect
+tt_power_svision_fallout,"""超级视觉能力/反隐身"""
+vtt_power_svision_fallout,"""这个单位具有超级视觉能力，他能分辨出具有隐形功能的单位，例如间谍、潜艇、隐身飞机！"""
+
+// Power air anti missile
+tt_power_airanmissile,"""发射反追踪诱饵弹"""
+vtt_power_airanmissile,"""战机遇到导弹追踪时可以按下此按钮避开导弹跟踪，是最后的防护手段！"""
+
+// Power Throw Grenade
+tt_power_ThrowGrenade,"""投射手雷"""
+vtt_power_ThrowGrenade,"""美女指挥官能投射手雷，但不一定有用在敌人的阵地上，也会造成己方人员受伤！"""
+
+// power air_stealthing
+tt_power_stealth_Button,"""隐形按键右键点击能使该按钮成自动发送状态，隐形飞机刚出厂时并无全隐形功能，必须点击该按键才能全隐形，并且该功能需能量条满格后使用！出动预警机能帮助能量条快速满格！每次点击将持续60秒全隐身"""
+tt_power_stealth_effects,"""隐形飞机刚出厂时并无隐形功能，必须点击隐形开关才能隐形，并且该功能需能量条满格后使用！出动预警机能帮助能量条快速满格！"""
+
+// Territory repair area effect
+text_rarea_br_name,"""建筑物自动修复"""
+vtt_rarea_br_unitinfo,"""被损坏的建筑物如果位于你的势力区域范围内都将具有自动修复功能！"""
+
+// Dock area effect
+tt_power_dock_fallout,"""船厂修复"""
+vtt_power_dock_fallout,"""船只位于码头附近能被修复或治疗，但如果希望更快速的修理船只必须进入船厂内！"""
+
+// Hospital area effect
+tt_power_hospital_fallout,"""医疗"""
+vtt_power_hospital_fallout,"""医院附近的单位都将视作位于医院内治疗，如果希望更有效的治疗需要进入医院内！"""
+
+// Fire area effect
+tt_power_fire_fallout,"""火疗"""
+vtt_power_fire_fallout,"""离火种近的地方类似接近城市中心具有治疗作用！"""
+
+// Fire boulder area effect
+tt_power_fire_fallout2,"""火箭"""
+vtt_power_fire_fallout2,"""建筑物在着火，因为被射中了一只火箭，他会自己燃烧起来！"""
+vtt_power_fire_fallout3,"""这个单位着火了，他会燃烧起来，因为被火箭射中了！"""
+
+// Drunk area effect
+tt_power_dr_fallout,"""酒鬼市民"""
+vtt_power_dr_fallout,"""你是市民醉了，他们慢慢地工作，慢慢地走，如果你要建立酒馆最好在远离市民工作的地方！"""
+
+// Alchemy area effect
+tt_power_alchemy_fallout,"""采锡奖励"""
+vtt_power_alchemy_fallout,"""这个单位能加快市民的采锡速度，如果建成这所房子市民将得到奖励！"""
+
+// Library area effect
+tt_power_library_fallout,"""图书馆奖励"""
+vtt_power_library_fallout,"""这个建筑是用来增加科技点的，能加快寺庙和大学的科技点生产速度20%！"""
+
+// Sawmill area effect
+tt_power_lumber_fallout,"""伐木场奖励"""
+vtt_power_lumber_fallout,"""这个单位能加快市民伐木的速度，如果建成伐木场速度翻倍！"""
+
+// Quarry area effect
+tt_power_quarry_fallout,"""采石场奖励"""
+vtt_power_quarry_fallout,"""这能使石头的采集速度增加，并且市民的建筑速度加快！"""
+
+// Cement area effect
+tt_power_cement_fallout,"""水泥厂奖励"""
+vtt_power_cement_fallout,"""这能使石头的采集速度增加，并且市民的建筑速度加快！"""
+
+// Granary area effect
+tt_power_granary_fallout,"""粮仓奖励"""
+vtt_power_granary_fallout,"""使市民更快的收集粮食，如果在这个领土内建有粮仓或风车，你的粮食产量会成倍增加！"""
+
+// Vineyard area effect
+tt_power_vine_fallout,"""葡萄种植奖励"""
+vtt_power_vine_fallout,"""如果你的领土内有小酒馆，那么这个奖励将使得小酒馆的产金速度加快25%！"""
+
+// Vineyard 2 area effect
+tt_power_vine2_fallout,"""农业科技奖励"""
+vtt_power_vine2_fallout,"""如果你的领土内有寺庙，那么这个奖励将使得寺庙的科技点来得更快，加快25%！"""
+
+tt_power_deadaim,"""致命一击"""
+vtt_power_deadaim,"""在此效果的持续时间内，此单位的伤害力会增加一倍。"""
+tt_power_VLS,"""垂直发射攻击"""
+vtt_power_VLS,"""军舰垂直发射攻击，该导弹可被拦截！"""
+tt_power_airdefend,"""更换防空炮弹"""
+vtt_power_airdefend,"""在此效果的持续时间内，此单位更换防空炮弹，射速变快，，范围变大，攻击变小。"""
+tt_power_ChangeRange,"""冷却发射"""
+vtt_power_ChangeRange,"""装备在特殊能量100%才能攻击。"""
+// power SubmarineDiveing
+tt_power_SubmarineDiveing,"""下潜<b><color green>功能：隐身10秒，不能攻击，移速下降20%</color></b>"""
+vtt_power_SubmarineDiveing,"""下潜<b><color green>功能：隐身10秒，不能攻击，移速下降20%</color></b>"""
+tt_power_Radardetectioning,"""雷达探测<b><color green>功能：探测15秒，可发现40距离飞机、军舰、防空系统</color></b>"""
+vtt_power_Radardetectioning,"""雷达探测<b><color green>功能：探测15秒，可发现40距离飞机、军舰、防空系统</color></b>"""

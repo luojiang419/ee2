@@ -1,0 +1,194 @@
+//------------------------------------------------------------------------------------------------
+//	SIEGE TOWER - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType SiegeTower
+{
+	//parent = HeavyMounted
+	properties {
+		SizeX = 1.0
+		SizeY = 1.0
+		mass = 1.00
+		moveType = kUnitMoveType_Wheeled
+		hitpoints = 0
+		VerboseTooltip = vtt_unit_SiegeTower
+		rps = Ram
+		popCount = 2
+		FootprintType = Ellipse
+		stance = Defensive
+	}
+	sounds {
+		sndDeath =  ["fx_siegetower_collapse"]
+    	}
+	abilities = [
+		Convertable { }
+		LOS { range = 0 }
+		Move {speed = 0.8; angSpeed = 180}
+		Attack { range = 0.2; reloadTime = 666; applyDamageTime = 0.5; damage = 0; angularRange = 30; missileName = "Arrow";}
+		Garrison { 
+			garrisonType = SeigeTower; 
+			numOfSlots = 8;
+			attackBonus = 0.20;	// 10 percent more attack for each garrisoned UnitType
+			GarrisonFlagModelName = "GarrisonShip"
+		}
+		
+		Garrisonable { garrisonTypes = [ NavalTransport ] }
+	]
+	attributes = [ 
+		HealedByMedic
+	]
+	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
+	icon = icon_unit_default_human
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+// SeigeTowerUpgradeEpoch4 is in upgrade_unittypes.csv
+
+// Attack Ability Upgrade
+UpgradeAbilities SiegeTowerEpoch4Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 0.0; packTime = 1.0; unpackTime = 1.0; missileName = "Arrow"; }
+	]
+}
+
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove SiegeTowerEpoch4Veteran
+{
+	unitType = SiegeTower
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		SiegeTower_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove SiegeTowerEpoch4Elite
+{
+	unitType = SiegeTower
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		SiegeTower_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+// SeigeTowerUpgradeEpoch6 is in upgrade_unittypes.csv
+
+// Attack Ability Upgrade
+UpgradeAbilities SiegeTowerEpoch6Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.0; packTime = 1.0; unpackTime = 1.0; missileName = "FireArrow"; turretControllerName = heavysiegetowerTurret; }
+	]
+}
+
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove SiegeTowerEpoch6Veteran
+{
+	unitType = SiegeTower
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		SiegeTower_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove SiegeTowerEpoch6Elite
+{
+	unitType = SiegeTower
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		SiegeTower_Improve_Default
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	SIEGE TOWER - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+UnitModel SiegeTower_04
+{
+	ScaleType 	= kScaleUnit
+	DefaultModel 	= LSF4_siegetower.NIF
+	DefaultState 	= Idle
+	DamageDecalsSetName = BuildingDamageDecals
+	States = [
+			{ StateName= Idle 	AnimName = LSF4_siegetower_idle.kf	}
+			{ StateName= Walk 	AnimName = LSF4_siegetower_walk.kf 
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = siegetower_moving1 KeyTime = 0}]
+			}
+			{ StateName= Attack1 	AnimName = LSF4_siegetower_attack.kf
+				TextKeys = [ { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 }]	
+			}
+			{ StateName= Pack 	AnimName = LSF4_siegetower_pack.kf	}
+			{ StateName= unpack 	AnimName = LSF4_siegetower_unpack.kf	}
+]
+
+	ChildNames 		= [ TheHealthBar SelectCircleMedium MediumGlow UnitShadow 
+						ArtilleryTracks ExplSelectorSiegeTower4 SinkSiegeTower
+						HemisphereLighting_Unit DynamicLighting_Unit
+					  ]
+	UIRenderingParams {
+		xoffset = 0.01
+		yoffset = 0.01
+		zOffset = -0.53
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+UnitModel SiegeTower_06
+{
+	ScaleType 	= kScaleUnit
+	DefaultModel 	= LSF6_heavysiegetower.NIF
+	DefaultState 	= Idle
+	DamageDecalsSetName = BuildingDamageDecals
+	States = [
+			{ StateName= Idle	AnimName = LSF6_heavysiegetower_idle.kf	}
+			{ StateName= Walk	AnimName = LSF6_heavysiegetower_walk.kf 
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = siegetower_moving2 KeyTime = 0}]
+			}
+			{ StateName= Attack1	AnimName = LSF6_heavysiegetower_attack.kf
+				TextKeys = [ { Name = PLAY_SOUND Data = fx_battle_hwacha KeyTime = 0 }]	
+			}
+			{ StateName= Pack	AnimName = LSF6_heavysiegetower_pack.kf		}
+			{ StateName= Unpack	AnimName = LSF6_heavysiegetower_unpack.kf	}
+			{ StateName= death	}
+		]
+	ChildNames 		= [ TheHealthBar SelectCircleMedium MediumGlow UnitShadow 
+						ArtilleryTracks ExplSelectorSiegeTower6 SinkSiegeTower
+						HemisphereLighting_Unit DynamicLighting_Unit
+					  ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.00
+		zOffset = -0.60
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

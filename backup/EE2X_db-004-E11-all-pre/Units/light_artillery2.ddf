@@ -1,0 +1,303 @@
+//------------------------------------------------------------------------------------------------
+//	LIGHT ARTILLERY 2 - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightArtillery2
+{
+	parent = Artillery
+	properties {
+		rps = AntiAircraft
+		SizeX = 0.55
+		SizeY = 0.55
+		mass = 1
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 0; reloadTime = 1; applyDamageTime = 0.66; damage = 0; missileName = "Arrow" }
+		LOS { range = 0 }
+		Move {speed = 1.725; angSpeed = 180; angAccel = 720}
+		Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }	
+	]
+	nonAttributes = [ 
+		HealedByMedic
+	]
+}
+
+ShadowData        AAHalfTrackShadow
+{
+	Flags = (UseStencil | IsMobile | ImmutableBounds | HasTurret)
+	FlatBillboard
+	{
+		TextureFilename = lla11_aahalftrack_shadow.tga
+		WidthScale = 3
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+ShadowData        HumveeStrikerShadow
+{
+	Flags = (UseStencil | IsMobile | ImmutableBounds | HasTurret)
+	FlatBillboard
+	{
+		TextureFilename = lla13_humveestriker_shadow.tga
+		WidthScale = 2.1
+		LengthScale = 1.0
+		HeightScale = 0.1
+	}
+}
+
+ShadowData        PaladinShadow
+{
+	Flags = (UseStencil | IsMobile | ImmutableBounds | HasTurret)
+	FlatBillboard
+	{
+		TextureFilename = lla15_paladin_defense_truck_shadow.tga
+		WidthScale = 2.1
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery2Epoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.01;missileName = "OutpostBullet"; ignoreBlocking = 1; turretControllerName = TankTurret; }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightArtillery2Epoch11Veteran
+{
+	unitType = LightArtillery2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightArtillery2_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightArtillery2Epoch11Elite
+{
+	unitType = LightArtillery2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightArtillery2_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery2Epoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "GuidedMissile"; ignoreBlocking = 1; turretControllerName = TankTurret; }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightArtillery2Epoch13Veteran
+{
+	unitType = LightArtillery2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightArtillery2_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightArtillery2Epoch13Elite
+{
+	unitType = LightArtillery2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightArtillery2_Improve_Default
+	]
+}
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightArtillery2Epoch14Veteran
+{
+	unitType = LightArtillery2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightArtillery2_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightArtillery2Epoch14Elite
+{
+	unitType = LightArtillery2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightArtillery2_Improve_Default
+	]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery2Epoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "GuidedMissile"; ignoreBlocking = 1; turretControllerName = TankTurret; }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightArtillery2Epoch15Veteran
+{
+	unitType = LightArtillery2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightArtillery2_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightArtillery2Epoch15Elite
+{
+	unitType = LightArtillery2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightArtillery2_Improve_Default
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT ARTILLERY 2 - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel LightArtillery2_11
+{
+	ScaleType 	= kScaleVehicle
+	OutlineType		= kOutlineMake
+	DefaultModel 	= LLA11_aahalftrack.nif
+	DefaultState 	= Idle
+	States = [
+			{ StateName= Idle AnimName = lla11_aahalftrack_idle.KF	
+				 }
+
+			{ StateName= Walk AnimName = lla11_aahalftrack_walk.KF		
+				TextKeys = [ 
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_halftrack KeyTime = 0} 
+					   ] 
+				}
+
+			{ StateName= Attack1	AnimName = lla11_aahalftrack_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = Tank_firing1 KeyTime = 0.5 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lla11_aahalftrack_death.KF		
+				}
+		]
+	ChildNames 	= [ TheHealthBar SelectCircleMedium FX_ExaustSmoke1 ArtilleryTracks 
+					Muzzle_Rifleman ExplSelectorTank01 AAHalfTrack_FlyingParts 
+					AAHalfTrackShadow MediumGlow expl_tank_Tandrill 
+					HemisphereLighting_Unit DynamicLighting_Unit
+				  ]
+	UIRenderingParams {
+		xOffset = -3.42
+		yOffset = 0.81
+		zOffset = 1.70
+		scale = 1.00		// (default value)
+		angle = 33.16
+		rotationSpeed = 0.00		// (default value)
+		pitch = 20.00		// (default value)
+	}
+
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel LightArtillery2_13
+{
+	ScaleType 	= kScaleVehicle
+	OutlineType		= kOutlineMake
+	DefaultModel 	= LLA13_humveestriker.nif
+	DefaultState 	= Idle
+	ForceScale      = 0.11
+	States = [
+			{ StateName= Idle AnimName = lla13_humveestriker_idle.KF	
+				 }
+
+			{ StateName= Walk AnimName = lla13_humveestriker_walk.KF		
+				TextKeys = [ 
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_halftrack KeyTime = 0} 
+					   ] 
+				}
+			{ StateName= Death }
+
+		]
+	ChildNames 	= [ TheHealthBar SelectCircleMedium FX_ExaustSmoke1 ArtilleryTracks 
+					MobileStencilShadow ExplSelectorTank01 HumveeStriker_FlyingParts 
+					MediumGlow expl_tank_Tandrill HumveeStrikerShadow
+					HemisphereLighting_Unit DynamicLighting_Unit
+				  ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.05
+		zOffset = 0.57
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel LightArtillery2_15
+{
+	ScaleType 	= kScaleVehicle
+	OutlineType	= kOutlineMake
+	DefaultModel 	= lla15_paladin_defense.nif
+	DefaultState 	= Idle
+	States = [
+			{ StateName= Idle AnimName = lla15_paladin_defense_idle.KF	
+				 }
+
+			{ StateName= Walk AnimName = lla15_paladin_defense_walk.KF		
+				TextKeys = [ 
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_halftrack KeyTime = 0} 
+					   ] 
+				}
+
+			{ StateName= Attack1	AnimName = lla15_paladin_defense_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = Tank_firing1 KeyTime = 0.5 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lla15_paladin_defense_death.KF		
+				}
+		]
+	ChildNames 	= [ TheHealthBar SelectCircleMedium FX_ExaustSmoke1 ArtilleryTracks 
+					ExplSelectorTank01 PaladinDefense_FlyingParts PaladinShadow 
+					MediumGlow expl_tank_Tandrill
+					HemisphereLighting_Unit DynamicLighting_Unit
+				  ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.47
+		zOffset = 0.90
+		scale = 1.53
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+	}
+}

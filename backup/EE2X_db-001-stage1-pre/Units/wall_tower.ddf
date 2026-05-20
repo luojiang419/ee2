@@ -1,0 +1,263 @@
+//------------------------------------------------------------------------------------------------
+//	WALL TOWER
+//------------------------------------------------------------------------------------------------
+UnitType Wall_Tower
+{
+	parent = Wall_Connector
+	properties {
+		rps = BuildingCombat
+		hitpoints = 1
+		VerboseTooltip = vtt_unit_WallTower
+		displayNameTTTooltip = tx_utn_walltower_tt_name
+		UnitHeight = 5.0
+	}
+	sounds {
+		sndSelection = ["WallTower_select"]
+    	}
+	abilities = [
+		LOS { range = 4 }
+		Attack { range = 0; reloadTime = 1; applyDamageTime = 0.0; damage = 0; missileName = "Arrow"; angularRange = 360 }
+		Connect { type = kComposite_WallTower; }
+		Garrison { 
+			garrisonType = Tower;
+			numOfSlots = 2;
+			attackBonus = 0.05;	// 5 percent more attack for each garrisoned UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	WALL TOWER - UPGRADES
+//------------------------------------------------------------------------------------------------
+
+UpgradeAbilities WallTowerAbilitiesEpoch2 
+{
+	UnitType = Wall_Tower
+	UpgradedAbilities = [
+		Attack { range = 7; reloadTime = 2.5; applyDamageTime = 0.5; damage = 20; missileName = "Arrow"; angularRange = 360; turretControllerName = BuildingTurret; }
+		Garrison { garrisonType = Tower; numOfSlots = 2; attackBonus = 0.03; rightClickToGarrison = 1; GarrisonFlagModelName = "GarrisonFlag"}
+	 ]
+}
+
+UpgradeAbilities WallTowerAbilitiesEpoch5
+{
+	UnitType = Wall_Tower
+	UpgradedAbilities = [
+		Attack { range = 8; reloadTime = 2.5; applyDamageTime = 0.5; damage = 40; missileName = "Arrow"; angularRange = 360; turretControllerName = BuildingTurret; } 
+		Garrison { garrisonType = Tower; numOfSlots = 2; attackBonus = 0.03; rightClickToGarrison = 1; GarrisonFlagModelName = "GarrisonFlag"}
+	]
+}
+
+UpgradeAbilities WallTowerAbilitiesEpoch8
+{
+	UnitType = Wall_Tower
+	UpgradedAbilities = [
+		Attack { range = 9; reloadTime = 2.5; applyDamageTime = 0.5; damage = 60; missileName = "OutpostBullet"; angularRange = 360; turretControllerName = BuildingTurret; } 
+		Garrison { garrisonType = Tower; numOfSlots = 2; attackBonus = 0.03; rightClickToGarrison = 1; GarrisonFlagModelName = "GarrisonFlag"}
+	]
+}
+
+UpgradeAbilities WallTowerAbilitiesEpoch11
+{
+	UnitType = Wall_Tower
+	UpgradedAbilities = [
+		Attack { range = 11; reloadTime = 2.5; applyDamageTime = 0.5; damage = 80; missileName = "OutpostBullet"; angularRange = 360; turretControllerName = BuildingTurret; } 
+		Garrison { garrisonType = Tower; numOfSlots = 2; attackBonus = 0.03; rightClickToGarrison = 1; GarrisonFlagModelName = "GarrisonFlag"}
+	]
+}
+
+UpgradeAbilities WallTowerAbilitiesEpoch14
+{
+	UnitType = Wall_Tower
+	UpgradedAbilities = [
+		Attack { range = 13; reloadTime = 2.5; applyDamageTime = 0.5; damage = 100; missileName = "OutpostBullet"; angularRange = 360; turretControllerName = BuildingTurret;  } 
+		Garrison { garrisonType = Tower; numOfSlots = 2; attackBonus = 0.03; rightClickToGarrison = 1; GarrisonFlagModelName = "GarrisonFlag"}
+	]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	WALL TOWER- VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+
+UnitModel WallTower
+{
+	Parent			= BaseBuilding
+	ScaleType 		= kScaleWall
+	DefaultModel 		= bld_wall2_tower.NIF
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 }
+							] 
+		}
+	]
+		
+	ChildNames 		= [ MediumGlow2 ExplSelectorBuild_Tiny ExplPartsStone ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.90
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+
+UnitModel WallTower_5
+{
+	Parent			= BaseBuilding
+	ScaleType		= kScaleWall
+	DefaultModel 		= bld_wall5_tower.NIF
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 }
+							] 
+		}
+	]
+		
+	ChildNames 		= [ MediumGlow2 ExplSelectorBuild_Tiny ExplPartsWall5 ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.90
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+
+UnitModel WallTower_8
+{
+	Parent			= BaseBuilding
+	ScaleType		= kScaleWall
+	DefaultModel 		= bld_wall8_tower.NIF
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }
+							] 
+		}
+	]
+
+	ChildNames 		= [ MediumGlow2 ExplSelectorBuild_Tiny Muzzle_Outpost7 ExplPartsWall8 ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.90
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+
+UnitModel WallTower_11
+{
+	Parent			= BaseBuilding
+	ScaleType		= kScaleWall
+	DefaultModel 		= bld_wall11_tower.NIF
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }
+							] 
+		}
+	]
+
+	ChildNames 		= [ MediumGlow2 ExplSelectorBuild_Tiny Muzzle_Outpost7 ExplPartsConcrete ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.90
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+
+UnitModel WallTower_14
+{
+	Parent			= BaseBuilding
+	ScaleType		= kScaleWall
+	DefaultModel 		= bld_wall14_tower.NIF
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }
+							] 
+		}
+	]
+	ChildNames 		= [ MediumGlow2 ExplSelectorBuild_Tiny Beam_Herc01 ExplPartsConcrete ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.90
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}

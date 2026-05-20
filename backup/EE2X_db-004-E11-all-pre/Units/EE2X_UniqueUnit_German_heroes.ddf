@@ -1,0 +1,71 @@
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT GERMAN BARBARIAN (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitGerman1Hero
+{
+	parent = UniqueUnitGerman1
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.144
+		SizeY = 0.144
+	}
+	abilities = [
+		Hero { HeroClass = HeavyInfantry; HeroForUnit = UniqueUnitGerman1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitGerman1Hero
+{
+	Parent		= UniqueUnitGerman1
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT GERMAN TEUTONIC KNIGHT (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitGerman2Hero
+{
+	parent = UniqueUnitGerman2
+	placementType = Unplaceable
+	properties {
+		HitPoints = 0
+		SizeX = 0.46
+		SizeY = 0.23
+	}
+	abilities = [
+		Hero { HeroClass = HeavyMounted; HeroForUnit = UniqueUnitGerman2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitGerman2Hero
+{
+	Parent		= UniqueUnitGerman2
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT GERMAN JAGDPANTHER (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitGerman3Hero
+{
+	parent = UniqueUnitGerman3
+	placementType = Unplaceable
+	properties {
+		SizeX = 1.035
+		SizeY = 0.805
+	}
+	abilities = [
+		Hero { HeroClass = LightTank; HeroForUnit = UniqueUnitGerman3 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitGerman3Hero
+{
+	Parent		= UniqueUnitGerman3
+    	ForceScale      = 0.17
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

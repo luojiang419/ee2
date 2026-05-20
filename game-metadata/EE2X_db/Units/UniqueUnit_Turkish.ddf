@@ -1,0 +1,269 @@
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT TURKISH SPAHI (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitTurkish1
+{
+	parent = HeavyMounted1
+	properties {
+		DisplayName = tx_utn_UUTurkish1_name
+		DisplayNameScenEdit = tx_utn_UUTurkish1_sname
+		VerboseTooltip = vtt_unit_UUTurkish1
+		HitPoints = 0
+		SizeX = 0.4
+		SizeY = 0.2
+		mass = 2
+		moveType = Mounted
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5 }
+		LOS { range = 5 }
+		Move {speed = 1.5; angSpeed = 180}
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitTurkish1Veteran
+{
+	unitType = UniqueUnitTurkish1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitTurkish1Elite
+{
+	unitType = UniqueUnitTurkish1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitTurkish1
+{
+	Parent		= HeavyMounted1_04
+        DefaultModel 	= CIV1_Spahi_Turkish.NIF
+	States 		= [
+		{	StateName = Idle	AnimName = sh_elitecavalry_idle01.kf	
+                              AnimVariants = [ sh_elitecavalry_idle02.kf 
+sh_elitecavalry_idle03.kf 
+sh_elitecavalry_win.kf 
+sh_elitecavalry_season01.kf ]
+                              AnimVariantsWeights = [ 0.05 0.3 0.1 0.2 ]
+                 }
+		{ 	StateName = Walk	AnimName = sh_elitecavalry_walk01.KF AnimSpeedScale = 2.25 }
+		{	StateName = Run		AnimName = sh_elitecavalry_run01.KF	}
+		{ 	StateName = Attack1	AnimName = sh_elitecavalry_attack01.KF
+		                              TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_spear_thrust KeyTime = 0.40 }]
+                              AnimVariants = [ sh_elitecavalry_attack02.KF sh_elitecavalry_attack03.KF sh_elitecavalry_attack04.KF sh_elitecavalry_attack05.KF ]
+                              AnimVariantsWeights = [ 0.02 0.03 0.03 0.02 ]
+                 }
+       		{ 	StateName = Death	AnimName = sh_elitecavalry_death01.KF	}
+		{	StateName = Flinch	AnimName = sh_elitecavalry_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_elitecavalry_flying01.KF
+			AnimVariants = [ sh_elitecavalry_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_elitecavalry_ground_death01.KF	}
+			]
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT TURKISH JANISSARY (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitTurkish2
+{
+	parent = HeavyInfantry1
+	properties {
+		DisplayName = tx_utn_UUTurkish2_name
+		DisplayNameScenEdit = tx_utn_UUTurkish2_sname
+		VerboseTooltip = vtt_unit_UUTurkish2
+		HitPoints = 0
+		rps = HeavyInfantry
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 2.0; unpackTime = 2.0 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 0 }
+		Move {speed = 1.4; angSpeed = 720}
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitTurkish2Veteran
+{
+	unitType = UniqueUnitTurkish2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitTurkish2Elite
+{
+	unitType = UniqueUnitTurkish2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitTurkish2
+{
+	Parent		= BaseHuman
+	DefaultModel 	= CIV7_Janissary_Turkish.nif
+	ChildNames 	= [ UnitShadow Muzzle_Musketeer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_musketeer_idle01.KF
+                              AnimVariants = [ sh_musketeer_idle02.KF 
+						sh_musketeer_season01.kf ]
+                              AnimVariantsWeights = [0.3 0.1]
+                 }                            
+                {       StateName = Walk	AnimName = sh_musketeer_walk01.KF }
+                { 	StateName = CaptureAttack1	AnimName = CIV7_Janissary_Turkish_capture01.KF
+                              AnimVariants = [ CIV7_Janissary_Turkish_capture02.KF ]
+                              AnimVariantsWeights = [0.3]
+                 }     
+                { 	StateName = Run	AnimName = sh_musketeer_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_musketeer_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Pack	AnimName = sh_musketeer_pack.KF  }
+		{ 	StateName = Unpack	AnimName = sh_musketeer_unpack.KF  }
+		{ 	StateName = Death	AnimName = sh_musketeer_death01.KF  }
+		{	StateName = BeingConverted AnimName = sh_musketeer_conversion01.KF }
+		{	StateName = Flinch	AnimName = sh_musketeer_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_musketeer_flying01.kf
+			AnimVariants = [ sh_musketeer_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_musketeer_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.25
+		zOffset = -5.78
+		scale = 2.82
+		angle = 23.68
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT TURKISH TRENCH GUNNER (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitTurkish3
+{
+	parent = HeavyInfantry2
+	properties {
+		DisplayName = tx_utn_UUTurkish3_name
+		DisplayNameScenEdit = tx_utn_UUTurkish3_sname
+		VerboseTooltip = vtt_unit_UUTurkish3
+		HitPoints = 0
+		rps = HeavyInfantry
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+	}
+	sounds {
+	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; packTime = 1.5; unpackTime = 1.5 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 0 }
+		Move {speed = 1.4; angSpeed = 720}
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitTurkish3Veteran
+{
+	unitType = UniqueUnitTurkish3
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitTurkish3Elite
+{
+	unitType = UniqueUnitTurkish3
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitTurkish3
+{
+	Parent		= HeavyInfantry2_08
+        DefaultModel 	= civ12_trenchgunner_turkish.nif
+	ChildNames 	= [ UnitShadow Beam_Tracer01 Muzzle_Rifleman ]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_trenchgunner_turkish_idle1.kf	  
+                              AnimVariants = [ civ12_trenchgunner_turkish_idle2.kf ]
+                              AnimVariantsWeights = [ 0.05 ]
+                 }
+		{ 	StateName = Walk	AnimName = civ12_trenchgunner_turkish_walk.kf	  }
+		{ 	StateName = Run	AnimName = civ12_trenchgunner_turkish_jog.kf   }
+		{ 	StateName = Attack1	AnimName = civ12_trenchgunner_turkish_attack2.KF 
+                                                        //	AnimVariants = [ civ12_trenchgunner_turkish_attack1.kf  ]
+							//	AnimVariantsWeights = [ 0.5 ]
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_machine_gun_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = CaptureAttack1	AnimName = civ12_trenchgunner_turkish_walk.KF} // @AA - change to "distinctive animation" once one exists
+		{ 	StateName = Pack	AnimName = civ12_trenchgunner_turkish_attack2_pack.kf  
+							//	AnimVariants = [ sh_machinegunner_pack01.KF  ]
+							//	AnimVariantsWeights = [ 0.5 ] 
+}
+		{ 	StateName = Unpack	AnimName = civ12_trenchgunner_turkish_attack2_unpack.KF
+							//	AnimVariants = [ sh_machinegunner_unpack01.KF  ]
+							//	AnimVariantsWeights = [ 0.5 ] 
+}
+		{ 	StateName = Death	AnimName = civ12_trenchgunner_turkish_death.kf  }
+		{	StateName = Flinch	AnimName = civ12_trenchgunner_turkish_protect01.kf	}
+		{	StateName = BeingThrown	AnimName = civ12_trenchgunner_turkish_flying01.kf
+			AnimVariants = [ civ12_trenchgunner_turkish_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = civ12_trenchgunner_turkish_ground_death01.kf }
+
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.22
+		zOffset = -5.99
+		scale = 2.17
+		angle = 23.68
+	}
+        
+}

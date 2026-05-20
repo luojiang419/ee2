@@ -1,0 +1,632 @@
+//------------------------------------------------------------------------------------------------
+//	PALISADE
+//------------------------------------------------------------------------------------------------
+
+// 
+// base unit type for all the palisade unit types
+//
+UnitType PalisadeBase
+{
+	ownerType = PlayerOnly
+	placementType = Unplaceable	// most palisade unit types are not placeable
+	parent = BareBoneBuilding
+	properties {
+		displayName = tx_utn_palisade_name
+		displayNameTTTooltip = tx_utn_palisade_tt_name
+		DisplayNameScenEdit = tx_utn_palisade_sname
+		mass = 1
+		hitpoints = 1
+		VerboseTooltip = vtt_unit_Palisade
+	}
+	sounds {
+		sndSelection = ["palisade_select"]
+    	}
+}
+
+//
+// base unit type for palisade segment and palisade segment foundation
+//
+UnitType Palisade_Segment_Base
+{
+	parent = PalisadeBase
+	properties {
+		SizeX = 0.6919		// the long dimension the palisade runs in
+		SizeY = 0.4		// the width of the palisade wall
+	}
+	abilities = [
+		Connect { type = kComposite_WallSegment; }
+	]
+}
+
+//
+// the actual palisade segment unit type
+//
+UnitType Palisade
+{
+	parent = Palisade_Segment_Base
+	placementType = Wall	// this one is placeable!
+	abilities = [
+		LOS { range = 2 }
+	]
+}
+
+//
+// base unit type for palisade connector and palisade connector foundation
+//
+UnitType Palisade_Connector_Base
+{
+	parent = PalisadeBase
+	properties {
+		SizeX = 0.4		// these should be square
+		SizeY = 0.4
+	}
+	abilities = [
+		Connect { type = kComposite_WallConnector; }
+	]
+}
+
+//
+// the actual palisade connector unit type
+//
+UnitType Palisade_Connector
+{
+	parent = Palisade_Connector_Base
+	abilities = [
+		LOS { range = 2 }
+	]
+}
+
+// 
+// base unit type for palisade fragment and palisade fragment foundation
+//
+UnitType Palisade_Fragment_Base
+{
+	parent = PalisadeBase
+	properties {
+		SizeX = 0.2306		// the long dimension the palisade runs in
+					// (this should be 1/3 of Palisade::SizeX)
+		SizeY = 0.4		// the width of the palisade wall
+					// (this should match Palisade::SizeY)
+	}
+	abilities = [
+		Connect { type = kComposite_WallFragment; }
+	]
+}
+
+//
+// the actual palisade fragment unit type
+//
+UnitType Palisade_Fragment
+{
+	parent = Palisade_Fragment_Base
+	abilities = [
+		LOS { range = 2 }
+	]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	PALISADE -- stages of construction
+//------------------------------------------------------------------------------------------------
+
+//
+// palisade construction visuals:
+//
+
+UnitModel Palisade_Foundation_BaseModel
+{
+	ScaleType	= kScaleBuilding
+	DefaultState	= Idle
+	States 		= [
+			{	StateName = Idle	}
+			]
+}
+
+UnitModel Palisade_Foundation
+{
+	parent = Palisade_Foundation_BaseModel
+	DefaultModel 	= bld_palisade1.NIF
+	ChildNames 	= [ TheHealthBar]
+}
+
+UnitModel Palisade_Connector_Foundation
+{
+	parent = Palisade_Foundation_BaseModel
+	DefaultModel 	= bld_palisade1_Connector.NIF
+	ChildNames 	= [ TheHealthBar]
+}
+
+UnitModel Palisade_Fragment_Foundation
+{
+	parent = Palisade_Foundation_BaseModel
+	DefaultModel 	= bld_palisade1_Fragment.NIF
+	ChildNames 	= [ ]
+}
+
+
+//
+// palisade construction unit types:
+//
+
+UnitType Palisade_Foundation
+{
+	parent = Palisade_Segment_Base
+	properties {
+		mass = 0	// so it won't block pathing
+		hitpoints = 1
+	}
+	abilities = [ 
+		Construction {} 		
+	]
+}
+
+UnitType Palisade_Connector_Foundation
+{
+	parent = Palisade_Connector_Base
+	properties {
+		mass = 0	// so it won't block pathing
+		hitpoints = 1
+	}
+	abilities = [ 
+		Construction {} 		
+	]
+}
+
+UnitType Palisade_Fragment_Foundation
+{
+	parent = Palisade_Fragment_Base
+	properties {
+		mass = 0	// so it won't block pathing
+		hitpoints = 1
+	}
+	abilities = [ 
+		Construction {} 		
+	]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	PALISADE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+UnitModel PalisadeBaseModel
+{
+	ScaleType	= kScaleWall
+	DefaultState	= Idle
+	States 		= [
+			{	StateName = Idle	}
+			{	StateName = Death	ModelName = NULL.nif
+						TextKeys = [ 
+						{ Name = PLAY_SOUND	Data = Bld_Collapse } 
+			] }
+
+			]
+	DamageDecalsSetName = BuildingDamageDecals
+	ChildNames  = [ TheCollapseEffect WallShadow TheBldDamageEffect
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+
+WallModel Palisade_MainModel_1
+{
+	DefaultModel			= bld_palisade1.NIF
+	OneNeighborDestroyedModel 	= bld_palisade1_damaged_front.NIF
+	BothNeighborsDestroyedModel	= bld_palisade1_damaged_both.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+WallModel PalisadeFragment_MainModel_1
+{
+	DefaultModel 	= bld_palisade1_Fragment.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+CompositeModel Palisade
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ Palisade_MainModel_1 WallShadow TheHealthBar ExplSelectorBuild_Tiny 
+					Palisade1_BuildEffectStep TheCollapseEffect TheBldDamageEffect ExplPartsWood
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 90.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+CompositeModel Palisade_Fragment
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ PalisadeFragment_MainModel_1 WallShadow TheHealthBar ExplSelectorBuild_Tiny 
+					Palisade1_FragmentBldEffectStep TheBldDamageEffect ExplPartsWood
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+}
+
+UnitModel Palisade_Connector
+{
+	parent = PalisadeBaseModel
+	DefaultModel 	= bld_palisade1_Connector.NIF
+	ChildNames 	= [ TheHealthBar ExplSelectorBuild_Tiny Palisade1_ConnectBldEffectStep MediumGlow ExplPartsWood ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+
+WallModel Palisade_MainModel_4
+{
+	DefaultModel	= bld_palisade4.NIF
+	OneNeighborDestroyedModel 	= bld_palisade4_damaged_front.NIF
+	BothNeighborsDestroyedModel	= bld_palisade4_damaged_both.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+WallModel PalisadeFragment_MainModel_4
+{
+	DefaultModel 	= bld_palisade4_fragment.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+CompositeModel Palisade_4
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ Palisade_MainModel_4 WallShadow TheHealthBar ExplSelectorBuild_Tiny Palisade4_BuildEffectStep 
+					TheCollapseEffect TheBldDamageEffect ExplPartsWood 
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 90.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+CompositeModel Palisade_Fragment_4
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ PalisadeFragment_MainModel_4 WallShadow TheHealthBar ExplSelectorBuild_Tiny 
+					Palisade4_FragmentBldEffectStep TheBldDamageEffect ExplPartsWood
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+}
+
+UnitModel Palisade_Connector_4
+{
+	parent = PalisadeBaseModel
+	DefaultModel 	= bld_palisade4_Connector.NIF
+	ChildNames 	= [ TheHealthBar ExplSelectorBuild_Tiny Palisade4_ConnectBldEffectStep MediumGlow ExplPartsWood ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+
+WallModel Palisade_MainModel_7
+{
+	DefaultModel	= bld_palisade7.NIF
+	OneNeighborDestroyedModel 	= bld_palisade7_damaged_front.NIF
+	BothNeighborsDestroyedModel	= bld_palisade7_damaged_both.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+WallModel PalisadeFragment_MainModel_7
+{
+	DefaultModel 	= bld_palisade7_fragment.nif
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+CompositeModel Palisade_7
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ Palisade_MainModel_7 WallShadow TheHealthBar ExplSelectorBuild_Tiny 
+					Palisade7_BuildEffectStep ExplPartsPalisade7 TheCollapseEffect TheBldDamageEffect
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 90.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+CompositeModel Palisade_Fragment_7
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ PalisadeFragment_MainModel_7 WallShadow TheHealthBar ExplSelectorBuild_Tiny 
+					Palisade7_FragmentBldEffectStep ExplPartsPalisade7 TheBldDamageEffect
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+}
+
+UnitModel Palisade_Connector_7
+{
+	parent = PalisadeBaseModel
+	DefaultModel 	= bld_palisade7_Connector.NIF
+	ChildNames 	= [ TheHealthBar ExplSelectorBuild_Tiny Palisade7_ConnectBldEffectStep MediumGlow ExplPartsPalisade7 ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+
+WallModel Palisade_MainModel_10
+{
+	DefaultModel	= bld_palisade10.NIF
+	OneNeighborDestroyedModel 	= bld_palisade10_damaged_front.NIF
+	BothNeighborsDestroyedModel	= bld_palisade10_damaged_both.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+WallModel PalisadeFragment_MainModel_10
+{
+	DefaultModel 	= bld_palisade10_Fragment.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+CompositeModel Palisade_10
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ Palisade_MainModel_10 WallShadow TheHealthBar TheCollapseEffect ExplSelectorBuild_Tiny 
+					Palisade10_BuildEffectStep TheCollapseEffect TheBldDamageEffect ExplPartsWood
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 90.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+CompositeModel Palisade_Fragment_10
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ PalisadeFragment_MainModel_10 WallShadow TheHealthBar TheCollapseEffect 
+					ExplSelectorBuild_Tiny Palisade10_FragBldEffectStep TheBldDamageEffect ExplPartsWood
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+}
+
+UnitModel Palisade_Connector_10
+{
+	parent = PalisadeBaseModel
+	DefaultModel 	= bld_palisade10_Connector.NIF
+	ChildNames 	= [ TheHealthBar TheCollapseEffect ExplSelectorBuild_Tiny Palisade10_ConnectBldEffectStep MediumGlow ExplPartsWood ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+
+WallModel Palisade_MainModel_11
+{
+	DefaultModel	= bld_palisade10.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+WallModel PalisadeFragment_MainModel_11
+{
+	DefaultModel 	= bld_palisade10_Fragment.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+CompositeModel Palisade_11
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ Palisade_MainModel_11 WallShadow TheHealthBar ExplSelectorBuild_Tiny Palisade10_BuildEffectStep 
+					TheCollapseEffect TheBldDamageEffect ExplPartsWood
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 90.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+CompositeModel Palisade_Fragment_11
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ PalisadeFragment_MainModel_11 WallShadow TheHealthBar ExplSelectorBuild_Tiny 
+					Palisade10_FragBldEffectStep TheBldDamageEffect ExplPartsWood
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+}
+
+UnitModel Palisade_Connector_11
+{
+	parent = PalisadeBaseModel
+	DefaultModel 	= bld_palisade10_Connector.NIF
+	ChildNames 	= [ TheHealthBar ExplSelectorBuild_Tiny Palisade10_ConnectBldEffectStep MediumGlow ExplPartsWood ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+
+WallModel Palisade_MainModel_13
+{
+	DefaultModel	= bld_palisade13.NIF
+	OneNeighborDestroyedModel 	= bld_palisade13_damaged_front.NIF
+	BothNeighborsDestroyedModel	= bld_palisade13_damaged_both.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+WallModel PalisadeFragment_MainModel_13
+{
+	DefaultModel 	= bld_palisade13_Fragment.NIF
+	DamageDecalsSetName 		= BuildingDamageDecals
+}
+
+CompositeModel Palisade_13
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ Palisade_MainModel_13 WallShadow TheHealthBar ExplSelectorBuild_Tiny Palisade13_BuildEffectStep 
+					TheCollapseEffect TheBldDamageEffect ExplPartsConcrete
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 90.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+CompositeModel Palisade_Fragment_13
+{
+	ScaleType = kScaleWall
+	ChildNames	= [ PalisadeFragment_MainModel_13 WallShadow TheHealthBar ExplSelectorBuild_Tiny 
+					Palisade13_FragBldEffectStep TheBldDamageEffect ExplPartsConcrete
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+}
+
+UnitModel Palisade_Connector_13
+{
+	parent = PalisadeBaseModel
+	DefaultModel 	= bld_palisade13_Connector.NIF
+	ChildNames 	= [ TheHealthBar ExplSelectorBuild_Tiny Palisade13_ConnectBldEffectStep MediumGlow ExplPartsConcrete ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

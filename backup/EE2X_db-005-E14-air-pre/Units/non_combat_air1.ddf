@@ -1,0 +1,80 @@
+//------------------------------------------------------------------------------------------------
+//	NON COMBAT AIR 1 (OBSERVATION BALLOON) - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType ObservationBalloon
+{
+	properties {
+		moveType = Air
+		rps = AirNonCombat
+		FootprintType = Ellipse
+		SizeX = 1
+		SizeY = 1
+		mass = 1
+		HitPoints = 0
+		popCount = 1
+		DisplayNameScenEdit = tx_utn_NonCmbtAir1_e11_sname
+		DisplayName = tx_utn_NonCmbtAir1_e11_name
+	}
+	sounds = {
+	}
+	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
+	abilities = [
+		AircraftMove {speed = 3.5; angSpeed = 90; CruisingHeight = 5.0; ElevChangeRate = 0.5; canHover = 1}
+		LOS { range = 1 }
+		Garrisonable { garrisonTypes = [ Heliport ] }
+	]
+}
+
+// Add to mobile units for a blobby ellipsoid shadow
+ShadowData        ballonShadow
+{
+	Flags = (IsMobile | ImmutableBounds)
+	FlatBillboard
+	{
+		TextureFilename = ANC11_0bservationBalloon_shadow.tga
+		WidthScale = 0.9
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// NonCombatAir1UpgradeEpoch11 is in upgrade_unittypes.csv
+
+//------------------------------------------------------------------------------------------------
+//	NON COMBAT AIR 1 (OBSERVATION BALLOON) - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel ObservationBalloon
+{
+	ScaleType 	= kScaleUnit
+	DefaultModel 	= anc11_observationballoon.nif
+	OutlineType		= kOutlineMake
+	DefaultState 		= Idle
+	ChildNames = [  TheHealthBar ExplSelectorHeli01 SelectCircleAircraft ballonShadow ObservationBallon_FlyingParts ]
+	States 		= [
+		{	StateName = Idle	AnimName = anc11_ObservationBalloon_idle.kf }
+		{ 	StateName = Walk	AnimName = anc11_ObservationBalloon_walk.kf	
+               			//TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_balloon KeyTime = 0.5 }]
+			}
+		{ 	StateName = Death	AnimName = anc11_ObservationBalloon_death.kf	}
+			]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 0.56
+		zOffset = -4.78
+		scale = 1.92
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 18.95
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

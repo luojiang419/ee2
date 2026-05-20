@@ -1,0 +1,312 @@
+//------------------------------------------------------------------------------------------------
+//	GERMAN CAMPAIGN SPECIFIC UNIT - UNIT TYPE AND VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	GERMAN 1 - TEUTONIC CRUSADER
+//------------------------------------------------
+UnitType GermanCampaignTeutonicCrusader
+{
+	parent = UniqueUnitGerman2
+	icon = icon_unit_UUGerman2
+	properties {
+		DisplayName = tx_utn_cmpgnCrusader_name
+		verboseTooltip = vtt_unit_cmpgnCrusader
+		DisplayNameScenEdit = tx_utn_cmpgnCrusader_sname
+		HitPoints = 200
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 0.4; reloadTime = 1.0; applyDamageTime = 0.5; damage = 20 }
+		ConvertAttack { convertTimeModifier = 5.0; range = 8; reloadTime = 2; applyDamageTime = 0.5; }
+	]
+}
+
+UnitModel GermanCampaignTeutonicCrusader
+{
+		Parent		= HeavyMounted1_04
+        DefaultModel 	= CIV7_Teut_Knight_German.NIF
+	States 		= [
+		{	StateName = Idle	AnimName = sh_elitecavalry_idle01.kf	
+                              AnimVariants = [ sh_elitecavalry_idle02.kf 
+sh_elitecavalry_idle03.kf 
+sh_elitecavalry_win.kf 
+sh_elitecavalry_season01.kf ]
+                              AnimVariantsWeights = [ 0.05 0.3 0.1 0.2 ]}
+		{ 	StateName = Walk	AnimName = sh_elitecavalry_walk01.KF AnimSpeedScale = 2.25 }
+		{	StateName = Run		AnimName = sh_elitecavalry_run01.KF	}
+		{	StateName = Convert	AnimName = CIV7_Teut_Knight_German_conversion01.kf }
+		{ 	StateName = Attack1	AnimName = sh_elitecavalry_attack01.KF
+		                              TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_spear_thrust KeyTime = 0.40 }]
+                              AnimVariants = [ sh_elitecavalry_attack02.KF sh_elitecavalry_attack03.KF sh_elitecavalry_attack04.KF sh_elitecavalry_attack05.KF ]
+                              AnimVariantsWeights = [ 0.02 0.03 0.03 0.02 ]
+                 }
+       		{ 	StateName = Death	AnimName = sh_elitecavalry_death01.KF	}
+			]
+	UIRenderingParams {
+		xOffset = -3.68
+		yOffset = 1.37
+		zOffset = -0.54
+		scale = 1.53
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	GERMAN 3 - SPECIAL BOMBARD CANNON
+//------------------------------------------------
+UnitType GermanCampaignSpecialBombard
+{
+	parent = Artillery
+	properties {
+		SizeX = 0.75
+		SizeY = 0.75
+		mass = 2
+		HitPoints = 375
+		displayName = tx_utn_heavyArt8_name
+		displayNameScenEdit = tx_utn_cmpgnGerbombard_sname
+		verboseTooltip = vtt_unit_BombardCannon
+	}
+	sounds = {
+		sndCmdMove = ["v_HeavyArtillery_08_com01" "v_HeavyArtillery_08_com02"]
+		sndCmdAttack = ["v_HeavyArtillery_08_spe01"]
+		sndSelection = ["v_HeavyArtillery_08_sel01"]
+	}
+	abilities = [
+		Attack { range = 15; reloadTime = 4; applyDamageTime = 0.3; damage = 47; missileName = "RockAmmo"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5 }
+		Move {speed = 1.15; angSpeed = 180}
+		LOS { range = 14 }
+	]
+	icon = icon_unit_BombardCannon
+}
+
+UnitModel GermanCampaignSpecialBombard
+{
+	Parent = HeavyArtillery_08
+}
+
+//------------------------------------------------
+//	GERMAN 8 - OTTO VON BISMARCK
+//------------------------------------------------
+UnitType GermanCampaignBismarck
+{
+	parent = LeaderImperial
+	icon = icon_unit_OttoVonBismarck
+	properties {
+		DisplayName = tx_utn_bismarck_name
+		DisplayNameScenEdit = tx_utn_cmpgnGerBismarck_sname
+		VerboseTooltip = vtt_unit_LeaderImperial
+		HitPoints = 800
+	}
+	sounds {
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 2; applyDamageTime = 0.5; damage = 43 }
+		LOS { range = 5 }
+		AreaEffect {
+			effects = [
+				Lectures 
+			]
+		}
+		SpecialPower {
+			range = 3;
+			effects = [
+				FastTracking
+			]
+		}
+	]
+}
+
+UnitModel GermanCampaignBismarck
+{
+	parent	 	= BaseHuman
+    DefaultModel 	= camp_german8_bizmark.nif
+	ForceScale = 0.260
+	ChildNames 		= [ ThePowerBar UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = camp_german8_bizmark_idle01.kf	
+                              AnimVariants = [ camp_german8_bizmark_idle02.kf camp_german8_bizmark_idle03.kf camp_german8_bizmark_battlecry01.kf ]
+                              AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+                                }
+		{ 	StateName = Walk	AnimName = camp_german8_bizmark_walk01.KF}
+		{ 	StateName = Run	AnimName = camp_german8_bizmark_jog01.KF } 
+		{ 	StateName = Attack1	AnimName = camp_german8_bizmark_attack01.kf
+                              AnimVariants = [ camp_german8_bizmark_attack02.kf ]
+                              AnimVariantsWeights = [ 0.1 ]
+			TextKeys = [
+				    { Name = PLAY_SOUND Data = fx_mace_swing KeyTime = 1.2 }
+							] }
+		{ 	StateName = Death	AnimName = camp_german8_bizmark_death01.kf	}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.00
+		zOffset = -9.98
+		scale = 3.35
+		angle = 23.68
+	}
+}
+
+//------------------------------------------------
+//	MARIENBURG CASTLE
+//------------------------------------------------
+UnitType GermanCampaignMarienburgCastle
+{
+	parent = Fortress
+	properties {
+		rps = BuildingCombat
+		SizeX = 7
+		SizeY = 7
+		FootprintSizeX = 8.5
+		FootprintSizeY = 8.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		UndertextureSizeX = 7
+		UndertextureSizeY = 7
+		mass = 1
+		displayName = tx_utn_marienburg_name
+		DisplayNameScenEdit = tx_utn_marienburg_sname
+		VerboseTooltip = vtt_unit_Fortress
+		hitpoints = 10000
+	}
+	sounds {
+    	}
+	abilities = [
+		Attack { range = 7; reloadTime = 3; applyDamageTime = 0.5; damage = 30; missileName = "Arrow"; angularRange = 360 }
+	]
+	icon = icon_unit_marienburgCastle
+}
+
+UnitModel GermanCampaignMarienburgCastle
+{
+	Parent		= BaseBuilding
+	DefaultModel	= bld_marienburg_castle.NIF
+	ChildNames	= [ HugeGlow UnderMarienburgCastle ExplSelectorBuild_Medium ]
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1 
+			TextKeys = [ { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 } ] 
+		}
+	]
+}
+
+//------------------------------------------------
+//	VERSAILLES
+//------------------------------------------------
+UnitType GermanCampaignVersailles
+{
+	parent = Fortress
+	properties {
+		rps = BuildingCombat
+		SizeX = 7
+		SizeY = 7
+		FootprintSizeX = 8.5
+		FootprintSizeY = 8.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		UndertextureSizeX = 7
+		UndertextureSizeY = 7
+		mass = 1
+		displayName = tx_utn_versailles_name
+		DisplayNameScenEdit = tx_utn_versailles_sname
+		VerboseTooltip = vtt_unit_Fortress
+		hitpoints = 750
+	}
+	sounds {
+    	}
+	abilities = [
+		Attack { range = 7; reloadTime = 3; applyDamageTime = 0.5; damage = 30; missileName = "Arrow"; angularRange = 360 }
+	]
+	icon = icon_unit_versailles
+
+}
+
+UnitModel GermanCampaignVersailles
+{
+	Parent		= BaseBuilding
+	DefaultModel = bld_versailles.NIF
+	ChildNames = [ HugeGlow UnderVersailles ExplSelectorBuild_Medium ]
+}
+
+//------------------------------------------------
+//	NOTRE DAME
+//------------------------------------------------
+UnitType GermanCampaignNotreDame
+{
+	parent = Building
+	properties {
+		SizeX = 3
+		SizeY = 3
+		OffsetX = 0.75
+		OffsetY = 0.75
+		FootprintSizeX = 4.5
+		FootprintSizeY = 4.5
+		UndertextureSizeX = 4.5
+		UndertextureSizeY = 4.5
+		mass = 1
+		DisplayNameScenEdit = tx_utn_notredame_sname
+		displayName = tx_utn_notredame_name
+		VerboseTooltip = vtt_unit_notredame
+		hitpoints = 1000
+	}
+	sounds {
+    	}
+	fullMapOverlay { sprite = spr_fullmap_church }
+	abilities = [
+	]
+	icon = icon_unit_notreDame
+}
+
+UnitModel GermanCampaignNotreDame
+{
+	Parent 		= BaseBuilding
+	DefaultModel 	= bld_temple7_we.NIF
+	ChildNames 	= [LargeGlow UnderNotreDame ExplSelectorBuild_Medium ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	JUNKERS
+//------------------------------------------------------------------------------------------------
+UnitType Junkers
+{
+	parent = Human
+	properties {
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+		displayName = tx_utn_junker_name
+		rps = Citizen
+		stance = Cautious
+//		VerboseTooltip = vtt_unit_junker
+	}
+	abilities = [
+		Attack { range = 0.0; reloadTime = 1; applyDamageTime = 0.0; damage = 0 }
+		Move {speed = 1.15; angSpeed = 720; angAccel = 720}		
+		LOS { range = 0 }
+		Garrisonable { garrisonTypes = [ UniWarehouseOilDerrickCityCenter Fortress Tower NavalTransport SeigeTower AirTransport] }
+	]
+}
+
+UnitModel Junkers
+{
+	Parent		= CitizenM
+	DefaultModel 	= amb_german_noble.NIF
+	States 		= [
+		{	StateName = Idle	AnimName = amb_german_noble_idle01.KF
+                              AnimVariants = [amb_german_noble_idle02.KF ]
+                              AnimVariantsWeights = [ 0.2 ]
+                 }
+		{ 	StateName = Walk	AnimName = amb_german_noble_walk01.KF	}
+		{ 	StateName = Run	        AnimName = amb_german_noble_jog01.KF	}
+		{ 	StateName = Attack1	AnimName = amb_german_noble_attack01.KF	}
+		{ 	StateName = Death	AnimName = amb_german_noble_death01.KF	}
+			]		
+}

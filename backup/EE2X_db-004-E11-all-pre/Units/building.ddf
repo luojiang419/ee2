@@ -1,0 +1,186 @@
+//------------------------------------------------------------------------------------------------
+//	BUILDING
+//------------------------------------------------------------------------------------------------
+UnitType BareBoneBuilding		// building with no ability
+{
+	ownerType = PlayerOrWorld
+	placementType = Building
+	properties {
+		rps = Building
+		hitpoints = 666
+		FootprintType = kFootprintType_Rectangle
+		requiredOpenSides = kBuildingOpenSides_None
+	}
+	attributes = [ RectangularFootprint ]
+	fullMapOverlay { sprite = spr_fullmap_building }
+	icon = icon_unit_default_building
+}
+
+UnitType NoProduceBuilding
+{
+	parent = BareBoneBuilding
+	abilities = [
+		Research {}
+		Convertable { 
+			convertTimeModifier = 200.0;  //
+			garrisonedUnitModifier = 0.0; // 10% increase in capture time
+			garrisonedUnitDamage = 0.0;	  // hitpoints subtracted from capturer per round per garrisoned unit
+			damageRate = 0.0;			  // hitpoints subtracted from capture target hitpoints per round
+			capture = 1;
+		} // may be captured
+
+		LOS { range = 0 }
+	]
+}
+
+UnitType Building
+{
+	ownerType = PlayerOnly
+	parent = NoProduceBuilding
+	abilities = [
+		Produce {}
+	]
+}
+
+// a variation of Building that can belong to either player or world
+UnitType PlayerOrWorldBuilding
+{
+	parent = NoProduceBuilding
+	abilities = [
+		Produce {}
+	]
+}
+
+//---------------------------------------------------------------------------
+//	ConstructionSite 
+//---------------------------------------------------------------------------
+
+StateDatabase ConstructionSiteStates
+{
+	DefaultModel 	= NULL.nif
+	//DefaultModel 	= bhs5_villa_fe_02_foundation.NIF
+	DefaultState 	= Idle
+	States 		= [
+			{	StateName = Idle	}
+			//{	StateName = Build	ModelName = bhs5_villa_fe_02_scaffold.NIF }
+			]
+}
+CompositeModel ConstructionSite
+{
+	ScaleType 			= kScaleBuilding
+	StateDatabaseName  	= ConstructionSiteStates
+	ChildNames = [ TheHealthBar ]
+}
+
+UnitType ConstructionSite 
+{
+	placementType = Unplaceable
+	properties {
+		FootprintType = kFootprintType_Rectangle
+		SizeX = 2
+		SizeY = 2
+		displayName = tx_utn_constructSite_name
+		rps = Building
+		mass = 0	// don't block pathing
+		hitpoints = 1
+	}
+	abilities = [
+		Construction {}
+	]
+	fullMapOverlay { sprite = spr_fullmap_building }
+	icon = icon_unit_default_building
+}
+
+//---------------------------------------------------------------------------
+//	Building Visuals
+//---------------------------------------------------------------------------
+
+//
+// A building without an explicit shadow type
+// or rally flag
+//
+UnitModel   SimpleBuilding
+{
+	OutlineType	= kOutlineReceive
+	ScaleType 	= kScaleBuilding
+	DefaultState 	= Idle
+	States 		= [
+			{	StateName = Idle	}
+			{	StateName = Death	ModelName = NULL.nif
+						TextKeys = [ 
+						{ Name = PLAY_SOUND	Data = Bld_Collapse } 
+			] }
+			]
+	ChildNames 	= [ TheCollapseEffect TheHealthBar TheResistanceBar SelectCircleBig 
+					TheAmbientPlacer SinkRubbles 
+					TheBuildEffect TheVisualFlag TheBldDamageEffect
+					HemisphereLighting_Building DynamicLighting_Building ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+//
+// The usual building
+//
+UnitModel	BaseBuilding
+{
+	Parent = SimpleBuilding
+	ChildNames 	= [ BuildingShadow TheRallyFlag ]
+}
+
+//
+// A Building with turrets (needs special shadow in order to auto-update)
+//
+UnitModel BuildingWithTurrets
+{
+    Parent = SimpleBuilding
+	ChildNames  = [ BuildingWithTurretsShadow TheRallyFlag ]
+}
+
+
+// @HEY! This is identical to BaseBuilding!!!!
+UnitModel	BaseBuilding_NoFoundation
+{
+	OutlineType	= kOutlineReceive
+	ScaleType 	= kScaleBuilding
+	DefaultState 	= Idle
+	States 		= [
+			{	StateName = Idle	}
+			{	StateName = Death	ModelName = NULL.nif
+						TextKeys = [ 
+						{ Name = PLAY_SOUND	Data = Bld_Collapse } 
+			] }
+			]
+	ChildNames 	= [ TheHealthBar TheResistanceBar BuildingShadow SelectCircleBig 
+					TheCollapseEffect TheAmbientPlacer SinkRubbles 
+					TheBuildEffect TheVisualFlag TheRallyFlag TheBldDamageEffect
+					HemisphereLighting_Building DynamicLighting_Building
+				  ]
+}
+
+
+
+// @TODO REMOVE THIS
+//StateDatabase AllBuildingStates
+//{
+//	States 		= [
+//			{	StateName = Idle	}
+//			{	StateName = Death	ModelName = NULL.nif
+//						TextKeys = [ 
+//						{ Name = HIDE_VISUAL	Data = MainModel } 
+//						{ Name = PLAY_SOUND	Data = Bld_Collapse } 
+//			] }
+//			]
+//
+//}
+
+
+
+
+
+
+
+
+
+
+
+

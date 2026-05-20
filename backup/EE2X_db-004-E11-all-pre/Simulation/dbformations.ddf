@@ -1,0 +1,691 @@
+//The spacing of units in formation should be easy to tweak by the designers.
+//The positional preference of each formation should be easy to tweak by the designers.
+//The bonuses and possibility of penalties should be easy to tweak by the designers.
+
+
+/////////////////////////////// LAND FORMATIONS ///////////////////////////////
+
+
+
+//The phalanx is the classic all purpose formation, since it is
+//well-protected on three sides, with its middle and rear packed
+//with weak and/or ranged units.
+Formation Phalanx {
+	showInUI = 1	// show this formation in the UI
+	icon = icon_formation_phalanx
+	button = unit_formation_phalanx
+	specialType = Phalanx
+	Zones = [
+		{
+			Prefs = [
+				Ram
+				HeavyMounted
+				HeavyInfantry
+				LightMounted
+				LightInfantry
+				LightArtillery
+				HeavyArtillery
+				SpecialUnits
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Land
+	
+	rangeProperty = AllInRangeBonus
+	//rangeBoost = 0.25
+}
+
+// Staggered Line
+Formation StaggeredLine {
+	showInUI = 1	// show this formation in the UI
+	icon = icon_formation_stagline
+	button = unit_formation_staggeredline
+	specialType = StaggeredLine
+	Zones = [
+		{
+			Prefs = [
+				Ram
+				HeavyMounted
+				HeavyInfantry
+				LightMounted
+				LightInfantry
+				LightArtillery
+				HeavyArtillery
+				SpecialUnits
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Land
+	
+	rangeProperty = AllInRangeBonus	
+	//rangeBoost = 0.15
+}
+
+// DoubleLine (the land line formation)
+Formation DoubleLine {
+	showInUI = 1	// show this formation in the UI
+	icon = icon_formation_doubleline
+	button = unit_formation_doubleline
+	specialType = DoubleLine
+	Zones = [
+		{
+			Prefs = [
+				Ram
+				HeavyMounted
+				HeavyInfantry
+				LightMounted
+				LightInfantry
+				LightArtillery
+				HeavyArtillery
+				SpecialUnits
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Land
+	
+	rangeProperty = AllInRangeBonus	
+	//rangeBoost = 0.15
+}
+
+//The column formation:  first land formation, for travel.
+Formation Column {
+	specialType = Column
+	Zones = [
+		{
+			Prefs = [
+				Ram
+				HeavyMounted
+				HeavyInfantry
+				LightMounted
+				LightInfantry
+				LightArtillery
+				HeavyArtillery
+				SpecialUnits
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Land
+	
+	rangeProperty = NoBonus
+	// we get a 20% speed boost for travelling in column
+	speedBoost = 0.2
+}
+
+// The circle formation has dudes in a circle, rocking out.
+Formation Circle {
+	specialType = Circle		// Only token zones, so we can find spacing like everyone else.
+
+	Zones = [
+		{
+			Slots = [
+				{x=0     y=0}
+			]
+			SuperSlots = [
+				{slotIndexes = [0]}
+			]
+			Prefs = [
+				HeavyMounted
+				HeavyInfantry
+				LightMounted
+				LightInfantry
+				LightArtillery
+				HeavyArtillery
+				SpecialUnits
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Land
+	
+	rangeProperty = AllInRangeBonus
+	//rangeBoost = 0.2	
+}
+	
+//The wedge formation will place the most heavily armored units to
+//the front, followed by medium and light units with siege or
+//special units in the back.
+Formation Wedge {
+	specialType = Wedge
+	showInUI = 1 // show this formation in the UI
+	icon = icon_formation_wedge
+	button = unit_formation_wedge
+	Zones = [
+		{
+			Prefs = [
+				Ram
+				HeavyMounted
+				HeavyInfantry
+				LightMounted
+				LightInfantry
+				LightArtillery
+				HeavyArtillery
+				SpecialUnits
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Land
+	
+	rangeProperty = AllInRangeBonus
+	//rangeBoost = 0.3	
+}
+
+// @EE2X @MRC
+// The BeastHorn formation
+Formation BeastHorns {
+	specialType = BeastHorns
+	showInUI = 1 // show this formation in the UI
+	icon = icon_formation_beasthorns
+	button = unit_formation_beasthorns
+	Zones = [
+		{
+			Prefs = [
+				SpecialUnits
+				HeavyArtillery
+				LightArtillery
+				LightMounted
+				HeavyMounted
+				LightInfantry
+				HeavyInfantry
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Land
+	
+	rangeProperty = AllInRangeBonus
+	//rangeBoost = 0.3	
+	AllowedCivs = [ Zulu ]
+
+	// Heavy infantry get a 25% attack bonus in this formation
+	AttackBonus = 0.25
+	AttackBonusMask = HeavyInfantry
+}
+
+
+//The Bowed formation is a good conservative offensive formation.
+//It emphasizes heavy units in the front and center, lighter and
+//faster units on the flanks and support and artillery units in a
+//relatively protected pocket in the back-center. 
+Formation Bowed {
+	Zones = [
+		{
+			Slots = [
+				{x= 0     y= 0}
+				{x= 0     y= 1}
+				{x= 0     y=-1}
+				{x=-1     y= 2}
+				{x=-1     y=-2}
+				{x=-1     y= 3}
+				{x=-1     y=-3}
+
+				{x=-2     y= 4}
+				{x=-2     y=-4}
+				{x=-2     y= 0}
+				{x=-2     y=-5}
+				{x=-2     y= 5}
+				{x=-3     y=-6}
+				{x=-3     y= 6}
+
+				{x=-3     y=-7}
+				{x=-3     y= 7}
+				{x=-4     y=-8}
+				{x=-4     y= 8}
+				{x=-5     y=-8}
+				{x=-5     y= 8}
+				{x=-4     y= 2}
+
+				{x=-4     y=-2}
+				{x=-4     y= 1}
+				{x=-4     y=-1}
+				{x=-4     y= 0}
+				{x=-5     y=-2}
+				{x=-5     y= 2}
+				{x=-5     y=-1}
+
+				{x=-5     y= 1}
+				{x=-5     y= 0}
+				{x=-6     y= 2}
+				{x=-6     y=-2}
+				{x=-6     y= 1}
+				{x=-6     y=-1}
+				{x=-6     y= 0}
+
+				{x=-7     y= 0}
+				{x=-7     y= 1}
+				{x=-7     y=-1}
+				{x=-7     y= 2}
+				{x=-7     y=-2}
+			]
+			SuperSlots = [
+				// Degenerate superslotting to avoid
+				// asserts in postload
+				{slotIndexes = [ 1]}
+				{slotIndexes = [ 2]}
+				{slotIndexes = [ 3]}
+				{slotIndexes = [ 4]}
+				{slotIndexes = [ 5]}
+				{slotIndexes = [ 6]}
+				{slotIndexes = [ 7]}
+				{slotIndexes = [ 8]}
+				{slotIndexes = [ 9]}
+				{slotIndexes = [10]}
+				{slotIndexes = [11]}
+				{slotIndexes = [12]}
+				{slotIndexes = [13]}
+				{slotIndexes = [14]}
+				{slotIndexes = [15]}
+				{slotIndexes = [16]}
+				{slotIndexes = [17]}
+				{slotIndexes = [18]}
+				{slotIndexes = [19]}
+				{slotIndexes = [20]}
+				{slotIndexes = [21]}
+				{slotIndexes = [22]}
+				{slotIndexes = [23]}
+				{slotIndexes = [24]}
+				{slotIndexes = [25]}
+				{slotIndexes = [26]}
+				{slotIndexes = [27]}
+				{slotIndexes = [28]}
+				{slotIndexes = [29]}
+				{slotIndexes = [30]}
+				{slotIndexes = [31]}
+				{slotIndexes = [32]}
+				{slotIndexes = [33]}
+				{slotIndexes = [34]}
+				{slotIndexes = [35]}
+				{slotIndexes = [36]}
+				{slotIndexes = [37]}
+				{slotIndexes = [38]}
+				{slotIndexes = [39]}
+				{slotIndexes = [40]}
+			]
+
+			Prefs = [
+				HeavyMounted
+				HeavyInfantry
+				LightMounted
+				LightInfantry
+				LightArtillery
+				HeavyArtillery
+				SpecialUnits
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Land
+}
+
+// Horn
+Formation Horn {
+	Zones = [
+		{
+			Slots = [
+				{x=-14     y=0}
+			
+				{x=-13     y= 2}
+				{x=-13     y=-2}
+		
+				{x=-12     y= 4}
+				{x=-12     y=-4}
+				{x=-12     y= 0}
+		
+				{x=-11     y= 6}
+				{x=-11     y=-6}
+				{x=-10     y= 8}
+				{x=-10     y=-8}
+		
+				{x=-11     y= 2}
+				{x=-11     y=-2}
+
+				{x=-10     y= 4}
+				{x=-10     y=-4}
+				
+				
+				
+				{x=-8      y= 9}
+				{x=-8      y=-9}
+				{x=-6      y= 10}
+				{x=-6      y=-10}
+				{x=-4      y= 11}
+				{x=-4      y=-11}
+
+
+				{x=-9      y= 1}
+				{x=-9      y=-1}
+				{x=-8      y= 7}
+				{x=-8      y=-7}
+				{x=-6      y= 8}
+				{x=-6      y=-8}
+				{x=-4      y= 9}
+				{x=-4      y=-9}
+				{x=-2      y= 12}
+				{x=-2      y=-12}
+
+				{x=-7      y= 1}
+				{x=-7      y=-1}
+				
+				// and here for no apparent reason we start having odd numbers
+				// on the bottom, and even numbers on the top.  oh well.
+				
+				{x=-2      y=-10}
+				{x=-2      y= 10}
+				
+				{x=0       y=-10}
+				{x=0       y= 10}
+				{x=0       y=-12}
+				{x=0       y= 12}
+				{x=0       y=-8}
+				{x=0       y= 8}
+			]
+			SuperSlots = [
+				// Degenerate superslotting to avoid
+				// asserts in postload
+				{slotIndexes = [ 1]}
+				{slotIndexes = [ 2]}
+				{slotIndexes = [ 3]}
+				{slotIndexes = [ 4]}
+				{slotIndexes = [ 5]}
+				{slotIndexes = [ 6]}
+				{slotIndexes = [ 7]}
+				{slotIndexes = [ 8]}
+				{slotIndexes = [ 9]}
+				{slotIndexes = [10]}
+				{slotIndexes = [11]}
+				{slotIndexes = [12]}
+				{slotIndexes = [13]}
+				{slotIndexes = [14]}
+				{slotIndexes = [15]}
+				{slotIndexes = [16]}
+				{slotIndexes = [17]}
+				{slotIndexes = [18]}
+				{slotIndexes = [19]}
+				{slotIndexes = [20]}
+				{slotIndexes = [21]}
+				{slotIndexes = [22]}
+				{slotIndexes = [23]}
+				{slotIndexes = [24]}
+				{slotIndexes = [25]}
+				{slotIndexes = [26]}
+				{slotIndexes = [27]}
+				{slotIndexes = [28]}
+				{slotIndexes = [29]}
+				{slotIndexes = [30]}
+				{slotIndexes = [31]}
+				{slotIndexes = [32]}
+				{slotIndexes = [33]}
+				{slotIndexes = [34]}
+				{slotIndexes = [35]}
+				{slotIndexes = [36]}
+				{slotIndexes = [37]}
+				{slotIndexes = [38]}
+				{slotIndexes = [39]}
+				{slotIndexes = [40]}
+			]
+
+			Prefs = [
+				SpecialUnits
+				HeavyArtillery
+				LightArtillery
+				LightInfantry
+				LightMounted
+				HeavyInfantry
+				HeavyMounted
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Land
+}
+
+
+
+////////////////////////////// NAVAL FORMATIONS ///////////////////////////////
+
+//--naval
+//blockade: War Galleys // FS, G, F, Noncombat ships // BB, DD, SS, Noncombat ships.
+//convoy  : War Galleys // FS, G, F, Noncombat ships // BB, DD, SS, Noncombat ships
+//line    : War Galleys // FS, G, F, Noncombat ships // BB, DD, SS, Noncombat ships
+//crescent: War Galleys // Noncombat ships, FS, G, F // Noncombat ships, BB, DD, SS
+//current assumption:
+//  G = Galleon
+//  F = Frigate
+//  FS = Fighting Sail
+//  BB = Battleship?
+//  DD = Destroyer?
+//  SS = Submarine?
+
+
+//Convoy is used for protecting transport vessels as they will
+//automatically be in the center if they are in the formation, but
+//would serve as an object to be guarded in the same way if the player
+//leaves them out of the formation. 
+Formation Convoy {  // faux phalanx
+	showInUI = 1	// show this formation in the UI
+	icon = icon_formation_convoy
+	button = unit_formation_convoy
+	specialType = WaterPhalanx
+	Zones = [
+		{
+			Prefs = [
+				//WarGalleysAndFightingSails
+				//Galleons
+				//Frigates
+				//NoncombatShipsAndBattleships
+				//Destroyers
+				//Submarines
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Water
+}
+
+// Line
+Formation Line {
+	showInUI = 1	// show this formation in the UI
+	icon = icon_formation_line
+	button = unit_formation_line
+	Zones = [
+		{
+			Slots = [
+				{x=0  y=  0}
+				{x=0  y= -0.5}
+				{x=0  y=  0.5}
+				{x=0  y= -1}
+				{x=0  y=  1}
+				{x=0  y= -1.5}
+				{x=0  y=  1.5}
+				{x=0  y= -2}
+				{x=0  y=  2}
+				{x=0  y= -2.5}
+				{x=0  y=  2.5}
+				{x=0  y= -3}
+				{x=0  y=  3}
+				{x=0  y= -3.5}
+				{x=0  y=  3.5}
+				{x=0  y= -4}
+				{x=0  y=  4}
+				{x=0  y= -4.5}
+				{x=0  y=  4.5}
+				{x=0  y= -5}
+			]
+
+			SuperSlots = [
+				{slotIndexes = [ 1]}
+				{slotIndexes = [ 2]}
+				{slotIndexes = [ 3]}
+				{slotIndexes = [ 4]}
+				{slotIndexes = [ 5]}
+				{slotIndexes = [ 6]}
+				{slotIndexes = [ 7]}
+				{slotIndexes = [ 8]}
+				{slotIndexes = [ 9]}
+				{slotIndexes = [10]}
+			]
+
+			Prefs = [
+				//WarGalleysAndFightingSails
+				//Galleons
+				//Frigates
+				//NoncombatShipsAndBattleships
+				//Destroyers
+				//Submarines
+			]
+		}
+	]
+	SpacingScaleFactor = 1.2 
+	class = Water
+}
+
+// Crescent
+Formation Crescent {
+	showInUI = 1	// show this formation in the UI
+	icon = icon_formation_crescent
+	button = unit_formation_crescent
+	Zones = [
+		{
+			Slots = [
+				{x= 0     y= 0}
+				{x= 0.5   y= 0.5}
+				{x= 0.5   y=-0.5}
+				{x= 1     y= 1}
+				{x= 1     y=-1}
+				{x= 1.5   y= 1.5}
+				{x= 1.5   y=-1.5}
+				{x= 2     y= 2}
+				{x= 2     y=-2}
+				{x= 2.5   y= 2.5}
+			]
+
+			SuperSlots = [
+				// Degenerate superslotting to avoid
+				// asserts in postload
+				{slotIndexes = [ 1]}
+				{slotIndexes = [ 2]}
+				{slotIndexes = [ 3]}
+				{slotIndexes = [ 4]}
+				{slotIndexes = [ 5]}
+				{slotIndexes = [ 6]}
+				{slotIndexes = [ 7]}
+				{slotIndexes = [ 8]}
+				{slotIndexes = [ 9]}
+				{slotIndexes = [10]}
+			]
+
+			Prefs = [
+				//WarGalleysAndNoncombatShips
+				//FightingSails
+				//Galleons
+				//FrigatesAndNoncombatShips
+				//Battleships
+				//Destroyers
+				//Submarines
+			]
+		}
+	]
+	SpacingScaleFactor = 1.2 
+	class = Water
+}
+
+Formation WaterColumn {
+	specialType = WaterColumn
+	Zones = [
+		{
+			Prefs = [
+				//WarGalleysAndNoncombatShips
+				//FightingSails
+				//Galleons
+				//FrigatesAndNoncombatShips
+				//Battleships
+				//Destroyers
+				//Submarines
+			]
+		}
+	]
+	SpacingScaleFactor = 1.2 
+	class = Water
+	
+	rangeProperty = NoBonus
+	// we get a 20% speed boost for travelling in column
+	speedBoost = 0.2
+}
+
+// Blockade
+Formation Blockade {
+	Zones = [
+		{
+			Slots = [
+				{x= 0     y= 0}
+				{x=-1     y= 0}
+				{x= 0     y=-2}
+				{x=-1     y=-2}
+				{x= 0     y= 2}
+				{x=-1     y= 2}
+				{x= 0     y=-1}
+				{x=-1     y=-1}
+				{x= 0     y= 1}
+				{x=-1     y= 1}
+			]
+
+			SuperSlots = [
+				// Degenerate superslotting to avoid
+				// asserts in postload
+				{slotIndexes = [ 1]}
+				{slotIndexes = [ 2]}
+				{slotIndexes = [ 3]}
+				{slotIndexes = [ 4]}
+				{slotIndexes = [ 5]}
+				{slotIndexes = [ 6]}
+				{slotIndexes = [ 7]}
+				{slotIndexes = [ 8]}
+				{slotIndexes = [ 9]}
+				{slotIndexes = [10]}
+			]
+
+			Prefs = [
+				//WarGalleysAndFightingSails
+				//Galleons
+				//Frigates
+				//NoncombatShipsAndBattleships
+				//Destroyers
+				//Submarines
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Water
+}
+
+
+//////////////////////////////// AIR FORMATIONS ////////////////////////////////
+
+//--air
+//strafe  : F, FB, B, Noncombat air units
+//pyramid : B, FB, F, Noncombat air units
+//flying v: F, FB, B, Noncombat air units
+//current assumption:
+//  F = Figher
+//  FB = FighterBomber
+//  B = Bomber
+
+Formation AirPhalanx {
+	showInUI = 1	// show this formation in the UI
+	icon = icon_formation_phalanx
+	button = unit_formation_phalanx
+	specialType = Phalanx
+	Zones = [
+		{
+			Prefs = [
+			]
+		}
+	]
+	SpacingScaleFactor = 1
+	class = Air
+}
+

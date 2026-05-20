@@ -1,0 +1,30 @@
+//------------------------------------------------------------------------------------------------
+//	HEAVY TANK
+//------------------------------------------------------------------------------------------------
+UnitType HeavyTank
+{
+	parent = HeavyMounted
+	properties {
+		moveType = Mechanized
+		SizeX = 0.7
+		SizeY = 0.7
+		mass = 5
+		hitpoints = 1000
+		popCount = 2
+	}
+	sounds {
+		//sndCmdMove = [""]
+		//sndCmdAttack = [""]
+		//sndSelection = [""]
+	}
+	abilities [
+		Attack { range = 12; reloadTime = 1.5; applyDamageTime = 0.5; damage = 60; missileName = TankShell }
+		VehicleMove {speed = 1.4; angSpeed = 90; followTerrainSlope = 1; mustMoveToTurn = 0}
+		LOS {range = 5}
+		AreaEffect {			effects = [ Taran_Tanks ]		}
+		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
+	]
+	nonAttributes = [ 
+		HealedByMedic
+	]
+}

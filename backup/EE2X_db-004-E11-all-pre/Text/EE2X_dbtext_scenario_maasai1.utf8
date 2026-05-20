@@ -1,0 +1,143 @@
+﻿// Campaign Info, used for all Maasai Scenarios
+text_camp_maasai_name,"""马赛"""
+text_camp_maasai_desc,"""马赛人是肯尼亚西部一支自豪且凶猛的民族。马赛人倚靠一部分的游牧生活，他们在极端恶劣的环境中也能自给自足。不过他们现在面临了最大的挑战，他们正逐渐丧失牲畜们赖以维生的放牧地，这些土地不是被改建成商业化的大型麦田或其他耕作地，就是被划为野人动物保护区。基于边界愈来愈往内缩，区域的限制也愈高，他们很快丧失了在原野中自由穿梭的能力。现代学说和城市建设影响了马赛的年轻一代，制造出许多族群内部的纷争。严格的法律和教条也限制了部落战争和牲畜掠夺行为中战士的角色，并剥夺了长老的地位。他们能否维持自己的身分认同还在未定之数。"""
+text_maasai_blank,""""""
+text_scen_massai_victory,"""你赢了"""
+text_scen_massai_loss,"""你输了"""
+tx_maasai_Truck,"""贝里尼姆货车"""
+vtt_maasai_Truck,"""一辆载满贝里尼姆的货车可以输出到特殊市场。"""
+
+// city, territory and player names and civs for all maasai
+// Player name/civs
+txt_maasai_name,"""马赛"""
+txt_maasai_burkeneji,"""伯科尼吉"""
+txt_maasai_kwafi,"""卡瓦非"""
+txt_maasai_sambura,"""萨姆布拉"""
+txt_maasai_kalenjin,"""卡兰津 """
+txt_maasai_omega,"""葛洛伯公司"""
+txt_maasai_alpha,"""来斯特克"""
+txt_maasai_beta,"""贝他公司"""
+txt_maasai_delta,"""戴尔塔公司"""
+
+// Cities
+txt_maasai_magadi,"""马加迪"""
+txt_maasai_nairobi,"""内罗毕"""
+txt_maasai_mombasa,"""蒙巴萨"""
+txt_maasai_kisumu,"""基苏木"""
+txt_maasai_eldoret,"""艾多雷特"""
+txt_maasai_kisii,"""凯赛"""
+txt_maasai_kitale,"""基泰尔"""
+txt_maasai_maralai,"""马拉赖"""
+txt_maasai_meru,"""莫鲁"""
+txt_maasai_machakos,"""马查科斯"""
+txt_maasai_lamu,"""拉姆　"""
+txt_maasai_malindi,"""麻林地"""
+txt_maasai_garissa,"""加里萨"""
+txt_maasai_wajir,"""瓦吉尔"""
+txt_maasai_marsabit,"""马赛比特"""
+txt_maasai_lodwar,"""洛德瓦尔"""
+txt_maasai_embu,"""恩布"""
+txt_maasai_nakuru,"""纳库鲁"""
+txt_maasai_nanyuki,"""纳纽基"""
+txt_maasai_thika,"""锡卡"""
+txt_maasai_nyeri,"""涅里"""
+txt_maasai_voi,"""佛依"""
+txt_maasai_namanga,"""纳门格"""
+txt_maasai_oloitokitok,"""欧洛依通凯特克"""
+txt_maasai_narok,"""那罗克"""
+txt_maasai_kericho,"""凯里乔"""
+txt_maasai_kapsabe,"""凯普萨贝"""
+txt_maasai_tambach,"""坦巴哈"""
+txt_maasai_taveta,"""塔维塔"""
+txt_maasai_kwale,"""科瓦勒"""
+txt_maasai_njoro,"""恩求罗"""
+txt_maasai_naivasha,"""奈瓦沙"""
+txt_maasai_londiam,"""伦迪亚姆"""
+txt_maasai_isiolo,"""伊希约洛"""
+txt_maasai_moyale,"""莫耶尔"""
+txt_maasai_mande,"""曼德"""
+txt_maasai_lokitaung,"""洛及塔恩"""
+txt_maasai_kilili,"""吉利利"""
+txt_maasai_garsen,"""加胜"""
+txt_maasai_kitui,"""基图伊"""
+txt_maasai_kelem,"""凯利姆"""
+txt_maasai_bokhol,"""伯克和平原"""
+txt_maasai_musoma,"""穆索马"""
+txt_maasai_mwanza,"""马弯萨"""
+txt_maasai_nyanza,"""尼安萨"""
+
+// Territories
+
+// Names of units
+text_maasai_hero_name,"""巴利迪·海特利·尼亚马""" // Beer Danger Meat in Swahili
+text_maasai_hero_desc,"""巴利迪·海特利·尼亚马有重新集结部队的能力，而且这一个部队是依照他的旨意的凶猛斗士。巴利迪必须在这个任务中存活才能获胜！""" 
+text_maasai_hero_hurt,"""巴利迪受伤了，快保护他的安全！"""
+text_maasai_chief_name,"""达克塔利·邦德·尼亚马""" // Doctor Valley Meat in Swahili
+text_maasai_chief_desc,"""达克塔利·邦德·尼亚马是一位能激励人心的领袖，同时拥有神奇的魔力可以将敌方的军队转换成自己的阵营。达克塔利必须存活才能让这场任务成功！"""
+text_maasai_chief_hurt,"""达克塔利受伤了，确保他的安全！"""
+text_maasai_warlord_name,"""科梭米为兹""" // Tomorrow Thief in Swahili
+text_maasai_lion_name,"""狮子"""
+
+// Scenario Info
+text_scen_m1_name,"""成年礼"""
+text_scen_m1_hints,"""小心的看顾巴利迪·海特利·尼亚马跟达克塔利‧邦德‧尼亚马，如果他们死去，你将会在这个任务中失败。\n\n经常存档。\n\n > 越多次要目标完成，你在下一个任务中就会有越多的增援可以选择。"""
+//tx_fe_prog_EE2X_Maasai1,"""A pack of lions has been slaughtering the village's herd of cattle. Baridi Hatari Nyama, son of the Chief, must lead a small group of young men in a rite of passage. They must eliminate the threat of the lions and discover why they are suddenly causing so much trouble."""
+tx_fe_prog_EE2X_Maasai1,"""一群狮子一直在屠杀这个村庄的牛群。巴利迪‧海特利‧尼亚马，酋长之子，必须领导一小群年轻人来完成成年礼。他们必须消灭狮群的威胁以及发现牠们为什么突然引起了这么多的麻烦。"""
+text_scen_m1_date,"""2037年，夏季"""
+
+// Objectives
+//text_scen_m1_pobj1,"""Investigate the Lions (Placeholder Tigers used)"""
+text_scen_m1_pobj1,"""研究调查狮子"""
+//text_scen_m1_pobj1_description,"""Take your units and discover why the lions are very aggressive."""
+text_scen_m1_pobj1_description,"""狮群正在攻击我们的牛只跟人，研究并发现为什么狮子如此的具侵犯性。"""
+text_scen_m1_pobj2,"""防御马加迪！"""
+text_scen_m1_pobj2_description,"""伯科尼吉的军队正在对城镇攻击！保卫它！\n\n所有的马赛军队跟建筑现在全部归你管辖。"""
+text_scen_m1_pobj3,"""查出为什么伯科尼吉正在攻击"""
+text_scen_m1_pobj3_description,"""我们不知道为什么伯科尼吉要攻击我们，但是我们必须查明出来。研究伯科尼吉的基地，使用武力！"""
+
+text_scen_m1_sobj1,"""防御卡瓦非的城市"""
+text_scen_m1_sobj1_description,"""伯科尼吉正在攻击我们的邻居及长期盟友卡瓦非！帮助防御他们的基地！"""
+
+text_scen_m1_pobj4,"""消灭葛洛伯公司的防卫军"""
+text_scen_m1_pobj4_description,"""葛洛伯公司的防卫军在一旁与伯科尼吉一起作战！他们看起来像是再帮伯科尼吉训练和补给来对我们作战。但是为什么呢？消灭所有葛洛伯公司在这个区域的军事单位，这将会帮助占领伯科尼吉的区域变得容易一些。"""
+
+text_scen_m1_CapFort_short,"""占领葛洛伯公司的堡垒"""
+text_scen_m1_CapFort_desc,"""葛洛伯公司弄一个堡垒在这里作甚么？为什么他们要攻击呢？\n\n摧毁葛洛伯公司的堡垒。（占领它将会获得公司的机密。）"""
+
+text_scen_m1_KillFort_short,"""摧毁葛洛伯公司的堡垒"""
+text_scen_m1_KillFort_desc,"""葛洛伯公司弄一个堡垒在这里作甚么？为什么他们要攻击呢？\n\n摧毁葛洛伯公司的堡垒。（占领它将会获得公司的机密。）"""
+
+text_scen_m1_dobj1,"""保护巴利迪·海特利·尼亚马"""
+text_scen_m1_dobj1_description,"""如果巴利迪·海特利·尼亚马死亡，你将会失败。"""
+text_scen_m1_dobj2,"""保护酋长达克塔利·邦德·尼亚马"""
+text_scen_m1_dobj2_description,"""如果达克塔利·邦德·尼亚马死亡，你将会失败。"""
+text_scen_m1_dobj3,"""保卫你的市中心"""
+text_scen_m1_dobj3_description,"""如果你的市中心被摧毁，你将会失败。"""
+
+// Mission text
+text_m1_destroy_burkeneji_base,"""这看起来像是伯科尼吉在煽动狮群来攻击我们的人民！消灭他们！"""
+text_m1_reinforcments,"""增援部队已经到达堡垒。"""
+text_m1_helicopter,"""葛洛伯公司的领导人正利用直升机逃亡！"""
+//text_m1_build_infantry,"""With the help of Kwafi, you may now build infantry."""
+text_m1_artillery,"""卡瓦非提供火炮来援助你来对抗葛洛伯公司。"""
+
+tx_m1_captured_fort,"""你占领了堡垒！"""
+tx_m1_lose_Baridi,"""巴利迪死亡！"""
+tx_m1_lose_Baridi_desc,"""因为巴利迪‧海特利‧尼亚马的死亡，马赛将很快的被征服。"""
+tx_m1_lose_Daktari,"""达克塔利死亡！"""
+tx_m1_lose_Daktari_desc,"""没有了酋长睿智的领导，马赛人将被驱逐开他们的土地。"""
+
+
+// Narration
+// Intro cinematic will use above tx_fe_prog_EE2X_Maasai1
+// Text for lose cinematic for hero death for all scenarios
+text_maasai_cin_lose_hero,"""因为巴利迪·海特利·尼亚马的死亡，马赛将很快的被征服。""" 
+// Text for lose cinematic for chief death for first 3 scenarios
+text_maasai_cin_lose_chief,"""没有了酋长睿智的领导，马赛人将被驱逐开他们的土地。"""
+// Text for lose cinematic (city destroyed) for this scenario
+text_m1_cin_city,"""马赛村庄已经被摧毁，马赛人被驱离开他们的土地。"""
+// Text for win cinematic
+text_m1_cin_win,"""近来受到伯科尼吉无故的侵略，而葛洛伯公司暂时停止，但是他们一定会持续进行的…"""
+
+
+

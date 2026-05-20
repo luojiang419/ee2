@@ -1,0 +1,916 @@
+////////////////////////////////////////
+// Special units for Russian Campaign.
+////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Russian University
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+UnitType RussianUniversity
+{
+	parent = Building
+	properties {
+		SizeX = 3
+		SizeY = 3
+		FootprintSizeX = 4.5
+		FootprintSizeY = 4.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		mass = 1
+		DisplayNameScenEdit = tx_utn_rus_univer_sname
+		displayName = tx_utn_rus_univer_name
+		VerboseTooltip = vtt_unit_RussianUniversity
+		requiredOpenSides = kBuildingOpenSides_NegY
+		RallyPlacementFlags = ( Fortress | Tower | Terrain )
+	}
+	sounds {
+		sndSelection = ["University_select"]
+    	}
+	fullMapOverlay { sprite = spr_fullmap_university}
+	abilities = [
+		LOS { range = 0 }
+		Garrison { 
+			garrisonType = UniWarehouseOilDerrickCityCenter; 
+			numOfSlots = 2;
+			gatherRate = 0.08;	// number of tech points gathered per second for each garrisoned UnitType
+			gatherType = Tech;
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+		Convertable {
+			convertTimeModifier = 100.0;  //
+			garrisonedUnitModifier = 0.1; // 10% increase in capture time
+			garrisonedUnitDamage = 1.0;	  // hitpoints subtracted from capturer per round per garrisoned unit
+			damageRate = 10.0;			  // hitpoints subtracted from capture target hitpoints per round
+			capture = 1;
+			resourcesTransferred = [
+				{
+					resource = Tech
+					percentTransferred = 0.1
+					NativeTribesAmountTransferredMin = 10.0
+					NativeTribesAmountTransferredMax = 20.0
+				}
+			]
+		}
+	]
+	icon = icon_unit_university_10
+}
+
+UpgradeAbilities RussianUniversityGarrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = UniWarehouseOilDerrickCityCenter; 
+			numOfSlots = 3;
+			gatherRate = 0.03;	// number of tech points generated per second.
+			gatherType = Tech;
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+
+UnitModel RussianUniversity
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_university10_ru.nif
+	ChildNames	= [HugeGlow UnderUniversity ExplSelectorBuild_Medium ExplPartsUniversity7]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.16
+		zOffset = -1.09
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 40.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///NAPOLEON
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+UnitType Napoleon
+{
+	parent = LeaderMilitary
+	properties {
+		DisplayName = tx_utn_Napoleon_name
+		DisplayNamePlural = tx_utn_Napoleon_pname
+		DisplayNameScenEdit = tx_utn_Napoleon_sname
+		VerboseTooltip = vtt_unit_Napoleon
+//		SizeX = 0.4
+//		SizeY = 0.4
+		mass = 2
+		moveType = Mounted
+		HitPoints = 5000
+	}
+	sounds 	{
+			sndCmdMove = ["v_leader_mil_02_com01" "v_leader_mil_02_com02"]
+			sndCmdAttack = ["v_leader_mil_02_com01" "v_leader_mil_02_com02" "v_leader_mil_02_spe01"]
+			sndSelection = ["v_leader_mil_02_sel01"]
+	}
+	abilities = [
+		PowerReserve { timeToRecharge = 60 }
+		Attack { range = 0.2; reloadTime = 666; applyDamageTime = 1.2; damage = 24 }
+		Move {speed = 3.45; angSpeed = 180}
+		LOS { range = 5 }
+		AreaEffect {
+			effects = [ HighMorale
+			]
+		}
+		SpecialPower {
+			effects = [ FireAndManeuver
+			]	
+		}
+	]
+}
+
+
+// 'Fire and Manuever' active power
+UpgradePowers NapoleonPowerUpgradeEpoch6
+{
+	unitType = Napoleon
+	effectsToAdd = [ FireAndManeuver ]
+	effectsToRemove = [ Rally ]
+}
+
+// 'High Morale' passive power
+UpgradeEffects NapoleonEffectUpgradeEpoch6
+{
+	unitType = Napoleon
+	effectsToAdd = [ HighMorale ]
+	effectsToRemove = [ HighFervor ]
+}
+
+// Move ability upgrade
+UpgradeAbilities NapoleonMoveUpgradeEpoch6
+{
+	upgradedAbilities = [
+		Move {speed = 3.45; angSpeed = 180}
+	]
+}
+
+// Attack Ability Upgrade
+UpgradeAbilities NapoleonAttackUpgradeEpoch6
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 1.2 }
+	]
+}
+
+
+UnitModel Napoleon
+{
+	parent	 	= BaseHuman
+	DefaultModel 	= LM10_Napoleon_fr.nif
+	ForceScale = 0.300
+	ChildNames	= [ ThePowerBar UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_leader_idle01.kf	
+                              AnimVariants = [ sh_leader_idle02.kf sh_leader_idle03.kf sh_leader_battlecry01.kf sh_leader_battlecry02.kf ]
+                              AnimVariantsWeights = [ 0.05 0.05 0.05 0.05 ]
+                 }
+		{ 	StateName = Walk	AnimName = sh_leader_walk01.KF}
+		{ 	StateName = Run	AnimName = sh_king_run01.KF } 
+		{ 	StateName = Attack1	AnimName = sh_leader_attack01.kf
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_mace_swing KeyTime = 1.2 }
+							] }
+		{ 	StateName = Death	AnimName = sh_leader_death01.kf	}
+		{	StateName = Flinch	AnimName = sh_elitecavalry_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_elitecavalry_flying01.KF
+			AnimVariants = [ sh_elitecavalry_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_elitecavalry_ground_death01.KF	}
+			]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 2.03
+		zOffset = -2.21
+		scale = 1.53
+		angle = 47.37
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///Alexander
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+UnitType Alexander
+{
+	parent = LeaderMilitary
+	properties {
+		DisplayName = tx_utn_Alexander_name
+		DisplayNamePlural = tx_utn_Alexander_pname
+		DisplayNameScenEdit = tx_utn_Alexander_sname
+		VerboseTooltip = vtt_unit_Alexander
+//		SizeX = 0.4
+//		SizeY = 0.4
+		mass = 2
+		moveType = Mounted
+		HitPoints = 2000
+	}
+	sounds {
+			sndCmdMove = ["v_leader_mil_02_com01" "v_leader_mil_02_com02"]
+			sndCmdAttack = ["v_leader_mil_02_com01" "v_leader_mil_02_com02" "v_leader_mil_02_spe01"]
+			sndSelection = ["v_leader_mil_02_sel01"]
+	}
+	abilities = [
+		PowerReserve { timeToRecharge = 60 }
+		Attack { range = 1.0; reloadTime = 1.5; applyDamageTime = 1.2; damage = 24 }
+		Move {speed = 3.45; angSpeed = 180}
+		LOS { range = 5 }
+		AreaEffect {
+			effects = [ HighMorale
+			]
+		}
+		SpecialPower {
+			effects = [ FireAndManeuver
+			]	
+		}
+	]
+	icon = icon_unit_camp_alexander
+}
+
+
+UnitModel Alexander
+{
+	parent	 	= BaseHuman
+	DefaultModel 	= LM10_Alexander_ru.nif
+	ForceScale = 0.300
+	ChildNames	= [ ThePowerBar UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_leader_idle01.kf	
+                              AnimVariants = [ sh_leader_idle02.kf sh_leader_idle03.kf sh_leader_battlecry01.kf sh_leader_battlecry02.kf ]
+                              AnimVariantsWeights = [ 0.05 0.05 0.05 0.05 ]
+                 }
+		{ 	StateName = Walk	AnimName = sh_leader_walk01.KF}
+		{ 	StateName = Run	AnimName = sh_king_run01.KF } 
+		{ 	StateName = Attack1	AnimName = sh_leader_attack01.kf
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_mace_swing KeyTime = 1.2 }
+							] }
+		{ 	StateName = Death	AnimName = sh_leader_death01.kf	}
+		{	StateName = Flinch	AnimName = sh_elitecavalry_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_elitecavalry_flying01.KF
+			AnimVariants = [ sh_elitecavalry_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_elitecavalry_ground_death01.KF	}
+			]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 2.03
+		zOffset = -2.21
+		scale = 1.53
+		angle = 47.37
+	}
+}
+
+
+
+
+
+//------------------------------------------------
+//	EPOCH 8 Russian Cossack
+//------------------------------------------------
+UnitType Cossack
+{
+	parent = Mounted
+	//visualName = LightMounted1_02
+	properties {
+		DisplayName = tx_utn_Cossack_name
+		DisplayNamePlural = tx_utn_Cossack_pname
+		DisplayNameScenEdit = tx_utn_Cossack_sname
+		VerboseTooltip = vtt_unit_Cossack
+		rps = LightMounted
+		HitPoints = 135
+		SizeX = 0.4
+		SizeY = 0.2
+		mass = 1
+		popCount = 2
+		
+		stance = Defensive
+	}
+	sounds = {
+			sndCmdMove = ["v_LightMounted1_10_com01" "v_LightMounted1_10_com02"]
+			sndCmdAttack = ["v_LightMounted1_10_com01" "v_LightMounted1_10_com02" "v_LightMounted1_10_spe01"]
+			sndSelection = ["v_LightMounted1_10_sel01"]
+	}
+	abilities = [
+		Attack { range = 7; reloadTime = 1.5; applyDamageTime = 0.5; damage = 23; missileName = "MusketBullet" }
+		LOS { range = 9 }
+		Move {speed = 2.875; angSpeed = 180}
+	]
+	attributes = [
+		CanJoinHeroArmy
+	]
+	
+	icon = icon_unit_camp_russiancossack
+}
+
+// Attack Ability Upgrade
+UpgradeAbilities CossackEpoch8Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "MusketBullet" }
+	]
+}
+
+// Veteran visual change
+//UpgradeVisual CossackEpoch8VeteranVis
+//{
+//	unitType = Coossack
+//	newVisual = LightMounted1_08v
+//}
+//
+// Veteran Upgrade
+//UpgradeUnitTypeImprove CossackEpoch8Veteran
+//{
+//	unitType = Cossack
+//	name = tx_utn_veteran_modify_name
+//	upgradeRefs = [
+//		LightMounted_Improve_Default,
+//		LightMounted1Epoch8VeteranVis
+//	]
+//}
+//
+// Elite visual change
+//UpgradeVisual CossackEpoch8EliteVis
+//{
+//	unitType = Cossack
+//	newVisual = LightMounted1_08e
+//}
+//
+// Elite Upgrade
+//UpgradeUnitTypeImprove CossackEpoch8Elite
+//{
+//	unitType = Cossack
+//	name = tx_utn_elite_modify_name
+//	upgradeRefs = [
+//		LightInfantry_Improve_Default,
+//		LightMounted1Epoch8EliteVis
+//	]
+//}
+
+UnitModel Cossack
+{
+	Parent		= BaseLightMonted
+        DefaultModel 	= civ10_cossack_russian.nif
+	ChildNames 	= [ Muzzle_Musketeer UnitShadow SinkCorpse ]
+	States 		= [
+		{	StateName = Idle	AnimName = civ10_cossack_russian_idle01.kf }
+		{ 	StateName = Walk	AnimName = civ10_cossack_russian_walk01.kf }
+		{ 	StateName = Run	AnimName = civ10_cossack_russian_run01.kf }
+		{ 	StateName = Attack1	AnimName = civ10_cossack_russian_attack01.kf
+                        TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.5 }
+					] }	
+		{ 	StateName = Death	AnimName = civ10_cossack_russian_death01.kf }
+		{	StateName = Flinch	AnimName = sh_dragoon_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_dragoon_flying01.KF
+			AnimVariants = [ sh_dragoon_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_dragoon_ground_death01.KF	}
+			]
+}
+
+//UnitModel LightMounted1_08v
+//{
+//	Parent		= LightMounted1_08
+//	States		= [
+//		{	StateName = Idle	AnimName = sh_caribineer_v_idle01.kf
+//		}
+//	]
+//}
+//
+//UnitModel LightMounted1_08e
+//{
+//	Parent		= LightMounted1_08v
+//	States		= [
+//		{	StateName = Attack1	AnimName = sh_caribineer_e_attack01.kf
+//		}
+//	]
+//}
+
+
+//------------------------------------------------------------------------------------------------
+//	IMPERIAL GUARD - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType ImperialGuard
+{
+	parent = Human
+	properties {
+		DisplayName = tx_utn_ImperialGuard_name
+		DisplayNamePlural = tx_utn_ImperialGuard_pname
+		DisplayNameScenEdit = tx_utn_ImperialGuard_sname
+		VerboseTooltip = vtt_unit_ImperialGuard
+		rps = HeavyInfantry
+		SizeX = 0.125
+		SizeY = 0.125
+		HitPoints = 150
+		mass = 1
+	}
+	sounds = {
+			sndCmdMove = ["v_HeavyInfantry1_09_spe01" "v_HeavyInfantry1_09_com01" "v_HeavyInfantry1_09_com02"]
+			sndCmdAttack = ["v_HeavyInfantry1_09_spe01" "v_HeavyInfantry1_09_spe01" "v_HeavyInfantry1_09_com01" "v_HeavyInfantry1_09_com02"]
+			sndSelection = ["v_HeavyInfantry1_09_sel01"]
+	}
+	abilities = [
+		Attack { range = 9; reloadTime = 1.25; applyDamageTime = 0.5; damage = 16 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 0.2; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 9 }
+		Move {speed = 1.7250; angSpeed = 720}
+	]
+	attributes = [
+		CanJoinHeroArmy
+	]
+	icon = icon_unit_camp_frenchImperial
+}
+
+// Attack Ability Upgrade
+UpgradeAbilities ImperialGuardEpoch9Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.2; missileName = "MusketBullet"; WeaponType = LightProjectile }
+	]
+}
+
+// Veteran visual change
+//UpgradeVisual HeavyInfantry1Epoch9VeteranVis
+//{
+//	unitType = HeavyInfantry1
+//	newVisual = HeavyInfantry1_09v
+//}
+//
+// Veteran Upgrade
+//UpgradeUnitTypeImprove HeavyInfantry1Epoch9Veteran
+//{
+//	unitType = HeavyInfantry1
+//	name = tx_utn_veteran_modify_name
+//	upgradeRefs = [
+//		HeavyInfantry_Improve_Default
+//		HeavyInfantry1Epoch9VeteranVis
+//	]
+//}
+//
+// Elite visual change
+//UpgradeVisual HeavyInfantry1Epoch9EliteVis
+//{
+//	unitType = HeavyInfantry1
+//	newVisual = HeavyInfantry1_09e
+//}
+//
+// Elite Upgrade
+//UpgradeUnitTypeImprove HeavyInfantry1Epoch9Elite
+//{
+//	unitType = HeavyInfantry1
+//	name = tx_utn_elite_modify_name
+//	upgradeRefs = [
+//		HeavyInfantry_Improve_Default
+//		HeavyInfantry1Epoch9EliteVis
+//	]
+//}
+
+UnitModel	ImperialGuard
+{
+	Parent		= BaseHuman
+	DefaultModel 	= LHI9_ImperialGuard_fr.nif
+	ChildNames 	= [ UnitShadow Muzzle_Musketeer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_regular_idle01.KF	  }
+		{ 	StateName = Walk	AnimName = sh_regular_walk01.KF }
+		{ 	StateName = CaptureAttack1	AnimName = sh_regular_capture.kf
+					AnimVariants = [ sh_regular_capture_02.kf ]
+                              AnimVariantsWeights = [0.3]
+                 }                            
+		{ 	StateName = Run	AnimName = sh_regular_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_regular_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Death	AnimName = sh_regular_death01.KF  }
+		{	StateName = Flinch	AnimName = sh_regular_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_regular_flying01.kf
+			AnimVariants = [ sh_regular_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_regular_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.16
+		zOffset = -6.82
+		scale = 3.33
+	}
+}
+
+// veteran version
+//UnitModel HeavyInfantry1_09v
+//{
+//	Parent		= HeavyInfantry1_09
+//	States 		= [
+//		{	StateName = Idle	AnimName = sh_regular_v_idle01.KF
+//                              AnimVariants = [ sh_regular_idle01.KF ]
+//                              AnimVariantsWeights = [ 0.1 ]
+//                }                            
+//			]
+//}
+//
+// elite version
+//UnitModel HeavyInfantry1_09e
+//{
+//	Parent		= HeavyInfantry1_09v
+//	States 		= [
+//		{ 	StateName = Attack1	AnimName = sh_regular_e_attack01.KF 
+//			TextKeys = [
+//					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.16 }
+//					] }
+//			]
+//}
+
+
+
+//------------------------------------------------------------------------------------------------
+//	CONSCRIPT - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType Conscript
+{
+	parent = Human
+	properties {
+		DisplayName = tx_utn_Conscript_name
+		DisplayNamePlural = tx_utn_Conscript_pname
+		DisplayNameScenEdit = tx_utn_Conscript_sname
+		VerboseTooltip = vtt_unit_Conscript
+		rps = HeavyInfantry
+		HitPoints = 75
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+	}
+	sounds = {	
+			sndCmdMove = ["v_HeavyInfantry1_09_spe01" "v_HeavyInfantry1_09_com01" "v_HeavyInfantry1_09_com02"]
+			sndCmdAttack = ["v_HeavyInfantry1_09_spe01" "v_HeavyInfantry1_09_spe01" "v_HeavyInfantry1_09_com01" "v_HeavyInfantry1_09_com02"]
+			sndSelection = ["v_HeavyInfantry1_09_sel01"]
+	}
+	abilities = [
+		Attack { range = 8; reloadTime = 2.0; applyDamageTime = 0.5; damage = 8 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 0.2; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 8 }
+		Move {speed = 1.7250; angSpeed = 720}
+	]
+	attributes = [
+		CanJoinHeroArmy
+	]
+	icon = icon_unit_camp_conscript
+}
+
+// Attack Ability Upgrade
+UpgradeAbilities ConscriptAttack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.2; missileName = "MusketBullet"; WeaponType = LightProjectile }
+	]
+}
+
+// Veteran visual change
+//UpgradeVisual HeavyInfantry1Epoch9VeteranVis
+//{
+//	unitType = HeavyInfantry1
+//	newVisual = HeavyInfantry1_09v
+//}
+//
+// Veteran Upgrade
+//UpgradeUnitTypeImprove HeavyInfantry1Epoch9Veteran
+//{
+//	unitType = HeavyInfantry1
+//	name = tx_utn_veteran_modify_name
+//	upgradeRefs = [
+//		HeavyInfantry_Improve_Default
+//		HeavyInfantry1Epoch9VeteranVis
+//	]
+//}
+//
+// Elite visual change
+//UpgradeVisual HeavyInfantry1Epoch9EliteVis
+//{
+//	unitType = HeavyInfantry1
+//	newVisual = HeavyInfantry1_09e
+//}
+//
+// Elite Upgrade
+//UpgradeUnitTypeImprove HeavyInfantry1Epoch9Elite
+//{
+//	unitType = HeavyInfantry1
+//	name = tx_utn_elite_modify_name
+//	upgradeRefs = [
+//		HeavyInfantry_Improve_Default
+//		HeavyInfantry1Epoch9EliteVis
+//	]
+//}
+
+UnitModel	Conscript
+{
+	Parent		= BaseHuman
+	DefaultModel 	= LHI9_conscript_ru.nif
+	ChildNames 	= [ UnitShadow Muzzle_Musketeer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_regular_idle01.KF	  }
+		{ 	StateName = Walk	AnimName = sh_regular_walk01.KF }
+		{ 	StateName = CaptureAttack1	AnimName = sh_regular_capture.kf
+					AnimVariants = [ sh_regular_capture_02.kf ]
+                              AnimVariantsWeights = [0.3]
+                 }                            
+		{ 	StateName = Run	AnimName = sh_regular_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_regular_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Death	AnimName = sh_regular_death01.KF  }
+		{	StateName = Flinch	AnimName = sh_regular_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_regular_flying01.kf
+			AnimVariants = [ sh_regular_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_regular_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.16
+		zOffset = -6.82
+		scale = 3.33
+	}
+}
+
+// veteran version
+//UnitModel HeavyInfantry1_09v
+//{
+//	Parent		= HeavyInfantry1_09
+//	States 		= [
+//		{	StateName = Idle	AnimName = sh_regular_v_idle01.KF
+//                              AnimVariants = [ sh_regular_idle01.KF ]
+//                              AnimVariantsWeights = [ 0.1 ]
+//                }                            
+//			]
+//}
+//
+// elite version
+//UnitModel HeavyInfantry1_09e
+//{
+//	Parent		= HeavyInfantry1_09v
+//	States 		= [
+//		{ 	StateName = Attack1	AnimName = sh_regular_e_attack01.KF 
+//			TextKeys = [
+//					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.16 }
+//					] }
+//			]
+//}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	RUSSIAN CITY CENTER
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+UnitType RussianCityCenter
+{
+	parent = PlayerOrWorldBuilding
+	properties {
+		hitpoints = 0
+		SizeX = 3.5
+		SizeY = 3
+		FootprintSizeX = 5
+		FootprintSizeY = 4.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		UndertextureSizeX = 4
+		UndertextureSizeY = 3
+		UndertextureOffsetX = -0.25
+		mass = 1
+		displayName = tx_utn_RuscityCenter_name
+		DisplayNameScenEdit = tx_utn_RuscityCenter_sname
+		VerboseTooltip = vtt_unit_RusCityCenter
+		popCapacity = 40
+		requiredOpenSides = kBuildingOpenSides_PosX
+		RallyPlacementFlags = ( Resources | University | Warehouse | Fortress | Tower | Terrain | CityCenter | ConstructionSite )
+	}
+	sounds {
+    	}
+	fullMapOverlay { sprite = spr_fullmap_center }
+	abilities = [
+		ResourceDropoff { type = kResourceType_AllNaturalResource; }
+		LOS { range = 0 }
+		Garrison { 
+			garrisonType = UniWarehouseOilDerrickCityCenter; 
+			numOfSlots = 5;
+			resourceBonus = 0.02;	// 2 percent more resource dropoff for each garrisoned UnitType
+			rightClickToGarrison = 1;
+			healPoints = 4;		// 4 hit points heal every second for each UnitType
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+		AreaEffectCity {
+			CityRadius = 7.0
+			CityHealRate = 1.5		// per second
+			CityCaptureResistance = 1.05	// scale up capture time
+			effects = [ 
+				CityHeal
+				CityResistCapture
+			]
+		}
+		Convertable {
+			convertTimeModifier = 300.0;  //
+			garrisonedUnitModifier = 0.0; // 10% increase in capture time
+			garrisonedUnitDamage = 0.0;	  // hitpoints subtracted from capturer per round per garrisoned unit
+			damageRate = 0.0;			  // hitpoints subtracted from capture target hitpoints per round
+			capture = 1;
+			resourcesTransferred = [
+				{
+					// percentage-based transfer from normal player
+					resource = AllNaturalResource
+					percentTransferred = 0.1
+					NativeTribesAmountTransferredMin = 0.0
+					NativeTribesAmountTransferredMax = 0.0
+				}
+				{
+					// amount-based transfer from native tribe
+					resource = Food
+					percentTransferred = 0.0
+					NativeTribesAmountTransferredMin = 200.0
+					NativeTribesAmountTransferredMax = 300.0
+				}
+				{
+					// amount-based transfer from native tribe
+					resource = Wood
+					percentTransferred = 0.0
+					NativeTribesAmountTransferredMin = 200.0
+					NativeTribesAmountTransferredMax = 300.0
+				}
+				{
+					// amount-based transfer from native tribe
+					resource = Stone
+					percentTransferred = 0.0
+					NativeTribesAmountTransferredMin = 200.0
+					NativeTribesAmountTransferredMax = 300.0
+				}
+				{
+					// amount-based transfer from native tribe
+					resource = Gold
+					percentTransferred = 0.0
+					NativeTribesAmountTransferredMin = 200.0
+					NativeTribesAmountTransferredMax = 300.0
+				}
+			]
+		}
+		// @EE2X @MRC 
+		// Empty area effect set so more can be added later.
+		AreaEffect {
+			effects = [ 
+			]
+		}
+	]
+	
+	icon = icon_unit_camp_citycenter10_ru
+}
+
+//------------------------------------------------
+//	RUSSIAN CITY CENTER UPGRADE EPOCH 7
+//------------------------------------------------
+UpgradeSet RussianCityCenterEpoch7Upgrade {
+	upgrades = [
+		UpgradeUnitTypeFactor {UnitType = RussianCityCenter; factor = CityRadius; method = Set; value = 9.0; upgradeChildren = 0;}
+		UpgradeUnitTypeFactor {UnitType = RussianCityCenter; factor = GarrisonSlots; method = Set; value = 5.0; upgradeChildren = 0;}
+		UpgradeUnitTypeFactor {UnitType = RussianCityCenter; factor = CityHealRate; method = Set; value = 2.5; upgradeChildren = 0;}
+	]
+}
+
+//------------------------------------------------
+//	RUSSIAN CITY CENTER - EPOCH 7 VISUAL
+//------------------------------------------------
+UnitModel RussianCityCenter
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_citycenter10_ru.NIF
+	ChildNames 	= [ UnderCityCenter HugeGlow ExplSelectorBuild_Medium CityNameText ExplPartsCityCenter7 ]
+	UIRenderingParams {
+		xOffset = 2.63
+		yOffset = 1.11
+		zOffset = -0.43
+		scale = 1.79
+		angle = 42.63
+		rotationSpeed = 0.00
+		pitch = 32.63
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+
+UpgradeVisual RussianCityCenterVisUpgrade
+{
+	unitType = CityCenter
+	newVisual = RussianCityCenter
+}
+
+UpgradeUnitTypeImprove RussianCityCenterImprove
+{
+	unitType = CityCenter
+	name = tx_utn_RussianCampaignBuilding
+	upgradeRefs = [
+		RussianCityCenterVisUpgrade
+	]
+}
+
+UpgradeVisual RussianUniversityVisUpgrade
+{
+	unitType = University
+	newVisual = RussianUniversity
+}
+
+UpgradeUnitTypeImprove RussianUniversityImprove
+{
+	unitType = University
+	name = tx_utn_RussianCampaignBuilding
+	upgradeRefs = [
+		RussianUniversityVisUpgrade
+	]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	PRUSSIAN SUPPLY WAGON - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType SupplyWagon
+{
+	properties {
+		rps = LandNonCombat
+		SizeX = 0.4
+		SizeY = 0.4
+		mass = 1
+		displayName = tx_utn_TradeCart_name
+		moveType = WheeledTrade
+		hitpoints = 100
+		VerboseTooltip = vtt_unit_TradeCart
+		FootprintType = Ellipse
+		popCount = 1
+	}
+	sounds {
+		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+    	}
+	abilities = [
+		Convertable { }
+		VehicleMove {speed = 1.3; angSpeed = 180; followTerrainSlope = 0}
+		LOS { range = 4 }
+		Trade { MarketType = Markets; 
+				GoldPerTile = 0.2; 
+				TechPerTile = 0.0; 
+				TechBonusEpochDiff = 0.0;
+				TechBonusLikelyhood = [ .10 .15 .20 .25 .30 ] 
+				ForeignTradeAllowed = false
+				timeToLoad = 5}
+		Garrisonable { garrisonTypes = [ NavalTransport ] }
+	]
+	attributes = [ 
+		HealedByMedic 
+	]
+	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
+}
+
+//------------------------------------------------------------------------------------------------
+//	TRADE CART - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+UnitModel SupplyWagon
+{
+	ScaleType 	= kScaleUnit
+	OutlineType	= kOutlineMake
+	DefaultModel 	= LSF6_tradecart.NIF
+	DefaultState 	= Idle
+	ChildNames 		= [UnitShadow TheHealthBar SelectCircleMounted SmallGlow ExplSelectorHuman01 Footprints TheTradePath DustHeavyMonted SinkCorpse ]
+	States 		= [
+		{	StateName = Idle	AnimName = LSF6_tradecart_idle01.KF
+                              AnimVariants = [ LSF6_tradecart_idle02.KF LSF6_tradecart_idle03.KF ]
+                              AnimVariantsWeights = [ 0.05 0.01 ]              }
+			{ StateName = Walk 	AnimName = LSF6_tradecart_walk01.kf	}
+			{ StateName = Death 	AnimName = LSF6_tradecart_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.21
+		zOffset = 0.36
+		scale = 1.28
+		angle = 331.58
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

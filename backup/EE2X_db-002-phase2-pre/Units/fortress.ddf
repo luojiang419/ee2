@@ -1,0 +1,507 @@
+//------------------------------------------------------------------------------------------------
+//	FORTRESS - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType Fortress
+{
+	// You'd -think- that the fortress would be player only, but in fact,
+	// the unit type needs to exist for the world player, because it uses
+	// it for testing when setting up a hot spots game.  So please leave
+	// the ownerType field blank.  @BEN
+	//ownerType = PlayerOnly
+	parent = NoProduceBuilding
+	properties {
+		rps = BuildingCombat
+		SizeX = 3
+		SizeY = 3
+		FootprintSizeX = 4.5
+		FootprintSizeY = 4.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		UndertextureSizeX = 3
+		UndertextureSizeY = 3
+		mass = 1
+		displayName = tx_utn_fortress_name
+		DisplayNameScenEdit = tx_utn_fortress_sname
+		VerboseTooltip = vtt_unit_Fortress
+		hitpoints = 0
+		UnitHeight = 3.0
+	}
+	sounds {
+    	}
+	fullMapOverlay { sprite = spr_fullmap_fortress }
+	abilities = [
+		Garrison { 
+			garrisonType = Fortress; 
+			numOfSlots = 10;
+			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			healPoints = 2;		// 2 hit points heal every second for each UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+		Attack { range = 0; reloadTime = 666; applyDamageTime = 0.5; damage = 0; missileName = "FireArrow"; angularRange = 360 }
+		LOS { range = 0 }
+		AreaEffect {
+			effects = [ 
+				FortressCentral
+			]
+		}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities FortressEpoch1Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "FireArrow"; turretControllerName = fort2_ME}
+	]
+}
+
+// Garrison upgrade
+UpgradeAbilities FortressEpoch1Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Fortress; 
+			numOfSlots = 10;
+			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			healPoints = 2;		// 2 hit points heal every second for each UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities FortressEpoch4Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "FireArrow"; turretControllerName = fort2_ME }
+	]
+}
+
+// Garrison upgrade
+UpgradeAbilities FortressEpoch4Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Fortress; 
+			numOfSlots = 10;
+			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			healPoints = 4;		// 2 hit points heal every second for each UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities FortressEpoch6Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "FireArrow";turretControllerName = fort2_ME }
+	]
+}
+
+// Garrison upgrade
+UpgradeAbilities FortressEpoch6Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Fortress; 
+			numOfSlots = 10;
+			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			healPoints = 6;		// 2 hit points heal every second for each UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities FortressEpoch8Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "Cannonball"; areaDamageRadius = 2; turretControllerName = fort2_ME; }
+	]
+}
+
+// Garrison upgrade
+UpgradeAbilities FortressEpoch8Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Fortress; 
+			numOfSlots = 11;
+			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			healPoints = 8;		// 2 hit points heal every second for each UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities FortressEpoch10Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "Cannonball"; areaDamageRadius = 2; turretControllerName = BuildingTurret; }
+	]
+}
+
+// Garrison upgrade
+UpgradeAbilities FortressEpoch10Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Fortress; 
+			numOfSlots = 11;
+			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			healPoints = 10;		// 2 hit points heal every second for each UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities FortressEpoch12Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "TankShell"; areaDamageRadius = 2; turretControllerName = BuildingTurret; }
+	]
+}
+
+// Garrison upgrade
+UpgradeAbilities FortressEpoch12Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Fortress; 
+			numOfSlots = 11;
+			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			healPoints = 12;		// 2 hit points heal every second for each UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities  FortressEpoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "TankShell"; areaDamageRadius = 2; turretControllerName = fort2_ME }
+	]
+}
+// Garrison upgrade
+UpgradeAbilities FortressEpoch14Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Fortress; 
+			numOfSlots = 11;
+			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			healPoints = 14;		// 2 hit points heal every second for each UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities  FortressEpoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "paodan15"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 2;throwUnits = true }
+	]
+}
+// Garrison upgrade
+UpgradeAbilities FortressEpoch15Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Fortress; 
+			numOfSlots = 12;
+			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			healPoints = 20;		// 2 hit points heal every second for each UnitType
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+//------------------------------------------------------------------------------------------------
+//	FORTRESS - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+UnitModel Fortress
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_fort2.NIF
+	ChildNames	= [ HugeGlow UnderFortress ExplSelectorBuild_Medium ExplPartsStoneWood ]
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.05
+		zOffset = 1.09
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+UnitModel Fortress_4
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_fort4.NIF
+	ChildNames	= [ HugeGlow UnderFortress ExplSelectorBuild_Medium ExplPartsStone ]
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.53
+		zOffset = 0.44
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+UnitModel Fortress_6
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_fort6.NIF
+	ChildNames	= [ HugeGlow UnderFortress ExplSelectorBuild_Medium ExplPartsFort ]
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 1.84
+		yOffset = -0.05
+		zOffset = -1.32
+		scale = 1.53
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 32.63
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+UnitModel Fortress_8
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_fort8.NIF
+	ChildNames	= [ HugeGlow UnderFortress ExplSelectorBuild_Medium Muzzle_FieldGun ExplPartsFort ]
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -0.79
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 37.89
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel Fortress_10
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_fort10.NIF
+	ChildNames	= [ HugeGlow UnderFortress ExplSelectorBuild_Medium Muzzle_Fortress10 ExplPartsStone ]
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0.5 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.18
+		zOffset = 1.23
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 37.89
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+UnitModel Fortress_12
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_fort12.NIF
+	ChildNames 	= [ HugeGlow UnderFortress ExplSelectorBuild_Medium Muzzle_Fortress12 ExplPartsStone ]
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0.5 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 1.32
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel Fortress_14
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_fort14.NIF
+	ChildNames 	= [ HugeGlow UnderFortress ExplSelectorBuild_Medium Muzzle_Fortress12 ExplPartsConcrete ]
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0.5 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 1.58
+		yOffset = -0.12
+		zOffset = 1.30
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel Fortress_15
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= Fortress15.NIF
+	ForceScale      = 0.2
+        States 		= [
+		{	StateName = Idle	AnimName = bld_coastaldefense14_idle.kf}
+		{ 	StateName = Attack1	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_Laser_01 KeyTime = 0.6 }
+					   ] }
+
+			]
+	ChildNames 	= [ BuildingWithTurretsShadow MediumGlow ExplSelectorBuild_Tiny  FX_ExaustSmoke2  Muzzle_Howitzer109 ]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 0.22
+		zOffset = 2.87
+		scale = 0.89
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 40.00
+	}
+}

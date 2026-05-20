@@ -1,0 +1,2258 @@
+ //
+// the most basic resource unit type (for both trees and non-trees)
+// 
+
+UnitType Resource
+{
+	OwnerType = WorldOnly
+	properties {
+		rps = LandNonCombat
+		FootprintType = kFootprintType_Rectangle
+		requiredOpenSides = kBuildingOpenSides_PosXPosYNegXNegY
+	}
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------
+// Shadow data
+//-----------------------------------------------------------------------------------------------
+ShadowData        TreeShadow
+{
+	FlatBillboard
+	{
+		TextureFilename = "TreeShadow.tga"
+		WidthScale = 0.75
+		LengthScale = 0.75
+		HeightScale = 0.1
+	}
+}
+
+ShadowData	BambooTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "BambooTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	FirTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "FirTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	OakMapleTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "OakMapleTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	PalmTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "PalmTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	PalmettoTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "PalmettoTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	RoyalPalmTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "RoyalPalmTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	AfricanPalmTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "AfricanPalmTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	BaobabTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "BaobabTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	CypressTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "CypressTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	DeadCypressShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "DeadCypressShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	BirchTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "BirchTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	DeadBirchShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "DeadBirchShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	MapleTreeShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "MapleTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+ShadowData	TropicalSplitPalmShadow
+{
+	UprightBillboard
+	{
+		TextureFilename = "TropicalSplitPalmTreeShadow.tga"
+		RadiusScale = 0.75
+		HeightScale = 0.75
+	}
+}
+
+//---------------------------------------------------------------------------
+//	Trees
+//---------------------------------------------------------------------------
+
+UnitModel	BaseTreeModel
+{
+//	OutlineType	= kOutlineReceive
+	ScaleType 	= kScaleTree
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	ChildNames = [ HemisphereLighting_Tree DynamicLighting_Tree ]
+}
+
+UnitType Tree 
+{
+	parent = Resource
+	properties {
+		SizeX = 0.55
+		SizeY = 0.55
+		mass = 1
+		hitpoints = 1000
+		mmColor = [0,64,0,255]
+		verboseTooltip = vtt_unit_Tree
+		inForest = 1
+	}
+	abilities [
+		// change alwaysExhaustible to make tree exhaustible
+		Resource { type = kResourceType_Wood; alwaysExhaustible = 1; amount = 2577; maxNumOfWorkers = 3}
+	]
+	fullMapOverlay { sprite = spr_fullmap_tree scale = 2.0 ignoreOrientation = 1 }
+}
+//---------------------------------------------------------------------------
+
+UnitModel TRE_PALM
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= palmtree.nif
+	States = [
+//		{ StateName="Idle" AnimName = palmtree_ani02.kf }
+		]
+	ChildNames 	= [PalmTreeShadow]
+	
+}
+
+UnitType TRE_PALM
+{
+	parent Tree
+	properties { DisplayName = tx_utn_TreePalm_name }
+}
+
+
+//---------------------------------------------------------------------------
+
+
+UnitModel TRE_PALM_DARK
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_palm_dark_01.nif
+	ChildNames 	= [PalmTreeShadow]
+}
+
+UnitType TRE_PALM_DARK
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreePalmDark_name
+			DisplayNameScenEdit = tx_utn_TreePalmDark_sname }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_PALMETTO
+{	
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_palmetto_01.nif
+	ChildNames 	= [PalmettoTreeShadow]
+
+}
+
+UnitType TRE_PALMETTO
+{
+	parent Tree
+	properties { DisplayName = tx_utn_TreePalmetto_name }
+}
+//---------------------------------------------------------------------------
+
+UnitModel TRE_PALM_03
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_palm_03.nif
+	ChildNames 	= [RoyalPalmTreeShadow]
+}
+
+UnitType TRE_PALM_03
+{
+	parent Tree
+	properties { DisplayName = tx_utn_TreePalm03_name }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_PALM_04
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_palm_04.nif
+	ChildNames 	= [AfricanPalmTreeShadow]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -0.53
+		scale = 1.15
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_PALM_04
+{
+	parent Tree
+	properties { DisplayName = tx_utn_TreePalm04_name }
+}
+
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_MULTIPALM
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_multipalm.nif
+	ChildNames 	= [TropicalSplitPalmShadow]
+}
+
+UnitType TRE_MULTIPALM
+{
+	parent Tree
+	properties { DisplayName = tx_utn_TreeMultiPalm_name }
+}
+//---------------------------------------------------------------------------
+
+UnitModel TRE_BAOBAB
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_baobab.nif
+	ChildNames 	= [BaobabTreeShadow]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.15
+		angle = 222.63
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_BAOBAB
+{
+	parent Tree
+	properties { DisplayName = tx_utn_TreeBaobab_name }
+}
+//---------------------------------------------------------------------------
+
+
+
+
+// DECIDUOUS TREES:
+//
+// so the idea here is that since we have three distinct seasonal models for each
+// of certain tree types, these should all go to the same unit type (eg. tre_birch)
+// instead of having three separate unit types (like tre_birch_su, tre_birch_fa, etc)
+// which is how things used to be set up.
+//
+// there is also a _dead unit type (eg. tre_birch_dead) which will ONLY use the winter
+// model
+
+
+//---------------------------------------------------------------------------
+UnitModel TRE_BIRCH
+{
+	Parent			= BaseTreeModel
+	DefaultModel 		= Tre_Birch1.nif
+	ChildNames 	= [BirchTreeShadow]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.16
+		zOffset = -0.16
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_BIRCH
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeBirch_name}
+}
+
+UnitModel TRE_BIRCH_DEAD
+{
+	Parent			= BaseTreeModel
+	DefaultModel 		= Tre_Birch1_wi.nif
+	ChildNames 	= [DeadBirchShadow]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.16
+		zOffset = -0.16
+		scale = 1.40
+		angle = 123.16
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 0.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [52 52 52 255]
+	}
+}
+UnitType TRE_BIRCH_DEAD
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeBirchDead_name
+			DisplayNameScenEdit = tx_utn_TreeBirchDead_sname }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_CYPRESS
+{
+	Parent			= BaseTreeModel
+	DefaultModel 		= Tre_cypress1.nif
+	ChildNames 	= [CypressTreeShadow]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.53
+		zOffset = -0.26
+		scale = 1.28
+		angle = 99.47
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_CYPRESS
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeCypress_name }
+}
+
+UnitModel TRE_CYPRESS_DEAD
+{
+	Parent			= TRE_CYPRESS
+	DefaultModel 		= Tre_cypress1_wi.nif
+	ChildNames 	= [DeadCypressShadow]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.79
+		zOffset = 0.01
+		scale = 1.40
+		angle = 151.58
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [60 62 60 255]
+	}
+}
+
+UnitType TRE_CYPRESS_DEAD
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeCypressDd_name
+			DisplayNameScenEdit = tx_utn_TreeCypressDd_sname }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_OAK
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_oak1.nif
+	DefaultState 	= Idle
+	ChildNames 	= [OakMapleTreeShadow]
+	UIRenderingParams {
+		xoffset = 0.01
+		yoffset = 0.01
+		zoffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = -2.37
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_OAK
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeOak_name }
+}
+
+UnitModel TRE_OAK_DEAD
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_oak_dead.nif
+	ChildNames 	= [DeadBirchShadow]
+	UIRenderingParams {
+		xoffset = 0.01
+		yoffset = 0.01
+		zOffset = 0.26
+		scale = 1.28
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_OAK_DEAD
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeOakDead_name
+			DisplayNameScenEdit = tx_utn_TreeOakDead_sname }
+}
+
+UnitModel TRE_OAK_SINGLE
+{
+	Parent		= TRE_OAK
+	DefaultModel 	= Tre_oak1.nif
+	ChildNames =	[UnderOakTree OakMapleTreeShadow]
+	UIRenderingParams {
+		xOffset = -0.53
+		yoffset = 0.01
+		zoffset = 0.01
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+UnitType TRE_OAK_SINGLE
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeOakSing_name }	
+}
+
+UnitModel TRE_OAK_SINGLE_DEAD
+{
+	Parent		= TRE_OAK_DEAD
+	DefaultModel 	= Tre_oak_dead.nif
+	ChildNames 	= [UnderOakTree DeadBirchShadow]
+	UIRenderingParams {
+		xOffset = -0.53
+		yoffset = 0.01
+		zoffset = 0.01
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+UnitType TRE_OAK_SINGLE_DEAD
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeOakSDd_name
+			DisplayNameScenEdit = tx_utn_TreeOakSDd_sname }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_OAK2
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_oak2.nif
+	ChildNames 	= [OakMapleTreeShadow]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = 0.26
+		zoffset = 0.01
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_OAK2
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeOak2_name }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_OAK4
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_oak4.nif
+	ChildNames 	= [OakMapleTreeShadow]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = 0.14
+		zOffset = 0.20
+		scale = 1.02
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = -10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_OAK4
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeOak4_name }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_MAPLE_01
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_maple_01.nif
+	ChildNames 	= [MapleTreeShadow]
+	UIRenderingParams {
+		xoffset = 0.01
+		yoffset = 0.01
+		zoffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_MAPLE_01
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeMaple_name }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_MAPLE_02
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= Tre_maple_02.nif
+	ChildNames 	= [MapleTreeShadow]
+	UIRenderingParams {
+		xOffset = -0.53
+		yoffset = 0.01
+		zoffset = 0.01
+		scale = 1.15
+		angle = 180.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_MAPLE_02
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_TreeMaple2_name }
+}
+
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_FIR
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= tre_fir1.NIF
+	ChildNames 	= [FirTreeShadow]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = 0.02
+		zOffset = -0.04
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_FIR
+{
+	parent Tree
+	properties { DisplayName = tx_utn_TreeFir_name }
+}
+
+//---------------------------------------------------------------------------
+UnitModel TRE_ELKA
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= tre_elka.NIF
+	ChildNames 	= [FirTreeShadow]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = 0.02
+		zOffset = -0.04
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_ELKA
+{
+	parent Tree
+	properties { DisplayName = tx_utn_TreeFir_name }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_PINE
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= tre_pine.NIF
+	ChildNames 	= [FirTreeShadow]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = 0.62
+		zOffset = 0.62
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType TRE_PINE
+{
+	parent Tree
+	properties { DisplayName = tx_utn_TreePine_name }
+}
+
+//---------------------------------------------------------------------------
+//	Bushes
+//---------------------------------------------------------------------------
+
+UnitModel	BaseBushModel
+{
+	ScaleType 	= kScaleTree
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+}
+
+UnitType Bush 
+{
+	parent = AmbientInForest
+	properties {
+		SizeX = 0.25
+		SizeY = 0.25
+		mass = 0
+		hitpoints = 1000
+		mmColor = [0,64,0,255]
+		verboseTooltip = vtt_unit_Tree
+	}
+	abilities []
+	fullMapOverlay { sprite = spr_fullmap_tree scale = 2.0 ignoreOrientation = 1 }
+}
+
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_FERNTROP1
+{
+	Parent		= BaseBushModel
+	DefaultModel 	= Tre_fern_trop01.nif
+	ChildNames 	= [TreeShadow]
+}
+
+UnitType TRE_FERNTROP1
+{
+	parent Bush
+	properties { 	DisplayName = tx_utn_TreeFern1_name }
+}
+
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_FERNTROP2
+{
+	Parent		= BaseBushModel
+	DefaultModel 	= Tre_fern_trop02.nif
+	ChildNames 	= [TreeShadow]
+}
+
+UnitType TRE_FERNTROP2
+{
+	parent Bush
+	properties { 	DisplayName = tx_utn_TreeFern2_name
+			DisplayNameScenEdit = tx_utn_TreeFern2_sname }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_FERNTROP3
+{
+	Parent		= BaseBushModel
+	DefaultModel 	= Tre_fern_trop03.nif
+	ChildNames 	= [TreeShadow]
+}
+
+UnitType TRE_FERNTROP3
+{
+	parent Bush
+	properties { 	DisplayName = tx_utn_TreeFern3_name }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_FERNTROP4
+{
+	Parent		= BaseBushModel
+	DefaultModel 	= Tre_fern_trop04.nif
+	ChildNames 	= [TreeShadow]
+}
+
+UnitType TRE_FERNTROP4
+{
+	parent Bush
+	properties { 	DisplayName = tx_utn_TreeFern4_name }
+}
+
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_FERNTROP5
+{
+	Parent		= BaseBushModel
+	DefaultModel 	= Tre_fern_trop05.nif
+	ChildNames 	= [TreeShadow]
+}
+
+UnitType TRE_FERNTROP5
+{
+	parent Bush
+	properties { 	DisplayName = tx_utn_TreeFern5_name }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_DESERTFERN
+{
+	Parent		= BaseBushModel
+	DefaultModel 	= tre_desertfern.nif
+	ChildNames 	= [TreeShadow]
+}
+
+UnitType TRE_DESERTFERN
+{
+	parent Bush
+	properties { 	DisplayName = tx_utn_desertfern_name }
+}
+
+
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_BAMBOO1
+{
+	Parent		= BaseBushModel
+	DefaultModel 	= Tre_bamboo01.nif
+	ChildNames 	= [BambooTreeShadow]
+}
+
+UnitType TRE_BAMBOO1
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_bamboo1_name }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_BAMBOO2
+{
+	Parent		= BaseBushModel
+	DefaultModel 	= Tre_bamboo02.nif
+	ChildNames 	= [BambooTreeShadow]
+}
+
+UnitType TRE_BAMBOO2
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_bamboo2_name }
+}
+
+//---------------------------------------------------------------------------
+
+UnitModel TRE_BAMBOO3
+{
+	Parent		= BaseBushModel
+	DefaultModel 	= Tre_bamboo03.nif
+	ChildNames 	= [BambooTreeShadow]
+}
+
+UnitType TRE_BAMBOO3
+{
+	parent Tree
+	properties { 	DisplayName = tx_utn_bamboo3_name }
+}
+
+
+//---------------------------------------------------------------------------
+
+
+
+
+//---------------------------------------------------------------------------
+// Resources Harvestable Forage Trees
+//---------------------------------------------------------------------------
+
+UnitType ForageTree 
+{
+	parent = Resource
+	properties { 
+		SizeX = 0.55
+		SizeY = 0.55
+		mass = 1
+		hitpoints = 1000
+		mmColor = [0,64,0,255]
+		verboseTooltip = vtt_unit_ForageTree
+	}
+	abilities [
+		// change alwaysExhaustible to make tree exhaustible
+		Resource { type = kResourceType_Food; amount = 3000; maxNumOfWorkers = 6}
+	]
+	fullMapOverlay { sprite = spr_fullmap_tree scale = 2.0 ignoreOrientation = 1 }
+}
+
+//---------------------------------------------------------------------------
+UnitModel TRE_BANANA
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= res_banana_tree.nif
+	ChildNames 	= [AfricanPalmTreeShadow UnderBananaTree]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -1.05
+		scale = 1.66
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_BANANA
+{
+	parent ForageTree
+	properties { DisplayName = tx_utn_TreeBananaTree_name 	
+		UndertextureSizeX = 0.7
+		UndertextureSizeY = 0.7
+		UndertextureOffsetX = 0.12 }
+}
+
+//----------------------------------------------------------------
+UnitModel TRE_MUSH
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= mushrooms.nif
+	ChildNames 	= [HemisphereLighting_Resource DynamicLighting_Resource UnderDateTree]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -1.05
+		scale = 1.66
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_MUSH
+{
+	parent = ResourceNotTree
+	properties { DisplayName = tx_utn_TreeMush_name	
+		DisplayNameScenEdit = tx_utn_TreeMush_sname
+		VerboseTooltip = vtt_unit_Mush
+            UndertextureSizeX = 0.25
+		UndertextureSizeY = 0.25
+            SizeX = 0.25
+		SizeY = 0.25
+		mass = 1
+		hitpoints = 100
+            mmColor = [192,192,0,255]   
+		UndertextureOffsetX = 0.12 }
+      abilities [
+		// change alwaysExhaustible to make tree exhaustible
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 6}
+	]
+	fullMapOverlay { sprite = spr_fullmap_tree scale = 2.0 ignoreOrientation = 1 }
+}
+
+UnitModel TRE_BREE
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= breeding.nif
+	ChildNames 	= [HemisphereLighting_Resource DynamicLighting_Resource UnderDateTree]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -1.05
+		scale = 1.66
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_BREE
+{
+	parent = ResourceNotTree
+	properties { DisplayName = tx_utn_TreeBree_name	
+		DisplayNameScenEdit = tx_utn_TreeBree_sname
+		VerboseTooltip = vtt_unit_Bree
+            UndertextureSizeX = 0.25
+		UndertextureSizeY = 0.25
+            SizeX = 0.25
+		SizeY = 0.25
+		mass = 1
+		hitpoints = 100
+            mmColor = [192,192,0,255]   
+		UndertextureOffsetX = 0.12 }
+      abilities [
+		// change alwaysExhaustible to make tree exhaustible
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 6}
+	]
+	fullMapOverlay { sprite = spr_fullmap_tree scale = 2.0 ignoreOrientation = 1 }
+}
+
+
+//---------------------------------------------------------------------------
+UnitModel TRE_MANGO
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= res_mango_tree.nif
+	ChildNames 	= [OakMapleTreeShadow UnderMangoTree]
+	UIRenderingParams {
+		xOffset = -1.58
+		yOffset = 0.17
+		zOffset = -2.46
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_MANGO
+{
+	parent ForageTree
+	properties { 
+		DisplayName = tx_utn_TreeMangoTree_name 
+		UndertextureSizeX = 0.7
+		UndertextureSizeY = 0.7
+		UndertextureOffsetX = 0.12 }
+}
+
+//---------------------------------------------------------------------------
+UnitModel TRE_APPLE
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= res_apple_tree.nif
+	ChildNames 	= [OakMapleTreeShadow UnderAppleTree]
+	UIRenderingParams {
+		xOffset = 1.32
+		yOffset = -0.18
+		zOffset = -3.00
+		scale = 1.92
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}  
+}
+
+UnitType TRE_APPLE
+{
+	parent ForageTree
+	properties {
+		DisplayName = tx_utn_TreeAppleTree_name
+		UndertextureSizeX = 1.0
+		UndertextureSizeY = 1.0
+		UndertextureOffsetX = 0.12 }
+}
+
+//---------------------------------------------------------------------------
+UnitModel TRE_ORANGE
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= res_orange_tree.nif
+	ChildNames 	= [OakMapleTreeShadow UnderOrangeTree]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.49
+		zOffset = -0.33
+		scale = 1.28
+		angle = 33.16
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_ORANGE
+{
+	parent ForageTree
+	properties { DisplayName = tx_utn_TreeOrangeTree_name
+		UndertextureSizeX = 1.0
+		UndertextureSizeY = 1.0
+		UndertextureOffsetX = 0.12 }
+}
+
+//---------------------------------------------------------------------------
+UnitModel TRE_POMEGRANATE
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= res_pomegranate_tree.nif
+	ChildNames 	= [OakMapleTreeShadow UnderPomegranateTree]
+	UIRenderingParams {
+		xOffset = -0.79
+		yOffset = -0.32
+		zOffset = 0.66
+		scale = 1.53
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_POMEGRANATE
+{
+	parent ForageTree
+	properties { DisplayName = tx_utn_TreePomegranate_name
+		UndertextureSizeX = 1.0
+		UndertextureSizeY = 1.0
+		UndertextureOffsetX = 0.12 }
+}
+
+//---------------------------------------------------------------------------
+UnitModel TRE_DATE
+{
+	Parent		= BaseTreeModel
+	DefaultModel 	= res_date_tree.nif
+	ChildNames 	= [OakMapleTreeShadow UnderDateTree]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.05
+		zOffset = 1.08
+		scale = 1.66
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType TRE_DATE
+{
+	parent ForageTree
+	properties { DisplayName = tx_utn_TreeDateTree_name
+		UndertextureSizeX = 1.0
+		UndertextureSizeY = 1.0
+		UndertextureOffsetX = 0.1 }
+}
+
+
+
+// -------------------------------------------------------------------------
+// --------- non-tree resources ----------------------------------------
+// ------------------------------------------------------------
+
+UnitType ResourceNotTree
+{
+	parent = Resource
+	placementType = Building
+	properties {
+		SizeX = 0.3
+		SizeY = 0.3
+		FootprintSizeX = 1.5
+		FootprintSizeY = 1.5
+		OffsetX = 0.6
+		OffsetY = 0.6
+		mass = 1	// so that it blocks pathing
+		hitpoints = 1000
+	}
+	fullMapOverlay { sprite = spr_fullmap_resource }
+}
+
+UnitModel ResourceNotTreeBaseModel
+{
+	ScaleType = kScaleBuilding
+	ChildNames = [ HemisphereLighting_Resource DynamicLighting_Resource ]
+}
+
+
+//---------------------------------------------------------------------------
+// Resources Forage Patch
+//---------------------------------------------------------------------------
+
+UnitModel ResourceForagePatch
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModel 	= res_foragepatch.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death	ModelName = NULL.nif }
+		]
+}
+UnitType ResourceForagePatch
+{
+	parent = ResourceNotTree
+	properties {
+		displayName = tx_utn_ForagePatch_name
+		DisplayNameScenEdit = tx_utn_ForagePatch_sname
+		VerboseTooltip = vtt_unit_ForagePatch
+	}
+	abilities [ 
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 5000; maxNumOfWorkers = 6}
+	]
+}
+
+UnitModel ResourceForagePatch02
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModel 	= mushrooms.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+}
+UnitType ResourceForagePatch02
+{
+	parent = ResourceForagePatch
+	properties {
+		displayName = tx_utn_ForagePatch2_name
+		DisplayNameScenEdit = tx_utn_ForagePatch2_sname
+	}
+}
+
+UnitModel ResourceForagePatch03
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModel 	= mushrooms.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+}
+UnitType ResourceForagePatch03
+{
+	parent = ResourceForagePatch
+	properties {
+		displayName = tx_utn_ForagePatch3_name
+		DisplayNameScenEdit = tx_utn_ForagePatch3_sname
+	}
+}
+
+UnitModel ResourceForagePatch04
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModel 	= res_foragepatch04.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+}
+UnitType ResourceForagePatch04
+{
+	parent = ResourceForagePatch
+	properties {
+		displayName = tx_utn_ForagePatch4_name
+		DisplayNameScenEdit = tx_utn_ForagePatch4_sname
+	}
+}
+
+UnitModel ResourceForagePatch05
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModel 	= res_foragepatch05.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+}
+UnitType ResourceForagePatch05
+{
+	parent = ResourceForagePatch
+	properties {
+		displayName = tx_utn_ForagePatch5_name
+		DisplayNameScenEdit = tx_utn_ForagePatch5_sname
+	}
+}
+
+UnitModel ResourceForagePatch06
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModel 	= res_foragepatch06.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+}
+UnitType ResourceForagePatch06
+{
+	parent = ResourceForagePatch
+	properties {
+		displayName = tx_utn_ForagePatch6_name
+		DisplayNameScenEdit = tx_utn_ForagePatch6_sname
+	}
+}
+
+//---------------------------------------------------------------------------
+// Resources Gold
+//---------------------------------------------------------------------------
+
+UnitModel ResourceGold
+{
+	Parent 				= ResourceNotTreeBaseModel
+	ChildNames	 		= [BuildingShadow UnderGold]
+	DefaultModel 	= res_gold2.nif
+	DefaultState 	= Idle
+		States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.09
+		zOffset = 1.29
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 60.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType ResourceGold
+{
+	parent = ResourceNotTree
+	
+	properties {
+		displayName = tx_utn_Gold_name
+		mmColor = [192,192,0,255]
+		VerboseTooltip = vtt_unit_Gold
+	}
+	abilities [ 
+		Resource { type = kResourceType_Gold; amount = 1000; maxNumOfWorkers = 6}
+	]
+}
+
+//---------------------------------------------------------------------------
+// Resources Stone
+//---------------------------------------------------------------------------
+
+UnitModel ResourceStone
+{
+	Parent 				= ResourceNotTreeBaseModel
+	ChildNames	 		= [BuildingShadow UnderStone]
+	DefaultModel 	= res_stone3.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.11
+		zOffset = 1.26
+		scale = 1.02
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType ResourceStone
+{
+	parent = ResourceNotTree
+	properties {
+		DisplayName = tx_utn_stone_name
+		mmColor = [192,192,192,255]
+		VerboseTooltip = vtt_unit_Stone
+	}
+	abilities [ 
+		Resource { type = kResourceType_Stone; amount = 1000; maxNumOfWorkers = 6}
+	]
+}
+
+//---------------------------------------------------------------------------
+//  Resources 宝石
+//---------------------------------------------------------------------------
+
+UnitModel ResourceRubiesModel
+{
+	Parent		= ResourceNotTreeBaseModel
+	DefaultModel 	= rubies.nif
+      DefaultState 	= Idle
+		States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 	= [HemisphereLighting_Resource DynamicLighting_Resource BuildingShadow UnderGold]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -1.05
+		scale = 1.66
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType ResourceRubies
+{
+	parent = ResourceNotTree
+      placementType = Building 
+      VisualName=ResourceRubiesModel
+	properties { DisplayName = tx_utn_rubies_name	
+		DisplayNameScenEdit = tx_utn_rubies_sname
+		VerboseTooltip = vtt_unit_rubies
+            UndertextureSizeX = 1.0
+		UndertextureSizeY = 1.0
+            SizeX = 0.3
+		SizeY = 0.3
+		mass = 1
+		hitpoints = 1000
+            mmColor = [192,192,0,255]
+            UndertextureOffsetX = 0.12 
+		 }
+      abilities [
+		// change alwaysExhaustible to make tree exhaustible
+		Resource { type = kResourceType_Gold; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 6}
+	]
+	
+}
+
+//--------------------------------------------------------------------------
+//  资源 煤矿
+//--------------------------------------------------------------------------
+UnitModel ResourceCoalModel
+{
+	Parent		= ResourceNotTreeBaseModel
+	DefaultModel 	= coal.nif
+      DefaultState 	= Idle
+		States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 	= [HemisphereLighting_Resource DynamicLighting_Resource BuildingShadow UnderIron]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -1.05
+		scale = 1.66
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType ResourceCoal
+{
+	parent = ResourceNotTree
+      placementType = Building 
+      VisualName=ResourceCoalModel
+	properties { DisplayName = tx_utn_coal_name	
+		DisplayNameScenEdit = tx_utn_coal_sname
+		VerboseTooltip = vtt_unit_coal
+            UndertextureSizeX = 4.0
+		UndertextureSizeY = 4.0
+            SizeX = 0.5
+		SizeY = 0.5
+		mass = 1
+		hitpoints = 1000
+            mmColor = [192,192,0,255]
+            UndertextureOffsetX = 0.12 
+		 }
+      abilities [
+		// change alwaysExhaustible to make tree exhaustible
+		Resource { type = kResourceType_Oil; alwaysExhaustible = 1; amount = 20000; maxNumOfWorkers = 6}
+	]
+	
+}
+
+//--------------------------------------------------------------------------
+//  资源 翡翠玉石
+//--------------------------------------------------------------------------
+UnitModel ResourceEmeraldsModel
+{
+	Parent		= ResourceNotTreeBaseModel
+	DefaultModel 	= emeralds.nif
+      DefaultState 	= Idle
+		States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 	= [HemisphereLighting_Resource DynamicLighting_Resource BuildingShadow UnderTin]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -1.05
+		scale = 1.66
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType ResourceEmeralds
+{
+	parent = ResourceNotTree
+      placementType = Building 
+      VisualName=ResourceEmeraldsModel
+	properties { DisplayName = tx_utn_emeralds_name	
+		DisplayNameScenEdit = tx_utn_emeralds_sname
+		VerboseTooltip = vtt_unit_emeralds
+            UndertextureSizeX = 3.0
+		UndertextureSizeY = 3.0
+            SizeX = 0.3
+		SizeY = 0.3
+		mass = 1
+		hitpoints = 1000
+            mmColor = [192,192,0,255]
+            UndertextureOffsetX = 0.12 
+		 }
+      abilities [
+		// change alwaysExhaustible to make tree exhaustible
+		Resource { type = kResourceType_Gold; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 6}
+	]
+	
+}
+
+//---------------------------------------------------------------------------
+//  资源  钻石
+//---------------------------------------------------------------------------
+UnitModel ResourceSapphiresModel
+{
+	Parent		= ResourceNotTreeBaseModel
+	DefaultModel 	= sapphires.nif
+      DefaultState 	= Idle
+		States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 	= [HemisphereLighting_Resource DynamicLighting_Resource BuildingShadow UnderTin]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -1.05
+		scale = 1.66
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType ResourceSapphires
+{
+	parent = ResourceNotTree
+      placementType = Building 
+      VisualName=ResourceSapphiresModel
+	properties { DisplayName = tx_utn_sapphires_name	
+		DisplayNameScenEdit = tx_utn_sapphires_sname
+		VerboseTooltip = vtt_unit_sapphires
+            UndertextureSizeX = 3.0
+		UndertextureSizeY = 3.0
+            SizeX = 0.3
+		SizeY = 0.3
+		mass = 1
+		hitpoints = 1000
+            mmColor = [192,192,0,255]
+            UndertextureOffsetX = 0.12 
+		 }
+      abilities [
+		// change alwaysExhaustible to make tree exhaustible
+		Resource { type = kResourceType_Gold; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 6}
+	]
+	
+}
+//---------------------------------------------------------------------------
+// 资源 材火堆
+//---------------------------------------------------------------------------
+UnitModel ResourceWoodyModel
+{
+	Parent		= ResourceNotTreeBaseModel
+	DefaultModel 	= res_woody.nif
+      DefaultState 	= Idle
+		States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 	= [HemisphereLighting_Resource DynamicLighting_Resource BuildingShadow]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -1.05
+		scale = 1.66
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType ResourceWoody
+{
+	parent = ResourceNotTree
+      placementType = Building 
+      VisualName=ResourceWoodyModel
+	properties { DisplayName = tx_utn_woody_name	
+		DisplayNameScenEdit = tx_utn_woodys_sname
+		VerboseTooltip = vtt_unit_woody
+            UndertextureSizeX = 3.0
+		UndertextureSizeY = 3.0
+            SizeX = 0.3
+		SizeY = 0.3
+		mass = 1
+		hitpoints = 1000
+            mmColor = [192,192,0,255]
+            UndertextureOffsetX = 0.12 
+		 }
+      abilities [
+		// change alwaysExhaustible to make tree exhaustible
+		Resource { type = kResourceType_Wood; alwaysExhaustible = 1; amount = 30000; maxNumOfWorkers = 6}
+	]
+	
+}
+
+//---------------------------------------------------------------------------
+// Resources Tin
+//---------------------------------------------------------------------------
+
+UnitModel ResourceTin
+{
+	Parent 				= ResourceNotTreeBaseModel
+	ChildNames	 		= [BuildingShadow UnderTin]
+	DefaultModel 	= res_stone2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.79
+		scale = 1.15
+		angle = 142.11
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+UnitType ResourceTin
+{
+	parent = ResourceNotTree
+	properties {
+		DisplayName = tx_utn_tin_name
+		mmColor = [192,192,192,255]
+		VerboseTooltip = vtt_unit_Tin
+	}
+	abilities [ 
+		Resource { type = kResourceType_Tin; amount = 1000; maxNumOfWorkers = 6}
+	]
+}
+
+//---------------------------------------------------------------------------
+// Resources Iron
+//---------------------------------------------------------------------------
+UnitModel ResourceIronUnrevealed
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModelList = [res_rock_1.nif res_rock_2.nif res_rock_3.nif]
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = -0.17
+		zOffset = 0.41
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 40.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel ResourceIronRevealed
+{
+	Parent 				= ResourceNotTreeBaseModel
+	ChildNames	 		= [BuildingShadow UnderIron]
+	DefaultModel 	= res_irone2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.21
+		zOffset = 2.04
+		scale = 1.00
+		angle = 165.79
+		rotationSpeed = 0.00
+		pitch = 50.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType ResourceIron
+{
+	parent = ResourceNotTree
+	visualName = ResourceIronUnrevealed
+	properties {
+		DisplayName = tx_utn_UnknownResource_name
+		DisplayNameScenEdit = tx_utn_iron_name
+		mmColor = [192,192,192,255]
+		VerboseTooltip = vtt_unit_UnknownResource
+	}
+	abilities [ 
+		Resource { type = kResourceType_Iron; amount = 1000; maxNumOfWorkers = 6}
+	]
+}
+
+UpgradeUnitTypeUpgrade ResourceIronUnitTypeUpgrade
+{
+	unitType = ResourceIron
+	name = tx_utn_iron_name
+	newVisual = ResourceIronRevealed
+	ttIndex = vtt_unit_Iron
+}
+
+UpgradeResources ResourceIronUpgradeEpoch04
+{
+	ResourceUnitTypeUpgrades = ResourceIronUnitTypeUpgrade
+}
+
+//---------------------------------------------------------------------------
+// Resources Salt Peter
+//---------------------------------------------------------------------------
+UnitModel ResourceSaltpeterUnrevealed
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModelList = [res_rock_1.nif res_rock_2.nif res_rock_3.nif]
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = -0.39
+		zOffset = 1.43
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 50.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel ResourceSaltPeterRevealed
+{
+	Parent 				= ResourceNotTreeBaseModel
+	ChildNames	 		= [BuildingShadow UnderSaltpeter]
+	DefaultModel 	= res_salt2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 50.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType ResourceSaltPeter
+{
+	parent = ResourceNotTree
+	visualName = ResourceSaltpeterUnrevealed
+	properties {
+		DisplayName = tx_utn_UnknownResource_name
+		DisplayNameScenEdit = tx_utn_saltpeter_name
+		mmColor = [192,192,192,255]
+		VerboseTooltip = vtt_unit_UnknownResource
+	}
+	abilities [ 
+		Resource { type = kResourceType_Saltpeter; amount = 1000; maxNumOfWorkers = 6}
+	]
+}
+
+UpgradeUnitTypeUpgrade ResSaltpeterUnitTypeUpgrade
+{
+	unitType = ResourceSaltPeter
+	name = tx_utn_saltpeter_name
+	newVisual = ResourceSaltPeterRevealed
+	ttIndex = vtt_unit_SaltPeter
+}
+
+UpgradeResources ResSaltpeterUpgradeEpoch07
+{
+	ResourceUnitTypeUpgrades = ResSaltpeterUnitTypeUpgrade
+}
+
+//---------------------------------------------------------------------------
+// Resources Oil
+//---------------------------------------------------------------------------
+UnitModel ResourceOilUnrevealed
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModelList = [res_rock_1.nif res_rock_2.nif res_rock_3.nif]
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = 0.26
+		zOffset = 1.61
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 50.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel ResourceOilRevealed
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModelList 	= [res_oil_1.nif res_oil_2.nif res_oil_3.nif]
+	DefaultState 		= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.31
+		zOffset = 0.70
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 70.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType ResourceOil
+{
+	parent = ResourceNotTree
+	visualName = ResourceOilUnrevealed
+	properties {
+		DisplayName = tx_utn_UnknownResource_name
+		DisplayNameScenEdit = tx_utn_oil_name
+		mmColor = [64,64,64,255]
+		VerboseTooltip = vtt_unit_UnknownResource
+	}
+	abilities [ 
+		Resource { type = kResourceType_Oil; amount = 1000; maxNumOfWorkers = 3}
+	]
+}
+
+UpgradeUnitTypeUpgrade ResourceOilUnitTypeUpgrade
+{
+	unitType = ResourceOil
+	name = tx_utn_oil_name
+	newVisual = ResourceOilRevealed
+	ttIndex = vtt_unit_oil
+}
+
+UpgradeResources ResourceOilUpgradeEpoch10
+{
+	ResourceUnitTypeUpgrades = ResourceOilUnitTypeUpgrade
+}
+
+//---------------------------------------------------------------------------
+// Resources Uranium
+//---------------------------------------------------------------------------
+UnitModel ResourceUraniumUnrevealed
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModelList 	= [res_rock_1.nif res_rock_2.nif res_rock_3.nif]
+	DefaultState 		= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = 0.26
+		zOffset = 1.58
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 50.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel ResourceUraniumRevealed
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModelList 	= [res_uranium_1.nif res_uranium_2.nif res_uranium_3.nif res_berinium_01.nif res_berinium_02.nif res_berinium_03.nif]
+	DefaultState 		= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 60.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType ResourceUranium
+{
+	parent = ResourceNotTree
+	visualName = ResourceUraniumUnrevealed
+	properties {
+		DisplayName = tx_utn_UnknownResource_name
+		DisplayNameScenEdit = tx_utn_uranium_name
+		mmColor = [224,224,224,255]
+		VerboseTooltip = vtt_unit_UnknownResource
+	}
+	abilities [ 
+		Resource { type = kResourceType_Uranium; amount = 1000; maxNumOfWorkers = 3}
+	]
+}
+
+UpgradeUnitTypeUpgrade ResourceUraniumUnitTypeUpgrade
+{
+	unitType = ResourceUranium
+	name = tx_utn_uranium_name
+	newVisual = ResourceUraniumRevealed
+	ttIndex = vtt_unit_Uranium
+}
+
+UpgradeResources ResourceUraniumUpgradeEpoch13
+{
+	ResourceUnitTypeUpgrades = ResourceUraniumUnitTypeUpgrade
+}
+
+//---------------------------------------------------------------------------
+// Dummy resource that will not turn into a real resource.
+//---------------------------------------------------------------------------
+UnitModel ResourceDummy
+{
+	Parent 				= ResourceNotTreeBaseModel
+	DefaultModelList 	= [res_rock_1.nif res_rock_2.nif res_rock_3.nif]
+	DefaultState 		= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+}
+
+
+UnitType ResourceDummy
+{
+	parent = ResourceNotTree
+	properties {
+		DisplayName = tx_utn_UnknownResource_name
+		VerboseTooltip = vtt_unit_UnknownResource
+	}
+	abilities [ 
+	]
+}
+
+//---------------------------------------------------------------------------
+// Resources Fish
+//---------------------------------------------------------------------------
+UnitModel ResourceFish
+{
+	//DefaultModel 	= faufish.nif
+	DefaultModelList 	= [faufish3.nif faufish4.nif faufish5.nif faufish6.nif faufish7.nif faufish8.nif faufish9.nif faufish10.nif faufish11.nif faufish12.nif]
+	OutlineType	= kOutlineReceive
+	ScaleType 	= kScaleBuilding
+	DefaultState 	= Idle
+	States 		= [
+			{	StateName = Idle AnimName = sh_faufish_idle01.kf 
+				AnimVariants = [ sh_faufish_idle02.kf sh_faufish_idle03.kf] 
+				AnimVariantsWeights = [ 0.4 0.6 ]
+				}
+			{	StateName = Death	ModelName = NULL.nif }
+			]
+	ChildNames = [ HemisphereLighting_Unit DynamicLighting_Unit ]
+}	
+UnitType ResourceFish
+{
+	parent = Resource
+	placementType = DeepWater
+	properties {
+		DisplayName = tx_utn_fish_name
+		mmColor = [224,224,224,255]
+		VerboseToolTip = vtt_unit_Fish
+		SizeX = 1.0
+		SizeY = 1.0
+		// Give fish a larger footprint to accomodate the model.  Otherwise,
+		// it was possible for the fish to swim off the map.  It looks like
+		// this doesn't cause any problems placing fish... there's plenty of
+		// water.  If it turns out there are cases where there's not enough
+		// room to place fish, then maybe we'll need to shrink the model, instead.
+		// MRC 10/13/2004
+		FootprintSizeX = 2.0
+		FootprintSizeY = 2.0
+		hitpoints = 1000
+	}
+	abilities [
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 6000; maxNumOfWorkers = 3}
+	]
+	fullMapOverlay { sprite = spr_fullmap_fish }
+}
+
+
+//------------------------------------------------
+//	OIL RIG
+//------------------------------------------------
+UnitType OilRig
+{
+	parent = NoProduceBuilding
+	placementType = OnResource
+	placementTargetType = ResourceOil
+	icon = icon_unit_oilRig
+	citizenManagerCursorSprite = spr_citmanager_cursor_oilrig
+	properties {
+		SizeX = 1.5
+		SizeY = 1.5
+		displayName = tx_utn_OilRig_name
+		displayNamePlural = tx_utn_OilRig_pname
+		VerboseTooltip = vtt_unit_OilRig
+		HitPoints = 3000
+		Mass = 1
+	}
+	abilities = [
+		Garrison { 
+			garrisonType = UniWarehouseOilDerrickCityCenter; 
+			numOfSlots = 6;
+			gatherRate = 0.7;	// 1 tech point every second for each garrisoned UnitType
+			gatherType = Oil;
+			rightClickToGarrison = 1;
+			GarrisonedVisualState = "Garrisoned"
+		}
+		LOS { range = 4 }
+	
+	]
+}
+
+UnitModel OilRig
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_OilRig.NIF
+	ChildNames 			= [TheAmbientPlacer LargeGlow]  //UnderTemple
+	States = [
+		{ StateName="Idle" AnimName = Bld_oilrig_idle.kf}
+	    { StateName="Garrisoned"   AnimName = bld_OilRig_walk.kf 
+				TextKeys = [{ Name = START_SOUND Data = Resource_oil KeyTime = 0}]}	
+		 ]
+}
+
+
+//------------------------------------------------
+//	URANIUM MINE		
+//------------------------------------------------
+UnitType UraniumMine
+{
+	parent = NoProduceBuilding
+	placementType = OnResource
+	placementTargetType = ResourceUranium
+	icon = icon_unit_uraniumMine
+	citizenManagerCursorSprite = spr_citmanager_cursor_uranmine
+	properties {
+		SizeX = 1.5
+		SizeY = 1.5
+		displayName = tx_utn_UraniumMine_name
+		displayNamePlural = tx_utn_UraniumMine_pname
+		VerboseTooltip = vtt_unit_UraniumMine
+		HitPoints = 3000
+		Mass = 1
+	}
+	abilities = [
+		Garrison { 
+			garrisonType = UniWarehouseOilDerrickCityCenter; 
+			numOfSlots = 6;
+			gatherRate = 0.7;	// 1 tech point every second for each garrisoned UnitType
+			gatherType = Uranium;
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+		LOS { range = 4 }
+	]
+}
+
+UnitModel UraniumMine
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= res_uranium_mine.NIF
+	ChildNames 			= [BuildingShadow TheAmbientPlacer LargeGlow]  
+	States = [
+		{ StateName="Idle" 
+			TextKeys = [{ Name = START_SOUND Data = Resource_uranium KeyTime = 0}]}
+	
+		 ]
+}
+

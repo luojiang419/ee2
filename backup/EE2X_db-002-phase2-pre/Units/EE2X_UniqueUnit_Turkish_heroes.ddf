@@ -1,0 +1,71 @@
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT TURKISH SPAHI (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitTurkish1Hero
+{
+	parent = UniqueUnitTurkish1
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.46
+		SizeY = 0.23
+	}
+	abilities = [
+		Hero { HeroClass = HeavyMounted; HeroForUnit = UniqueUnitTurkish1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitTurkish1Hero
+{
+	Parent		= UniqueUnitTurkish1
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT TURKISH JANISSARY (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitTurkish2Hero
+{
+	parent = UniqueUnitTurkish2
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.144
+		SizeY = 0.144
+	}
+	abilities = [
+		Hero { HeroClass = HeavyInfantry; HeroForUnit = UniqueUnitTurkish2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitTurkish2Hero
+{
+	Parent		= UniqueUnitTurkish2
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT TURKISH TRENCH GUNNER (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitTurkish3Hero
+{
+	parent = UniqueUnitTurkish3
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.144
+		SizeY = 0.144
+	}
+	abilities = [
+		Hero { HeroClass = HeavyInfantry; HeroForUnit = UniqueUnitTurkish3 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitTurkish3Hero
+{
+	Parent		= UniqueUnitTurkish3
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

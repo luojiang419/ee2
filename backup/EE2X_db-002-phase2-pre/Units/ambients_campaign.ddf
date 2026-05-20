@@ -1,0 +1,800 @@
+//------------------------------------------------------------------------------------------------
+//	AMBIENTS CAMPAIGN
+//------------------------------------------------------------------------------------------------
+UnitType AmbientCampaignBuilding
+{
+	ownerType = PlayerOnly
+	Parent = NoProduceBuilding
+	properties {
+		FootprintType = kFootprintType_Rectangle
+		SizeX = 2.5
+		SizeY = 2.5
+		mass = 1
+		hitpoints = 666
+		rps = Building
+	}
+	abilities = [
+		LOS { range = 2 }
+		]
+	fullMapOverlay { sprite = spr_fullmap_building }
+}
+
+//------------------------------------------------------------------------------------------------
+//	AMBIENTS CAMPAIGN - UNIT INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	COMMAND TENT - WEST / FAR EAST
+//------------------------------------------------
+UnitType CommandTent
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 1.5
+		SizeY = 1.5
+		displayName = tx_utn_CommandTent_name
+		DisplayNameScenEdit = tx_utn_CommandTent_sname
+		VerboseTooltip = vtt_unit_CommandTentWEFE
+	}
+	abilities = [
+	]
+	icon = icon_unit_commandTent_we
+}
+
+UnitModel CommandTent
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_commandtent12.NIF
+	ChildNames 	= [ LargeGlow ExplSelectorBuild_Small ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+//------------------------------------------------
+//	COMMAND TENT - MIDDLE EAST / AMERICAS
+//------------------------------------------------
+UnitType CommandTentME
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 1.5
+		SizeY = 1.5
+		displayName = tx_utn_CommandTentME_name
+		DisplayNameScenEdit = tx_utn_CommandTentME_sname
+		VerboseTooltip = vtt_unit_CommandTentMEAM
+	}
+	abilities = [
+	]
+	icon = icon_unit_commandTent_me
+}
+
+UnitModel CommandTentME
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_commandtent12_me.NIF
+	ChildNames 	= [ LargeGlow ExplSelectorBuild_Small ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+//------------------------------------------------
+//	COMMAND TENT - FAR EAST 
+//------------------------------------------------
+UnitType CommandTentFE
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 1.5
+		SizeY = 1.5
+		displayName = tx_utn_CommandTentFE_name
+		DisplayNameScenEdit = tx_utn_CommandTentFE_sname
+		VerboseTooltip = vtt_unit_CommandTentFE
+	}
+	abilities = [
+	]
+	icon = icon_unit_commandTent_fe
+}
+
+UnitModel CommandTentFE
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_commandtent12_fe.NIF
+	ChildNames 	= [ LargeGlow ExplSelectorBuild_Small ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+//------------------------------------------------
+//	MACHINEGUN NEST
+//------------------------------------------------
+UnitType MachineGunNest12
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		hitpoints = 1000
+		rps = BuildingCombat
+		SizeX = 1.0
+		SizeY = 1.0
+		displayName = tx_utn_machinegunnest12_name
+		DisplayNameScenEdit = tx_utn_machinegunnest12_sname
+		VerboseTooltip = vtt_unit_machinegunnest12
+	}
+	abilities = [
+		Attack { range = 13.0; reloadTime = 0.3; applyDamageTime = 0.5; damage = 30; turretControllerName = BuildingTurret; }
+		LOS { range = 13 }
+	]
+	icon = icon_unit_machinegunnest
+}
+
+UnitModel MachineGunNest12
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_machinegunnest12.NIF
+	ChildNames 	= [ MediumGlow Beam_Tracer01 ExplSelectorBuild_Tiny Muzzle_Pillbox ]
+	States 		= [
+					{	StateName = Idle }
+					{ 	StateName = Attack1
+						TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_machine_gun_fire KeyTime = 0.16 }
+					] 
+	}
+					]
+	DamageDecalsSetName = BuildingDamageDecals
+
+}
+
+//------------------------------------------------
+//	PILLBOX
+//------------------------------------------------
+UnitType Pillbox
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		hitpoints = 500
+		rps = HeavyInfantry
+		SizeX = 1.0
+		SizeY = 1.0
+		displayName = tx_utn_pillbox_name
+		DisplayNameScenEdit = tx_utn_pillbox_sname
+		VerboseTooltip = vtt_unit_pillbox
+	}
+	abilities = [
+		Attack { range = 7.0; reloadTime = 0.2; applyDamageTime = 0.5; damage = 36; turretControllerName = BuildingTurret; }
+		LOS { range = 8 }
+	]
+	icon = icon_unit_pillbox
+}
+
+UnitModel Pillbox
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_pillbox11.NIF
+	ChildNames 	= [ MediumGlow Beam_Tracer01 ExplSelectorBuild_Tiny ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+//------------------------------------------------
+//	Dolmen
+//------------------------------------------------
+UnitType Dolmen
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 1.5
+		SizeY = 1.5
+		displayName = tx_utn_Dolmen_name
+		DisplayNameScenEdit = tx_utn_Dolmen_sname
+		VerboseTooltip = vtt_unit_dolmen
+	}
+	abilities = []
+	icon = icon_unit_dolmen
+}
+
+UnitModel Dolmen
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_dolmen.NIF
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Small ]
+
+
+}
+//------------------------------------------------
+//	WHITE HOUSE
+//------------------------------------------------
+UnitType WhiteHouse
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 3.5
+		SizeY = 4
+		UndertextureSizeX = 3.5
+		UndertextureSizeY = 4
+		displayName = tx_utn_WhiteHouse_name
+		DisplayNameScenEdit = tx_utn_WhiteHouse_sname
+		VerboseTooltip = vtt_unit_WhiteHouse
+		HitPoints = 6000
+	}
+	abilities = [
+	]
+	icon = icon_unit_whitehouse
+}
+
+UnitModel WhiteHouse
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_whitehouse.NIF
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Big UnderWhiteHouse ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - BAVARIAN MINI
+//------------------------------------------------
+UnitType ClusterBavarianMini
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 2
+		SizeY = 2
+		displayName = tx_utn_ClusterBavMini_name
+		DisplayNameScenEdit = tx_utn_ClusterBavMini_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_bavarMini
+}
+
+UnitModel ClusterBavarianMini
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterBavarianMini.NIF
+	ChildNames 	= [ LargeGlow ExplSelectorBuild_Small ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - BAVARIAN MEGA
+//------------------------------------------------
+UnitType ClusterBavarianMega
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 3
+		SizeY = 6
+		displayName = tx_utn_ClusterBavMega_name
+		DisplayNameScenEdit = tx_utn_ClusterBavMega_sname
+			}
+	abilities = [
+		LOS { range = 4 }
+	]
+	icon = icon_unit_cluster_bavarMega
+}
+
+UnitModel ClusterBavarianMega
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterBavarianMega.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - BAVARIAN RECTANGLE
+//------------------------------------------------
+UnitType ClusterBavarianRectangle
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 3
+		SizeY = 4
+		displayName = tx_utn_ClusterBavRect_name
+		DisplayNameScenEdit = tx_utn_ClusterBavRect_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_bavarRect
+}
+
+UnitModel ClusterBavarianRectangle
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterBavarianRectangle.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - BAVARIAN SQUARE
+//------------------------------------------------
+UnitType ClusterBavarianSquare
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 3
+		SizeY = 3
+		displayName = tx_utn_ClusterBavSquare_name
+		DisplayNameScenEdit = tx_utn_ClusterBavSquare_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_bavarSquare
+}
+
+UnitModel ClusterBavarianSquare
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterBavarianSquare.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Medium ]
+}
+
+
+//*****
+//------------------------------------------------
+//	BUILDING CLUSTER - ITALIAN MINI
+//------------------------------------------------
+UnitType ClusterItalianMini
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 2.5
+		SizeY = 2.5
+		displayName = tx_utn_ClusterItalMini_name
+		DisplayNameScenEdit = tx_utn_ClusterItalMini_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_italianMini
+}
+
+UnitModel ClusterItalianMini
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterItalianMini.NIF
+	ChildNames 	= [ LargeGlow ExplSelectorBuild_Small ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - ITALIAN MEGA
+//------------------------------------------------
+UnitType ClusterItalianMega
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 3.5
+		SizeY = 8
+		displayName = tx_utn_ClusterItalMega_name
+		DisplayNameScenEdit = tx_utn_ClusterItalMega_sname
+			}
+	abilities = [
+		LOS { range = 4 }
+	]
+	icon = icon_unit_cluster_italianMega
+}
+
+UnitModel ClusterItalianMega
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterItalianMega.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - ITALIAN RECTANGLE
+//------------------------------------------------
+UnitType ClusterItalianRectangle
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 3.5
+		SizeY = 5
+		displayName = tx_utn_ClusterItalRect_name
+		DisplayNameScenEdit = tx_utn_ClusterItalRect_sname
+			}
+	abilities = [
+		LOS { range = 4 }
+	]
+	icon = icon_unit_cluster_italianRect
+}
+
+UnitModel ClusterItalianRectangle
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterItalianRectangle.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Medium ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - ITALIAN SQUARE
+//------------------------------------------------
+UnitType ClusterItalianSquare
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 3.5
+		SizeY = 3.5
+		displayName = tx_utn_ClusterItalSquare_name
+		DisplayNameScenEdit = tx_utn_ClusterItalSquare_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_italianSquare
+}
+
+UnitModel ClusterItalianSquare
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterItalianSquare.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Medium ]
+}
+
+//*****
+
+//------------------------------------------------
+//	BUILDING CLUSTER - INDUSTRIAL MEGA
+//------------------------------------------------
+UnitType ClusterIndustrialMega
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 9
+		SizeY = 4
+		displayName = tx_utn_ClusterIndMega_name
+		DisplayNameScenEdit = tx_utn_ClusterIndMega_sname
+			}
+	abilities = [
+		LOS { range = 4 }
+	]
+	icon = icon_unit_cluster_industMega
+}
+
+UnitModel ClusterIndustrialMega
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialMega.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - INDUSTRIAL RECTANGLE 1
+//------------------------------------------------
+UnitType ClusterIndustrialRectangle1
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 4
+		displayName = tx_utn_ClusterIndRect1_name
+		DisplayNameScenEdit = tx_utn_ClusterIndRect1_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_industRect1
+}
+
+UnitModel ClusterIndustrialRectangle1
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialRectangle1.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big  ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - INDUSTRIAL RECTANGLE 2
+//------------------------------------------------
+UnitType ClusterIndustrialRectangle2
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 5
+		displayName = tx_utn_ClusterIndRect2_name
+		DisplayNameScenEdit = tx_utn_ClusterIndRect2_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_industRect2
+}
+
+UnitModel ClusterIndustrialRectangle2
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialRectangle2.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - INDUSTRIAL SQUARE 1
+//------------------------------------------------
+UnitType ClusterIndustrialSquare1
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 3
+		displayName = tx_utn_ClusterIndSquare1_name
+		DisplayNameScenEdit = tx_utn_ClusterIndSquare1_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_industSquare1
+}
+
+UnitModel ClusterIndustrialSquare1
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialSquare1.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Medium ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - INDUSTRIAL SQUARE 2
+//------------------------------------------------
+UnitType ClusterIndustrialSquare2
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 4
+		displayName = tx_utn_ClusterIndSquare2_name
+		DisplayNameScenEdit = tx_utn_ClusterIndSquare2_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_industSquare2
+}
+
+UnitModel ClusterIndustrialSquare2
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialSquare2.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//*****
+
+//------------------------------------------------
+//	BUILDING CLUSTER - MIX 1 (Italian / Bavarian)
+//------------------------------------------------
+UnitType ClusterMix1
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 6
+		SizeY = 4
+		displayName = tx_utn_ClusterMix1_name
+		DisplayNameScenEdit = tx_utn_ClusterMix1_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_mixItalBavar
+}
+
+UnitModel ClusterMix1
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterItalBavarMix.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - MIX 2 (Industrial / Bavarian)
+//------------------------------------------------
+UnitType ClusterMix2
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 7
+		displayName = tx_utn_ClusterMix2_name
+		DisplayNameScenEdit = tx_utn_ClusterMix2_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_mixBavIndust
+}
+
+UnitModel ClusterMix2
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterBavarIndustMix.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - MIX 3 (Industrial / Bavarian / Italian)
+//------------------------------------------------
+UnitType ClusterMix3
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 6
+		displayName = tx_utn_ClusterMix3_name
+		DisplayNameScenEdit = tx_utn_ClusterMix3_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_mixItalBavInd
+}
+
+UnitModel ClusterMix3
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterItalBavarIndustMix.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - MODERN CITY BLOCK HUGE
+//------------------------------------------------
+UnitType ClusterModernHuge
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 4
+		displayName = tx_utn_ClusterModHuge_name
+		DisplayNameScenEdit = tx_utn_ClusterModHuge_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_modernMega
+}
+
+UnitModel ClusterModernHuge
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialSquare2.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - MODERN CITY BLOCK RECTANGLE 01
+//------------------------------------------------
+UnitType ClusterModernRectangle01
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 4
+		displayName = tx_utn_ClusterModRect01_name
+		DisplayNameScenEdit = tx_utn_ClusterModRect01_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_modernRect1
+}
+
+UnitModel ClusterModernRectangle01
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialSquare2.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - MODERN CITY BLOCK RECTANGLE 02
+//------------------------------------------------ 
+UnitType ClusterModernRectangle02
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 4
+		displayName = tx_utn_ClusterModRect02_name
+		DisplayNameScenEdit = tx_utn_ClusterModRect02_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_modernRect2
+}
+
+UnitModel ClusterModernRectangle02
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialSquare2.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - MODERN CITY BLOCK SQUARE 01
+//------------------------------------------------ 
+UnitType ClusterModernSquare01
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 4
+		displayName = tx_utn_ClusterModSquare01_name
+		DisplayNameScenEdit = tx_utn_ClusterModSquare01_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_modernSquare1
+}
+
+UnitModel ClusterModernSquare01
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialSquare2.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	BUILDING CLUSTER - MODERN CITY BLOCK SQUARE 02
+//------------------------------------------------ 
+UnitType ClusterModernSquare02
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 4
+		SizeY = 4
+		displayName = tx_utn_ClusterModSquare02_name
+		DisplayNameScenEdit = tx_utn_ClusterModSquare02_sname
+			}
+	abilities = [
+	]
+	icon = icon_unit_cluster_modernSquare2
+}
+
+UnitModel ClusterModernSquare02
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_ClusterIndustrialSquare2.NIF
+	ChildNames 	= [ HugeGlow ExplSelectorBuild_Big ]
+}
+
+//------------------------------------------------
+//	Pagoda
+//------------------------------------------------
+UnitType Pagoda
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 2
+		SizeY = 2
+		displayName = tx_utn_Pagoda_name
+		DisplayNameScenEdit = tx_utn_Pagoda_sname
+		VerboseTooltip = vtt_unit_pagoda
+	}
+	abilities = []
+	icon = icon_unit_pagoda
+}
+
+UnitModel Pagoda
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= bld_pagoda.NIF
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Tiny ]
+
+
+}
+
+//------------------------------------------------
+//	BUOY
+//------------------------------------------------
+UnitType Buoy
+{
+	placementType = DeepWater
+	properties {
+		FootprintType = kFootprintType_Rectangle
+		moveType = kUnitMoveType_NavalDeep
+		SizeX = 0.25
+		SizeY = 0.25
+		displayName = tx_utn_Buoy_name
+		DisplayNameScenEdit = tx_utn_Buoy_sname
+		VerboseTooltip = vtt_unit_buoy		
+		mass = 0
+		hitpoints = 666
+		rps = SeaNonCombat
+	}
+	abilities [
+		NavalMove {speed = 0; accel = 0; angSpeed = 0}		
+		LOS { range = 14 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_building }
+	icon = icon_unit_buoy
+}
+
+UnitModel Buoy
+{
+	DefaultModel 	= amb_buoy.NIF
+	OutlineType	= kOutlineReceive
+	ScaleType 	= kScaleBuilding
+	DefaultState 	= Idle
+	States 		= [
+			{	StateName = Idle	}
+			]
+	ChildNames 	= [ MediumGlow TheHealthBar TheResistanceBar ]
+}

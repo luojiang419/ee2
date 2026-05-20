@@ -1,0 +1,124 @@
+//------------------------------------------------------------------------------------------------
+//	LIGHT MOUNTED HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightMountedHero
+{
+	parent = LightMounted1
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	properties {
+		SizeX = 0.46
+		SizeY = 0.23
+	}
+	abilities = [
+		Hero { HeroClass = LightMounted; HeroForUnit = LightMounted1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightMountedHeroEp2Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 2.3; missileName = "Stone"; ignoreBlocking = 1 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightMountedHeroEp4Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.8; missileName = "Spear" }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightMountedHeroEp6Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 2.34; missileName = "Arrow"; ignoreBlocking = 1; }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightMountedHeroEp8Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "Grenade" }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightMountedHeroEp10Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.6; missileName = "Grenade" }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT MOUNTED HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+UnitModel LightMountedHero_02
+{
+	Parent		= LightMounted1_02
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+UnitModel LightMountedHero_04
+{
+	Parent		= LightMounted1_04
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+UnitModel LightMountedHero_06
+{
+	Parent		= LightMounted1_06
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+UnitModel LightMountedHero_08
+{
+	Parent		= LightMounted1_08
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel LightMountedHero_10
+{
+	Parent		= LightMounted1_10
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

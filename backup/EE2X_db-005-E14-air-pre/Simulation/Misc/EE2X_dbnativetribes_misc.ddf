@@ -1,0 +1,26 @@
+//////////////////////////////////////////////////////////
+//							//
+// EE2X_dbnativetribes_misc.ddf				//
+//							//
+// misc database stuff for native tribes		//
+//							//
+//////////////////////////////////////////////////////////
+
+// native tribes power set
+NativeTribesPowerSet TheNativeTribesPowerSet
+{
+	Powers = [
+		{ Power = Fertility;		AssimilationCostMod = 2.0; }
+		{ Power = Faith;		AssimilationCostMod = 1.0; }
+		{ Power = Migration;		AssimilationCostMod = 0.75; }
+		{ Power = Herbs;		AssimilationCostMod = 0.75; }
+		{ Power = Traders;		AssimilationCostMod = 0.75; }
+		{ Power = Adobe;		AssimilationCostMod = 1.0; }
+		{ Power = Determination;	AssimilationCostMod = 1.5; }
+		{ Power = WarriorSpirit;	AssimilationCostMod = 2.0; }
+		{ Power = Scouts;		AssimilationCostMod = 0.75; }
+		{ Power = Community;		AssimilationCostMod = 1.5; }
+	]
+}
+
+

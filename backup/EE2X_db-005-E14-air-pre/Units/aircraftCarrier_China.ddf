@@ -1,0 +1,136 @@
+//------------------------------------------------------------------------------------------------
+//	AIRCRAFT CARRIER
+//------------------------------------------------------------------------------------------------
+UnitType ChinaCarrier
+{
+	visualName = ChinaCarrier_11
+	parent = NavalDeep
+	properties {
+		rps = Carrier
+		SizeX = 7.0
+		SizeY = 1.0
+		mass = 5
+		RallyPlacementFlags = ( Terrain | Water | Mountain | AnyBuilding | AnyMobile | Allied | Neutral | Hostile )
+		popCount = 3
+	}
+	attributes = [
+		HealedByHERC 
+			]
+	sounds = {
+	}
+	abilities = [
+		NavalMove {speed = 1.725; accel = 1; angSpeed = 30}
+		LOS { range = 0 }
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5;}
+		Produce {  } // needs produce ability for EffectSpawn
+		GarrisonAircraft {
+			numOfSlots = 30;
+			//initialContents = [ { typeName="ChinaPlane" count=20 } ];	// load up with these paratrooper 
+			healPoints = 500;		// Each unit type garrison heals this many points per second
+			garrisonType = AirportOrAircraftCarrier;
+			GarrisonFlagModelName = "GarrisonShip"
+		}
+	]
+}
+
+
+
+//------------------------------------------------------------------------------------------------
+//	AIRCRAFT CARRIER - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel ChinaCarrier_11
+{
+	Parent		= BaseShip
+	DefaultModel 	= Midway_1946.nif	
+	ForceScale      = 0.19
+	States 		= [
+		{	StateName = Idle	}
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_boat_4 KeyTime = 0}]}
+		{ StateName= Death }
+			]
+  	ChildNames 	= [ ExplSelectorAircraftCarrier TheAirmissionFlag_Mobile TheBoatWake8 AircraftCarrier_FlyingParts Beam_Tracer01 Muzzle_Rifleman ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 3.90
+		zOffset = 0.78
+		scale = 1.66
+		angle = 47.37
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel ChinaCarrier_13
+{
+	Parent		= BaseShip
+	//DefaultModel 	= LNCarrier.nif
+	//ForceScale = 0.2
+	DefaultModel 	= liaoningCarrier.nif
+	ForceScale = 0.17
+	States 		= [
+		{	StateName = Idle	}
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_boat_4 KeyTime = 0}]}
+		{ StateName= Death }
+			]
+  	ChildNames 	= [ ExplSelectorAircraftCarrier TheAirmissionFlag_Mobile TheBoatWake8 AircraftCarrier_FlyingParts Beam_Tracer01 Muzzle_Rifleman ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 3.90
+		zOffset = 0.78
+		scale = 1.66
+		angle = 47.37
+	}
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel ChinaCarrier_14
+{
+	Parent		= BaseShip
+	DefaultModel 	= Shandong.nif
+	ForceScale = 0.22
+	States 		= [
+		{	StateName = Idle	}
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_boat_4 KeyTime = 0}]}
+		{ StateName= Death }
+			]
+	ChildNames 	= [ ExplSelectorAircraftCarrier TheAirmissionFlag_Mobile TheBoatWake8 SeaArcher_FlyingParts ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 3.17
+		zOffset = -0.26
+		scale = 1.66
+		angle = 47.37
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel ChinaCarrier_15
+{
+	Parent		= BaseShip
+	DefaultModel 	= CN_Type004.nif
+	ForceScale = 0.2
+	States 		= [
+		{	StateName = Idle	}
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_boat_4 KeyTime = 0}]}
+		{ StateName= Death }
+			]
+	ChildNames 	= [ ExplSelectorAircraftCarrier TheAirmissionFlag_Mobile TheBoatWake8 SeaArcher_FlyingParts ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 3.17
+		zOffset = -0.26
+		scale = 1.66
+		angle = 47.37
+	}
+}

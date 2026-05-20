@@ -1,0 +1,190 @@
+//------------------------------------------------------------------------------------------------
+//	CONCERTINA
+//------------------------------------------------------------------------------------------------
+UnitType ConcertinaBase
+{
+	placementType = Unplaceable	// most concertina types are unplaceable
+	properties {
+		displayName = tx_utn_concertina_name	
+		mass = 1
+		hitpoints = 100
+		FootprintType = kFootprintType_Rectangle
+		rps = Building
+	}
+	sounds {
+	}
+	abilities = [
+		LOS { range = 4 }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	CONCERTINA - UnitType INFO
+//------------------------------------------------------------------------------------------------
+UnitType Concertina
+{
+	parent = ConcertinaBase
+	placementType = Wall		// this one is placeable!
+	icon = icon_unit_concertina_section
+	properties {		
+		sizeX = 0.7834
+		sizeY = 0.2976
+	}
+	abilities = [
+		Connect { type = kComposite_WallSegment; }
+	]
+	fullMapOverlay { sprite = spr_fullmap_smallunit }
+}
+
+UnitType Concertina_Connector
+{
+	parent = ConcertinaBase
+	icon = icon_unit_concertina_connector
+	properties {		
+		sizeX = 0.3600
+		sizeY = 0.3600
+	}
+	abilities = [
+		Connect { type = kComposite_WallConnector; }
+	]
+	fullMapOverlay { sprite = spr_fullmap_smallunit }
+}
+
+UnitType Concertina_Fragment
+{
+	parent = ConcertinaBase
+	icon = icon_unit_concertina_section
+	properties {		
+		sizeX = 0.2612
+		sizeY = 0.2976
+	}
+	abilities = [
+		Connect { type = kComposite_WallFragment; }
+	]
+	fullMapOverlay { sprite = spr_fullmap_smallunit }
+}
+
+//------------------------------------------------------------------------------------------------
+//	CONCERTINA - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+UnitModel ConcertinaBaseModel
+{
+	ScaleType	= kScaleWall
+	DefaultState	= Idle
+	States 		= [
+			{	StateName = Idle	}
+			{	StateName = Death	ModelName = NULL.nif }
+	]
+	DamageDecalsSetName = BuildingDamageDecals
+
+}
+
+WallModel Concertina_MainModel
+{
+	DefaultModel 	= bld_concertinawire10.nif
+}
+
+WallModel ConcertinaFragment_MainModel
+{
+	DefaultModel 	= bld_concertinawire10_fragment.nif
+}
+
+CompositeModel Concertina
+{
+	ScaleType	= kScaleWall
+	ChildNames	= [ Concertina_MainModel TheHealthBar TheCollapseEffect ExplSelectorBuild_Tiny ]
+}
+
+CompositeModel Concertina_Fragment
+{
+	ScaleType	= kScaleWall
+	ChildNames	= [ ConcertinaFragment_MainModel TheHealthBar TheCollapseEffect ExplSelectorBuild_Tiny ]
+}
+
+UnitModel Concertina_Connector
+{
+	parent		= ConcertinaBaseModel
+	DefaultModel 	= bld_concertinawire10_connector.nif
+	ChildNames	= [ TheHealthBar TheCollapseEffect ExplSelectorBuild_Tiny ]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	CONCERTINAWIRE -- stages of construction
+//------------------------------------------------------------------------------------------------
+
+//
+// concertina construction visuals:
+//
+
+UnitModel Concertina_Foundation_BaseModel
+{
+	ScaleType	= kScaleBuilding
+	DefaultState	= Idle
+	States 		= [
+			{	StateName = Idle	}
+			{	StateName = Death	ModelName = NULL.nif }
+			]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitModel Concertina_Foundation
+{
+	parent = Concertina_Foundation_BaseModel
+	DefaultModel 	= bld_concertina1.NIF
+	ChildNames 	= [ TheHealthBar]
+}
+
+UnitModel Concertina_Connector_Foundation
+{
+	parent = Concertina_Foundation_BaseModel
+	DefaultModel 	= bld_concertina1_Connector.NIF
+	ChildNames 	= [ TheHealthBar]
+}
+
+UnitModel Concertina_Fragment_Foundation
+{
+	parent = Concertina_Foundation_BaseModel
+	DefaultModel 	= bld_concertina1_Fragment.NIF
+	ChildNames 	= [ ]
+}
+
+
+//
+// concertina construction unit types:
+//
+
+UnitType Concertina_Foundation
+{
+	parent = Concertina
+	placementType = Unplaceable
+	properties {
+		mass = 0	// so it won't block pathing
+		hitpoints = 1
+	}
+	abilities = [ Construction {} ]
+}
+
+UnitType Concertina_Connector_Foundation
+{
+	parent = Concertina_Connector
+	properties {
+		mass = 0	// so it won't block pathing
+		hitpoints = 1
+	}
+	abilities = [ Construction {} ]
+}
+
+UnitType Concertina_Fragment_Foundation
+{
+	parent = Concertina_Fragment
+	properties {
+		mass = 0	// so it won't block pathing
+		hitpoints = 1
+	}
+	abilities = [ Construction {} ]
+}
+
+
+//------------------------------------------------

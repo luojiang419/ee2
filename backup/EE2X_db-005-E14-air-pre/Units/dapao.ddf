@@ -1,0 +1,385 @@
+//-------------dapao-------------------
+UnitType dapao
+{
+        
+	ownerType = PlayerOnly
+	parent = NoProduceBuilding
+	properties {
+		rps = BuildingCombat
+		SizeX = 1.0
+		SizeY = 1.0
+		FootprintSizeX = 1.5
+		FootprintSizeY = 1.5
+		mass = 0
+        displayName = tx_utn_dapao11_name
+		VerboseTooltip = vtt_unit_dapao11
+            HitPoints = 22500
+	}
+	sounds {
+    	}
+	abilities = [
+		LOS { range = 25 }
+		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "FireArrow"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 4 }
+	]
+	icon = icon_unit_dapao
+	
+}
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities dapaoEpoch1Attack
+{
+	upgradedAbilities = [
+		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "FireArrow";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret }
+	]
+}
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities dapaoEpoch5Attack
+{
+	upgradedAbilities = [
+		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "FireArrow";ignoreBlocking = 1;  }
+	]
+}
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities dapaoEpoch7Attack
+{
+	upgradedAbilities = [
+		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "DapaoBall";ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true }
+	]
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities dapaoEpoch11Attack
+{
+	upgradedAbilities = [
+		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "DapaoShell";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 2.0; throwUnits = true }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities dapaoEpoch13Attack
+{
+	upgradedAbilities = [
+	Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "DapaoShell";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 2.5 ; throwUnits = true}
+	
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities dapaoEpoch15Attack
+{
+	upgradedAbilities = [
+		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "DapaoShell";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3 ; throwUnits = true}
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	COASTAL DEFENSE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+UnitModel dapao_1
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= GuardTower_1.NIF
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Tiny ]
+	DamageDecalsSetName = BuildingDamageDecals
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitModel dapao_3
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= GuardTower_3.NIF
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Tiny ]
+	DamageDecalsSetName = BuildingDamageDecals
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel dapao_5
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= GuardTower_6.NIF
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Tiny ]
+	DamageDecalsSetName = BuildingDamageDecals
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+UnitModel dapao_7
+{
+	Parent		= BaseBuilding_NoFoundation
+	DefaultModel 	= GuardTower_7.NIF
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Tiny Muzzle_FieldGun  ]
+	DamageDecalsSetName = BuildingDamageDecals
+	States 		= [
+		{	StateName = Idle	                 }
+		{ 	StateName = Attack1
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = Cannon_firing1 KeyTime = 0.3 }
+							] 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.00
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+ 
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel dapao_11
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= dapao11.NIF
+	ForceScale = 0.045
+	States 		= [
+					{	StateName = Idle	AnimName = bld_coastaldefense11_idle.kf }
+					{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf
+						TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }] 
+					}
+				{ 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{   StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+
+					]
+	ChildNames 	= [ BuildingWithTurretsShadow MediumGlow ExplSelectorBuild_Tiny FX_ExaustSmoke1  FX_ExaustSmoke2  Muzzle_Howitzer109 ]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 0.22
+		zOffset = 2.87
+		scale = 0.89
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 40.00
+	}
+	DamageDecalsSetName = BuildingDamageDecals
+      
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+UnitModel dapao_12
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= dapao12.NIF
+	ForceScale = 0.045
+	States 		= [
+					{	StateName = Idle	AnimName = bld_coastaldefense11_idle.kf }
+					{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf
+						TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }] 
+					}
+				{ 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{   	StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+
+					]
+	ChildNames 	= [ BuildingWithTurretsShadow MediumGlow ExplSelectorBuild_Tiny FX_ExaustSmoke1  FX_ExaustSmoke2  Muzzle_Howitzer109 ]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 0.22
+		zOffset = 2.87
+		scale = 0.89
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 40.00
+	}
+	DamageDecalsSetName = BuildingDamageDecals
+      
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel dapao_13
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= dapao13.NIF
+	ForceScale = 0.12
+	States 		= [
+					{	StateName = Idle	AnimName = bld_coastaldefense11_idle.kf }
+					{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf
+						TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }] 
+					}
+				{ 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{   	StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+
+					]
+	ChildNames 	= [ BuildingWithTurretsShadow MediumGlow ExplSelectorBuild_Tiny FX_ExaustSmoke1  FX_ExaustSmoke2  Muzzle_Howitzer109 ]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 0.22
+		zOffset = 2.87
+		scale = 0.89
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 40.00
+	}
+	DamageDecalsSetName = BuildingDamageDecals
+      
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel dapao_14
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= dapao14.NIF
+	ForceScale = 0.06
+	States 		= [
+					{	StateName = Idle	AnimName = bld_coastaldefense11_idle.kf }
+				{ 	StateName = Attack1	  AnimName = LLA13_mrls_attack.KF
+					TextKeys = [ 
+					{ Name = PLAY_SOUND Data = fx_battle_rocket_launch KeyTime = 0.3 } ] 
+				}
+				{ 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{   StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+
+					]
+	ChildNames 	= [ BuildingWithTurretsShadow MediumGlow ExplSelectorBuild_Tiny FX_ExaustSmoke1  Muzzle_Phl032  ]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 0.22
+		zOffset = 2.87
+		scale = 0.89
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 40.00
+	}
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel dapao_15
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= dapao15.NIF
+	ForceScale = 0.12
+	States 		= [
+					{	StateName = Idle	AnimName = bld_coastaldefense11_idle.kf }
+					{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf
+						TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }] 
+					}
+				{ 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{   	StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+
+					]
+	ChildNames 	= [ BuildingWithTurretsShadow MediumGlow ExplSelectorBuild_Tiny FX_ExaustSmoke1  FX_ExaustSmoke2  Muzzle_Howitzer109 ]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 0.22
+		zOffset = 2.87
+		scale = 0.89
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 40.00
+	}
+	DamageDecalsSetName = BuildingDamageDecals
+}

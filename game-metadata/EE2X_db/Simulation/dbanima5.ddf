@@ -1,0 +1,463 @@
+//
+// Animals come in 3 varieties: domesticated, wild, and predator.
+//
+// Domesticated animals never attack and never wander far from 
+// their stationary herd center.
+//
+// Wild animals reproduce on their own in herds and don't attack unless attacked
+//
+// Predators aggressively attack anyone who comes near and never reproduce 
+//
+
+
+//
+// Domesticated animals
+//
+Animal Cow
+{
+	// When it's dead (food resource), it turns into:
+	DeadUnitType = DeadAnimalCow
+	
+	// is it a predator, a wild animal, or a domesticated one?
+	AnimalType = Domesticated
+	
+	// Roughly how far this will wander from its (or its herds) original
+	// placement point.  They don't migrate.  They'll flee temporarily
+	// when fired upon, but they always come back to within this radius
+	// of their home point.
+	WanderRadius = 3
+	
+	// Every approximately m_TimeBetweenWandering seconds, they'll get a
+	// new move order.
+	TimeBetweenWandering = 10
+}
+
+Animal Cow2
+{
+	DeadUnitType = DeadAnimalCow2
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Llama
+{
+	DeadUnitType = DeadAnimalLlama
+	AnimalType = Domesticated
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal Goat
+{
+	DeadUnitType = DeadAnimalGoat
+	AnimalType = Domesticated
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal TundraRabbit
+{
+	DeadUnitType = DeadAnimalTundraRabbit
+	AnimalType = Domesticated
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 4 max = 12 }
+	ReproPeriod = 60
+}
+
+//
+// Predators
+//
+Animal Vulture
+{
+	DeadUnitType = DeadAnimalVulture
+	AnimalType = Predator
+	WanderRadius = 5
+	TimeBetweenWandering = 7
+}
+
+Animal Hawk
+{
+	DeadUnitType = DeadAnimalHawk
+	AnimalType = Predator
+	WanderRadius = 5
+	TimeBetweenWandering = 7
+}
+
+Animal Wolf
+{
+	DeadUnitType = DeadAnimalWolf
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal WhiteWolf
+{
+	DeadUnitType = DeadAnimalWhiteWolf
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal Tiger
+{
+	DeadUnitType = DeadAnimalTiger
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal TundraBear
+{
+	DeadUnitType = DeadAnimalTundraBear
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+//
+// Wild animals
+//
+Animal Deer
+{
+	DeadUnitType = DeadAnimalDeer
+	
+	AnimalType = Wild
+	
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	
+	// If it's a Wild animal, all the 'herd' stuff should be nonzero.
+	
+	// At creation time, a max herd size is also calculated and stored
+	// with the herd, and they'll never exceed this.
+	MaxHerdSize =  { min = 5 max = 10 }
+	
+	// If there are 2X animals in the herd, a new one will be created
+	// every ReproPeriod/X seconds, up to MaxHerdSize.
+	ReproPeriod = 360
+}
+
+Animal Camel
+{
+	DeadUnitType = DeadAnimalCamel
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+
+	// At creation time, a max herd size is also calculated and stored
+	// with the herd, and they'll never exceed this.
+	MaxHerdSize =  { min = 5 max = 10 }
+	
+	// If there are 2X animals in the herd, a new one will be created
+	// every ReproPeriod/X seconds, up to MaxHerdSize.
+	ReproPeriod = 360
+}
+
+Animal Elephant
+{
+	DeadUnitType = DeadAnimalElephant
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+Animal Boar
+{
+	DeadUnitType = DeadAnimalBoar
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize = { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+//
+// EE2X
+// For the Maasai Campaign
+Animal MaasaiCow
+{
+	// When it's dead (food resource), it turns into:
+	DeadUnitType = DeadAnimalCow
+	
+	// is it a predator, a wild animal, or a domesticated one?
+	AnimalType = Domesticated
+	
+	// Roughly how far this will wander from its (or its herds) original
+	// placement point.  They don't migrate.  They'll flee temporarily
+	// when fired upon, but they always come back to within this radius
+	// of their home point.
+	WanderRadius = 3
+	
+	// Every approximately m_TimeBetweenWandering seconds, they'll get a
+	// new move order.
+	TimeBetweenWandering = 3600
+}
+
+// Amb 1.5 Units
+
+//
+// Here are all the animals that fly around.
+//
+
+Animal Lf15_Bluebird
+{
+	DeadUnitType = DeadAnimalLf15_Bluebird
+	AnimalType = Predator
+	WanderRadius = 5
+	TimeBetweenWandering = 7
+}
+
+Animal Lf15_Parrot
+{
+	DeadUnitType = DeadAnimalLf15_Parrot
+	AnimalType = Predator
+	WanderRadius = 5
+	TimeBetweenWandering = 7
+}
+
+Animal Lf15_Seagull
+{
+	DeadUnitType = DeadAnimalLf15_Seagull
+	AnimalType = Predator
+	WanderRadius = 5
+	TimeBetweenWandering = 7
+}
+
+Animal Lf15_Raven
+{
+	DeadUnitType = DeadAnimalLf15_Raven
+	AnimalType = Predator
+	WanderRadius = 5
+	TimeBetweenWandering = 7
+}
+
+Animal Lf15_Eagle
+{
+	DeadUnitType = DeadAnimalLf15_Eagle
+	AnimalType = Predator
+	WanderRadius = 5
+	TimeBetweenWandering = 7
+}
+
+//
+// Wild 1.5 Animals
+//
+
+Animal Lf15_Horse
+{
+	DeadUnitType = DeadAnimalLf15_Horse
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+Animal Lf15_Elk
+{
+	DeadUnitType = DeadAnimalLf15_Elk
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+Animal Lf15_Deer
+{
+	DeadUnitType = DeadAnimalLf15_Deer
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+Animal Lf15_Giraffe
+{
+	DeadUnitType = DeadAnimalLf15_Giraffe
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+Animal Lf15_Ostrich
+{
+	DeadUnitType = DeadAnimalLf15_Ostrich
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+
+Animal Lf15_Turkey
+{
+	DeadUnitType = DeadAnimalLf15_Turkey
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+Animal LF15_Walrus
+{
+	DeadUnitType = DeadAnimalLF15_Walrus
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 2 max = 5 }
+	ReproPeriod = 360
+}
+
+Animal Lf15_Chicken
+{
+	DeadUnitType = DeadAnimalLf15_Chicken
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 2 max = 5 }
+	ReproPeriod = 360
+}
+
+Animal Lf15_Wildboar
+{
+	DeadUnitType = DeadAnimalLf15_Wildboar
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 2 max = 5 }
+	ReproPeriod = 360
+}
+
+Animal Lf15_Hippo
+{
+	DeadUnitType = DeadAnimalLf15_Hippo
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+//
+// Predators 1.5
+//
+
+Animal Lf15_Bear
+{
+	DeadUnitType = DeadAnimalLf15_Bear
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal Lf15_Rhinoceros
+{
+	DeadUnitType = DeadAnimalLf15_Rhinoceros
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+
+Animal  Lf15_Crocodile
+{
+	DeadUnitType = DeadAnimalLf15_Crocodile
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal  Lf15_Caveman
+{
+	DeadUnitType = DeadAnimalLf15_Caveman
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+//
+// Domesticated 1.5 Animals 
+// And animals that are not supposed to reproduce.
+
+Animal Lf15_Goat01
+{
+	DeadUnitType = DeadAnimalLf15_Goat01
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Lf15_Goat02
+{
+	DeadUnitType = DeadAnimalLf15_Goat02
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Lf15_Hornedsheep
+{
+	DeadUnitType = DeadAnimalLf15_Hornedsheep
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Lf15_Lizard
+{
+	DeadUnitType = DeadAnimalLf15_Lizard
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Lf15_Sheep
+{
+	DeadUnitType = DeadAnimalLf15_Sheep
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Lf15_ParrotWalking
+{
+	DeadUnitType = DeadAnimalLf15_ParrotWalking
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Lf15_Squirrel
+{
+	DeadUnitType = DeadAnimalLf15_Squirrel
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Lf15_Dolphin
+{
+	DeadUnitType = DeadAnimalLf15_Dolphin
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Lf15_Whale
+{
+	DeadUnitType = DeadAnimalLf15_Whale
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}

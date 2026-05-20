@@ -1,0 +1,147 @@
+//------------------------------------------------------------------------------------------------
+//	LIGHT HELICOPTER HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightHelicopterHero
+{
+	parent = LightMounted2
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	visualName = LightHelicopterHero_13
+	properties {
+		SizeX = 1.15
+		SizeY = 0.8
+	}
+	abilities = [
+		Hero { HeroClass = Helicopter; HeroForUnit = LightMounted2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightHeliHeroEp13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0; missileName = "GuidedMissile" }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightHeliHeroEp15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0; missileName = "GuidedMissile" }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT HELICOPTER HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel LightHelicopterHero_13
+{
+	Parent		= LightMounted2_13
+	ScaleType 	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel LightHelicopterHero_14
+{
+	Parent		= LightMounted2_14
+	ScaleType 	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel LightHelicopterHero_15
+{
+	Parent		= LightMounted2_15
+	ScaleType 	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	HEAVY HELICOPTER HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType HeavyHelicopterHero
+{
+	parent = HeavyMounted2
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	visualName = HeavyHelicopterHero_13
+	properties {	
+		SizeX = 1.15
+		SizeY = 0.8
+	}
+	abilities = [
+		Hero { HeroClass = Helicopter; HeroForUnit = HeavyMounted2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyHeliHeroEp13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyHeliHeroEp15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; turretControllerName = TankTurret; applyDamageTime = 0.5 }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HEAVY HELICOPTER HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel HeavyHelicopterHero_13
+{
+	Parent		= HeavyMounted2_13
+	ScaleType = kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+//------------------------------------------------------------------------------------------------
+//	HEAVY HELICOPTER HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel HeavyHelicopterHero_14
+{
+	Parent		= HeavyMounted2_14
+	ScaleType = kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel HeavyHelicopterHero_15
+{
+	Parent		= HeavyMounted2_15
+	ScaleType 	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+

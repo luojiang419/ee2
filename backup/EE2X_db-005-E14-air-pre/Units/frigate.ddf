@@ -1,0 +1,194 @@
+//------------------------------------------------------------------------------------------------
+//	FRIGATE - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType Frigate
+{
+	parent = NavalDeep
+	properties {
+		rps = Frigate
+		SizeX = 2.0
+		SizeY = 0.75
+		mass = 1
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 5; reloadTime = 2; applyDamageTime = 0.5; damage = 5; missileName = "BoatCannonBall" }
+		NavalMove {speed = 1.4; angSpeed = 80}
+		LOS { range = 5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities FrigateEpoch6Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "BoatCannonBall"; turretControllerName = BarqueTurret;areaDamageRadius = 2; throwUnits = true }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove FrigateEpoch6Veteran
+{
+	unitType = Frigate
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		Frigate_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove FrigateEpoch6Elite
+{
+	unitType = Frigate
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		Frigate_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities FrigateEpoch8Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "BoatCannonBall"; turretControllerName = privateerTurret; areaDamageRadius = 2; throwUnits = true}
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove FrigateEpoch8Veteran
+{
+	unitType = Frigate
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		Frigate_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove FrigateEpoch8Elite
+{
+	unitType = Frigate
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		Frigate_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities FrigateEpoch10Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "BoatCannonBall"; turretControllerName = GalleonTurret; areaDamageRadius = 2; throwUnits = true }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove FrigateEpoch10Veteran
+{
+	unitType = Frigate
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		Frigate_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove FrigateEpoch10Elite
+{
+	unitType = Frigate
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		Frigate_Improve_Default
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	FRIGATE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+UnitModel Frigate_06
+{
+	parent		= BaseShip
+	DefaultModel 	= NF6_barque.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+
+	ChildNames 	= [ TheMuzzleSmokeEffectWarship BarqueSail TheBoatWake1 ExplSelectorNaval Barque_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+UnitModel Frigate_08
+{
+	parent		= BaseShip
+	DefaultModel 	= NF8_privateer.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+
+	ChildNames 	= [ TheMuzzleSmokeEffectWarship TheBoatWake3 privateerSail ExplSelectorNaval Privateer_FlyingParts ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.20
+		zOffset = 0.98
+		scale = 1.66
+		angle = 47.37
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+UnitModel Frigate_09
+{
+	parent		= BaseShip
+	DefaultModel 	= NF10_Frigate.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+
+	ChildNames 	= [ TheMuzzleSmokeEffectWarship TheBoatWake3 FrigateSail ExplSelectorNaval Frigate_FlyingParts ]
+}
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel Frigate_10
+{
+	Parent			= BaseShip
+	DefaultModel 		= germulucfrig.nif
+	ForceScale = 0.18
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}

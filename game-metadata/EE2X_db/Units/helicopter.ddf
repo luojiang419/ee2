@@ -1,0 +1,52 @@
+//------------------------------------------------------------------------------------------------
+//	HELICOPTER
+//------------------------------------------------------------------------------------------------
+UnitType Helicopter
+{
+	properties {
+		moveType = Air
+		rps = AirNonCombat
+		FootprintType = Ellipse
+		SizeX = 1
+		SizeY = 0.7
+		mass = 1
+		hitpoints = 666
+		popCount = 1
+		stance = Defensive
+	}
+	abilities [
+		AircraftMove {speed = 3.45; angSpeed = 90; CruisingHeight = 3.0; ElevChangeRate = 1; canHover = 1}
+		LOS { range = 5 }
+		Garrisonable { garrisonTypes = [ Heliport ] }
+	]
+
+	icon = icon_unit_default_human
+	fullMapOverlay { sprite = spr_fullmap_helicopter; scale = 1.5; }
+}
+
+//------------------------------------------------------------------------------------------------
+//	Visual info HELICOPTER
+//------------------------------------------------------------------------------------------------
+UnitModel BaseHelicopter
+{
+	ScaleType 		= kScaleVehicle
+	OutlineType		= kOutlineMake
+	DefaultState 		= Idle
+	ChildNames 		= [ TheHealthBar ExplSelectorHeli01 DustHelicopter
+						HemisphereLighting_Unit DynamicLighting_Unit
+					  ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 2.98
+		zOffset = 1.29
+		scale = 2.30
+		angle = 42.63
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}	
+}

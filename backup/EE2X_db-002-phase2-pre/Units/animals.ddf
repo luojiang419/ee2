@@ -1,0 +1,2345 @@
+//------------------------------------------------------------------------------------------------
+//	ANIMAL
+//
+//	@NOTE for @HACKY code reasons, all Dead Animal unit types should be named with the prefix
+//	DeadAnimal
+//
+//------------------------------------------------------------------------------------------------
+
+UnitType LandAnimal
+{
+	ownertype = WorldOnly	// do we ever need to allow human to own/command animals??? - Xinbo
+	parent = LandMammal
+	properties {
+		rps = Citizen
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 1
+	}
+	sounds {
+	}
+	abilities = [
+		LOS { range = 3 }
+	]
+}
+UnitType NavalAnimal
+{
+	ownertype = WorldOnly	// do we ever need to allow human to own/command animals??? - Xinbo
+	parent = NavalShallow
+	placementType = DeepWater
+      properties {
+		rps = Citizen
+		SizeX = 1.0
+		SizeY = 1.0
+		mass = 1
+	}
+	sounds {
+	}
+	abilities = [
+		LOS { range = 6 }
+	]
+}
+
+// dead animal type (has no abilities)
+UnitType DeadAnimal
+{
+	placementType = Unplaceable
+	OwnerType = WorldOnly
+	properties {
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 0
+		hitpoints = 1000
+		rps = Citizen
+		FootprintType = kFootprintType_Rectangle
+		mmColor = [224,224,224,255]
+	}
+	fullMapOverlay { sprite = spr_fullmap_resource }
+	abilities [ 
+//		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 500; maxNumOfWorkers = 2 }
+	]
+}
+UnitType DeadAnimal_NoFood
+{
+	placementType = Unplaceable
+	OwnerType = WorldOnly
+	properties {
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 0
+		hitpoints = 5
+		rps = Citizen
+		FootprintType = kFootprintType_Rectangle
+		mmColor = [224,224,224,255]
+	}
+	fullMapOverlay { sprite = spr_fullmap_resource }
+	abilities [ 
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 0; maxNumOfWorkers = 6 }
+	]
+}
+
+UnitType DeadAnimal_LowFood
+{
+	placementType = Unplaceable
+	OwnerType = WorldOnly
+	properties {
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 0
+		hitpoints = 800
+		rps = Citizen
+		FootprintType = kFootprintType_Rectangle
+		mmColor = [224,224,224,255]
+	}
+	fullMapOverlay { sprite = spr_fullmap_resource }
+	abilities [ 
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 500; maxNumOfWorkers = 6 }
+	]
+}
+
+UnitType DeadAnimal_MediumFood
+{
+	placementType = Unplaceable
+	OwnerType = WorldOnly
+	properties {
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 0
+		hitpoints = 1000
+		rps = Citizen
+		FootprintType = kFootprintType_Rectangle
+		mmColor = [224,224,224,255]
+	}
+	fullMapOverlay { sprite = spr_fullmap_resource }
+	abilities [ 
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 1000; maxNumOfWorkers = 6 }
+	]
+}
+
+UnitType DeadAnimal_HighFood
+{
+	placementType = Unplaceable
+	OwnerType = WorldOnly
+	properties {
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 0
+		hitpoints = 1500
+		rps = Citizen
+		FootprintType = kFootprintType_Rectangle
+		mmColor = [224,224,224,255]
+	}
+	fullMapOverlay { sprite = spr_fullmap_resource }
+	abilities [ 
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 2000; maxNumOfWorkers = 6 }
+	]
+}
+
+UnitType DeadAnimal_SuperFood
+{
+	placementType = Unplaceable
+	Parent = ResourceFish
+      OwnerType = WorldOnly
+	properties {
+		SizeX = 1.0
+		SizeY = 1.0
+		mass = 0
+		hitpoints = 5000
+		rps = Citizen
+            FootprintSizeX = 2.0
+		FootprintSizeY = 2.0
+		FootprintType = kFootprintType_Rectangle
+		mmColor = [224,224,224,255]
+	}
+	fullMapOverlay { sprite = spr_fullmap_fish }
+	abilities [ 
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 3000; maxNumOfWorkers = 6}
+	]
+}
+
+// @NOTE do not parent to BaseHuman, we do not want animals to be thrown units
+UnitModel BaseLandAnimal
+{
+	scaleType = kScaleLandAnimal
+	OutlineType		= kOutlineMake
+	DefaultState 		= Idle	
+	ChildNames 		= [ TheHealthBar SelectCircleSmall SmallGlow ExplSelectorHuman01 Footprints SinkCorpse
+						HemisphereLighting_Unit DynamicLighting_Unit
+					  ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	DOMESTICATED ANIMALS - UNITTYPE INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	COW
+//------------------------------------------------
+UnitType Cow
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_cow_name
+		VerboseTooltip = vtt_unit_cow
+		rps = Citizen
+            hitpoints = 20
+		SizeX = 0.3
+		SizeY = 0.3
+	}
+	sounds {
+		sndSelection = ["fx_animal_cow_sel_01" "fx_animal_cow_sel_02"]
+	}
+	abilities = [
+		Move { mustMoveToTurn = 0; speed = 0.92; angSpeed = 180 }
+		LOS { range = 3 }
+	]
+}
+
+UnitModel CowBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= faucow.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = -2.89
+		yOffset = 1.34
+		zOffset = 0.04
+		scale = 1.02
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Cow
+{
+	Parent 		= CowBase
+	States 		= [
+		{	StateName = Idle	AnimName = sh_faucow_idle01.kf
+			AnimVariants = [ sh_faucow_idle02.kf sh_faucow_idle03.kf ] AnimVariantsWeights = [ 0.3 0.1 ]
+		}
+		{ 	StateName = Walk	AnimName = sh_faucow_walk01.kf }
+		{ 	StateName = Death	AnimName = sh_faucow_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_cow_die_01 KeyTime = 0}]}
+			]
+}
+
+UnitType DeadAnimalCow
+{
+	parent = DeadAnimal_MediumFood
+	properties {
+		displayName = tx_utn_DeadCow_name
+		VerboseTooltip = vtt_unit_DeadCow
+		rps = Citizen
+            SizeX = 0.3
+		SizeY = 0.3
+	}
+}
+
+UnitModel DeadAnimalCow
+{
+	Parent 		= CowBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_faucow_death01.kf }
+			]
+      UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 1.58
+		zOffset = 0.79
+		scale = 1.02
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	COW2
+//------------------------------------------------
+UnitType Cow2
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_cow_name
+		VerboseTooltip = vtt_unit_cow
+		rps = Citizen
+            hitpoints = 20
+		SizeX = 0.3
+		SizeY = 0.3
+	}
+	sounds {
+		sndSelection = ["fx_animal_cow_sel_01" "fx_animal_cow_sel_02"]
+	}
+	abilities = [
+		Move { mustMoveToTurn = 0; speed = 0.92; angSpeed = 180 }
+		LOS { range = 3 }
+	]
+}
+
+UnitModel CowBase2
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= faucow2.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = -2.89
+		yOffset = 1.34
+		zOffset = 0.04
+		scale = 1.02
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitType DeadAnimalCow2
+{
+	parent = DeadAnimal_MediumFood
+	properties {
+		displayName = tx_utn_DeadCow_name
+		VerboseTooltip = vtt_unit_DeadCow
+		rps = Citizen
+            SizeX = 0.3
+		SizeY = 0.3
+	}
+}
+
+UnitModel DeadAnimalCow2
+{
+	Parent 		= CowBase2
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_faucow_death01.kf }
+			]
+      UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 1.58
+		zOffset = 0.79
+		scale = 1.02
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+
+//------------------------------------------------
+//	Llama
+//------------------------------------------------
+UnitType Llama
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_Llama_name	
+		hitpoints = 30
+            rps = Citizen
+		VerboseToolTip = vtt_unit_Llama
+	}
+	sounds {
+		sndSelection = ["fx_animal_llama_sel_01"]
+	}
+	abilities = [
+		Move {mustMoveToTurn = 0; speed = 0.805; angSpeed = 720}
+		LOS { range = 5 }
+	]
+}
+
+UnitModel LlamaBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= faullama.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 0.79
+		yOffset = 3.04
+		zOffset = -1.73
+		scale = 1.58
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 10.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Llama
+{
+	Parent 		= LlamaBase
+	States 		= [
+		{	StateName = Idle	AnimName = sh_faullama_idle01.kf
+			AnimVariants = [ sh_faullama_idle02.kf sh_faullama_idle03.kf ] AnimVariantsWeights = [ 0.1 0.1 ]
+		}
+		{ 	StateName = Walk	AnimName = sh_faullama_walk01.kf }
+		{ 	StateName = Death	AnimName = sh_faullama_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_llama_die_01 KeyTime = 0.0 }]}
+			]
+}
+
+UnitType DeadAnimalLlama
+{
+	parent = DeadAnimal_MediumFood
+	properties {
+		displayName = tx_utn_DeadLlama_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_DeadLlama
+	}
+}
+
+UnitModel DeadAnimalLlama
+{
+	Parent 		= LlamaBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_faullama_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.79
+		yOffset = 1.13
+		zOffset = -2.56
+		scale = 10.00
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 10.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	Goat
+//------------------------------------------------
+UnitType Goat
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_Goat_name	
+		hitpoints = 30
+		rps = Citizen
+            VerboseToolTip = vtt_unit_Goat
+	}
+	sounds {
+		sndSelection = ["fx_animal_goat_sel_01"]
+	}
+	abilities = [
+		Move {mustMoveToTurn = 0; speed = 0.805; angSpeed = 720}
+		LOS { range = 5 }
+	]
+}
+
+UnitModel GoatBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= faugoat.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 6.58
+		yOffset = 4.56
+		zOffset = -3.18
+		scale = 2.32
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 16.58
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Goat
+{
+	Parent 		= GoatBase
+	States 		= [
+		{	StateName = Idle	AnimName = sh_faugoat_idle01.kf
+			AnimVariants = [ sh_faugoat_idle02.kf sh_faugoat_idle03.kf ] AnimVariantsWeights = [ 0.1 0.1 ]
+		}
+		{ 	StateName = Walk	AnimName = sh_faugoat_walk01.kf }
+		{ 	StateName = Death	AnimName = sh_faugoat_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_goat_die_01 KeyTime = 0.0 }]}
+			]
+}
+
+UnitType DeadAnimalGoat
+{
+	parent = DeadAnimal_MediumFood
+	properties {
+		displayName = tx_utn_DeadGoat_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_DeadGoat
+	}
+}
+
+UnitModel DeadAnimalGoat
+{
+	Parent 		= GoatBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_faugoat_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 6.58
+		yOffset = 3.40
+		zOffset = -1.73
+		scale = 2.05
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 16.58
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//	WILD ANIMALS - UNITTYPE INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	DEER
+//------------------------------------------------
+UnitType Deer
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_deer_name	
+		VerboseTooltip = vtt_unit_Deer
+		rps = Citizen
+            hitpoints = 30
+	}
+	sounds {
+		sndSelection = ["fx_animal_deer_sel_01"]
+	}
+	abilities = [
+		Move {mustMoveToTurn = 0; speed = 2.0; angSpeed = 720}
+		LOS { range = 3 }
+	]
+}
+
+UnitModel DeerBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= faudeer.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = -0.53
+		yOffset = 2.80
+		zoffset = 0.01
+		scale = 1.28
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 10.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Deer
+{
+	Parent 		= DeerBase
+	States 		= [
+		{	StateName = Idle	AnimName = sh_faudeer_idle01.kf
+			AnimVariants = [ sh_faudeer_idle02.kf sh_faudeer_idle03.kf ] AnimVariantsWeights = [ 0.3 0.1 ]
+		}
+		{ 	StateName = Walk	AnimName = sh_faudeer_walk01.kf }
+		// { 	StateName = Run 	AnimName = sh_faudeer_run01.kf }
+		{ 	StateName = Death	AnimName = sh_faudeer_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_deer_die_01 KeyTime = 0.0 }]}
+			]
+}
+
+UnitType DeadAnimalDeer
+{
+	parent = DeadAnimal_HighFood
+	properties {
+		displayName = tx_utn_DeadDeer_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_DeadDeer
+	}
+}
+
+UnitModel DeadAnimalDeer
+{
+	Parent 		= DeerBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_faudeer_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = -1.05
+		yOffset = 5.79
+		zOffset = 2.63
+		scale = 1.53
+		angle = 56.84
+		rotationSpeed = 0.00
+		pitch = 10.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+
+//------------------------------------------------
+//	CAMEL
+//------------------------------------------------
+UnitType camel
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_camel_name	
+		hitpoints = 40
+		VerboseToolTip = vtt_unit_camel
+		SizeX = 0.4
+		SizeY = 0.4
+            rps = Citizen
+	}
+	sounds {
+		sndSelection = ["fx_animal_camel_sel_01" "fx_animal_camel_sel_02"]
+	}
+	abilities = [
+		Move {mustMoveToTurn = 0; speed = 0.8; angSpeed = 720}
+		LOS { range = 5 }
+	]
+}
+
+UnitModel CamelBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= faucamel.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.14
+		zOffset = -1.44
+		scale = 1.53
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel camel
+{
+	Parent 		= CamelBase
+	States 		= [
+		{	StateName = Idle	AnimName = sh_faucamel_idle01.kf
+			AnimVariants = [ sh_faucamel_idle02.kf sh_faucamel_idle03.kf ] AnimVariantsWeights = [ 0.2 0.1 ]
+		}
+		{ 	StateName = Walk	AnimName = sh_faucamel_walk01.kf }
+		{ 	StateName = Death	AnimName = sh_faucamel_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_camel_die_01 KeyTime = 0.0 }]}
+			]
+}
+
+UnitType DeadAnimalCamel
+{
+	parent = DeadAnimal_HighFood
+	properties {
+		displayName = tx_utn_DeadCamel_name
+		VerboseTooltip = vtt_unit_DeadCamel
+		rps = Citizen
+            SizeX = 0.4
+		SizeY = 0.4
+	}
+}
+
+UnitModel DeadAnimalCamel
+{
+	Parent 		= CamelBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_faucamel_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 1.77
+		zOffset = 2.11
+		scale = 1.66
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	Elephant
+//------------------------------------------------
+UnitType Elephant
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_Elephant_name	
+		hitpoints = 200
+		VerboseToolTip = vtt_unit_Elephant
+		rps = Citizen
+            SizeX = 0.65
+		SizeY = 0.65
+	}
+	sounds {
+		sndSelection = ["fx_animal_elephant_sel_01"]
+	}
+	abilities = [
+		Move {mustMoveToTurn = 0; speed = 0.80; angSpeed = 720}
+		LOS { range = 5 }
+	]
+}
+
+UnitModel ElephantBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= fauelephant.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 3.68
+		yOffset = 2.72
+		zOffset = -1.14
+		scale = 1.87
+		angle = 33.16
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Elephant
+{
+	Parent 		= ElephantBase
+	States 		= [
+		{	StateName = Idle	AnimName = sh_fauelephant_idle01.kf
+			AnimVariants = [ sh_fauelephant_idle02.kf ] AnimVariantsWeights = [ 0.3 ]
+		}
+		{ 	StateName = Walk	AnimName = sh_fauelephant_walk01.kf }
+		{ 	StateName = Death	AnimName = sh_fauelephant_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_elephant_die_01 KeyTime = 0.0 }]}
+			]
+}
+
+UnitType DeadAnimalElephant
+{
+	parent = DeadAnimal_HighFood
+	properties {
+		displayName = tx_utn_DeadElephant_name
+		VerboseTooltip = vtt_unit_DeadElephant
+		rps = Citizen
+            SizeX = 0.65
+		SizeY = 0.65
+	}
+}
+
+UnitModel DeadAnimalElephant
+{
+	Parent 		= ElephantBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_fauelephant_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 8.42
+		yOffset = 8.42
+		zOffset = -2.83
+		scale = 1.53
+		angle = 33.16
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	Boar
+//------------------------------------------------
+UnitType Boar
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_Boar_name	
+		hitpoints = 50
+            rps = Citizen
+		VerboseToolTip = vtt_unit_Boar
+	}
+	sounds {
+		sndSelection = ["fx_animal_boar_sel_01"]
+	}
+	abilities = [
+		Move {mustMoveToTurn = 0; speed = 0.80; angSpeed = 720}
+		LOS { range = 5 }
+	]
+}
+
+UnitModel BoarBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= fauboar.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = -1.05
+		yOffset = 2.05
+		zOffset = 1.11
+		scale = 1.14
+		angle = 38.18
+		rotationSpeed = 0.00
+		pitch = 7.11
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Boar
+{
+	Parent 		= BoarBase
+	States 		= [
+		{	StateName = Idle	
+		    AnimName = sh_fauboar_idle01.kf
+			AnimVariants = [ sh_fauboar_idle02.kf ] 
+			AnimVariantsWeights = [ 0.3 ]
+		}
+		{ 	StateName = Walk	
+		    AnimName = sh_fauboar_walk01.kf 
+		}
+		{ 	StateName = Death	
+		    AnimName = sh_fauboar_death01.kf 
+			TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_boar_die_01 KeyTime = 0.0 }]
+		}
+		{	StateName = Attack1
+			AnimName = sh_fauboar_attack01.kf
+		}
+	]
+}
+
+UnitType DeadAnimalBoar
+{
+	parent = DeadAnimal_HighFood
+	properties {
+		displayName = tx_utn_DeadBoar_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_DeadBoar
+	}
+}
+
+UnitModel DeadAnimalBoar
+{
+	Parent 		= BoarBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	
+		    AnimName = sh_fauboar_death01.kf 
+		}
+	]
+	UIRenderingParams {
+		xOffset = -0.26
+		yOffset = 2.89
+		zOffset = -0.53
+		scale = 0.63
+		angle = 33.16
+		rotationSpeed = 0.00
+		pitch = 7.11
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//	PREDATORS - UNITTYPE INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	WOLF
+//------------------------------------------------
+UnitType Wolf
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_wolf_name	
+		hitpoints = 75
+		rps = Citizen
+            VerboseToolTip = vtt_unit_Wolf
+	}
+	sounds {
+		sndSelection = ["fx_animal_wolf_sel_01" "fx_animal_wolf_sel_02"]
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 3.0; applyDamageTime = 0.5; damage = 5}
+		Move {mustMoveToTurn = 0; speed = 2.5; angSpeed = 720}
+		LOS { range = 7 }
+	]
+}
+
+UnitModel WolfBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= wolf5.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 3.16
+		yOffset = 2.96
+		zOffset = -2.32
+		scale = 1.87
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Wolf
+{
+	Parent = WolfBase
+	States = [
+		{	StateName = Idle	AnimName = sh_fauwolf_idle01.kf
+			AnimVariants = [ sh_fauwolf_idle02.kf ] AnimVariantsWeights = [ 0.3 ]
+		}
+		{	StateName = Attack1     AnimName = sh_fauwolf_attack01.kf  TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_wolf_sel_01 KeyTime = 0.1 }] }
+		{ 	StateName = Walk	AnimName = sh_fauwolf_walk01.kf }
+		// { 	StateName = Run 	AnimName = sh_fauwolf_run01.kf }
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf 
+			TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_wolf_die_01 KeyTime = 0.0 }]
+		}
+	]
+}
+
+UnitType DeadAnimalWolf
+{
+	parent = DeadAnimal_LowFood
+	properties {
+		displayName = tx_utn_DeadWolf_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_DeadWolf
+	}
+}
+
+UnitModel DeadAnimalWolf
+{
+	Parent 		 = WolfBase
+	DefaultState = Death
+	States = [
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf }
+	]
+	UIRenderingParams {
+		xOffset = 6.58
+		yOffset = 7.89
+		zOffset = -5.36
+		scale = 2.17
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	WhiteWOLF
+//------------------------------------------------
+UnitType WhiteWolf
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_bandit_name
+		DisplayNameScenEdit = tx_utn_bandit_sname
+		VerboseTooltip = vtt_unit_bandit	
+		hitpoints = 80		
+	}
+	sounds {
+		sndSelection = ["fx_animal_wolf_sel_01" "fx_animal_wolf_sel_02"]
+	}
+	abilities = [
+		Attack { damage = 10; range = 1; reloadTime = 1.5; applyDamageTime = 0.5; WeaponType = Melee }
+		Move {mustMoveToTurn = 0; speed = 2.0; angSpeed = 720}
+		LOS { range = 5 }
+	]
+}
+
+UnitModel WhiteWolfBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= Neanderthal2.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 3.16
+		yOffset = 2.81
+		zOffset = -2.19
+		scale = 1.79
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel WhiteWolf
+{
+	Parent = WhiteWolfBase	
+	States 			= [
+		{	StateName = Idle	AnimName = sh_citizen_idle01.kf	
+			AnimVariants = [ sh_citizen_idle04.kf sh_citizen_region01.KF sh_citizen_season01.KF ] AnimVariantsWeights = [ 0.2 0.1 0.1 ]
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+
+					] }
+		{ 	StateName = Walk	AnimName = sh_citizen_walk01.kf	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					] }
+		{ 	StateName = Attack1	AnimName = sh_citizen_attack01.KF
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = fx_battle_swing      KeyTime = 1.25 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+
+					{ Name = SHOW_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+				]	}
+		{ 	StateName = Death	AnimName = sh_citizen_death01.KF	}
+		{ 	StateName = Mine	AnimName = sh_citizen_tool_mine_PickAxe.KF	}
+		{ 	StateName = CarryWood	AnimName = sh_citizen_tool_haul.KF	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+                              { Name = SHOW_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					] }
+		{	StateName = ChopWood  	AnimName = sh_citizen_tool_wood_axe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = Resource_wood KeyTime = 0.46 }
+					] }
+		{	StateName = MineGold  	AnimName = sh_citizen_tool_mine_PickAxe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = Resource_gold KeyTime = 0.46 }
+					] }
+		{	StateName = MineStone  	AnimName = sh_citizen_tool_mine_PickAxe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = Resource_stone KeyTime = 0.46 }
+					] }
+		{	StateName = GatherSaltpeter 	AnimName = sh_citizen_tool_mine_PickAxe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = Resource_saltpeter KeyTime = 0.46 }
+					] }
+		{	StateName = FarmPlanting 	AnimName = sh_citizen_tool_farm_seedbag.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					] }
+ {	StateName = FarmHarvesting 	AnimName = sh_citizen_tool_farm_scythe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = ATTACH_VISUAL	Data = FX_Wheat_Harvest_1	KeyTime = 0 }
+					] }
+		 {	StateName = Forage 	AnimName = sh_citizen_tool_farm_forage.kf 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					] }
+		 {	StateName = TreeForage 	AnimName = sh_citizen_tool_farm_forage02.kf 	
+			TextKeys = [ 
+					{ Name = SHOW_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+                              { Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					] }
+		 {	StateName = ReturnResources 	AnimName = sh_citizen_tool_haul.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+                              { Name = SHOW_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					] }
+		{	StateName = Build 	AnimName = sh_citizen_tool_build_hammer.KF	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Dubina 	KeyTime = 0 }
+                              { Name = SHOW_NODE Data = Tool_Build_Hammer KeyTime = 0 } 
+					{ Name = PLAY_SOUND Data = Citizen_build KeyTime = 0.4 }
+			] }
+		{	StateName = Flinch	AnimName = sh_citizen_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_citizen_flying01.KF
+			AnimVariants = [ sh_citizen_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_citizen_ground_death01.KF	}
+			] // end states
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.33
+		zOffset = -10.00
+		scale = 3.07
+		angle = 23.68
+	}
+}
+
+
+UnitType DeadAnimalWhiteWolf
+{
+	parent = DeadAnimal_NoFood
+	properties {
+		displayName = tx_utn_bandit_name
+		DisplayNameScenEdit = tx_utn_bandit_sname
+		VerboseTooltip = vtt_unit_bandit
+	}
+}
+
+UnitModel DeadAnimalWhiteWolf
+{
+	Parent 		= WhiteWolfBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 6.58
+		yOffset = 7.89
+		zOffset = -5.36
+		scale = 2.17
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+//------------------------------------------------
+//	RHINO
+//------------------------------------------------
+UnitType Rhino
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_rhino_name	
+		hitpoints = 150
+		rps = Citizen
+            VerboseToolTip = vtt_unit_rhino
+	}
+	sounds {
+		sndSelection = ["fx_animal_elephant_sel_01"]
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 3.0; applyDamageTime = 0.5; damage = 20}
+		Move {mustMoveToTurn = 0; speed = 1.2; angSpeed = 720}
+		LOS { range = 7 }
+	]
+}
+
+UnitModel RhinoBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= Rhino3.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 3.16
+		yOffset = 2.96
+		zOffset = -2.32
+		scale = 1.87
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Rhino
+{
+	Parent = RhinoBase
+	States = [
+		{	StateName = Idle	AnimName = sh_fauwolf_idle01.kf			
+		}
+		{	StateName = Attack1     AnimName = sh_fauwolf_attack01.kf }
+		{ 	StateName = Walk	AnimName = sh_fauwolf_walk01.kf }
+		// { 	StateName = Run 	AnimName = sh_fauwolf_run01.kf }
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf 
+			TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_wolf_die_01 KeyTime = 0.0 }]
+		}
+	]
+}
+
+UnitType DeadAnimalRhino
+{
+	parent = DeadAnimal_HighFood
+	properties {
+		displayName = tx_utn_DeadRhino_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_DeadRhino
+	}
+}
+
+UnitModel DeadAnimalRhino
+{
+	Parent 		 = RhinoBase
+	DefaultState = Death
+	States = [
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf }
+	]
+	UIRenderingParams {
+		xOffset = 6.58
+		yOffset = 7.89
+		zOffset = -5.36
+		scale = 2.17
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	TIGER
+//------------------------------------------------
+UnitType Tiger
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_tiger_name	
+		hitpoints = 120
+		VerboseToolTip = vtt_unit_Tiger
+		rps = Citizen
+            SizeX = 0.4
+		SizeY = 0.4
+	}
+	sounds {
+		sndSelection 	= ["fx_animal_tiger_sel_01"]
+		sndCmdMove 	= ["fx_animal_tiger_sel_01"]
+		sndCmdAttack 	= ["fx_animal_tiger_sel_01"]
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 1.5; applyDamageTime = 0.5; damage = 15}
+		Move {mustMoveToTurn = 0; speed = 2.0; angSpeed = 720}
+		LOS { range = 7 }
+	]
+}
+
+UnitModel TigerBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= exportTiger2.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.88
+		zOffset = 0.65
+		scale = 1.53
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Tiger
+{
+	Parent 		= TigerBase
+	States 		= [
+		{	StateName = Idle	
+		    AnimName = sh_fautiger_idle01.kf
+			AnimVariants = [ sh_fautiger_idle02.kf ] AnimVariantsWeights = [ 0.3 ]
+		}
+		{ 	StateName = Walk	
+		    AnimName = sh_fautiger_walk01.kf 
+		}
+	        { 	StateName = Run 	
+          	    AnimName = sh_fautiger_run01.kf 
+		}
+		{ 	StateName = Death	
+		    AnimName = sh_fautiger_death01.kf 
+			TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_tiger_die_01 KeyTime = 0.1 }]
+		}
+		{	StateName = Attack1
+		    AnimName = sh_fautiger_attack01.kf TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_tiger_sel_01 KeyTime = 0.1 }]
+
+		}		
+	]
+}
+
+UnitType DeadAnimalTiger
+{
+	parent = DeadAnimal_LowFood
+	properties {
+		displayName = tx_utn_DeadTiger_name
+		VerboseTooltip = vtt_unit_DeadTiger
+		rps = Citizen
+            SizeX = 0.4
+		SizeY = 0.4
+	}
+}
+
+UnitModel DeadAnimalTiger
+{
+	Parent 		= TigerBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	
+		    AnimName = sh_fautiger_death01.kf 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 5.53
+		yOffset = 1.83
+		zOffset = -0.28
+		scale = 1.53
+		angle = 18.95
+		rotationSpeed = 0.00
+		pitch = 40.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+
+UnitType PlayerTiger
+{
+	parent = LandMammal
+	ownerType = PlayerOnly
+	placementType = Unplaceable
+	properties {
+		hitpoints = 2000
+		SizeX = 0.7
+		SizeY = 0.5
+		mass = 1
+		displayName = tx_utn_tiger_name	
+		displayNamePlural = tx_utn_tiger_pname
+		VerboseToolTip = vtt_unit_Tiger
+		rps = HeavyMounted
+	}
+	sounds {
+		sndSelection 	= ["fx_animal_tiger_sel_01"]
+		sndCmdMove 	= ["fx_animal_tiger_sel_01"]
+		sndCmdAttack 	= ["fx_animal_tiger_sel_01"]
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 3.0; applyDamageTime = 0.5; damage = 50 }
+		Move {mustMoveToTurn = 0; speed = 2.0; angSpeed = 720}
+		LOS { range = 6 }
+		AreaEffect { effects = [ SimpleGlow ] }
+	]
+	icon = icon_unit_test_1
+}
+
+UnitModel PlayerTiger
+{
+	OutlineType		= kOutlineMake
+	ScaleType 		= kScaleUnit
+	ForceScale = 0.7
+	DefaultModel 	= fautiger.nif
+	States 		= [
+		{	StateName = Idle	
+		    AnimName = sh_fautiger_idle01.kf
+			AnimVariants = [ sh_fautiger_idle02.kf ] AnimVariantsWeights = [ 0.3 ]
+		}
+		{ 	StateName = Walk	
+		    AnimName = sh_fautiger_walk01.kf 
+		}
+		{ 	StateName = Run 	
+		    AnimName = sh_fautiger_run01.kf 
+		}
+		{ 	StateName = Death	
+		    AnimName = sh_fautiger_death01.kf 
+			TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_tiger_die_01 KeyTime = 0.0 }]
+		}
+		{	StateName = Attack1
+		    AnimName = sh_fautiger_attack01.kf
+		}		
+	]
+	ChildNames 	= [ UnitShadow TheHealthBar SelectCircleSmall SwordStreak TestGlow ExplSelectorHuman01 Footprints SinkCorpse ]
+	DefaultState 	= Idle	
+	
+	UIRenderingParams {
+		yOffset = -2.34
+		zOffset = -2.20
+		scale = 1.57
+		angle = 333.00
+		pitch = -10.00
+		lightAngle = 30.00		// (default value)
+		lightPitch = 14.59
+		lightDiffuse = [29 86 16 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+
+//------------------------------------------------
+//	LION
+//------------------------------------------------
+UnitType Lion
+{
+	parent = LandMammal
+	ownertype = PlayerOrWorld
+	properties {		
+		rps = Citizen
+		mass = 1
+		displayName = tx_utn_lion_name
+		hitpoints = 120
+		VerboseToolTip = vtt_unit_Tiger
+		SizeX = 0.4
+		SizeY = 0.4
+	}
+	sounds {
+		sndSelection = ["fx_animal_tiger_sel_01"]
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 1.5; applyDamageTime = 0.5; damage = 15}
+		Move {mustMoveToTurn = 0; speed = 2.0; angSpeed = 720}
+		LOS { range = 7 }
+	]
+}
+
+UnitModel LionBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= lionF4.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.88
+		zOffset = 0.65
+		scale = 1.53
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Lion
+{
+	Parent 		= LionBase
+	States 		= [
+		{	StateName = Idle	
+		    AnimName = sh_fautiger_idle01.kf
+			AnimVariants = [ sh_fautiger_idle02.kf ] AnimVariantsWeights = [ 0.3 ]
+		}
+		{ 	StateName = Walk	
+		    AnimName = sh_fautiger_walk01.kf 
+		}
+	        { 	StateName = Run 	
+          	    AnimName = sh_fautiger_run01.kf 
+		}
+		{ 	StateName = Death	
+		    AnimName = sh_fautiger_death01.kf 
+			TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_tiger_die_01 KeyTime = 0.0 }]
+		}
+		{	StateName = Attack1
+		    AnimName = sh_fautiger_attack01.kf TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_lion_sel_01 KeyTime = 0.1 }]
+		}		
+	]
+}
+
+UnitType DeadAnimalLion
+{
+	parent = DeadAnimal_LowFood
+	properties {
+		displayName = tx_utn_DeadLion_name
+		VerboseTooltip = vtt_unit_DeadTiger
+		rps = Citizen
+            SizeX = 0.4
+		SizeY = 0.4
+	}
+}
+
+UnitModel DeadAnimalLion
+{
+	Parent 		= LionBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	
+		    AnimName = sh_fautiger_death01.kf 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 5.53
+		yOffset = 1.83
+		zOffset = -0.28
+		scale = 1.53
+		angle = 18.95
+		rotationSpeed = 0.00
+		pitch = 40.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+//------------------------------------------------
+//	LIONM
+//------------------------------------------------
+UnitType LionM
+{
+	parent = LandMammal
+	ownertype = PlayerOrWorld
+	properties {		
+		rps = Citizen
+		mass = 1
+		displayName = tx_utn_lion_name
+		hitpoints = 160
+		VerboseToolTip = vtt_unit_Tiger
+		SizeX = 0.4
+		SizeY = 0.4
+	}
+	sounds {
+//		sndSelection = ["fx_animal_tiger_sel_01"]
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 1.5; applyDamageTime = 0.5; damage = 15}
+		Move {mustMoveToTurn = 0; speed = 2.0; angSpeed = 720}
+		LOS { range = 7 }
+	]
+}
+
+UnitModel LionMBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= lionM2.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.88
+		zOffset = 0.65
+		scale = 1.53
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel LionM
+{
+	Parent 		= LionMBase
+	States 		= [
+		{	StateName = Idle	
+		    AnimName = sh_fautiger_idle01.kf
+			AnimVariants = [ sh_fautiger_idle02.kf ] AnimVariantsWeights = [ 0.3 ]
+		}
+		{ 	StateName = Walk	
+		    AnimName = sh_fautiger_walk01.kf 
+		}
+	        { 	StateName = Run 	
+          	    AnimName = sh_fautiger_run01.kf 
+		}
+		{ 	StateName = Death	
+		    AnimName = sh_fautiger_death01.kf 
+			TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_tiger_die_01 KeyTime = 0.0 }]
+		}
+		{	StateName = Attack1
+		    AnimName = sh_fautiger_attack01.kf TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_lion_sel_02 KeyTime = 0.1 }]
+		}		
+	]
+}
+
+UnitType DeadAnimalLionM
+{
+	parent = DeadAnimal_LowFood
+	properties {
+		displayName = tx_utn_DeadLion_name
+		VerboseTooltip = vtt_unit_DeadTiger
+		rps = Citizen
+            SizeX = 0.4
+		SizeY = 0.4
+	}
+}
+
+UnitModel DeadAnimalLionM
+{
+	Parent 		= LionBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	
+		    AnimName = sh_fautiger_death01.kf 
+		}
+	]
+	UIRenderingParams {
+		xOffset = 5.53
+		yOffset = 1.83
+		zOffset = -0.28
+		scale = 1.53
+		angle = 18.95
+		rotationSpeed = 0.00
+		pitch = 40.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	COYOTE
+//------------------------------------------------
+UnitType Coyote
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_Coyote_name	
+		hitpoints = 60
+		rps = Citizen
+            VerboseToolTip = vtt_unit_Coyote
+	}
+	sounds {
+		sndSelection = ["fx_animal_wolf_sel_01" "fx_animal_wolf_sel_02"]
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 1.5; applyDamageTime = 0.5; damage = 5}
+		Move {mustMoveToTurn = 0; speed = 2.0; angSpeed = 720}
+		LOS { range = 7 }
+	]
+}
+
+UnitModel CoyoteBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= faucoyote.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = -0.53
+		yOffset = 2.17
+		zoffset = -0.81
+		scale = 1.40
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Coyote
+{
+	Parent 		= CoyoteBase
+	States 		= [
+		{	StateName = Idle	AnimName = sh_fauwolf_idle01.kf
+			AnimVariants = [ sh_fauwolf_idle02.kf ] AnimVariantsWeights = [ 0.3 ]
+		}
+		{	StateName = Attack1     AnimName = sh_fauwolf_attack01.kf }
+                                { 	StateName = Walk	AnimName = sh_fauwolf_walk01.kf }
+		// { 	StateName = Run 	AnimName = sh_fauwolf_run01.kf }
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_wolf_die_01 KeyTime = 0.0 }]}
+			]
+}
+
+UnitType DeadAnimalCoyote
+{
+	parent = DeadAnimal_LowFood
+	properties {
+		displayName = tx_utn_DeadCoyote_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_DeadCoyote
+	}
+}
+
+UnitModel DeadAnimalCoyote
+{
+	Parent 		= CoyoteBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = -0.53
+		yOffset = 5.20
+		zOffset = -3.11
+		scale = 1.79
+		angle = 28.42
+		rotationSpeed = 0.00
+		pitch = 0.01
+	}
+}
+//------------------------------------------------
+//	WHALE
+//------------------------------------------------
+UnitType Whale
+{
+	parent = NavalDeep
+	placementType = DeepWater
+      ownertype = WorldOnly
+      properties {		
+		displayName = tx_utn_whale_name	
+		hitpoints = 400
+		rps = Frigate
+            SizeX = 1.0
+		SizeY = 2.0
+		FootprintSizeX = 2.0
+		FootprintSizeY = 2.0
+            mass = 1
+            VerboseToolTip = vtt_unit_whale
+	}
+	sounds {
+		sndSelection = ["fx_animal_wolf_sel_01" "fx_animal_wolf_sel_02"]
+	}
+	fullMapOverlay { sprite = spr_fullmap_fish }
+      abilities = [
+		Attack { range = 1.5; reloadTime = 1.5; applyDamageTime = 0.5; damage = 50}
+		NavalMove {speed = 0.6; angSpeed = 60; cruisingDepth = -0.1 }
+            LOS { range = 13 }
+	]
+}
+
+UnitModel WhaleBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= whale.nif
+	ChildNames 		= [ SelectCircleSubmarine TheBoatWake1 LargeGlow TheBoatWake7 ]
+	UIRenderingParams {
+		xOffset = -0.53
+		yOffset = 2.17
+		zoffset = -0.81
+		scale = 1.00
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Whale
+{
+	Parent 		= WhaleBase
+	States 		= [
+		{	StateName = Idle	AnimName = sh_fauwolf_idle01.kf }
+		{	StateName = Attack1     AnimName = sh_fauwolf_attack01.kf }
+                                { 	StateName = Walk	AnimName = sh_fauwolf_idle01.kf }
+		// { 	StateName = Run 	AnimName = sh_fauwolf_run01.kf }
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_wolf_die_01 KeyTime = 0.0 }]}
+			]
+}
+
+UnitType DeadAnimalWhale
+{
+	parent = DeadAnimal_SuperFood
+	properties {
+		displayName = tx_utn_Deadwhale_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_Deadwhale
+	}
+      
+}
+
+UnitModel DeadAnimalWhale
+{
+	Parent 		= WhaleBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = -0.53
+		yOffset = 5.20
+		zOffset = -3.11
+		scale = 1.0
+		angle = 28.42
+		rotationSpeed = 0.00
+		pitch = 0.01
+	}
+}
+//------------------------------------------------
+//	DOLPHIN
+//------------------------------------------------
+UnitType Dolphin
+{
+	parent = NavalDeep
+	placementType = DeepWater
+      ownertype = WorldOnly
+      properties {		
+		displayName = tx_utn_dolphin_name	
+		hitpoints = 50
+		rps = Frigate
+            SizeX = 0.6
+		SizeY = 0.6
+		FootprintSizeX = 0.6
+		FootprintSizeY = 0.6
+            mass = 1
+            VerboseToolTip = vtt_unit_dolphin
+	}
+	sounds {
+		sndSelection = ["fx_animal_wolf_sel_01" "fx_animal_wolf_sel_02"]
+	}
+	fullMapOverlay { sprite = spr_fullmap_fish }
+      abilities = [		
+		NavalMove {speed = 2.6; angSpeed = 60; cruisingDepth = -0.1 }
+            LOS { range = 13 }
+	]
+}
+
+UnitModel DolphinBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= Dolphin.nif
+	ChildNames 		= [ SelectCircleSubmarine TheBoatWake1 LargeGlow TheBoatWake7 ]
+	UIRenderingParams {
+		xOffset = -0.53
+		yOffset = 2.17
+		zoffset = -0.81
+		scale = 1.00
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Dolphin
+{
+	Parent 		= DolphinBase
+	States 		= [
+		{	StateName = Idle	AnimName = sh_fauwolf_idle01.kf }
+		{	StateName = Attack1     AnimName = sh_fauwolf_attack01.kf }
+                                { 	StateName = Walk	AnimName = sh_fauwolf_idle01.kf }
+		// { 	StateName = Run 	AnimName = sh_fauwolf_run01.kf }
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_wolf_die_01 KeyTime = 0.0 }]}
+			]
+}
+
+UnitType DeadAnimalDolphin
+{
+	parent = DeadAnimal_HighFood
+	properties {
+		displayName = tx_utn_DeadDolphin_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_DeadDolphin
+	}
+      
+}
+
+UnitModel DeadAnimalDolphin
+{
+	Parent 		= DolphinBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = -0.53
+		yOffset = 5.20
+		zOffset = -3.11
+		scale = 1.0
+		angle = 28.42
+		rotationSpeed = 0.00
+		pitch = 0.01
+	}
+}
+
+//------------------------------------------------
+//	BEAR
+//------------------------------------------------
+UnitType Bear
+{
+	parent = LandAnimal
+	properties {		
+		displayName = tx_utn_bear_name	
+		hitpoints = 150
+		rps = Citizen
+            VerboseToolTip = vtt_unit_bear
+	}
+	sounds {
+		sndSelection = ["fx_animal_wolf_sel_01" "fx_animal_wolf_sel_02"]
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 3.0; applyDamageTime = 0.5; damage = 10}
+		Move {mustMoveToTurn = 0; speed = 1.2; angSpeed = 720}
+		LOS { range = 7 }
+	]
+}
+
+UnitModel BearBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= Ursus.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 3.16
+		yOffset = 2.96
+		zOffset = -2.32
+		scale = 1.87
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Bear
+{
+	Parent = BearBase
+	States = [
+		{	StateName = Idle	AnimName = sh_fauwolf_idle01.kf
+			
+		}
+		{	StateName = Attack1     AnimName = sh_fauwolf_attack01.kf }
+		{ 	StateName = Walk	AnimName = sh_fauwolf_walk01.kf }
+		// { 	StateName = Run 	AnimName = sh_fauwolf_run01.kf }
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf 
+			TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_wolf_die_01 KeyTime = 0.0 }]
+		}
+	]
+}
+
+UnitType DeadAnimalBear
+{
+	parent = DeadAnimal_MediumFood
+	properties {
+		displayName = tx_utn_DeadBear_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_DeadBear
+	}
+}
+
+UnitModel DeadAnimalBear
+{
+	Parent 		 = BearBase
+	DefaultState = Death
+	States = [
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf }
+	]
+	UIRenderingParams {
+		xOffset = 6.58
+		yOffset = 7.89
+		zOffset = -5.36
+		scale = 2.17
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	CROC
+//------------------------------------------------
+UnitType Croc
+{
+	parent = LandAnimal
+	PlacementType = NearWater
+      properties {		
+		displayName = tx_utn_croc_name	
+		hitpoints = 150
+		rps = Citizen
+            VerboseToolTip = vtt_unit_croc
+	}
+	sounds {
+		sndSelection = ["fx_animal_wolf_sel_01" "fx_animal_wolf_sel_02"]
+	}
+	abilities = [
+		Attack { range = 0.8; reloadTime = 3.0; applyDamageTime = 0.5; damage = 10}
+		Move {mustMoveToTurn = 0; speed = 1.2; angSpeed = 720}
+		LOS { range = 7 }
+	]
+}
+
+UnitModel CrocBase
+{
+	Parent 		= BaseLandAnimal
+	DefaultModel 	= Crocodile.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 3.16
+		yOffset = 2.96
+		zOffset = -2.32
+		scale = 1.87
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Croc
+{
+	Parent = CrocBase
+	States = [
+		{	StateName = Idle	AnimName = sh_fauwolf_idle01.kf
+			
+		}
+		{	StateName = Attack1     AnimName = sh_fauwolf_attack01.kf }
+		{ 	StateName = Walk	AnimName = sh_fauwolf_walk01.kf }
+		// { 	StateName = Run 	AnimName = sh_fauwolf_run01.kf }
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf 
+			TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_wolf_die_01 KeyTime = 0.0 }]
+		}
+	]
+}
+
+UnitType DeadAnimalCroc
+{
+	parent = DeadAnimal_MediumFood
+	properties {
+		displayName = tx_utn_Deadcroc_name
+		rps = Citizen
+            VerboseTooltip = vtt_unit_Deadcroc
+	}
+}
+
+UnitModel DeadAnimalCroc
+{
+	Parent 		 = CrocBase
+	DefaultState = Death
+	States = [
+		{ 	StateName = Death	AnimName = sh_fauwolf_death01.kf }
+	]
+	UIRenderingParams {
+		xOffset = 6.58
+		yOffset = 7.89
+		zOffset = -5.36
+		scale = 2.17
+		angle = 52.11
+		rotationSpeed = 0.00
+		pitch = 20.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	AMBIENT ANIMALS - UNITTYPE INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	VULTURE
+//------------------------------------------------
+UnitType Vulture
+{
+	ownertype = WorldOnly	// do we ever need to allow human to own/command animals??? - Xinbo
+	parent = AirUnit
+	properties {		
+		displayName = tx_utn_vulture_name
+		VerboseTooltip = vtt_unit_vulture
+		hitpoints = 60
+		SizeX = 0.1
+		SizeY = 0.1
+	}
+	abilities = [
+		AircraftMove {mustMoveToTurn = 1; speed = 3.4; angSpeed = 90; cruisingHeight = 4}
+		LOS { range = 3 }
+	]
+}
+
+UnitModel VultureBase
+{
+	Parent 		= BaseHuman
+	DefaultModel 	= fauvulture.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 0.53
+		yOffset = 1.31
+		zOffset = -0.14
+		scale = 2.02
+		angle = 32.73
+		rotationSpeed = 0.00
+		pitch = 32.73
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Vulture
+{
+	Parent 		= VultureBase
+	States = [
+		{ StateName = Idle }
+		{ StateName = Walk AnimName = sh_fauvulture_idle01.kf
+		  AnimVariants = [sh_fauvulture_idle02.kf ] AnimVariantsWeights = [ 0.3 ] 
+		}
+		{ 	StateName = Death	AnimName = sh_fauvulture_death01.kf }
+	]
+}
+
+UnitType DeadAnimalVulture
+{
+	parent = DeadAnimal
+	properties {
+		displayName = tx_utn_DeadVulture_name
+		VerboseTooltip = vtt_unit_DeadVulture
+		SizeX = 0.1
+		SizeY = 0.1
+	}
+}
+
+UnitModel DeadAnimalVulture
+{
+	Parent 		= VultureBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_fauvulture_death01.kf }
+			]
+}
+
+//------------------------------------------------
+//	HAWK
+//------------------------------------------------
+UnitType Hawk
+{
+	ownertype = WorldOnly	// do we ever need to allow human to own/command animals??? - Xinbo
+	parent = AirUnit
+	properties {		
+		displayName = tx_utn_hawk_name
+		VerboseTooltip = vtt_unit_hawk
+		hitpoints = 60
+		SizeX = 0.1
+		SizeY = 0.1
+	}
+	abilities = [
+		AircraftMove {mustMoveToTurn = 1; speed = 3.4; angSpeed = 90; cruisingHeight = 4}
+		LOS { range = 3 }
+	]
+}
+
+UnitModel HawkBase
+{
+	Parent 		= BaseHuman
+	DefaultModel 	= fauhawk.nif
+	ChildNames 		= [ UnitShadow ]
+	UIRenderingParams {
+		xOffset = 1.84
+		yOffset = 0.77
+		zOffset = -1.14
+		scale = 2.02
+		angle = 32.73
+		rotationSpeed = 0.00
+		pitch = 32.73
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel Hawk
+{
+	Parent 		= HawkBase
+	States = [
+		{ StateName = Idle }
+		{ StateName = Walk AnimName = sh_fauhawk_idle01.kf
+		  AnimVariants = [sh_fauhawk_idle02.kf ] AnimVariantsWeights = [ 0.3 ] 
+		}
+		{ 	StateName = Death	AnimName = sh_fauhawk_death01.kf }
+	]
+}
+
+UnitType DeadAnimalHawk
+{
+	parent = DeadAnimal
+	properties {
+		displayName = tx_utn_DeadHawk_name
+		VerboseTooltip = vtt_unit_DeadHawk
+		SizeX = 0.1
+		SizeY = 0.1
+	}
+}
+
+UnitModel DeadAnimalHawk
+{
+	Parent 		= HawkBase
+	DefaultState = Death
+	States 		= [
+		{ 	StateName = Death	AnimName = sh_fauhawk_death01.kf }
+			]
+}

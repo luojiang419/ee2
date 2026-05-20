@@ -1,0 +1,295 @@
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT KOREAN HWARANG (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitKorean1
+{
+	parent = HeavyMounted1
+	properties {
+		DisplayName = tx_utn_UUKorean1_name
+		DisplayNameScenEdit = tx_utn_UUKorean1_sname
+		VerboseTooltip = vtt_unit_UUKorean1
+		HitPoints = 0
+		SizeX = 0.4
+		SizeY = 0.2
+		mass = 2
+		moveType = Mounted
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5 }
+		LOS { range = 5 }
+		Move {speed = 1.5; angSpeed = 180}
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitKorean1Veteran
+{
+	unitType = UniqueUnitKorean1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitKorean1Elite
+{
+	unitType = UniqueUnitKorean1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitKorean1
+{
+	Parent			= HeavyMounted1_06
+	DefaultModel 	= CIV1_Hwarang_Korean.NIF
+	States 		= [
+		{	StateName = Idle	AnimName = sh_lancer_idle01.kf	
+                              AnimVariants = [ sh_lancer_idle02.kf sh_lancer_idle03.kf ]
+                              AnimVariantsWeights = [ 0.2 0.3 ]
+                 }
+		{ 	StateName = Walk	AnimName = sh_lancer_walk01.kf AnimSpeedScale = 2.25 }
+		{	StateName = Run		AnimName = sh_lancer_run01.kf 	
+			
+			}
+		{ 	StateName = Attack1	AnimName = sh_lancer_attack01.kf
+                              AnimVariants = [ sh_lancer_attack02.kf ]
+                              AnimVariantsWeights = [ 0.2 ]
+                              TextKeys = [{ Name = PLAY_SOUND Data = fx_spear_thrust KeyTime = 0.40 }]
+
+                 }
+       		{ 	StateName = Death	AnimName = sh_lancer_death01.kf	}
+		{	StateName = Flinch	AnimName = sh_lancer_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_lancer_flying01.KF
+			AnimVariants = [ sh_lancer_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_lancer_ground_death01.KF	}
+			]
+	UIRenderingParams {
+		xOffset = -4.21
+		yOffset = 2.11
+		zOffset = -0.84
+		scale = 1.53
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 10.00
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT KOREAN HWACHA (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitKorean2
+{
+	parent = LightArtillery1
+	properties {
+		DisplayName = tx_utn_UUKorean2_name
+		DisplayNameScenEdit = tx_utn_UUKorean2_sname
+		VerboseTooltip = vtt_unit_UUKorean2
+		HitPoints = 0
+		rps = LightArtillery
+		SizeX = 0.7
+		SizeY = 0.7
+		mass = 5
+	}
+	sounds {
+		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+    	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.90;  packTime = 1.0; unpackTime = 1.0; missileName = "FireArrow"; }
+		LOS { range = 0 }
+		VehicleMove {speed = 1.1; angSpeed = 180; followTerrainSlope = 1 }
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitKorean2Veteran
+{
+	unitType = UniqueUnitKorean2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitKorean2Elite
+{
+	unitType = UniqueUnitKorean2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitKorean2
+{
+	Parent		= LightArtillery1_05
+	DefaultModel 	= CIV7_hwacha_korean.nif
+	DefaultState 	= Idle
+	ScaleType 	= kScaleUnit
+	States 		= [
+		{	StateName = Idle	AnimName = CIV7_hwacha_korean_idle01.kf
+				TextKeys = [
+								{ Name = SHOW_NODE Data = Mesh01 KeyTime = 0 }
+				] }
+		{ 	StateName = Walk	AnimName = CIV7_hwacha_korean_walk.kf
+				TextKeys = [ 
+						{ Name = SHOW_NODE Data = Mesh01 KeyTime = 0 }
+						{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_wheeled_04 KeyTime = 0 } 
+				] }
+		{ 	StateName = Attack1	AnimName = CIV7_hwacha_korean_attack01.kf
+				TextKeys = [
+								{ Name = PLAY_SOUND Data = fx_battle_hwacha KeyTime = 0.90 }
+								{ Name = HIDE_NODE Data = bolt 	KeyTime = 0.90 }
+				] }
+		{	StateName = Pack	AnimName = CIV7_hwacha_korean_pack.kf }
+		{	StateName = Unpack	AnimName = CIV7_hwacha_korean_unpack.kf }
+		{ 	StateName = Death	AnimName = CIV7_hwacha_korean_death.kf }
+			]
+	ChildNames 		= [ TheHealthBar SelectCircleMedium UnitShadow MediumGlow ArtilleryTracks Muzzle_Rifleman ]
+	UIRenderingParams {
+		xOffset = 5.00
+		yOffset = 3.18
+		zOffset = -1.47
+		scale = 2.17
+		angle = 56.84
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT KOREAN MORTAR TEAM (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitKorean3
+{
+	parent = LightInfantry
+	properties {
+		DisplayName = tx_utn_UUKorean3_name
+		DisplayNameScenEdit = tx_utn_UUKorean3_sname
+		VerboseTooltip = vtt_unit_UUKorean3
+		HitPoints = 0
+		rps = LightInfantry
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 1
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 2.0; missileName = "MortarShell"; ignoreBlocking = 1; packTime = 2.0; unpackTime = 2.0 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 0 }
+		Move { speed = 1.3; angSpeed = 720}
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitKorean3Veteran
+{
+	unitType = UniqueUnitKorean3
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitKorean3Elite
+{
+	unitType = UniqueUnitKorean3
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitKorean3
+{
+	Parent		= LightInfantry_11
+        DefaultModel 	= CIV12_motarteam_korean.nif
+	ChildNames 	= [ UnitShadow Muzzle_Mortar ]
+	States 		= [
+		{	StateName = Idle	AnimName = CIV12_motarteam_korean_idle01.kf   
+                              AnimVariants = [ CIV12_motarteam_korean_idle02.kf CIV12_motarteam_korean_idle03.kf ]
+                              AnimVariantsWeights = [ 0.1 0.1 ]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}                            
+        	{ 	StateName = Walk	AnimName = CIV12_motarteam_korean_walk.kf
+		}
+                {              StateName = UnpackedIdle  AnimName = CIV12_motarteam_korean_unpackidle.kf  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+        { 	StateName = Run	AnimName = CIV12_motarteam_korean_jog01.kf
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = CIV12_motarteam_korean_attack01.kf
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_mortar_fire KeyTime = 2.0 }
+					{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Object01 KeyTime = 0.2 }
+					{ Name = HIDE_NODE Data = Object01 KeyTime = 1.9 }
+					] }
+		{ 	StateName = CaptureAttack1	AnimName = CIV12_motarteam_korean_capture01.kf
+                              AnimVariants = [ CIV12_motarteam_korean_capture02.kf ]
+                              AnimVariantsWeights = [0.3]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]} // @AA - change to "distinctive animation" once one exists
+		{ 	StateName = Pack	AnimName = CIV12_motarteam_korean_pack.kf  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+		{ 	StateName = Unpack	AnimName = CIV12_motarteam_korean_unpack.kf  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+		{ 	StateName = Death	AnimName = CIV12_motarteam_korean_death01.kf  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+                {       StateName = PackedDeath  AnimName = CIV12_motarteam_korean_packdeath.kf  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]} 
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.99
+		zOffset = -3.29
+		scale = 2.43
+	}
+}

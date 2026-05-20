@@ -1,0 +1,54 @@
+
+DbResourceDistributionDef Low
+{
+	level = Low
+	numFishPerWaterVertex = 0.003
+	numDomesticHerdsPerStartLoc = 4
+	numWildHerdsPerTerritory = 0.8
+	numPredatorsPerTerritory = 0.2
+	numResourcesPerTerritory = 8
+}
+
+
+DbResourceDistributionDef Defensive
+{
+	level = Defensive
+	numFishPerWaterVertex = 0.003
+	numDomesticHerdsPerStartLoc = 4
+	numWildHerdsPerTerritory = 0.8
+	numPredatorsPerTerritory = 0.2
+	numResourcesPerTerritory = 8
+}
+
+
+DbResourceDistributionDef Standard
+{
+	level = Standard
+	numFishPerWaterVertex = 0.003
+	numDomesticHerdsPerStartLoc = 4
+	numWildHerdsPerTerritory = 0.8
+	numPredatorsPerTerritory = 0.2
+	numResourcesPerTerritory = 8
+}
+
+
+DbResourceDistributionDef High
+{
+	level = High
+	numFishPerWaterVertex = 0.003
+	numDomesticHerdsPerStartLoc = 4
+	numWildHerdsPerTerritory = 0.8
+	numPredatorsPerTerritory = 0.2
+	numResourcesPerTerritory = 8
+}
+
+
+DbResourceDistributionDef DeathMatch
+{
+	level = DeathMatch
+	numFishPerWaterVertex = 0.003
+	numDomesticHerdsPerStartLoc = 4
+	numWildHerdsPerTerritory = 0.8
+	numPredatorsPerTerritory = 0.2
+	numResourcesPerTerritory = 8
+}

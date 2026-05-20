@@ -1,0 +1,271 @@
+//------------------------------------------------------------------------------------------------
+//	AIR DEFENSE - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType AirDefense
+{
+	ownerType = PlayerOnly
+	parent = NoProduceBuilding
+	properties {
+		rps = AntiAircraft
+		SizeX = 1
+		SizeY = 1
+		FootprintSizeX = 2.5
+		FootprintSizeY = 2.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		mass = 1
+		hitpoints = 400
+		displayName = tx_utn_airdefense_name
+		DisplayNameScenEdit = tx_utn_airdefense_sname
+		VerboseTooltip = vtt_unit_AirDefense
+	}
+	sounds {
+		sndSelection = ["AirDefense_select"]
+   	}	
+	abilities = [
+		// @AA - removed: 'missileName = "Flak01"' from attack ability, this one wants to have instant hits
+		Attack { range = 6; angularRange = 360; reloadTime = 2; applyDamageTime = 0.5; damage = 40; ignoreBlocking = 1; turretControllerName = BuildingTurret; }
+		LOS { range = 0 }		
+	]
+	icon = icon_unit_airdefense_13
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities AirDefenseEpoch10Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5;  ignoreBlocking = 1; turretControllerName = BuildingTurret; }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities AirDefenseEpoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "GuidedMissile"; ignoreBlocking = 1; turretControllerName = AA13Turret; }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities AirDefenseEpoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; ignoreBlocking = 1; turretControllerName = BuildingTurret; weaponType = Beam }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	AIR DEFENSE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel AirDefense_10
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_airdefense11.NIF
+	States 		= [ 
+			{ StateName = Attack1	TextKeys = [ { Name = PLAY_SOUND Data = fx_AAgun_firing1 KeyTime = 0.6 }]}
+			]
+	ChildNames 	= [ MachineGunTracer TheMuzzleSmokeEffect MediumGlow ExplSelectorBuild_Tiny ]
+}
+//------------------------------------------------------------------------------------------------
+//	AIR DEFENSE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel AirDefense_11
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_airdefense11.NIF
+	States 		= [ 
+			{ StateName = Attack1	TextKeys = [ { Name = PLAY_SOUND Data = fx_AAgun_firing1 KeyTime = 0.6 }]}
+			]
+	ChildNames 	= [ MachineGunTracer TheMuzzleSmokeEffect MediumGlow ExplSelectorBuild_Tiny ]
+}
+//------------------------------------------------------------------------------------------------
+//	AIR DEFENSE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+UnitModel AirDefense_12
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_airdefense11.NIF
+	States 		= [ 
+			{ StateName = Attack1	TextKeys = [ { Name = PLAY_SOUND Data = fx_AAgun_firing1 KeyTime = 0.6 }]}
+			]
+	ChildNames 	= [ MachineGunTracer TheMuzzleSmokeEffect MediumGlow ExplSelectorBuild_Tiny ]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel AirDefense_13
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_airdefense13.NIF
+	ForceScale = 0.06
+	States 		= [ 
+			{ StateName = Attack1	TextKeys = [ { Name = PLAY_SOUND Data = fx_battle_rocket_launch KeyTime = 0.5 }]}
+			]
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Tiny ]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel AirDefense_15
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= bld_airdefense15.NIF
+	States 		= [ 
+			{ StateName = Attack1	TextKeys = [ { Name = PLAY_SOUND Data = fx_battle_Laser_01 KeyTime = 0.6 }]}
+			]
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Tiny Beam_Herc03 ]
+}
+
+
+/////////////////////////////AIAirDefense//////////////////////////////////////////////////////
+UnitType AIAirDefense
+{
+	ownerType = PlayerOnly
+	parent = NoProduceBuilding
+	properties {
+		rps = AntiAircraft
+		SizeX = 1
+		SizeY = 1
+		FootprintSizeX = 2.5
+		FootprintSizeY = 2.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		mass = 0
+		hitpoints = 5000
+		displayName = tx_utn_airdefense_name
+		DisplayNameScenEdit = tx_utn_airdefense_sname
+		VerboseTooltip = vtt_unit_AirDefense
+	}
+	sounds {
+		sndSelection = ["AirDefense_select"]
+   	}	
+	abilities = [
+		// @AA - removed: 'missileName = "Flak01"' from attack ability, this one wants to have instant hits
+		Attack { range = 13.0; reloadTime = 0.3; angularRange = 360; applyDamageTime = 0.5; damage = 70;  ignoreBlocking = 1; areaDamageRadius = 1;}
+		LOS { range = 20 }	
+	]
+	icon = icon_unit_AIAirDefense11
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities AIAirDefenseEpoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; ignoreBlocking = 1;turretControllerName = MRocketLauncherTurret; areaDamageRadius = 1;}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities AIAirDefenseEpoch13Attack
+{
+	upgradedAbilities = [
+	 Attack {damage = 250; range = 30; reloadTime = 3; angularRange = 360; missileName = "MIM23Missile"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret;areaDamageRadius = 1.5;  }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities AIAirDefenseEpoch15Attack
+{
+	upgradedAbilities = [
+	   Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "THAAD_daodan"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	AIR DEFENSE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel AIAirDefense_11
+{	
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= fangkongpao11.NIF
+	States 		= [ 
+			{ StateName = Attack1	TextKeys = [ { Name = PLAY_SOUND Data = fx_AAgun_firing1 KeyTime = 0.6 }]}
+			]
+	ChildNames 	= [ MachineGunTracer TheMuzzleSmokeEffect MediumGlow ExplSelectorBuild_Tiny ]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel AIAirDefense_13
+{
+	Parent		= BuildingWithTurrets
+	DefaultModel 	= MIM23.NIF
+	ForceScale = 0.06
+	States 		= [
+					{	StateName = Idle	AnimName = bld_coastaldefense11_idle.kf 
+					TextKeys = [ 
+						 { Name = SHOW_NODE Data = daodan 	KeyTime = 0 }
+					   ]
+					}
+				{ 	StateName = Attack1	  AnimName = LLA13_mrls_attack.KF
+					TextKeys = [ 
+					{ Name = PLAY_SOUND Data = fx_battle_rocket_launch KeyTime = 0.3 }
+					{ Name = HIDE_NODE Data = daodan  KeyTime = 0 }
+					] 
+				}
+				{ 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+					TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+				{ 	StateName = Death }
+				{   StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+
+					]
+	ChildNames 	= [ BuildingWithTurretsShadow MediumGlow ExplSelectorBuild_Tiny FX_ExaustSmoke1  Muzzle_Phl032 Muzzle_Phl03 ]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 0.22
+		zOffset = 2.87
+		scale = 0.89
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 40.00
+	}
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel AIAirDefense_15
+{
+		Parent		= BuildingWithTurrets
+	DefaultModel 	= AirDefense_14.NIF
+	ForceScale = 0.05
+	States 		= [ 
+			{ StateName = Attack1	TextKeys = [ { Name = PLAY_SOUND Data = fx_battle_rocket_launch KeyTime = 0.5 }]}
+			]
+	ChildNames 	= [ MediumGlow ExplSelectorBuild_Tiny ]
+}

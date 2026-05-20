@@ -1,0 +1,959 @@
+//------------------------------------------------------------------------------------------------
+//	LIGHT INFANTRY - UNIT INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightInfantry
+{
+	parent = Human
+	properties {
+		rps = LightInfantry
+		SizeX = 0.2
+		SizeY = 0.2
+		mass = 1
+		
+		// Ranged units default to hold position
+		stance = Defensive
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 0; angularRange = 30; reloadTime = 1; applyDamageTime = 0.5; damage = 0; missileName = "Arrow"; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 0 }
+		Move { speed = 1.3; angSpeed = 720}
+	]
+	attributes = [
+		CanJoinHeroArmy
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightInfantryEpoch1Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 0.3; missileName = "Arrow"; ignoreBlocking = 1; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual LightInfantryEpoch1VeteranVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_01v
+}
+
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch1Veteran
+{
+	unitType = LightInfantry
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch1VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual LightInfantryEpoch1EliteVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_01e
+}
+
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch1Elite
+{
+	unitType = LightInfantry
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch1EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightInfantryEpoch3Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 0.3; missileName = "Arrow"; ignoreBlocking = 1; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual LightInfantryEpoch3VeteranVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_03v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch3Veteran
+{
+	unitType = LightInfantry
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch3VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual LightInfantryEpoch3EliteVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_03e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch3Elite
+{
+	unitType = LightInfantry
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch3EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightInfantryEpoch5Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 0.10; missileName = "Arrow_Crossbowman"; ignoreBlocking = 1; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual LightInfantryEpoch5VeteranVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_05v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch5Veteran
+{
+	unitType = LightInfantry
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch5VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual LightInfantryEpoch5EliteVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_05e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch5Elite
+{
+	unitType = LightInfantry
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch5EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightInfantryEpoch7Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 0.2; missileName = "GrenadeBullet"; ignoreBlocking = 0; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual LightInfantryEpoch7VeteranVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_07v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch7Veteran
+{
+	unitType = LightInfantry
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch7VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual LightInfantryEpoch7EliteVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_07e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch7Elite
+{
+	unitType = LightInfantry
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch7EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightInfantryEpoch9Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 0.03; missileName = "GrenadeBullet"; ignoreBlocking = 0; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual LightInfantryEpoch9VeteranVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_09v
+}
+
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch9Veteran
+{
+	unitType = LightInfantry
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch9VeteranVis
+	]
+}
+
+// Upgrade the attach ability to make this unit pack and unpack.
+UpgradeAbilities LightInfantryEpoch9EliteAttack
+{
+	upgradedAbilities = [
+		Attack { damage = 13; range = 8; reloadTime = 3; angularRange = 30; applyDamageTime = 0.03; missileName = "GrenadeBullet"; ignoreBlocking = 0; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5; packTime = 2.0; unpackTime = 2.0 }
+	]
+}
+
+// Elite visual change
+UpgradeVisual LightInfantryEpoch9EliteVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_09e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch9Elite
+{
+	unitType = LightInfantry
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		LightInfantryEpoch9EliteVis
+		LightInfantryEpoch9EliteAttack
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+
+// @EE2X - Josh - added "throwUnits = true" to attack upgrades for epoch 11, 13, 15
+UpgradeAbilities LightInfantryEpoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 2.0; missileName = "MortarShell"; ignoreBlocking = 1; packTime = 1.5; unpackTime = 1.5; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual LightInfantryEpoch11VeteranVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_11v
+
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch11Veteran
+{
+	unitType = LightInfantry
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		//LightInfantryEpoch11VeteranVis
+	]
+}
+// Elite Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch11Elite
+{
+	unitType = LightInfantry
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightInfantryEpoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 2.0; missileName = "MortarShell"; ignoreBlocking = 1; packTime = 2.0; unpackTime = 2.0; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual LightInfantryEpoch13VeteranVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_13v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch13Veteran
+{
+	unitType = LightInfantry
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		//LightInfantryEpoch13VeteranVis
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch13Elite
+{
+	unitType = LightInfantry
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightInfantryEpoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 0.2; missileName = "TankShell"; ignoreBlocking = 1; packTime = 2.0; unpackTime = 2.0; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual LightInfantryEpoch15VeteranVis
+{
+	unitType = LightInfantry
+	newVisual = LightInfantry_15v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch15Veteran
+{
+	unitType = LightInfantry
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		//LightInfantryEpoch15VeteranVis
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightInfantryEpoch15Elite
+{
+	unitType = LightInfantry
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+		]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT INFANTRY - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+UnitModel LightInfantry_01
+{
+	Parent		= BaseHuman
+	DefaultModel 	= LLI1_bowman.nif
+	ChildNames 	= [ UnitShadow ]
+			States 		= [
+		{	StateName = Idle	AnimName = sh_compositebowman_idle01.KF	
+                        AnimVariants = [ CIV3_DragonArcher_Chinese_idle02.KF sh_compositebowman_win.kf sh_compositebowman_season01.KF]
+                        AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{ 	StateName = Walk	AnimName = sh_compositebowman_walk01.KF 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+                { 	StateName = CaptureAttack1	AnimName = CIV3_DragonArcher_Chinese_capture01.KF
+                              AnimVariants = [ CIV3_DragonArcher_Chinese_capture02.KF ]
+                              AnimVariantsWeights = [0.3]
+				TextKeys = [
+								{ Name = SHOW_NODE Data = arrow KeyTime = 0 }
+				]}     
+		{ 	StateName = Run	        AnimName = sh_compositebowman_jog01.KF
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = sh_compositebowman_attack01.KF
+                        TextKeys = [ { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 1.56 } 
+				     { Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				     { Name = SHOW_NODE Data = arrow KeyTime = 0.3 }
+				     { Name = HIDE_NODE Data = arrow KeyTime = 1.56  }] 
+                }
+		{ 	StateName = Death	AnimName = sh_compositebowman_death01.KF
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{	StateName = Flinch	AnimName = CIV3_DragonArcher_Chinese_protect01.kf }
+		{	StateName = BeingThrown	AnimName = CIV3_DragonArcher_Chinese_flying01.kf
+			AnimVariants = [ CIV3_DragonArcher_Chinese_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = CIV3_DragonArcher_Chinese_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -1.32
+		zOffset = -5.75
+		scale = 2.69
+	}
+}
+
+// veteran version
+UnitModel LightInfantry_01v
+{
+	Parent		= LightInfantry_01
+	States 		= [
+		{	StateName = Idle	AnimName = sh_compositebowman_idle01.KF	
+                        AnimVariants = [ CIV3_DragonArcher_Chinese_idle02.KF sh_compositebowman_win.kf sh_compositebowman_season01.KF]
+                        AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = sh_compositebowman_attack01.KF
+                        TextKeys = [ { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 1.56 } 
+				     { Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				     { Name = SHOW_NODE Data = arrow KeyTime = 0.3 }
+				     { Name = HIDE_NODE Data = arrow KeyTime = 1.56  }] 
+                }
+}
+
+// elite version
+UnitModel LightInfantry_01e
+{
+	Parent		= LightInfantry_01v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_compositebowman_attack01.KF
+                        TextKeys = [ { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 1.56 } 
+				     { Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				     { Name = SHOW_NODE Data = arrow KeyTime = 0.3 }
+				     { Name = HIDE_NODE Data = arrow KeyTime = 1.56  }] 
+                }
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+UnitModel LightInfantry_03
+{
+	Parent		= LightInfantry_01
+	DefaultModel 	= LLI3_compositebowman.nif
+	ChildNames 	= [ UnitShadow ]
+		States 		= [
+		{	StateName = Idle	AnimName = sh_compositebowman_idle01.KF	
+                        AnimVariants = [ CIV3_DragonArcher_Chinese_idle02.KF sh_compositebowman_win.kf sh_compositebowman_season01.KF]
+                        AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{ 	StateName = Walk	AnimName = sh_compositebowman_walk01.KF 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+                { 	StateName = CaptureAttack1	AnimName = CIV3_DragonArcher_Chinese_capture01.KF
+                              AnimVariants = [ CIV3_DragonArcher_Chinese_capture02.KF ]
+                              AnimVariantsWeights = [0.3]
+				TextKeys = [
+								{ Name = SHOW_NODE Data = arrow KeyTime = 0 }
+				]}     
+		{ 	StateName = Run	        AnimName = sh_compositebowman_jog01.KF
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = sh_compositebowman_attack01.KF
+                        TextKeys = [ { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 1.56 } 
+				     { Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				     { Name = SHOW_NODE Data = arrow KeyTime = 0.3 }
+				     { Name = HIDE_NODE Data = arrow KeyTime = 1.56  }] 
+                }
+		{ 	StateName = Death	AnimName = sh_compositebowman_death01.KF
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{	StateName = Flinch	AnimName = CIV3_DragonArcher_Chinese_protect01.kf }
+		{	StateName = BeingThrown	AnimName = CIV3_DragonArcher_Chinese_flying01.kf
+			AnimVariants = [ CIV3_DragonArcher_Chinese_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = CIV3_DragonArcher_Chinese_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -1.32
+		zOffset = -5.75
+		scale = 2.69
+	}
+
+}
+
+// veteran version
+UnitModel LightInfantry_03v
+{
+	Parent		= LightInfantry_03
+	States 		= [
+		{	StateName = Idle	AnimName = sh_compositebowman_v_idle01.KF	
+                        AnimVariants = [ sh_compositebowman_idle01.KF sh_compositebowman_idle02.KF sh_compositebowman_season01.KF]
+                        AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+                 		TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+			]
+}
+
+// elite version
+UnitModel LightInfantry_03e
+{
+	Parent		= LightInfantry_03v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_compositebowman_attack01.KF
+                        TextKeys = [ { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 1.56 } 
+				     { Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				     { Name = SHOW_NODE Data = arrow KeyTime = 0.3 }
+				     { Name = HIDE_NODE Data = arrow KeyTime = 1.56  }] 
+                }
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel LightInfantry_05
+{
+	Parent		= LightInfantry_03
+	DefaultModel 	= LLI5_crossbowman.nif
+	ChildNames 	= [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_crossbowman_idle01.KF	
+                        AnimVariants = [ sh_crossbowman_idle02.KF sh_crossbowman_season01.kF ]
+                        AnimVariantsWeights = [ 0.05 0.05 ]
+                 }
+		{ 	StateName = Walk	AnimName = sh_crossbowman_walk01.kf	}
+                { 	StateName = CaptureAttack1	AnimName = sh_crossbowman_capture.KF
+                              AnimVariants = [ sh_crossbowman_capture_02.KF ]
+                              AnimVariantsWeights = [0.3]
+                 }                         
+		{ 	StateName = Run	        AnimName = sh_crossbowman_run01.kf	
+		}
+		{ 	StateName = Attack1	AnimName = sh_crossbowman_attack01.kf
+			TextKeys = [ { Name = PLAY_SOUND Data = fx_crossbow_fire KeyTime = 0.20 } ] 
+		}
+		{ 	StateName = Death	AnimName = sh_crossbowman_death01.kf	}
+		{	StateName = Flinch	AnimName = sh_crossbowman_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_crossbowman_flying01.KF
+			AnimVariants = [ sh_crossbowman_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_crossbowman_ground_death01.KF	}
+
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.97
+		zOffset = -2.96
+		scale = 1.79
+	}
+}
+
+// veteran version
+UnitModel LightInfantry_05v
+{
+	Parent		= LightInfantry_05
+	States 		= [
+		{	StateName = Idle	AnimName = sh_crossbowman_v_idle01.KF	
+                        AnimVariants = [ sh_crossbowman_idle01.KF sh_crossbowman_idle02.KF sh_crossbowman_season01.kF ]
+                        AnimVariantsWeights = [ 0.05 0.05 0.05 ]
+                 }
+			]
+}
+
+// elite version
+UnitModel LightInfantry_05e
+{
+	Parent		= LightInfantry_05v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_crossbowman_e_attack01.kf
+			TextKeys = [ { Name = PLAY_SOUND Data = fx_crossbow_fire KeyTime = 0.20 } ] 
+		}
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+UnitModel LightInfantry_07
+{
+	Parent		= LightInfantry_05
+	DefaultModel 	= LLI7_grenadepistoleer.nif
+	ChildNames 	= [ UnitShadow Muzzle_GrenadePistol ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_grenadepistoleer_idle01.KF
+                          AnimVariants = [ sh_grenadepistoleer_idle02.KF sh_grenadepistoleer_season01.kf]
+                          AnimVariantsWeights = [ 0.04 0.05 ]
+                 }
+		{ 	StateName = Walk	AnimName = sh_grenadepistoleer_walk01.KF }
+		{ 	StateName = CaptureAttack1	AnimName = sh_grenadepistoleer_capture.kf
+                              AnimVariants = [ sh_grenadepistoleer_capture_02.kf ]
+                              AnimVariantsWeights = [0.3]
+                 }                         
+
+		{ 	StateName = Run	AnimName = sh_grenadepistoleer_run01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_grenadepistoleer_attack01.KF
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0.16 }
+							] }
+		{ 	StateName = Death	AnimName = sh_grenadepistoleer_death01.KF	}
+		{	StateName = Flinch	AnimName = sh_grenadepistoleer_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_grenadepistoleer_flying01.KF
+			AnimVariants = [ sh_grenadepistoleer_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_grenadepistoleer_ground_death01.KF	}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.78
+		zOffset = -3.92
+		scale = 1.79
+	}
+}
+
+// veteran version
+UnitModel LightInfantry_07v
+{
+	Parent		= LightInfantry_07
+	States 		= [
+		{	StateName = Idle	AnimName = sh_grenadepistoleer_v_idle01.KF
+                          AnimVariants = [ sh_grenadepistoleer_idle01.KF sh_grenadepistoleer_idle02.KF sh_grenadepistoleer_season01.kf]
+                          AnimVariantsWeights = [ 0.05 0.04 0.05 ]
+                 }
+			]
+}
+
+// elite version
+UnitModel LightInfantry_07e
+{
+	Parent		= LightInfantry_07v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_grenadepistoleer_e_attack01.KF
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0.16 }
+							] }
+			]
+}
+
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+UnitModel LightInfantry_09
+{	
+	Parent		= LightInfantry_07
+	DefaultModel 	= LLI9_grenadier.nif
+	ChildNames 	= [ UnitShadow Muzzle_Musketeer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_grenadier_idle01.KF
+                          AnimVariants = [ sh_grenadier_idle02.KF ]
+                          AnimVariantsWeights = [ 0.04 ]
+                 }
+		{ 	StateName = Walk	AnimName = sh_grenadier_walk01.KF }
+		{ 	StateName = CaptureAttack1	AnimName = sh_grenadier_capture.kf
+                              AnimVariants = [ sh_grenadier_capture_02.kf ]
+                              AnimVariantsWeights = [0.3]
+                 }                         
+
+		{ 	StateName = Run	AnimName = sh_grenadier_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_grenadier_attack01.KF
+                        TextKeys = [
+					{ Name = PLAY_SOUND Data = Musket_firing KeyTime = 0.03 }
+					] }  
+		{ 	StateName = Death	AnimName = sh_grenadier_death02.KF	}
+		{	StateName = Flinch	AnimName = sh_grenadier_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_grenadier_flying01.kf
+			AnimVariants = [ sh_grenadier_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_grenadier_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.81
+		zOffset = -6.96
+		scale = 2.69
+		angle = 23.68
+	}
+}
+
+// veteran version
+UnitModel LightInfantry_09v
+{
+	Parent		= LightInfantry_09
+	States 		= [
+		{	StateName = Idle	AnimName = sh_grenadier_v_idle01.KF
+                          AnimVariants = [ sh_grenadier_idle01.KF sh_grenadier_idle02.KF ]
+                          AnimVariantsWeights = [ 0.05 0.04 ]
+                 }
+			]
+}
+
+// elite version
+UnitModel LightInfantry_09e
+{
+	Parent		= LightInfantry_09v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_grenadier_e_attack01.KF
+                        TextKeys = [
+							{ Name = PLAY_SOUND Data = Musket_firing KeyTime = 0.03 }
+						] 
+		}  
+		{ 	StateName = Pack	AnimName = sh_grenadier_e_pack01.KF  }
+		{ 	StateName = Unpack	AnimName = sh_grenadier_e_unpack01.KF  }
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel LightInfantry_11
+{
+	Parent		= LightInfantry_09
+        DefaultModel 	= LLI11_mortar.nif
+	ChildNames 	= [ UnitShadow Muzzle_Mortar ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_mortar_idle01.KF    
+                              AnimVariants = [ sh_mortar_idle02.KF sh_mortar_idle03.KF sh_mortar_idle04.KF ]
+                              AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}                            
+                {              StateName = UnpackedIdle  AnimName = sh_mortar_unpackidle01.KF   
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+                { 	StateName = Walk	AnimName = sh_mortar_walk01.KF   
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+                { 	StateName = Run	        AnimName = sh_mortar_jog01.KF  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				] }
+	{ 	StateName = Attack1	AnimName = sh_mortar_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_mortar_fire KeyTime = 1.8 }
+					{ Name = SHOW_NODE Data = Object01 KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Object01 KeyTime = 1.9 }
+					] }
+	{ 	StateName = CaptureAttack1	AnimName = sh_mortar_capture01.kf
+                              AnimVariants = [ sh_mortar_capture02.kf ]
+                              AnimVariantsWeights = [0.3]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]} // @AA - change to "distinctive animation" once one exists
+	{ 	StateName = Pack	AnimName = sh_mortar_pack01.KF  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+	{ 	StateName = Unpack	AnimName = sh_mortar_unpack01.KF  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+	{ 	StateName = Death	AnimName = sh_mortar_death03.KF  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+                {              StateName = PackedDeath  AnimName = sh_mortar_death01.KF   
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]} 
+	{	StateName = Flinch	AnimName = lli11_mortar_protect01.kf }
+	{	StateName = BeingThrown	AnimName = lli11_mortar_flying01.kf
+		AnimVariants = [ lli11_mortar_flying02.kf ] AnimVariantsWeights = [ 0.5 ] }
+	{	StateName = ThrownDeath	AnimName = lli11_mortar_ground_death01.kf }
+			]
+}
+
+// veteran version
+UnitModel LightInfantry_11v
+{
+	Parent		= LightInfantry_11
+    DefaultModel 	= LLI11_mortar_v.nif
+}
+
+UnitModel LightInfantry_11_Turkish
+{
+	Parent		= LightInfantry_11
+        DefaultModel 	= LLI11_mortar_turkish.nif
+}
+
+UnitModel LightInfantry_11v_Turkish
+{
+	Parent		= LightInfantry_11
+    DefaultModel 	= LLI11_mortar_turkish.nif
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel LightInfantry_13
+{
+	Parent		= LightInfantry_11
+    DefaultModel 	= LLI13_incendiarymortar.nif
+	ChildNames 	= [ UnitShadow Muzzle_Mortar ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_incendiarymortar_idle01.KF    
+                              AnimVariants = [ sh_incendiarymortar_idle02.KF sh_incendiarymortar_idle03.KF sh_incendiarymortar_idle04.KF ]
+                              AnimVariantsWeights = [ 0.1 0.05 0.1 ]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}                            
+                                {              StateName = UnpackedIdle  AnimName = sh_incendiarymortar_unpackidle01.KF   }
+        { 	StateName = Walk	AnimName = sh_incendiarymortar_walk01.KF
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+        { 	StateName = Run	AnimName = sh_incendiarymortar_jog01.KF
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = sh_incendiarymortar_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_mortar_fire KeyTime = 1.8 }
+                    { Name = SHOW_NODE Data = Object01 KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Object01 KeyTime = 1.9 }
+					] }
+		{ 	StateName = CaptureAttack1	AnimName = sh_incendiarymortar_capture01.kf
+                              AnimVariants = [ sh_incendiarymortar_capture02.kf ]
+                              AnimVariantsWeights = [0.3]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				] } // @AA - change to "distinctive animation" once one exists
+		{ 	StateName = Pack	AnimName = sh_incendiarymortar_pack01.KF  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+		{ 	StateName = Unpack	AnimName = sh_incendiarymortar_unpack01.KF  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+		{ 	StateName = Death	AnimName = sh_incendiarymortar_death03.KF  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				]}
+                                {              StateName = PackedDeath  AnimName = sh_incendiarymortar_death01.KF  
+				TextKeys = [
+								{ Name = HIDE_NODE Data = Object01 KeyTime = 0 }
+				] }
+		{	StateName = Flinch	AnimName = sh_incendiarymortar_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_incendiarymortar_flying01.KF
+			AnimVariants = [ sh_incendiarymortar_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_incendiarymortar_ground_death01.KF	}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.60
+		zOffset = -7.54
+		scale = 3.33
+		angle = 23.68
+	}
+}
+
+// veteran version
+UnitModel LightInfantry_13v
+{
+	Parent		= LightInfantry_13
+    DefaultModel 	= LLI13_incendiarymortar_v.nif
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel LightInfantry_15
+{
+	Parent		= BaseHuman
+    DefaultModel 	= LLI15_bombletmortar.nif
+	ChildNames 	= [ UnitShadow Muzzle_Mortar ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_bombletmortar_idle01.KF     }   
+        {   StateName = UnpackedIdle  AnimName = sh_bombletmortar_unpackidle01.KF   }                         
+        { 	StateName = Walk	AnimName = sh_bombletmortar_walk01.KF
+		}
+        { 	StateName = Run	AnimName = sh_bombletmortar_walk01.KF	// @Xinbo - no jog/run animation yet
+		}
+		{ 	StateName = Attack1	AnimName = sh_bombletmortar_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_mortar_fire KeyTime = 0.01 }
+					] }
+		
+		{ 	StateName = Pack	AnimName = sh_bombletmortar_pack01.KF  }
+		{ 	StateName = Unpack	AnimName = sh_bombletmortar_unpack01.KF  }
+		{ 	StateName = Death	AnimName = sh_bombletmortar_death02.KF  }
+		{   StateName = PackedDeath  AnimName = sh_bombletmortar_death01.KF   }
+		{ 	StateName = CaptureAttack1	AnimName = sh_bombletmortar_capture.kf
+							 AnimVariants = [ sh_bombletmortar_capture_02.kf ]
+							 AnimVariantsWeights = [0.5]
+		}                
+                                
+		{	StateName = Flinch	AnimName = sh_bombletmortar_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_bombletmortar_flying01.KF
+			AnimVariants = [ sh_bombletmortar_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_bombletmortar_ground_death01.KF	}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.05
+		zOffset = -5.86
+		scale = 2.43
+		angle = 298.42
+	}
+}
+
+// veteran version
+UnitModel LightInfantry_15v
+{
+	Parent		= LightInfantry_15
+    DefaultModel 	= LLI15_bombletmortar_v.nif
+}
+

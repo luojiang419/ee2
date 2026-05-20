@@ -1,0 +1,1917 @@
+UnitType ZSL92
+{
+	parent = Mounted
+	properties {
+		rps = LightMounted
+		SizeX = 0.8
+		SizeY = 0.5
+		mass = 1
+		popCount = 2
+		displayName = tx_utn_ZSL92_name
+        verboseTooltip = vtt_unit_ZSL92
+		HitPoints = 2000
+	}
+	sounds = {
+		sndSelection = ["v_lightarmor_select_chn" 
+				"v_lightarmor_select_chn01"
+		]
+		sndCmdMove = ["v_lightarmor_move_chn01" 
+	      		      "v_lightarmor_move_chn02"
+			      "v_lightarmor_move_chn03"
+			      "v_lightarmor_move_chn04"
+			      "v_lightarmor_move_chn05"
+			      "v_lightarmor_move_chn06"
+		]
+		sndCmdAttack = ["v_lightarmor_attack_chn01"
+		]
+		sndDeath =  ["v_cmon_unit_death_chn"]
+	}
+	abilities = [
+		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.01; missileName = "fkjqAmmo"; turretControllerName = TankTurret;  }
+		VehicleMove {speed = 1.6; angSpeed = 70;followTerrainSlope = 1;mustMoveToTurn = 0} 
+		LOS { range = 17 }
+	Garrison { 
+			garrisonType = Tower; 
+			numOfSlots = 5;
+			attackBonus = 0.05;	
+			healPoints = 10;		
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
+	]
+icon = icon_unit_ZSL92
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities ZSL92Epoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.01; missileName = "fkjqAmmo"; turretControllerName = TankTurret;   }
+		VehicleMove {speed = 1.6; angSpeed = 50; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities ZSL92Epoch11Attack1
+{
+	upgradedAbilities = [
+		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.01; missileName = "fkjqAmmo"; }
+		VehicleMove {speed = 1.7; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities ZSL92Epoch12Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.1; missileName = "fkjqAmmo"; turretControllerName = TankTurret;  }
+		VehicleMove {speed = 1.8; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities ZSL92Epoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.1; turretControllerName = TankTurret; missileName = "fkjqAmmo" }
+		VehicleMove {speed = 1.9; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities ZSL92Epoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.1; turretControllerName = TankTurret; missileName = "fkjqAmmo" }
+		VehicleMove {speed = 2.1; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+UnitModel ZSL92_11
+{
+	DefaultModel 	= Type_93.NIF
+	DefaultState 	= Idle
+	ForceScale      = 0.1
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0 }
+					   ] 
+				}
+
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ Muzzle_Musketeer TheHealthBar SelectCircleMedium DustHeavyMonted  FX_ExaustSmoke1 TankTracks ExplSelectorTank01 TheCollapseEffect PresHumvee_FlyingParts ]//  
+//DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel ZSL92_12
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= Pz2_China.nif
+	ForceScale      = 0.14
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+
+			}
+
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks DustHeavyMonted ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitModel ZSL92_13
+{
+	DefaultModel 	= WMZ551B.NIF
+	DefaultState 	= Idle
+	ForceScale      = 0.1
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0 }
+					   ] 
+				}
+
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ Muzzle_Musketeer TheHealthBar SelectCircleMedium DustHeavyMonted  FX_ExaustSmoke1 TankTracks ExplSelectorTank01 TheCollapseEffect PresHumvee_FlyingParts ]//  
+//DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel ZSL92_14
+{
+	DefaultModel 	= ZBL09.NIF
+	DefaultState 	= Idle
+	ForceScale      = 0.15
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0 }
+					   ] 
+				}
+
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ Muzzle_Musketeer TheHealthBar SelectCircleMedium DustHeavyMonted  FX_ExaustSmoke1 TankTracks ExplSelectorTank01 TheCollapseEffect PresHumvee_FlyingParts ]//  
+//DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel ZSL92_15
+{
+	DefaultModel 	= LightMounted1_15.NIF
+	DefaultState 	= Idle
+	ForceScale      = 0.15
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0 }
+					   ] 
+				}
+
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ Muzzle_Musketeer TheHealthBar SelectCircleMedium DustHeavyMonted  FX_ExaustSmoke1 TankTracks ExplSelectorTank01 TheCollapseEffect PresHumvee_FlyingParts ]//  
+//DamageDecalsSetName = BuildingDamageDecals
+}
+
+//----------------------99A2TANK----------------------------------------
+UnitType T99A
+{
+	parent = HeavyMounted
+	properties {
+		rps = HeavyMounted
+		moveType = Mechanized
+		SizeX = 1.0
+		SizeY = 1.0
+		mass = 2
+		popCount = 2
+		displayName = tx_utn_T99A_name
+        verboseTooltip = vtt_unit_T99A
+		HitPoints = 5000
+	}
+	sounds = {
+		sndSelection = ["v_tank_select_chn01" 
+				"v_tank_select_chn02"
+				"v_tank_select_chn03"
+				"v_tank_select_chn04"
+		]
+		sndCmdMove = ["v_tank_move_chn01" 
+	      		      "v_tank_move_chn02"
+			      "v_tank_move_chn03"
+			      "v_tank_move_chn04"
+		]
+		sndCmdAttack = ["v_tank_attack_chn01"
+				"v_tank_attack_chn02"
+				"v_tank_attack_chn03"
+				"v_tank_attack_chn04"
+				"v_tank_attack_chn05"
+		]
+		sndDeath =  ["v_tank_death_chn01"]
+	}
+	abilities = [
+      Attack { range = 16; reloadTime = 3.0; applyDamageTime = 0.5; damage = 400; missileName = fkjqAmmo; turretControllerName = TankTurret;areaDamageRadius = 2; }
+	  VehicleMove {speed = 1.4; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
+		LOS { range = 16 }
+	Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }	
+	]
+	icon = icon_unit_T99A
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities T99AEpoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.01; missileName = fkjqAmmo; turretControllerName = TankTurret; areaDamageRadius = 0.5 }
+		VehicleMove {speed = 1.4; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+
+// Move Ability Upgrade
+UpgradeAbilities T99AEpoch11Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.4; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities T99AEpoch12Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; turretControllerName = TankTurret; areaDamageRadius = 1.5; throwUnits = true }
+	]
+}
+
+// Move Ability Upgrade
+UpgradeAbilities T99AEpoch12Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.5; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities T99AEpoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; turretControllerName = TankTurret; areaDamageRadius = 2.0; throwUnits = true }
+	]
+}
+
+// Move Ability Upgrade
+UpgradeAbilities T99AEpoch13Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.6; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities T99AEpoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; turretControllerName = TankTurret; areaDamageRadius = 2.5; throwUnits = true }
+	]
+}
+
+// Move Ability Upgrade
+UpgradeAbilities T99AEpoch14Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.8; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+UnitModel T99A_11
+{
+	Parent		= HeavyMounted1_11
+	DefaultModel 	= FT17_gunk.nif
+    ForceScale      = 0.135
+	States = [
+			{ StateName= Idle AnimName = civ12_jagdpanther_german_idle.kf }
+
+			{ StateName= Walk AnimName = civ12_jagdpanther_german_walk.kf
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 KeyTime = 0} ] 
+				}
+
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }
+					   ] 
+				}
+
+			{ StateName= Death 	}
+//			{ StateName= Death AnimName = civ12_jagdpanther_german_death.kf }
+		]
+	ChildNames 	= [ FX_ExaustSmoke ExplSelectorTank01 MainBattleTank_FlyingParts Muzzle_FiringShell ]
+}
+UnitModel T99A_12
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= Type97_China.NIF
+	ForceScale      = 0.09
+	States = [
+			{ StateName= Idle AnimName = T99_A2_idle.KF 
+			TextKeys = [ 
+					     { Name = STOP_SOUND Data = fx_battle_tankfire_02 KeyTime = 0 }
+					   ]
+			}
+
+			{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1	AnimName = T99_A2_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_02 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death }//AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyMonted ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitModel T99A_13
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= Type62.NIF
+	ForceScale      = 0.11
+	States = [
+			{ StateName= Idle AnimName = T99_A2_idle.KF 
+			TextKeys = [ 
+					     { Name = STOP_SOUND Data = fx_battle_tankfire_02 KeyTime = 0 }
+					   ]
+			}
+
+			{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1	AnimName = T99_A2_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_02 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death }//AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyMonted ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitModel T99A_14
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= T99a2.NIF
+	ForceScale      = 0.092
+	States = [
+			{ StateName= Idle AnimName = T99_A2_idle.KF 
+			TextKeys = [ 
+					     { Name = STOP_SOUND Data = fx_battle_tankfire_02 KeyTime = 0 }
+					   ]
+			}
+
+			{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1  AnimName = T99_A2_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_02 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death }//AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyTank ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+//DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel T99A_15
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= ZTZ101.NIF
+	ForceScale      = 0.115
+	States = [
+			{ StateName= Idle AnimName = T99_A2_idle.KF 
+			TextKeys = [ 
+					     { Name = STOP_SOUND Data = fx_battle_tankfire_02 KeyTime = 0 }
+					   ]
+			}
+
+			{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1  AnimName = T99_A2_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_02 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death }//AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyTank ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+//-----------------------END T99A TANK-------------------------------------
+
+////////////////////////////////////
+//China_T99A
+///////////////////////////////////
+UnitType China_T99A
+{
+	parent = HeavyMounted
+	properties {
+		rps = HeavyMounted
+		moveType = Mechanized
+		SizeX = 1.0
+		SizeY = 0.8
+		mass = 2
+		popCount = 2
+		displayName = tx_utn_China_T99A_name
+        verboseTooltip = vtt_unit_China_T99A
+		HitPoints = 5300
+	}
+	sounds = {
+		sndSelection = ["v_tank_select_chn01" 
+				"v_tank_select_chn02"
+				"v_tank_select_chn03"
+				"v_tank_select_chn04"
+		]
+		sndCmdMove = ["v_tank_move_chn01" 
+	      		      "v_tank_move_chn02"
+			      "v_tank_move_chn03"
+			      "v_tank_move_chn04"
+		]
+		sndCmdAttack = ["v_tank_attack_chn01"
+				"v_tank_attack_chn02"
+				"v_tank_attack_chn03"
+				"v_tank_attack_chn04"
+				"v_tank_attack_chn05"
+		]
+		sndDeath =  ["v_tank_death_chn01"]
+	}
+	abilities = [
+      Attack { range = 16; reloadTime = 3.0; applyDamageTime = 0.5; damage = 420; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2;throwUnits = true }
+	  VehicleMove {speed = 1.75; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
+		LOS { range = 16 }
+	Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }	
+	]
+icon = icon_unit_China_T99A
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities China_T99AEpoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; areaDamageRadius = 1.5; throwUnits = true }
+	]
+}
+// Move Ability Upgrade
+UpgradeAbilities China_T99AEpoch11Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.4; angSpeed = 180; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities China_T99AEpoch15Attack
+{
+	upgradedAbilities = [
+		Attack { range = 17; reloadTime = 3.0; applyDamageTime = 0.5; damage = 500; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2; }
+	]
+}
+UnitModel China_T99A_11
+{
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= MarkIV_china.nif
+	ForceScale      = 0.09
+	DefaultState 	= Idle
+	States = [
+			{ StateName= Idle AnimName = lla13_preshumvee_idle.KF	
+				TextKeys = [ { Name = STOP_CONTROLLER	Data = NiUVController KeyTime = 0 } 
+					   ]
+				 }
+
+			{ StateName= Walk AnimName = lla13_preshumvee_walk.KF		
+				TextKeys = [ { Name = START_CONTROLLER	Data = NiUVController KeyTime = 0 }
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_halftrack KeyTime = 0} 
+					   ] 
+				}
+			{ StateName= Death }
+
+		]
+	ChildNames 	= [ TheHealthBar SelectCircleMedium FX_ExaustSmoke1 TankTracks ExplSelectorTank01 PresHumvee_FlyingParts DustHeavyMonted ]
+}
+UnitModel China_T99A_12
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= M4A3_China.NIF
+	ForceScale      = 0.09
+	States = [
+			{ StateName= Idle AnimName = T99_A2_idle.KF 
+			TextKeys = [ 
+					     { Name = STOP_SOUND Data = fx_battle_tankfire_02 KeyTime = 0 }
+					   ]
+			}
+
+			{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1	AnimName = T99_A2_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_02 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death }//AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyMonted ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitModel China_T99A_13
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= JaguarTank.NIF
+	ForceScale      = 0.11
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_01 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyMonted ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitModel China_T99A_14
+{
+	parent 		= BaseHeavyMountedArmored
+	//DefaultModel 	= China_T99A.NIF
+	DefaultModel 	= ZTZ99A2.NIF
+	ForceScale      = 0.115
+	States = [
+			{ StateName= Idle AnimName = T99_A2_idle.KF 
+			TextKeys = [ 
+					     { Name = STOP_SOUND Data = fx_battle_tankfire_02 KeyTime = 0 }
+					   ]
+			}
+
+			{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1	AnimName = T99_A2_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_02 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death }//AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyMonted  ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+//DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel China_T99A_15
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= OverLord.NIF
+	ForceScale      = 0.13
+	States = [
+			{ StateName= Idle AnimName = T99_A2_idle.KF 
+			TextKeys = [ 
+					     { Name = STOP_SOUND Data = fx_battle_tankfire_02 KeyTime = 0 }
+					   ]
+			}
+
+			{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1  AnimName = T99_A2_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_02 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death }//AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyTank ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+//////////////////////////////////
+//  红旗 9 防空导弹
+/////////////////////////////////
+
+UnitType AntiAir_HQ9
+{
+	parent = Artillery	
+	properties {
+		rps = AntiAircraft
+		SizeX = 1.0
+		SizeY = 0.5
+		mass = 2
+		popCount = 2	
+        DisplayName = tx_utn_hq9x_name		
+		VerboseTooltip = vtt_unit_hq9x
+		HitPoints = 3700
+		stance = Aggressive
+	}
+	sounds = {
+		sndSelection = [ 
+				"v_lightarmor_select_chn01"
+		]
+		sndCmdMove = ["v_lightarmor_move_chn01" 
+	      		      "v_lightarmor_move_chn02"
+			      "v_lightarmor_move_chn03"
+			      "v_lightarmor_move_chn04"
+			      "v_lightarmor_move_chn05"
+			      "v_lightarmor_move_chn06"
+		]
+		sndCmdAttack = ["v_lightarmor_attack_chn01"
+		]
+		sndDeath =  ["v_cmon_unit_death_chn"]
+	}
+	abilities = [
+	 AreaEffect {
+			effects = [ 
+				//RocketLaunchingTBMFix1
+			]
+		}
+		Attack { damage = 700; range = 24; reloadTime = 2; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 3.0; unpackTime =3.0;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
+            Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
+		LOS { range = 27 }
+		VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1}
+			]
+attributes = [
+		HealedByHERC 		
+	]
+	icon = icon_unit_hq9x
+}
+
+UnitModel AntiAir_HQ9
+{
+	parent		= BaseArtillery
+      DefaultModel 	= Hq9.nif
+	DefaultState 	= Idle
+      ScaleType 	= kScaleVehicle
+      ForceScale = 0.20
+      States = [
+			{ StateName = Idle	AnimName = scudidle.kf   //LLM15_Disruptor_idle.KF
+				TextKeys = [
+				{ Name = HIDE_NODE Data = ball1 	KeyTime = 0 } { Name = HIDE_NODE Data = baller 	KeyTime = 0 }
+				] }
+			    {   StateName = UnpackedIdle  AnimName = scudupidle.kf  //LLM15_Disruptor_idle.KF
+				TextKeys = [
+							{ Name = HIDE_NODE Data = baller 	KeyTime = 0 }
+				]}
+            { StateName = Walk	AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [ 
+				{ Name = HIDE_NODE Data = baller 	KeyTime = 0 }
+				{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0}
+					   ]
+				}
+			   {	StateName = UnpackedWalk  AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [
+				{ Name = HIDE_NODE Data = baller 	KeyTime = 0 }		
+				]}	
+			{ StateName= Attack1	AnimName = Hq9_attack.kf   //LLM15_Disruptor_unpack.KF   	
+				TextKeys = [ 
+				{ Name = SHOW_NODE Data = baller	KeyTime = 0.5 }
+					     { Name = PLAY_SOUND Data = fx_attack_hq9x_01 KeyTime = 0 }
+					   ] 
+				}
+            {	StateName = Pack	AnimName = scudpack.kf   //LLM15_Disruptor_pack.KF     
+				TextKeys = [
+				{ Name = HIDE_NODE Data = baller 	KeyTime = 0 }
+				]}
+				
+			{	StateName = unPack	AnimName = scudunpack.kf   //LLM15_Disruptor_pack.KF     
+				TextKeys = [  
+				{ Name = HIDE_NODE Data = ball1 	KeyTime = 0 }
+				]}	
+			{ StateName= Death	AnimName = LLM13_rpgstriker_death.kf 
+				}
+		]
+UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.62
+		zOffset = 0.74
+		scale = 1.92
+		angle = 45.00
+	}
+
+	ChildNames 		= [  TheHealthBar SelectCircleMedium  TankTracks DustHeavyMonted ExplSelectorTank01	TradeCart11_FlyingParts Muzzle_054somk1 Muzzle_Phl03 Muzzle_Phl032 Muzzle_Battleship LargeGlow  NetFireLauncherShadow  ] //Muzzle_Silo Muzzle_ScudClud Muzzle_FireMissles1
+}
+
+//////////////////////////////
+// 红旗9雷达车
+//////////////////////////////
+
+UnitType radacache
+{
+	parent = Artillery	
+	properties {
+		rps = LandNonCombat
+		SizeX = 1.0
+		SizeY = 0.5
+		mass = 2
+		popCount = 2	
+        DisplayName = tx_utn_radahq9_name		
+		VerboseTooltip = vtt_unit_radahq9
+		HitPoints = 3500
+		stance = Aggressive
+	}
+	sounds = {
+		sndSelection = [ 
+				"v_lightarmor_select_chn01"
+		]
+		sndCmdMove = ["v_lightarmor_move_chn01" 
+	      		      "v_lightarmor_move_chn02"
+			      "v_lightarmor_move_chn03"
+			      "v_lightarmor_move_chn04"
+			      "v_lightarmor_move_chn05"
+			      "v_lightarmor_move_chn06"
+		]
+		sndCmdAttack = ["v_lightarmor_attack_chn01"
+		]
+		sndDeath =  ["v_cmon_unit_death_chn"]
+	}
+	abilities = [
+	 AreaEffect {
+			effects = [ 
+				 SuperVision,ship_Awacs
+			]
+		}
+		Attack { damage = 0; range = 150; reloadTime = 3; angularRange = 360; applyDamageTime = 0.25; missileName = "FastRocket5"; ignoreBlocking = 1;packTime = 4.0; unpackTime = 4.0; throwUnits = true }
+            Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
+		LOS { range = 80 }
+		VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1}
+			]
+attributes = [
+		HealedByHERC 		
+	]
+	icon = icon_unit_radahq9
+}
+
+UnitModel radacache
+{
+	parent		= BaseArtillery
+      DefaultModel 	= Hq9rada.nif
+	DefaultState 	= Idle
+      ScaleType 	= kScaleVehicle
+      ForceScale = 0.20
+      States = [
+			{ StateName = Idle	AnimName = rada_Idle.kf   //LLM15_Disruptor_idle.KF
+				 }
+			    {   StateName = UnpackedIdle  AnimName = rada_upackIdle.kf  //LLM15_Disruptor_idle.KF
+				}
+            { StateName = Walk	AnimName = lhm13_MainBattleTank_walk.KF
+				
+				}
+			   {	StateName = UnpackedWalk  AnimName = lhm13_MainBattleTank_walk.KF
+				}	
+			{ StateName= Attack1	AnimName = rada_upackIdle.kf   //LLM15_Disruptor_unpack.KF   	
+				
+				}
+            {	StateName = Pack	AnimName = rada_pack.kf   //LLM15_Disruptor_pack.KF     
+				}
+				
+			{	StateName = unPack	AnimName = rada_upack.kf   //LLM15_Disruptor_pack.KF     
+				}	
+			{ StateName= Death	AnimName = LLM13_rpgstriker_death.kf 
+				}
+		]
+UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.62
+		zOffset = 0.74
+		scale = 1.92
+		angle = 45.00
+	}
+
+	ChildNames 		= [  TheHealthBar SelectCircleMedium  TankTracks DustHeavyMonted ExplSelectorTank01	TradeCart11_FlyingParts LargeGlow  NetFireLauncherShadow  ] //Muzzle_Silo
+}
+/////////////////////////////////////
+//  红旗61导弹发射车
+///////////////////////////////////
+UnitType AntiAir_HQ61
+{
+	parent = Artillery	
+	properties {
+		rps = AntiAircraft
+		SizeX = 1.0
+		SizeY = 0.5
+		mass = 2
+		popCount = 2	
+        DisplayName = tx_utn_hq61x_name		
+		VerboseTooltip = vtt_unit_hq61x
+		HitPoints = 3400
+		stance = Aggressive
+	}
+	sounds = {
+		sndSelection = [ 
+				"v_lightarmor_select_chn01"
+		]
+		sndCmdMove = ["v_lightarmor_move_chn01" 
+	      		      "v_lightarmor_move_chn02"
+			      "v_lightarmor_move_chn03"
+			      "v_lightarmor_move_chn04"
+			      "v_lightarmor_move_chn05"
+			      "v_lightarmor_move_chn06"
+		]
+		sndCmdAttack = ["v_lightarmor_attack_chn01"
+		]
+		sndDeath =  ["v_cmon_unit_death_chn"]
+	}
+	abilities = [
+	 AreaEffect {
+			effects = [ 
+				//RocketLaunchingTBMFix1
+			]
+		}
+		Attack { damage = 800; range = 25; reloadTime = 2; angularRange = 360;  missileName = "AntiAirH61x"; ignoreBlocking = 1; areaDamageRadius = 2; areaDamageFriendlyRatio = 0.5; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 1.5; minRangeImmobile = 1.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
+            Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
+		LOS { range = 25 }
+		VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1}
+			]
+attributes = [
+		HealedByHERC 		
+	]
+	icon = icon_unit_hq61x
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HQ61Epoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.01; turretControllerName = TankTurret; }
+	]
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HQ61Epoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 800; range = 25; reloadTime = 2; angularRange = 360;  missileName = "AntiAirH61x"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 1.5; minRangeImmobile = 1.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
+	]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HQ61Epoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 800; range = 25; reloadTime = 2; angularRange = 360;  missileName = "pl12"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 1.5; minRangeImmobile = 1.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
+	]
+}
+UnitModel AntiAir_HQ61_11
+{
+	DefaultModel 		= truck5.NIF
+	ForceScale      = 0.085
+	DefaultState 		= Idle
+	States = [
+			{ StateName = Idle	AnimName = LLM13_rpgstriker_idle.KF
+				}
+			{ StateName = Walk	AnimName = LLM13_rpgstriker_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0}
+					   ]
+				}
+				
+			{ StateName = Attack1	TextKeys = [ { Name = PLAY_SOUND Data = fx_AAgun_firing1 KeyTime = 0.6 }]}
+
+			{ StateName= Death	AnimName = LLM13_rpgstriker_death.kf 
+				}
+		]
+	ChildNames 		= [ TheHealthBar DustHeavyMonted FX_ExaustSmoke SelectCircleMedium MediumGlow TankTracks UnitShadow expl_tank_Tandrill ExplSelectorTank01 TradeCart11_FlyingParts HemisphereLighting_Unit DynamicLighting_Unit TheMuzzleSmokeEffect
+					  ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.13
+		zOffset = -0.36
+		scale = 1.40
+		angle = 45.00
+	}
+}
+UnitModel AntiAir_HQ61_13
+{
+	ScaleType 	= kScaleVehicle
+	OutlineType		= kOutlineMake
+	DefaultModel 	= LLA13_humveestriker_fe.nif
+	DefaultState 	= Idle
+	ForceScale      = 0.11
+	States = [
+			{ StateName= Idle AnimName = lla13_humveestriker_idle.KF	
+				 }
+
+			{ StateName= Walk AnimName = lla13_humveestriker_walk.KF		
+				TextKeys = [ 
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_halftrack KeyTime = 0} 
+					   ] 
+				}
+			{ StateName= Death }
+
+		]
+	ChildNames 	= [ TheHealthBar SelectCircleMedium FX_ExaustSmoke1 ArtilleryTracks 
+					MobileStencilShadow ExplSelectorTank01 HumveeStriker_FlyingParts 
+					MediumGlow expl_tank_Tandrill HumveeStrikerShadow
+					HemisphereLighting_Unit DynamicLighting_Unit
+				  ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.05
+		zOffset = 0.57
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 20.00
+	}
+}
+UnitModel AntiAir_HQ61_14
+{
+	parent		= BaseArtillery
+      DefaultModel 	= Hq61.nif
+	DefaultState 	= Idle
+      ScaleType 	= kScaleVehicle
+      ForceScale = 0.21
+      States = [
+			{ StateName = Idle	AnimName = Hq61_Idle.kf
+				TextKeys = [ { Name = STOP_SOUND Data = fx_attack_hq9x_01 KeyTime = 0 }
+				{ Name = SHOW_NODE Data = ball01 	KeyTime = 0 } { Name = SHOW_NODE Data = ball02 	KeyTime = 0 }] }
+			    {   StateName = UnpackedIdle  AnimName = Hq61_upackIdle.kf  
+				TextKeys = [ { Name = STOP_SOUND Data = fx_attack_hq9x_01 KeyTime = 0 }
+								{ Name = SHOW_NODE Data = ball01 KeyTime = 0 } { Name = SHOW_NODE Data = ball02 KeyTime = 0 } ]}
+            { StateName = Walk	AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [ { Name = SHOW_NODE Data = ball01 	KeyTime = 0 } { Name = SHOW_NODE Data = ball02 	KeyTime = 0 }{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0}
+					   ]
+				}
+			   {	StateName = UnpackedWalk  AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [
+								{ Name = SHOW_NODE Data = ball01 	KeyTime = 0 }  { Name = SHOW_NODE Data = ball02 	KeyTime = 0 }
+				]}	
+			{ StateName= Attack1  AnimName = Hq61_upackIdle.kf
+				TextKeys = [ { Name = HIDE_NODE Data = ball01	KeyTime = 0.5 } { Name = HIDE_NODE Data = ball02	KeyTime = 3 }
+					     { Name = PLAY_SOUND Data = fx_attack_hq9x_01 KeyTime = 0 }
+					   ] 
+				}
+            {	StateName = Pack	AnimName = Hq61_pack.kf
+				TextKeys = [
+								{ Name = SHOW_NODE Data = ball01 KeyTime = 0 } { Name = SHOW_NODE Data = ball02 KeyTime = 0 }]}
+				
+			{	StateName = unPack	AnimName = Hq61_upack.kf    
+				TextKeys = [  
+								{ Name = SHOW_NODE Data = ball01 KeyTime = 0 } { Name = SHOW_NODE Data = ball02 KeyTime = 0 }]}	
+			{ StateName= Death	AnimName = LLM13_rpgstriker_death.kf 
+				}
+		]
+UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.62
+		zOffset = 0.74
+		scale = 1.92
+		angle = 45.00
+	}
+
+	ChildNames 		= [  TheHealthBar SelectCircleMedium  TankTracks DustHeavyMonted ExplSelectorTank01	TradeCart11_FlyingParts Muzzle_Hq61somk LargeGlow  NetFireLauncherShadow  ] //Muzzle_Silo
+}
+UnitModel AntiAir_HQ61_15
+{
+	parent		= BaseArtillery
+	DefaultModel 	= QiLin.nif
+	DefaultState 	= Idle
+    ScaleType 	= kScaleVehicle
+    ForceScale = 0.10
+    States = [
+				{ StateName = Idle	AnimName = Fkl03_Idle.kf
+				 AnimVariants = [
+						Fkl03_Idle2.kf   Fkl03_Idle3.kf ]
+                 AnimVariantsWeights = [ 0.1 0.1 ]
+				 }
+			{   StateName = UnpackedIdle  AnimName = Hq61_upackIdle.kf  }
+            {   StateName = Walk	AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0}
+			 ]}
+			 {	StateName = UnpackedWalk  AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [
+				]}	
+			{   StateName= Attack1  AnimName = Hq61_upackIdle.kf
+				TextKeys = [ 
+					     { Name = PLAY_SOUND  Data = fx_attack_hq9x_01 KeyTime = 0 }
+					   ] 
+				}	
+            {	StateName = Pack	AnimName = Hq61_pack.kf
+				TextKeys = [
+								]}
+			{	StateName = unPack	AnimName = Hq61_upack.kf    
+				TextKeys = [  
+								]}	
+			{ StateName= Death	AnimName = LLM13_rpgstriker_death.kf 
+				}
+		]
+UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.62
+		zOffset = 0.74
+		scale = 1.92
+		angle = 45.00
+	}
+
+	ChildNames 		= [  TheHealthBar SelectCircleMedium FX_ExaustSmoke1 FX_ExaustSmoke2 TankTracks DustHeavyMonted  ExplSelectorTank01  LargeGlow  NetFireLauncherShadow  ] //Muzzle_Silo
+}
+/////////////////////////////////////
+//  防空机关炮履带发射车
+///////////////////////////////////
+UnitType AntiAir_Fkl03
+{
+	parent = Artillery	
+	properties {
+		rps = AntiAircraft
+		SizeX = 1.0
+		SizeY = 0.8
+		mass = 1
+		popCount = 1	
+        DisplayName = tx_utn_Fkl03_name		
+		VerboseTooltip = vtt_unit_Fkl03
+		HitPoints = 3400
+		stance = Aggressive
+	}
+	sounds = {
+		sndSelection = ["v_lightarmor_select_chn" 
+				"v_lightarmor_select_chn01"
+		]
+		sndCmdMove = ["v_lightarmor_move_chn01" 
+	      		      "v_lightarmor_move_chn02"
+			      "v_lightarmor_move_chn03"
+			      "v_lightarmor_move_chn04"
+			      "v_lightarmor_move_chn05"
+			      "v_lightarmor_move_chn06"
+		]
+		sndCmdAttack = ["v_lightarmor_attack_chn01"
+		]
+		sndDeath =  ["v_cmon_unit_death_chn"]
+	}
+	abilities = [
+		//PowerReserve { timeToRecharge = 40 }
+		Attack { damage = 90; range = 18; reloadTime = 0.1; angularRange = 360; applyDamageTime = 0; missileName = "fkjqAmmo"; ignoreBlocking = 1;  areaDamageFriendlyRatio = 0.1; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 0.5; minRangeImmobile = 0.5;turretControllerName = FklsaTurret}
+        Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
+		LOS { range = 19 }
+		//SpecialPower { 
+		//	effects = [ Deadly_Miss ]
+		//}
+		VehicleMove {speed = 1.7; angSpeed = 80;followTerrainSlope = 1}
+			]
+attributes = [
+		HealedByHERC 		
+	]
+	icon = icon_unit_Fkl03
+}
+
+UnitModel AntiAir_Fkl03
+{
+	parent		= BaseArtillery
+    //DefaultModel 	= China_antiair.nif
+	DefaultModel 	= PGZ04A.nif
+	DefaultState 	= Idle
+      ScaleType 	= kScaleVehicle
+      ForceScale = 0.185
+      States = [
+			{ StateName = Idle	AnimName = Fkl03_Idle.kf
+				TextKeys = [ { Name = STOP_SOUND Data = fx_battle_machgun KeyTime = 0 }
+				//{ Name = SHOW_NODE Data = ball01 	KeyTime = 0 } { Name = SHOW_NODE Data = ball02 	KeyTime = 0 }
+				]
+				 AnimVariants = [
+						Fkl03_Idle2.kf   Fkl03_Idle3.kf ]
+                              AnimVariantsWeights = [ 0.1 0.1 ]
+				 }
+			    {   StateName = UnpackedIdle  AnimName = Fkl03_Attack.kf  
+				TextKeys = [ { Name = STOP_SOUND Data = fx_battle_machgun KeyTime = 0 }
+								//{ Name = SHOW_NODE Data = ball01 KeyTime = 0 } { Name = SHOW_NODE Data = ball02 KeyTime = 0 } 
+								]}
+            { StateName = Walk	AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0}
+				{ Name = STOP_SOUND Data = fx_battle_machgun KeyTime = 0 }
+				//{ Name = SHOW_NODE Data = ball01 	KeyTime = 0 } { Name = SHOW_NODE Data = ball02 	KeyTime = 0 }
+					   ]
+				}
+			   {	StateName = UnpackedWalk  AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [
+							//	{ Name = SHOW_NODE Data = ball01 	KeyTime = 0 }  { Name = SHOW_NODE Data = ball02 	KeyTime = 0 }
+				]}	
+			{ StateName= Attack1  AnimName = Hq61_upackIdle.kf
+				TextKeys = [ 
+					     { Name = PLAY_SOUND  Data = fx_battle_machgun KeyTime = 0 }
+					   ] 
+				}	
+            {	StateName = Pack	AnimName = Hq61_pack.kf
+				TextKeys = [
+								//{ Name = SHOW_NODE Data = ball01 KeyTime = 0 } { Name = SHOW_NODE Data = ball02 KeyTime = 0 }
+								]}
+				
+			{	StateName = unPack	AnimName = Hq61_upack.kf    
+				TextKeys = [  
+								//{ Name = SHOW_NODE Data = ball01 KeyTime = 0 } { Name = SHOW_NODE Data = ball02 KeyTime = 0 }
+								]}	
+			{ StateName= Death	AnimName = LLM13_rpgstriker_death.kf 
+				}
+		]
+UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.62
+		zOffset = 0.74
+		scale = 1.92
+		angle = 45.00
+	}
+
+	ChildNames 		= [  TheHealthBar SelectCircleMedium FX_ExaustSmoke1 FX_ExaustSmoke2 TankTracks DustHeavyMonted  ExplSelectorTank01 TradeCart11_FlyingParts LargeGlow  NetFireLauncherShadow Muzzle_Fkl03 ] //Muzzle_Silo
+}
+UnitType Hongjian10
+{
+	parent = Artillery
+	properties {
+		rps = LightArtillery
+		SizeX = 0.8
+		SizeY = 0.6
+		mass = 1
+		popCount = 2
+		displayName = tx_utn_Hongjian10_name
+		VerboseTooltip = vtt_unit_Hongjian10
+		HitPoints = 3700
+	}
+	sounds = {
+		sndSelection = ["v_tank_select_chn01" 
+				"v_tank_select_chn02"
+				"v_tank_select_chn04"
+		]
+		sndCmdMove = ["v_tank_move_chn01" 
+	      		      "v_tank_move_chn02"
+			      "v_tank_move_chn03"
+			      "v_tank_move_chn04"
+		]
+		sndCmdAttack = ["v_tank_attack_chn01"
+				"v_tank_attack_chn02"
+				"v_tank_attack_chn03"
+				"v_tank_attack_chn04"
+				"v_tank_attack_chn05"
+		]
+		sndDeath =  ["v_tank_death_chn01"]
+	}
+	abilities = [
+		Attack { damage = 420; range = 16; reloadTime = 3; applyDamageTime = 0.5; missileName = "AntankMissile"; areaDamageRadius =1.0; turretControllerName = Coast13Turret; throwUnits = true} 
+		VehicleMove {speed = 1.1; angSpeed = 50; followTerrainSlope = 1 }
+		LOS { range = 18 }
+		Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
+	]
+	icon = icon_unit_Hongjian10
+}
+// Move Ability Upgrade
+UpgradeAbilities Hongjian10Epoch12Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.6; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+// Move Ability Upgrade
+UpgradeAbilities Hongjian10Epoch13Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.7; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+// Move Ability Upgrade
+UpgradeAbilities Hongjian10Epoch14Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.8; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
+
+UnitModel Hongjian10_11
+{
+	Parent		= BaseArtillery
+    DefaultModel 	= German77mm4.nif
+	ChildNames 	= [ Muzzle_FiringShell ArtilleryTracks TheSiegeUnitDamageEffect ]
+	States 		= [
+		{	StateName = Idle	AnimName = LLA11_FieldArtillery_idle01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+		{   	StateName = UnpackedIdle  AnimName = LLA11_FieldArtillery_unpackidle01.kf 
+                                                                 TextKeys = [
+								{ Name = SHOW_NODE Data = boom KeyTime = 0 }
+				]}
+                                { 	StateName = Walk	AnimName = LLA11_FieldArtillery_walk01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+		{	StateName = UnpackedWalk  AnimName = LLA11_FieldArtillery_unpackwalk01.kf 
+                                                                 TextKeys = [
+								{ Name = SHOW_NODE Data = boom KeyTime = 0 }
+				]}
+                { 	StateName = Attack1	AnimName = LLA11_FieldArtillery_attack01.kf
+				TextKeys = [ { Name = PLAY_SOUND Data = Cannon_firing1 KeyTime = 1.5 }
+                                                                                     { Name = SHOW_NODE Data = boom KeyTime = 0 }
+                                                                                     { Name = HIDE_NODE Data = boom KeyTime = 0.5 } 
+                                                                                     { Name = SHOW_NODE Data = boom KeyTime = 1.6}
+                                                                                   ] }
+		{	StateName = Pack	AnimName = LLA11_FieldArtillery_pack01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+		{	StateName = Unpack	AnimName = LLA11_FieldArtillery_unpack01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+                                { Name = SHOW_NODE Data = boom KeyTime = 0.3 }
+				]}
+		{ 	StateName = Death	AnimName = LLA11_FieldArtillery_unpackdeath01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+                	{   	StateName = PackedDeath AnimName = LLA11_FieldArtillery_death01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}  
+
+			]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 1.05
+		yOffset = 0.34
+		zOffset = 0.13
+		scale = 1.79
+		angle = 28.42
+	}
+}
+UnitModel Hongjian10_12
+{
+	Parent		= BaseArtillery
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= ZiS30China.nif
+	ForceScale      = 0.123
+	DefaultState 	= Idle
+	States = [
+			{ StateName="Idle"	AnimName = LLM15_Disruptor_idle.KF
+				}						
+			{ StateName="Walk" 	AnimName = LLM15_Disruptor_walk.KF
+				TextKeys = [ 
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = Tank_moving2 KeyTime = 0}
+					   ] 
+			}
+			{ StateName="Attack1"	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = Tank_firing1 KeyTime = 0.5 }
+					   ] }
+			{ 	StateName = "Pack"	AnimName = LLM15_Disruptor_pack.KF     }
+			{ 	StateName = "Unpack"	AnimName = LLM15_Disruptor_unpack.KF   }
+			{ StateName="Death" 	AnimName = LLM15_Disruptor_idle.KF}
+		]
+	ChildNames 		= [ TheHealthBar FX_ExaustSmoke SelectCircleMedium MediumGlow ExplSelectorTank01 
+						DisruptorTank_FlyingParts TankTracks Muzzle_FiringShell DisruptorTankShadow expl_tank_Tandrill
+						HemisphereLighting_Unit DynamicLighting_Unit DustHeavyMonted 
+					  ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.62
+		zOffset = 0.74
+		scale = 1.92
+		angle = 45.00
+	}
+}
+UnitModel Hongjian10_13
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= ZDF89.nif
+	ForceScale      = 0.108
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.kf   }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_rpg_launch KeyTime = 0 }
+					   ] 
+				}
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}				
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks DustHeavyMonted ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitModel Hongjian10_14
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= Hongjian10.nif
+	ForceScale      = 0.11
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.kf   }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_rpg_launch KeyTime = 0 }
+					   ] 
+				}
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}				
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks DustHeavyMonted ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitModel Hongjian10_15
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= Hongjian10.nif
+	ForceScale      = 0.11
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.kf   }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_rpg_launch KeyTime = 0 }
+					   ] 
+				}
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}				
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks DustHeavyMonted ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+//////////////////////////////////
+// 中国自行火炮
+//////////////////////////////////
+UnitType Plz45
+{
+	parent = Artillery
+	properties {
+		moveType = WheeledTrade
+		rps = HeavyArtillery
+		SizeX = 1.0
+		SizeY = 0.7
+		mass = 3
+		popCount = 3
+		DisplayName = tx_utn_Plz45_pname
+		VerboseTooltip = vtt_unit_Plz45_155mm
+		HitPoints = 2000
+	}
+	sounds = {
+		sndSelection = ["v_artillery_select_chn" 
+				"v_artillery_select_chn01"
+				"v_artillery_select_chn02"
+				"v_artillery_select_chn03"
+		]
+		sndCmdMove = ["v_artillery_move_chn01" 
+	      		      "v_artillery_move_chn02"
+			      "v_artillery_move_chn03"
+			      "v_artillery_move_chn04"
+		]
+		sndCmdAttack = ["v_artillery_attack_chn01"
+				"v_artillery_attack_chn02"
+				"v_artillery_attack_chn03"
+				"v_artillery_attack_chn04"
+		]
+		sndDeath =  ["v_cmon_unit_death_chn"]
+	}
+	abilities = [
+	    Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+        Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
+		LOS { range = 20 }
+		VehicleMove {speed = 0.8; angSpeed = 50; followTerrainSlope = 1 ; mustMoveToTurn = 0}
+	]
+	Attributes = [ 
+		HealedByMedic
+	]
+	icon = icon_unit_Plz45
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities Plz45Epoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 350; range = 16; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB"; ignoreBlocking = 1;minRangeMobile = 13; minRangeImmobile = 13;  areaDamageRadius = 2.5; areaDamageFriendlyRatio = 0.5;packTime = 1.5; unpackTime = 1.0; throwUnits = true }
+	]
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities Plz45Epoch12Attack
+{
+	upgradedAbilities = [
+		Attack { range = 16; reloadTime = 10;  applyDamageTime = 0.5; damage = 300; missileName = "TankShellB";ignoreBlocking = 1; minRangeMobile = 14; minRangeImmobile = 14; areaDamageRadius = 2.5}
+	]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities Plz45Epoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 15; minRangeImmobile = 15; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities Plz45Epoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 16; minRangeImmobile = 16; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities Plz45Epoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 17; minRangeImmobile = 17; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+UnitModel Plz45_11
+{
+	Parent		= BaseArtillery
+	DefaultModel 	=howitzerfr2.nif
+	ChildNames 	= [ Muzzle_FiringShell ArtilleryTracks TheSiegeUnitDamageEffect ]
+	States 		= [
+		{	StateName = Idle	AnimName = LLA11_FieldArtillery_idle01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+		{   	StateName = UnpackedIdle  AnimName = LLA11_FieldArtillery_unpackidle01.kf 
+                                                                 TextKeys = [
+								{ Name = SHOW_NODE Data = boom KeyTime = 0 }
+				]}
+                                { 	StateName = Walk	AnimName = LLA11_FieldArtillery_walk01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+		{	StateName = UnpackedWalk  AnimName = LLA11_FieldArtillery_unpackwalk01.kf 
+                                                                 TextKeys = [
+								{ Name = SHOW_NODE Data = boom KeyTime = 0 }
+				]}
+                { 	StateName = Attack1	AnimName = LLA11_FieldArtillery_attack01.kf
+				TextKeys = [ { Name = PLAY_SOUND Data = Cannon_firing1 KeyTime = 0.5 }
+                                                                                     { Name = SHOW_NODE Data = boom KeyTime = 0 }
+                                                                                     { Name = HIDE_NODE Data = boom KeyTime = 0.5 } 
+                                                                                     { Name = SHOW_NODE Data = boom KeyTime = 1.6}
+                                                                                   ] }
+		{	StateName = Pack	AnimName = LLA11_FieldArtillery_pack01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+		{	StateName = Unpack	AnimName = LLA11_FieldArtillery_unpack01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+                                { Name = SHOW_NODE Data = boom KeyTime = 0.3 }
+				]}
+		{ 	StateName = Death	AnimName = LLA11_FieldArtillery_unpackdeath01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+                	{   	StateName = PackedDeath AnimName = LLA11_FieldArtillery_death01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}  
+
+			]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 1.05
+		yOffset = 0.34
+		zOffset = 0.13
+		scale = 1.79
+		angle = 28.42
+	}
+}
+UnitModel Plz45_12
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= China_Grille.nif
+	ForceScale      = 0.120
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.kf   }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+
+			{ 	StateName = Attack1	  AnimName = PHL03_attack.KF
+				TextKeys = [ 
+				{ Name = PLAY_SOUND Data = Tank_firing1 KeyTime = 0.3 }
+			] 
+			}
+        { 	StateName = Pack	AnimName = PHL03_pack.KF   
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Unpack	AnimName = PHL03_unpack.kf //LLA13_mrls_unpack.KF 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{   	StateName = UnpackedIdle  AnimName = PHL03_upidle0.kf  }
+			{ StateName= Death 	AnimName = LLM12_tankdestroyer_death.kf}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks DustHeavyMonted ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitModel Plz45_13
+{
+	Parent		= BaseArtillery
+	ScaleType 	= kScaleVehicle
+	ForceScale      = 0.15
+      DefaultModel 	= type89Howitzer.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = LLA13_mrls_idle.KF
+			}
+		{ 	StateName = Walk	AnimName = LLA13_mrls_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_self_propelled}
+			]
+			}
+		{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf
+				TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+					    // { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+			] 
+			}
+        { 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Death	AnimName = LLA13_mrls_death.KF
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]
+			}
+		{   	StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+            {   	StateName = PackedDeath   AnimName = lla13_mrls_packdeath01.kf  }  
+		{	StateName = UnpackedWalk  AnimName = lla13_mrls_unpackwalk01.kf  }
+			]
+	ChildNames 		= [ TheHealthBar FX_ExaustSmoke1  FX_ExaustSmoke2 MRLSShadow SelectCircleMedium MediumGlow TankTracks Muzzle_Howitzer109
+						DustHeavyMonted expl_tank_Tandrill ExplSelectorTank01 MRLS_FlyingParts Muzzle_FiringShell]//
+	UIRenderingParams {
+		xOffset = 1.84
+		yOffset = 0.91
+		zOffset = -0.65
+		scale = 1.53
+		angle = 47.37
+	}
+}
+UnitModel Plz45_14
+{
+	Parent		= BaseArtillery
+	ScaleType 	= kScaleVehicle
+	ForceScale      = 0.15
+	DefaultModel 	= Plz45.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = LLA13_mrls_idle.KF
+			}
+		{ 	StateName = Walk	AnimName = LLA13_mrls_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_self_propelled}
+			]
+			}
+		{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf
+				TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+					    // { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+			] 
+			}
+        { 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Death	AnimName = LLA13_mrls_death.KF
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]
+			}
+		{   	StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+            {   	StateName = PackedDeath   AnimName = lla13_mrls_packdeath01.kf  }  
+		{	StateName = UnpackedWalk  AnimName = lla13_mrls_unpackwalk01.kf  }
+			]
+	ChildNames 		= [ TheHealthBar FX_ExaustSmoke1  FX_ExaustSmoke2 MRLSShadow SelectCircleMedium MediumGlow TankTracks Muzzle_Howitzer109
+						DustHeavyMonted expl_tank_Tandrill ExplSelectorTank01 MRLS_FlyingParts Muzzle_FiringShell]//
+	UIRenderingParams {
+		xOffset = 1.84
+		yOffset = 0.91
+		zOffset = -0.65
+		scale = 1.53
+		angle = 47.37
+	}
+}
+UnitModel Plz45_15
+{
+	Parent		= BaseArtillery
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= Baihu.NIF
+	DefaultState 	= Idle
+	ForceScale      = 0.12
+	States = [
+		{ StateName= Idle AnimName = LLA13_mrls_idle.KF }
+		{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+		{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf
+				TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }] 
+			}
+        { 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Death	AnimName = LLA13_mrls_death.KF
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]
+			}
+		{   StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+        {  	StateName = PackedDeath   AnimName = lla13_mrls_packdeath01.kf  }  
+		{	StateName = UnpackedWalk  AnimName = lla13_mrls_unpackwalk01.kf  }
+		]
+		ChildNames 		= [ TheHealthBar FX_ExaustSmoke1  FX_ExaustSmoke2 MRLSShadow SelectCircleMedium MediumGlow TankTracks Muzzle_Howitzer109
+						DustHeavyMonted expl_tank_Tandrill ExplSelectorTank01 MRLS_FlyingParts Muzzle_FiringShell]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitType DF17
+{
+	parent = Artillery	
+	properties {
+		rps = LightArtillery
+		SizeX = 1.5
+		SizeY = 0.8
+		mass = 1
+		popCount = 4
+		stance = HoldFire		
+		DisplayName = tx_utn_DF17_pname
+		VerboseTooltip = vtt_unit_DF17
+		HitPoints = 2000
+	}
+	sounds = {
+	}
+	abilities = [
+	 AreaEffect {
+			effects = [ 
+				RocketLaunchingTBMFix1
+			]
+		}
+		Attack { damage = 5000; range = 110; reloadTime = 15; angularRange = 360; applyDamageTime = 0.1; missileName = "DF17Missiles"; ignoreBlocking = 1; areaDamageRadius = 5; minRangeMobile = 30; minRangeImmobile = 30; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; throwUnits = true}
+        Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
+		LOS { range = 13 }
+		VehicleMove {speed = 1.7; angSpeed = 60; followTerrainSlope = 1}
+	]
+		attributes = [
+			HealedByHERC 		
+		]
+		icon = icon_unit_DF17
+}
+UnitModel DF17
+{
+	parent		= BaseArtillery
+     DefaultModel 	= DF17.nif
+	DefaultState 	= Idle
+      ScaleType 	= kScaleVehicle
+      ForceScale = 0.23
+     States = [
+			{ StateName = Idle	AnimName = scudculd_Idle.kf
+				TextKeys = [ { Name = SHOW_NODE Data = ball 	KeyTime = 0 } { Name = SHOW_NODE Data = ball2 	KeyTime = 0 }] }
+			    {   StateName = UnpackedIdle  AnimName = scudculd_upackIdle.kf
+				TextKeys = [
+								{ Name = SHOW_NODE Data = ball KeyTime = 0 } { Name = SHOW_NODE Data = ball2 KeyTime = 0 } 
+				]}
+            { StateName = Walk	AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [ { Name = SHOW_NODE Data = ball 	KeyTime = 0 } { Name = SHOW_NODE Data = ball2 	KeyTime = 0 } { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_rpg_striker KeyTime = 0}
+					   ]
+				}
+			   {	StateName = UnpackedWalk  AnimName = lhm13_MainBattleTank_walk.KF
+				TextKeys = [
+								{ Name = SHOW_NODE Data = ball 	KeyTime = 0 }  { Name = SHOW_NODE Data = ball2 	KeyTime = 0 } 
+				]}	
+			{ StateName= Attack1	AnimName = scudculd_attack.kf
+				TextKeys = [ { Name = HIDE_NODE Data = ball	KeyTime = 0.3 }  { Name = SHOW_NODE Data = ball2 	KeyTime = 1.2} { Name = SHOW_NODE Data = ball 	KeyTime = 1.2}
+					     { Name = PLAY_SOUND Data = fx_battle_scud_01 KeyTime = 0.7 }
+					   ] 
+				}
+            {	StateName = Pack	AnimName = scudculd_pack.kf   
+				TextKeys = [
+								{ Name = SHOW_NODE Data = ball KeyTime = 0 } { Name = SHOW_NODE Data = ball2 KeyTime = 0 }  
+				]}
+				
+			{	StateName = unPack	AnimName = scudculd_upack.kf
+    			TextKeys = [  
+								{ Name = SHOW_NODE Data = ball KeyTime = 0 } { Name = SHOW_NODE Data = ball2 KeyTime = 0 } 
+				]}	
+			{ StateName= Death	AnimName = LLM13_rpgstriker_death.kf 
+				}
+		]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.62
+		zOffset = 0.74
+		scale = 1.92
+		angle = 45.00
+	}
+	ChildNames 		= [  TheHealthBar SelectCircleMedium  TankTracks DustHeavyMonted  ExplSelectorTank01 TradeCart11_FlyingParts Muzzle_Silo LargeGlow  NetFireLauncherShadow  ] 
+}
+
+//------------------------------------------------
+//	EPOCH 14 — China_T99A MBT
+//------------------------------------------------
+UpgradeAbilities China_T99AEpoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; turretControllerName = TankTurret; areaDamageRadius = 2.5; throwUnits = true }
+	]
+}
+
+UpgradeAbilities China_T99AEpoch14Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.8; angSpeed = 70; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}

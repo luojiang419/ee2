@@ -1,0 +1,522 @@
+//////////////////////////////////////////////////////////
+//														//
+// MesoAmericanCivs.ddf									//
+// civilization definitions for the MesoAmerican region	//
+//														//
+//////////////////////////////////////////////////////////
+
+
+////////////////////////
+// Inca
+
+Civilization Inca
+{
+	CityNames = [
+		tx_ms_cityname_Cuzco
+		tx_ms_cityname_MachuPichu
+		tx_ms_cityname_Llactapata
+		tx_ms_cityname_Choqequirau
+	]
+	
+	TerritoryNames = [
+		tx_terr_inca_0
+		tx_terr_inca_1
+		tx_terr_inca_2
+		tx_terr_inca_3
+	]
+	
+	PlayerNames = [
+		tx_player_Inca_0
+		tx_player_Inca_1
+		tx_player_Inca_2
+		tx_player_Inca_3
+		tx_player_Inca_4
+		tx_player_Inca_5
+		tx_player_Inca_6
+		tx_player_Inca_7
+		tx_player_Inca_8
+	]
+	
+	LeaderNames = [
+		  { Name = tx_leader_Inca_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		  { Name = tx_leader_Inca_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		  { Name = tx_leader_Inca_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitInca1
+		UniqueUnitInca2
+		UniqueUnitInca3
+	]
+	
+	CivAttributes = [
+		CivAtt_SpecRes_Cost
+		CivAtt_LInf_Health
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// Aztec
+
+Civilization Aztec
+{
+	CityNames = [
+		tx_ms_cityname_Azcapotzalco
+		tx_ms_cityname_Chalcatzingo
+		tx_ms_cityname_Cholula
+		tx_ms_cityname_Cuicuilco
+		tx_ms_cityname_Tula
+		tx_ms_cityname_Veracruz
+		tx_ms_cityname_Tenochtitlan
+		tx_ms_cityname_Puebla
+		tx_ms_cityname_Tlaxcala
+		tx_ms_cityname_Tepexpan
+		tx_ms_cityname_Tlapacoya
+		tx_ms_cityname_Tlatelolco
+		tx_ms_cityname_Tlacopan
+		tx_ms_cityname_Tlatilco
+		tx_ms_cityname_Valsequillo
+	]
+	
+	TerritoryNames = [
+		tx_terr_aztec_0
+		tx_terr_aztec_1
+		tx_terr_aztec_2
+		tx_terr_aztec_3
+		tx_terr_aztec_4
+		tx_terr_aztec_5
+		tx_terr_aztec_6
+		tx_terr_aztec_7
+		tx_terr_aztec_8
+		tx_terr_aztec_9
+		tx_terr_aztec_10
+		tx_terr_aztec_11
+		tx_terr_aztec_12
+		tx_terr_aztec_13
+		tx_terr_aztec_14
+		tx_terr_aztec_15
+		tx_terr_aztec_16
+		tx_terr_aztec_17
+		tx_terr_aztec_18
+		tx_terr_aztec_19
+		tx_terr_aztec_20
+		tx_terr_aztec_21
+		tx_terr_aztec_22
+		tx_terr_aztec_23
+		tx_terr_aztec_24
+		tx_terr_aztec_25
+		tx_terr_aztec_26
+		tx_terr_aztec_27
+		tx_terr_aztec_28
+		tx_terr_aztec_29
+		tx_terr_aztec_30
+		tx_terr_aztec_31
+		tx_terr_aztec_32
+		tx_terr_aztec_33
+		tx_terr_aztec_34
+		tx_terr_aztec_35
+		tx_terr_aztec_36
+	]
+	
+	PlayerNames = [
+		tx_player_Aztec_0
+		tx_player_Aztec_1
+		tx_player_Aztec_2
+		tx_player_Aztec_3
+		tx_player_Aztec_4
+		tx_player_Aztec_5
+		tx_player_Aztec_6
+		tx_player_Aztec_7
+		tx_player_Aztec_8
+	]
+	
+	LeaderNames = [
+		  { Name = tx_leader_Aztec_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		  { Name = tx_leader_Aztec_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		  { Name = tx_leader_Aztec_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitAztec1
+		UniqueUnitAztec2
+		UniqueUnitAztec3
+	]
+	
+	CivAttributes = [
+		CivAtt_LArt_Dmg
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// Mayan
+
+Civilization Mayan
+{
+	CityNames = [
+		tx_ms_cityname_ChichenItza
+		tx_ms_cityname_Copan
+		tx_ms_cityname_Kabah
+		tx_ms_cityname_Labna
+		tx_ms_cityname_Palenque
+		tx_ms_cityname_Sayil
+		tx_ms_cityname_Tikal
+		tx_ms_cityname_Tulum
+		tx_ms_cityname_Uxmal
+	]
+	
+	TerritoryNames = [
+		tx_terr_mayan_0
+		tx_terr_mayan_1
+		tx_terr_mayan_2
+		tx_terr_mayan_3
+		tx_terr_mayan_4
+		tx_terr_mayan_5
+		tx_terr_mayan_6
+	]
+	
+	PlayerNames = [
+		tx_player_Mayan_0
+		tx_player_Mayan_1
+		tx_player_Mayan_2
+		tx_player_Mayan_3
+		tx_player_Mayan_4
+		tx_player_Mayan_5
+		tx_player_Mayan_6
+		tx_player_Mayan_7
+		tx_player_Mayan_8
+	]
+	
+	LeaderNames = [
+		  { Name = tx_leader_Mayan_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		  { Name = tx_leader_Mayan_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		  { Name = tx_leader_Mayan_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitMayan1
+		UniqueUnitMayan2
+		UniqueUnitMayan3
+	]
+	
+	CivAttributes = [
+		CivAtt_PriestSpy_Recharge
+		CivAtt_PriestSpy_Health
+	]
+	
+AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}

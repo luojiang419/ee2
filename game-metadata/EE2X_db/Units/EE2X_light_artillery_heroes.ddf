@@ -1,0 +1,291 @@
+//------------------------------------------------------------------------------------------------
+//	LIGHT ARTILLERY 1 HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightArtillery1Hero
+{
+	parent = LightArtillery1
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	properties {
+		SizeX = 1.0
+		SizeY = 1.0
+	}
+	abilities = [
+		Hero { HeroClass = LightArtillery; HeroForUnit = LightArtillery1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery1HeroEp1Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 1.31; missileName = "RockAmmo" packTime = 1; unpackTime = 1; minRangeMobile = 0.5; minRangeImmobile = 0.5; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery1HeroEp3Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 2.45; missileName = "Arrow"; packTime = 3.0; unpackTime = 3.0; minRangeMobile = 0.5; minRangeImmobile = 0.5; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery1HeroEp5Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.07; missileName = "BallistaAmmo"; minRangeMobile = 0.5; minRangeImmobile = 0.5; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery1HeroEp7Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.29; missileName = "CannonBall03"; minRangeMobile = 0.5; minRangeImmobile = 0.5; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery1HeroEp9Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.29; missileName = "CannonBall03"; minRangeMobile = 0.5; minRangeImmobile = 0.5; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery1HeroEp11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 1.5; packTime = 1.5; unpackTime = 1.5; missileName = "TankShell03"; minRangeMobile = 0.5; minRangeImmobile = 0.5; areaDamageRadius = 0.5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery1HeroEp12Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5;  missileName = "TankShell";  areaDamageRadius = 1; throwUnits = true }
+		VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1 }
+	]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery1HeroEp13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 18; reloadTime = 666; applyDamageTime = 0.5; missileName = "AntankMissile";areaDamageRadius = 1.0; turretControllerName = Coast13Turret;throwUnits = true}
+		VehicleMove {speed = 2.0; angSpeed = 60;}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery1HeroEp15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 18; reloadTime = 666; applyDamageTime = 0.5; missileName = "AntankMissile";  areaDamageRadius = 1.0;turretControllerName = Coast13Turret;throwUnits = true}
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT ARTILLERY 1 HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+UnitModel LightArtillery1Hero_01
+{
+	Parent		= LightArtillery1_01
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+UnitModel LightArtillery1Hero_03
+{
+	Parent		= LightArtillery1_03
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel LightArtillery1Hero_05
+{
+	Parent		= LightArtillery1_05
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+UnitModel LightArtillery1Hero_07
+{
+	Parent		= LightArtillery1_07
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+UnitModel LightArtillery1Hero_09
+{
+	Parent		= LightArtillery1_09
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel LightArtillery1Hero_11
+{
+	Parent		= LightArtillery1_11
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+UnitModel LightArtillery1Hero_12
+{
+	Parent		= LightArtillery1_12
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel LightArtillery1Hero_13
+{
+	Parent		= LightArtillery1_13
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel LightArtillery1Hero_15
+{
+	Parent		= LightArtillery1_15
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT ARTILLERY 2 HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightArtillery2Hero
+{
+	parent = LightArtillery2
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	properties {
+		SizeX = 0.63
+		SizeY = 0.63
+	}
+	abilities = [
+		Hero { HeroClass = LightArtillery; HeroForUnit = LightArtillery2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery2HeroEp11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; turretControllerName = TankTurret; }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery2HeroEp13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "GuidedMissile"; turretControllerName = TankTurret; }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightArtillery2HeroEp15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "GuidedMissile"; turretControllerName = TankTurret; }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT ARTILLERY 2 HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel LightArtillery2Hero_11
+{
+	Parent		= LightArtillery2_11
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel LightArtillery2Hero_13
+{
+	Parent		= LightArtillery2_13
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel LightArtillery2Hero_15
+{
+	Parent		= LightArtillery2_15
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

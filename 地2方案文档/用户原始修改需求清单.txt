@@ -1,0 +1,19 @@
+For WarGalley in epoch 1, please propose a balanced setting for price, time and combats, such that: WarGalley is strong agaist LightInfantry but weak against LightArtillery1, given the same resources. 
+
+Please increase the veteran and elite upgrade costs for LightInfantry, HeavyInfantry1, LightArtillery1 to 300% in epoch1. 
+
+Please set LightInfantry speed of move in epoch1 to 1.5
+
+
+Set: Economic1_1 cost wood 800 stone 500, it reduce city center Building time by 15%. Economic1_2, cost food 1000, wood 500, it increase cityzen gather rate by 20%; Economic1_3 cost wood 800; Economic1_4 cost food 1000;
+
+
+Please set: Imperial1_1 cost wood 600 stone 400, it increas CityCenter HP by 20%. Imperial1_3 cost wood 500, tin 500; Imperial1_4 cost no resource, but 24 tech points. 
+
+
+Please set Military1_1: resource cost only food 800, it increase cityzen hp by 30%; Military1_2 cost only stone 800, and it increase capture resistence by 20%; Military1_3 cost only wood 800; Military1_4 cost only tin 800; Keep the tech cost unchanged for above. 
+
+please set Citycenter garrison bonus to 2.5% per citizen
+
+
+Please set the numbe of  resource points for Territory to 200%, since we have limited the value of each single resource point. 

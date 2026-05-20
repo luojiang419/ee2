@@ -1,0 +1,187 @@
+﻿// NAME,TEXT
+tx_fe_misc_donotuse,""""""
+
+tx_fe_mp_gamename_custom,"""%s的游戏"""
+tx_fe_mp_gamename_default,"""多人连线游戏"""
+tx_fe_mp_hostname,"""%s（游戏建立者）"""
+tx_fe_mp_teamname,"""%s的队伍"""
+
+// default player names
+tx_fe_playername_1,"""玩家1"""
+tx_fe_playername_2,"""玩家2"""
+tx_fe_playername_3,"""玩家3"""
+tx_fe_playername_4,"""玩家4"""
+tx_fe_playername_5,"""玩家5"""
+tx_fe_playername_6,"""玩家6"""
+tx_fe_playername_7,"""玩家7"""
+tx_fe_playername_8,"""玩家8"""
+tx_fe_playername_9,"""玩家9"""
+tx_fe_playername_10,"""玩家10"""
+
+// default computer player names
+tx_fe_mp_playername_computer,"""电脑玩家%d"""
+tx_fe_playername_computer_1,"""电脑玩家1"""
+tx_fe_playername_computer_2,"""玩家2"""
+tx_fe_playername_computer_3,"""玩家3"""
+tx_fe_playername_computer_4,"""玩家4"""
+tx_fe_playername_computer_5,"""玩家5"""
+tx_fe_playername_computer_6,"""电脑玩家6"""
+tx_fe_playername_computer_7,"""电脑玩家7"""
+tx_fe_playername_computer_8,"""电脑玩家8"""
+tx_fe_playername_computer_9,"""电脑玩家9"""
+tx_fe_playername_computer_10,"""电脑玩家10"""
+
+// map sizes
+tx_mapsize_forEnum,"""%SIZE%"""
+//tx_mapsize_forEnum,"""%SIZE% (%WIDTH%x%HEIGHT%)"""
+tx_mapsize_tiny,"""微小"""
+tx_mapsize_small,"""小"""
+tx_mapsize_medium,"""中"""
+tx_mapsize_large,"""大"""
+tx_mapsize_huge,"""庞大"""
+tx_mapsize_gigantic,"""巨大"""
+
+
+// GAME INFO CHANGE MESSAGES
+
+// vcond
+tx_fe_chng_vc,"""<color red>游戏种类改成%VALUE%</color>\n"""
+tx_fe_chng_vc_soleSurv_on,"""<color red>唯一生还者启用</color>\n"""
+tx_fe_chng_vc_soleSurv_off,"""<color red>唯一生还者关闭</color>\n"""
+tx_fe_chng_vc_CrownsTime,"""<color red>桂冠时间改成%VALUE%分钟</color>\n"""
+tx_fe_chng_vc_Capitols,"""<color red>首都时间改成%VALUE%分钟</color>\n"""
+tx_fe_chng_vc_AlliedCapitols,"""<color red>盟国首都时间改成%VALUE%分钟</color>\n"""
+tx_fe_chng_vc_KingOfTheHill,"""<color red>山丘之王模式的时间改成%VALUE%分钟</color>\n"""
+tx_fe_chng_vc_CrownsNumber,"""<color red>所需的桂冠数量改成%VALUE%</color>\n"""
+tx_fe_chng_vc_HotSpots,"""<color red>据点的数量改成%VALUE%</color>\n"""
+tx_fe_chng_vc_TerritoryControl,"""<color red>所需要的地区改成%VALUE%\\\\%</color>\n"""
+
+// player settings
+tx_fe_chng_player_type,"""<color red>%PLAYER%的种类改成%VALUE%</color>\n"""
+tx_fe_chng_player_difficulty,"""<color red>%PLAYER%的困难度改成%VALUE%</color>\n"""
+tx_fe_chng_player_team,"""<color red>%PLAYER%的队伍改成%VALUE%</color>\n"""
+tx_fe_chng_player_civ,"""<color red>%PLAYER%的文明改成%VALUE%</color>\n"""
+tx_fe_chng_player_civ_qs,"""<color red>文明的变化可能会导致启始势力的变化</color>\n"""
+tx_fe_chng_player_color,"""<color red>%PLAYER%的颜色改成%VALUE%</color>\n"""
+tx_fe_chng_player_epoch,"""<color red>%PLAYER%的开始时代改成%VALUE%</color>\n"""
+tx_fe_chng_player_epoch_qs,"""<color red>纪元变更可能会导致启始势力的变更</color>\n"""
+tx_fe_chng_player_handicap,"""<color red>%PLAYER%的让分改成%VALUE%</color>\n"""
+
+// game settings
+tx_fe_chng_game_speed,"""<color red>游戏速度改成%VALUE%</color>\n"""
+tx_fe_chng_game_lockSpeed,"""<color red>游戏速度锁定</color>\n"""
+tx_fe_chng_game_unlockSpeed,"""<color red>地图速度解除锁定</color>\n"""
+tx_fe_chng_game_enCheats,"""<color red>密技开启</color>\n"""
+tx_fe_chng_game_disCheats,"""<color red>密技关闭</color>\n"""
+tx_fe_chng_game_enCeaseFire,"""<color red>启始停火开启</color>\n"""
+tx_fe_chng_game_disCeaseFire,"""<color red>启始停火关闭</color>\n"""
+tx_fe_chng_game_ceaseFireTime,"""<color red>启始停火时间设定为%VALUE%</color>\n"""
+tx_fe_chng_game_maxPop,"""<color red>启始停火时间设定为%VALUE%</color>\n"""
+tx_fe_chng_game_popRedist_on,"""<color red>人口重新分配启用</color>\n"""
+tx_fe_chng_game_popRedist_off,"""<color red>人口重新分配关闭</color>\n"""
+tx_fe_chng_game_cityPopCap,"""<color red>每个城市中心所提供的人口容量更改为%VALUE%</color>\n"""
+tx_fe_chng_game_startEpoch,"""<color red>开始纪元改成%VALUE%</color>\n"""
+tx_fe_chng_game_endEpoch,"""<color red>结束纪元改成%VALUE%</color>\n"""
+tx_fe_chng_game_epoch_qs,"""<color red>纪元的变更可能会改变启始势力</color>\n"""
+tx_fe_chng_game_res,"""<color red>开始资源改成%VALUE%</color>\n"""
+tx_fe_chng_game_mapReveal,"""<color red>地图显示程度改成%VALUE%</color>\n"""
+tx_fe_chng_game_destroyPlyr,"""<color red>已离开玩家的模式改成%VALUE%</color>\n"""
+tx_fe_chng_game_destroyPlyrDiff,"""<color red>已离开玩家的人工智慧困难度改成%VALUE%</color>\n"""
+tx_fe_chng_game_unbTreatOn,"""<color red>条约改成无法撕毁</color>\n"""
+tx_fe_chng_game_unbTreatOff,"""<color red>条约改成能够撕毁</color>\n"""
+tx_fe_chng_game_lockTeamOn,"""<color red>锁定队伍启用</color>\n"""
+tx_fe_chng_game_lockTeamOff,"""<color red>锁定队伍关闭</color>\n"""
+tx_fe_chng_game_coopTeamOn,"""<color red>团队协作启用</color>\n"""
+tx_fe_chng_game_coopTeamOff,"""<color red>团队协作关闭</color>\n"""
+tx_fe_chng_game_teamPlaceOn,"""<color red>队伍配置启用</color>\n"""
+tx_fe_chng_game_teamPlaceOff,"""<color red>队伍配置关闭</color>\n"""
+tx_fe_chng_game_HcapLock,"""<color red>只有游戏建立者能改变让分设定</color>\n"""
+tx_fe_chng_game_HcapUnLock,"""<color red>任何人都可以改变让分设定</color>\n"""
+tx_fe_chng_tourn_mode,"""<color red>游戏节奏改成%VALUE%</color>\n"""
+tx_fe_chng_game_numCits,"""<color red>部份启始人民变更为 %VALUE%</color>\n"""
+tx_fe_chng_qstart_enable,"""<color red>启始势力变更为快速启动</color>\n"""
+tx_fe_chng_qstart_disable,"""<color red>启始势力变更为基本</color>\n"""
+tx_fe_chng_qstart_armySize,"""<color red>快速启动的军队规模改成%VALUE%</color>\n"""
+tx_fe_chng_qstart_armySize_2,"""<color red>快速启动的军队规模改成</color>\n"""
+
+// tournament mode settings
+tx_fe_chng_game_bldTimeProdMod,"""<color red>制造单位时的建造速度修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_bldTimeConMod,"""<color red>建造单位时的建造速度修正值更改为%VALUE%</color>\n"""
+tx_fe_chng_game_hitPointMod,"""<color red>生命值修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_resGatherMod,"""<color red>资源采集速度修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_buildCostMod,"""<color red>建造成本修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_epochUpMod,"""<color red>纪元进展成本修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_techGatherMod,"""<color red>科技点数产生速度修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_captResistMod,"""<color red>占领抵抗力修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_convResistMod,"""<color red>变节抵抗修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_techRsrchMod,"""<color red>科技研究时间修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_moveSpdMod,"""<color red>移动速度修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_damageMod,"""<color red>损害修正值改成%VALUE%</color>\n"""
+tx_fe_chng_game_immobileMod,"""<color red>无法移动的单位防御力修正值更改为%VALUE%</color>\n"""
+
+// map settings
+tx_fe_chng_map_size,"""<color red>地图规模改成%VALUE%</color>\n"""
+tx_fe_chng_map_climate,"""<color red>地图规模改成%VALUE%</color>\n"""
+tx_fe_chng_map_geography,"""<color red>地图的地理特性改成%VALUE%</color>\n"""
+tx_fe_chng_map_geo_qs,"""<color red>地图地理状况的变更可能会导致启始势力的变化</color>\n"""
+tx_fe_chng_map_rivers,"""<color red>地图河流高度改成%VALUE%</color>\n"""
+tx_fe_chng_map_elevation,"""<color red>地图地势改成%VALUE%</color>\n"""
+tx_fe_chng_map_forestation,"""<color red>地图造林改成%VALUE%</color>\n"""
+tx_fe_chng_map_reslayout,"""<color red>资源配置改成%VALUE%</color>\n"""
+tx_fe_chng_map_random,"""<color red>地图种类改成随机</color>\n"""
+tx_fe_chng_map_custom,"""<color red>地图种类改成自订</color>\n"""
+tx_fe_chng_map_filename,"""<color red>地图档名改成%VALUE%</color>\n"""
+
+// environment settings
+tx_fe_chng_env_enSeasons,"""<color red>季节变换开启</color>\n"""
+tx_fe_chng_env_disSeasons,"""<color red>季节变换开启</color>\n"""
+tx_fe_chng_env_enWeather,"""<color red>天气开启</color>\n"""
+tx_fe_chng_env_disWeather,"""<color red>天气关闭</color>\n"""
+tx_fe_chng_env_enWind,"""<color red>气流开启</color>\n"""
+tx_fe_chng_env_disWind,"""<color red>气流关闭</color>\n"""
+tx_fe_chng_env_minPerSeason,"""<color red>每季分钟数改成%VALUE%</color>\n"""
+tx_fe_chng_env_startSeason,"""<color red>开始季节改成%VALUE%</color>\n"""
+tx_fe_chng_env_timeOfDay,"""<color red>白昼时间改成%VALUE%</color>\n"""
+
+// named audio samples (settings screen)
+tx_audio_v_cit_f_ack_02_me,"""人民"""
+tx_audio_fx_thunder_crack,"""闪电"""
+tx_audio_fx_mortar_fire,"""迫击砲"""
+tx_audio_cannon_firing1,"""加侬砲"""
+tx_audio_Sword_medium,"""剑"""
+tx_audio_Laser_firing,"""激光"""
+tx_audio_fx_exp_01,"""爆炸"""
+
+// Miscellanoues
+tx_trunc_trailer,"""…"""
+
+tx_default_username,"""预设玩家"""
+
+
+// profanity filter masking chars
+tx_profanity_mask_chars,"""!@#$&*"""
+
+// profanity filter word-delimiting chars
+// (for those words which should only be filtered if they are not part
+// of a bigger word - like ASS)
+tx_profanity_word_delims,""" .!?,;:/|[]{}()@¡¿"""
+
+// @TEST these are just for testing
+//tx_profanity_nonascii_test1,"""tést"""
+//tx_profanity_nonascii_test2,"""Tést"""
+//tx_profanity_nonascii_test3,"""ÆÇÈçtéstÆ¶§¥"""
+//tx_profanity_nonascii_test4,"""ÆÇÈçtéstÆ¶§¥tést¥¥"""
+//tx_profanity_nonascii_test5,"""hönk"""
+//tx_profanity_nonascii_test6,"""§§§hönk§§§"""
+//tx_profanity_nonascii_test7,"""§§§ hönk§§§"""
+//tx_profanity_nonascii_test8,"""§§§hönk §§§"""
+//tx_profanity_nonascii_test9,"""§§§ hönk §§§"""
+//tx_profanity_nonascii_test10,"""§§§¿hönk¿§§§"""
+
+
+////////////////////////////////////////////////
+// DEMO URLs
+// @NOTE Percent (%) symbols should be escaped with two backslashes for URLs
+// @EXAMPLE "\\%"
+tx_fe_demo_url_ee2,"""http://store.vugames.com/product.asp?product\\%5Fid=645784"""
+tx_fe_demo_url_sierra,"""http://www.sierra.com"""

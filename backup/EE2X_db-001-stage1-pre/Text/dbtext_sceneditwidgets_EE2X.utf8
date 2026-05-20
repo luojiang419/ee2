@@ -1,0 +1,16 @@
+﻿// NAME,TEXT
+// Scenario editor tooltips,
+se_widgets_donotuse_EE2X,"""零式入口 - 不要使用"""
+
+// atmosphere panel additions
+tx_se_atmosphere_skycolor,"""Sky Color:"""
+tx_se_atmosphere_terrcolor,"""Terrain Intensity:"""
+tx_se_atmosphere_restore,"""Restore"""
+tx_se_atmosphere_save,"""Save Database"""
+
+// Mission properties dialog, Native Tribes Setup Dialog
+tx_se_native_title,"""原始部落设置:"""
+tx_se_native_name,"""名称"""
+tx_se_native_setname,"""部落 %d"""
+tx_se_native_tribe,"""部落名称"""
+tx_se_native_power,"""特殊能力"""

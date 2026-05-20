@@ -1,0 +1,360 @@
+﻿// NAME,TEXT
+msg_ingame_donotuse,"""零式入口－不要使用"""
+
+// Building Capture chat messages,
+// 'You have captured a <building type> from <player name>.',
+msg_ingame_capture_self,"""你已经从%PLAYER%手中攻下%BUILDING%。"""
+// <player name> has captured a <building type> from you.',
+msg_ingame_capture_other,"""%PLAYER%已经从你手中抢下%BUILDING%。"""
+
+// 'You have captured the hill from <player name>.',
+msg_ingame_capture_KOTH_self,"""您已经占领了%PLAYER%的山丘。"""
+// player captured hill from the world (first capture)
+msg_ingame_capture_KOTH_w_self,"""您已经占领了山丘。"""
+// <player name> has captured the hill from you.',
+msg_ingame_capture_KOTH_other,"""%PLAYER%已经占领了您的山丘。"""
+// '<player name> has captured the hill.' -- broadcast to all 3rd parties
+msg_ingame_capture_KOTH_others,"""%PLAYER%已经占领了山丘。"""
+
+
+//
+// special capture messages for [allied] capitols victory condition
+// these message names follow this format msg_ingame_<capturer>_capitol_<msg-reader>
+// where capturer and msg-reader are [self | ally | enemy]
+// notice that only as subset of combinations are necessary to keep players "adequately" up to date.
+//
+// ---- player captures own capitol from enemy ----
+msg_ingame_self_capitol_self,"""你已经从%ENEMY%手中夺回你的首都！"""
+msg_ingame_self_capitol_enemy,"""%PLAYER%从你手中夺回了他的首都！"""
+// ---- player captures ally's capitol from enemy ----
+msg_ingame_ally_capitol_self,"""你从%ENEMY%手中占领了一座首都，并且将它还给你的盟友%ALLY%！"""
+msg_ingame_ally_capitol_ally,"""%PLAYER%从%ENEMY%手中占领了一座首都，并且将它还给你！"""
+msg_ingame_ally_capitol_enemy,"""%PLAYER%从你手中占领了一座首都，并且将它还给了他的盟友%ALLY%！"""
+// ---- player captures enemy's capitol ----
+msg_ingame_enemy_capitol_self,"""你已经占领了%ENEMY%的首都！"""
+msg_ingame_enemy_capitol_enemy,"""%PLAYER%已经占领了你的首都！你有%MINUTES%分钟的时间可以将之夺回，否则便算失败！"""
+
+
+// 'We have seized valuable resources from <player name>.';
+msg_ingame_capture_loot_robber, """我们已经从%PLAYER%手中夺取了宝贵的资源。"""
+// 'One of our buildings has been captured and looted by <player name>.'
+msg_ingame_capture_loot_victim, """我们的一栋建筑物已经被%PLAYER%攻占，并掠夺一空。"""
+msg_ingame_capture_tech_robber,"""我们从%PLAYER%那里抢到了科技。"""
+// 'The enemy is capturing one of our buildings, loyalty there has faded to X%'
+msg_ingame_capture_progress, """敌人正在攻占我们的一栋%BUILDING%，忠诚度降为%LOYALTY%\\\\%"""
+msg_ingame_capture_KOTH_prog, """敌人从你手中夺走了山丘，忠诚度已经降为%LOYALTY%\\\\%"""
+
+// you are under attack messages,
+msg_ingame_under_attack,"""你正受到攻击！"""
+
+// you have been defeated message
+msg_ingame_you_defeated,"""你已经被消灭了！"""
+
+// player has been defeated message
+msg_ingame_player_defeated,"""%PLAYER%已经被消灭了！"""
+
+// autosave
+msg_ig_autosave_notify,"""自动储存中。"""
+msg_ig_mpsave_saving_msg,"""将游戏储存为%FILE%。"""
+//msg_ig_mpsave_title,"""Save Game"""
+//msg_ig_mpsave_overwrite_msg,"""Host is saving the game.  Would you also like to save the game?  If you do, it will overwrite a save file already present in your multiplayer save folder."""
+//msg_ig_mpsave_overwrite_msg,"""%PLAYER% has saved the game to %FILE%.  Would you also like to save the game?  This will overwrite a save file already present in your multi-player save folder."""
+//msg_ig_mpsave_nooverwrite_msg,"""Host is saving the game.  Would you also like to save the game?"""
+//msg_ig_mpsave_nooverwrite_msg,"""%PLAYER% has saved the game to %FILE%.  Would you also like to save the game?"""
+
+// sole-survivor messages
+
+// message for when there are only two un-allied players left in the game
+msg_ingame_sole_survivor_na,"""你和%PLAYER%是这场游戏的残存者。彻底摧毁%PLAYER%就可以取得胜利！"""
+
+// for maximal localization factor, we enumerate every number of allies that can be left in the game... ugh.
+// message for when there's 1 other allied player left in the game
+msg_ingame_sole_survivor1,"""你和%P1%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%就可以获得胜利！"""
+// message for when there's 2 other allied player left in the game
+msg_ingame_sole_survivor2,"""你、%P1%和%P2%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%and%P2%就可以取得胜利！"""
+msg_ingame_sole_survivor3,"""你、%P1%、%P2%和%P3%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%和%P3%就可以取得胜利！"""
+msg_ingame_sole_survivor4,"""你、%P1%、%P2%、%P3%和%P4%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%和%P4%就可以取得胜利！"""
+msg_ingame_sole_survivor5,"""你、%P1%、%P2%、%P3%、%P4%和%P5%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%和%P5%就可以取得胜利！"""
+msg_ingame_sole_survivor6,"""你、%P1%、%P2%、%P3%、%P4%、%P5%和%P6%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%和%P6%就可以取得胜利！"""
+msg_ingame_sole_survivor7,"""你、%P1%、%P2%、%P3%、%P4%、%P5%、%P6%和%P7%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%、%P6%和%P7%就可以取得胜利！"""
+msg_ingame_sole_survivor8,"""你、%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%和%P8%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%和%P8%就可以取得胜利！"""
+msg_ingame_sole_survivor9,"""你、%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%和%P9%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%和%P9%就可以取得胜利！"""
+msg_ingame_sole_survivor10,"""你、%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%和%P10%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%和%P10%就可以获得胜利！"""
+msg_ingame_sole_survivor11,"""你、%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%和%P11%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%和%P11%就可以取得胜利！"""
+msg_ingame_sole_survivor12,"""你、%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%、%P11%和%P12%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%、%P11%和%P12%就可以取得胜利！"""
+msg_ingame_sole_survivor13,"""你、%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%、%P11%、%P12%和%P13%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%、%P11%、%P12%和%P13%就可以取得胜利！"""
+msg_ingame_sole_survivor14,"""你、%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%、%P11%、%P12%、%P13%和%P14%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%、%P11%、%P12%、%P13%和%P14%就可以取得胜利！"""
+msg_ingame_sole_survivor15,"""你、%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%、%P11%、%P12%、%P13%、%P14%和%P15%是这场游戏最后的幸存者。你们之间的同盟将会在%N%秒后中止。彻底摧毁%P1%、%P2%、%P3%、%P4%、%P5%、%P6%、%P7%、%P8%、%P9%、%P10%、%P11%、%P12%、%P13%、%P14%和%P15%就可以取得胜利！"""
+
+msg_ingame_countdown,"""同盟在%TIME%秒内解除！"""
+
+// Immigration crown power messages,
+// '<n> immigrants have arrived in <city>.'
+msg_ingame_immigration,"""%NUMBER%个移民抵达了%CITY%。"""
+
+// AI surrender messages,
+// <computer name> wants to surrender to you.  Do you accept?,
+tx_ai_surrender_msg,"""想要对你投降。你接受吗？"""
+
+// tech-tree messages,
+msg_ig_techtree_rescomplete,"""完成%RESEARCH%的研发"""
+msg_ig_techtree_impcomplete,"""完成升级至%UPGRADENAME%%UNITNAME%"""
+msg_ig_techtree_resbegun,"""开始研发%RESEARCH%"""
+msg_ig_techtree_impbegun,"""开始升级至%UPGRADENAME%%UNITNAME%"""
+msg_ig_tt_rescantstart_nohost,"""因为没有%UNIT%的存在，所以无法开始研发%RESEARCH%"""
+msg_ig_tt_rescantstart_notech,"""你没有足够的科技点数，来研发%RESEARCH%"""
+msg_ig_tt_rescantstart_epAdv,"""仍在晋升至%EPOCHNAME%(第%EPOCHSYM%纪元)的过程中，无法开始研发%RESEARCH%"""
+msg_ig_tt_rescantstart_epAdvQ,"""晋升到%EPOCHNAME%(第%EPOCHSYM%纪元)的动作仍在等候中，无法开始研发%RESEARCH%"""
+msg_ig_tt_impcantstart_nores,"""你没有足够的资源来升级为%UPGRADENAME%%UNITNAME%"""
+msg_ig_tt_cantstart_nores,"""你没有足够的资源(%RESOURCELIST%)来生产%UNIT%"""
+msg_ig_tt_cantupgr_nores,"""你没有足够的资源（%RESOURCELIST%）升级成%UNIT%"""
+msg_ig_tt_cantupgr_terrlimit,"""由于地区的建造上限，你无法升级成%UNIT%。"""
+msg_ig_tt_cantstart_comma,"""，"""
+msg_ig_tt_cantstart_nomoney,"""没有足够的资源"""
+msg_ig_techtree_rescancelled,"""取消研发%RESEARCH%"""
+msg_ig_techtree_impcancelled,"""取消升级至%UPGRADENAME%%UNITNAME%"""
+msg_ig_techtree_advBegin,"""开始晋升至%EPOCHNAME% (第%EPOCHSYM%纪元)"""
+msg_ig_techtree_advCancel,"""取消晋升至%EPOCHNAME% (第%EPOCHSYM%纪元)"""
+msg_ig_techtree_advSelf,"""你已成功晋升至%EPOCHNAME% (第%EPOCHSYM%纪元)"""
+msg_ig_techtree_advOther,"""%PLAYER%已成功晋升至%EPOCHNAME% (第%EPOCHSYM%纪元)"""
+msg_ig_techtree_advSelf_final,"""你已成功晋升至%EPOCHNAME% (第%EPOCHSYM%纪元)，此纪元为此游戏中最终的纪元"""
+msg_ig_techtree_advOther_final,"""%PLAYER%已成功晋升至%EPOCHNAME% (第%EPOCHSYM%纪元)，此纪元为此游戏中最终的纪元"""
+msg_ig_techtree_canadvance,"""你已经有资格迈入%EPOCHNAME% (第%EPOCHSYM%纪元)"""
+msg_ig_techtree_breakthrough, """你达成了科技突破，并研发出%RESEARCH%"""
+
+//Wonder related Messages
+msg_ig_wonder_started,"""%PLAYER%已经开始建造%WONDER%"""
+msg_ig_wonder_created,"""%PLAYER%已经完成了%WONDER%的建造"""
+msg_ig_wonder_destroyed,"""%WONDER%已经被摧毁了！"""
+msg_ig_wonder_captured,"""%PLAYER%已经获得了%WONDER%的控制权"""
+
+
+// diplomacy messages,
+msg_ig_dip_proposal_to,"""成功的对%PLAYER%提出同盟提案"""
+msg_ig_dip_proposal_from,"""%PLAYER%已经提出同盟提案！"""
+msg_ig_dip_proposal_locked,"""无法与%PLAYER%结盟－外交状态锁定中。"""
+msg_ig_dip_proposal_to_allies,"""你已经与%PLAYER%结盟"""
+msg_ig_dip_proposal_to_exists,"""在送出这一份同盟提案之前，你得先处理掉前一份提议。"""
+msg_ig_dip_proposal_to_ret,"""撤回你送给%PLAYER%的同盟提案。"""
+msg_ig_dip_proposal_from_ret,"""%PLAYER%已经撤回了同盟提案。"""
+msg_ig_dip_proposal_expired,"""这个同盟提案已经过期了。"""
+msg_ig_dip_proposal_to_rej,"""%PLAYER%已经拒绝你的同盟提案！"""
+msg_ig_dip_proposal_from_rej,"""你已经断然拒绝%PLAYER%！"""
+msg_ig_dip_proposal_rej_exp,"""不论如何，同盟提案已经过期了。"""
+msg_ig_dip_proposal_to_acc,"""%PLAYER%已经接受你的同盟提案！"""
+msg_ig_dip_proposal_from_acc,"""你已经与%PLAYER%结盟！"""
+msg_ig_dip_tribute_failed,"""贡品无法更换。"""
+msg_ig_dip_proposal_to_counter,"""对%PLAYER%提出另一份提案。"""
+msg_ig_dip_prop_from_counter,"""%PLAYER%已经对你的同盟提案提出了另一个方案！"""
+msg_ig_dip_state_changed,"""%PLAYER%现在已经对你表示%STATE%！"""
+msg_ig_dip_state_locked,"""你的外交状况已经锁定－你无法这样做。"""
+msg_ig_dip_tribute_afford,"""你无法支付那样的贡品！"""
+msg_ig_dip_cf_already,"""你已经与%PLAYER%停火或结盟！"""
+msg_ig_dip_cf_succ_from,"""你已经对%PLAYER%提出停火提案。"""
+msg_ig_dip_cf_succ_to,"""%PLAYER%已经对你提出停火提案！"""
+msg_ig_dip_cf_retract_gone,"""你对%PLAYER%提出的停火提案已经被拒绝了。"""
+msg_ig_dip_cf_retract_from,"""你已经撤回了对%PLAYER%的停火提案。"""
+msg_ig_dip_cf_retract_to,"""%PLAYER%已经撤回了停火提案。"""
+msg_ig_dip_cf_reject_gone,"""从%PLAYER%送来的停火提案。已经被撤回了。"""
+msg_ig_dip_cf_reject_from,"""%PLAYER%拒绝了你的停火提案！"""
+msg_ig_dip_cf_reject_to,"""你拒绝了%PLAYER%提出的停火提案！"""
+msg_ig_dip_cf_acc_gone,"""从%PLAYER%送来的停火提案。已经被撤回了。"""
+msg_ig_dip_cf_acc_from,"""%PLAYER%已经接受了你的停火协议！"""
+msg_ig_dip_cf_acc_to,"""你与%PLAYER%已经进入了停火状态！"""
+msg_ig_dip_borderbad,"""由于违反了边界许可，与%PLAYER%的结盟已经取消了。你可以把特定单位移出其他玩家的领土，或是在提出结盟时把边界许可设为最大。"""
+msg_ig_dip_proposal_not_allowed,"""同盟提案在目前的状态下是不允许的。"""
+msg_ig_dip_lost_terr,"""你已经失去了你的最后一块地区，你已丧失了你的同盟协议。"""
+msg_ig_dip_ally_lost_terr,"""%PLAYER%不再拥有任何地区，所以你和他的同盟关系已经被取消了。"""
+msg_ig_dip_trib_hostile,"""贡献给对你有敌意的玩家，这是你想要的吗？"""
+
+// These work like so:  there are AMT and RES pairs, where AMT gets substituted with an amount and RES gets substituted
+// with the name of a resource.  so %AMT1% %RES1% will come out to something like "500 Gold".
+msg_ig_dip_tribute_sent1,"""你已经成功的把%AMT1%%RES1%的贡品送给%PLAYER%。"""
+msg_ig_dip_tribute_rcvd1,"""你已经从%PLAYER%手中收到%AMT1%%RES1%的贡品。"""
+msg_ig_dip_tribute_sent2,"""你已经成功的把%AMT1%%RES1%和%AMT2%%RES2%的贡品送给%PLAYER%。"""
+msg_ig_dip_tribute_rcvd2,"""你已经从%PLAYER%手中收到%AMT1%%RES1%和%AMT2%%RES2%的贡品。"""
+msg_ig_dip_tribute_sent3,"""你已经成功的把%AMT1%%RES1%，%AMT2%%RES2%和%AMT3%%RES3%的贡品送给%PLAYER%。"""
+msg_ig_dip_tribute_rcvd3,"""你已经从%PLAYER%手中收到%AMT1%%RES1%，%AMT2%%RES2%和%AMT3%%RES3%的贡品。"""
+msg_ig_dip_tribute_sent4,"""你已经成功的把%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%和%AMT4%%RES4%的贡品送给%PLAYER%。"""
+msg_ig_dip_tribute_rcvd4,"""你已经从%PLAYER%手中收到%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%和%AMT4%%RES4%的贡品。"""
+msg_ig_dip_tribute_sent5,"""你已经成功的把%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%，%AMT4%%RES4%和%AMT5%%RES5%的贡品送给／%PLAYER%。"""
+msg_ig_dip_tribute_rcvd5,"""你已经从%PLAYER%手中收到%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%，%AMT4%%RES4%和%AMT5%%RES5%的贡品。"""
+msg_ig_dip_tribute_sent6,"""你已经成功的把%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%，%AMT4%%RES4%，%AMT5%%RES5%和%AMT6%%RES6%的贡品送给%PLAYER%。"""
+msg_ig_dip_tribute_rcvd6,"""你已经从%PLAYER%手中收到%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%，%AMT4%%RES4%，%AMT5%%RES5%和%AMT6%%RES6%的贡品。"""
+msg_ig_dip_tribute_sent7,"""你已经成功的把%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%，%AMT4%%RES4%，%AMT5%%RES5%，%AMT6%%RES6%和%AMT7%%RES7%的贡品送给%PLAYER%。"""
+msg_ig_dip_tribute_rcvd7,"""你已经从%PLAYER%手中收到%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%，%AMT4%%RES4%，%AMT5%%RES5%，%AMT6%%RES6%和%AMT7%%RES7%的贡品。"""
+msg_ig_dip_tribute_sent8,"""你已经成功的把%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%，%AMT4%%RES4%，%AMT5%%RES5%，%AMT6%%RES6%，%AMT7%%RES7%和%AMT8%%RES8%的贡品送给%PLAYER%。"""
+msg_ig_dip_tribute_rcvd8,"""你已经从%PLAYER%手中收到%AMT1%%RES1%，%AMT2%%RES2%，%AMT3%%RES3%，%AMT4%%RES4%，%AMT5%%RES5%，%AMT6%%RES6%，%AMT7%%RES7%和%AMT8%%RES8%的贡品。"""
+
+// for sending N units where N >= 0
+msg_ig_dip_tribute_unit_sent,"""你总共选择了%REQ%个单位，并已成功将%AMT%个单位送给%PLAYER%。"""
+// for receiving only one unit
+msg_ig_dip_tribute_unit_rcvd1,"""你已经收到%PLAYER%送出的%AMT%个单位。"""
+// receiving more than one unit
+msg_ig_dip_tribute_unit_rcvd2,"""你已经收到%PLAYER%送出的%AMT%个单位。"""
+
+// for receiving or sending only one unit
+msg_ig_dip_tribute_terr_sent1,"""你已经成功的把%AMT%个地区送给%PLAYER%。"""
+msg_ig_dip_tribute_terr_rcvd1,"""你已经收到%PLAYER%送出的%AMT%个地区。"""
+// sending receiving more than one unit
+msg_ig_dip_tribute_terr_sent2,"""你已经成功把%AMT%个地区送给%PLAYER%。"""
+msg_ig_dip_tribute_terr_rcvd2,"""你已经收到%PLAYER%送出的%AMT%个地区。"""
+
+msg_ig_dip_tribute_unit_rmvd,"""你所选择的一些单位已经在另一个提案中当做贡品，不包括在这里面。"""
+
+msg_ig_dip_state_hostile,"""敌意"""
+msg_ig_dip_state_neutral,"""中立"""
+msg_ig_dip_alliance_expired,"""你与%s的结盟关系已经到期了。"""
+msg_ig_dip_ceasefire_expired,"""你与%s的停火协议已经过期了。"""
+msg_ig_dip_proposal_to_expired,"""你对%s提出的提案已经过期了。"""
+msg_ig_dip_proposal_from_exp,"""从%s送来的同盟提案已经过期了。"""
+msg_ig_dip_surrender_player,"""%PLAYER%已经对%OPPONENT%投降"""
+msg_ig_dip_surrender_offer,"""%PLAYER%对你投降，你愿意接受吗？"""
+msg_ig_dip_surrender,"""啊～！你已经打倒我了。请接受我的投降。"""
+msg_ig_dip_baphdesc,"""恐惧的来源。"""
+msg_ig_dip_baphname,"""巴风特"""
+msg_ig_dip_tribute_amount,"""%TRIBUTE%%RESOURCE%"""
+msg_ig_dip_declare_war,"""你确定要对%s宣战？"""
+msg_ig_dip_ceasefire_broke1,"""你已经打破与%VICTIM%的停火协议！真厚脸皮！"""
+msg_ig_dip_ceasefire_broke2,"""%EVIL%已经打破与你之间的停火协议！神经病！"""
+msg_ig_dip_ceasefire_broke3,"""%EVIL%已经打破与%VICTIM%的停火协议！真没品！"""
+
+// actions restricted due to initial global cease fire
+// @NOTE attackGround also used for nuke and EMP
+msg_ig_ceaseFire_attackGround,"""在启始停火期间将无法进行攻击。"""
+msg_ig_ceaseFire_powerDisabled,"""%POWER%在启始停火期间将会无法使用。"""
+
+// territory messages,
+msg_ig_terr_taken,"""%PLAYER%已经控制了%TERRITORY%"""
+msg_ig_terr_lost,"""%PLAYER%已经从我们手中取得了%TERRITORY%的控制权！"""
+
+// population messages,
+msg_ig_pop_limit,"""由于已达人口上限，%BUILDING%无法生产%UNIT%。"""
+
+// cycle select and center messages
+msg_ig_sel_none,"""没有%UNITS%可用。"""
+msg_ig_sel_idle_none,"""没有闲置的%UNITS%可用。"""
+msg_ig_sel_screen_none,"""画面上没有%UNITS%。"""
+msg_ig_sel_idle_screen_none,"""画面上没有闲置的%UNITS%。"""
+msg_ig_sel_militaryUnits,"""军事单位"""
+msg_ig_sel_leader_none,"""你已经没有领袖了。"""
+
+// crown messages
+msg_ig_crown_youlost,"""你失去了%CROWN%桂冠！"""
+msg_ig_crown_playerlost,"""%PLAYER%已经失去了%CROWN%桂冠！"""
+msg_ig_crown_youwon,"""你赢得了%CROWN%桂冠！按下桂冠图示来选择你的能力。"""
+msg_ig_crown_playerwon,"""%PLAYER%赢得了%CROWN%桂冠！"""
+msg_ig_crown_youcontinue,"""你已经夺得%CROWN%桂冠！按下桂冠图示以选择你想要的能力。"""
+msg_ig_crown_playercontinue,"""%PLAYER%已经夺得%CROWN%桂冠！"""
+
+// warplan messages
+msg_ig_warplan_sent,"""在%TIME%时将作战计划送出"""
+msg_ig_warplan_received,"""在%TIME%时收到由%PLAYER%发出的作战计划。"""
+msg_ig_warplan_deleted,"""%PLAYER%送出的作战计划已经在%TIME%过期"""
+msg_ig_warplan_deleted_cur,"""在%TIME%时送出已过期的作战计划"""
+msg_ig_warplan_accepted,"""%PLAYERSEND%在%TIME%时接受%PLAYER%送出的作战计划"""
+msg_ig_warplan_accepted_fromcur,"""%PLAYERSEND%在%TIME%时接受你的作战计划"""
+msg_ig_warplan_accepted_cur,"""在%TIME%时接受%PLAYER%送出的作战计划"""
+msg_ig_warplan_rejected,"""%PLAYERSEND%在%TIME%时拒绝了由%PLAYER%送出的作战计划"""
+msg_ig_warplan_rejected_fromcur,"""%PLAYERSEND%在%TIME%时拒绝了你送出的作战计划"""
+msg_ig_warplan_rejected_cur,"""拒绝了%PLAYER%在%TIME%时送出的作战计划"""
+msg_ig_warplan_allaccept,"""所有玩家都在%TIME%时接受了%PLAYER%送出的作战计划！"""
+msg_ig_warplan_allaccept_cur,"""所有玩家都在%TIME%时接受了你的作战计划！"""
+msg_ig_warplan_allrespond,"""所有玩家在%TIME%时收到了%PLAYER%送出的作战计划，但并非所有人都同意！"""
+msg_ig_warplan_allrespond_cur,"""所有玩家在%TIME%时收到了你送出的作战计划，但并非所有人都同意！"""
+msg_ig_warplan_toolarge,"""这个作战计划太庞大了。移除部份组件。"""
+
+// cheat messages
+msg_ig_cheat_disabled_multi,"""这个密技在多人联机游戏中关闭"""
+msg_ig_cheat_disabled_single,"""这个密技在单一玩家游戏中关闭"""
+msg_ig_cheat_disabled_campaign,"""这个密技在战役模式中关闭"""
+msg_ig_cheat_disabled_skirmish,"""这个密技在冲突战中关闭"""
+msg_ig_cheat_descnotfound,"""无法找到密技说明"""
+
+// game speed messages
+msg_ig_gamespeed,"""游戏速度变更为%SPEED%\\\\%"""
+
+// capture screen shot message
+msg_ig_capturescreen,"""将画面抓图存为：\n%s…"""
+
+// user music messages
+msg_ig_usermusic_enable,"""用户音乐控制启动。按下%KEY%即可启动。"""
+msg_ig_usermusic_play,"""现在进行%s"""
+msg_ig_usermusic_badDir,"""指定的目录是无效的。请指定一个在附属目录中拥有一些.mp3档案的有效路径名称。"""
+
+
+// VICTORY CONDITION MESSAGES
+
+// king of the hill
+msg_ig_kingofthehill,"""%s现在是山丘之王。"""
+msg_ig_capitol_countdown,"""首都倒数：%d秒"""
+
+// hot spots
+msg_ig_hotspots_hdr,"""据点显示：%HS_REVEALED%/%HS_TOTAL%\n"""
+msg_ig_hotspots_player,"""%HOTSPOTS%"""
+msg_ig_hotspots_revealed,"""出现了一个据点！"""
+
+// resignation messages
+msg_ig_player_resigned_title, """玩家弃权"""
+msg_ig_player_resigned, """%NAME%已经弃权！"""
+msg_ig_player_resigned_createai, """%NAME%已经弃权！一个AI已经被建立来控制他所拥有的剩余单位。"""
+
+
+// network messages
+// These are the seven possible REASON strings that may appear within 
+// msg_ig_network_node_discon and msg_ig_network_host_discon
+msg_ig_nw_discon_booted,"""被游戏建立者踢出游戏"""
+msg_ig_nw_discon_nodequit,"""玩家离开游戏"""
+msg_ig_nw_discon_timeout,"""封包超过时限"""
+msg_ig_nw_discon_heartbeat,"""无讯号"""
+msg_ig_nw_discon_crash,"""已当机"""
+msg_ig_nw_discon_abnormal,"""异常过程中断"""
+msg_ig_nw_discon_unknown,"""未知"""
+msg_ig_nw_discon_hostquit,"""游戏建立者离开游戏"""
+msg_ig_nw_discon_cdkey_gen,"""CD序号是无效的，或是已在使用中"""
+msg_ig_nw_discon_cdkey_inv,"""无效的CD序号"""
+msg_ig_nw_discon_cdkey_use,"""CD序号已在使用中"""
+msg_ig_nw_discon_cdkey_dis,"""CD序号被停止使用"""
+msg_ig_nw_migrating_host,"""正在进行游戏建立者权限转移。"""
+msg_ig_nw_host_migration,"""与游戏建立者(%OLDHOST%)失去连系：%REASON%。\n转移给游戏建立者%NEWHOST%。"""
+msg_ig_nw_migrated_host,"""游戏建立者权限转移完成。"""
+msg_ig_nw_host_migrated,"""与游戏建立者(%OLDHOST%)失去连系：%REASON%。\n已经成功转移给新游戏建立者(%NEWHOST%)。"""
+msg_ig_nw_oos_title,"""无法同步！"""
+msg_ig_nw_oos_text,"""玩家%NODE%(%NAME%)的同步讯号消失%GAMETICK%(时间：%GAMETIME%)。"""
+msg_ig_network_node_discon,"""玩家%INDEX%(%NAME%)已经中断。理由为：%REASON%"""
+msg_ig_network_saveexists,"""游戏进度文件[%s]已经以不同的档案存在；你想要覆写吗？如果不要的话，你可能无法加入这场游戏，而且会回到大厅。"""
+msg_ig_network_waiting_short,"""等候%NAME%"""
+msg_ig_network_waiting_long,"""等候%NAME%%TIME%秒"""
+// this gets put in the waiting messages when waiting for multiple players, as in 'Waiting for Bob, Elizabeth and Susan'
+msg_ig_network_waiting_and, """和"""
+msg_ig_network_dumpingstate,"""将世界状态倒入WorldStateDump.log"""
+msg_ig_network_migrate_host,"""将主持权转移给%NEWHOST%"""
+
+// Maximum waypoint message
+msg_ig_max_waypoints,"""你在这条路径上面设置的导航点已达上限，无法再安置了。"""
+
+// Player defeated
+msg_ig_player_eliminated,"""玩家%PLAYER%已经被消灭了！"""
+
+// Sometimes, you can't delete units
+msg_ig_nodelete_one,"""你不能删掉此单位。"""
+msg_ig_nodelete_all,"""你不能删掉已选择的单位。"""
+msg_ig_nodelete_some,"""你不能删掉某些已选择的单位。"""
+
+// Give players messages when leaders take damage
+// When this message is used in English, it should look like: "Your Imperial Leader has fallen to 50 percent health."
+// CROWNTYPE could be Imperial, Military, or Economic as localized elsewhere
+msg_ig_leaderdamage,"""你的%CROWNTYPE%领袖已经剩下百分之%HEALTHPERCENT%的生命值了。"""
+msg_ig_leaderneardeath,"""你的%CROWNTYPE%领袖快要死了！"""
+
+// Give players a message when they earn a leader with a crown
+msg_ig_leaderwon,"""你已经赢得了一个领袖。"""
+
+// msg for player that tried to save, but doesn't have enough space on their hdd
+msg_ig_save_hddfull,"""游戏并未储存。计算机中的硬盘空间不足。"""
+
+
+// revert to unrated gamespy game
+// because the host booted some dudes during load
+msg_ig_gs_revertToUnrated_node,"""此游戏已变更为不计分的游戏，因为游戏建立者踢除了一个或多个玩家。"""
+msg_ig_gs_revertToUnrated_host,"""此游戏已变更为不计分的游戏，因为你踢除了一个或多个玩家。"""

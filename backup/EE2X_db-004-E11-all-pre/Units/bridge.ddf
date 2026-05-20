@@ -1,0 +1,151 @@
+//------------------------------------------------------------------------------------------------
+//	BRIDGE
+//------------------------------------------------------------------------------------------------
+UnitType Bridge
+{
+	ownerType = PlayerOnly
+	parent = BareBoneBuilding
+	PlacementType = Bridge
+	properties {
+		displayName = tx_utn_bridge_name
+		DisplayNameScenEdit = tx_utn_bridge_sname
+		rps = Building
+		FootprintType = kFootprintType_Rectangle
+		SizeX = 0	// this is the dimension we stretch (so this is set dynamically)
+		SizeY = 1.85	// the width of the bridge (the dimension we don't stretch)
+		mass = 0	// so that it does not block pathing
+		hitpoints = 2500
+		VerboseTooltip = vtt_unit_Bridge
+		mmColor = [128,128,128,255]
+	}
+	sounds {
+		sndSelection = ["Bridge_select"]
+    	}
+	abilities [
+		LOS { range = 0 }
+		Connect { type = kComposite_Bridge; aidsPathing = 1; }	// "shortcut" the 2 end points, connect to other units
+	]
+	fullMapOverlay { sprite = spr_fullmap_bridge_start }
+}
+
+CompositeModel BridgeConstructionSite 
+{
+	ScaleType 			= kScaleBuilding
+	StateDatabaseName  	= ConstructionSiteStates
+	ChildNames = [ TheHealthBar ]
+}
+
+UnitType BridgeConstructionSite 
+{
+	placementType = Unplaceable
+	properties {
+		FootprintType = kFootprintType_Rectangle
+		SizeX = 0	// this is the dimension we stretch (so this is set dynamically)
+		SizeY = 1.85	// the width of the bridge (the dimension we don't stretch)
+		mass = 0	// so that it does not block pathing
+		rps = Building
+		hitpoints = 1
+	}
+	abilities = [
+		Construction {}
+		LOS { range = 2 }
+		Connect { type = kComposite_Bridge }	// connect to other units (no shortcut yet)
+	]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	BRIDGE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+StateDatabase Bridge_States
+{
+	DefaultState = Idle
+	States = 
+	[
+		{	StateName = Idle }
+	]
+}
+
+BridgeModel BridgeModel_1
+{
+	StateDatabaseName = Bridge_States
+	EndModel	= bld_bridge1_span.nif
+	SpanModel	= bld_bridge1_span.nif
+	SmokeNifNames =[ fx_smoke_bridge_1.nif ]
+	WaveNifNames = [ BoatWakeIdle_02_L1.nif BoatWakeIdle_03_L1.nif BoatWakeIdle_04_L1.nif BoatWakeIdle_03_L1.nif BoatWakeIdle_04_L1.nif]
+	WaveScales = [1 1 1 1 1]
+	SplashNifNames = [ fx_watersplash_1.nif BoatWakeIdle_02_L1.nif BoatWakeIdle_02_L1.nif BoatWakeIdle_02_L1.nif]
+	SplashScales = [ 0.15 1 1 1]
+	CollapseSounds = [ Bld_Collapse ]
+	DelayBetweenSounds = 0.25
+	
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+CompositeModel Bridge
+{
+	ScaleType 	= kScaleBuilding
+	ChildNames	= [ BridgeModel_1 TheHealthBar TheBldDamageEffect ]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+BridgeModel BridgeModel_5
+{
+	StateDatabaseName = Bridge_States
+	EndModel	= bld_bridge5_end.nif
+	SpanModel	= bld_bridge5_span.nif
+	SmokeNifNames =[ fx_smoke_bridge_1.nif ]
+	WaveNifNames = [ BoatWakeIdle_02_L1.nif BoatWakeIdle_03_L1.nif BoatWakeIdle_04_L1.nif BoatWakeIdle_03_L1.nif BoatWakeIdle_04_L1.nif] 
+	WaveScales = [1 1 1 1 1 ]
+	SplashNifNames = [ fx_watersplash_1.nif BoatWakeIdle_02_L1.nif BoatWakeIdle_02_L1.nif BoatWakeIdle_02_L1.nif]
+	SplashScales = [ 0.15 1 1 1]
+	CollapseSounds = [ Bld_Collapse ]
+	DelayBetweenSounds = 0.25
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+CompositeModel Bridge_5
+{
+	ScaleType 	= kScaleBuilding
+	ChildNames	= [ BridgeModel_5 TheHealthBar TheBldDamageEffect ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.35
+		zOffset = 0.19
+		scale = 1.53
+		angle = 123.16
+		rotationSpeed = 0.00
+		pitch = 40.00
+	}
+}
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+BridgeModel BridgeModel_10
+{
+	StateDatabaseName = Bridge_States
+	EndModel	= bld_bridge10_end.nif
+	SpanModel	= bld_bridge10_span.nif
+	SmokeNifNames =[ fx_smoke_bridge_1.nif ]
+	WaveNifNames = [ BoatWakeIdle_02_L1.nif BoatWakeIdle_03_L1.nif BoatWakeIdle_04_L1.nif BoatWakeIdle_03_L1.nif BoatWakeIdle_04_L1.nif]
+	WaveScales = [2.5 2.0 2.5 2.0 2.5 ]
+	SplashNifNames = [ fx_watersplash_1.nif BoatWakeIdle_02_L1.nif BoatWakeIdle_02_L1.nif BoatWakeIdle_02_L1.nif]
+	SplashScales = [ 0.15 1 1 1]
+//fx_watersplash_1.nif
+//0.4
+	CollapseSounds = [ Bld_Collapse ]
+	DelayBetweenSounds = 0.25
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+CompositeModel Bridge_10
+{
+	ScaleType 	= kScaleBuilding
+	//ChildNames	= [ BridgeModel_10 TheHealthBar ExplPartsBridge01 ExplSelectorBridge01 ]
+	ChildNames	= [ BridgeModel_10 TheHealthBar ExplSelectorBridge01 TheBldDamageEffect ]
+}

@@ -1,0 +1,202 @@
+//------------------------------------------------------------------------------------------------
+//	STABLE
+//------------------------------------------------------------------------------------------------
+UnitType Stable
+{
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 2
+		FootprintSizeX = 3.5
+		FootprintSizeY = 3.5
+		OffsetX = 0.75
+		OffsetY = 0.75		
+		UndertextureSizeX = 3
+		UndertextureSizeY = 2
+		UndertextureOffsetX = -0.5
+		mass = 1
+		DisplayNameScenEdit = tx_utn_Stable_sname
+		displayName = tx_utn_Stable_name
+		VerboseTooltip = vtt_unit_Stable
+		RallyPlacementFlags = ( Fortress | Tower | Terrain )
+		requiredOpenSides = kBuildingOpenSides_PosX
+	}
+	sounds {
+    	}
+	fullMapOverlay { sprite = spr_fullmap_stable }
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+// StableUpgradeEpoch2 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// StableUpgradeEpoch5 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+// StableUpgradeEpoch8 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// StableUpgradeEpoch11 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// StableUpgradeEpoch14 is in upgrade_unittypes.csv
+
+//------------------------------------------------------------------------------------------------
+//	STABLE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+UnitModel Stable
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_stable2.NIF
+	ChildNames 	= [ LargeGlow UnderStable ExplSelectorBuild_Small ExplPartsWoodThatch ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.06
+		zOffset = 2.36
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 40.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel Stable_5
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_stable5.NIF
+	ChildNames 	= [ LargeGlow UnderStable ExplSelectorBuild_Small ExplPartsStable5 ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.23
+		zOffset = 0.73
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 40.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+UnitModel Stable_8
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_stable8.NIF
+	ChildNames 	= [ LargeGlow UnderStable ExplSelectorBuild_Small ExplPartsStable5 ]
+	UIRenderingParams {
+		xOffset = -1.05
+		yOffset = 0.53
+		zOffset = 1.32
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel Stable_11
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_stable11.NIF
+	ChildNames 	= [ LargeGlow UnderStable ExplSelectorBuild_Small ExplPartsBrick ]
+	UIRenderingParams {
+		xOffset = -1.05
+		yOffset = 0.10
+		zOffset = 1.17
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel Stable_14
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_stable14.NIF
+	ChildNames 	= [ LargeGlow UnderStable ExplSelectorBuild_Small ExplPartsConcrete ]
+	UIRenderingParams {
+		xOffset = -1.05
+		yOffset = -0.53
+		zOffset = 0.19
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel Stable_15
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_stable15_new.NIF
+	ChildNames 	= [ LargeGlow UnderStable ExplSelectorBuild_Small ExplPartsConcrete ]
+	UIRenderingParams {
+		xOffset = -1.05
+		yOffset = -0.53
+		zOffset = 0.19
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

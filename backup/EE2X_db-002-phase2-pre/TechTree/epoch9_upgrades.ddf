@@ -1,0 +1,168 @@
+//------------------------------------------------------------------------------------------------
+//	EPOCH 9 UPGRADES 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	MAIN BRANCH
+//------------------------------------------------
+UpgradeSet AdvanceEpoch9 {
+	upgrades = [
+		UpgradeEpoch {epoch = 9;}
+	]
+}
+UpgradeUndo UndoMilitary1_4 {
+	techNode = Military1_4
+}
+
+UpgradeUndo UndoEconomic4_3 {
+	techNode = Economic4_3
+}
+
+UpgradeUndo UndoImperial4_1 {
+	techNode = Imperial4_1
+}
+
+// Main9
+UpgradeRefSet MainEpoch9 {
+	upgrades = [
+		AdvanceEpoch9
+		LightInfantryUpgradeEpoch9
+		HeavyInfantry1UpgradeEpoch9
+		LightArtillery1UpgradeEpoch9
+		MillUpgradeEpoch9
+		HouseUpgradeEpoch9
+		MyOutpostUpgradeEpoch9
+		AIResourceUpgradeEpoch9
+		// new unit
+		MiddleEastBoatUpgradeEpoch9
+		MesoAmerBoatUpgradeEpoch9
+		AfricanBoatUpgradeEpoch9
+		WesternBoat1UpgradeEpoch9
+		WesternBoat2UpgradeEpoch9
+		guichuanUpgradeEpoch9
+		JapanBoat2UpgradeEpoch9
+		JapanBoat1UpgradeEpoch9
+		ZhengHeUpgradeEpoch9
+		MaChuanUpgradeEpoch9
+		FightingSailUpgradeEpoch9
+		dapaoUpgradeEpoch9
+		UU_Chinese2UpgradeEpoch9
+		
+		// LEADERS
+		LeaderEconomicUpgradeEpoch9
+		LeaderMilitaryUpgradeEpoch9
+		LeaderImperialUpgradeEpoch9
+		KingRegicideUpgradeEpoch9
+		// UNDO UPGRADES
+		UndoMilitary1_4
+		UndoEconomic4_3
+		
+		// EE2X HERO UPGRADES
+		LightInfantryHeroUpgradeEp9
+		HeavyInfantry1HeroUpgradeEp9
+		LightArtillery1HeroUpgradeEp9
+	]
+}
+
+//------------------------------------------------
+//	MILITARY BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet MilitaryEpoch9Slot1 {
+	upgrades = [
+		MilitaryTechUpgrade_E9_Slot1a
+		SpyTechTreeUpgradeEpoch9
+	]
+}
+
+// Slot 2
+UpgradeRefSet MilitaryEpoch9Slot2 {
+	upgrades = [
+		MilitaryTechUpgrade_E9_Slot2a	
+	]
+}
+
+// Slot 3
+UpgradeRefSet MilitaryEpoch9Slot3 {
+	upgrades = [
+		MilitaryTechUpgrade_E9_Slot3a
+	]
+} 
+
+// Slot 4
+UpgradeRefSet MilitaryEpoch9Slot4 {
+	upgrades = [
+		MilitaryTechUpgrade_E9_Slot4a
+	]
+} 
+
+//------------------------------------------------
+//	ECONOMIC BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet EconomicEpoch9Slot1 {
+	upgrades = [
+		EconomicTechUpgrade_E9_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet EconomicEpoch9Slot2 {
+	upgrades = [
+		//EconomicTechUpgrade_E9_Slot2a
+		// These are declared in upgrade_factorset.csv
+		SpecialGather_Tin_NoTooltip
+		SpecialGather_Iron_NoTooltip
+		SpecialGather_Saltpeter_NoTT
+		SpecialGather_Oil_NoTooltip
+		SpecialGather_Uranium_NoTooltip
+		SpecialGather_Tooltip
+	]
+}
+
+// Slot 3
+UpgradeRefSet EconomicEpoch9Slot3 {
+	upgrades = [
+		EconomicTechUpgrade_E9_Slot3a
+		EconomicTechUpgrade_E9_Slot3b
+	]
+}
+
+// Slot 4
+UpgradeRefSet EconomicEpoch9Slot4 {
+	upgrades = [
+		EconomicTechUpgrade_E9_Slot4a
+		EconomicTechUpgrade_E9_Slot4b
+	]
+}
+
+//------------------------------------------------
+//	IMPERIAL BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet ImperialEpoch9Slot1 {
+	upgrades = [
+		ImperialTechUpgrade_E9_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet ImperialEpoch9Slot2 {
+	upgrades = [
+		ImperialTechUpgrade_E9_Slot2a
+	]
+}
+
+// Slot 3
+UpgradeRefSet ImperialEpoch9Slot3 {
+	upgrades = [
+		ImperialTechUpgrade_E9_Slot3a
+		ImperialTechUpgrade_E9_Slot3b
+	]
+}
+
+// Slot 4
+UpgradeRefSet ImperialEpoch9Slot4 {
+	upgrades = [
+		ImperialTechUpgrade_E9_Slot4a
+	]
+}

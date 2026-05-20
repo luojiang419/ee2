@@ -1,0 +1,310 @@
+﻿// NAME,TEXT
+tt_fe_donotuse,""""""
+
+
+// SETTINGS TOOLTIPS
+
+// game type descriptions
+tt_fe_gametype_Conquest,"""征服：\n要在此种游戏中获胜，你必须在游戏中消灭所有其他玩家。"""
+tt_fe_gametype_CrownsNumber,"""桂冠（数量）：\n赢得规定数量的桂冠的玩家便算获胜。赢得同样的桂冠数次并不会被算进目标中。"""
+tt_fe_gametype_CrownsTime,"""桂冠（持有时间）：\n控制任何组合的桂冠达一段时间者获胜。"""
+tt_fe_gametype_KingOfTheHill,"""山丘之王：\n要赢得山丘之王的胜利，你必须占领并且守住地图中央的地区一段时间。占领这个地区的唯一一个条件就是占领该地区内一个叫做「山丘」的物件。这个物件是不能被摧毁的而且当你占领它后，系统就会开始倒数计时。一旦倒数到0时，控制它的那名玩家就算获胜。倘若「山丘」在倒数到0前更换了控制权，那么系统就会自动重新开始倒数计时。"""
+tt_fe_gametype_Capitols,"""首都：\n要在此种游戏中获胜，你必须在游戏中占领并固守其他玩家一开始的城市中心（首都）一段时间。如果有玩家无法在规定的时间内把他的首都抢回来，他就会被逐出游戏。在此种游戏中，首都是不能被摧毁的。"""
+tt_fe_gametype_AlliedCapitols,"""盟国首都：\n这是首都游戏的变体版本，你仍然必须在游戏中占领并固守其他玩家一开始的城市中心（首都）一段时间，以消灭这些玩家。如果有玩家或是他的任何一位盟友无法在规定的时间内把他的首都抢回来，他就会被逐出游戏。当盟友抢回一座首都时，该座首都会自动归属原先的所有者持有。在此种游戏中，首都是不能被摧毁的。"""
+tt_fe_gametype_Regicide,"""弑君：\n在弑君游戏中的每个玩家一开始都拥有一位国王。你必须尽全力保护他的安全。倘若他死了，那么你就会被逐出游戏。当有一个国王处于驻扎状态时，那么在全萤幕地图上将会出现一个拥有代表该玩家颜色的特殊图示让所有玩家都看的到。"""
+tt_fe_gametype_HotSpots,"""据点占领：\n在据点占领游戏中，地图上有好几个相当重要的据点。这些据点一次只会出现一个。当第一个玩家在第一个据点上盖好一座堡垒后，第二个据点便会跟著出现。玩家必须依此类推推进，直到所有的据点都出现而且被占领。拥有最多据点的玩家便算获胜。"""
+tt_fe_gametype_HotSpots_Terr,"""地区热点：\n与热点游戏类似，在地区热点游戏中，地图上有几个重要的地区。与热点游戏不同的是，所有的地区热点在游戏的一开始就会被显示出来。玩家获得地区的方法一如以往，只要在该区域内建造一座城市中心即可。要想赢得游戏胜利，玩家或队伍必须掌控较多数的地区热点达一段时间。"""
+tt_fe_gametype_TerritoryControl,"""地区占领：\n在此种游戏中，占领地图上某特定比例地区的玩家便算获胜。"""
+tt_fe_gametype_LoadSavedGame,"""载入游戏"""
+tt_fe_gametype_LoadScenario,"""剧本模式"""
+tt_fe_gametype_SoleSurvivor,"""唯一生还者：\n在唯一生还者的游戏中只有一位玩家能赢得胜利。游戏期间同盟可以加入队伍，但是当只剩一组时，这组人员会自动互斗。在剩下最后两个玩家前，玩家们都可以组成新的同盟。"""
+
+// generic player setup tooltips
+tt_fe_player_name,"""玩家的名称"""
+tt_fe_player_savedName,"""储存玩家名称"""
+tt_fe_player_nodeName,"""储存玩家名称"""
+tt_fe_player_type,"""玩家类型"""
+tt_fe_player_team,"""玩家开始的队伍"""
+tt_fe_player_color,"""玩家的颜色"""
+tt_fe_player_epoch,"""玩家开始的纪元。如果玩家开始或是结束的纪元设定为随机的话，所有玩家在开始时将会启始于相同纪元。"""
+tt_fe_player_numCits,"""玩家开始的人民数"""
+tt_fe_mp_ping,"""Ping（以ms计算）"""
+
+// mp player status tooltips
+tt_fe_mp_status_ready,"""玩家状态：Ready"""
+tt_fe_mp_status_notReady,"""玩家状态：准备中"""
+tt_fe_mp_status_needFile,"""下载档案\"%FILE%\"\n(已完成%PERCENT%\\\\%)"""
+tt_fe_mp_status_needFile_unk,"""下载档案\n(已完成%PERCENT%\\\\%)"""
+
+// handicap descriptions
+tt_fe_handicap_Newbie,"""新手玩家的让分：\n•所有单位与建筑物的建造速度快40%\n•所有单位与建筑物花用的资源减少20%\n•晋升到下一个纪元的技能点数减少20%\n•大学和寺庙产生技能点数的速度加快20%\n•所有建筑物的占领抵抗力增加增加20%\n•所有单位的变节抵抗力增加20%\n•所有单位的移动速度增加20%\n•玩家攻击所造成的伤害增加30%"""
+tt_fe_handicap_Average,"""一般玩家的让分：\n•所有单位与建筑物的建造速度快20%\n•所有单位与建筑物花用的资源减少10%\n•晋升到下一个纪元的技能点数减少10%\n•大学和寺庙产生技能点数的速度加快10%\n•所有建筑物的占领抵抗力增加增加10%\n•所有单位的变节抵抗力增加10%\n•所有单位的移动速度增加10%\n•玩家攻击所造成的伤害增加15%"""
+tt_fe_handicap_Good,"""对业余玩家的让分：\n业余玩家不会获得任何让分。"""
+tt_fe_handicap_Expert,"""专业玩家的让分：\n‧所有单位和建筑物的建造速度减慢20%\n‧所有单位与建筑物花用的资源增加10%\n‧前进到下一纪元的科技点数成本增加10%\n‧玩家所造成的所有伤害减少15%"""
+tt_fe_handicap_GameGod,"""游戏之神的让分：\n•所有单位与建筑物的建造速度减慢40%\n•所有单位与建筑物花用的资源增加20%\n•晋升到下一个纪元的技能点数增加20%\n•玩家攻击所造成的伤害减少30%"""
+
+// player type descriptions
+tt_fe_plyrType_Human,"""具有不同技能等级的人类玩家"""
+tt_fe_plyrType_Observer,"""该玩家是观战者，观战者可以看到整个世界和所有玩家，但是不能进行操作和交谈"""
+tt_fe_plyrType_OpenHuman,"""这个栏位是开放的，而且只能让人类玩家加入"""
+tt_fe_plyrType_OpenObserver,"""这个栏位是开放的，而且只能让观战者加入"""
+//tt_fe_plyrType_Computer,"""A computer player."""
+tt_fe_plyrType_ComputerEasiest,"""AI（最简单）：\n这个设定将会影响AI的整体动作。在最简单等级中，AI建造单位和建筑物的时间将会大幅增加，而AI攻击所造成的伤害值将会大幅减少。\n\nAI在决定要将军事单位升级至专家和菁英，以及何时要研发新的科技的思考时间也会变的非常慢。"""
+tt_fe_plyrType_ComputerEasier,"""AI（较简单）：\n这个设定将会影响AI的整体动作。在较简单等级中，AI建造单位和建筑物的时间将会大幅增加，而AI攻击所造成的伤害值将会大幅减少。\n\nAI在决定要将军事单位升级至专家和菁英，以及何时要研发新的科技的思考时间也会变的非常慢。"""
+tt_fe_plyrType_ComputerEasy,"""AI（简单）：\n这个设定将会影响AI的整体动作。在简单等级中，AI建造单位和建筑物的时间将会增加，而AI攻击所造成的伤害值将会减少。\n\nAI在决定要将军事单位升级至专家和菁英，以及何时要研发新的科技的思考时间也会比较慢。"""
+tt_fe_plyrType_ComputerNormal,"""AI（普通）：\n这个设定将会影响AI的整体动作。在普通等级中，AI将不会获得任何优势或劣势。"""
+tt_fe_plyrType_ComputerHard,"""AI（困难）：\n这个设定将会影响AI的整体动作。在困难等级中，AI建造单位和建筑物的时间将会减少，而AI攻击所造成的伤害值将会增加。\n\nAI在决定要将军事单位升级至专家和菁英，以及何时要研发新的科技的思考时间也会变的比较短。"""
+tt_fe_plyrType_ComputerHardest,"""AI（最难）：\n这个设定将会影响AI的整体动作。在最难等级中，AI建造单位和建筑物的时间将会大幅减少，而AI攻击所造成的伤害值将会大幅增加。\n\nAI在决定要将军事单位升级至专家和菁英，以及何时要研发新的科技的思考时间也会变的非常短。"""
+
+// for campaigns
+tt_fe_campPlayer_Easiest,"""最简单：\n这个设定将会影响AI的整体动作。在最简单等级中，AI建造单位和建筑物的时间将会大幅增加，而AI攻击所造成的伤害值将会大幅减少。"""
+tt_fe_campPlayer_Easier,"""较简单：\n这个设定将会影响AI的整体动作。在较简单等级中，AI建造单位和建筑物的时间将会大幅增加，而AI攻击所造成的伤害值将会大幅减少。"""
+tt_fe_campPlayer_Easy,"""简单：\n这个设定将会影响AI的整体动作。在简单等级中，AI建造单位和建筑物的时间将会增加，而AI攻击所造成的伤害值将会减少。"""
+tt_fe_campPlayer_Normal,"""普通：\n这个设定将会影响AI的整体动作。在普通等级中，AI将不会获得任何优势或劣势。"""
+tt_fe_campPlayer_Hard,"""困难：\n这个设定将会影响AI的整体动作。在困难等级中，AI建造单位和建筑物的时间将会减少，而AI攻击所造成的伤害值将会增加。"""
+tt_fe_campPlayer_Hardest,"""最难：\n这个设定将会影响AI的整体动作。在最难等级中，AI建造单位和建筑物的时间将会大幅减少，而AI攻击所造成的伤害值将会大幅增加。AI在决定要将军事单位升级至专家和菁英，以及何时要研发新的科技的思考时间也会变的非常短。"""
+
+/////////////////////////////////////////////////////////////////////
+// CIVILIZATION/REGION TOOLTIPS
+
+// random civ tooltip
+tt_fe_player_civ_random,"""这个选项会随机选择一个文明"""
+
+// tooltip for someone else's custom civ
+tt_fe_player_civ_customOther,"""一个自订的文明"""
+
+
+/////////////////////////////////////
+// civilization traits
+// @NOTE the individual trait tooltips are in dbtext_techtreetips.utf8
+
+// civ traits title
+tt_fe_civTrait_title,"""<smallCaps>%CIVNAME%文明加成</smallCaps>："""
+
+// when listed each trait is bracketed with this prefix/suffix pair
+tt_fe_civTrait_prefix,"""<indent 0 16>• """
+tt_fe_civTrait_suffix,"""</indent>"""
+
+
+//////////////////////////////////////////
+// region bonuses
+
+// region bonuses title
+tt_fe_regionBonus_title,"""<smallCaps>%REGIONNAME%区域加成</smallCaps>："""
+
+// western
+tt_fe_regionBonus_western,"""<indent 0 16>•大学和寺庙科技点数产出的速度增加10%。\n‧大学抵抗占领的能力增加20%。\n‧大学的生命值增加20%。\n‧如果你占领了敌人的寺庙或大学，你可以多获得10%的科技点数。</indent>"""
+
+// far-east
+tt_fe_regionBonus_farEast,"""<indent 0 16>•城市中心的人口容量增加25%。\n‧城市中心和仓库有多10%的木材放置加成。\n‧城市中心生命值增加20%。 \n‧当你进展到新的纪元时，可以得到一项免费、随机挑选的科技。</indent>"""
+
+// middle-east
+tt_fe_regionBonus_midEast,"""<indent 0 16>•商路的利润增加10%。\n‧城市中心和仓库有多10%的石头放置加成。\n‧市场的生命值增加20%。\n‧当你建造了一座世界奇观后，你马上能获得在目前这个纪元中晋升到下个纪元所需研发的科技的所有必备科技点数，并且晋升到下个纪元。</indent>"""
+
+// meso-american
+tt_fe_regionBonus_mesoAm,"""<indent 0 16>•寺庙产生科技点数的速度加快10%。\n‧城市中心和仓库有多10%的黄金放置加成。\n‧寺庙的生命值增加20%。\n‧每当一煽动一个敌方单位变节，你就可获得3点科技点数。</indent>"""
+
+//African
+tt_fe_regionBonus_african,"""<indent 0 16>•城市中心和仓库有多10%的食物放置加成。\n‧军营生产单位的速度加快10%。\n‧在地区中建造寺庙或是堡垒可自动产生2个免费的房舍。\n‧军营抵抗占领的能力增加20%。</indent>"""
+
+/////////////////////////////////////////
+// region powers
+
+// region powers title
+tt_fe_regionPower_title,"""<smallCaps>%REGIONNAME%区域能力</smallCaps>："""
+
+// western
+tt_fe_regionPower_western,"""<indent 0 16>•部族习俗（第1至5纪元）：在能力持续时间内，所有资源（除了科技外）的采集速度增快100%。\n•科学自由（第6至10纪元）：在能力持续时间内，所有科技的研究时间减少50%。\n•快速部署（第11至15纪元）：所有驻扎在你的首都里的单位可被立即传送到你视野范围内的任何正确位置。</indent>"""
+
+// far-east
+tt_fe_regionPower_farEast,"""<indent 0 16>•城塞（第1至5纪元）：在能力持续时间内，所有的城墙、栅栏、城门与城塔完全不会受到损伤。\n‧新兴市场（第6至10纪元）：每当你的一个贸易单位回到你的市场或码头时，你便能由目前所能采集的资源中获得10个单位的资源（但不包括黄金和科技点数）。\n‧超时工作（第11至15纪元）：在此能力的持续时间内，所有在军营、马厩、工作坊、机场、机库以及码头生产的单位的制造速度会增快50%。</indent>"""
+
+// middle-east
+tt_fe_regionPower_midEast,"""<indent 0 16>•全力赶工（第1至5纪元）：在能力持续时间内，你的人民的建造速度可增加100%。\n•失落的城市（第6至10纪元）：在该玩家所拥有的所有城市中心范围内的所有单位和建筑物都将会被隐藏起来，对其他玩家来说他们将会处于隐形状态(包含间谍和前哨站)。所有属于该玩家的单位，只要进入该区域，就会处于隐形状态。\n•黑市（第11至15纪元）：在能力持续时间内，你可以由全世界所有的市场和码头中取得某一比例的市场销售和商路的利润。</indent>"""
+
+// meso-american
+tt_fe_regionPower_mesoAm,"""<indent 0 16>•集体变节（第1至5纪元）：任何位于城市中心或进入城市中心区域的敌军有45%的机会会变节。\n•天佑吾国（第6至11纪元）：在能力持续时间内，在你所占领并且具有寺庙的地区中，你所有的陆上单位和建筑物所受到的伤害都会减少33%。\n•复制科技（第11至15纪元）：每次只要有一个单位变节，它的旁边就会出现一个一模一样的单位。</indent>"""
+
+// African
+tt_fe_regionPower_african,"""<indent 0 16>•部落之魂（纪元1至5）：当此能力开启时，玩家的所有单位士气都升到最高（可造成更多伤害），也能得到热情加成（受到的伤害会减轻），就像该玩家的所有地区都有最大数量的房舍。\n‧坏沃顿（纪元6至10）： 当此能力开启时，位于该玩家的地区内的所有单位会持续受到伤害。\n‧战士之心（纪元11至15）：当此能力被启动时，所有玩家所有军团中的所有单位就像是位于城市的医疗范围一样会得到治疗。受到医疗的单位会闪烁。</indent>"""
+
+// generic game settings tooltips
+tt_fe_gameset_speed,"""游戏速度：\n这个选项将决定游戏进行的速度。"""
+tt_fe_gameset_startEpoch,"""开始纪元\n如果开始纪元设定为随机的话，所有玩家在开始游戏时将会启始于同一个随机纪元。"""
+tt_fe_gameset_endEpoch,"""纪元结束\n如果结束纪元设定为随机，可是开始纪元不是的话，所有玩家将会从开始纪元开始进行游戏。"""
+tt_fe_gameset_teams,"""队伍"""
+tt_fe_gameset_teamsLocked,"""锁定队伍：\n如果选择了这个选项，游戏一开始所设定的分队方式在游戏中不能借由外交方式改变。"""
+tt_fe_gameset_coopTeams,"""合作队伍：\n如果选择了这个选项，那么在一开始同队伍中的所有玩家将会共享单个文明的控制权。"""
+tt_fe_gameset_lockSpeed,"""锁定速度：\n如果选择了这个选项，在游戏中就不能更改游戏速度。"""
+tt_fe_gameset_cheats,"""密技：\n如果选择了这个选项，在游戏中便能使用作弊密技。"""
+tt_fe_gameset_ceaseFire,"""启始停火：\n当目前处于停火状态时，玩家不得发动攻击，而且只能将建筑物盖在你一开始的地区。"""
+tt_fe_gameset_ceaseFireTime,"""停火维持时间"""
+tt_fe_gameset_popCap,"""城市人口数：\n每个城市中心所提供的人口容量。"""
+tt_fe_gameset_unbTreaties,"""无法撕毁条约：\n如果选择了这个选项，所有具有维持时间的外交条约都无法被撕毁。"""
+tt_fe_gameset_lockHcap,"""锁定让分：\n如果勾选此选项的话，那么只有游戏建立者可以变更玩家的让分。"""
+tt_fe_gameset_teamPlace,"""队伍配置：\n如果此选项被勾选的话，同队伍的玩家将会被分派到彼此附近。其它配置则是随机选择的。"""
+tt_fe_gameset_popRedis,"""人口重新分配：\n如果此选项被勾选的话，当有一个玩家从游戏中离开的时候，他的人口容量将会被重新分配给其他剩余的玩家所拥有。"""
+tt_fe_gameset_maxPop,"""人口上限：\n这是全球的最大人口容量，在游戏开始的时候将会被平均分配给所有玩家。当有玩家被消灭的时候，他所拥有的人口容量将会重新分配给其他剩余的玩家。"""
+tt_fe_gameset_qstart_Adv,"""快速启动：\n如果开启了这个选项，就可以设定每个玩家一开始所拥有的部队规模。按下「选择部队」钮后，玩家可以选择一个可决定其实际部队组成方式的样本。"""
+tt_fe_gameset_qstart_Advanced,"""小：\n依玩家所选择的样本而定，每个玩家一开始可以拥有17到26个单位和3到7栋建筑物。"""
+tt_fe_gameset_qstart_Large,"""小：\n依玩家所选择的样本而定，每个玩家一开始可以拥有17到26个单位和3到7栋建筑物。"""
+tt_fe_gameset_qstart_Huge,"""中：\n依玩家所选择的样本而定，每个玩家一开始可以拥有30到51个单位和4到9栋建筑物。"""
+tt_fe_gameset_qstart_Basic,"""基本：\n如果开启了这个选项，每个玩家只能设定一开始的人民数量。"""
+tt_fe_gameset_qstart_cit,"""这是每个玩家一开始所拥有的人民数量。"""
+
+// tournament mode settings
+tt_fe_gameset_tournMode,"""按下这个钮自订游戏节奏"""
+tt_fe_gameset_tournModeSlow,"""慢：\n在慢节奏的游戏中，资源采集和建造的时间较慢，生命值和占领与变节所需的时间会增加，伤害的数值将会降低。"""
+tt_fe_gameset_tournModeMedium,"""中：\n这是预设的游戏节奏。"""
+tt_fe_gameset_tournModeFast,"""快：\n在快节奏的游戏中，资源采集和建造的时间较快，生命值和占领与变节所需的时间会降低，伤害的力量则会增加。"""
+tt_fe_gameset_tournModeCustom,"""自订：\n此选项可让你自行设定游戏节奏的数值。"""
+tt_fe_gameset_bldSpdProdMod,"""此值会修改建造一个单位所需要的时间。小于1.00的修正值会减少建造时间，大于1.00的修正值会增加之。"""
+tt_fe_gameset_bldSpdConsMod,"""此值会修改建造一栋建筑物所需要的时间。小于1.00的修正值会减少建造时间，大于1.00的修正值会增加之。"""
+tt_fe_gameset_hitPointMod,"""此值会修改所有单位和建筑物的生命值。小于1.00的修正值会减少生命值，大于1.00的修正值会增加之。"""
+tt_fe_gameset_resGthrMod,"""此值会修改人民采集资源（除了科技点数外）的速度。小于1.00的修正值会减少人民采集资源的速度，大于1.00的修正值会增加之。"""
+tt_fe_gameset_bldCostMod,"""此值会修改所有单位和建筑物的资源成本。小于1.00的修正值会减少成本，大于1.00的修正值会增加之。"""
+tt_fe_gameset_epochUpMod,"""此值会修改晋升到下一个纪元所需要的科技点数。小于1.00的修正值会减少晋升到下一个纪元所需要的科技点数，大于1.00的修正值会增加之。"""
+tt_fe_gameset_techPtGthrMod,"""此值会修改建造有人驻扎的大学和寺庙产生科技点数的速度。小于1.00的修正值会降低采集速度，大于1.00的修正值会增加之。"""
+tt_fe_gameset_capResMod,"""此值会修改占领一栋建筑物所需要的时间。小于1.00的修正值会减少占领时间，大于1.00的修正值会增加之。"""
+tt_fe_gameset_convResMod,"""此值会修改煽动一个单位便节所需要的时间。小于1.00的修正值会减少煽动时间，大于1.00的修正值会增加之。"""
+tt_fe_gameset_techResMod,"""此值会修改研发一项科技所需要的时间。小于1.00的修正值会减少研发时间，大于1.00的修正值会增加之。"""
+tt_fe_gameset_mvSpdMod,"""此值会修改游戏中所有单位的移动速度。小于1.00的修正值会减少移动速度，大于1.00的修正值会增加之。"""
+tt_fe_gameset_damageMod,"""此值会修改所有单位和建筑物所能造成的伤害。小于1.00的修正值会减少伤害值，大于1.00的修正值会增加之。"""
+tt_fe_gameset_immobildMod,"""这将会修正无法移动的防御单位的生命值和攻击力。这些单位包括了前哨站、堡垒、防空设施和海岸防御工事。如果修正值少于1.00的话，攻击力与生命值将会降低，相反的，如果修正值高于1.00的话，以上数值将会增加。"""
+
+// game settings resource levels descriptions
+tt_fe_resLv_Low,"""低：\n你一开始只有少量的基本（食物、木材、石头与黄金）资源，而且没有特殊资源。"""
+tt_fe_resLv_Defensive,"""防御：\n你一开始只有少量的基本（食物、木材与黄金）资源，没有特殊资源，但是有较多的石头能用来建造城墙和进行建设。"""
+tt_fe_resLv_Standard,"""标准：\n你一开始就有足够数量的基本和特殊资源。"""
+tt_fe_resLv_High,"""高：\n你一开始就有许多基本和特殊资源。"""
+tt_fe_resLv_DeathMatch,"""大乱斗：\n你一开始就有多得不像话的基本和特殊资源。"""
+tt_fe_mp_destroyPlayer_diff,"""这里可设定参战的电脑玩家的困难度。"""
+
+// game settings reveal map descriptions
+tt_fe_revealMap_Unrevealed,"""未显示：\n地图会被阴影遮蔽，而且会有战争迷雾。"""
+tt_fe_revealMap_Explored,"""已探索：\n地图上的阴影会被移除，使玩家看得到地形，但还是会有战争迷雾。"""
+tt_fe_revealMap_Revealed,"""显示：\n地图上没有阴影和战争迷雾，随时都可以看到所有东西。"""
+
+// game settings MP destroyed player descriptions
+tt_fe_mp_destroyPlyr_Remove,"""移除：\n人类玩家的单位和建筑物都会自游戏中移除。"""
+tt_fe_mp_destroyPlyr_NoAI,"""防御性：\n人类玩家的单位和建筑物都会留在地图上，如果被攻击的话它们会自动反击，但是不会自己主动攻击"""
+tt_fe_mp_destroyPlyr_AIEasiest,"""建立AI（最简单）：\n当一个人类玩家离开游戏的时候，一个有完整功能的AI将会控制游戏，而该AI将会被设定为最简单的等级。"""
+tt_fe_mp_destroyPlyr_AIEasier,"""建立AI（较简单）：\n当一个人类玩家离开游戏的时候，一个有完整功能的AI将会控制游戏，而该AI将会被设定为较简单的等级。"""
+tt_fe_mp_destroyPlyr_AIEasy,"""建立AI（简单）：\n当一个人类玩家离开游戏的时候，一个有完整功能的AI将会控制游戏，而该AI将会被设定为简单的等级。"""
+tt_fe_mp_destroyPlyr_AINormal,"""建立AI（普通）：\n当一个人类玩家离开游戏的时候，一个有完整功能的AI将会控制游戏，而该AI将会被设定为普通的等级。"""
+tt_fe_mp_destroyPlyr_AIHard,"""建立AI（困难）：\n当一个人类玩家离开游戏的时候，一个有完整功能的AI将会控制游戏，而该AI将会被设定为困难的等级。"""
+tt_fe_mp_destroyPlyr_AIHardest,"""建立AI（最难）：\n当一个人类玩家离开游戏的时候，一个有完整功能的AI将会控制游戏，而该AI将会被设定为最难的等级。"""
+
+// generic map settings tooltips
+tt_fe_mapset_elevation,"""地势：\n这个设定决定了地图上的陆地有多平坦。"""
+tt_fe_mapset_forestation,"""造林：\n这个设定决定了地图上森林出现的数量。"""
+tt_fe_mapset_rivers,"""河流：\n这个设定决定了地图上会出现的河流数量。"""
+tt_fe_mapset_randmap,"""由已选择的地图设定中建立随机地图。"""
+tt_fe_mapset_loadmap,"""载入进度档继续进行游戏"""
+tt_fe_mapset_browsemap,"""浏览目前能玩的地图档。"""
+
+// resource distribution levels
+tt_fe_mapset_res_uniform,"""平均：\n资源方格会平均分布到地图上的各个地区。"""
+tt_fe_mapset_res_nonuniform,"""随机：\n资源方格会随机分布到地图上的各个地区，有些地区可能会有比其他地区还多的资源。玩家一开始所在的地区的资源配置则不会受此选择的影响。"""
+
+// map settings size tooltips
+tt_fe_mapSize_Tiny,"""微小：\n最大玩家数=2\n地图规模=100x100"""
+tt_fe_mapSize_Small,"""小：\n最大玩家数量=4\n地图规模=150x150"""
+tt_fe_mapSize_Medium,"""中：\n最大玩家数量=6\n地图规模=200x200"""
+tt_fe_mapSize_Large,"""大：\n最大玩家数量=8\n地图规模=250x250"""
+tt_fe_mapSize_Huge,"""庞大：\n最大玩家数量=10\n地图规模=300x300"""
+tt_fe_mapSize_Gigantic,"""巨大：\n最大玩家数量=10\n地图规模=400x400"""
+
+// map settings geography tooltips
+tt_fe_geo_SmallIslands,"""小岛：\n此种地图会由小岛与其四周的水域构成。"""
+tt_fe_geo_LargeIslands,"""大岛：\n此种地图会由大岛与其四周的水域构成。"""
+tt_fe_geo_Continents,"""大陆块：\n此种地图会由数块大陆与其四周的水域构成。"""
+tt_fe_geo_Plains,"""平原：\n此种地图会由无水的陆地构成。"""
+tt_fe_geo_Mediterranean,"""地中海：\n此种地图会由中央有一大块内陆水域的陆地构成。"""
+tt_fe_geo_Pangea,"""大陆：\n此种地图会由一整块大陆与一条水道构成。"""
+tt_fe_geo_Random_Any,"""随机选择：\n这将会随机选择一种地势类型。"""
+tt_fe_geo_Random_NotIslands,"""随机（非岛屿）：\n以乱数产生地图，但不会产生小岛屿和大岛屿。"""
+
+// map settings climate tooltips
+tt_fe_climate_Temperate,"""温和：\n此地图会使用温和地形设定。"""
+tt_fe_climate_Arid,"""干燥：\n此地图会使用干燥地形设定。"""
+tt_fe_climate_Tropical,"""热带：\n此地图会使用热带地形设定。"""
+tt_fe_climate_random,"""随机选择：\n这将会随机选择一种气候。"""
+
+// load map invalid map tooltips
+tt_fe_customMap_invalid,"""地图档不正确"""
+tt_fe_customMap_numPlayers,"""地图档只支援最多%MAXPLAYERS%玩家"""
+tt_fe_customMap_gameType,"""地图档不支援游戏类型%GAMETYPE%"""
+
+// generic environmental settings tooltips
+tt_fe_envset_cycleSeasons,"""季节变换：\n如果选择了这个选项，季节就会不断变换。"""
+tt_fe_envset_minPerSeason,"""每季分钟数：\n这个设定决定了经过多少分钟就会推进到下一个季节。"""
+tt_fe_envset_startSeason,"""开始季节：\n这是游戏一开始所在的季节。"""
+tt_fe_envset_timeOfDay,"""白昼时间：\n这个设定决定了游戏中的光线状况。"""
+tt_fe_envset_weather,"""开启天气：\n如果选择了这个选项，那么天气状况会依照目前的季节而改变。"""
+tt_fe_envset_wind,"""开启气流：\n如果选择了这个选项，那么气流的效果会在游戏中出现。"""
+
+
+// GAMESPY TOOLTIPS
+
+// rating type
+tt_fe_gs_ratingType_Unrated,"""进行一场不计分的游戏将不会影响到你的排名。"""
+tt_fe_gs_ratingType_Tournament,"""在一个计分的锦标赛游戏中，大部分的游戏选项都是锁定的，这样一来就可以保证游戏是公正且公平的。此游戏的结果将会影响到你的锦标赛排名。"""
+tt_fe_gs_ratingType_Skirmish,"""在一个计分的冲突战游戏中，所有正常的游戏选项都可以进行调整设定。此游戏的结果将会影响到你的冲突战排名。"""
+
+// privacy type
+tt_fe_gs_privacy_Open,"""任何人皆可加入你的游戏。"""
+tt_fe_gs_privacy_Password,"""只有输入正确密码的玩家，或是由你提出邀请加入的玩家，才可以加入你的游戏。"""
+
+// gamespy lobby tooltips
+tt_fe_gs_game_name,"""%GAME%"""
+tt_fe_gs_game_rating,"""分类：%RATINGTYPE% (建立游戏类型%RATING%)"""
+tt_fe_gs_game_rating_hostUnk,"""分类：%RATINGTYPE%"""
+tt_fe_gs_game_rating_U,"""类型：不计分"""
+tt_fe_gs_game_type,"""游戏类型：%TYPE%"""
+tt_fe_gs_game_filename,"""档案名称：%FILENAME%"""
+tt_fe_gs_game_customMap,"""地图：%MAP%"""
+tt_fe_gs_game_randomMap,"""地图：随选地图(%CLIMATE%, %GEOGRAPHY%)"""
+tt_fe_gs_game_players,"""玩家(%CURRENT%/%MAX%)：\n<indent 10 10>%PLAYERS%</indent>"""
+tt_fe_gs_game_player,"""%NAME%，"""
+tt_fe_gs_game_playerLast,"""%NAME%"""
+tt_fe_gs_unknownfordemo,"""未知的(试玩版)"""
+tt_fe_gs_player,"""%NAME% %AFK%\n版本：%VERSION%"""
+tt_fe_gs_playerinfo_afk,"""(离开)"""
+tt_fe_gs_playerinfo_notafk,""""""
+tt_fe_gs_player_CRCs,"""%NAME%\n版本：%VERSION%\nCRCs：%CRCS%"""
+tt_fe_gs_unknown,"""未知"""
+tt_fe_gs_pending,"""暂缓中"""
+tt_fe_gs_buddy,"""%NAME% (%STATUS%)"""
+tt_fe_gs_buddyStatus_online,"""已登入"""
+tt_fe_gs_buddyStatus_offline,"""未登入"""
+tt_fe_gs_room_oneType,"""%NAME%\n游戏种类：%GAMETYPE%\n房间内的玩家：%NUMPLAYERS%/%MAXPLAYERS%\n游戏%NUMGAMES%"""
+tt_fe_gs_room_multTypes,"""%NAME%\n游戏类型： %GAMETYPES%\n玩家人数： %NUMPLAYERS%/%MAXPLAYERS%\n游戏：%NUMGAMES%"""
+tt_fe_gs_room,"""%NAME%\n在房间里的玩家：%NUMPLAYERS%/%MAXPLAYERS%\n游戏：%NUMGAMES%"""
+tt_fe_gs_room_type,"""%s，"""
+tt_fe_gs_room_typeLast,"""%s"""
+
+tt_fe_gs_pStats,"""锦标赛积分：%RATINGTOURN% (%NUMTOURN% %GAMETOURN%)\n冲突战积分：%RATINGSK% (%NUMSK% %GAMESK%)\n已进行过的游戏总数：%NUMTOTAL%\n最喜欢的游戏类型：%FAVGAMETYPE%"""
+tt_fe_gs_pStats_winLoseS,"""锦标赛积分：%RATINGTOURN% (%NUMTOURN% %GAMETOURN%)\n冲突战积分：%RATINGSK% (%NUMSK% %GAMESK%)\n冲突战胜利积分：+%WINDELTA%\n冲突战失败积分：-%LOSEDELTA%\n已进行过的游戏总数：%NUMTOTAL%\n最喜欢的游戏类型：%FAVGAMETYPE%"""
+tt_fe_gs_pStats_winLoseT,"""锦标赛积分：%RATINGTOURN% (%NUMTOURN% %GAMETOURN%)\n锦标赛胜利积分：+%WINDELTA%\n锦标赛失败积分：-%LOSEDELTA%\n冲突战积分：%RATINGSK% (%NUMSK% %GAMESK%)\n已进行过的游戏总数：%NUMTOTAL%\n最喜欢的游戏类型：%FAVGAMETYPE%"""
+
+tt_fe_gs_pStats_noFav,"""锦标赛积分：%RATINGTOURN% (%NUMTOURN% %GAMETOURN%)\n冲突战积分：%RATINGSK% (%NUMSK% %GAMESK%)\n已进行过的游戏总数：%NUMTOTAL%"""
+tt_fe_gs_pStats_winLoseS_noFav,"""锦标赛积分：%RATINGTOURN% (%NUMTOURN% %GAMETOURN%)\n冲突战积分：%RATINGSK% (%NUMSK% %GAMESK%)\n冲突战胜利积分：+%WINDELTA%\n冲突战失败积分：-%LOSEDELTA%\n已进行过的游戏总数：%NUMTOTAL%"""
+tt_fe_gs_pStats_winLoseT_noFav,"""锦标赛积分：%RATINGTOURN% (%NUMTOURN% %GAMETOURN%)\n锦标赛胜利积分：+%WINDELTA%\n锦标赛失败积分：-%LOSEDELTA%\n冲突战积分：%RATINGSK% (%NUMSK% %GAMESK%)\n已进行过的游戏总数：%NUMTOTAL%"""
+
+tt_fe_gs_stats_game,"""游戏"""
+tt_fe_gs_stats_games,"""游戏"""
+
+tt_fe_gs_chatMonitor,"""%NAME%\n%NAME%是一个bot，它将会强制执行交谈分级。你可以在以下网址中浏览交谈分级的相关资讯：http://www.gamespyarcade.com/support/chatrules.shtml"""
+
+// players list icon tooltips
+tt_fe_gs_ignored,"""你已忽视此玩家"""
+tt_fe_gs_ingame,"""此玩家正在进行游戏中"""
+tt_fe_climate_desert,"""Desert:\nThis map will use the desert terrain set."""
+
+/////////////////////////////////////////////////
+// OPTIONS TOOLTIPS
+
+// general options tooltips
+tt_fe_optgen_groupclick,"""一旦开启，按钮便可以选择该单位所属的整个队形，按住Alt键再点选便是只选择该单位。若无开启，按钮可以选择该单位，按住Alt键再点选便可以选择该单位所属的整个队形。\n请注意无论此设定为何，如果某单位隶属于英雄的军团，那么按钮是一定选择整个军团，按下Alt键再点选则是选择该军团中的某个单位。"""
+tt_fe_optgen_advancedUser,"""一旦启动时，攻击群组单位和攻击优先种类单位会被显示在单位动作按钮面板上，移动按钮则会被隐藏起来。"""

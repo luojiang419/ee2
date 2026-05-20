@@ -1,0 +1,160 @@
+//------------------------------------------------------------------------------------------------
+//	NUCLEAR BOMBER - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType NuclearBomber
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		VerboseTooltip = vtt_unit_Bomber
+		popCount = 5
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.21; angSpeed = 60; CruisingHeight = 9.5; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { range = 0; reloadTime = 1; applyDamageTime = 0; damage = 0; missileName = "AtomBomb"; ordnance = 1; attackOnTheMove = 1 }
+		LOS { range = 0 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+}
+
+// Add to mobile units for a blobby ellipsoid shadow
+ShadowData        NuclearBomberShadow
+{
+	Flags = (IsMobile | ImmutableBounds)
+	FlatBillboard
+	{
+		TextureFilename = BomberShadow.tga
+		WidthScale = 0.9
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities NuclearBomberEpoch12Attack
+{
+	UnitType = NuclearBomber
+	upgradedAbilities = [
+		AircraftMove {speed = 5.0; angSpeed = 45; CruisingHeight = 8.5; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 8; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities NuclearBomberEpoch13Attack
+{
+	UnitType = NuclearBomber
+	upgradedAbilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 8.5; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 10; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+// Attack Ability Upgrade
+UpgradeAbilities NuclearBomberEpoch14Attack
+{
+	UnitType = NuclearBomber
+	upgradedAbilities = [
+		AircraftMove {speed = 7.5; angSpeed = 60; CruisingHeight = 9.5; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 11; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+//------------------------------------------------------------------------------------------------
+//	NUCLEAR BOMBER - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+UnitModel NuclearBomber_12
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= AB12_NuclearBomber.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_nuclearbomber_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_nuclearbomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_nuclearbomber_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.5 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_nuclearbomber_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_nuclearbomber_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 1.73
+		scale = 1.79
+		angle = 18.95
+	}
+}
+UnitModel NuclearBomber_13
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Am_B52H.nif
+	ForceScale = 0.14
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = ab13_jetenginebomber_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = ab13_jetenginebomber_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = ab13_jetenginebomber_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}
+								]}
+		{ 	StateName = TakeOff	AnimName = ab13_jetenginebomber_takeoff.kf
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = ab13_jetenginebomber_death.kf }
+			]
+	ChildNames 	= [VaporTrail5 VaporTrail6 EngineTrail1 EngineTrail2 TheAmmoBar BomberShadow3 JetEngineBomber_FlyingParts expl_heli_Tandrill ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 1.73
+		scale = 1.79
+		angle = 18.95
+	}
+
+}
+UnitModel NuclearBomber_14
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= AB14_NuclearBomber.nif
+	ChildNames 	= [VaporTrail5 VaporTrail6 EngineTrail1 EngineTrail2 TheAmmoBar fighterBomberShadow_05 StealthBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB14_nuclearbomber_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB14_nuclearbomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB14_nuclearbomber_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.5 }]}
+		{ 	StateName = TakeOff	AnimName = AB14_nuclearbomber_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB14_nuclearbomber_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.50
+		zOffset = 1.14
+		scale = 1.79
+		angle = 18.95
+	}
+
+}

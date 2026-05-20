@@ -1,0 +1,71 @@
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT ZULU (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitZulu1Hero
+{
+	parent = UniqueUnitZulu1
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.144
+		SizeY = 0.144
+	}
+	abilities = [
+		Hero { HeroClass = HeavyMounted; HeroForUnit = UniqueUnitZulu1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitZulu1Hero
+{
+	Parent		= UniqueUnitZulu1
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT ZULU (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitZulu2Hero
+{
+	parent = UniqueUnitZulu2
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.144
+		SizeY = 0.144
+	}
+	abilities = [
+		Hero { HeroClass = HeavyInfantry; HeroForUnit = UniqueUnitZulu2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitZulu2Hero
+{
+	Parent		= UniqueUnitZulu2
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT ZULU (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitZulu3Hero
+{
+	parent = UniqueUnitZulu3
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.144
+		SizeY = 0.144
+	}
+	abilities = [
+		Hero { HeroClass = HeavyInfantry; HeroForUnit = UniqueUnitZulu3 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitZulu3Hero
+{
+	Parent		= UniqueUnitZulu3
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

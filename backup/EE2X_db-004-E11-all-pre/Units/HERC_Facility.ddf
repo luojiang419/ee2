@@ -1,0 +1,48 @@
+//------------------------------------------------------------------------------------------------
+//	HERC FACILITY - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType HercFacility
+{
+	parent = Building
+	properties {
+		SizeX = 2.5
+		SizeY = 2
+		OffsetX = 0.75
+		OffsetY = 0.75
+		FootprintSizeX = 4
+		FootprintSizeY = 3.5
+		UndertextureSizeX = 2.5
+		UndertextureSizeY = 2.5
+		UndertextureOffsetY = 0.25
+		mass = 1
+		displayName = tx_utn_hercfacility_name
+		DisplayNameScenEdit = tx_utn_hercfacility_sname
+		VerboseTooltip = vtt_unit_hercfacility
+		RallyPlacementFlags = ( Fortress | Tower | Terrain )
+		requiredOpenSides = kBuildingOpenSides_PosX
+	}
+	sounds {
+    	}
+	fullMapOverlay { sprite = spr_fullmap_mill}
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// HercFacilityUpgradeEpoch14 is in upgrade_unittypes.csv
+
+//------------------------------------------------------------------------------------------------
+//	HERC FACILITY - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel HercFacility
+{
+	Parent		= BaseBuilding
+	DefaultModel	= bld_herc_factory.nif
+	ChildNames 		= [ LargeGlow UnderMill ExplSelectorBuild_Small ]
+}

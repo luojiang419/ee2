@@ -1,0 +1,390 @@
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT CHINESE DRAGON ARCHER (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitChinese1
+{
+	parent = LightInfantry
+	properties {
+		DisplayName = tx_utn_UUChinese1_name
+		DisplayNameScenEdit = tx_utn_UUChinese1_sname
+		VerboseTooltip = vtt_unit_UUChinese1
+		HitPoints = 0
+		rps = LightInfantry
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 1
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 0; angularRange = 30; reloadTime = 1; applyDamageTime = 1.56; damage = 0; missileName = "FireArrow"; ignoreBlocking = 1 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 0 }
+		Move { speed = 1.2; angSpeed = 720}
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitChinese1Veteran
+{
+	unitType = UniqueUnitChinese1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitChinese1Elite
+{
+	unitType = UniqueUnitChinese1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitChinese1
+{
+	Parent		= LightInfantry_01
+        ScaleType	= kScaleUnit
+	DefaultModel 	= CIV3_DragonArcher_Chinese.nif
+	ChildNames 	= [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_compositebowman_idle01.KF	
+                        AnimVariants = [ CIV3_DragonArcher_Chinese_idle02.KF sh_compositebowman_win.kf sh_compositebowman_season01.KF]
+                        AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{ 	StateName = Walk	AnimName = sh_compositebowman_walk01.KF 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+                { 	StateName = CaptureAttack1	AnimName = CIV3_DragonArcher_Chinese_capture01.KF
+                              AnimVariants = [ CIV3_DragonArcher_Chinese_capture02.KF ]
+                              AnimVariantsWeights = [0.3]
+				TextKeys = [
+								{ Name = SHOW_NODE Data = arrow KeyTime = 0 }
+				]}     
+		{ 	StateName = Run	        AnimName = sh_compositebowman_jog01.KF
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = sh_compositebowman_attack01.KF
+                        TextKeys = [ { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 1.56 } 
+				     { Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				     { Name = SHOW_NODE Data = arrow KeyTime = 0.3 }
+				     { Name = HIDE_NODE Data = arrow KeyTime = 1.56  }] 
+                }
+		{ 	StateName = Death	AnimName = sh_compositebowman_death01.KF
+				TextKeys = [
+								{ Name = HIDE_NODE Data = arrow KeyTime = 0 }
+				]}
+		{	StateName = Flinch	AnimName = CIV3_DragonArcher_Chinese_protect01.kf }
+		{	StateName = BeingThrown	AnimName = CIV3_DragonArcher_Chinese_flying01.kf
+			AnimVariants = [ CIV3_DragonArcher_Chinese_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = CIV3_DragonArcher_Chinese_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -1.32
+		zOffset = -5.75
+		scale = 2.69
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT CHINESE CHINESE CANNON (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitChinese2
+{
+	parent = HeavyArtillery
+	properties {
+		DisplayName = tx_utn_UUChinese2_name
+		DisplayNameScenEdit = tx_utn_UUChinese2_sname
+		VerboseTooltip = vtt_unit_UUChinese2
+		HitPoints = 0
+		SizeX = 0.5
+		SizeY = 0.5
+		mass = 5
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 0; reloadTime = 666; applyDamageTime = 0.3; damage = 0; missileName = "CannonBall02"; ignoreBlocking = 1; areaDamageRadius = 1.8; areaDamageFriendlyRatio = 0.5 packTime = 4; unpackTime = 4; minRangeMobile = 4.5; minRangeImmobile = 4.5 }
+		LOS { range = 0 }
+		VehicleMove {speed = 0.7; angSpeed = 180; followTerrainSlope = 1 }
+	]
+
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitChinese2Veteran
+{
+	unitType = UniqueUnitChinese2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitChinese2Elite
+{
+	unitType = UniqueUnitChinese2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitChinese2
+{
+	Parent		= HeavyArtillery_06
+//	ScaleType 		= kScaleVehicle
+//	DefaultModel 		= civ7_cannon_chinese.nif  
+    DefaultModel 		= Hongyipao.nif  
+	States 		= [
+		{	StateName = Idle	AnimName = lha8_BombardCannon_idle01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{   StateName = UnpackedIdle  AnimName = lha8_BombardCannon_unpackidle01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{ 	StateName = Walk	AnimName = lha8_BombardCannon_walk.kf
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_wheeled_02 KeyTime = 0}
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }]}
+		{	StateName = UnpackedWalk  AnimName = lha8_BombardCannon_unpackwalk01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	  AnimName = lha8_BombardCannon_attack.kf
+				TextKeys = [
+								{ Name = PLAY_SOUND Data = Cannon_firing1 KeyTime = 0.31 }
+								//{ Name = SHOW_NODE Data = canon_ball KeyTime = 0 }
+				] }
+		{	StateName = Pack	AnimName = lha8_BombardCannon_pack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{	StateName = Unpack	AnimName = lha8_BombardCannon_unpack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{ 	StateName = Death	AnimName = lha8_BombardCannon_death.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{   StateName = PackedDeath AnimName = lha8_BombardCannon_packdeath01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+
+			]
+	ChildNames 	= [ Muzzle_FieldGun ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.15
+		zOffset = 0.05
+		scale = 1.66
+		angle = 47.37
+	}
+
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT CHINESE TYPE 96 TANK (EPOCHS 13)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitChinese3
+{
+	parent = HeavyMounted
+	properties {
+		DisplayName = tx_utn_UUChinese3_name
+		DisplayNameScenEdit = tx_utn_UUChinese3_sname
+		VerboseTooltip = vtt_unit_UUChinese3
+		HitPoints = 0
+		moveType = Mechanized
+		SizeX = 0.9
+		SizeY = 0.7
+		mass = 5
+	}
+	sounds {
+
+	}
+	abilities [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 1 }
+		VehicleMove {speed = 1.7; angSpeed = 50; followTerrainSlope = 1; mustMoveToTurn = 0}
+		LOS {range = 5}
+		AreaEffect {effects = [ Taran_Tanks ]}
+	]
+	attributes = [
+		HealedByHERC 		
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitChinese3Veteran
+{
+	unitType = UniqueUnitChinese3
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitChinese3Elite
+{
+	unitType = UniqueUnitChinese3
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitChinese4Veteran
+{
+	unitType = UniqueUnitChinese3
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitChinese4Elite
+{
+	unitType = UniqueUnitChinese3
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitChinese3
+{
+	parent 		= HeavyMounted1_12
+	DefaultModel 	= T99A.NIF //Type96.nif
+	ForceScale      = 0.09
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_01 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1  MainBattleTank_FlyingParts Muzzle_FiringShell MainBattleTankShadow TankTracks DustHeavyMonted]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitChinese4
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= ZTZ100.NIF
+	ForceScale      = 0.105
+	States = [
+			{ StateName= Idle AnimName = T99_A2_idle.KF 
+			TextKeys = [ 
+					     { Name = STOP_SOUND Data = fx_battle_tankfire_02 KeyTime = 0 }
+					   ]
+			}
+
+			{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1  AnimName = T99_A2_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_02 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death }//AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyTank ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitChinese3_15
+{
+	parent 		= HeavyMounted1_12
+	DefaultModel 	= HeavyTank14.NIF 
+	ForceScale      = 0.1
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_01 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}

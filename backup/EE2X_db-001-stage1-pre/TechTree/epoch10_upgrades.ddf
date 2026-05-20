@@ -1,0 +1,271 @@
+//------------------------------------------------------------------------------------------------
+//	EPOCH 10 UPGRADES 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	MAIN BRANCH
+//------------------------------------------------
+UpgradeSet AdvanceEpoch10 {
+	upgrades = [
+		UpgradeEpoch {epoch = 10;}
+	]
+}
+
+UpgradeObsoleteTech ObsoleteGuichuan {
+	tech = Guichuan
+}
+UpgradeObsoleteTech ObsoleteJapanBoat1 {
+	tech = JapanBoat1
+}
+UpgradeObsoleteTech ObsoleteJapanBoat2 {
+	tech = JapanBoat2
+}
+UpgradeObsoleteTech ObsoleteAfricanBoat {
+	tech = AfricanBoat
+}
+UpgradeObsoleteTech ObsoleteMesoAmerBoat {
+	tech = MesoAmerBoat
+}
+UpgradeObsoleteTech ObsoleteMiddleEastBoat {
+	tech = MiddleEastBoat
+}
+UpgradeObsoleteTech Obsoletegermlinkor {
+	tech = germlinkor
+}
+UpgradeObsoleteTech Obsoletegermgaleon {
+	tech = germgaleon
+}
+UpgradeObsoleteTech ObsoleteHMSVictory {
+	tech = HMSVictory
+}
+UpgradeObsoleteTech ObsoleteLinkorEng {
+	tech = LinkorEng
+}
+UpgradeObsoleteTech ObsoleteItallinkor {
+	tech = Itallinkor
+}
+UpgradeObsoleteTech ObsoleteGalleon_91 {
+	tech = Galleon_91
+}
+UpgradeObsoleteTech ObsoleteSpainwargALeon {
+	tech = SpainwargALeon
+}
+UpgradeObsoleteTech ObsoleteorigFrigate {
+	tech = origFrigate
+}
+UpgradeObsoleteTech ObsoleteGreclin {
+	tech = Greclin
+}
+UpgradeObsoleteTech ObsoleteorigGalleon {
+	tech = origGalleon
+}
+UpgradeObsoleteTech ObsoleteFranlin {
+	tech = Franlin
+}
+UpgradeObsoleteTech ObsoleteFrangaleon {
+	tech = Frangaleon
+}
+UpgradeObsoleteTech ObsoleteRuslinkor {
+	tech = Ruslinkor
+}
+UpgradeObsoleteTech ObsoleteRusgaleon {
+	tech = Rusgaleon
+}
+UpgradeObsoleteTech ObsoleteIronref {
+	tech = Ironref
+}
+
+UpgradeUndo UndoMilitary5_2 {
+	techNode = Military5_2
+}
+
+UpgradeUndo UndoEconomic5_2 {
+	techNode = Economic5_2
+}
+
+UpgradeUndo UndoImperial5_4 {
+	techNode = Imperial5_4
+}
+
+// Main10
+UpgradeRefSet MainEpoch10 {
+	upgrades = [
+		AdvanceEpoch10
+		HeavyArtilleryUpgradeEpoch10
+		LightMounted1UpgradeEpoch10
+		HeavyMounted1UpgradeEpoch10
+		GalleonUpgradeEpoch10
+		FightingSailUpgradeEpoch10
+		FrigateUpgradeEpoch10
+		OutpostUpgradeEpoch10
+		Outpost2UpgradeEpoch10
+		UniversityUpgradeEpoch10
+		TempleUpgradeEpoch10
+		CityCenterUpgradeEpoch10
+		CitizenUpgradeEpoch10
+		FortressUpgradeEpoch10
+		PalisadeUpgradeEpoch10
+		PalisadeConnectorUpgradeEpoch10
+		PalisadeFragmentUpgradeEpoch10
+		PalisadeGateUpgradeEpoch10
+		RoadUpgradeEpoch10
+		RoadElbowUpgradeEpoch10
+		BridgeUpgradeEpoch10
+		CityPlazaUpgradeEpoch10
+		ScoutUpgradeEpoch10
+		DockUpgradeEpoch10
+		BarracksUpgradeEpoch10
+		WarehouseUpgradeEpoch10
+		MyOutpostUpgradeEpoch10
+		PriestUpgradeEpoch10
+		SpyUpgradeEpoch10
+		ResourceOilUpgradeEpoch10
+		LumberUpgradeEpoch10
+		QuarryUpgradeEpoch10
+		HospitalUpgradeEpoch10
+		// new unit
+		MaChuanUpgradeEpoch10
+		ZhengHeUpgradeEpoch10
+		WesternBoat1UpgradeEpoch10
+		WesternBoat2UpgradeEpoch10
+		MinegoldUpgradeEpoch10
+		AICoastalDefenseUpgradeEpoch10
+		dapaoUpgradeEpoch10
+		MyEngineer2UpgradeEpoch10
+		// LEADERS
+		LeaderEconomicUpgradeEpoch10
+		LeaderMilitaryUpgradeEpoch10
+		LeaderImperialUpgradeEpoch10
+		KingRegicideUpgradeEpoch10
+
+		ObsoleteSiegeship
+		ObsoleteIronref
+		ObsoleteGuichuan
+		ObsoleteJapanBoat1
+		ObsoleteJapanBoat2
+		ObsoleteAfricanBoat
+		ObsoleteMesoAmerBoat
+		ObsoleteMiddleEastBoat
+		Obsoletegermlinkor
+		Obsoletegermgaleon
+		ObsoleteHMSVictory
+		ObsoleteLinkorEng
+		ObsoleteItallinkor
+		ObsoleteGalleon_91
+		ObsoleteSpainwargALeon
+		ObsoleteorigFrigate
+		ObsoleteGreclin
+		ObsoleteorigGalleon
+		ObsoleteFranlin
+		ObsoleteFrangaleon
+		ObsoleteRuslinkor
+		ObsoleteRusgaleon
+		// UNDO UPGRADES
+		UndoMilitary5_2
+		UndoEconomic5_2
+		UndoImperial5_4
+		
+		// EE2X HERO UPGRADES
+		LightMountedHeroUpgradeEp10
+		HeavyMountedHeroUpgradeEp10
+		HeavyArtilleryHeroUpgradeEp10
+	]
+}
+
+//------------------------------------------------
+//	MILITARY BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet MilitaryEpoch10Slot1 {
+	upgrades = [
+		MilitaryTechUpgrade_E10_Slot1a
+		MilitaryTechUpgrade_E10_Slot1b
+	]
+}
+
+// Slot 2
+UpgradeRefSet MilitaryEpoch10Slot2 {
+	upgrades = [
+		//MilitaryTechUpgrade_E10_Slot2a
+		MilitaryTechUpgrade_E12_Slot2a
+		MilitaryTechUpgrade_E12_Slot2b
+	]
+}
+
+// Slot 3
+UpgradeRefSet MilitaryEpoch10Slot3 {
+	upgrades = [
+		MilitaryTechUpgrade_E10_Slot3a
+	]
+} 
+
+// Slot 4
+UpgradeRefSet MilitaryEpoch10Slot4 {
+	upgrades = [
+		MilitaryTechUpgrade_E10_Slot4a
+		MilitaryTechUpgrade_E10_Slot4b
+	]
+}
+
+//------------------------------------------------
+//	ECONOMIC BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet EconomicEpoch10Slot1 {
+	upgrades = [
+		EconomicTechUpgrade_E10_Slot1a
+		EconomicTechUpgrade_E10_Slot1b
+	]
+}
+
+// Slot 2
+UpgradeRefSet EconomicEpoch10Slot2 {
+	upgrades = [
+		EconomicTechUpgrade_E10_Slot2a
+		EconomicTechUpgrade_E10_Slot2b
+	]
+}
+
+// Slot 3
+UpgradeRefSet EconomicEpoch10Slot3 {
+	upgrades = [
+		EconomicTechUpgrade_E10_Slot3a
+	]
+}
+
+// Slot 4
+UpgradeRefSet EconomicEpoch10Slot4 {
+	upgrades = [
+		EconomicTechUpgrade_E10_Slot4a
+	]
+}
+
+//------------------------------------------------
+//	IMPERIAL BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet ImperialEpoch10Slot1 {
+	upgrades = [
+		ImperialTechUpgrade_E10_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet ImperialEpoch10Slot2 {
+	upgrades = [
+		ImperialTechUpgrade_E10_Slot2a
+	]
+}
+
+// Slot 3
+UpgradeRefSet ImperialEpoch10Slot3 {
+	upgrades = [
+		ImperialTechUpgrade_E10_Slot3a
+	]
+}
+
+// Slot 4
+UpgradeRefSet ImperialEpoch10Slot4 {
+	upgrades = [
+		ImperialTechUpgrade_E10_Slot4a
+	]
+}

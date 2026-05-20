@@ -1,0 +1,1119 @@
+//------------------------------------------------------------------------------------------------
+//	EPOCH 15 UPGRADES 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	MAIN BRANCH
+//------------------------------------------------
+// Obsolete these technologies
+UpgradeObsoleteTech ObsoleteF5Mexico {
+	tech = F5Mexico
+}
+UpgradeObsoleteTech Obsoletejiqiangpika_Mexico {
+	tech = jiqiangpika_Mexico
+}
+UpgradeObsoleteTech Obsoletehuojianpika_Mexico {
+	tech = huojianpika_Mexico
+}
+UpgradeObsoleteTech Obsoletegaopaopika_Mexico {
+	tech = gaopaopika_Mexico
+}
+UpgradeObsoleteTech Obsoletejiqiangpika {
+	tech = jiqiangpika
+}
+UpgradeObsoleteTech Obsoletehuojianpika {
+	tech = huojianpika
+}
+UpgradeObsoleteTech Obsoletegaopaopika {
+	tech = gaopaopika
+}
+UpgradeObsoleteTech ObsoleteF14Iran {
+	tech = F14Iran
+}
+UpgradeObsoleteTech ObsoleteKilo_Iran {
+	tech = Kilo_Iran
+}
+UpgradeObsoleteTech ObsoleteS300_greek {
+	tech = S300_greek
+}
+UpgradeObsoleteTech ObsoleteF4Turcey {
+	tech = F4Turcey
+}
+UpgradeObsoleteTech ObsoleteF5Turkey {
+	tech = F5Turkey
+}
+UpgradeObsoleteTech ObsoleteSA9Irak {
+	tech = SA9Irak
+}
+UpgradeObsoleteTech ObsoleteType075 {
+	tech = Type075
+}
+UpgradeObsoleteTech Obsoletemoskva_Heliport {
+	tech = moskva_Heliport
+}
+UpgradeObsoleteTech ObsoleteChina_yun8 {
+	tech = China_yun8
+}
+UpgradeObsoleteTech Obsoleteyun20 {
+	tech = yun20
+}
+UpgradeObsoleteTech ObsoleteDestroyerDelhi {
+	tech = DestroyerDelhi
+}
+UpgradeObsoleteTech ObsoleteDestroyerKolkata {
+	tech = DestroyerKolkata
+}
+UpgradeObsoleteTech ObsoleteType11356 {
+	tech = Type11356
+}
+UpgradeObsoleteTech ObsoleteC130 {
+	tech = C130
+}
+UpgradeObsoleteTech ObsoleteHeliport_Carrier02 {
+	tech = Heliport_Carrier02
+}
+UpgradeObsoleteTech Obsoletexbf_Carrier01 {
+	tech = xbf_Carrier01
+}
+UpgradeObsoleteTech ObsoleteRusSoldiers {
+	tech = RusSoldiers
+}
+UpgradeObsoleteTech ObsoleteusaSoldiers {
+	tech = usaSoldiers
+}
+UpgradeObsoleteTech ObsoleteDragon {
+	tech = Dragon
+}
+UpgradeObsoleteTech ObsoleteSniper {
+	tech = Sniper
+}
+UpgradeObsoleteTech ObsoleteCscommgril {
+	tech = Cscommgril
+}
+UpgradeObsoleteTech ObsoleteF22 {
+	tech = F22
+}
+UpgradeObsoleteTech ObsoleteYF23 {
+	tech = YF23
+}
+UpgradeObsoleteTech ObsoleteF35 {
+	tech = F35
+}
+UpgradeObsoleteTech ObsoleteAmerican_THAAD {
+	tech = American_THAAD
+}
+UpgradeObsoleteTech ObsoleteMobileSAM {
+	tech = MobileSAM
+}
+UpgradeObsoleteTech Obsoletesanantonio {
+	tech = sanantonio
+}
+UpgradeObsoleteTech ObsoleteBradley {
+	tech = Bradley
+}
+UpgradeObsoleteTech ObsoleteHumvee2 {
+	tech = Humvee2
+}
+UpgradeObsoleteTech ObsoleteSSBN {
+	tech = SSBN
+}
+//UpgradeObsoleteTech ObsoleteParatrooper_M1A1 {
+//	tech = Paratrooper_M1A1
+//}
+//UpgradeObsoleteTech ObsoleteParatrooper_USAArmy {
+//	tech = Paratrooper_USAArmy
+//}
+UpgradeObsoleteTech Obsoletesu47 {
+	tech = su47
+}
+UpgradeObsoleteTech ObsoleteSu34 {
+	tech = Su34
+}
+UpgradeObsoleteTech Obsoletetu160 {
+	tech = tu160
+}
+UpgradeObsoleteTech ObsoleteT50 {
+	tech = T50
+}
+UpgradeObsoleteTech Obsoletesu33 {
+	tech = su33
+}
+UpgradeObsoleteTech ObsoleteMiG31 {
+	tech = MiG31
+}
+UpgradeObsoleteTech ObsoleteBMP3 {
+	tech = BMP3
+}
+UpgradeObsoleteTech Obsoletemi26 {
+	tech = mi26
+}
+UpgradeObsoleteTech ObsoleteOscar2 {
+	tech = Oscar2
+}
+UpgradeObsoleteTech ObsoleteVictor {
+	tech = Victor
+}
+//UpgradeObsoleteTech ObsoleteParatrooper_T72 {
+//	tech = Paratrooper_T72
+//}
+//UpgradeObsoleteTech ObsoleteParatrooper_RussArmy {
+//	tech = Paratrooper_RussArmy
+//}
+UpgradeObsoleteTech ObsoleteDardo {
+	tech = Dardo
+}
+UpgradeObsoleteTech ObsoleteLINCE {
+	tech = LINCE
+}
+UpgradeObsoleteTech ObsoleteL212A {
+	tech = L212A
+}
+UpgradeObsoleteTech ObsoleteItalySSGN {
+	tech = ItalySSGN
+}
+UpgradeObsoleteTech ObsoleteMarder {
+	tech = Marder
+}
+UpgradeObsoleteTech ObsoleteDingo {
+	tech = Dingo
+}
+UpgradeObsoleteTech ObsoleteGermanSSGN {
+	tech = GermanSSGN
+}
+UpgradeObsoleteTech ObsoleteWarrior {
+	tech = Warrior
+}
+UpgradeObsoleteTech Obsoleteastute {
+	tech = astute
+}
+UpgradeObsoleteTech ObsoleteAMX10wt {
+	tech = AMX10wt
+}
+UpgradeObsoleteTech ObsoleteBarracuda {
+	tech = Barracuda
+}
+UpgradeObsoleteTech ObsoletePizzaro {
+	tech = Pizzaro
+}
+UpgradeObsoleteTech ObsoleteMig29Iraq {
+	tech = Mig29Iraq
+}
+UpgradeObsoleteTech ObsoleteMig29Iran {
+	tech = Mig29Iran
+}
+UpgradeObsoleteTech ObsoleteMirage2000Egypt {
+	tech = Mirage2000Egypt
+}
+UpgradeObsoleteTech ObsoleteJetFighterTurkey {
+	tech = JetFighterTurkey
+}
+UpgradeObsoleteTech ObsoleteType89mi {
+	tech = Type89mi
+}
+UpgradeObsoleteTech ObsoleteYushio {
+	tech = Yushio
+}
+UpgradeObsoleteTech ObsoleteKJ2000 {
+	tech = KJ2000
+}
+UpgradeObsoleteTech ObsoleteJ20 {
+	tech = J20
+}
+UpgradeObsoleteTech ObsoleteJ31 {
+	tech = J31
+}
+UpgradeObsoleteTech ObsoleteJ15 {
+	tech = J15
+}
+UpgradeObsoleteTech ObsoleteScud_culd {
+	tech = Scud_culd
+}
+UpgradeObsoleteTech ObsoleteAntiAir_HQ9 {
+	tech = AntiAir_HQ9
+}
+UpgradeObsoleteTech Obsoleteradacache {
+	tech = radacache
+}
+UpgradeObsoleteTech ObsoletePHL_03 {
+	tech = PHL_03
+}
+UpgradeObsoleteTech ObsoleteKa28Kitai {
+	tech = Ka28Kitai
+}
+UpgradeObsoleteTech ObsoleteChinaship_071 {
+	tech = Chinaship_071
+}
+UpgradeObsoleteTech ObsoleteAntiAir_Fkl03 {
+	tech = AntiAir_Fkl03
+}
+UpgradeObsoleteTech ObsoleteChinaArmy {
+	tech = ChinaArmy
+}
+UpgradeObsoleteTech ObsoleteCJ10 {
+	tech = CJ10
+}
+UpgradeObsoleteTech ObsoleteZ8 {
+	tech = Z8
+}
+UpgradeObsoleteTech ObsoleteType092 {
+	tech = Type092
+}
+//UpgradeObsoleteTech ObsoleteParatrooper_Solider4 {
+//	tech = Paratrooper_Solider4
+//}
+//UpgradeObsoleteTech ObsoleteParatrooper_Mounter3 {
+//	tech = Paratrooper_Mounter3
+//}
+//UpgradeObsoleteTech ObsoleteParatrooper_Type62 {
+//	tech = Paratrooper_Type62
+//}
+UpgradeObsoleteTech ObsoleteCV9040 {
+	tech = CV9040
+}
+//UpgradeObsoleteTech ObsoleteParatrooper_KX2 {
+//	tech = Paratrooper_KX2
+//}
+//UpgradeObsoleteTech ObsoleteParatrooper_FarEastArmy {
+//	tech = Paratrooper_FarEastArmy
+//}
+UpgradeObsoleteTech ObsoleteOsorio {
+	tech = Osorio
+}
+UpgradeObsoleteTech ObsoleteVBLBrasil4 {
+	tech = VBLBrasil4
+}
+UpgradeObsoleteTech ObsoleteIndiaSu30 {
+	tech = IndiaSu30
+}
+UpgradeObsoleteTech ObsoleteIndiaMirage2000 {
+	tech = IndiaMirage2000
+}
+UpgradeObsoleteTech ObsoleteTammclc {
+	tech = Tammclc
+}
+UpgradeObsoleteTech ObsoleteTAMVctp {
+	tech = TAMVctp
+}
+UpgradeObsoleteTech ObsoleteIncaArjun {
+	tech = IncaArjun
+}
+UpgradeObsoleteTech ObsoleteKilo {
+	tech = Kilo
+}
+UpgradeObsoleteTech ObsoleteIncaAkula {
+	tech = IncaAkula
+}
+UpgradeObsoleteTech ObsoleteRooikat {
+	tech = Rooikat
+}
+UpgradeObsoleteTech ObsoleteTracked_Antiaircraft {
+	tech = Tracked_Antiaircraft
+}
+UpgradeObsoleteTech ObsoleteAITracked_Antiaircraft {
+	tech = AITracked_Antiaircraft
+}
+UpgradeObsoleteTech ObsoleteRuss_katuysa2 {
+	tech = Russ_katuysa2
+}
+UpgradeObsoleteTech ObsoleteHuopao_other {
+	tech = Huopao_other
+}
+UpgradeObsoleteTech ObsoleteMRLS_American {
+	tech = MRLS_American
+}
+UpgradeObsoleteTech ObsoleteZiYuan {
+	tech = ZiYuan
+}
+UpgradeObsoleteTech ObsoleteDF41 {
+	tech = DF41
+}
+UpgradeObsoleteTech ObsoleteUniqueUnitEgyptian3 {
+	tech = UniqueUnitEgyptian3
+}
+UpgradeObsoleteTech ObsoleteUniqueUniqueUnitInca3 {
+	tech = UniqueUnitInca3
+}
+UpgradeObsoleteTech ObsoleteUniqueUnitMayan3 {
+	tech = UniqueUnitMayan3
+}
+UpgradeObsoleteTech ObsoleteUniqueUnitFrench3 {
+	tech = UniqueUnitFrench3
+}
+UpgradeObsoleteTech ObsoleteBM30 {
+	tech = BM30
+}
+UpgradeObsoleteTech ObsoleteRu_S400 {
+	tech = Ru_S400
+}
+UpgradeObsoleteTech ObsoleteScud_Russ {
+	tech = Scud_Russ
+}
+UpgradeObsoleteTech ObsoleteA100 {
+	tech = A100
+}
+UpgradeObsoleteTech ObsoleteIL78 {
+	tech = IL78
+}
+UpgradeObsoleteTech ObsoleteSu24 {
+	tech = Su24
+}
+UpgradeObsoleteTech ObsoleteT90S {
+	tech = T90S
+}
+UpgradeObsoleteTech ObsoleteT72Karrar {
+	tech = T72Karrar
+}
+UpgradeObsoleteTech ObsoleteT300 {
+	tech = T300
+}
+UpgradeObsoleteTech ObsoleteType75_Japan {
+	tech = Type75_Japan
+}
+UpgradeObsoleteTech ObsoleteM142 {
+	tech = M142
+}
+UpgradeSet AdvanceEpoch15 {
+	upgrades = [
+		UpgradeEpoch {epoch = 15;}
+	]
+}
+UpgradeUndo UndoImperial10_4 {
+	techNode = Imperial10_4
+}
+// Main15
+UpgradeRefSet MainEpoch15 {
+	upgrades = [
+		AdvanceEpoch15
+		TradeCartUpgradeEpoch15
+		LightInfantryUpgradeEpoch15
+		HeavyInfantry1UpgradeEpoch15
+		HeavyInfantry2UpgradeEpoch15
+		AirDefenseUpgradeEpoch15
+		MillUpgradeEpoch15
+		StableUpgradeEpoch15
+		TransHelicopterUpgradeEpoch15
+		WonderFarEastEpoch15AreaEffect
+		dapaoUpgradeEpoch15
+		MarketUpgradeEpoch15
+		CityCenterUpgradeEpoch15
+		OutpostUpgradeEpoch15
+		TempleUpgradeEpoch15
+		HouseUpgradeEpoch15
+		UniversityUpgradeEpoch15
+		DockUpgradeEpoch15
+		BarracksUpgradeEpoch15
+		HospitalUpgradeEpoch15
+		Airport2UpgradeEpoch15
+		AMissileDefenseUpgradeEpoch15
+		AirportUpgradeEpoch15
+		RadarUpgradeEpoch15
+		E3UpgradeEpoch15
+		il76UpgradeEpoch15
+		AntishipMisUpgradeEpoch15
+		MachinegunnestUpgradeEpoch15
+		ThaadUpgradeEpoch15
+		HospitalUpgradeEpoch15
+		AIResource1UpgradeEpoch15
+		AIResourceUpgradeEpoch15
+		NonCombatAir2UpgradeEpoch15
+		TavernUpgradeEpoch15
+		FortressUpgradeEpoch15
+		CoastalDefenseUpgradeEpoch15
+		AICoastalDefenseUpgradeEpoch15
+		ArmyAcademyUpgradeEpoch15
+		AirAcademyUpgradeEpoch15
+		
+		AircraftCarrierUpgradeEpoch15
+		ChinaCarrierEpoch15
+		RussianCarrierEpoch15
+		//LandingShipUpgradeEpoch15
+		//LandShipUpgradeEpoch15
+		//LandShip_tankUpgradeEpoch15
+		AIAirDefenseEpoch15
+		CargoShipUpgradeEpoch15
+
+		// new unit
+		//RusskirovUpgradeEpoch15
+		//Ticonderoga14UpgradeEpoch15
+		//J11DUpgradeEpoch15
+		//Destroyer055UpgradeEpoch15
+		// LEADERS
+		LeaderEconomicUpgradeEpoch15
+		LeaderMilitaryUpgradeEpoch15
+		LeaderImperialUpgradeEpoch15
+		KingRegicideUpgradeEpoch15
+		// UNDO UPGRADES
+		UndoImperial10_4
+		// old
+		ObsoleteT300
+		ObsoleteType75_Japan
+		ObsoleteM142
+		ObsoleteT72Karrar
+		ObsoleteT90S
+		ObsoleteSu24
+		ObsoleteIL78
+		ObsoleteA100
+		ObsoleteScud_Russ
+		ObsoleteRu_S400
+		ObsoleteBM30
+		ObsoleteUniqueUnitFrench3
+		ObsoleteUniqueUnitMayan3
+		ObsoleteUniqueUniqueUnitInca3
+		ObsoleteUniqueUnitEgyptian3
+		ObsoleteDF41
+		ObsoleteF5Mexico
+		Obsoletejiqiangpika_Mexico
+		Obsoletehuojianpika_Mexico
+		Obsoletegaopaopika_Mexico
+		Obsoletejiqiangpika
+		Obsoletehuojianpika
+		Obsoletegaopaopika
+		ObsoleteF14Iran	
+		ObsoleteKilo_Iran
+		ObsoleteS300_greek
+		ObsoleteF4Turcey
+		ObsoleteF5Turkey
+		ObsoleteSA9Irak
+		ObsoleteType075
+		Obsoletemoskva_Heliport
+		ObsoleteChina_yun8
+		Obsoleteyun20
+		ObsoleteDestroyerDelhi
+		ObsoleteDestroyerKolkata
+		ObsoleteType11356
+		ObsoleteC130
+		ObsoleteHeliport_Carrier02
+		Obsoletexbf_Carrier01
+		ObsoleteRusSoldiers
+		ObsoleteusaSoldiers
+		ObsoleteDragon
+		ObsoleteSniper
+		ObsoleteCscommgril
+		ObsoleteF22
+		ObsoleteYF23
+		ObsoleteF35
+		ObsoleteAmerican_THAAD
+		ObsoleteMobileSAM
+		Obsoletesanantonio
+		ObsoleteBradley
+		ObsoleteHumvee2
+		ObsoleteSSBN
+//		ObsoleteParatrooper_M1A1
+//		ObsoleteParatrooper_USAArmy
+		Obsoletesu47
+		ObsoleteSu34
+		Obsoletetu160
+		ObsoleteT50
+		Obsoletesu33
+		ObsoleteMiG31
+		ObsoleteBMP3
+		Obsoletemi26
+		ObsoleteOscar2
+		ObsoleteVictor
+//		ObsoleteParatrooper_T72
+//		ObsoleteParatrooper_RussArmy
+		ObsoleteDardo
+		ObsoleteLINCE
+		ObsoleteL212A
+		ObsoleteItalySSGN
+		ObsoleteMarder
+		ObsoleteDingo
+		ObsoleteGermanSSGN
+		ObsoleteWarrior
+		Obsoleteastute
+		ObsoleteAMX10wt
+		ObsoleteBarracuda
+		ObsoletePizzaro
+		ObsoleteMig29Iraq
+		ObsoleteMig29Iran
+		ObsoleteMirage2000Egypt
+		ObsoleteJetFighterTurkey
+		ObsoleteType89mi
+		ObsoleteYushio
+		ObsoleteKJ2000
+		ObsoleteJ20
+		ObsoleteJ31
+		ObsoleteJ15
+		ObsoleteScud_culd
+		ObsoleteAntiAir_HQ9
+		Obsoleteradacache
+		ObsoletePHL_03
+		ObsoleteKa28Kitai
+		ObsoleteChinaship_071
+		ObsoleteAntiAir_Fkl03
+		ObsoleteChinaArmy
+		ObsoleteZ8
+		ObsoleteType092
+//		ObsoleteParatrooper_Solider4
+//		ObsoleteParatrooper_Mounter3
+//		ObsoleteParatrooper_Type62
+		ObsoleteCV9040
+//		ObsoleteParatrooper_KX2
+//		ObsoleteParatrooper_FarEastArmy
+		ObsoleteOsorio
+		ObsoleteVBLBrasil4
+		ObsoleteIndiaSu30
+		ObsoleteIndiaMirage2000
+		ObsoleteTammclc
+		ObsoleteTAMVctp
+		ObsoleteIncaArjun
+		ObsoleteKilo
+		ObsoleteIncaAkula
+		ObsoleteRooikat
+		ObsoleteTracked_Antiaircraft
+		ObsoleteAITracked_Antiaircraft
+		ObsoleteRuss_katuysa2
+		ObsoleteHuopao_other
+		ObsoleteMRLS_American
+		ObsoleteZiYuan
+
+		
+		// EE2X HERO UPGRADES
+		LightInfantryHeroUpgradeEp15
+		HeavyInfantry1HeroUpgradeEp15
+		LightArtillery1HeroUpgradeEp15
+		LightArtillery2HeroUpgradeEp15
+		HeavyArtilleryHeroUpgradeEp15
+		LightTankHeroUpgradeEp15
+		HeavyTankHeroUpgradeEp15
+		LightHeliHeroUpgradeEp15
+		HeavyHeliHeroUpgradeEp15
+		LightHercHeroUpgradeEp15
+		HeavyHercHeroUpgradeEp15
+		UU_Russian3HeroUpgradeEp15
+		UU_Chinese3HeroUpgradeEp15
+		UU_American3HeroUpgradeEp15
+	
+	]
+}
+
+//------------------------------------------------
+//	MILITARY BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet MilitaryEpoch15Slot1 {
+	upgrades = [
+		MilitaryTechUpgrade_E15_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet MilitaryEpoch15Slot2 {
+	upgrades = [
+		//MilitaryTechUpgrade_E15_Slot2a
+		MilitaryTechUpgrade_E14_Slot2a		
+	]
+}
+
+// Slot 3
+UpgradeRefSet MilitaryEpoch15Slot3 {
+	upgrades = [
+		MilitaryTechUpgrade_E15_Slot3a
+	]
+} 
+
+// Slot 4
+UpgradeRefSet MilitaryEpoch15Slot4 {
+	upgrades = [
+		MilitaryTechUpgrade_E15_Slot4a
+		MilitaryTechUpgrade_E15_Slot4b
+	]
+}
+
+//------------------------------------------------
+//	ECONOMIC BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet EconomicEpoch15Slot1 {
+	upgrades = [
+		EconomicTechUpgrade_E15_Slot1a
+		EconomicTechUpgrade_E15_Slot1b
+	]
+}
+
+// Slot 2
+UpgradeRefSet EconomicEpoch15Slot2 {
+	upgrades = [
+		EconomicTechUpgrade_E15_Slot2a
+		EconomicTechUpgrade_E15_Slot2b
+	]
+}
+
+// Slot 3
+UpgradeRefSet EconomicEpoch15Slot3 {
+	upgrades = [
+		EconomicTechUpgrade_E15_Slot3a
+	]
+}
+
+// Slot 4
+UpgradeRefSet EconomicEpoch15Slot4 {
+	upgrades = [
+		EconomicTechUpgrade_E15_Slot4a
+	]
+}
+
+//------------------------------------------------
+//	IMPERIAL BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet ImperialEpoch15Slot1 {
+	upgrades = [
+		ImperialTechUpgrade_E15_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet ImperialEpoch15Slot2 {
+	upgrades = [
+		ImperialTechUpgrade_E15_Slot2a
+	]
+}
+
+// Slot 3
+UpgradeRefSet ImperialEpoch15Slot3 {
+	upgrades = [
+		ImperialTechUpgrade_E15_Slot3a
+	]
+}
+
+// Slot 4
+UpgradeRefSet ImperialEpoch15Slot4 {
+	upgrades = [
+		ImperialTechUpgrade_E15_Slot4a
+	]
+}
+UpgradeRefSet upHeavyTankSlot1_15 {	
+	upgrades = [	
+		China_T99AUpgradeEpoch15
+		American_M1A2UpgradeEpoch15
+		T90MUpgradeEpoch15
+		Leopard2A6UpgradeEpoch15
+		Type10MBTUpgradeEpoch15
+		Challenger2UpgradeEpoch15
+		AMX56UpgradeEpoch15
+		XK2UpgradeEpoch15
+		C1UpgradeEpoch15
+		GrekLeopard2A5UpgradeEpoch15
+		MK4UpgradeEpoch15
+		T55irakUpgradeEpoch15
+		CiliLeopard2A5UpgradeEpoch15
+	]	
+}
+UpgradeRefSet upLightTnakSlot1_15 {	
+	upgrades = [	
+		T99AUpgradeEpoch15
+		Am_M1A1UpgradeEpoch15
+		t80uUpgradeEpoch15
+		GermanLeopard2A5UpgradeEpoch15
+		type90UpgradeEpoch15
+		Challenger1UpgradeEpoch15
+		LeclercUpgradeEpoch15
+		K1K1UpgradeEpoch15
+		ArieteUpgradeEpoch15
+		HeavyMounted1UpgradeEpoch15
+		PT91UpgradeEpoch15
+		UU_Russian3UpgradeEpoch15
+		UU_Chinese3UpgradeEpoch15
+		UU_American3UpgradeEpoch15
+		Leopard2A4UpgradeEpoch15
+	]	
+}
+UpgradeRefSet upArmoredCarSlot1_15 {	
+	upgrades = [	
+		ZSL92UpgradeEpoch15
+		StrykerUpgradeEpoch15
+		BTR80UpgradeEpoch15
+		BoxerUpgradeEpoch15
+		Type87UpgradeEpoch15
+		RosomakUpgradeEpoch15
+		EBRCUpgradeEpoch15
+		AVH6636UpgradeEpoch15
+		LightMounted1UpgradeEpoch15
+	]	
+}
+UpgradeRefSet upAirDefenseSlot1_15 {	
+	upgrades = [	
+		AntiAir_HQ61UpgradeEpoch15
+		PAC3UpgradeEpoch15
+		BUKM1_2UpgradeEpoch15
+		LightArtillery2UpgradeEpoch15
+	]	
+}
+UpgradeRefSet upLightArtillerySlot1_15 {	
+	upgrades = [	
+		Hongjian10UpgradeEpoch15
+		StrykerATGMUpgradeEpoch15
+		BTR80ATGMUpgradeEpoch15
+		MarderATGMUpgradeEpoch15
+		LightArtillery1UpgradeEpoch15
+	]	
+}
+UpgradeRefSet upHeavyArtillerySlot1_15 {	
+	upgrades = [	
+		Plz45UpgradeEpoch15
+		M109A6UpgradeEpoch15
+		Rus_2s19UpgradeEpoch15
+		Pzh2000UpgradeEpoch15
+		Type75_155mUpgradeEpoch15
+		As90UpgradeEpoch15
+		AUF1UpgradeEpoch15
+		K9UpgradeEpoch15
+		PaermaliyaUpgradeEpoch15
+		HeavyArtilleryUpgradeEpoch15
+		ScudUpgradeEpoch15
+	]	
+}
+UpgradeRefSet upfighterSlot1_15 {	
+	upgrades = [	
+		J10BUpgradeEpoch15
+		f16UpgradeEpoch15
+		mig29kUpgradeEpoch15
+		TornadoGermanUpgradeEpoch15
+		F2UpgradeEpoch15
+		TornadoBritainUpgradeEpoch15
+		Mirage2000CUpgradeEpoch15
+		FA50UpgradeEpoch15
+		TornadoItalyUpgradeEpoch15
+		F16_GreekUpgradeEpoch15
+		FighterUpgradeEpoch15
+		J11AUpgradeEpoch15
+		f14UpgradeEpoch15
+		su27UpgradeEpoch15
+		F16XLUpgradeEpoch15
+		FC1UpgradeEpoch15
+	]	
+}
+UpgradeRefSet upfighterbomberSlot1_15 {	
+	upgrades = [	
+		JH7AUpgradeEpoch15
+		A10UpgradeEpoch15
+		su25UpgradeEpoch15
+		G91UpgradeEpoch15
+		JapanF1UpgradeEpoch15
+		ScimitarUpgradeEpoch15
+		JaguarAFreUpgradeEpoch15
+		MiG23_KoreanUpgradeEpoch15
+		ItalyG91UpgradeEpoch15
+		A7CII_GreekUpgradeEpoch15
+		FighterBomberUpgradeEpoch15
+	]	
+}
+UpgradeRefSet upJ16Slot1_15 {	
+	upgrades = [	
+		su37UpgradeEpoch15
+		f15UpgradeEpoch15
+		J16UpgradeEpoch15
+		JH7BUpgradeEpoch15
+		Japanf15UpgradeEpoch15
+		EurofighterGerUpgradeEpoch15
+		EurofighterBriUpgradeEpoch15
+		Mirage2000GreeceUpgradeEpoch15
+		EurofighterItalyUpgradeEpoch15
+		Mirage4000UpgradeEpoch15
+		F15K_KoreanUpgradeEpoch15
+		
+		NavalF18Epoch15
+		FrenchPlaneEpoch15
+		EnglishPlaneEpoch15
+		RomanPlaneEpoch15
+		GermanPlaneEpoch15
+		IncaPlaneEpoch14
+		RussianPlaneEpoch15
+		ChinaPlaneEpoch15
+		UU_Japanese3UpgradeEpoch15
+	]	
+}
+UpgradeRefSet upHelicopterSlot1_15 {	
+	upgrades = [	
+		RooivalkUpgradeEpoch15
+		CSH2UpgradeEpoch15
+		AH64JapanUpgradeEpoch15
+		GrekAH64UpgradeEpoch15
+		tiger1UpgradeEpoch15
+		UKAH64UpgradeEpoch15
+		gertiger1UpgradeEpoch15
+		A129UpgradeEpoch15
+		ka52UpgradeEpoch15
+		Mi28UpgradeEpoch15
+		AH64UpgradeEpoch15
+		WZ19UpgradeEpoch15
+		ChinaWZ10UpgradeEpoch15
+		LightMounted2UpgradeEpoch15
+		HeavyMounted2UpgradeEpoch15
+	]	
+}
+UpgradeRefSet upbomberSlot1_15 {	
+	upgrades = [	
+		Tu16KitaiUpgradeEpoch15
+		B1bUpgradeEpoch15
+		Tu22MUpgradeEpoch15
+		ho229GerUpgradeEpoch15
+		canberraJapanUpgradeEpoch15
+		vulcanUpgradeEpoch15
+		Mirage4UpgradeEpoch15
+		canberraItalyUpgradeEpoch15
+		BomberUpgradeEpoch15
+		NuclearBomberUpgradeEpoch15
+	]	
+}
+UpgradeRefSet upFregattenSlot1_15 {	
+	upgrades = [	
+		Ch054AUpgradeEpoch15
+		FregattenFFGUpgradeEpoch15
+		Type22350UpgradeEpoch15
+		BadenWurttembergUpgradeEpoch15
+		AsagiriDestroyerUpgradeEpoch15
+		FormidableUpgradeEpoch15
+		AashipUpgradeEpoch15
+		
+		Type039BUpgradeEpoch15
+		SubmarineUpgradeEpoch15
+		BarracudaUpgradeEpoch15
+		TrafalgarUpgradeEpoch15
+		HarushioSubmarineUpgradeEpoch15
+		L212AfrUpgradeEpoch15
+		akulaUpgradeEpoch15
+		VirginiaSubmarineUpgradeEpoch15
+	]	
+}
+UpgradeRefSet upDestroyerSlot1_15 {	
+	upgrades = [	
+		Ch052dUpgradeEpoch15
+		DDG123UpgradeEpoch15
+		DestroyerLeaderUpgradeEpoch15
+		FregattenF124UpgradeEpoch15
+		DestroyerTakanamiUpgradeEpoch15
+		FregattenType26UpgradeEpoch15
+		France_FremmUpgradeEpoch15
+		KDX2UpgradeEpoch15
+		Italy_FremmUpgradeEpoch15
+		DestroyerUpgradeEpoch15
+		
+		Ch055AUpgradeEpoch15
+		DDG1001UpgradeEpoch15
+		Cruiser1164UpgradeEpoch15
+		DestroyerF217UpgradeEpoch15
+		DestroyerAkitsukiUpgradeEpoch15
+		DestroyerType45UpgradeEpoch15
+		DestroyerFTIUpgradeEpoch15
+		KoCruiserUpgradeEpoch15
+		PenneUpgradeEpoch15
+		CruiserUpgradeEpoch15
+	]	
+}
+UpgradeRefSet upBattleshipSlot1_15 {	
+	upgrades = [	
+		Ch055UpgradeEpoch15
+		TiconderogaUpgradeEpoch15
+		kirovUpgradeEpoch15
+		Cruiser_GerUpgradeEpoch15
+		DestroyerAtagoUpgradeEpoch15
+		Cruiser_EngUpgradeEpoch15
+		HorizonUpgradeEpoch15
+		DestroyerKDX3UpgradeEpoch15
+		HorizonItalyUpgradeEpoch15
+		BattleshipUpgradeEpoch15
+		AntishipMisUpgradeEpoch15
+	]	
+}
+UpgradeRefSet upAIunitSlot1_15 {	
+	upgrades = [	
+		China_T99AUpgradeEpoch15
+		American_M1A2UpgradeEpoch15
+		T90MUpgradeEpoch15
+		Leopard2A6UpgradeEpoch15
+		Type10MBTUpgradeEpoch15
+		Challenger2UpgradeEpoch15
+		AMX56UpgradeEpoch15
+		XK2UpgradeEpoch15
+		C1UpgradeEpoch15
+		GrekLeopard2A5UpgradeEpoch15
+		MK4UpgradeEpoch15
+		T55irakUpgradeEpoch15
+		CiliLeopard2A5UpgradeEpoch15
+		
+		T99AUpgradeEpoch15
+		Am_M1A1UpgradeEpoch15
+		t80uUpgradeEpoch15
+		GermanLeopard2A5UpgradeEpoch15
+		type90UpgradeEpoch15
+		Challenger1UpgradeEpoch15
+		LeclercUpgradeEpoch15
+		K1K1UpgradeEpoch15
+		ArieteUpgradeEpoch15
+		HeavyMounted1UpgradeEpoch15
+		PT91UpgradeEpoch15
+		UU_Russian3UpgradeEpoch15
+		UU_Chinese3UpgradeEpoch15
+		UU_American3UpgradeEpoch15
+		Leopard2A4UpgradeEpoch15
+		
+		ZSL92UpgradeEpoch15
+		StrykerUpgradeEpoch15
+		BTR80UpgradeEpoch15
+		BoxerUpgradeEpoch15
+		Type87UpgradeEpoch15
+		RosomakUpgradeEpoch15
+		EBRCUpgradeEpoch15
+		AVH6636UpgradeEpoch15
+		LightMounted1UpgradeEpoch15
+		
+		AntiAir_HQ61UpgradeEpoch15
+		PAC3UpgradeEpoch15
+		BUKM1_2UpgradeEpoch15
+		LightArtillery2UpgradeEpoch15
+		
+		Hongjian10UpgradeEpoch15
+		StrykerATGMUpgradeEpoch15
+		BTR80ATGMUpgradeEpoch15
+		MarderATGMUpgradeEpoch15
+		LightArtillery1UpgradeEpoch15
+		
+		Plz45UpgradeEpoch15
+		M109A6UpgradeEpoch15
+		Rus_2s19UpgradeEpoch15
+		Pzh2000UpgradeEpoch15
+		Type75_155mUpgradeEpoch15
+		As90UpgradeEpoch15
+		AUF1UpgradeEpoch15
+		K9UpgradeEpoch15
+		PaermaliyaUpgradeEpoch15
+		HeavyArtilleryUpgradeEpoch15
+		ScudUpgradeEpoch15
+	]	
+}
+UpgradeRefSet upAIfighterSlot1_15 {	
+	upgrades = [	
+		J10BUpgradeEpoch15
+		f16UpgradeEpoch15
+		mig29kUpgradeEpoch15
+		TornadoGermanUpgradeEpoch15
+		F2UpgradeEpoch15
+		TornadoBritainUpgradeEpoch15
+		Mirage2000CUpgradeEpoch15
+		FA50UpgradeEpoch15
+		TornadoItalyUpgradeEpoch15
+		F16_GreekUpgradeEpoch15
+		FighterUpgradeEpoch15
+		J11AUpgradeEpoch15
+		f14UpgradeEpoch15
+		su27UpgradeEpoch15
+		F16XLUpgradeEpoch15
+		FC1UpgradeEpoch15
+		
+		JH7AUpgradeEpoch15
+		A10UpgradeEpoch15
+		su25UpgradeEpoch15
+		G91UpgradeEpoch15
+		JapanF1UpgradeEpoch15
+		ScimitarUpgradeEpoch15
+		JaguarAFreUpgradeEpoch15
+		MiG23_KoreanUpgradeEpoch15
+		ItalyG91UpgradeEpoch15
+		A7CII_GreekUpgradeEpoch15
+		FighterBomberUpgradeEpoch15
+		
+		su37UpgradeEpoch15
+		f15UpgradeEpoch15
+		J16UpgradeEpoch15
+		JH7BUpgradeEpoch15
+		Japanf15UpgradeEpoch15
+		EurofighterGerUpgradeEpoch15
+		EurofighterBriUpgradeEpoch15
+		Mirage2000GreeceUpgradeEpoch15
+		EurofighterItalyUpgradeEpoch15
+		Mirage4000UpgradeEpoch15
+		F15K_KoreanUpgradeEpoch15
+		
+		NavalF18Epoch15
+		FrenchPlaneEpoch15
+		EnglishPlaneEpoch15
+		RomanPlaneEpoch15
+		GermanPlaneEpoch15
+		IncaPlaneEpoch14
+		RussianPlaneEpoch15
+		ChinaPlaneEpoch15
+		UU_Japanese3UpgradeEpoch15
+		
+		RooivalkUpgradeEpoch15
+		CSH2UpgradeEpoch15
+		AH64JapanUpgradeEpoch15
+		GrekAH64UpgradeEpoch15
+		tiger1UpgradeEpoch15
+		UKAH64UpgradeEpoch15
+		gertiger1UpgradeEpoch15
+		A129UpgradeEpoch15
+		ka52UpgradeEpoch15
+		Mi28UpgradeEpoch15
+		AH64UpgradeEpoch15
+		WZ19UpgradeEpoch15
+		ChinaWZ10UpgradeEpoch15
+		LightMounted2UpgradeEpoch15
+		HeavyMounted2UpgradeEpoch15
+		
+		Tu16KitaiUpgradeEpoch15
+		B1bUpgradeEpoch15
+		Tu22MUpgradeEpoch15
+		ho229GerUpgradeEpoch15
+		canberraJapanUpgradeEpoch15
+		vulcanUpgradeEpoch15
+		Mirage4UpgradeEpoch15
+		canberraItalyUpgradeEpoch15
+		BomberUpgradeEpoch15
+		NuclearBomberUpgradeEpoch15
+	]	
+}
+UpgradeRefSet upAINavalSlot1_15 {	
+	upgrades = [	
+		Ch054AUpgradeEpoch15
+		FregattenFFGUpgradeEpoch15
+		Type22350UpgradeEpoch15
+		BadenWurttembergUpgradeEpoch15
+		AsagiriDestroyerUpgradeEpoch15
+		FormidableUpgradeEpoch15
+		AashipUpgradeEpoch15
+		
+		Type039BUpgradeEpoch15
+		SubmarineUpgradeEpoch15
+		BarracudaUpgradeEpoch15
+		TrafalgarUpgradeEpoch15
+		HarushioSubmarineUpgradeEpoch15
+		L212AfrUpgradeEpoch15
+		akulaUpgradeEpoch15
+		VirginiaSubmarineUpgradeEpoch15
+		
+		Ch052dUpgradeEpoch15
+		DDG123UpgradeEpoch15
+		DestroyerLeaderUpgradeEpoch15
+		FregattenF124UpgradeEpoch15
+		DestroyerTakanamiUpgradeEpoch15
+		FregattenType26UpgradeEpoch15
+		France_FremmUpgradeEpoch15
+		KDX2UpgradeEpoch15
+		Italy_FremmUpgradeEpoch15
+		DestroyerUpgradeEpoch15
+		
+		Ch055AUpgradeEpoch15
+		DDG1001UpgradeEpoch15
+		Cruiser1164UpgradeEpoch15
+		DestroyerF217UpgradeEpoch15
+		DestroyerAkitsukiUpgradeEpoch15
+		DestroyerType45UpgradeEpoch15
+		DestroyerFTIUpgradeEpoch15
+		KoCruiserUpgradeEpoch15
+		PenneUpgradeEpoch15
+		CruiserUpgradeEpoch15
+		
+		Ch055UpgradeEpoch15
+		TiconderogaUpgradeEpoch15
+		kirovUpgradeEpoch15
+		Cruiser_GerUpgradeEpoch15
+		DestroyerAtagoUpgradeEpoch15
+		Cruiser_EngUpgradeEpoch15
+		HorizonUpgradeEpoch15
+		DestroyerKDX3UpgradeEpoch15
+		HorizonItalyUpgradeEpoch15
+		BattleshipUpgradeEpoch15
+		AntishipMisUpgradeEpoch15
+	]	
+}

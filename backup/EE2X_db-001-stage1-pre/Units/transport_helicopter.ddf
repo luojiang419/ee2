@@ -1,0 +1,190 @@
+//------------------------------------------------------------------------------------------------
+//	TRANSPORT HELICOPTER - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType TransportHelicopter
+{
+	parent = Helicopter
+	properties {
+		SizeX = 1.2
+		SizeY = 0.9
+		mass = 1
+		hitpoints = 50
+		VerboseTooltip = vtt_unit_TransportHelicopter
+		displayName = tx_utn_TransHeli_name
+		rps = AirNonCombat
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 4.0; accel = 2.0; angSpeed = 180; CruisingHeight = 3.0; ElevChangeRate = 1.0; CanHover = 1; CargoHeight = 0.5 }
+		LOS { range = 0 }
+		Garrison { 
+			garrisonType = Tower; 
+			numOfSlots = 20;
+		}
+	]
+}
+
+// Add to mobile units for a blobby ellipsoid shadow
+ShadowData        transportShadow_01
+{
+	Flags = (IsMobile)
+	FlatBillboard
+	{
+		TextureFilename = Lsf13_TransportHelicopter_shadow.tga
+		WidthScale = 0.9
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+ShadowData        transportShadow_02
+{
+	Flags = (IsMobile)
+	FlatBillboard
+	{
+		TextureFilename = Lsf15_HeavyTransportHelicopter_shadow.tga
+		WidthScale = 0.9
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UpgradeAbilities TransHelicopterEpoch14Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Tower; 
+			numOfSlots = 20;
+		}
+            AircraftMove {speed = 4.0; angSpeed = 180;accel = 2.0; CruisingHeight = 3.0; ElevChangeRate = 1.0; CanHover = 1; CargoHeight = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UpgradeAbilities TransHelicopterEpoch15Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = Tower; 
+			numOfSlots = 20;
+		}
+            AircraftMove {speed = 4.0; angSpeed = 180;accel = 2.0; CruisingHeight = 3.0; ElevChangeRate = 1.0; CanHover = 1; CargoHeight = 0.5 }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	TRANSPORT HELICOPTER - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel TransportHelicopter
+{
+	Parent		= BaseHelicopter
+	ScaleType 	= kScaleVehicle
+	ForceScale = 0.150
+	DefaultModel 	= lsf13_Seaknight.nif
+	ChildNames 	= [ TheHealthBar SelectCircleHelicopter transportShadow_01 TransportHelicopter_FlyingParts expl_heli_Tandrill ] //SmokeTrailHelicopterJet_1 SmokeTrailHelicopterJet_2 HeliTrail1 HeliTrail2 HeliTrail3 HeliTrail4 HeliTrail5 HeliTrail6
+	States 		= 
+[
+		{	StateName = Idle	AnimName = Lsf13_TransportHelicopter_idle.kf	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_03 }
+					]}
+		{ 	StateName = Walk	AnimName = Lsf13_TransportHelicopter_walk.kf
+				TextKeys = [ 
+					{ Name = SHOW_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_03 }
+					]}
+		{ 	StateName = Death	AnimName = Lsf13_TransportHelicopter_death.kf
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					]}
+]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 2.34
+		zOffset = 2.19
+		scale = 2.30
+		angle = 42.63
+	}
+  
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel HeavyTransportHelicopter_14
+{
+	Parent		= BaseHelicopter
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= lsf14_OspreyHelicopter.nif
+      ForceScale = 0.200
+      ChildNames 	= [ TheTradePath TheHealthBar SelectCircleHelicopter transportShadow_02 HeavyTransportHeli_FlyingParts expl_heli_Tandrill ]
+	States 		= 
+[
+		{	StateName = Idle	AnimName = Lsf15_HeavyTransportHelicopter_idle.kf	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_hellnew01 }
+					]}
+		{ 	StateName = Walk	AnimName = Lsf15_HeavyTransportHelicopter_walk.kf	
+				TextKeys = [ 
+					{ Name = SHOW_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_hellnew01 }
+					]}
+		{ 	StateName = Death	AnimName = Lsf15_HeavyTransportHelicopter_death.kf	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					]}
+]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 0.62
+		zOffset = 1.22
+		scale = 2.30
+		angle = 42.63
+	}
+}
+UnitModel HeavyTransportHelicopter_15
+{
+	Parent		= BaseHelicopter
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= dropship14.nif
+      ForceScale = 0.100
+      ChildNames 	= [ SelectCircleHelicopter Muzzle_MissHelicopter expl_heli_Tandrill MissileHelicopter_FlyingParts HindShadow_01 ]
+	States 		= 
+[
+		{	StateName = Idle	AnimName = llm13_missilehelicopter_idle.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 } { Name = HIDE_NODE Data = air4 	KeyTime = 0 } { Name = HIDE_NODE Data = air5 	KeyTime = 0 } { Name = HIDE_NODE Data = air6 	KeyTime = 0 } { Name = HIDE_NODE Data = air7 	KeyTime = 0 } { Name = SHOW_NODE Data = ground1 	KeyTime = 0 } { Name = SHOW_NODE Data = ground2 	KeyTime = 0 }   
+
+					{ Name = START_SOUND Data = fx_move_hellnew03 }
+					]}
+		{ 	StateName = Walk	AnimName = llm13_missilehelicopter_walk.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 } { Name = SHOW_NODE Data = air4 	KeyTime = 0 } { Name = SHOW_NODE Data = air5 	KeyTime = 0 } { Name = SHOW_NODE Data = air6 	KeyTime = 0 } { Name = SHOW_NODE Data = air7 	KeyTime = 0 } { Name = HIDE_NODE Data = ground1 	KeyTime = 0 } { Name = HIDE_NODE Data = ground2 	KeyTime = 0 }   
+					{ Name = START_SOUND Data = fx_move_hellnew03 }
+					]}
+		{ 	StateName = Attack1	AnimName = llm13_missilehelicopter_attack.kf	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 } { Name = SHOW_NODE Data = air4 	KeyTime = 0 } { Name = SHOW_NODE Data = air5 	KeyTime = 0 } { Name = SHOW_NODE Data = air6 	KeyTime = 0 } { Name = SHOW_NODE Data = air7 	KeyTime = 0 } { Name = HIDE_NODE Data = ground1 	KeyTime = 0 } { Name = HIDE_NODE Data = ground2 	KeyTime = 0 }   
+					{ Name = PLAY_SOUND Data = fx_battle_rocket_launch }
+					]}
+		{ 	StateName = Death	AnimName = llm13_missilehelicopter_death.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					]}
+]
+
+}
+
