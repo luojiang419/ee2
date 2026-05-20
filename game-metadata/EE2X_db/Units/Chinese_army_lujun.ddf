@@ -1204,7 +1204,7 @@ UnitType AntiAir_Fkl03
 		//SpecialPower { 
 		//	effects = [ Deadly_Miss ]
 		//}
-		VehicleMove {speed = 1.7; angSpeed = 80;followTerrainSlope = 1}
+		VehicleMove {speed = 2.1; angSpeed = 80;followTerrainSlope = 1}
 			]
 attributes = [
 		HealedByHERC 		
