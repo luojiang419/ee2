@@ -597,3 +597,54 @@ t22350_E15_surf_HeavyInfantry2,Type22350UpgradeEpoch15,[HeavyInfantry2UpgradeEpo
 t22350_E15_surf_LightArtillery1,Type22350UpgradeEpoch15,[LightArtillery1UpgradeEpoch15],0
 t22350_E15_surf_Fortress,Type22350UpgradeEpoch15,[FortressUpgradeEpoch15],0
 t22350_E15_surf_AircraftCarrier,Type22350UpgradeEpoch15,[AircraftCarrierUpgradeEpoch15],0
+
+//============================================
+// E14 海军RPS四角克制链 - 生成: 2026-05-20
+// Sub > Battleship(140%) > Destroyer(125%) > Sub(130%)
+// Sub > Carrier(130%), Carrier > Battleship(125%)
+// Destroyer vs Carrier(80% 劣势)
+//============================================
+//--- 潜艇克主力舰 (通用 + 三国E14) ---
+sub13_vs_battle13,SubmarineUpgradeEpoch13,[BattleshipUpgradeEpoch13],140
+sub13_vs_battle14,SubmarineUpgradeEpoch13,[BattleshipUpgradeEpoch14],140
+sub15_vs_battle13,SubmarineUpgradeEpoch15,[BattleshipUpgradeEpoch13],140
+sub15_vs_battle14,SubmarineUpgradeEpoch15,[BattleshipUpgradeEpoch14],140
+t039b_vs_battle13,Type039BUpgradeEpoch14,[BattleshipUpgradeEpoch13],140
+t039b_vs_battle14,Type039BUpgradeEpoch14,[BattleshipUpgradeEpoch14],140
+virginia_vs_battle13,VirginiaSubmarineUpgradeEpoch14,[BattleshipUpgradeEpoch13],140
+virginia_vs_battle14,VirginiaSubmarineUpgradeEpoch14,[BattleshipUpgradeEpoch14],140
+//--- 俄罗斯特色：潜艇超额克主力舰(150%) ---
+akula_vs_battle13,akulaUpgradeEpoch14,[BattleshipUpgradeEpoch13],150
+akula_vs_battle14,akulaUpgradeEpoch14,[BattleshipUpgradeEpoch14],150
+//--- 潜艇克航母 (通用 + 三国E14) ---
+sub13_vs_carrier14,SubmarineUpgradeEpoch13,[AircraftCarrierUpgradeEpoch14],130
+sub15_vs_carrier14,SubmarineUpgradeEpoch15,[AircraftCarrierUpgradeEpoch14],130
+t039b_vs_carrier14,Type039BUpgradeEpoch14,[AircraftCarrierUpgradeEpoch14],130
+virginia_vs_carrier14,VirginiaSubmarineUpgradeEpoch14,[AircraftCarrierUpgradeEpoch14],130
+akula_vs_carrier14,akulaUpgradeEpoch14,[AircraftCarrierUpgradeEpoch14],130
+//--- 主力舰克驱逐舰 ---
+battle13_vs_dest13,BattleshipUpgradeEpoch13,[DestroyerUpgradeEpoch13],125
+battle13_vs_dest14,BattleshipUpgradeEpoch13,[DestroyerUpgradeEpoch14],125
+battle14_vs_dest13,BattleshipUpgradeEpoch14,[DestroyerUpgradeEpoch13],125
+battle14_vs_dest14,BattleshipUpgradeEpoch14,[DestroyerUpgradeEpoch14],125
+battle15_vs_dest13,BattleshipUpgradeEpoch15,[DestroyerUpgradeEpoch13],125
+battle15_vs_dest14,BattleshipUpgradeEpoch15,[DestroyerUpgradeEpoch14],125
+battle15_vs_dest15,BattleshipUpgradeEpoch15,[DestroyerUpgradeEpoch15],125
+//--- 驱逐舰克潜艇（翻转原85%反克制）---
+dest13_vs_sub13,DestroyerUpgradeEpoch13,[SubmarineUpgradeEpoch13],130
+dest14_vs_sub13,DestroyerUpgradeEpoch14,[SubmarineUpgradeEpoch13],130
+dest15_vs_sub13,DestroyerUpgradeEpoch15,[SubmarineUpgradeEpoch13],130
+dest13_vs_sub15,DestroyerUpgradeEpoch13,[SubmarineUpgradeEpoch15],130
+dest14_vs_sub15,DestroyerUpgradeEpoch14,[SubmarineUpgradeEpoch15],130
+dest15_vs_sub15,DestroyerUpgradeEpoch15,[SubmarineUpgradeEpoch15],130
+dest14_vs_t039b,DestroyerUpgradeEpoch14,[Type039BUpgradeEpoch14],130
+dest14_vs_virginia,DestroyerUpgradeEpoch14,[VirginiaSubmarineUpgradeEpoch14],130
+dest14_vs_akula,DestroyerUpgradeEpoch14,[akulaUpgradeEpoch14],130
+//--- 驱逐舰对航母劣势 ---
+dest13_vs_carrier14,DestroyerUpgradeEpoch13,[AircraftCarrierUpgradeEpoch14],80
+dest14_vs_carrier14,DestroyerUpgradeEpoch14,[AircraftCarrierUpgradeEpoch14],80
+dest15_vs_carrier14,DestroyerUpgradeEpoch15,[AircraftCarrierUpgradeEpoch14],80
+//--- 航母克主力舰 ---
+carrier14_vs_battle13,AircraftCarrierUpgradeEpoch14,[BattleshipUpgradeEpoch13],125
+carrier14_vs_battle14,AircraftCarrierUpgradeEpoch14,[BattleshipUpgradeEpoch14],125
+carrier14_vs_battle15,AircraftCarrierUpgradeEpoch14,[BattleshipUpgradeEpoch15],125
