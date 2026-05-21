@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-21 18:02
+> 最后更新: 2026-05-21 23:00
 > 格式 v2: 6 列详细描述（修改目标 + 包含文件 + 修改描述缺一不可）
 > 新备份只打包本次修改涉及的文件，禁止全库快照。
 
@@ -23,6 +23,9 @@
 | 016 | EE2X_db-016-sam-attack-progression-pre.zip | 萨姆防空导弹攻击力 | upgrade_unittypes.csv, SAM相关DDF | 萨姆防空导弹攻击力按时代递增调整 | 2026-05-20 |
 | 017 | EE2X_db-017-sam-salvo-3missile-pre.zip | 萨姆三轮齐射 | upgrade_unittypes.csv, SAM相关DDF | 萨姆导弹从单发改三轮齐射改造 | 2026-05-20 |
 | 028 | EE2X_db-028-e14-air-remove-food-pre.zip | E14空军移除粮食消耗 | upgrade_unittypes.csv | f16/mig29k/ChinaWZ10/AH64的E14 FOOD归零(330/280/450/450→0) | 2026-05-21 |
+
+| 029 | EE2X_db-029-super-capital-ship-triple-reload-pre.zip | pre | 超级主力舰E14(Ch055A/DDG1001/Cruiser1164) + AA护卫舰还原 | upgrade_unittypes.csv, dbtechtreenode.csv | 超级主力舰×3三倍化+装填减半+成本统一3000; AA护卫舰还原为800/600/20; TechPts 10→50 | — | 2026-05-21 |
+| 030 | EE2X_db-029-super-capital-ship-runtime.zip | runtime | 超级主力舰E14修改后完整游戏ZIP | EE2X_db.zip 完整 | 快照023+037+040合并: 超级主力舰三倍化+护卫舰还原+射速翻倍+成本统一 | 待测试 | 2026-05-21 |
 
 ## 更新器/启动器备份
 
