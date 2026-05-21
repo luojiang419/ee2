@@ -22,6 +22,7 @@
 | 014 | EE2X_db-014-e14-fighter-rebalance-pre.zip | E14战斗机三国重平衡 | upgrade_unittypes.csv, fighter相关DDF | 中美俄E14战斗机HP/伤害/速度差异化 | 2026-05-20 |
 | 016 | EE2X_db-016-sam-attack-progression-pre.zip | 萨姆防空导弹攻击力 | upgrade_unittypes.csv, SAM相关DDF | 萨姆防空导弹攻击力按时代递增调整 | 2026-05-20 |
 | 017 | EE2X_db-017-sam-salvo-3missile-pre.zip | 萨姆三轮齐射 | upgrade_unittypes.csv, SAM相关DDF | 萨姆导弹从单发改三轮齐射改造 | 2026-05-20 |
+| 028 | EE2X_db-028-e14-air-remove-food-pre.zip | E14空军移除粮食消耗 | upgrade_unittypes.csv | f16/mig29k/ChinaWZ10/AH64的E14 FOOD归零(330/280/450/450→0) | 2026-05-21 |
 
 ## 更新器/启动器备份
 
