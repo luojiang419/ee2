@@ -1,0 +1,38 @@
+{
+  "bundleFormat": "ee2x-release-bundle",
+  "bundleVersion": 1,
+  "version": "0.1.0",
+  "releaseId": "0.1.0",
+  "generatedAt": "2026-05-21T02:17:06.517685+00:00",
+  "selectedFiles": [
+    "zips_ee2x/EE2X_db.zip"
+  ],
+  "deleteList": [],
+  "autoExcludedProtectedFiles": [],
+  "packageScopes": {
+    "launcher": {
+      "rootDirName": "地球帝国二代远航版启动器",
+      "selectedFiles": [],
+      "includedFiles": [],
+      "autoExcludedFiles": [],
+      "deleteList": [],
+      "packageFileName": "EE2X-launcher-0.1.0.zip",
+      "packageSha256": "b9416d6ce6ba7d620e53139aecfab3364caca5b7169306c13d41e9c2fae1cbd4",
+      "packageSize": 174
+    },
+    "game": {
+      "rootDirName": "Empire Earth II",
+      "selectedFiles": [
+        "zips_ee2x/EE2X_db.zip"
+      ],
+      "includedFiles": [
+        "zips_ee2x/EE2X_db.zip"
+      ],
+      "autoExcludedFiles": [],
+      "deleteList": [],
+      "packageFileName": "EE2X-game-0.1.0.zip",
+      "packageSha256": "ef427826209cd49538a67891f1678dc6faa4490faa61a16bf09d3825e33becae",
+      "packageSize": 1601587
+    }
+  }
+}
