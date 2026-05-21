@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-21 12:00
+> 最后更新: 2026-05-21 15:30
 > 格式 v2: 6 列详细描述（修改目标 + 包含文件 + 修改描述缺一不可）
 > 新备份只打包本次修改涉及的文件，禁止全库快照。
 
@@ -34,6 +34,7 @@
 | 021 | EE2X_db-021-baseline-1.0.0-pre-quick.zip | 1.0.0基线快照 | 项目源码+配置 | 1.0.0版本发布前完整源码快照（不含游戏本体） | 2026-05-21 |
 | 022 | EE2X_db-022-machinegunnest-infantry-1.3x-pre.zip | Machinegunnest(机枪碉堡) E11-E15 | dbcombat_unittypeadjust.csv | 对轻步兵/重步兵/特种部队全线130%(1.3x)克制 | 2026-05-21 12:00 |
 | 023 | EE2X_db-023-Cruiser1164-e14-attr-adjust-pre.zip | Cruiser1164(俄罗斯领袖级) E14 | upgrade_unittypes.csv | HP50000/攻3300/射43/视野43/装填2s/建造130s;金2500/铁2800/油2500/铀2800 | 2026-05-21 14:30 |
+| 024 | EE2X_db-024-autofactory-rallypoint-pre.zip | Autofactory(汽车工厂) | Yuanhang_720_units.ddf | 添加RallyPlacementFlags启用集结点功能 | 2026-05-21 15:30 |
 
 ## 旧格式全量快照（历史遗留，不符合新规则）
 
