@@ -781,6 +781,15 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     super.dispose();
   }
 
+  bool get _shouldAcceptSuggestedVersion {
+    final current = _versionController.text.trim();
+    if (current.isEmpty) {
+      return true;
+    }
+    final normalized = _tryNormalizeVersionString(current);
+    return normalized == null || normalized == _defaultVersion;
+  }
+
   Future<void> _bootstrap() async {
     try {
       final workspace = await WorkspaceLocator.locate();
@@ -793,6 +802,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
       if (_versionController.text.trim().isEmpty) {
         _versionController.text = _defaultVersion;
       }
+      await _refreshRemoteInfo();
       await _scanCatalog();
     } catch (error) {
       _errorMessage = error.toString();
@@ -878,7 +888,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
         setState(() {
           final remoteInfo = RemoteInfo.fromJson(payload);
           _remoteInfo = remoteInfo;
-          if (_versionController.text.trim().isEmpty) {
+          if (_shouldAcceptSuggestedVersion) {
             _versionController.text = remoteInfo.nextVersion;
           }
         });
@@ -3416,7 +3426,13 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
               ),
               const SizedBox(width: 10),
               Expanded(
-                child: _summaryCard('输出格式', 'ZIP', _palette.warningSoft),
+                child: _summaryCard(
+                  '服务器版本',
+                  _remoteInfo?.latestVersion.trim().isNotEmpty == true
+                      ? _remoteInfo!.latestVersion
+                      : '未读取',
+                  _palette.warningSoft,
+                ),
               ),
             ],
           ),
