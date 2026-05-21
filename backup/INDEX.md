@@ -43,6 +43,8 @@
 | 044 | EE2X_db-036-E14高级战斗机手动调参-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 043修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 045 | EE2X_db-037-E14工程机械采集速率10倍化-pre.zip | pre | Harvester/Weelloader/Tractor 采集速率 | Yuanhang_720_units.ddf | 3单位12行: carryLimit×10 + 各资源rate×10 | — | 2026-05-22 |
 | 046 | EE2X_db-037-E14工程机械采集速率10倍化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 045修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
+| 047 | EE2X_db-038-汽车工厂集结点-pre.zip | pre | Autofactory添加RallyPlacementFlags | Yuanhang_720_units.ddf | 新增1行: RallyPlacementFlags = (Resources\|Fortress\|Tower\|Terrain) | — | 2026-05-22 |
+| 048 | EE2X_db-038-汽车工厂集结点-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 047修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
 
 ## 更新器/启动器备份
 
