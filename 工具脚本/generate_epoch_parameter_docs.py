@@ -25,6 +25,8 @@ CSV_EE2X_PATH = os.path.join(DB_DIR, "TechTree", "upgrade_unittypes_EE2X.csv")
 TECH_PATH = os.path.join(DB_DIR, "TechTree", "dbtechtreenode.csv")
 UNITS_DIR = os.path.join(DB_DIR, "Units")
 EPOCH_DDF_DIR = os.path.join(DB_DIR, "TechTree")
+TEXT_NAMES_PATH = os.path.join(DB_DIR, "Text", "dbtext_unittypenames.utf8")
+TEXT_NAMES_EE2X_PATH = os.path.join(DB_DIR, "Text", "dbtext_unittypenames_EE2X.utf8")
 OUTPUT_DIR = os.path.join(BASE_DIR, "全时代单位参数详情文档")
 
 # ─── 工具函数 ───
@@ -54,6 +56,74 @@ def parse_brace_block(lines, start_idx):
     return block_lines, i
 
 # ═══════════════════════════════════════════════════════════════════
+# 阶段0: 文本名称解析器 (中文名称提取)
+# ═══════════════════════════════════════════════════════════════════
+
+class TextNameParser:
+    """解析 dbtext_unittypenames.utf8 系列文件，建立 text_key → 中文名 映射"""
+
+    def __init__(self):
+        self.name_map = {}  # {text_key: chinese_name}
+
+    def parse_all(self):
+        for path in [TEXT_NAMES_PATH, TEXT_NAMES_EE2X_PATH]:
+            if os.path.exists(path):
+                self._parse_file(path)
+        # 去重：_name 优先于 _pname, _sname
+        # 保留 _name 版本
+        return self.name_map
+
+    def _parse_file(self, path):
+        with open(path, 'r', encoding='utf-8', errors='replace') as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith('//'):
+                    continue
+                # 格式: tx_utn_XXX_name,"""中文名"""
+                m = re.match(r'(tx_utn_\w+),\s*"""(.+?)"""', line)
+                if m:
+                    key = m.group(1)
+                    name = m.group(2).strip()
+                    # _name 后缀优先（更标准），如果已有 _name 版本则跳过 _pname/_sname
+                    if key.endswith('_name'):
+                        base = key[:-5]  # 去掉 _name
+                        self.name_map[key] = name
+                        # 同时记录 base key 映射
+                        if base not in self.name_map:
+                            self.name_map[base] = name
+                    elif key.endswith('_pname'):
+                        base = key[:-6]
+                        base_name_key = base + '_name'
+                        if base_name_key not in self.name_map:
+                            self.name_map[key] = name
+                            if base not in self.name_map:
+                                self.name_map[base] = name
+                    elif key.endswith('_sname'):
+                        base = key[:-6]
+                        base_name_key = base + '_name'
+                        base_pname_key = base + '_pname'
+                        if base_name_key not in self.name_map and base_pname_key not in self.name_map:
+                            self.name_map[key] = name
+                            if base not in self.name_map:
+                                self.name_map[base] = name
+                    else:
+                        # 其他后缀
+                        self.name_map[key] = name
+
+    def get_name(self, text_key):
+        """根据文本key获取中文名，找不到返回空字符串"""
+        if not text_key:
+            return ''
+        name = self.name_map.get(text_key, '')
+        if name:
+            return name
+        # 尝试用 _name 后缀查找
+        if not text_key.endswith('_name'):
+            name = self.name_map.get(text_key + '_name', '')
+        return name
+
+
+# ═══════════════════════════════════════════════════════════════════
 # 阶段1: CSV 解析器
 # ═══════════════════════════════════════════════════════════════════
 
@@ -65,7 +135,7 @@ class CsvParser:
         self.all_upgrades = []  # [{upgrade_name, unit, type, epoch, ...}]
         self.csv_lines = {}  # {upgrade_name: csv_line_number}
 
-    def parse(self, csv_path, is_ee2x=False):
+    def parse(self, csv_path, is_ee2x=False, text_parser=None):
         """解析CSV文件"""
         with open(csv_path, 'r', encoding='utf-8', errors='replace') as f:
             lines = f.readlines()
@@ -79,11 +149,10 @@ class CsvParser:
                 break
 
         header_line = lines[header_idx].strip()
-        # 简单split, 因为字段可能包含逗号
         reader = csv.reader(lines[header_idx+1:])
         columns = next(csv.reader([header_line]))
 
-        line_num = header_idx + 2  # 1-indexed, header是header_idx+1行, 数据从header_idx+2开始
+        line_num = header_idx + 2
         for row in reader:
             if not row or len(row) < 4:
                 line_num += 1
@@ -98,7 +167,7 @@ class CsvParser:
             try:
                 upgrade_name = row[0].strip()
                 unit_type = row[1].strip()
-                type_str = row[2].strip().strip('"')  # 去掉三重引号
+                type_str = row[2].strip().strip('"')
                 epoch = safe_int(row[3])
                 hp = safe_int(row[4])
                 los = safe_int(row[5])
@@ -115,8 +184,14 @@ class CsvParser:
                 saltpeter = safe_int(row[16])
                 oil = safe_int(row[17])
                 uranium = safe_int(row[18])
+                displayname_key = row[19].strip() if len(row) > 19 else ""
                 upgraderefs = row[32].strip() if len(row) > 32 else ""
                 civ = row[33].strip() if len(row) > 33 else "All"
+
+                # 查找中文名
+                chinese_name = ''
+                if text_parser and displayname_key:
+                    chinese_name = text_parser.get_name(displayname_key)
 
                 entry = {
                     'upgrade_name': upgrade_name,
@@ -132,6 +207,8 @@ class CsvParser:
                     'food': food, 'wood': wood, 'stone': stone, 'gold': gold,
                     'tin': tin, 'iron': iron, 'saltpeter': saltpeter,
                     'oil': oil, 'uranium': uranium,
+                    'displayname_key': displayname_key,
+                    'chinese_name': chinese_name,
                     'upgraderefs': upgraderefs,
                     'civ': civ,
                     'csv_line': line_num,
@@ -737,16 +814,17 @@ class DocGenerator:
         lines.append("")
         buildings = [u for u in units if u['category'] == '建筑']
         if buildings:
-            lines.append("| 单位(UnitType) | DDF文件 | UnitType行 | CSV行 | TECH行 | 说明 |")
-            lines.append("|:---------------|:--------|:----------|:------|:-------|:-----|")
+            lines.append("| 单位(UnitType) | 中文名 | DDF文件 | UnitType行 | CSV行 | TECH行 | 说明 |")
+            lines.append("|:---------------|:-------|:--------|:----------|:------|:-------|:-----|")
             for b in buildings:
                 ut = b['unit_type']
+                cn = b['csv_data'].get('chinese_name', '')
                 ddf_file = b['ddf_data'].get('ddf_file', '—') if b['ddf_data'] else '—'
                 ddf_line = b['ddf_data'].get('unittype_line', '—') if b['ddf_data'] else '—'
                 csv_line = b['csv_data'].get('csv_line', '—')
                 tech_nodes = b.get('tech_nodes', [])
                 tech_str = ','.join(str(self.tech.nodes.get(tn, {}).get('line_num', '?')) for tn in tech_nodes) if tech_nodes else '—'
-                lines.append(f"| **{ut}** | `{ddf_file}` | {ddf_line} | {csv_line} | {tech_str} | E{epoch} |")
+                lines.append(f"| **{ut}** | {cn} | `{ddf_file}` | {ddf_line} | {csv_line} | {tech_str} | E{epoch} |")
         else:
             lines.append("_本时代无独立建筑单位_")
         lines.append("")
@@ -797,14 +875,15 @@ class DocGenerator:
         lines.append("")
         civ_units = [u for u in units if u['category'] == '平民']
         if civ_units:
-            lines.append("| 单位(UnitType) | DDF文件 | UnitType行 | CSV行 | 说明 |")
-            lines.append("|:---------------|:--------|:----------|:------|:-----|")
+            lines.append("| 单位(UnitType) | 中文名 | DDF文件 | UnitType行 | CSV行 | 说明 |")
+            lines.append("|:---------------|:-------|:--------|:----------|:------|:-----|")
             for u in civ_units:
                 ut = u['unit_type']
+                cn = u['csv_data'].get('chinese_name', '')
                 ddf_file = u['ddf_data'].get('ddf_file', '—') if u['ddf_data'] else '—'
                 ddf_line = u['ddf_data'].get('unittype_line', '—') if u['ddf_data'] else '—'
                 csv_line = u['csv_data'].get('csv_line', '—')
-                lines.append(f"| **{ut}** | `{ddf_file}` | {ddf_line} | {csv_line} | |")
+                lines.append(f"| **{ut}** | {cn} | `{ddf_file}` | {ddf_line} | {csv_line} | |")
         else:
             lines.append("_本时代无独立平民单位_")
         lines.append("")
@@ -898,8 +977,13 @@ class DocGenerator:
                 ddf = u['ddf_data'] or {}
                 csv_d = u['csv_data']
                 ddf_file = ddf.get('ddf_file', '—')
+                cn_name = csv_d.get('chinese_name', '')
 
-                lines.append(f"#### {ut} — `{ddf_file}`")
+                title = f"#### {ut}"
+                if cn_name:
+                    title += f" ({cn_name})"
+                title += f" — `{ddf_file}`"
+                lines.append(title)
                 lines.append("")
                 lines.append("| 参数(中文) | 参数(英文) | 行号 | 值 | 说明 |")
                 lines.append("|:-----------|:-----------|:-----|:---|:-----|")
@@ -1001,10 +1085,11 @@ class DocGenerator:
 
     def _write_air_tables(self, lines, units, epoch):
         """写入空军单位表（紧凑格式）"""
-        lines.append("| 单位(UnitType) | DDF文件 | DDF行 | 父类 | RPS | CSV升级行 | TECH行 |")
-        lines.append("|:---------------|:--------|:------|:-----|:----|:----------|:-------|")
+        lines.append("| 单位(UnitType) | 中文名 | DDF文件 | DDF行 | 父类 | RPS | CSV升级行 | TECH行 |")
+        lines.append("|:---------------|:-------|:--------|:------|:-----|:----|:----------|:-------|")
         for u in units:
             ut = u['unit_type']
+            cn = u['csv_data'].get('chinese_name', '')
             ddf = u['ddf_data'] or {}
             ddf_file = ddf.get('ddf_file', '—')
             ddf_line = ddf.get('unittype_line', '—')
@@ -1013,15 +1098,16 @@ class DocGenerator:
             csv_line = u['csv_data'].get('csv_line', '—')
             tech_nodes = u.get('tech_nodes', [])
             tech_str = ','.join(str(self.tech.nodes.get(tn, {}).get('line_num', '?')) for tn in tech_nodes) if tech_nodes else '—'
-            lines.append(f"| **{ut}** | `{ddf_file}` | {ddf_line} | {parent} | {rps} | {csv_line} | {tech_str} |")
+            lines.append(f"| **{ut}** | {cn} | `{ddf_file}` | {ddf_line} | {parent} | {rps} | {csv_line} | {tech_str} |")
         lines.append("")
 
     def _write_army_tables(self, lines, units, epoch):
         """写入陆军单位表（紧凑格式）"""
-        lines.append("| 单位(UnitType) | DDF文件 | DDF行 | 类型 | CSV升级行 | TECH行 | CIV |")
-        lines.append("|:---------------|:--------|:------|:-----|:----------|:-------|:----|")
+        lines.append("| 单位(UnitType) | 中文名 | DDF文件 | DDF行 | 类型 | CSV升级行 | TECH行 | CIV |")
+        lines.append("|:---------------|:-------|:--------|:------|:-----|:----------|:-------|:----|")
         for u in units:
             ut = u['unit_type']
+            cn = u['csv_data'].get('chinese_name', '')
             ddf = u['ddf_data'] or {}
             ddf_file = ddf.get('ddf_file', '—')
             ddf_line = ddf.get('unittype_line', '—')
@@ -1030,7 +1116,7 @@ class DocGenerator:
             tech_nodes = u.get('tech_nodes', [])
             tech_str = ','.join(str(self.tech.nodes.get(tn, {}).get('line_num', '?')) for tn in tech_nodes) if tech_nodes else '—'
             civ = u.get('civ', 'All')
-            lines.append(f"| **{ut}** | `{ddf_file}` | {ddf_line} | {rps} | {csv_line} | {tech_str} | {civ} |")
+            lines.append(f"| **{ut}** | {cn} | `{ddf_file}` | {ddf_line} | {rps} | {csv_line} | {tech_str} | {civ} |")
         lines.append("")
 
     def _write_tech_section(self, lines, epoch):
@@ -1106,8 +1192,8 @@ class DocGenerator:
         lines.append("")
         lines.append("## 一、全单位字母序索引")
         lines.append("")
-        lines.append("| UnitType | 类型 | DDF文件 | DDF行 | 出现时代 |")
-        lines.append("|:---------|:-----|:--------|:------|:---------|")
+        lines.append("| UnitType | 中文名 | 类型 | DDF文件 | DDF行 | 出现时代 |")
+        lines.append("|:---------|:------|:-----|:--------|:------|:---------|")
 
         # 收集所有单位
         all_units = defaultdict(lambda: {'ddf_file': '', 'ddf_line': '', 'category': '', 'epochs': []})
@@ -1139,7 +1225,21 @@ class DocGenerator:
         for ut_name in sorted(all_units.keys()):
             info = all_units[ut_name]
             epochs_str = ','.join(f'E{e}' for e in info['epochs'])
-            lines.append(f"| **{ut_name}** | {info['category']} | `{info['ddf_file']}` | {info['ddf_line']} | {epochs_str} |")
+            # 获取中文名：优先取最晚时代 + 名字包含UnitType本身的
+            cn_name = ''
+            if ut_name in self.csv.units:
+                best_cn = ''
+                for ep in sorted(self.csv.units[ut_name].keys(), reverse=True):
+                    cn = self.csv.units[ut_name][ep].get('chinese_name', '')
+                    if cn:
+                        if not best_cn:
+                            best_cn = cn
+                        # 优先选包含UnitType英文名的（如 "054A" 匹配 "054A"）
+                        if ut_name.lower() in cn.lower() or any(part.lower() in cn.lower() for part in re.findall(r'[A-Z]?\d+[A-Z]?', ut_name)):
+                            best_cn = cn
+                            break
+                cn_name = best_cn
+            lines.append(f"| **{ut_name}** | {cn_name} | {info['category']} | `{info['ddf_file']}` | {info['ddf_line']} | {epochs_str} |")
 
         lines.append("")
         lines.append("---")
@@ -1152,12 +1252,24 @@ class DocGenerator:
             if cat_units:
                 lines.append(f"### {cat} ({len(cat_units)}个单位)")
                 lines.append("")
-                lines.append("| UnitType | DDF文件 | DDF行 | 时代覆盖 |")
-                lines.append("|:---------|:--------|:------|:---------|")
+                lines.append("| UnitType | 中文名 | DDF文件 | DDF行 | 时代覆盖 |")
+                lines.append("|:---------|:------|:--------|:------|:---------|")
                 for ut_name in sorted(cat_units.keys()):
                     info = cat_units[ut_name]
+                    cn_name = ''
+                    if ut_name in self.csv.units:
+                        best_cn = ''
+                        for ep in sorted(self.csv.units[ut_name].keys(), reverse=True):
+                            cn = self.csv.units[ut_name][ep].get('chinese_name', '')
+                            if cn:
+                                if not best_cn:
+                                    best_cn = cn
+                                if ut_name.lower() in cn.lower() or any(part.lower() in cn.lower() for part in re.findall(r'[A-Z]?\d+[A-Z]?', ut_name)):
+                                    best_cn = cn
+                                    break
+                        cn_name = best_cn
                     epochs_str = ','.join(f'E{e}' for e in info['epochs'])
-                    lines.append(f"| **{ut_name}** | `{info['ddf_file']}` | {info['ddf_line']} | {epochs_str} |")
+                    lines.append(f"| **{ut_name}** | {cn_name} | `{info['ddf_file']}` | {info['ddf_line']} | {epochs_str} |")
                 lines.append("")
 
         lines.append("---")
@@ -1293,12 +1405,18 @@ def main():
     print("=" * 60)
     print()
 
+    # 阶段0: 文本名称解析
+    print("[阶段0] 解析单位中文名称...")
+    text_parser = TextNameParser()
+    text_parser.parse_all()
+    print(f"  解析了 {len(text_parser.name_map)} 条文本名称映射")
+
     # 阶段1: CSV解析
     print("[阶段1] 解析CSV升级数据...")
     csv_parser = CsvParser()
-    csv_parser.parse(CSV_PATH)
+    csv_parser.parse(CSV_PATH, text_parser=text_parser)
     if os.path.exists(CSV_EE2X_PATH):
-        csv_parser.parse(CSV_EE2X_PATH, is_ee2x=True)
+        csv_parser.parse(CSV_EE2X_PATH, is_ee2x=True, text_parser=text_parser)
     print(f"  解析了 {len(csv_parser.all_upgrades)} 条CSV升级记录")
     print(f"  覆盖 {len(csv_parser.units)} 个UnitType")
 
