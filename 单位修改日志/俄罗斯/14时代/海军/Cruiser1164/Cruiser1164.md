@@ -39,3 +39,50 @@
 
 ### 已知影响
 - 与Ch055A(055A改进型)、DDG1001(朱姆沃尔特)同步调整，三艘成本统一
+
+---
+
+## 第2次修改 — 2026-05-21 14:30
+
+**关联快照**: 本次对话
+**修改类型**: 数值调整
+
+### 修改前数据 (E14)
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| HP | 37500 | upgrade_unittypes.csv:1190 |
+| LOS | 46 | upgrade_unittypes.csv:1190 |
+| DAMAGE | 2850 | upgrade_unittypes.csv:1190 |
+| RANGE | 46 | upgrade_unittypes.csv:1190 |
+| RELOAD | 1.15 | upgrade_unittypes.csv:1190 |
+| BUILDTIME | 120 | upgrade_unittypes.csv:1190 |
+| Gold | 3000 | upgrade_unittypes.csv:1190 |
+| Iron | 0 | upgrade_unittypes.csv:1190 |
+| Oil | 3000 | upgrade_unittypes.csv:1190 |
+| Uranium | 3000 | upgrade_unittypes.csv:1190 |
+
+### 修改后数据 (E14)
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| HP | 50000 | upgrade_unittypes.csv:1190 |
+| LOS | 43 | upgrade_unittypes.csv:1190 |
+| DAMAGE | 3300 | upgrade_unittypes.csv:1190 |
+| RANGE | 43 | upgrade_unittypes.csv:1190 |
+| RELOAD | 2.0 | upgrade_unittypes.csv:1190 |
+| BUILDTIME | 130 | upgrade_unittypes.csv:1190 |
+| Gold | 2500 | upgrade_unittypes.csv:1190 |
+| Iron | 0 | upgrade_unittypes.csv:1190 |
+| Oil | 2500 | upgrade_unittypes.csv:1190 |
+| Uranium | 2800 | upgrade_unittypes.csv:1190 |
+
+### 关联文件
+- `EE2X_db/TechTree/upgrade_unittypes.csv` — 第1190行 Cruiser1164UpgradeEpoch14
+
+### 修改依据
+- 需求: 俄罗斯领袖级独立差异化，HP50000/攻3300/射43/视野43/装填2s/建造130s; 金2500/油2500/铀2800
+
+- 理由: 区别于中美的42000HP/3000攻/48射，俄系高血量低射程装填慢的风格化定位
+
+### 已知影响
+- Cruiser1164从三艘统一配置中独立出来，HP最高但射程最短装填最慢
+- 与Ch055A(1.0s)/DDG1001(1.0s)射速差距拉大(2.0s vs 1.0s)

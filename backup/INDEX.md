@@ -33,6 +33,7 @@
 | 020 | EE2X_db-020-launcher-update-fix-pre.zip | 启动器更新卡死修复 | main.js/preload.js/updater_core.py | 启动器自升级熔断+诊断文件+空包止血 | 2026-05-21 |
 | 021 | EE2X_db-021-baseline-1.0.0-pre-quick.zip | 1.0.0基线快照 | 项目源码+配置 | 1.0.0版本发布前完整源码快照（不含游戏本体） | 2026-05-21 |
 | 022 | EE2X_db-022-machinegunnest-infantry-1.3x-pre.zip | Machinegunnest(机枪碉堡) E11-E15 | dbcombat_unittypeadjust.csv | 对轻步兵/重步兵/特种部队全线130%(1.3x)克制 | 2026-05-21 12:00 |
+| 023 | EE2X_db-023-Cruiser1164-e14-attr-adjust-pre.zip | Cruiser1164(俄罗斯领袖级) E14 | upgrade_unittypes.csv | HP50000/攻3300/射43/视野43/装填2s/建造130s;金2500/铁2800/油2500/铀2800 | 2026-05-21 14:30 |
 
 ## 旧格式全量快照（历史遗留，不符合新规则）
 
