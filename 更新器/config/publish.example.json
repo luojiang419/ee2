@@ -1,0 +1,6 @@
+{
+  "backendBaseUrl": "http://example.com:3010",
+  "adminUsername": "ee2x",
+  "adminPassword": "ee2x",
+  "channel": "stable"
+}

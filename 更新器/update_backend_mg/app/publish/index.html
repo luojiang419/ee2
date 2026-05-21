@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EE2X Web 推送页</title>
+    <link rel="stylesheet" href="/publish/assets/styles.css" />
+  </head>
+  <body data-channel="__DEFAULT_CHANNEL__">
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">EE2X Release Console</p>
+          <h1>Web 推送页</h1>
+          <p class="hero-copy">
+            本页固定发布到默认频道，只上传单个更新包 ZIP。桌面端负责本地打包，这里负责入库、上架和历史回退。
+          </p>
+        </div>
+        <div class="hero-side">
+          <div class="channel-badge">
+            <span>固定频道</span>
+            <strong id="channelLabel">stable</strong>
+          </div>
+          <div class="account-badge">
+            <span>当前账号</span>
+            <strong id="activeUsername">未登录</strong>
+            <button id="logoutButton" class="mini-ghost-button" type="button">退出登录</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <section class="panel upload-panel">
+          <div class="panel-title-row">
+            <div>
+              <h2>上传更新包</h2>
+              <p>仅支持单个 bundle ZIP，服务端会自动校验结构与 SHA-256。</p>
+            </div>
+          </div>
+
+          <label class="file-drop" for="bundleFileInput">
+            <input id="bundleFileInput" type="file" accept=".zip" />
+            <span class="file-drop-title">选择更新包 ZIP</span>
+            <span id="selectedFileText" class="file-drop-subtitle">尚未选择文件</span>
+          </label>
+
+          <div class="action-row">
+            <button id="uploadButton" class="primary-button" type="button">上传并发布</button>
+          </div>
+
+          <div id="progressCard" class="progress-card hidden">
+            <div class="progress-header">
+              <strong id="progressTitle">正在上传更新包...</strong>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-track">
+              <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <p id="progressText" class="inline-status">等待上传</p>
+          </div>
+
+          <div id="resultCard" class="result-card hidden"></div>
+          <div id="uploadMessage" class="message hidden"></div>
+        </section>
+
+        <section class="panel history-panel">
+          <div class="panel-title-row">
+            <div>
+              <h2>当前版本与历史</h2>
+              <p>删除当前 latest 时，系统会自动回退到上一版。</p>
+            </div>
+            <button id="refreshButton" class="ghost-button" type="button">刷新</button>
+          </div>
+
+          <div class="current-card">
+            <div class="current-item">
+              <span>当前版本</span>
+              <strong id="currentVersion">-</strong>
+            </div>
+            <div class="current-item">
+              <span>当前 Release ID</span>
+              <strong id="currentReleaseId">-</strong>
+            </div>
+          </div>
+
+          <div id="historyMessage" class="message hidden"></div>
+          <div class="history-scroll-shell">
+            <div id="historyList" class="history-list"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="authOverlay" class="overlay">
+      <div class="modal-card auth-modal">
+        <div class="modal-copy">
+          <p class="eyebrow">EE2X Access</p>
+          <h2>账号登录</h2>
+          <p>登录后才能进入操作页面。默认账号密码均为 <code>ee2x</code>。</p>
+        </div>
+        <div class="modal-form">
+          <label class="form-field">
+            <span>账号</span>
+            <input id="usernameInput" type="text" placeholder="请输入账号" autocomplete="username" value="ee2x" />
+          </label>
+          <label class="form-field">
+            <span>密码</span>
+            <input id="passwordInput" type="password" placeholder="请输入密码" autocomplete="current-password" value="ee2x" />
+          </label>
+          <button id="loginButton" class="primary-button" type="button">登录进入</button>
+        </div>
+        <p id="authMessage" class="inline-status muted">请输入账号密码后登录。</p>
+      </div>
+    </div>
+
+    <div id="confirmOverlay" class="overlay hidden">
+      <div class="modal-card confirm-modal">
+        <div class="modal-copy">
+          <h2 id="confirmTitle">确认操作</h2>
+          <p id="confirmText">请确认是否继续。</p>
+        </div>
+        <div class="modal-actions">
+          <button id="confirmCancelButton" class="ghost-button" type="button">取消</button>
+          <button id="confirmConfirmButton" class="danger-button" type="button">确认删除</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/publish/assets/app.js"></script>
+  </body>
+</html>
