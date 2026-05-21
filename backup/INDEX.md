@@ -41,6 +41,8 @@
 | 042 | EE2X_db-035-E14高级战斗机射程加25-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 041修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 043 | EE2X_db-036-E14高级战斗机手动调参-pre.zip | pre | E14高级战斗机手动调参 | upgrade_unittypes.csv | J11A(2300/1100/23)+f14(2500/1000/22)+su27(2700/1000/21) | — | 2026-05-22 |
 | 044 | EE2X_db-036-E14高级战斗机手动调参-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 043修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
+| 045 | EE2X_db-037-E14工程机械采集速率10倍化-pre.zip | pre | Harvester/Weelloader/Tractor 采集速率 | Yuanhang_720_units.ddf | 3单位12行: carryLimit×10 + 各资源rate×10 | — | 2026-05-22 |
+| 046 | EE2X_db-037-E14工程机械采集速率10倍化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 045修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
 
 ## 更新器/启动器备份
 

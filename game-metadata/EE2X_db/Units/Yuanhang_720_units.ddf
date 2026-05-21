@@ -19416,8 +19416,8 @@ UnitType Harvester
 				treeCuttingRange = 1.0; 	
 				otherRange = 0.5;
 				dropoffRange = 0.5;
-				carryLimit = 30;
-				woodRate = 0.7;		
+				carryLimit = 300;
+				woodRate = 7.0;		
 		}
 		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
 		LOS { range = 11 }
@@ -19493,12 +19493,12 @@ UnitType Weelloader
             GatherFarm { 				
 				otherRange = 0.5;
 				dropoffRange = 0.5;
-				carryLimit = 30;				
-				stoneRate = 0.7;			
-				goldRate = 0.7;
-				tinRate = 0.5;
-				ironRate = 0.5;
-				saltpeterRate = 0.7;
+				carryLimit = 300;				
+				stoneRate = 7.0;			
+				goldRate = 7.0;
+				tinRate = 5.0;
+				ironRate = 5.0;
+				saltpeterRate = 7.0;
 		}
             Build { repairRate = 100 }
 		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
@@ -19570,12 +19570,12 @@ UnitType Tractor
 	abilities = [		
             GatherFarm { 
 				treeCuttingRange = 1.5; 
-				foodRate = 0.7;
+				foodRate = 7.0;
 				otherRange = 0.5;
 				dropoffRange = 0.5;
-				carryLimit = 30; 
-				farmCarryLimit = 30;			
-				farmRate = 0.9; 	
+				carryLimit = 300; 
+				farmCarryLimit = 300;			
+				farmRate = 9.0; 	
 				
 		}
 		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
