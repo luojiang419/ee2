@@ -28,19 +28,19 @@
 | 029 | EE2X_db-029-超级主力舰三倍化射速翻倍-pre.zip | pre | 超级主力舰E14(Ch055A/DDG1001/Cruiser1164) + AA护卫舰还原 | upgrade_unittypes.csv, dbtechtreenode.csv | 超级主力舰×3三倍化+装填减半+成本统一3000; AA护卫舰还原为800/600/20; TechPts 10→50 | — | 2026-05-21 |
 | 030 | EE2X_db-029-超级主力舰修改后完整游戏ZIP-runtime.zip | runtime | 超级主力舰E14修改后完整游戏ZIP | EE2X_db.zip 完整 | 快照023+037+040合并: 超级主力舰三倍化+护卫舰还原+射速翻倍+成本统一 | 测试通过 | 2026-05-21 |
 | 031 | EE2X_db-030-E14战斗机三国差异化重平衡-pre.zip | pre | E14制空+多用途战斗机6单位 | upgrade_unittypes.csv | J10B(1500/600/300)+f16(1600/700/330)+mig29k(1500/570/280)+JH7A(2500/1000/450)+A10(2900/1200/500)+su25(2500/850/400) | — | 2026-05-21 |
-| 032 | EE2X_db-030-E14战斗机三国差异化重平衡-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 031修改应用后的完整游戏ZIP | 待测试 | 2026-05-21 |
+| 032 | EE2X_db-030-E14战斗机三国差异化重平衡-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 031修改应用后的完整游戏ZIP | 测试通过 | 2026-05-21 |
 | 033 | EE2X_db-031-E14战斗机去粮食-pre.zip | pre | E14战斗机6单位Food归零 | upgrade_unittypes.csv | J10B/JH7A/f16/A10/mig29k/su25 E14 Food→0 | — | 2026-05-21 |
-| 034 | EE2X_db-031-E14战斗机去粮食-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 033修改应用后的完整游戏ZIP | 待测试 | 2026-05-21 |
+| 034 | EE2X_db-031-E14战斗机去粮食-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 033修改应用后的完整游戏ZIP | 测试通过 | 2026-05-21 |
 | 035 | EE2X_db-032-E14高级战斗机型差异化-pre.zip | pre | E14高级战斗机J11A/f14/su27差异化 | upgrade_unittypes.csv | J11A(1950/780/1.15/450)+f14(2080/910/0.81/495)+su27(1950/741/0.69/420) | — | 2026-05-22 |
-| 036 | EE2X_db-032-E14高级战斗机型差异化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 035修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
+| 036 | EE2X_db-032-E14高级战斗机型差异化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 035修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 037 | EE2X_db-033-E14高级战斗机HP加30ATK加20-pre.zip | pre | E14高级战斗机J11A/f14/su27 HP+30% ATK+20% | upgrade_unittypes.csv | J11A(2535/936)+f14(2704/1092)+su27(2535/889) | — | 2026-05-22 |
-| 038 | EE2X_db-033-E14高级战斗机HP加30ATK加20-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 037修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
+| 038 | EE2X_db-033-E14高级战斗机HP加30ATK加20-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 037修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 039 | EE2X_db-034-E14高级战斗机成本加40-pre.zip | pre | E14高级战斗机J11A/f14/su27成本+40% | upgrade_unittypes.csv | J11A(630)+f14(693)+su27(588) 5资源各 | — | 2026-05-22 |
-| 040 | EE2X_db-034-E14高级战斗机成本加40-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 039修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
+| 040 | EE2X_db-034-E14高级战斗机成本加40-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 039修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 041 | EE2X_db-035-E14高级战斗机射程加25-pre.zip | pre | E14高级战斗机J11A/f14/su27射程+25% | upgrade_unittypes.csv | J11A(19)+f14(23)+su27(21) | — | 2026-05-22 |
-| 042 | EE2X_db-035-E14高级战斗机射程加25-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 041修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
+| 042 | EE2X_db-035-E14高级战斗机射程加25-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 041修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 043 | EE2X_db-036-E14高级战斗机手动调参-pre.zip | pre | E14高级战斗机手动调参 | upgrade_unittypes.csv | J11A(2300/1100/23)+f14(2500/1000/22)+su27(2700/1000/21) | — | 2026-05-22 |
-| 044 | EE2X_db-036-E14高级战斗机手动调参-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 043修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
+| 044 | EE2X_db-036-E14高级战斗机手动调参-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 043修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 
 ## 更新器/启动器备份
 
