@@ -74,6 +74,9 @@ class ApplySummary:
     rolledBack: bool = False
     restartedLauncher: bool = False
     restartMessage: str = ""
+    executedScopes: list[str] = field(default_factory=list)
+    skippedScopes: list[str] = field(default_factory=list)
+    scopeSummaries: dict[str, dict[str, Any]] = field(default_factory=dict)
     notes: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:

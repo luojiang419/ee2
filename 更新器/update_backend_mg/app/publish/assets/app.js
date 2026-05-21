@@ -141,7 +141,8 @@
       <div>Release ID: ${escapeHtml(payload.releaseId)}</div>
       <div>latest.json: ${escapeHtml(payload.latestUrl)}</div>
       <div>启动器文件 ${payload.launcherFileCount || 0} 项，游戏文件 ${payload.gameFileCount || 0} 项</div>
-      <div>自动删除启动器 ${payload.launcherDeletedCount || 0} 项，游戏 ${payload.gameDeletedCount || 0} 项</div>
+      <div>显式删除启动器 ${payload.launcherDeletedCount || 0} 项，游戏 ${payload.gameDeletedCount || 0} 项</div>
+      <div>未勾选文件不会被自动删除。</div>
     `;
   }
 
@@ -244,7 +245,7 @@
               ${isCurrent ? '<span class="tag current">当前版本</span>' : ""}
               <span class="tag files">下载 ${entry.downloadCount || 0} 次</span>
               <span class="tag files">启动器 ${entry.launcherFileCount || 0} 项 · 游戏 ${entry.gameFileCount || 0} 项</span>
-              <span class="tag delete">删除 ${((entry.launcherDeletedCount || 0) + (entry.gameDeletedCount || 0))} 项</span>
+              <span class="tag delete">显式删除 ${((entry.launcherDeletedCount || 0) + (entry.gameDeletedCount || 0))} 项</span>
             </div>
             <div class="history-notes">${escapeHtml(notes)}</div>
           </article>

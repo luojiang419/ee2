@@ -3,7 +3,11 @@ from __future__ import annotations
 import argparse
 import json
 
-from ee2x_update_suite.shared.constants import PACKAGE_SCOPE_GAME, PACKAGE_SCOPE_LAUNCHER
+from ee2x_update_suite.shared.constants import (
+    PACKAGE_SCOPE_ALL,
+    PACKAGE_SCOPE_GAME,
+    PACKAGE_SCOPE_LAUNCHER,
+)
 from ee2x_update_suite.updater_gui.runner import run_update_from_args
 
 
@@ -17,7 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--scope",
         default=PACKAGE_SCOPE_GAME,
-        choices=[PACKAGE_SCOPE_GAME, PACKAGE_SCOPE_LAUNCHER],
+        choices=[PACKAGE_SCOPE_GAME, PACKAGE_SCOPE_LAUNCHER, PACKAGE_SCOPE_ALL],
         help="本次应用的发布包范围",
     )
     parser.add_argument("--headless", action="store_true", help="无界面执行更新并输出 JSON 结果")

@@ -37,6 +37,7 @@
 
 - `latest.json` 的兼容字段始终指向 `game` 包。
 - `packages.launcher` 仅在 launcher manifest 存在实际 launcher 文件时下发；空包或仅删除项的 delete-only launcher 包都不会再对客户端宣告。
+- 服务端不再根据“上一版有、这次没选”自动推断 `deleteList`；未勾选文件默认保持不变。
 - `GET /api/update/v1/channels/{channel}/latest` 与 `GET /updates/{channel}/latest.json` 会基于数据库当前 release 自动重写静态 `latest.json`，部署新后端后可自动纠正旧的错误宣告。
 - 如需人工立刻止血，可调用 `POST /api/update/v1/channels/{channel}/latest/rebuild` 强制按当前数据库状态重建该频道的 `latest.json`。
 - `history` 接口在 `limit=0` 时返回当前频道全部历史版本，并额外包含下载量、包体大小、最后下载时间等详情字段。

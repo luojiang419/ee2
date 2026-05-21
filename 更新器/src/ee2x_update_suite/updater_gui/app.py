@@ -75,12 +75,23 @@ class UpdaterWindow:
             summary = run_update_from_args(self.args, progress=self._set_progress)
             self._append_log("")
             self._append_log(f"版本: {summary.version}")
+            if summary.executedScopes:
+                self._append_log(f"已执行 scope: {', '.join(summary.executedScopes)}")
+            if summary.skippedScopes:
+                self._append_log(f"已跳过 scope: {', '.join(summary.skippedScopes)}")
             self._append_log(f"已更新文件: {summary.updatedFiles}")
             self._append_log(f"已跳过保护文件: {summary.skippedProtectedFiles}")
             self._append_log(f"已删除文件: {summary.deletedFiles}")
             self._append_log(f"已备份文件: {summary.backedUpFiles}")
             self._append_log(f"是否回滚: {'是' if summary.rolledBack else '否'}")
             self._append_log(f"启动器重启: {'成功' if summary.restartedLauncher else '未执行/失败'}")
+            for scope_name, scope_summary in summary.scopeSummaries.items():
+                self._append_log(
+                    f"[{scope_name}] updated={scope_summary.get('updatedFiles', 0)}, "
+                    f"deleted={scope_summary.get('deletedFiles', 0)}, "
+                    f"backup={scope_summary.get('backedUpFiles', 0)}, "
+                    f"rollback={'是' if scope_summary.get('rolledBack') else '否'}"
+                )
             for note in summary.notes:
                 self._append_log(f"- {note}")
             self._set_progress("完成", "更新流程结束", 100.0)

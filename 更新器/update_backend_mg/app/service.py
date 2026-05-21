@@ -449,20 +449,6 @@ async def build_publish_payload_from_bundle(
         raise
 
 
-def _load_previous_file_paths(conn: sqlite3.Connection, channel: str, scope: str) -> set[str]:
-    current = _fetchone_dict(conn, "SELECT current_release_id FROM channels WHERE channel = ?", (channel,))
-    if not current:
-        return set()
-    release_row = _fetchone_dict(conn, "SELECT id FROM releases WHERE channel = ? AND release_id = ?", (channel, current["current_release_id"]))
-    if not release_row:
-        return set()
-    package_row = _fetchone_dict(conn, "SELECT id FROM release_packages WHERE release_id = ? AND scope = ?", (release_row["id"], scope))
-    if not package_row:
-        return set()
-    rows = _fetchall_dicts(conn, "SELECT path FROM release_files WHERE release_package_id = ?", (package_row["id"],))
-    return {str(item["path"]) for item in rows}
-
-
 def _apply_delete_lists(conn: sqlite3.Connection, channel: str, payloads: dict[str, PackagePayload]) -> tuple[dict[str, list[str]], dict[str, int]]:
     delete_lists: dict[str, list[str]] = {}
     file_counts: dict[str, int] = {}
@@ -472,8 +458,13 @@ def _apply_delete_lists(conn: sqlite3.Connection, channel: str, payloads: dict[s
             for item in (payload.manifest.get("files", []) or [])
             if normalize_relpath(str(item.get("path", "")))
         }
-        previous_paths = _load_previous_file_paths(conn, channel, scope)
-        delete_list = sorted(previous_paths - current_paths)
+        delete_list = sorted(
+            {
+                normalize_relpath(str(item))
+                for item in (payload.manifest.get("deleteList", []) or [])
+                if normalize_relpath(str(item))
+            }
+        )
         payload.manifest["deleteList"] = delete_list
         delete_lists[scope] = delete_list
         file_counts[scope] = len(current_paths)

@@ -27,9 +27,9 @@
 
 补充约定：
 
-- 即使本地构建时仍会生成 `launcher` / `game` 双包，`latest.json` 也只会在 launcher manifest 存在实际变更时暴露 `packages.launcher`。
-- 判定“实际变更”的标准是 launcher manifest 的 `files` 非空，或 `deleteList` 非空。
-- 空 launcher 包只作为构建产物与历史存档存在，不再让客户端把它视为必须先自升级的信号。
+- 即使本地构建时仍会生成 `launcher` / `game` 双包，`latest.json` 也只会在 launcher manifest 存在实际 launcher 文件时暴露 `packages.launcher`。
+- 当前发布链采用“补丁模式”：勾选什么就更新什么，未勾选文件保持原状，不再根据“这次没选到”自动推断删除。
+- 第一版默认禁用自动删除；空 launcher 包只作为构建产物与历史存档存在，不再让客户端把它视为必须先自升级的信号。
 
 ## 环境要求
 

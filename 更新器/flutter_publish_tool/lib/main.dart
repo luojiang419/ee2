@@ -2363,10 +2363,10 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
       });
       final launcherBehaviorMessage = preparedLauncherTriggersSelfUpdate
           ? '本次发布会触发启动器自升级。'
-          : '本次发布不会触发启动器自升级（launcher 仅为空包或无变更）。';
+          : '本次发布不会触发启动器自升级（launcher 无补丁文件或无变更）。';
       final launcherSummaryMessage = preparedLauncherDeletedCount > 0
-          ? '$launcherBehaviorMessage\n启动器删除项 $preparedLauncherDeletedCount 个。'
-          : launcherBehaviorMessage;
+          ? '$launcherBehaviorMessage\n显式删除项: 启动器 $preparedLauncherDeletedCount 个。'
+          : '$launcherBehaviorMessage\n未勾选文件不会被自动删除。';
       if (preparedWarningText.trim().isNotEmpty) {
         _setActionMessage(
           '已将更新包默认保存到 $outputPath。\n\n如需自定义位置，可点击“另存到...”。\n\n$launcherSummaryMessage\n\n$preparedWarningText',
@@ -4085,7 +4085,13 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           const SizedBox(height: 6),
           if ((result.launcherDeletedCount + result.gameDeletedCount) > 0) ...[
             Text(
-              '删除项: 启动器 ${result.launcherDeletedCount} 项，游戏 ${result.gameDeletedCount} 项',
+              '显式删除项: 启动器 ${result.launcherDeletedCount} 项，游戏 ${result.gameDeletedCount} 项',
+              style: TextStyle(color: _palette.secondaryText, height: 1.45),
+            ),
+            const SizedBox(height: 6),
+          ] else ...[
+            Text(
+              '未勾选文件不会被自动删除。',
               style: TextStyle(color: _palette.secondaryText, height: 1.45),
             ),
             const SizedBox(height: 6),
