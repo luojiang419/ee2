@@ -648,3 +648,28 @@ dest15_vs_carrier14,DestroyerUpgradeEpoch15,[AircraftCarrierUpgradeEpoch14],80
 carrier14_vs_battle13,AircraftCarrierUpgradeEpoch14,[BattleshipUpgradeEpoch13],125
 carrier14_vs_battle14,AircraftCarrierUpgradeEpoch14,[BattleshipUpgradeEpoch14],125
 carrier14_vs_battle15,AircraftCarrierUpgradeEpoch14,[BattleshipUpgradeEpoch15],125
+
+//============================================
+// 机枪碉堡 1.3x 步兵克制(E11-E15) - 生成: 2026-05-21
+// 机枪是战场上步兵的噩梦，对轻/重/特种步兵全线130%伤害
+//============================================
+//--- E11 ---
+mg11_vs_li11,MachinegunnestUpgradeEpoch11,[LightInfantryUpgradeEpoch11],130
+mg11_vs_hi1_11,MachinegunnestUpgradeEpoch11,[HeavyInfantry1UpgradeEpoch11],130
+mg11_vs_hi2_11,MachinegunnestUpgradeEpoch11,[HeavyInfantry2UpgradeEpoch11],130
+mg11_vs_sn11,MachinegunnestUpgradeEpoch11,[SniperUpgradeEpoch11],130
+//--- E13 ---
+mg13_vs_li13,MachinegunnestUpgradeEpoch13,[LightInfantryUpgradeEpoch13],130
+mg13_vs_hi1_13,MachinegunnestUpgradeEpoch13,[HeavyInfantry1UpgradeEpoch13],130
+mg13_vs_hi2_14,MachinegunnestUpgradeEpoch13,[HeavyInfantry2UpgradeEpoch14],130
+mg13_vs_sn13,MachinegunnestUpgradeEpoch13,[SniperUpgradeEpoch13],130
+//--- E14 ---
+mg14_vs_li13,MachinegunnestUpgradeEpoch14,[LightInfantryUpgradeEpoch13],130
+mg14_vs_hi1_13,MachinegunnestUpgradeEpoch14,[HeavyInfantry1UpgradeEpoch13],130
+mg14_vs_hi2_14,MachinegunnestUpgradeEpoch14,[HeavyInfantry2UpgradeEpoch14],130
+mg14_vs_sn13,MachinegunnestUpgradeEpoch14,[SniperUpgradeEpoch13],130
+//--- E15 ---
+mg15_vs_li15,MachinegunnestUpgradeEpoch15,[LightInfantryUpgradeEpoch15],130
+mg15_vs_hi1_15,MachinegunnestUpgradeEpoch15,[HeavyInfantry1UpgradeEpoch15],130
+mg15_vs_hi2_15,MachinegunnestUpgradeEpoch15,[HeavyInfantry2UpgradeEpoch15],130
+mg15_vs_sn13,MachinegunnestUpgradeEpoch15,[SniperUpgradeEpoch13],130
