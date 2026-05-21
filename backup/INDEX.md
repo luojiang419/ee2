@@ -31,6 +31,8 @@
 | 032 | EE2X_db-030-E14战斗机三国差异化重平衡-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 031修改应用后的完整游戏ZIP | 待测试 | 2026-05-21 |
 | 033 | EE2X_db-031-E14战斗机去粮食-pre.zip | pre | E14战斗机6单位Food归零 | upgrade_unittypes.csv | J10B/JH7A/f16/A10/mig29k/su25 E14 Food→0 | — | 2026-05-21 |
 | 034 | EE2X_db-031-E14战斗机去粮食-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 033修改应用后的完整游戏ZIP | 待测试 | 2026-05-21 |
+| 035 | EE2X_db-032-E14高级战斗机型差异化-pre.zip | pre | E14高级战斗机J11A/f14/su27差异化 | upgrade_unittypes.csv | J11A(1950/780/1.15/450)+f14(2080/910/0.81/495)+su27(1950/741/0.69/420) | — | 2026-05-22 |
+| 036 | EE2X_db-032-E14高级战斗机型差异化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 035修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
 
 ## 更新器/启动器备份
 
