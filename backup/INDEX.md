@@ -44,37 +44,4 @@
 
 ---
 
-## 仅本地保留（不推送 GitHub）
-
-### 超大备份（>100MB，GitHub 拒绝）
-
-| 原目录 | 估计大小 | 说明 |
-|:------|:--------|:-----|
-| EE2X_db-010-flutter-dual-package-pre/ | 158 MB | Flutter双包发布（含构建产物） |
-| EE2X_db-012-new-update-backend-pre/ | 453 MB | 新更新后端（含Flutter引擎） |
-| EE2X_db-015-update-release-chain-pre/ | 479 MB | 更新发布链路 |
-| EE2X_db-017-publisher-bridge-sidecar-pre/ | 445 MB | 发布端bridge侧车 |
-| EE2X_db-018-launcher-safe-publish-pre/ | 561 MB | 启动器安全发布 |
-| EE2X_db-019-streaming-upload-pre/ | 833 MB | 流式上传 |
-
-### 全量基线（含游戏本体，禁止推送）
-
-| 原目录 | 估计大小 | 说明 |
-|:------|:--------|:-----|
-| EE2X_db-021-baseline-1.0.0-pre/ | 8,916 MB (已删) | 完整游戏+启动器全量基线 |
-
-### 安装器
-
-| 文件 | 大小 | 说明 |
-|:------|:-----|:-----|
-| up16_installer.exe | 1.5 GB | UP1.6 安装器（已推送制品） |
-
-### 空占位目录
-
-| 目录 | 说明 |
-|:------|:-----|
-| 001/ | 空目录 |
-
----
-
-> ZIP 总数: 19 个（17 个 EE2X_db-* + 2 个全量快照）。其中 12 个游戏数据备份 + 5 个更新器备份 + 2 个全量快照。
+> ZIP 总数: 19 个。2026-05-21 已清理全部裸目录（17个，~4GB），backup 目录现仅保留 ZIP + INDEX.md + up16_installer.exe(本地)。
