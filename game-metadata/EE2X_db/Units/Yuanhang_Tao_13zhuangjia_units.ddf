@@ -2015,8 +2015,8 @@ UnitType BM30
 	SpecialPower { 		
 			effects = [ Change_Range ]
 		}
-		Attack {range = 2; reloadTime = 0.5; damage = 150; angularRange = 360; packTime = 2.0;unpackTime = 2.0; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-		VehicleMove {speed = 0.8; angSpeed = 70; followTerrainSlope = 1 }
+		Attack {range = 2.2; reloadTime = 0.45; damage = 158; angularRange = 360; packTime = 1.8;unpackTime = 1.8; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		VehicleMove {speed = 0.92; angSpeed = 70; followTerrainSlope = 1 }
 		LOS { range = 16 }
 		Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 	]
@@ -3659,8 +3659,8 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 	SpecialPower { 		
 			effects = [ Change_Range ]
 		}
-		Attack {range = 2; reloadTime = 0.5; damage = 150; angularRange = 360; packTime = 2.0;unpackTime = 2.0; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-		VehicleMove {speed = 0.8; angSpeed = 70; followTerrainSlope = 1 }
+		Attack {range = 2.3; reloadTime = 0.42; damage = 165; angularRange = 360; packTime = 1.8;unpackTime = 1.8; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		VehicleMove {speed = 0.88; angSpeed = 70; followTerrainSlope = 1 }
 		LOS { range = 16 }
 		Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 	]

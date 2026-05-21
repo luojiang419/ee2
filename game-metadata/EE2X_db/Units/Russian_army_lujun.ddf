@@ -589,8 +589,8 @@ sounds = {
 		sndDeath =  ["CWCruSA11_MA_cru_01"]
 	}
 	abilities = [
-	Attack { range = 25; reloadTime = 2.0; applyDamageTime = 0.3; damage = 800;packTime = 1.0;unpackTime = 1.0;missileName = "BUKM1missle"; ignoreBlocking = 1; turretControllerName = ThaadTurret; minRangeMobile = 0.5; minRangeImmobile = 0.5; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-		VehicleMove {speed = 1.7; angSpeed = 50; followTerrainSlope = 1 }
+	Attack { range = 25; reloadTime = 2.0; applyDamageTime = 0.3; damage = 800;packTime = 0.85;unpackTime = 0.85;missileName = "BUKM1missle"; ignoreBlocking = 1; turretControllerName = ThaadTurret; minRangeMobile = 0.5; minRangeImmobile = 0.5; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		VehicleMove {speed = 1.87; angSpeed = 50; followTerrainSlope = 1 }
 		LOS { range = 28 }
 		Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
 	]
@@ -810,10 +810,10 @@ UnitType Ru_S400
 		sndDeath =  ["CWCruSA11_MA_cru_01"]
 	}
 	abilities = [
-		Attack { damage = 750; range = 26; reloadTime = 1.8; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 3.0; unpackTime =3.0;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
+		Attack { damage = 788; range = 35; reloadTime = 1.62; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 2.55; unpackTime =2.55;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 		LOS { range = 30 }
-		VehicleMove {speed = 2.0; angSpeed = 50; followTerrainSlope = 1}
+		VehicleMove {speed = 2.2; angSpeed = 50; followTerrainSlope = 1}
 			]
 attributes = [
 		HealedByHERC 		
@@ -1070,10 +1070,10 @@ UnitType Rus_2s19
 	sounds = {
 	}
 	abilities = [
-	     Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	     Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 1.7;unpackTime = 1.7; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
 		LOS { range = 20 }
-		VehicleMove {speed = 0.8; angSpeed = 50; followTerrainSlope = 1 }
+		VehicleMove {speed = 0.88; angSpeed = 50; followTerrainSlope = 1 }
 	]
 	Attributes = [ 
 		HealedByMedic

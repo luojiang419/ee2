@@ -588,10 +588,10 @@ UnitType M109A6
 	sounds = {
 	}
 	abilities = [
-	     Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	     Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 1.8;unpackTime = 1.8; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
 		LOS { range = 20 }
-		VehicleMove {speed = 0.8; angSpeed = 50; followTerrainSlope = 1 }
+		VehicleMove {speed = 0.92; angSpeed = 50; followTerrainSlope = 1 }
 	]
 	Attributes = [ 
 		HealedByMedic
@@ -778,8 +778,8 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 "v_HeavyMounted1_12_com01" ]
 	}
 	abilities = [
-		Attack { range = 24; reloadTime = 2.0; applyDamageTime = 0.1; damage = 700;packTime = 3.5;unpackTime = 3.5; missileName = "THAAD_daodan"; ignoreBlocking = 1;  areaDamageRadius = 1;  throwUnits = true }
-            VehicleMove {speed = 1.8; angSpeed = 720; followTerrainSlope = 1 }
+		Attack { range = 31; reloadTime = 1.7; applyDamageTime = 0.1; damage = 770;packTime = 3.15;unpackTime = 3.15; missileName = "THAAD_daodan"; ignoreBlocking = 1;  areaDamageRadius = 1;  throwUnits = true }
+            VehicleMove {speed = 2.07; angSpeed = 720; followTerrainSlope = 1 }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
 		LOS { range = 26 }
 			]
@@ -856,8 +856,8 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 "v_HeavyMounted1_12_com01" ]
 	}
 	abilities = [
-			Attack { range = 25; reloadTime = 2.0; applyDamageTime = 0.1; damage = 800;packTime = 3.5;unpackTime = 3.5; missileName = "THAAD_daodan"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; areaDamageRadius = 2;  throwUnits = true }
-            VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1 }
+			Attack { range = 25; reloadTime = 2.0; applyDamageTime = 0.1; damage = 800;packTime = 3.15;unpackTime = 3.15; missileName = "THAAD_daodan"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; areaDamageRadius = 2;  throwUnits = true }
+            VehicleMove {speed = 2.07; angSpeed = 50; followTerrainSlope = 1 }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
 		LOS { range = 25 }
 	]
