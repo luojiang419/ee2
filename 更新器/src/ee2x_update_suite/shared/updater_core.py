@@ -12,6 +12,7 @@ from .constants import (
     APPLY_HISTORY_NAME,
     LATEST_FILE_NAME,
     LAUNCHER_DIR_NAME,
+    LAST_UPDATER_LOG_NAME,
     PACKAGE_SCOPE_GAME,
     PACKAGE_SCOPE_LAUNCHER,
     PROTECTED_RELATIVE_PATHS,
@@ -30,6 +31,48 @@ ProgressCallback = Callable[[str, str, float], None]
 
 class UpdateError(RuntimeError):
     """更新失败。"""
+
+
+def _write_result_payload(result_file: Path | None, payload: dict) -> None:
+    if result_file is None:
+        return
+    try:
+        save_json(result_file, payload)
+    except Exception:
+        pass
+
+
+def _success_result_payload(summary: ApplySummary, log_file: Path | None = None) -> dict:
+    payload = {
+        "ok": True,
+        "scope": summary.scope,
+        "version": summary.version,
+        "restartedLauncher": summary.restartedLauncher,
+        "summary": summary.to_dict(),
+    }
+    if log_file is not None:
+        payload["logPath"] = str(log_file)
+    return payload
+
+
+def _failure_result_payload(
+    *,
+    scope: str,
+    version: str,
+    error: Exception,
+    log_file: Path | None = None,
+) -> dict:
+    payload = {
+        "ok": False,
+        "scope": scope,
+        "version": version,
+        "restartedLauncher": False,
+        "error": str(error),
+        "errorType": type(error).__name__,
+    }
+    if log_file is not None:
+        payload["logPath"] = str(log_file)
+    return payload
 
 
 def _latest_url(server_base: str, channel: str) -> str:
@@ -278,6 +321,8 @@ def run_update(
     launcher_exe: Path | None = None,
     progress: ProgressCallback | None = None,
     scope: str = PACKAGE_SCOPE_GAME,
+    result_file: Path | None = None,
+    log_file: Path | None = None,
 ) -> ApplySummary:
     runtime_dir = launcher_dir / "update" / "runtime"
     staging_root = runtime_dir / "staging"
@@ -286,113 +331,132 @@ def run_update(
     history_path = runtime_dir / APPLY_HISTORY_NAME
     runtime_dir.mkdir(parents=True, exist_ok=True)
 
-    if progress:
-        progress("检查版本", "读取 latest.json", 0.0)
-    latest = _latest_release_from_dict(_fetch_json(_latest_url(server_base, channel)))
-    package = _resolve_scope_package(latest, scope)
-    summary = ApplySummary(version=latest.version, scope=scope)
-
-    current_state = _load_release_state(state_path)
-    current_scope_state = _scope_state(current_state, scope)
-    if (
-        current_scope_state.get("version") == latest.version
-        and current_scope_state.get("packageSha256") == package.packageSha256
-    ):
-        summary.notes.append(f"{scope} 包已是同版本且包哈希一致，跳过更新。")
-        if progress:
-            progress("检查版本", "已是最新版本", 100.0)
-        return summary
-
-    if progress:
-        progress("校验", "读取 release-manifest.json", 15.0)
-    manifest = _release_manifest_from_dict(_fetch_json(package.manifestUrl))
-    if manifest.packageSha256 != package.packageSha256:
-        raise UpdateError("latest.json 与 release-manifest.json 的包哈希不一致。")
-
-    target_root = launcher_dir if scope == PACKAGE_SCOPE_LAUNCHER else game_root
-    expected_root_dir_name = LAUNCHER_DIR_NAME if scope == PACKAGE_SCOPE_LAUNCHER else ROOT_DIR_NAME
-    protected_paths = _protected_paths_for_scope(scope)
-    staging_dir = staging_root / f"{scope}-{latest.version}"
-    package_path = staging_dir / manifest.packageFileName
-    extract_dir = staging_dir / "extracted"
-    backup_dir = backups_root / f"{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}-{scope}"
-
-    executable_name = launcher_exe.name if launcher_exe else f"{LAUNCHER_DIR_NAME}.exe"
-    _kill_launcher(executable_name)
-
-    if progress:
-        progress("下载", f"下载 {manifest.packageFileName}", 25.0)
-    _download_file(package.packageUrl, package_path, progress=progress, stage="下载")
-    if sha256_file(package_path) != package.packageSha256:
-        raise UpdateError("下载包 SHA-256 校验失败。")
-
-    if progress:
-        progress("校验", "解压并验证更新包结构", 55.0)
-    _extract_zip(package_path, extract_dir)
-    extracted_root = _validate_extracted_tree(extract_dir, manifest, expected_root_dir_name)
-
-    touched_records: list[dict] = []
-    backup_dir.mkdir(parents=True, exist_ok=True)
+    latest_version = ""
+    if log_file is None:
+        log_file = runtime_dir / LAST_UPDATER_LOG_NAME
 
     try:
         if progress:
-            progress("备份", "开始备份并应用文件", 70.0)
-        for index, file_entry in enumerate(manifest.files, start=1):
-            rel_path = normalize_relpath(file_entry.path)
-            if path_is_within_prefixes(rel_path, protected_paths):
-                summary.skippedProtectedFiles += 1
-                continue
-            source_path = safe_join(extracted_root, rel_path)
-            target_path = safe_join(target_root, rel_path)
-            existed = target_path.exists()
-            backup_path = safe_join(backup_dir, rel_path)
-            if existed:
+            progress("检查版本", "读取 latest.json", 0.0)
+        latest = _latest_release_from_dict(_fetch_json(_latest_url(server_base, channel)))
+        latest_version = latest.version
+        package = _resolve_scope_package(latest, scope)
+        summary = ApplySummary(version=latest.version, scope=scope)
+
+        current_state = _load_release_state(state_path)
+        current_scope_state = _scope_state(current_state, scope)
+        if (
+            current_scope_state.get("version") == latest.version
+            and current_scope_state.get("packageSha256") == package.packageSha256
+        ):
+            summary.notes.append(f"{scope} 包已是同版本且包哈希一致，跳过更新。")
+            if progress:
+                progress("检查版本", "已是最新版本", 100.0)
+            _write_result_payload(result_file, _success_result_payload(summary, log_file))
+            return summary
+
+        if progress:
+            progress("校验", "读取 release-manifest.json", 15.0)
+        manifest = _release_manifest_from_dict(_fetch_json(package.manifestUrl))
+        if manifest.packageSha256 != package.packageSha256:
+            raise UpdateError("latest.json 与 release-manifest.json 的包哈希不一致。")
+
+        target_root = launcher_dir if scope == PACKAGE_SCOPE_LAUNCHER else game_root
+        expected_root_dir_name = LAUNCHER_DIR_NAME if scope == PACKAGE_SCOPE_LAUNCHER else ROOT_DIR_NAME
+        protected_paths = _protected_paths_for_scope(scope)
+        staging_dir = staging_root / f"{scope}-{latest.version}"
+        package_path = staging_dir / manifest.packageFileName
+        extract_dir = staging_dir / "extracted"
+        backup_dir = backups_root / f"{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}-{scope}"
+
+        executable_name = launcher_exe.name if launcher_exe else f"{LAUNCHER_DIR_NAME}.exe"
+        _kill_launcher(executable_name)
+
+        if progress:
+            progress("下载", f"下载 {manifest.packageFileName}", 25.0)
+        _download_file(package.packageUrl, package_path, progress=progress, stage="下载")
+        if sha256_file(package_path) != package.packageSha256:
+            raise UpdateError("下载包 SHA-256 校验失败。")
+
+        if progress:
+            progress("校验", "解压并验证更新包结构", 55.0)
+        _extract_zip(package_path, extract_dir)
+        extracted_root = _validate_extracted_tree(extract_dir, manifest, expected_root_dir_name)
+
+        touched_records: list[dict] = []
+        backup_dir.mkdir(parents=True, exist_ok=True)
+
+        try:
+            if progress:
+                progress("备份", "开始备份并应用文件", 70.0)
+            for index, file_entry in enumerate(manifest.files, start=1):
+                rel_path = normalize_relpath(file_entry.path)
+                if path_is_within_prefixes(rel_path, protected_paths):
+                    summary.skippedProtectedFiles += 1
+                    continue
+                source_path = safe_join(extracted_root, rel_path)
+                target_path = safe_join(target_root, rel_path)
+                existed = target_path.exists()
+                backup_path = safe_join(backup_dir, rel_path)
+                if existed:
+                    _copy_any(target_path, backup_path)
+                    summary.backedUpFiles += 1
+                target_path.parent.mkdir(parents=True, exist_ok=True)
+                temp_path = target_path.with_name(target_path.name + TEMP_SUFFIX)
+                shutil.copy2(source_path, temp_path)
+                temp_path.replace(target_path)
+                touched_records.append({"path": rel_path, "existed": existed, "deleted": False})
+                summary.updatedFiles += 1
+                if progress:
+                    progress("应用", f"覆盖 {rel_path}", 70.0 + (index / max(len(manifest.files), 1)) * 25.0)
+
+            for rel_path in manifest.deleteList:
+                normalized = normalize_relpath(rel_path)
+                if path_is_within_prefixes(normalized, protected_paths):
+                    summary.skippedProtectedFiles += 1
+                    continue
+                target_path = safe_join(target_root, normalized)
+                if not target_path.exists():
+                    continue
+                backup_path = safe_join(backup_dir, normalized)
                 _copy_any(target_path, backup_path)
                 summary.backedUpFiles += 1
-            target_path.parent.mkdir(parents=True, exist_ok=True)
-            temp_path = target_path.with_name(target_path.name + TEMP_SUFFIX)
-            shutil.copy2(source_path, temp_path)
-            temp_path.replace(target_path)
-            touched_records.append({"path": rel_path, "existed": existed, "deleted": False})
-            summary.updatedFiles += 1
-            if progress:
-                progress("应用", f"覆盖 {rel_path}", 70.0 + (index / max(len(manifest.files), 1)) * 25.0)
+                _remove_any(target_path)
+                touched_records.append({"path": normalized, "existed": True, "deleted": True})
+                summary.deletedFiles += 1
+        except Exception as exc:
+            for record in reversed(touched_records):
+                target_path = safe_join(target_root, record["path"])
+                backup_path = safe_join(backup_dir, record["path"])
+                if record["existed"] and backup_path.exists():
+                    _remove_any(target_path)
+                    _copy_any(backup_path, target_path)
+                elif not record["existed"]:
+                    _remove_any(target_path)
+            summary.rolledBack = True
+            summary.notes.append(f"已自动回滚: {exc}")
+            raise
 
-        for rel_path in manifest.deleteList:
-            normalized = normalize_relpath(rel_path)
-            if path_is_within_prefixes(normalized, protected_paths):
-                summary.skippedProtectedFiles += 1
-                continue
-            target_path = safe_join(target_root, normalized)
-            if not target_path.exists():
-                continue
-            backup_path = safe_join(backup_dir, normalized)
-            _copy_any(target_path, backup_path)
-            summary.backedUpFiles += 1
-            _remove_any(target_path)
-            touched_records.append({"path": normalized, "existed": True, "deleted": True})
-            summary.deletedFiles += 1
+        _save_scope_state(state_path, current_state, latest, package, scope)
+        _append_history(history_path, summary.to_dict() | {"appliedAt": datetime.now(timezone.utc).isoformat()})
+
+        if launcher_exe is None:
+            launcher_exe = launcher_dir / f"{LAUNCHER_DIR_NAME}.exe"
+        summary.restartedLauncher, summary.restartMessage = _restart_launcher(launcher_exe)
+        if summary.restartMessage:
+            summary.notes.append(summary.restartMessage)
+        if progress:
+            progress("完成", "更新完成", 100.0)
+        _write_result_payload(result_file, _success_result_payload(summary, log_file))
+        return summary
     except Exception as exc:
-        for record in reversed(touched_records):
-            target_path = safe_join(target_root, record["path"])
-            backup_path = safe_join(backup_dir, record["path"])
-            if record["existed"] and backup_path.exists():
-                _remove_any(target_path)
-                _copy_any(backup_path, target_path)
-            elif not record["existed"]:
-                _remove_any(target_path)
-        summary.rolledBack = True
-        summary.notes.append(f"已自动回滚: {exc}")
+        _write_result_payload(
+            result_file,
+            _failure_result_payload(
+                scope=scope,
+                version=latest_version,
+                error=exc,
+                log_file=log_file,
+            ),
+        )
         raise
-
-    _save_scope_state(state_path, current_state, latest, package, scope)
-    _append_history(history_path, summary.to_dict() | {"appliedAt": datetime.now(timezone.utc).isoformat()})
-
-    if launcher_exe is None:
-        launcher_exe = launcher_dir / f"{LAUNCHER_DIR_NAME}.exe"
-    summary.restartedLauncher, summary.restartMessage = _restart_launcher(launcher_exe)
-    if summary.restartMessage:
-        summary.notes.append(summary.restartMessage)
-    if progress:
-        progress("完成", "更新完成", 100.0)
-    return summary

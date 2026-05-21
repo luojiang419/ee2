@@ -298,6 +298,9 @@ class BundleExportResult {
     required this.bundleSize,
     required this.launcherFileCount,
     required this.gameFileCount,
+    required this.launcherDeletedCount,
+    required this.gameDeletedCount,
+    required this.launcherTriggersSelfUpdate,
   });
 
   final String version;
@@ -306,6 +309,9 @@ class BundleExportResult {
   final int bundleSize;
   final int launcherFileCount;
   final int gameFileCount;
+  final int launcherDeletedCount;
+  final int gameDeletedCount;
+  final bool launcherTriggersSelfUpdate;
 
   factory BundleExportResult.fromJson(Map<String, dynamic> json) {
     return BundleExportResult(
@@ -315,6 +321,10 @@ class BundleExportResult {
       bundleSize: json['bundleSize'] as int? ?? 0,
       launcherFileCount: json['launcherFileCount'] as int? ?? 0,
       gameFileCount: json['gameFileCount'] as int? ?? 0,
+      launcherDeletedCount: json['launcherDeletedCount'] as int? ?? 0,
+      gameDeletedCount: json['gameDeletedCount'] as int? ?? 0,
+      launcherTriggersSelfUpdate:
+          json['launcherTriggersSelfUpdate'] as bool? ?? false,
     );
   }
 }
@@ -1717,6 +1727,10 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           : '';
       final preparedLauncherCount = prepared['launcherFileCount'] as int? ?? 0;
       final preparedGameCount = prepared['gameFileCount'] as int? ?? 0;
+      final preparedLauncherDeletedCount =
+          prepared['launcherDeletedCount'] as int? ?? 0;
+      final preparedLauncherTriggersSelfUpdate =
+          prepared['launcherTriggersSelfUpdate'] as bool? ?? false;
       if ((preparedLauncherCount + preparedGameCount) <= 0) {
         throw StateError('本地打包完成后没有可导出文件，请确认已选择启动器程序文件或游戏文件。');
       }
@@ -1734,14 +1748,20 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
         _publishProgress = 1.0;
         _publishProgressLabel = '100.0%';
       });
+      final launcherBehaviorMessage = preparedLauncherTriggersSelfUpdate
+          ? '本次发布会触发启动器自升级。'
+          : '本次发布不会触发启动器自升级（launcher 仅为空包或无变更）。';
+      final launcherSummaryMessage = preparedLauncherDeletedCount > 0
+          ? '$launcherBehaviorMessage\n启动器删除项 ${preparedLauncherDeletedCount} 个。'
+          : launcherBehaviorMessage;
       if (preparedWarningText.trim().isNotEmpty) {
         _setActionMessage(
-          '已保存更新包到 $outputPath。\n\n$preparedWarningText',
+          '已保存更新包到 $outputPath。\n\n$launcherSummaryMessage\n\n$preparedWarningText',
           tone: ActionMessageTone.warning,
         );
       } else {
         _setActionMessage(
-          '已保存更新包到 $outputPath。',
+          '已保存更新包到 $outputPath。\n\n$launcherSummaryMessage',
           tone: ActionMessageTone.success,
         );
       }
@@ -2485,6 +2505,9 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                     bundleSize: 0,
                     launcherFileCount: 0,
                     gameFileCount: 0,
+                    launcherDeletedCount: 0,
+                    gameDeletedCount: 0,
+                    launcherTriggersSelfUpdate: false,
                   ),
             ),
             const SizedBox(height: 16),
@@ -2677,6 +2700,20 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
             style: TextStyle(color: _palette.secondaryText, height: 1.45),
           ),
           const SizedBox(height: 6),
+          Text(
+            result.launcherTriggersSelfUpdate
+                ? '客户端行为: 会触发启动器自升级'
+                : '客户端行为: 不会触发启动器自升级',
+            style: TextStyle(color: _palette.secondaryText, height: 1.45),
+          ),
+          const SizedBox(height: 6),
+          if ((result.launcherDeletedCount + result.gameDeletedCount) > 0) ...[
+            Text(
+              '删除项: 启动器 ${result.launcherDeletedCount} 项，游戏 ${result.gameDeletedCount} 项',
+              style: TextStyle(color: _palette.secondaryText, height: 1.45),
+            ),
+            const SizedBox(height: 6),
+          ],
           Text(
             '更新包: ${result.bundlePath}',
             style: TextStyle(color: _palette.secondaryText, height: 1.45),

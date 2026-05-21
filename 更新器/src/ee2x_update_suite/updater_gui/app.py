@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import threading
 import tkinter as tk
+from pathlib import Path
 from tkinter import ttk, messagebox
 
 from ee2x_update_suite.shared.updater_core import UpdateError
@@ -14,6 +15,14 @@ class UpdaterWindow:
     def __init__(self, root: tk.Tk, args: argparse.Namespace) -> None:
         self.root = root
         self.args = args
+        raw_log_file = str(getattr(args, "log_file", "") or "").strip()
+        self.log_file = Path(raw_log_file).resolve() if raw_log_file else None
+        if self.log_file is not None:
+            try:
+                self.log_file.parent.mkdir(parents=True, exist_ok=True)
+                self.log_file.write_text("", encoding="utf-8")
+            except Exception:
+                self.log_file = None
         self.root.title("EE2X 安全更新器")
         self.root.geometry("640x420")
         self.root.resizable(False, False)
@@ -37,6 +46,13 @@ class UpdaterWindow:
         threading.Thread(target=self._run, daemon=True).start()
 
     def _append_log(self, line: str) -> None:
+        if self.log_file is not None:
+            try:
+                with self.log_file.open("a", encoding="utf-8", newline="\n") as handle:
+                    handle.write(line + "\n")
+            except Exception:
+                pass
+
         def updater() -> None:
             self.log_box.configure(state="normal")
             self.log_box.insert("end", line + "\n")

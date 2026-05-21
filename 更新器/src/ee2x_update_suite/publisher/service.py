@@ -169,6 +169,14 @@ def resolve_scope_package(latest: LatestRelease | None, scope: str) -> ReleasePa
     return None
 
 
+def _manifest_has_client_visible_launcher_change(manifest_payload: dict[str, Any] | None) -> bool:
+    if not isinstance(manifest_payload, dict):
+        return False
+    files = manifest_payload.get("files", []) or []
+    delete_list = manifest_payload.get("deleteList", []) or []
+    return bool(files or delete_list)
+
+
 def release_manifest_from_dict(payload: dict) -> ReleaseManifest:
     from ee2x_update_suite.shared.models import ManifestFileEntry
 
@@ -353,6 +361,7 @@ def publish_dual_release(release_dir: Path, config_path: Path) -> dict[str, Any]
     public_release_dir = f"{config.publicBaseUrl}/updates/{config.channel}/releases/{release_id}"
 
     package_refs: dict[str, ReleasePackage] = {}
+    manifest_payloads: dict[str, dict[str, Any]] = {}
     version = ""
     client = _connect(config)
     try:
@@ -361,6 +370,7 @@ def publish_dual_release(release_dir: Path, config_path: Path) -> dict[str, Any]
             package_dir = release_dir / scope
             manifest_path = package_dir / RELEASE_MANIFEST_NAME
             manifest = load_json(manifest_path, default={}) or {}
+            manifest_payloads[scope] = manifest
             package_file_name = str(manifest.get("packageFileName", "")).strip()
             package_path = package_dir / package_file_name
             if not manifest_path.exists() or not package_file_name or not package_path.exists():
@@ -381,6 +391,12 @@ def publish_dual_release(release_dir: Path, config_path: Path) -> dict[str, Any]
             _upload_file(sftp, notes_path, f"{remote_release_dir}/{RELEASE_NOTES_NAME}")
 
         game_package = package_refs[PACKAGE_SCOPE_GAME]
+        announced_packages = {
+            PACKAGE_SCOPE_GAME: game_package,
+        }
+        launcher_package = package_refs.get(PACKAGE_SCOPE_LAUNCHER)
+        if launcher_package and _manifest_has_client_visible_launcher_change(manifest_payloads.get(PACKAGE_SCOPE_LAUNCHER)):
+            announced_packages[PACKAGE_SCOPE_LAUNCHER] = launcher_package
         latest = build_latest_descriptor(
             channel=config.channel,
             version=version,
@@ -391,7 +407,7 @@ def publish_dual_release(release_dir: Path, config_path: Path) -> dict[str, Any]
             package_size=game_package.packageSize,
             published_at=published_at,
             required=True,
-            packages=package_refs,
+            packages=announced_packages,
         )
         latest_local_path = release_dir / LATEST_FILE_NAME
         save_json(latest_local_path, latest.to_dict())

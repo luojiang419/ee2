@@ -83,6 +83,10 @@ def package_public_urls(settings: Settings, channel: str, release_id: str, scope
     }
 
 
+def _package_has_client_visible_change(*, file_count: int, delete_count: int) -> bool:
+    return bool((file_count or 0) > 0 or (delete_count or 0) > 0)
+
+
 def _json_dump(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -411,6 +415,25 @@ def _write_latest_json(
     package_urls: dict[str, str],
 ) -> dict[str, Any]:
     game_payload = payloads["game"]
+    announced_packages = {
+        "game": {
+            "manifestUrl": manifest_urls["game"],
+            "packageUrl": package_urls["game"],
+            "packageSha256": game_payload.package_sha256,
+            "packageSize": game_payload.package_size,
+        }
+    }
+    launcher_payload = payloads.get("launcher")
+    if launcher_payload and _package_has_client_visible_change(
+        file_count=len(launcher_payload.manifest.get("files", []) or []),
+        delete_count=len(launcher_payload.manifest.get("deleteList", []) or []),
+    ):
+        announced_packages["launcher"] = {
+            "manifestUrl": manifest_urls["launcher"],
+            "packageUrl": package_urls["launcher"],
+            "packageSha256": launcher_payload.package_sha256,
+            "packageSize": launcher_payload.package_size,
+        }
     latest_payload = {
         "schemaVersion": 1,
         "channel": channel,
@@ -422,15 +445,7 @@ def _write_latest_json(
         "packageSize": game_payload.package_size,
         "publishedAt": published_at,
         "required": required,
-        "packages": {
-            scope: {
-                "manifestUrl": manifest_urls[scope],
-                "packageUrl": package_urls[scope],
-                "packageSha256": payload.package_sha256,
-                "packageSize": payload.package_size,
-            }
-            for scope, payload in payloads.items()
-        },
+        "packages": announced_packages,
     }
     _json_dump(static_latest_path(settings, channel), latest_payload)
     return latest_payload
@@ -448,12 +463,16 @@ def _write_latest_json_from_db(settings: Settings, conn: sqlite3.Connection, cha
     packages_payload: dict[str, Any] = {}
     for scope, row in package_by_scope.items():
         urls = package_public_urls(settings, channel, release_id, scope, row["package_file_name"])
-        packages_payload[scope] = {
-            "manifestUrl": urls["manifestUrl"],
-            "packageUrl": urls["packageUrl"],
-            "packageSha256": row["package_sha256"],
-            "packageSize": row["package_size"],
-        }
+        if scope == "game" or _package_has_client_visible_change(
+            file_count=int(row.get("file_count", 0) or 0),
+            delete_count=int(row.get("delete_count", 0) or 0),
+        ):
+            packages_payload[scope] = {
+                "manifestUrl": urls["manifestUrl"],
+                "packageUrl": urls["packageUrl"],
+                "packageSha256": row["package_sha256"],
+                "packageSize": row["package_size"],
+            }
 
     game_payload = packages_payload["game"]
     latest_payload = {

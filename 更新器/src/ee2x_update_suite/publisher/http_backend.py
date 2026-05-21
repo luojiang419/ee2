@@ -236,10 +236,17 @@ def read_release_summary(release_dir: Path) -> dict[str, Any]:
     game_manifest_path = release_dir / PACKAGE_SCOPE_GAME / RELEASE_MANIFEST_NAME
     launcher_manifest = load_json(launcher_manifest_path, default={}) or {}
     game_manifest = load_json(game_manifest_path, default={}) or {}
+    launcher_files = launcher_manifest.get("files", []) or []
+    game_files = game_manifest.get("files", []) or []
+    launcher_delete_list = launcher_manifest.get("deleteList", []) or []
+    game_delete_list = game_manifest.get("deleteList", []) or []
     return {
         "version": str(game_manifest.get("version") or launcher_manifest.get("version") or "").strip(),
-        "launcherFileCount": len(launcher_manifest.get("files", []) or []),
-        "gameFileCount": len(game_manifest.get("files", []) or []),
+        "launcherFileCount": len(launcher_files),
+        "gameFileCount": len(game_files),
+        "launcherDeletedCount": len(launcher_delete_list),
+        "gameDeletedCount": len(game_delete_list),
+        "launcherTriggersSelfUpdate": bool(launcher_files or launcher_delete_list),
         "launcherPackagePath": str(release_dir / PACKAGE_SCOPE_LAUNCHER / str(launcher_manifest.get("packageFileName", "")).strip()),
         "gamePackagePath": str(release_dir / PACKAGE_SCOPE_GAME / str(game_manifest.get("packageFileName", "")).strip()),
     }

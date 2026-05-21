@@ -32,6 +32,11 @@
 - `DELETE /api/update/v1/channels/{channel}/releases/{releaseId}`
 - `GET /updates/{channel}/latest.json`
 
+补充约定：
+
+- `latest.json` 的兼容字段始终指向 `game` 包。
+- `packages.launcher` 仅在 launcher manifest 存在实际变更时下发；空 launcher 包不会再对客户端宣告。
+
 ## 鉴权
 
 - Web 页与发布 API 统一使用 Basic Auth

@@ -25,6 +25,12 @@
 4. 外部更新器读取统一 `latest.json`，按 `scope=launcher|game` 分别下载、校验、备份、应用、回滚。
 4. 启动器先完成自身升级，再强制完成游戏升级，最后只显示一次本次版本更新日志。
 
+补充约定：
+
+- 即使本地构建时仍会生成 `launcher` / `game` 双包，`latest.json` 也只会在 launcher manifest 存在实际变更时暴露 `packages.launcher`。
+- 判定“实际变更”的标准是 launcher manifest 的 `files` 非空，或 `deleteList` 非空。
+- 空 launcher 包只作为构建产物与历史存档存在，不再让客户端把它视为必须先自升级的信号。
+
 ## 环境要求
 
 - Python 3.12+
