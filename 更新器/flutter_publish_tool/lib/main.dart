@@ -3480,165 +3480,220 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     final isCurrent = entry.releaseId == _serverCurrentReleaseId;
     await showDialog<void>(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: _palette.panel.withValues(alpha: 0.98),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-        title: Text(
-          '版本详情',
-          style: TextStyle(
-            color: _palette.primaryText,
-            fontWeight: FontWeight.w700,
+      builder: (dialogContext) {
+        final mediaSize = MediaQuery.sizeOf(dialogContext);
+        final dialogWidth = (mediaSize.width - 48)
+            .clamp(360.0, 860.0)
+            .toDouble();
+        final dialogHeight = (mediaSize.height - 48)
+            .clamp(420.0, 680.0)
+            .toDouble();
+        final detailCardWidth = dialogWidth >= 760
+            ? 250.0
+            : (dialogWidth - 72).clamp(220.0, 320.0);
+
+        return Dialog(
+          backgroundColor: _palette.panel.withValues(alpha: 0.98),
+          insetPadding: const EdgeInsets.all(20),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
           ),
-        ),
-        content: SizedBox(
-          width: 860,
-          height: 620,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                crossAxisAlignment: WrapCrossAlignment.center,
+          child: SizedBox(
+            width: dialogWidth,
+            height: dialogHeight,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(22, 20, 22, 18),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    entry.displayVersion,
-                    style: TextStyle(
-                      color: _palette.primaryText,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  if (isCurrent)
-                    _inlineBadge(
-                      '当前 latest',
-                      _palette.accentSoft,
-                      _palette.accent,
-                    ),
-                  if (entry.required)
-                    _inlineBadge(
-                      '强制更新',
-                      _palette.warningSoft,
-                      const Color(0xFFAF7A08),
-                    ),
-                  _inlineBadge(
-                    '版本下载 ${entry.downloadCount} 次',
-                    _palette.successSoft,
-                    const Color(0xFF3AB57C),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 14),
-              Wrap(
-                spacing: 12,
-                runSpacing: 12,
-                children: [
-                  SizedBox(
-                    width: 260,
-                    child: _buildServerDetailInfoCard(
-                      '版本号',
-                      entry.displayVersion,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 260,
-                    child: _buildServerDetailInfoCard(
-                      'Release ID',
-                      entry.releaseId,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 260,
-                    child: _buildServerDetailInfoCard(
-                      '推送时间',
-                      _formatServerTimestamp(entry.publishedAt),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 260,
-                    child: _buildServerDetailInfoCard(
-                      '最后下载时间',
-                      entry.lastDownloadedAt.trim().isEmpty
-                          ? '暂无下载记录'
-                          : _formatServerTimestamp(entry.lastDownloadedAt),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 260,
-                    child: _buildServerDetailInfoCard(
-                      '启动器包',
-                      '${_formatByteSize(entry.launcherPackageSize)} · 下载 ${entry.launcherDownloadCount} 次',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 260,
-                    child: _buildServerDetailInfoCard(
-                      '游戏包',
-                      '${_formatByteSize(entry.gamePackageSize)} · 下载 ${entry.gameDownloadCount} 次',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 260,
-                    child: _buildServerDetailInfoCard(
-                      '资源变更',
-                      '启动器 ${entry.launcherFileCount} 项 · 游戏 ${entry.gameFileCount} 项',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 260,
-                    child: _buildServerDetailInfoCard(
-                      '删除变更',
-                      '${entry.launcherDeletedCount + entry.gameDeletedCount} 项',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 260,
-                    child: _buildServerDetailInfoCard(
-                      '累计下载',
-                      '版本 ${entry.downloadCount} 次 · 总计 ${entry.totalDownloadCount} 次',
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Text(
-                '更新内容',
-                style: TextStyle(
-                  color: _palette.primaryText,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Expanded(
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: _palette.inputFill,
-                    borderRadius: BorderRadius.circular(18),
-                    border: Border.all(color: _palette.panelBorder),
-                  ),
-                  child: SingleChildScrollView(
-                    child: SelectableText(
-                      entry.hasNotes ? entry.trimmedNotes : '无更新说明',
-                      style: TextStyle(
-                        color: _palette.primaryText,
-                        height: 1.6,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          '版本详情',
+                          style: TextStyle(
+                            color: _palette.primaryText,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 20,
+                          ),
+                        ),
                       ),
+                      IconButton(
+                        onPressed: () => Navigator.of(dialogContext).pop(),
+                        icon: const Icon(Icons.close_rounded),
+                        color: _palette.secondaryText,
+                        tooltip: '关闭',
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(
+                              entry.displayVersion,
+                              style: TextStyle(
+                                color: _palette.primaryText,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            if (isCurrent)
+                              _inlineBadge(
+                                '当前 latest',
+                                _palette.accentSoft,
+                                _palette.accent,
+                              ),
+                            if (entry.required)
+                              _inlineBadge(
+                                '强制更新',
+                                _palette.warningSoft,
+                                const Color(0xFFAF7A08),
+                              ),
+                            _inlineBadge(
+                              '版本下载 ${entry.downloadCount} 次',
+                              _palette.successSoft,
+                              const Color(0xFF3AB57C),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 14),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Wrap(
+                                  spacing: 12,
+                                  runSpacing: 12,
+                                  children: [
+                                    SizedBox(
+                                      width: detailCardWidth,
+                                      child: _buildServerDetailInfoCard(
+                                        '版本号',
+                                        entry.displayVersion,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: detailCardWidth,
+                                      child: _buildServerDetailInfoCard(
+                                        'Release ID',
+                                        entry.releaseId,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: detailCardWidth,
+                                      child: _buildServerDetailInfoCard(
+                                        '推送时间',
+                                        _formatServerTimestamp(
+                                          entry.publishedAt,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: detailCardWidth,
+                                      child: _buildServerDetailInfoCard(
+                                        '最后下载时间',
+                                        entry.lastDownloadedAt.trim().isEmpty
+                                            ? '暂无下载记录'
+                                            : _formatServerTimestamp(
+                                                entry.lastDownloadedAt,
+                                              ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: detailCardWidth,
+                                      child: _buildServerDetailInfoCard(
+                                        '启动器包',
+                                        '${_formatByteSize(entry.launcherPackageSize)} · 下载 ${entry.launcherDownloadCount} 次',
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: detailCardWidth,
+                                      child: _buildServerDetailInfoCard(
+                                        '游戏包',
+                                        '${_formatByteSize(entry.gamePackageSize)} · 下载 ${entry.gameDownloadCount} 次',
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: detailCardWidth,
+                                      child: _buildServerDetailInfoCard(
+                                        '资源变更',
+                                        '启动器 ${entry.launcherFileCount} 项 · 游戏 ${entry.gameFileCount} 项',
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: detailCardWidth,
+                                      child: _buildServerDetailInfoCard(
+                                        '删除变更',
+                                        '${entry.launcherDeletedCount + entry.gameDeletedCount} 项',
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: detailCardWidth,
+                                      child: _buildServerDetailInfoCard(
+                                        '累计下载',
+                                        '版本 ${entry.downloadCount} 次 · 总计 ${entry.totalDownloadCount} 次',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 16),
+                                Text(
+                                  '更新内容',
+                                  style: TextStyle(
+                                    color: _palette.primaryText,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.all(16),
+                                  decoration: BoxDecoration(
+                                    color: _palette.inputFill,
+                                    borderRadius: BorderRadius.circular(18),
+                                    border: Border.all(
+                                      color: _palette.panelBorder,
+                                    ),
+                                  ),
+                                  child: SelectableText(
+                                    entry.hasNotes
+                                        ? entry.trimmedNotes
+                                        : '无更新说明',
+                                    style: TextStyle(
+                                      color: _palette.primaryText,
+                                      height: 1.6,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () => Navigator.of(dialogContext).pop(),
+                            child: const Text('关闭'),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('关闭'),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 
