@@ -25,6 +25,7 @@ const _buildTime = String.fromEnvironment(
   defaultValue: 'source',
 );
 const _buildMarker = 'Build $_buildId · $_buildTime';
+const _defaultVersion = '1.0.0';
 
 enum PublishThemeMode { dark, light }
 
@@ -243,7 +244,7 @@ class RemoteInfo {
       publicBaseUrl: json['publicBaseUrl'] as String? ?? '',
       latestUrl: json['latestUrl'] as String? ?? '',
       latestVersion: json['latestVersion'] as String? ?? '',
-      nextVersion: json['nextVersion'] as String? ?? '0.1.0',
+      nextVersion: json['nextVersion'] as String? ?? _defaultVersion,
     );
   }
 }
@@ -673,7 +674,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
         _rootController.text = workspace.gameRoot.path;
       }
       if (_versionController.text.trim().isEmpty) {
-        _versionController.text = '0.1.0';
+        _versionController.text = _defaultVersion;
       }
       await _scanCatalog();
     } catch (error) {
@@ -1630,13 +1631,172 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     }
   }
 
-  String _safeReleaseId(String version) {
-    final sanitized = version.trim().replaceAll(
-      RegExp(r'[^0-9A-Za-z._-]+'),
-      '_',
+  String _normalizeVersionString(
+    String rawValue, {
+    bool allowEmptyAsBase = false,
+  }) {
+    final raw = rawValue.trim();
+    if (raw.isEmpty) {
+      if (allowEmptyAsBase) {
+        return _defaultVersion;
+      }
+      throw const FormatException('请填写版本号。');
+    }
+
+    var normalized = raw.replaceAll(RegExp(r'[。．｡]'), '.').trim();
+    if (normalized.startsWith('v') || normalized.startsWith('V')) {
+      normalized = normalized.substring(1).trim();
+    }
+    if (normalized.isEmpty) {
+      throw const FormatException('请填写版本号。');
+    }
+
+    final parts = normalized.split('.');
+    if (parts.length > 3) {
+      throw const FormatException('版本号最多支持 3 段数字，请使用 x.y.z。');
+    }
+
+    final numbers = <String>[];
+    for (final part in parts) {
+      final item = part.trim();
+      if (item.isEmpty) {
+        throw const FormatException('版本号格式不正确，请使用 x.y.z。');
+      }
+      if (!RegExp(r'^\d+$').hasMatch(item)) {
+        throw const FormatException('版本号只支持数字段，请使用 x.y.z。');
+      }
+      numbers.add('${int.parse(item)}');
+    }
+    while (numbers.length < 3) {
+      numbers.add('0');
+    }
+    return numbers.take(3).join('.');
+  }
+
+  void _setVersionText(String value) {
+    _versionController.value = TextEditingValue(
+      text: value,
+      selection: TextSelection.collapsed(offset: value.length),
     );
-    final cleaned = sanitized.replaceAll(RegExp(r'^[._-]+|[._-]+$'), '');
-    return cleaned.isEmpty ? 'release' : cleaned;
+  }
+
+  String? _normalizeVersionField({
+    bool allowEmptyAsBase = false,
+    bool showError = false,
+  }) {
+    try {
+      final normalized = _normalizeVersionString(
+        _versionController.text,
+        allowEmptyAsBase: allowEmptyAsBase,
+      );
+      if (_versionController.text != normalized) {
+        _setVersionText(normalized);
+      }
+      return normalized;
+    } on FormatException catch (error) {
+      if (showError) {
+        _setActionMessage(error.message, tone: ActionMessageTone.error);
+        _showSnackBar(error.message);
+      }
+      return null;
+    }
+  }
+
+  void _adjustPatchVersion(int delta) {
+    final normalized = _normalizeVersionField(
+      allowEmptyAsBase: true,
+      showError: true,
+    );
+    if (normalized == null) {
+      return;
+    }
+    final parts = normalized
+        .split('.')
+        .map(int.parse)
+        .toList(growable: false);
+    var patch = parts[2];
+    if (delta > 0) {
+      patch += delta;
+    } else if (delta < 0 && patch > 0) {
+      patch = patch + delta;
+      if (patch < 0) {
+        patch = 0;
+      }
+    }
+    _setVersionText('${parts[0]}.${parts[1]}.$patch');
+  }
+
+  Directory _defaultBundleOutputDirectory(WorkspaceContext workspace) {
+    final executableDir = File(Platform.resolvedExecutable).parent;
+    final bundledBridge = File(p.join(executableDir.path, 'ee2x-bridge.exe'));
+    if (bundledBridge.existsSync()) {
+      return Directory(p.join(executableDir.path, 'data', 'zip'));
+    }
+    return Directory(p.join(workspace.updaterDir.path, 'data', 'zip'));
+  }
+
+  String _bundleTimestamp(DateTime time) {
+    final month = time.month.toString().padLeft(2, '0');
+    final day = time.day.toString().padLeft(2, '0');
+    final hour = time.hour.toString().padLeft(2, '0');
+    final minute = time.minute.toString().padLeft(2, '0');
+    final second = time.second.toString().padLeft(2, '0');
+    return '${time.year}$month$day-$hour$minute$second';
+  }
+
+  String _bundleFileName(String version, DateTime time) {
+    return 'ee2x-$version-${_bundleTimestamp(time)}.zip';
+  }
+
+  String _ensureZipExtension(String rawPath) {
+    return rawPath.toLowerCase().endsWith('.zip') ? rawPath : '$rawPath.zip';
+  }
+
+  Future<void> _saveLastBundleAs(BundleExportResult result) async {
+    final sourceFile = File(result.bundlePath);
+    if (!sourceFile.existsSync()) {
+      const message = '默认保存目录中的更新包已不存在，请先重新生成后再另存。';
+      _setActionMessage(message, tone: ActionMessageTone.error);
+      _showSnackBar(message);
+      return;
+    }
+
+    final saveLocation = await getSaveLocation(
+      suggestedName: p.basename(sourceFile.path),
+      initialDirectory: sourceFile.parent.path,
+      acceptedTypeGroups: const [
+        XTypeGroup(label: 'ZIP 更新包', extensions: ['zip']),
+      ],
+    );
+    if (saveLocation == null) {
+      _setActionMessage('已取消另存更新包。', tone: ActionMessageTone.warning);
+      return;
+    }
+
+    final targetPath = _ensureZipExtension(saveLocation.path);
+    final sourcePath = p.normalize(sourceFile.absolute.path);
+    final normalizedTargetPath = p.normalize(targetPath);
+    if (sourcePath == normalizedTargetPath) {
+      _setActionMessage('当前更新包已经位于该位置。', tone: ActionMessageTone.success);
+      _showSnackBar('当前更新包已经位于该位置。');
+      return;
+    }
+
+    try {
+      final targetFile = File(targetPath);
+      if (targetFile.existsSync()) {
+        await targetFile.delete();
+      }
+      await sourceFile.copy(targetPath);
+      _setActionMessage(
+        '已将更新包另存到 $targetPath。\n\n默认保存副本仍保留在 ${result.bundlePath}。',
+        tone: ActionMessageTone.success,
+      );
+      _showSnackBar('已另存更新包到 $targetPath。');
+    } catch (error) {
+      _setActionMessage('另存更新包失败: $error', tone: ActionMessageTone.error);
+      _showSnackBar('另存更新包失败: $error');
+    }
   }
 
   Future<void> _saveBundleFromMainForm() async {
@@ -1651,27 +1811,17 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
       _showSnackBar('请至少勾选一个文件或文件夹。');
       return;
     }
-    final version = _versionController.text.trim();
+    final version = _normalizeVersionField(showError: true);
     final notes = _notesController.text.trim();
-    if (version.isEmpty) {
-      _setActionMessage('请填写版本号。', tone: ActionMessageTone.error);
-      _showSnackBar('请填写版本号。');
+    if (version == null) {
       return;
     }
-    final saveLocation = await getSaveLocation(
-      suggestedName: 'EE2X-release-${_safeReleaseId(version)}.zip',
-      initialDirectory: workspace.updaterDir.path,
-      acceptedTypeGroups: const [
-        XTypeGroup(label: 'ZIP 更新包', extensions: ['zip']),
-      ],
+    final outputDir = _defaultBundleOutputDirectory(workspace);
+    await outputDir.create(recursive: true);
+    final outputPath = p.join(
+      outputDir.path,
+      _bundleFileName(version, DateTime.now()),
     );
-    if (saveLocation == null) {
-      _setActionMessage('已取消保存更新包。', tone: ActionMessageTone.warning);
-      return;
-    }
-    final outputPath = saveLocation.path.toLowerCase().endsWith('.zip')
-        ? saveLocation.path
-        : '${saveLocation.path}.zip';
 
     final bridge = _bridge;
     if (bridge == null) {
@@ -1694,7 +1844,10 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
       _publishProgressLabel = '';
     });
     try {
-      _setActionMessage('正在生成并保存更新包，请稍候…', tone: ActionMessageTone.warning);
+      _setActionMessage(
+        '正在生成更新包并保存到默认 data/zip 目录，请稍候…',
+        tone: ActionMessageTone.warning,
+      );
       await selectionFile.writeAsString(
         summary.selectedIntentPaths.join('\n'),
         encoding: utf8,
@@ -1756,16 +1909,16 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           : launcherBehaviorMessage;
       if (preparedWarningText.trim().isNotEmpty) {
         _setActionMessage(
-          '已保存更新包到 $outputPath。\n\n$launcherSummaryMessage\n\n$preparedWarningText',
+          '已将更新包默认保存到 $outputPath。\n\n如需自定义位置，可点击“另存到...”。\n\n$launcherSummaryMessage\n\n$preparedWarningText',
           tone: ActionMessageTone.warning,
         );
       } else {
         _setActionMessage(
-          '已保存更新包到 $outputPath。\n\n$launcherSummaryMessage',
+          '已将更新包默认保存到 $outputPath。\n\n如需自定义位置，可点击“另存到...”。\n\n$launcherSummaryMessage',
           tone: ActionMessageTone.success,
         );
       }
-      _showSnackBar('已保存更新包到 $outputPath。');
+      _showSnackBar('已将更新包默认保存到 $outputPath。');
     } catch (error) {
       _setActionMessage('保存更新包失败: $error', tone: ActionMessageTone.error);
       _showSnackBar('保存更新包失败: $error');
@@ -2044,7 +2197,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      '只保留一条动作链：选择根目录、勾选文件或文件夹、生成并保存单个更新包 ZIP。',
+                      '只保留一条动作链：选择根目录、勾选文件或文件夹、默认保存单个更新包 ZIP，需要时再另存到自定义位置。',
                       style: TextStyle(
                         color: _palette.secondaryText,
                         fontSize: 14,
@@ -2480,7 +2633,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           ],
           _sectionTitle('版本号'),
           const SizedBox(height: 8),
-          _glassTextField(controller: _versionController, hintText: '例如 1.4.9'),
+          _buildVersionEditor(),
           const SizedBox(height: 16),
           _sectionTitle('更新内容'),
           const SizedBox(height: 8),
@@ -2532,7 +2685,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                       ),
                     )
                   : const Icon(Icons.save_alt_rounded),
-              label: Text(_publishing ? '正在打包...' : '生成并保存更新包'),
+              label: Text(_publishing ? '正在打包...' : '生成并保存到默认目录'),
               style: FilledButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 shape: RoundedRectangleBorder(
@@ -2696,6 +2849,11 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           ),
           const SizedBox(height: 6),
           Text(
+            '默认保存: ${result.bundlePath}',
+            style: TextStyle(color: _palette.secondaryText, height: 1.45),
+          ),
+          const SizedBox(height: 6),
+          Text(
             '启动器文件 ${result.launcherFileCount} 项，游戏文件 ${result.gameFileCount} 项',
             style: TextStyle(color: _palette.secondaryText, height: 1.45),
           ),
@@ -2715,15 +2873,73 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
             const SizedBox(height: 6),
           ],
           Text(
-            '更新包: ${result.bundlePath}',
-            style: TextStyle(color: _palette.secondaryText, height: 1.45),
-          ),
-          const SizedBox(height: 6),
-          Text(
             '文件大小: ${_formatByteSize(result.bundleSize)}',
             style: TextStyle(color: _palette.secondaryText),
           ),
+          const SizedBox(height: 12),
+          OutlinedButton.icon(
+            onPressed: _publishing ? null : () => _saveLastBundleAs(result),
+            icon: const Icon(Icons.save_as_rounded),
+            label: const Text('另存到...'),
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildVersionEditor() {
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            controller: _versionController,
+            style: TextStyle(color: _palette.primaryText),
+            decoration: InputDecoration(
+              hintText: '例如 1.0.0、1.2 或 v1.2.3',
+              hintStyle: TextStyle(
+                color: _palette.secondaryText.withValues(alpha: 0.85),
+              ),
+            ),
+            onTapOutside: (_) => _normalizeVersionField(allowEmptyAsBase: true),
+            onSubmitted: (_) => _normalizeVersionField(allowEmptyAsBase: true),
+          ),
+        ),
+        const SizedBox(width: 10),
+        _buildVersionAdjustButton(
+          icon: Icons.remove_rounded,
+          tooltip: '补丁位减 1',
+          onPressed: () => _adjustPatchVersion(-1),
+        ),
+        const SizedBox(width: 8),
+        _buildVersionAdjustButton(
+          icon: Icons.add_rounded,
+          tooltip: '补丁位加 1',
+          onPressed: () => _adjustPatchVersion(1),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildVersionAdjustButton({
+    required IconData icon,
+    required String tooltip,
+    required VoidCallback onPressed,
+  }) {
+    return Tooltip(
+      message: tooltip,
+      child: SizedBox(
+        width: 46,
+        height: 46,
+        child: FilledButton.tonal(
+          onPressed: onPressed,
+          style: FilledButton.styleFrom(
+            padding: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14),
+            ),
+          ),
+          child: Icon(icon),
+        ),
       ),
     );
   }

@@ -84,19 +84,16 @@ body.modal-open {
 
 .hero-side {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: stretch;
 }
 
-.channel-badge,
 .account-badge {
-  min-width: 180px;
+  min-width: 220px;
   border-radius: 22px;
   padding: 18px 20px;
   background: linear-gradient(145deg, rgba(31, 94, 122, 0.12), rgba(139, 63, 31, 0.12));
 }
 
-.channel-badge span,
 .account-badge span,
 .current-item span,
 .panel-title-row p,
@@ -106,18 +103,12 @@ body.modal-open {
   color: var(--muted);
 }
 
-.channel-badge span {
+.account-badge span {
   display: block;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.channel-badge strong {
-  display: block;
-  margin-top: 10px;
-  font-size: 24px;
 }
 
 .account-badge strong {

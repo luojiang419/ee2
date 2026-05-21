@@ -23,6 +23,7 @@ from .json_utils import save_json, save_text
 from .models import LatestRelease, ManifestFileEntry, ReleaseManifest, ReleasePackage, ValidationIssue, ValidationResult
 from .package_rules import validate_selection
 from .path_utils import normalize_relpath, path_is_within_prefixes, relative_to_root, safe_release_id
+from .version_utils import bump_patch_version, normalize_version
 
 
 def collect_selected_files(content_root: Path, selected_paths: list[Path]) -> dict[str, Path]:
@@ -50,6 +51,7 @@ def build_manifest(
     delete_list: list[str],
     root_dir_name: str = ROOT_DIR_NAME,
 ) -> ReleaseManifest:
+    version = normalize_version(version)
     entries = [
         ManifestFileEntry(path=rel_path, size=src_path.stat().st_size, sha256=sha256_file(src_path))
         for rel_path, src_path in file_map.items()
@@ -98,6 +100,7 @@ def write_release_bundle_from_file_map(
     package_scope: str,
     write_notes: bool,
 ) -> tuple[Path, ReleaseManifest]:
+    version = normalize_version(version)
     output_dir.mkdir(parents=True, exist_ok=True)
     package_path = output_dir / package_file_name
     _write_package_zip(package_path, root_dir_name, file_map)
@@ -142,6 +145,7 @@ def create_release_bundle(
     output_root: Path,
     allow_override: bool = False,
 ) -> tuple[Path, ReleaseManifest, ValidationResult]:
+    version = normalize_version(version)
     file_map = collect_selected_files(game_root, selected_paths)
     validation = validate_selection(list(file_map.keys()) + delete_list, allow_override=allow_override)
     if validation.has_errors:
@@ -299,24 +303,6 @@ def suggest_release_notes(selected_relative_paths: list[str], delete_list: list[
     return "\n".join(notes_lines).strip()
 
 
-def bump_patch_version(version: str) -> str:
-    raw = str(version or "").strip()
-    if not raw:
-        return "0.1.0"
-    prefix = "v" if raw.lower().startswith("v") else ""
-    core = raw[1:] if prefix else raw
-    parts = core.split(".")
-    numeric: list[int] = []
-    for item in parts:
-        digits = "".join(ch for ch in item if ch.isdigit())
-        numeric.append(int(digits or "0"))
-    while len(numeric) < 3:
-        numeric.append(0)
-    numeric = numeric[:3]
-    numeric[2] += 1
-    return prefix + ".".join(str(item) for item in numeric)
-
-
 def create_dual_release_bundle(
     *,
     game_root: Path,
@@ -327,6 +313,7 @@ def create_dual_release_bundle(
     output_root: Path,
     allow_override: bool = False,
 ) -> tuple[Path, dict[str, ReleaseManifest], ValidationResult]:
+    version = normalize_version(version)
     selected_relative_paths = [relative_to_root(game_root, item) for item in selected_paths]
     validation = ValidationResult()
     if not selected_paths and not [item for item in delete_list if normalize_relpath(item)]:
@@ -458,6 +445,7 @@ def build_latest_descriptor(
     required: bool = True,
     packages: dict[str, ReleasePackage] | None = None,
 ) -> LatestRelease:
+    version = normalize_version(version)
     return LatestRelease(
         schemaVersion=SCHEMA_VERSION,
         channel=channel,

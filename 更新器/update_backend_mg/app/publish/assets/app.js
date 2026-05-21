@@ -2,7 +2,6 @@
   const channel = document.body.dataset.channel || "stable";
   const credentialsStorageKey = "ee2x_publish_credentials";
 
-  const channelLabel = document.getElementById("channelLabel");
   const activeUsername = document.getElementById("activeUsername");
   const logoutButton = document.getElementById("logoutButton");
   const authOverlay = document.getElementById("authOverlay");
@@ -30,8 +29,6 @@
   const confirmText = document.getElementById("confirmText");
   const confirmCancelButton = document.getElementById("confirmCancelButton");
   const confirmConfirmButton = document.getElementById("confirmConfirmButton");
-
-  channelLabel.textContent = channel;
 
   let confirmResolver = null;
 
