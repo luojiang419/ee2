@@ -60,18 +60,50 @@ def parse_brace_block(lines, start_idx):
 # ═══════════════════════════════════════════════════════════════════
 
 class TextNameParser:
-    """解析 dbtext_unittypenames.utf8 系列文件，建立 text_key → 中文名 映射"""
+    """解析所有 utf8 文本文件，建立 text_key → 中文名 完整映射"""
 
     def __init__(self):
         self.name_map = {}  # {text_key: chinese_name}
 
     def parse_all(self):
-        for path in [TEXT_NAMES_PATH, TEXT_NAMES_EE2X_PATH]:
+        text_dir = os.path.join(DB_DIR, "Text")
+        # 优先加载 unittypenames（最权威），再加载其他文件补充
+        priority_files = [
+            'dbtext_unittypenames.utf8',
+            'dbtext_unittypenames_EE2X.utf8',
+            'dbtext_techtreenames.utf8',
+            'dbtext_techtreenames_ee2x.utf8',
+        ]
+        all_files = []
+        if os.path.isdir(text_dir):
+            for f in os.listdir(text_dir):
+                if f.endswith('.utf8'):
+                    if f not in priority_files:
+                        all_files.append(f)
+        all_files = priority_files + sorted(all_files)
+
+        for fname in all_files:
+            path = os.path.join(text_dir, fname)
             if os.path.exists(path):
                 self._parse_file(path)
-        # 去重：_name 优先于 _pname, _sname
-        # 保留 _name 版本
+
+        # 手动补充：已知游戏内单位但文本缺失的
+        self._add_fallbacks()
         return self.name_map
+
+    def _add_fallbacks(self):
+        """手动补充确认为游戏内单位但所有utf8文件均缺失的名称"""
+        fallbacks = {
+            'tx_utn_HercFacility_name': '机甲制造设施',
+            'tx_utn_e32_name': 'E-3预警机',
+            'tx_utn_thaad15_name': '萨德反导系统',
+            'tx_utn_scud15_name': '飞毛腿导弹',
+            'tx_utn_KingRegicide_name': '摄政王',
+            'tx_utn_LeaderKemsa_name': '肯萨领袖',
+        }
+        for k, v in fallbacks.items():
+            if k not in self.name_map:
+                self.name_map[k] = v
 
     def _parse_file(self, path):
         with open(path, 'r', encoding='utf-8', errors='replace') as f:
@@ -79,48 +111,76 @@ class TextNameParser:
                 line = line.strip()
                 if not line or line.startswith('//'):
                     continue
-                # 格式: tx_utn_XXX_name,"""中文名"""
-                m = re.match(r'(tx_utn_\w+),\s*"""(.+?)"""', line)
-                if m:
-                    key = m.group(1)
-                    name = m.group(2).strip()
-                    # _name 后缀优先（更标准），如果已有 _name 版本则跳过 _pname/_sname
-                    if key.endswith('_name'):
-                        base = key[:-5]  # 去掉 _name
+                # 匹配多种key格式: tx_utn_*, text_*, tx_eg_*, tx_key*, vtt_unit_* 等
+                m = re.match(r'(\w+),\s*"""(.+?)"""', line)
+                if not m:
+                    continue
+                key = m.group(1)
+                name = m.group(2).strip()
+                if not name:
+                    continue
+
+                # 统一存储规则：_name 后缀为权威版本
+                if key.endswith('_name'):
+                    base = key[:-5]
+                    self.name_map[key] = name
+                    if base not in self.name_map:
+                        self.name_map[base] = name
+                elif key.endswith('_pname'):
+                    base = key[:-6]
+                    base_name_key = base + '_name'
+                    if base_name_key not in self.name_map:
                         self.name_map[key] = name
-                        # 同时记录 base key 映射
                         if base not in self.name_map:
                             self.name_map[base] = name
-                    elif key.endswith('_pname'):
-                        base = key[:-6]
-                        base_name_key = base + '_name'
-                        if base_name_key not in self.name_map:
-                            self.name_map[key] = name
-                            if base not in self.name_map:
-                                self.name_map[base] = name
-                    elif key.endswith('_sname'):
-                        base = key[:-6]
-                        base_name_key = base + '_name'
-                        base_pname_key = base + '_pname'
-                        if base_name_key not in self.name_map and base_pname_key not in self.name_map:
-                            self.name_map[key] = name
-                            if base not in self.name_map:
-                                self.name_map[base] = name
-                    else:
-                        # 其他后缀
+                elif key.endswith('_sname'):
+                    base = key[:-6]
+                    base_name_key = base + '_name'
+                    base_pname_key = base + '_pname'
+                    if base_name_key not in self.name_map and base_pname_key not in self.name_map:
+                        self.name_map[key] = name
+                        if base not in self.name_map:
+                            self.name_map[base] = name
+                else:
+                    # 其他后缀（如 vtt_unit_*, tx_key_* 等）
+                    if key not in self.name_map:
                         self.name_map[key] = name
 
     def get_name(self, text_key):
         """根据文本key获取中文名，找不到返回空字符串"""
         if not text_key:
             return ''
+        # 直接查
         name = self.name_map.get(text_key, '')
         if name:
             return name
-        # 尝试用 _name 后缀查找
+        # 尝试 _name 后缀
         if not text_key.endswith('_name'):
             name = self.name_map.get(text_key + '_name', '')
-        return name
+            if name:
+                return name
+        # 尝试 text_ 前缀替代 tx_utn_ 前缀
+        if text_key.startswith('tx_utn_'):
+            alt_key = 'text_' + text_key[7:]
+            name = self.name_map.get(alt_key, '')
+            if name:
+                return name
+        # 尝试 tx_eg_ 前缀（埃及战役）
+        if text_key.startswith('tx_utn_'):
+            alt_key = 'tx_eg_' + text_key[7:]
+            name = self.name_map.get(alt_key, '')
+            if name:
+                return name
+        # 尝试从 text_* 查找（科技树名称格式）
+        # tx_utn_KingRegicide_name → text_KingRegicide_name
+        for prefix in ['tx_utn_', 'tx_eg_']:
+            if text_key.startswith(prefix):
+                for alt_prefix in ['text_', 'tx_utn_', 'tx_eg_']:
+                    alt_key = alt_prefix + text_key[len(prefix):]
+                    name = self.name_map.get(alt_key, '')
+                    if name:
+                        return name
+        return ''
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -190,8 +250,14 @@ class CsvParser:
 
                 # 查找中文名
                 chinese_name = ''
-                if text_parser and displayname_key:
-                    chinese_name = text_parser.get_name(displayname_key)
+                if text_parser:
+                    if displayname_key:
+                        chinese_name = text_parser.get_name(displayname_key)
+                    # fallback: 从 unit_type 直接构造key查找 (如 LeaderMilitary → text_LeaderMilitary_name)
+                    if not chinese_name:
+                        chinese_name = text_parser.get_name(f'tx_utn_{unit_type}_name')
+                    if not chinese_name:
+                        chinese_name = text_parser.get_name(f'text_{unit_type}_name')
 
                 entry = {
                     'upgrade_name': upgrade_name,
