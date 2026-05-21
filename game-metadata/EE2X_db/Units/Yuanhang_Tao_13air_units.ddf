@@ -9,7 +9,7 @@ UnitType KJ2000
 		mass = 0
 		popCount = 2            
 		VerboseTooltip = vtt_unit_E3
-		HitPoints = 1000
+		HitPoints = 1200
 	}
 	sounds = {
 		sndSelection = ["v_plane_select_chn" 
@@ -35,14 +35,14 @@ UnitType KJ2000
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 6.0; angSpeed = 58; CruisingHeight = 12.2 }
+		AircraftMove {speed = 5.5; angSpeed = 58; CruisingHeight = 12.2 }
             Attack { range = 0; reloadTime = 0; applyDamageTime = 0; damage = 0; missileName = "Arrow" }
             AreaEffect {
 			effects = [ 
 				Awacs,SuperVision
 			]
 		}
-        LOS { range = 30 }
+        LOS { range = 35 }
        // SpecialPower { 
 		//	range = 100; 
 		//	effects = [ Awace_PowerControler ]
@@ -1206,7 +1206,7 @@ UnitType RafaleC
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.5; ElevChangeRate = 0.5}
+		AircraftMove {speed = 7.5; angSpeed = 60; CruisingHeight = 9.5; ElevChangeRate = 0.5}
 		Attack { damage = 900; range = 10; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 	LOS { range = 11}
 	SpecialPower { 		
@@ -1330,9 +1330,9 @@ UnitType JaguarAFre
 			 sndDeath = ["fix_plane_deathh3" "fix_plane_deathh2" "fix_plane_deathh1"]
 	}
 	abilities = [
-		AircraftMove {speed = 7; angSpeed = 65; CruisingHeight = 8.5; ElevChangeRate = 0.5}
+		AircraftMove {speed = 6; angSpeed = 55; CruisingHeight = 8.5; ElevChangeRate = 0.5}
 		Attack { damage = 500; range = 15; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius = 2.0;}
-	LOS { range = 17 }
+	LOS { range = 18 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
 		}
@@ -1499,7 +1499,7 @@ UnitType Mirage4
 			 sndDeath = ["fix_plane_deathh3" "fix_plane_deathh2" "fix_plane_deathh1"]
 	}
 	abilities = [
-		AircraftMove {speed = 7; angSpeed = 65; CruisingHeight = 9.5; ElevChangeRate = 0.5}
+		AircraftMove {speed = 6; angSpeed = 40; CruisingHeight = 9.5; ElevChangeRate = 0.5}
 		Attack { damage = 1700; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime = 0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;areaDamageRadius = 5.0;}
 	LOS { range = 17 }
 	SpecialPower { 		
@@ -1610,7 +1610,7 @@ UnitType Mirage2000C
 			 sndDeath = ["fix_plane_deathh3" "fix_plane_deathh2" "fix_plane_deathh1"]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
+		AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 10.5; ElevChangeRate = 0.5}
 		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 	LOS { range = 17 }
 	SpecialPower { 		
@@ -1781,7 +1781,7 @@ UnitType Mirage4000
 	abilities = [
 		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
 		Attack { damage = 900; range = 15; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
-	LOS { range = 15 }
+	LOS { range = 22 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
 		}
@@ -3175,7 +3175,7 @@ UnitType F35AItaly
 	sounds = {
 	}
 	abilities = [
-	AircraftMove {speed = 8.5; angSpeed = 68; CruisingHeight =9; ElevChangeRate = 0.5}
+	AircraftMove {speed = 7.5; angSpeed = 75; CruisingHeight =9; ElevChangeRate = 0.5}
 	Attack { damage = 900; range = 20; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 	LOS { range = 15 }
 	SpecialPower { 		
@@ -3291,7 +3291,7 @@ UnitType TornadoGerman
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1900
+		HitPoints = 1710
 		displayName = tx_utn_TornadoGerman_name
 		verboseTooltip = vtt_unit_TornadoGer
 		popCount = 2
@@ -3299,8 +3299,8 @@ UnitType TornadoGerman
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.5; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 15; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+		AircraftMove {speed = 7.5; angSpeed = 60; CruisingHeight = 9.5; ElevChangeRate = 0.5}
+		Attack { damage = 850; range = 14; reloadTime = 0.85; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 	LOS { range = 16}
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -3454,7 +3454,7 @@ UnitType G91
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1900
+		HitPoints = 1710
 		displayName = tx_utn_G91_name
         verboseTooltip = vtt_unit_G91
 		popCount = 2
@@ -3466,8 +3466,8 @@ UnitType G91
 			 sndDeath = ["fix_plane_deathh3" "fix_plane_deathh2" "fix_plane_deathh1"]
 	}
 	abilities = [
-		AircraftMove {speed = 7; angSpeed = 65; CruisingHeight = 8.5; ElevChangeRate = 0.5}
-		Attack { damage = 500; range = 14; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius = 2.0;}
+		AircraftMove {speed = 6; angSpeed = 55; CruisingHeight = 8.5; ElevChangeRate = 0.5}
+		Attack { damage = 600; range = 12; reloadTime = 0.17; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius = 1.5;}
 	LOS { range = 15}
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -3595,13 +3595,13 @@ UnitType ho229Ger
 		displayName = tx_utn_ho229Ger_name
 		verboseTooltip = vtt_unit_ho229Ger
 		popCount = 3
-		HitPoints = 4700
+		HitPoints = 4000
 	}
 	sounds = {
 	}
 	abilities = [
-			AircraftMove {speed = 7; angSpeed = 65; CruisingHeight = 9.5; ElevChangeRate = 0.5}
-		Attack { damage = 1700; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime =0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;areaDamageRadius = 5.0;}
+			AircraftMove {speed = 6; angSpeed = 40; CruisingHeight = 9.5; ElevChangeRate = 0.5}
+		Attack { damage = 1500; range = 14; reloadTime = 0.045; angularRange = 120; applyDamageTime =0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius = 5.0;}
 				
 		LOS { range = 28 }
 	]
@@ -3731,7 +3731,7 @@ UnitType EurofighterGermany
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 2200
+		HitPoints = 1980
 		displayName = tx_utn_EurofighterGer_name
 verboseTooltip = vtt_unit_Eurofighter
 		popCount = 2
@@ -3739,9 +3739,9 @@ verboseTooltip = vtt_unit_Eurofighter
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime =0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
-	LOS { range = 17 }
+		AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 10.5; ElevChangeRate = 0.5}
+		Attack { damage = 850; range = 17; reloadTime = 0.85; angularRange = 120; applyDamageTime =0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+	LOS { range = 18 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
 		}
@@ -3908,7 +3908,7 @@ UnitType F35AGerman
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 2300
+		HitPoints = 1980
 		displayName = tx_utn_F35_name
 		verboseTooltip = vtt_unit_F35
 		popCount = 2
@@ -3916,9 +3916,9 @@ UnitType F35AGerman
 	sounds = {
 	}
 	abilities = [
-	AircraftMove {speed = 8.5; angSpeed = 68; CruisingHeight =9; ElevChangeRate = 0.5}
-	Attack { damage = 920; range = 20; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
-	LOS { range = 18 }
+	AircraftMove {speed = 7.5; angSpeed = 75; CruisingHeight =9; ElevChangeRate = 0.5}
+	Attack { damage = 1064; range = 18; reloadTime = 0.45; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+	LOS { range = 22 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle Radardetectioning]
 		}

@@ -38,9 +38,9 @@ UnitType J10B
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
-	LOS { range = 30 }
+		AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 10.5; ElevChangeRate = 0.5}
+		Attack { damage = 850; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+	LOS { range = 20 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
 		}
@@ -58,7 +58,7 @@ icon = icon_unit_J10B
 UpgradeAbilities J10B11Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 7.8; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
+		AircraftMove {speed = 5.0; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
 		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "OutpostBullet";ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50 }
 	]
 }
@@ -91,8 +91,8 @@ UpgradeAbilities J10B13Attack
 UpgradeAbilities J10B14Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 8.2; angSpeed = 82; CruisingHeight = 9.0; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
+		AircraftMove {speed = 8.0; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 	]
 }
 //------------------------------------------------
@@ -310,9 +310,9 @@ UnitType J11A
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
+		AircraftMove {speed = 8.5; angSpeed = 80; CruisingHeight = 10.5; ElevChangeRate = 0.5}
 		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
-	LOS { range = 17 }
+	LOS { range = 18 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
 		}
@@ -454,9 +454,9 @@ UnitType J11D
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 8.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 900; range = 16; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
-	LOS { range = 17 }
+	LOS { range = 20 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
 		}
@@ -537,9 +537,9 @@ UnitType J16
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 8.0; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 ;areaDamageRadius = 1.5; }
-	LOS { range = 30 }
+		AircraftMove {speed = 8; angSpeed = 75; CruisingHeight = 10.5; ElevChangeRate = 0.5}
+		Attack { damage = 950; range = 14; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10 ;areaDamageRadius = 1.5; }
+	LOS { range = 20 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
 		}
@@ -557,7 +557,7 @@ icon = icon_unit_J16
 UpgradeAbilities J1613Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 6.5; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		AircraftMove {speed = 7.5; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 1.0}
 		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
 	]
 }
@@ -569,7 +569,7 @@ UpgradeAbilities J1614Attack
 {
 	upgradedAbilities = [
 		AircraftMove {speed = 7.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 1.0}
-		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
+		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0;}
 	]
 }
 //------------------------------------------------
@@ -969,8 +969,8 @@ UnitType JH7A
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 7; angSpeed = 65; CruisingHeight = 8.5; ElevChangeRate = 0.5}
-		Attack { damage = 500; range = 15; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance =50;areaDamageRadius = 2.0; }
+		AircraftMove {speed = 7; angSpeed = 60; CruisingHeight = 8.5; ElevChangeRate = 0.5}
+		Attack { damage = 800; range = 14; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance =50;areaDamageRadius = 1.5; }
 	LOS { range = 16 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -1012,7 +1012,7 @@ UpgradeAbilities JH7A13Attack
 {
 	upgradedAbilities = [
 		AircraftMove {speed = 6.0; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 1.0}
-		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 16;areaDamageRadius = 1.5;}
+		Attack { damage = 1800; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 16;areaDamageRadius = 3.0;}
 	]
 }
 //------------------------------------------------
@@ -1022,11 +1022,27 @@ UpgradeAbilities JH7A13Attack
 UpgradeAbilities JH7A14Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 7.5; angSpeed = 75; CruisingHeight = 8.5; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 16;areaDamageRadius = 1.5;}
+		AircraftMove {speed = 7.0; angSpeed = 80; CruisingHeight = 8.5; ElevChangeRate = 1.0}
+		Attack { damage = 1800; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius = 3.0;}
 	]
 }
 //------------------------------------------------
+// A-10 Warthog专用升级 (ordnance=70)
+UpgradeAbilities A10_14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 5.0; angSpeed = 50; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		Attack { damage = 600; range = 12; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 70;areaDamageRadius = 1.5;}
+	]
+}
+// Su-25 Frogfoot专用升级 (ordnance=60)
+UpgradeAbilities Su25_14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 5.5; angSpeed = 55; CruisingHeight = 8.5; ElevChangeRate = 1.0}
+		Attack { damage = 550; range = 12; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 60;areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.3;throwUnits = true}
+	]
+}
 //	EPOCH 15
 //------------------------------------------------
 // Attack Ability Upgrade
@@ -1034,7 +1050,7 @@ UpgradeAbilities JH7A15Attack
 {
 	upgradedAbilities = [
 		AircraftMove {speed = 7.5; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 1.0}
-		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.5;}
+		Attack { damage = 1800; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 3.0;}
 	]
 }
 UnitModel JH7A_11
@@ -1210,8 +1226,8 @@ UnitType JH7B
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 8.0; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 0.7; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 ;areaDamageRadius = 1.5; }
+		AircraftMove {speed = 7.5; angSpeed = 65; CruisingHeight = 10.5; ElevChangeRate = 0.5}
+		Attack { damage = 800; range = 14; reloadTime = 0.7; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 ;areaDamageRadius = 1.5; }
 	LOS { range = 30 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -1262,11 +1278,11 @@ UnitType J8b
 {
 	parent = Aircraft
 	properties {
-		rps = Bomber
+		rps = Animal // J-8 High-speed Interceptor
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 3900
+		HitPoints = 1800
 		displayName = tx_utn_J8_name
         verboseTooltip = vtt_unit_J8
 		popCount = 2
@@ -1279,11 +1295,11 @@ UnitType J8b
 				"v_plane_select_chn04"
 		]
 		sndCmdMove = ["v_plane_move_chn01" 
-	      		      "v_plane_move_chn02"
-			      "v_plane_move_chn03"
-			      "v_plane_move_chn04"
-			      "v_plane_move_chn05"
-			      "v_plane_move_chn06"
+		      		"v_plane_move_chn02"
+				"v_plane_move_chn03"
+				"v_plane_move_chn04"
+				"v_plane_move_chn05"
+				"v_plane_move_chn06"
 		]
 		sndCmdAttack = ["v_plane_attack_chn01"
 				"v_plane_attack_chn02"
@@ -1295,9 +1311,9 @@ UnitType J8b
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 65; CruisingHeight = 9.5; ElevChangeRate = 0.5}
-		Attack { damage = 1800; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime = 0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;areaDamageRadius = 5.5;}
-	LOS { range = 11 }
+		AircraftMove {speed = 8.5; angSpeed = 55; CruisingHeight = 9.5; ElevChangeRate = 0.5}
+		Attack { damage = 850; range = 14; reloadTime = 0.8; applyDamageTime = 0; missileName = "pl12"; attackOnTheMove = 1; ordnance = 8}
+	LOS { range = 16 }
 	]
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
 attributes [
@@ -1377,9 +1393,9 @@ UnitType Tu16Kitai
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 7.5; angSpeed = 55; CruisingHeight = 11.0; ElevChangeRate = 1.0} 
-		Attack { damage = 10000; range = 50; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 2;areaDamageRadius =5.0; }	
-		LOS { range = 120 }
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 11.0; ElevChangeRate = 1.0} 
+		Attack { damage = 8000; range = 50; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius =5.0; }	
+		LOS { range = 80}
 	]
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
 	attributes [
@@ -1394,8 +1410,8 @@ icon = icon_unit_Tu16Kitai
 UpgradeAbilities Tu16Kitai11Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 3.5; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 24;
+		AircraftMove {speed = 2.8; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 48;
 				areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
@@ -1406,8 +1422,8 @@ UpgradeAbilities Tu16Kitai11Attack
 UpgradeAbilities Tu16Kitai12Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 4.5; angSpeed = 50; CruisingHeight = 8.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 26;
+		AircraftMove {speed = 3.6; angSpeed = 50; CruisingHeight = 8.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 52;
 				areaDamageRadius = 4; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
@@ -1425,8 +1441,8 @@ UpgradeSize Tu16Kitai12Size
 UpgradeAbilities Tu16Kitai13Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 5.5; angSpeed = 60; CruisingHeight = 8.5; ElevChangeRate = 0.5; OnGroundScale = 0.8}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 28;
+		AircraftMove {speed = 4.4; angSpeed = 60; CruisingHeight = 8.5; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;
 				areaDamageRadius = 5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
@@ -1444,9 +1460,9 @@ UpgradeSize Tu16Kitai13Size
 UpgradeAbilities Tu16Kitai14Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 30;
-				areaDamageRadius = 6; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		AircraftMove {speed = 5.2; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;
+				areaDamageRadius = 6.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
 //------------------------------------------------
@@ -1456,8 +1472,8 @@ UpgradeAbilities Tu16Kitai14Attack
 UpgradeAbilities Tu16Kitai15Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed =7.5; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 32;
+		AircraftMove {speed =6.0; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 64;
 				areaDamageRadius = 6; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
@@ -1632,9 +1648,9 @@ UnitType J20Naval
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 9; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 1000; range = 24; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8 }
-	LOS { range = 26 }
+		AircraftMove {speed = 9; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 1000; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8 }
+	LOS { range = 28 }
 	AreaEffect {
 			effects = [ 
 				SuperVision
@@ -1722,9 +1738,9 @@ UnitType J20
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 8.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 950; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
-	LOS { range = 24 }
+		AircraftMove {speed = 9; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 950; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
+	LOS { range = 28 }
 	AreaEffect {
 			effects = [ 
 				SuperVision
@@ -1816,9 +1832,9 @@ UnitType J20S
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 8.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
-	LOS { range = 24 }
+		AircraftMove {speed = 9.0; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 900; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
+	LOS { range = 28 }
 	AreaEffect {
 			effects = [ 
 				SuperVision,
@@ -2004,8 +2020,8 @@ UnitType lijian
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 9.0; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
-		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; }
+		AircraftMove {speed = 7; angSpeed = 60; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
+		Attack { damage = 800; range = 14; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.5; }
 		LOS { range = 17 }
 		AreaEffect {
 			effects = [ 
@@ -2092,8 +2108,8 @@ HitPoints = 1900
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 7.0; angSpeed = 55; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
-		Attack { damage = 35000; range = 60; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1; areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
+		AircraftMove {speed = 6; angSpeed = 30; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
+		Attack { damage = 35000; range = 60; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 2; areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
 		LOS { range = 30 }
 		AreaEffect {
 			effects = [ 

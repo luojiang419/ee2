@@ -1,0 +1,76 @@
+Objective Kursk_German_pObj1 {
+	name		= txt_kursk_German_pObj1
+	description	= txt_kursk_German_pObj1_desc
+	type		= Primary
+	startHidden = 0
+	targetTerritories = [ "Kursk" ]
+}
+Objective Kursk_German_pObj2 {
+	name		= txt_kursk_German_pObj2
+	description	= txt_kursk_German_pObj2_desc
+	type		= Primary
+	startHidden = 0
+	targetTerritories = [ "Ponyri" ]
+}
+Objective Kursk_German_pObj3 {
+	name		= txt_kursk_German_pObj3
+	description	= txt_kursk_German_pObj3_desc
+	type		= Primary
+	startHidden = 0
+	targetTerritories = [ "Oboyan" ]
+}
+Objective Kursk_German_dObj {
+	name		= txt_kursk_German_dObj
+	description	= txt_kursk_German_dObj_desc
+	type		= Lose
+	startHidden = 0
+	targetTerritories = [ "Kursk" "Ponyri" "Oboyan" ]
+}
+Objective Kursk_German_sObj1 {
+	name		= txt_kursk_German_sObj1
+	description	= txt_kursk_German_sObj1_desc
+	type		= Secondary
+	startHidden = 0
+}
+Objective Kursk_German_sObj2 {
+	name		= txt_kursk_German_sObj2
+	description	= txt_kursk_German_sObj2_desc
+	type		= Secondary
+	startHidden = 0
+}
+
+
+
+
+Scenario EE2X_Kursk_German {
+	name = txt_kursk_name_german
+	mapfilename = "EE2X_Kursk.scn"
+	overrideScriptLib = "ScriptLibs_EE2X\\\\EE2X_Kursk_German.dll"
+	overrideHumanPlayers = [2]
+	briefing = tx_fe_prog_EE2X_Kursk_German
+	sprite = spr_kurG_camp_screenshot
+	thumbnail = spr_kurG_camp_thumb
+
+	victory = txt_kursk_victory
+	loss = txt_kursk_lose
+	
+	hints = txt_kursk_german_hints
+
+	historicalInfo = txt_kursk_history
+
+	description = tx_fe_prog_EE2X_Kursk_German
+
+	date = txt_kursk_date
+
+	objectives = 
+	[
+		Kursk_German_pObj1
+		Kursk_German_pObj2
+		Kursk_German_pObj3
+		Kursk_German_dObj
+		Kursk_German_sObj1
+		Kursk_German_sObj2
+	]
+	// Turning points never load heroes from previous scenarios.
+	NoOldHeroes = true
+}

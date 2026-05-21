@@ -1,0 +1,144 @@
+Objective Maasai5_Primary1 {
+	name		= txt_scen_m5_pobj1
+	description	= txt_scen_m5_pobj1_desc
+	type		= Primary
+	startHidden	= 0
+	targetTerritories = [ "Nairobi" ]
+}
+Objective Maasai5_Primary2 {
+	name		= txt_scen_m5_pobj2
+	description	= txt_scen_m5_pobj2_desc
+	type		= Primary
+	startHidden	= 1
+}
+Objective Maasai5_Defeat1 {
+	name		= txt_scen_m5_dobj1
+	description	= txt_scen_m5_dobj1_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MaasaiHero" ]
+}
+Objective Maasai5_Defeat2 {
+	name		= txt_scen_m5_dobj2
+	description	= txt_scen_m5_dobj2_desc
+	type		= Lose
+	startHidden	= 0
+}
+Objective Maasai5_Defeat3 {
+	name		= txt_scen_m5_dobj3
+	description	= txt_scen_m5_dobj3_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits	= [ "LondiamCity" ]
+}
+Objective Maasai5_Secondary1 {
+	name		= txt_scen_m5_sobj1
+	description	= txt_scen_m5_sobj1_desc
+	type		= Secondary
+	startHidden	= 0
+	targetTerritories = [ "Namanga" ]
+}
+Objective Maasai5_Secondary2 {
+	name		= txt_scen_m5_sobj2
+	description	= txt_scen_m5_sobj2_desc
+	type		= Secondary
+	startHidden	= 1
+	targetUnits = [ "Kericho" ]
+}
+Objective Maasai5_Secondary3 {
+	name		= txt_scen_m5_sobj3
+	description	= txt_scen_m5_sobj3_desc
+	type		= Secondary
+	startHidden	= 1
+	targetUnits = [ "KalenjinCity" ]
+}
+
+
+
+Scenario EE2X_Maasai5 {
+	name = txt_scen_m5_name
+	mapfilename = "EE2X_Maasai5.scn"
+	briefing = tx_fe_prog_EE2X_Maasai5
+	sprite = spr_mas5_camp_screenshot
+	thumbnail = spr_mas5_camp_thumb
+	
+	reinforcementLocX = 208
+	reinforcementLocY = 114
+	numReinforcements = 3
+	suppressReinforcementsDescription = 1
+
+	reinforcementGroups = 
+	[
+		{ members = 
+			[
+			{type = Unit amount = 10 unitType = HeavyInfantry1}
+			]
+		}
+		{ members = 
+			[
+			{type = Resource amount = 1000 resType = Gold}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = LightInfantry_13_Veteran}
+			{type = Tech tech = LightInfantry_13_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = HeavyInfantry1_13_Veteran}
+			{type = Tech tech = HeavyInfantry1_13_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 5 unitType = HeavyInfantry1}
+			{type = Unit amount = 2 unitType = Medic}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 4 unitType = HeavyTank}
+			{type = Unit amount = 4 unitType = Tank}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = Military14_1}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = Economic14_2}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = Imperial14_1}
+			]
+		}
+	]
+
+	victory = txt_scen_m5_victory
+	loss = txt_scen_m5_loss
+	
+	hints = txt_scen_m5_hints
+	
+	historicalInfo = txt_scen_m5_history
+	
+	description = tx_fe_prog_EE2X_Maasai5
+	
+	date = txt_scen_m5_date
+
+	objectives = [
+		Maasai5_Primary1
+		Maasai5_Primary2
+		Maasai5_Defeat1
+		Maasai5_Defeat2
+		Maasai5_Defeat3
+		Maasai5_Secondary1
+		Maasai5_Secondary2
+		Maasai5_Secondary3
+	]
+}

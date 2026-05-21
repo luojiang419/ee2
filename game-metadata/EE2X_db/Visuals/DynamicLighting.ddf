@@ -1,0 +1,212 @@
+//---------------------------------------------
+// Dynamic light receivers
+//
+
+// attach dynamic lighting to buildings
+DynamicLightingReceiver DynamicLighting_Building
+{
+	Radius = 2
+	MaxLightCount = [ 0 2 4 ]	// indexed by lighting LOD
+}
+
+// attach dynamic lighting to walls
+DynamicLightingReceiver DynamicLighting_Wall
+{
+	Radius = 2
+	MaxLightCount = [ 0 0 2 ]	// indexed by lighting LOD
+}
+
+// attach dynamic lighting to (non-tree, non-animal) resources
+DynamicLightingReceiver DynamicLighting_Resource
+{
+	Radius = 2
+	MaxLightCount = [ 0 2 4 ]	// indexed by lighting LOD
+}
+
+// attach dynamic lighting to trees
+DynamicLightingReceiver DynamicLighting_Tree
+{
+	Radius = 2
+	MaxLightCount = [ 0 0 2 ]	// indexed by lighting LOD
+}
+
+// attach dynamic lighting to mobile units
+DynamicLightingReceiver DynamicLighting_Unit
+{
+	Radius = 2
+	MaxLightCount = [ 0 0 2 ]	// indexed by lighting LOD
+}
+
+//DynamicLightEmitter DL_Missile
+//{
+//	Type = eDynamicLightingType_OneColor_PlayOnce
+//	TypeOfAttenuation = eDynamicLighting_Linear
+//	Life = 0.5
+//	LifeFadeOut = 0.8
+//	DirectionalColor = [0.25,  0.1,  0.025]
+//	Radius = 8
+//}
+
+// @TEST light
+DynamicLightEmitter DL_Test
+{
+	Type = eDynamicLightingType_OneColor_PlayOnce
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 1.0
+	DirectionalColor = [0.4,  0.4,  0.4]
+	LifeFadeOut = 0.5
+	Radius = 8
+}
+
+DynamicLightEmitter DL_Missile
+{
+	Type = eDynamicLightingType_TwoColors_PlayOnce
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.1
+	DirectionalColor = [0.15,  0.15,  0.15]
+	DirectionalColor2 = [0.25,  0.1,  0.025]
+	LifeFadeOut = 0.3
+	LifeFadeOut2 = 0.7
+	Radius = 8
+}
+
+//----------------------------------------------
+//Fire damages dynamic lights
+//
+DynamicLightEmitter DL_Fire1
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.4
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.4
+	Radius = 3.2
+}
+DynamicLightEmitter DL_Fire2
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.5
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.5
+	Radius = 3.2
+}
+
+DynamicLightEmitter DL_Fire3
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.3
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.6
+	Radius = 3.2
+}
+DynamicLightEmitter DL_Fire4
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.45
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.5
+	Radius = 3.2
+}
+
+DynamicLightEmitter DL_Fire5
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.35
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.4
+	Radius = 3.2
+}
+DynamicLightEmitter DL_Fire6
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.25
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.5
+	Radius = 3.2
+}
+
+DynamicLightEmitter DL_Fire7
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.43
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.6
+	Radius = 3.2
+}
+DynamicLightEmitter DL_Fire8
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.37
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.5
+	Radius = 3.2
+}
+
+DynamicLightEmitter DL_Fire9
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.47
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.4
+	Radius = 3.2
+}
+DynamicLightEmitter DL_Fire10
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.32
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.3
+	Radius = 3.2
+}
+
+DynamicLightEmitter DL_Fire11
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.25
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.4
+	Radius = 3.2
+}
+DynamicLightEmitter DL_Fire12
+{
+	Type = eDynamicLightingType_Fire
+	TypeOfAttenuation = eDynamicLighting_Linear
+	Life = 0.52
+	DirectionalColor = [0.145,  0.0625,  0.0075]
+	DirectionalColor2 = [0.1825,  0.085,  0.005]
+	LifeFadeOut = 0.2
+	LifeFadeOut2 = 0.6
+	Radius = 3.2
+}

@@ -103,7 +103,7 @@ ShadowData        fighterShadow_05
 UpgradeAbilities FighterEpoch11Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 7.0; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
+		AircraftMove {speed = 5.0; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
 		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "OutpostBullet";ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50 }
 	]
 }
@@ -199,7 +199,7 @@ UpgradeUnitTypeImprove FighterEpoch13Elite
 UpgradeAbilities FighterEpoch14Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 8; angSpeed = 82; CruisingHeight = 10; ElevChangeRate = 1.0}
+		AircraftMove {speed = 8; angSpeed = 80; CruisingHeight = 10; ElevChangeRate = 1.0}
 		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
 	]
 }

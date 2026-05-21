@@ -1,0 +1,57 @@
+Objective Kursk_Russia_pObj {
+	name		= txt_kursk_Russia_pObj
+	description	= txt_kursk_Russia_pObj_desc
+	type		= Primary
+	startHidden = 0
+	targetTerritories = [ "Kursk" "Oboyan" "Ponyri" ]
+}
+Objective Kursk_Russia_dObj {
+	name		= txt_kursk_Russia_dObj
+	description	= txt_kursk_Russia_dObj_desc
+	type		= Lose
+	startHidden = 0
+}
+Objective Kursk_Russia_sObj1 {
+	name		= txt_kursk_Russia_sObj1
+	description	= txt_kursk_Russia_sObj1_desc
+	type		= Secondary
+	startHidden = 0
+}
+Objective Kursk_Russia_sObj2 {
+	name		= txt_kursk_Russia_sObj2
+	description	= txt_kursk_Russia_sObj2_desc
+	type		= Secondary
+	startHidden = 1
+}
+
+
+Scenario EE2X_Kursk_Russia {
+	name = txt_kursk_name_russia
+	mapfilename = "EE2X_Kursk.scn"
+	overrideScriptLib = "ScriptLibs_EE2X\\\\EE2X_Kursk_Russia.dll"
+	overrideHumanPlayers = [1]
+	briefing = tx_fe_prog_EE2X_Kursk_Russia
+	sprite = spr_kurR_camp_screenshot
+	thumbnail = spr_kurR_camp_thumb
+
+	victory = txt_kursk_victory
+	loss = txt_kursk_lose
+	
+	hints = txt_kursk_russia_hints
+
+	historicalInfo = txt_kursk_history
+
+	description = tx_fe_prog_EE2X_Kursk_Russia
+
+	date = txt_kursk_date
+
+	objectives = 
+	[
+		Kursk_Russia_pObj
+		Kursk_Russia_dObj
+		Kursk_Russia_sObj1
+		Kursk_Russia_sObj2
+	]
+	// Turning points never load heroes from previous scenarios.
+	NoOldHeroes = true
+}

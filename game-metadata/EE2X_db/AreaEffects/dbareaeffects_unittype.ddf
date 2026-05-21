@@ -1,0 +1,3283 @@
+/////////////////////////////UnitType Area Effects/////////////////////////////
+// 
+DbAreaEffectInfo TankNoConversion
+{
+	selectionType = None
+	effects = [
+		EffectNoConversion {
+			range = RadiusFromUnit 
+			radius = 3
+			mask = SubjectToConversion
+			player = Self
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit 
+			radius = 3
+			mask = SubjectToConversion
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_fanaticism_s
+			Tooltip = tt_power_Fanaticism
+			VTooltip = vtt_power_unitinfo_Fanaticism
+		}
+		
+	]
+}
+DbAreaEffectInfo FortressCentral
+{
+	selectionType = None
+	effects = [
+		EffectCaptureTime {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = CentralBuildings
+			player = Self
+			scale = 5.0 // capture takes 30% more time
+		}
+	]
+}
+DbAreaEffectInfo CityCenterCentral
+{
+	selectionType = None
+	effects = [
+		EffectCaptureTime {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = CityCenterBuildings
+			player = Self
+			scale = 7.0 // capture takes 30% more time
+		}	
+	]
+}
+DbAreaEffectInfo effectattackforplayer
+{
+	selectionType = None
+	effects = [
+		EffectAttackSpeed {
+			range = RadiusFromUnit 
+			radius = 30
+			player = Enemies //敌人
+			mask = AllPlanes
+			scale = 1.5
+		}
+		EffectRange {
+			range = RadiusFromUnit 
+			radius = 30
+			player = Enemies
+			mask = AllPlanes
+			scale = 0.85
+		}
+		EffectLOS {
+			range = RadiusFromUnit 
+			radius = 30
+			player = Enemies
+			mask = AllPlanes
+			scale = 0.85
+		}
+		EffectSpeed {
+			range = RadiusFromUnit 
+			radius = 30
+			player = Enemies
+			mask = AllPlanes
+			scale = 0.85
+		}
+	]
+}
+
+DbAreaEffectInfo badeffectforlujun
+{
+	selectionType = None
+	effects = [
+		EffectCauseDamageOverTime {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = BadInfantryUnits
+			player = Self
+			DamageAmount = 4		// How much damage to do per second.
+			NoDamageSource = true	// There should be no source unit when applying damage.
+		}
+		EffectCauseDamageOverTime {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = BadMobileMilitary12Units
+			player = Self
+			DamageAmount = 10		// How much damage to do per second.
+			NoDamageSource = true	// There should be no source unit when applying damage.
+		}
+		EffectCauseDamageOverTime {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = BadMobileMilitaryUnits
+			player = Self
+			DamageAmount = 15		// How much damage to do per second.
+			NoDamageSource = true	// There should be no source unit when applying damage.
+		}
+	]
+}
+DbAreaEffectInfo effectforbuiding
+{
+	selectionType = None
+	effects = [
+		EffectCauseDamageOverTime {
+			range = RadiusFromUnit 
+			radius = 500
+			player = Enemies
+			mask = effectNavalUnits
+			DamageAmount = 0.01		// How much damage to do per second.
+			NoDamageSource = false	// There should be no source unit when applying damage.
+		}
+		EffectCauseDamageOverTime {
+			range = RadiusFromUnit 
+			radius = 500
+			player = Enemies
+			mask = AllPlanes
+			DamageAmount = 0.01		// How much damage to do per second.
+			NoDamageSource = false	// There should be no source unit when applying damage.
+		}
+		EffectCauseDamageOverTime {
+			range = RadiusFromUnit 
+			radius = 500
+			player = Enemies
+			mask = LightAndHeavyInfantry
+			DamageAmount = 0.01		// How much damage to do per second.
+			NoDamageSource = false	// There should be no source unit when applying damage.
+		}
+	
+	]
+}
+DbAreaEffectInfo effectCarrier
+{
+	selectionType = None
+	effects = [
+		EffectProductionTime {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = TT_MilitaryProducers
+			player = Self
+			affected = NavalCarrierUnits
+			scale = 0.5
+		}
+		EffectProductionCost {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = TT_MilitaryProducers
+			player = Self
+			affected = NavalCarrierUnits
+			scale = 0.2
+		}
+	
+	]
+}
+// Naval Flag Power
+DbAreaEffectInfo PlayerPower
+{
+	button = ""
+	selectionType = None
+	effects = [	
+		// decrease built time for military vessels by 15%
+		EffectProductionTime {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = TT_MilitaryProducers
+			player = Self
+			affected = Anything
+			scale = 0.8
+		}
+	]
+}
+DbAreaEffectInfo PlayerResource
+{
+	button = ""
+	selectionType = None
+      effects = [
+        EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Gold]	
+            affectedResourceSources = Anything		
+			scale = 1.2
+		}
+		EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Saltpeter]	
+            affectedResourceSources = Anything		
+			scale = 1.2
+		}
+		EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Wood]	
+            affectedResourceSources = Anything		
+			scale = 1.3
+		}
+		EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Tin]	
+            affectedResourceSources = Anything		
+			scale = 1.2
+		}
+		EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Stone]	
+            affectedResourceSources = Anything		
+			scale = 1.2
+		}
+		EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Food]	
+            affectedResourceSources = Anything		
+			scale = 1.2
+		}
+		EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Iron]	
+            affectedResourceSources = Anything		
+			scale = 1.2
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = OilRefineryUnits
+			player = Self
+			affected = [Oil]			
+			scale = 1.5
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = RectorUnits
+			player = Self
+			affected = [Uranium]			
+			scale = 1.5
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = TavernUnits
+			player = Self
+			affected = [Gold]			
+			scale = 1.5
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = AlchemyUnits
+			player = Self
+			affected = [Tin]			
+			scale = 1.5
+		} 	
+		EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = ChemistryUnits
+			player = Self
+			affected = [Uranium]			
+			scale = 1.5
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = SaltPeterFactoryUnits
+			player = Self
+			affected = [Saltpeter]			
+			scale = 1.5
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = OilrefUnits
+			player = Self
+			affected = [Oil]			
+			scale = 1.5
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = IronrefUnits
+			player = Self
+			affected = [Iron]			
+			scale = 1.5
+		}
+	]
+}
+DbAreaEffectInfo AIResourcePower
+{
+	button = ""
+	selectionType = None
+	effects = [
+        EffectResourceDropoff {
+			range = RadiusFromUnit
+			radius = 500			
+			mask = UniversitiesAndTemples
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 5.0
+		}
+        EffectResourceGatherRate {
+			range = RadiusFromUnit
+			radius = 500	
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Food]	
+            affectedResourceSources = Anything		
+			scale = 1.5
+		}
+		EffectResourceGatherRate {
+			range = RadiusFromUnit
+			radius = 500	
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Wood]	
+            affectedResourceSources = Anything		
+			scale = 1.0
+		}
+        EffectResourceGatherRate {
+			range = RadiusFromUnit
+			radius = 500		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Stone]	
+            affectedResourceSources = Anything		
+			scale = 2.0
+		}
+        EffectResourceGatherRate {
+			range = RadiusFromUnit
+			radius = 500	
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Gold]	
+            affectedResourceSources = Anything		
+			scale = 2.0
+		}
+        EffectResourceGatherRate {
+			range = RadiusFromUnit
+			radius = 500	
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Saltpeter]	
+            affectedResourceSources = Anything		
+			scale = 5.0
+		}
+        EffectResourceDropoff {
+			range = RadiusFromUnit
+			radius = 500	
+			mask = OilRefineryUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 5.0
+		}
+        EffectResourceDropoff {
+			range = RadiusFromUnit
+			radius = 500	
+			mask = RectorUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 5.0
+		}
+        EffectResourceDropoff {
+			range = RadiusFromUnit
+			radius = 500		
+			mask = SaltmineUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.2
+		}
+        EffectResourceDropoff {
+			range = RadiusFromUnit
+			radius = 500			
+			mask = CementUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.5
+		}
+        EffectResourceTrade {
+			range = RadiusFromUnit
+			radius = 500			
+			mask = BankUnits
+			player = Self
+			affected = [Gold]			
+			scale = 5.0
+		}
+	]
+}
+DbAreaEffectInfo UnitsResourcePower
+{
+	selectionType = None
+	button = "unit_power_Resourcecontroler" 
+	duration = 600
+	effects = [
+        EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = UniversitiesAndTemples
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 2
+		}
+        EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Gold]	
+            affectedResourceSources = Anything		
+			scale = 1.5
+		}
+        EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Saltpeter]	
+            affectedResourceSources = Anything		
+			scale = 1.5
+		}		
+        EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn	
+			mask = OilRefineryUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 2.0
+		}
+        EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = RectorUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 2.0
+		}	
+        EffectResourceTrade {
+			range = SelfClaimedTerritoryUnitIsIn			
+			mask = BankUnits
+			player = Self
+			affected = [Gold]			
+			scale = 2.0
+		}
+	]
+}
+DbAreaEffectInfo UnitsPower
+{
+	selectionType = None
+	button = "unit_power_Unitcontroler" 
+	duration = 3590
+	effects = [
+		// decrease built time for military vessels by 15%
+		EffectProductionTime {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = TT_MilitaryProducers4
+			player = Self
+			affected = Anything
+			scale = 0.5
+		}
+		// decrease cost of military vessels by 15%
+		EffectProductionCost {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = TT_MilitaryProducers4
+			player = Self
+			affected = Anything
+			scale = 0.8
+		}
+	]
+}
+DbAreaEffectInfo AIUnitsPower
+{
+	selectionType = None
+	effects = [
+		// decrease cost of military vessels by 15%
+		EffectProductionCost {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = TT_MilitaryProducers5
+			player = Self
+			affected = Anything
+			scale = 0.9
+		}
+	]
+}
+DbAreaEffectInfo Taran_Tanks
+{
+	button = ""
+	selectionType = None
+	effects = [
+		//EffectIncredibleDeath {
+	   //     range = RadiusFromUnit
+		//	radius = 1.5
+	    //    Mask = AnimalsUnits3
+		//	player = NonSelf
+		//}
+		//EffectIncredibleDeath {
+	   //     range = RadiusFromUnit
+		//	radius = 1.5
+	   //     Mask = Enm_okpy
+		//	player = Enemies
+		//}
+		]
+}
+DbAreaEffectInfo Awacs
+{
+	button = ""
+	selectionType = None
+	effects = [
+		EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 90
+			player = NonSelf
+			mask = AllPlanes
+		}
+		 EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 60
+			player = NonSelf
+			mask = AwacsNavalUnits
+		}
+		EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 70
+			player = NonSelf
+			mask = TT_HelicopterUnits
+		}
+		//EffectGiveLOS {
+		//	range = RadiusFromUnit
+		//	radius = 80
+		//	player = NonSelf
+		//	mask = PowerMobileMilitaryUnits
+		//}
+		EffectVisualGlow {
+			range = Unit
+			mask = Anything
+			player = Self
+			GlowType = Mixed
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_awacs
+			Tooltip = tt_power_awacs_fallout
+			VTooltip = vtt_power_awacs_fallout           
+		}
+           
+	]
+
+}
+DbAreaEffectInfo Radar_Awacs
+{
+	button = ""
+	selectionType = None
+	effects = [
+		EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 90
+			player = NonSelf
+			mask = AllPlanes
+		}
+		 EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 60
+			player = NonSelf
+			mask = AwacsNavalUnits
+		}
+		//EffectGiveLOS {
+		//	range = RadiusFromUnit
+		//	radius = 50
+		//	player = NonSelf
+		//	mask = PowerMobileMilitaryUnits
+		//}
+		 EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 60
+			player = NonSelf
+			mask = TT_HelicopterUnits
+		}
+		EffectVisualGlow {
+			range = Unit
+			mask = Anything
+			player = Self
+			GlowType = Mixed
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_awacs
+			Tooltip = tt_power_awacs_fallout
+			VTooltip = vtt_power_awacs_fallout           
+		}
+           
+	]
+}
+DbAreaEffectInfo ship_Awacs
+{
+	button = ""
+	selectionType = None
+	effects = [
+		EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 90
+			player = NonSelf
+			mask = AllPlanes
+		}
+		 EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 60
+			player = NonSelf
+			mask = AwacsNavalUnits
+		}
+		 EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 70
+			player = NonSelf
+			mask = TT_HelicopterUnits
+		}
+		//EffectGiveLOS {
+		//	range = RadiusFromUnit
+		//	radius = 50
+		//	player = NonSelf
+		//	mask = PowerMobileMilitaryUnits
+		//}
+		EffectVisualGlow {
+			range = Unit
+			mask = Anything
+			player = Self
+			GlowType = Mixed
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_awacs
+			Tooltip = tt_power_awacs_fallout
+			VTooltip = vtt_power_awacs_fallout           
+		}
+           
+	]
+}
+
+
+DbAreaEffectInfo Radar
+{
+	button = ""
+	selectionType = None
+	effects = [
+		EffectActivateAttackAbility {
+			range = Global_Unit
+			player = Self
+			mask = AntiMissilers
+		}
+		EffectGiveLOS {
+			range = Global_Unit
+			player = NonSelf
+			mask = SeeMyNukes
+		}
+		EffectVisualGlow {
+			range = Global_Unit
+			mask = AntiMissilers
+			player = SelfAndAllies
+			GlowType = Good
+			OwnerOnly = false   
+		}
+           
+	]
+}
+
+DbAreaEffectInfo AntiNaval
+{
+	button = ""
+	selectionType = None
+	effects = [
+		    EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 200
+			player = NonSelf
+			mask = AllShip
+		} 
+		EffectVisualGlow {
+			range = Unit
+			mask = AllShip
+			player = NonSelf
+			GlowType = Mixed
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_awacs
+			Tooltip = tt_power_awacs_fallout
+			VTooltip = vtt_power_awacs_fallout           
+		}
+	]
+
+}
+
+DbAreaEffectInfo AntiMissileMember
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = Unit
+			GlowType = Mixed
+			mask = TT_AMissileDefense
+			player = Anybody
+			OwnerOnly = false
+			Icon = spr_game_antimissile
+			Tooltip = tt_power_antimissilemember
+			VTooltip = vtt_power_antimissilemember
+		}
+   
+	]
+}
+
+DbAreaEffectInfo AntiMissileRocket
+{
+    button = ""
+	selectionType = None
+	duration = 10
+	effects = [
+		EffectPreventAttack
+		{ 
+			range = RadiusFromUnit 
+			radius = 30
+			mask = AntiMissilers
+			player = Self	
+			updateOnce = 1
+		}		
+	]
+}
+
+DbAreaEffectInfo AntiMissileRocket2
+{
+    button = ""
+	selectionType = None
+	duration = 5
+	effects = [
+		EffectPreventAttack
+		{ 
+			range = RadiusFromUnit 
+			radius = 15
+			mask = AntiMissilers2
+			player = Self	
+			updateOnce = 1
+		}		
+	]
+}
+
+DbAreaEffectInfo AntiNavalRocket4
+{
+    button = ""
+	selectionType = None
+	duration = 5
+	effects = [
+		EffectPreventAttack
+		{ 
+			range = RadiusFromUnit 
+			radius = 60
+			mask = AntiMissilers4
+			player = Self	
+			updateOnce = 1
+		}		
+	]
+}
+
+DbAreaEffectInfo AntiNavalRocket5
+{
+    button = ""
+	selectionType = None
+	duration = 1
+	effects = [
+		EffectPreventAttack
+		{ 
+			range = RadiusFromUnit 
+			radius = 30
+			mask = AntiMissilers5
+			player = Self	
+			updateOnce = 2
+		}		
+	]
+}
+
+DbAreaEffectInfo Landmine_fallout
+{
+	selectionType = None
+	duration = 1
+	effects = [
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			radius = 2
+			mask = MobileNonAircraft
+			player = NotTheWorld
+
+			DamageAmount = 2000.0		// How much damage to do per second.
+			NoDamageSource = true	// There should be no source unit when applying damage.
+			weaponType = Nuke
+		}
+	]
+}
+
+DbAreaEffectInfo Navalmine_fallout
+{
+	selectionType = None
+	duration = 1
+	effects = [
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			radius = 2
+			mask = NavalShallowMineUnit
+			player = NotTheWorld
+
+			DamageAmount = 2000.0		// How much damage to do per second.
+			NoDamageSource = true	// There should be no source unit when applying damage.
+			weaponType = Nuke
+		}
+	]
+}
+
+DbAreaEffectInfo RocketLaunchingTBMFix1
+{
+    button = ""
+	selectionType = None
+	effects = [
+	EffectInfect {			
+			range = RadiusFromUnit
+			player = NotTheWorld
+			Mask = ConstructionsLauncherFix
+			radius = 1
+			EffectName = "RocketLaunchingTBMFix2"
+			period = 0.01
+		}
+		]
+}
+
+DbAreaEffectInfo RocketLaunchingTBMFix2
+{
+button = ""
+	selectionType = None
+	duration = 3
+	effects = [
+	EffectImmobilize {
+			range = RadiusFromUnit
+			radius = 5
+			mask = CitzCBAndGardener
+			player = NotTheWorld
+			//updateOnce = 0
+			period = 0.01
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = CitzCBAndGardener
+			player = NotTheWorld
+			GlowType = Bad
+			period = 0.01
+		}
+		]
+}
+
+
+DbAreaEffectInfo RocketLaunchingFix1
+{
+button = ""
+	selectionType = None
+	duration = 3
+	effects = [
+	EffectInfect {			
+			range = RadiusFromUnit
+			player = NotTheWorld
+			Mask = ConstructionsLauncherFix
+			radius = 2
+			EffectName = "RocketLaunchingFix2"
+			period = 0.01
+		}
+		]
+}
+
+DbAreaEffectInfo RocketLaunchingFix2
+{
+button = ""
+	selectionType = None
+	duration = 3
+	effects = [
+	EffectIncredibleDeath {
+	        range = RadiusFromUnit
+			radius = 5
+	        Mask = MissilesForAntiCrash
+			player = NotTheWorld
+			period = 0.01
+		}
+		]
+}
+
+// nuclear blast fallout215 area effect
+DbAreaEffectInfo Nuclear_fallout215
+{
+	selectionType = None
+
+	// units are disabled for this long
+	// NOTE:  this duration should match that of the other HERC_EMP_blast effects
+	duration = 50
+	
+	effects = [
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			radius = 10
+			mask = FootUnit
+			player = NotTheWorld
+
+			DamageAmount = 15		// How much damage to do per second.
+			NoDamageSource = true	// There should be no source unit when applying damage.
+			weaponType = Nuke
+		}
+				
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			radius = 10
+			mask = LandNonFootUnit
+			player = NotTheWorld
+
+			DamageAmount = 30		// How much damage to do per second. 
+			NoDamageSource = true	// There should be no source unit when applying damage.
+			weaponType = Nuke
+		}
+		
+		EffectVisualGlow {
+			range = RadiusFromLocation
+			radius = 10
+			mask = FootUnit
+			player = NotTheWorld
+
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_nuke
+			Tooltip = tt_power_nuclear_fallout
+			VTooltip = vtt_power_nuclear_fallout
+		}
+				
+		EffectVisualGlow {
+			range = RadiusFromLocation
+			radius = 10
+			mask = LandNonFootUnit
+			player = NotTheWorld
+
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_nuke
+			Tooltip = tt_power_nuclear_fallout
+			VTooltip = vtt_power_nuclear_fallout
+		
+		}	
+	]
+}
+
+DbAreaEffectInfo Awace_PowerControler
+{
+	button = "unit_power_awacontroler" // see dbunitactions.csv
+	duration = 60
+	effects = [
+	    EffectVisual {
+			range = Unit
+			player = Self
+			visualEffect = FX_Awacontrol1
+		}
+		EffectRange {
+			range = RadiusFromUnit
+			radius = 50
+			mask = AwacariPlanes
+			player = SelfAndAllies
+			scale = 1.3
+		}
+		EffectRange {
+			range = RadiusFromUnit
+			radius = 50
+			mask = AwacariBobms
+			player = SelfAndAllies
+			scale = 1.1
+		}
+		EffectSpecialPowerRechargeTime {
+			// decrease all my neighbors' recharge time, but leave mine alone.
+			range = RadiusFromUnitExcludingSelf
+			radius = 60
+			mask = AwacariPlanes
+			player = SelfAndAllies
+			scale = 0.1
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 60
+			mask = AllPlanes
+			player = SelfAndAllies
+	    	GlowType = Good
+			OwnerOnly = true
+			Icon = spr_game_unitinfo_icon_awacs
+			Tooltip = tt_power_awacs_fallout
+			VTooltip = vtt_power_awacs_fallout
+		}
+	]
+}
+
+DbAreaEffectInfo AIBuildingAwacs
+{
+	button = ""
+	selectionType = None
+	effects = [
+		    EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 500
+			player = NotTheWorld
+			mask = Anything
+		} 
+		EffectVisualGlow {
+			range = Unit
+			mask = Anything
+			player = Self
+			GlowType = Mixed
+			OwnerOnly = false  
+		}
+	]
+
+}
+DbAreaEffectInfo Awace_PowerforshipControler
+{
+	button = "unit_power_shipawacontroler" // see dbunitactions.csv
+	duration = 10
+	effects = [
+	    EffectVisual {
+			range = Unit
+			player = Self
+			visualEffect = FX_Awacontrol1
+		}
+		EffectRange {
+			range = RadiusFromUnit
+			radius = 10
+			mask = AwacariShips
+			player = SelfAndAllies
+			scale = 1.02
+		}
+
+	]
+}
+DbAreaEffectInfo Air_anti_missle  //j16释放诱er弹
+{
+	button = "unit_power_air_antimissle" // see dbunitactions.csv
+	//selectionType = None
+	duration = 3
+	effects = [
+	    EffectVisual {
+			range = Unit
+			player = Self
+			visualEffect = FX_Air_antimissle1 //TankExplosionTerrainFlash //
+		}
+		EffectShield {
+			instant = true
+			player = Self
+			range = Unit
+			// shield radius
+			radius =1.0
+			
+			// the missile system only protects
+			// against projectile attacks
+			onlyBlocksProjectiles = true
+			
+			// zero HP indicates the shield
+			// can withstand unlimited damage
+			hitPoints = 0
+			
+			// anti-missile system lasts for 50 seconds
+			duration = 2
+			
+			//visualName = "HERC_Shield"//""
+		}
+		EffectShotSuccessRate 
+		{
+			range = RadiusFromUnitExcludingSelf
+			radius = 20
+			mask = Anti_Aircrafts
+			player = NonSelf
+			affectedProjectileMoveTypes = [
+				GuidedMissile		// self-guided missile
+			]
+			successRate = 0.2
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnitExcludingSelf
+			radius = 20
+			mask = Anti_Aircrafts
+			player = NonSelf
+	    	GlowType = Bad
+			OwnerOnly = false
+		}
+}
+DbAreaEffectInfo DrunkCitizen
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = DrinkUnits
+			player = Self
+                  GlowType = Bad
+			OwnerOnly = true
+		}
+             EffectWeatherSpeed {
+			range = RadiusFromUnit
+			radius = 5
+			mask = DrinkUnits
+			player = Self
+			scale = 0.50
+		}
+            EffectCapacity {
+			range = RadiusFromUnit
+			radius = 5
+			mask = DrinkUnits
+			player = Self
+			scale = 0.10
+		}
+
+	]
+}
+DbAreaEffectInfo AlchemyBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = Citizens
+			player = Self
+            GlowType = SupremeLeader
+			OwnerOnly = true                  
+		}
+             EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Tin]	
+            affectedResourceSources = Anything		
+			scale = 1.3
+
+		}
+            
+	]
+}
+DbAreaEffectInfo LibraryBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = UniversitiesAndTemples
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinlib
+			Tooltip = tt_power_library_fallout
+			VTooltip = vtt_power_library_fallout
+		}
+            EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = UniversitiesAndTemples
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.2
+
+		}
+            
+	]
+}
+DbAreaEffectInfo AI_LibraryBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = UniversitiesAndTemples
+			player = Self
+			OwnerOnly = true
+		}
+            EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = UniversitiesAndTemples
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.5
+
+		}
+            
+	]
+}
+DbAreaEffectInfo LumberBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = Citizens
+			player = Self
+            GlowType = SupremeLeader
+			OwnerOnly = true                  
+			Icon = spr_game_unitinlumber
+			Tooltip = tt_power_lumber_fallout
+			VTooltip = vtt_power_lumber_fallout
+		}
+        EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Wood]	
+            affectedResourceSources = Anything		
+			scale = 1.5
+
+		}
+            
+	]
+}
+DbAreaEffectInfo QuarryBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = Citizens
+			player = Self
+            GlowType = SupremeLeader
+			OwnerOnly = true                  
+			Icon = spr_game_unitinquarry
+			Tooltip = tt_power_quarry_fallout
+			VTooltip = vtt_power_quarry_fallout
+		}
+             EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Stone]	
+            affectedResourceSources = Anything		
+			scale = 2.0
+
+		}
+            
+	]
+}
+DbAreaEffectInfo GoldBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = TavernUnits
+			player = Self
+            GlowType = SupremeLeader
+			OwnerOnly = true                  
+		}
+       EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = TavernUnits
+			player = Self
+			affected = [Gold]			
+			scale = 1.3
+		}    
+            
+	]
+}
+DbAreaEffectInfo CementBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = CementUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitincement
+			Tooltip = tt_power_cement_fallout
+			VTooltip = vtt_power_cement_fallout
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = CementUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.2
+
+		}
+            
+	]
+}
+DbAreaEffectInfo AI_CementBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = CementUnits
+			player = Self
+			OwnerOnly = true
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = CementUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.5
+
+		}
+            
+	]
+}
+DbAreaEffectInfo GranaryBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn			
+			mask = Citizens
+			player = Self
+            GlowType = SupremeLeader
+			OwnerOnly = true                  
+			Icon = spr_game_unitingrain
+			Tooltip = tt_power_granary_fallout
+			VTooltip = vtt_power_granary_fallout
+		}
+        EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn	
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Food]	
+            affectedResourceSources = Farms		
+			scale = 1.8
+		}
+            
+	]
+}
+DbAreaEffectInfo Stealthing
+{
+	button = "unit_power_air_stealthing"
+	//selectionType = None
+	duration = 5
+	effects = [
+		EffectCloak {
+	  		range = Unit
+			player = Self
+			
+  		}
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			GlowType = king
+			OwnerOnly = false
+			Icon = spr_game_unitCanbeStealth
+			Tooltip = tt_power_stealth_fallout
+			VTooltip = vtt_power_stealth_fallout           
+		}
+	]
+}
+DbAreaEffectInfo Radardetectioning
+{
+	button = "unit_power_Radardetectioning"
+	duration = 15
+	effects = [
+		EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 50
+			player = NonSelf
+			mask = AllPlanes
+		}
+		 EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 50
+			player = NonSelf
+			mask = AwacsNavalUnits
+		}
+		EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 50
+			player = NonSelf
+			mask = TT_HelicopterUnits
+		}
+		EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 50
+			player = NonSelf
+			mask = TT_AirDefense
+		}
+	]
+}
+DbAreaEffectInfo SubmarineDiveing
+{
+	button = "unit_power_SubmarineDiveing"
+	name = text_SubmarineDiveing_name
+	desc = text_SubmarineDiveing_desc
+	duration = 10
+	effects = [
+		EffectCloak {
+	  		range = Unit
+			player = Self
+  		}
+		EffectAttack {
+			range = Unit
+			player = Self
+			scale = 0
+		}
+		EffectRange {
+			range = Unit
+			player = Self
+			scale = 0 
+		}
+		EffectLOS {
+			range = Unit
+			player = Self			
+			scale = 0.5
+		}
+		EffectRange {
+			range = Unit
+			player = Self
+			scale = 0 
+		}
+		EffectWeatherSpeed {
+			range = Unit
+			player = Self
+			scale = 0.8
+		}
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			GlowType = king
+			OwnerOnly = false
+			Icon = spr_game_unitCanbeStealth
+			Tooltip = tt_power_stealth_fallout
+			VTooltip = vtt_power_stealth_fallout           
+		}
+	]
+}
+
+DbAreaEffectInfo CanbeStealth
+{
+	button = ""
+	selectionType = None
+	effects = [
+		EffectVisualGlow {
+			range = Unit
+			mask = Stealthunits
+			player = Self
+			GlowType = Neutral //SupremeLeader
+			OwnerOnly = false
+			Icon = spr_game_unitCanbeStealth
+			Tooltip = tt_power_stealth_fallout
+			VTooltip = vtt_power_stealth_fallout           
+		}	      
+	]
+}
+
+
+DbAreaEffectInfo SuperVision
+{
+	button = ""
+	selectionType = None
+	//duration = 60
+	effects = [
+		EffectVisualGlow {
+			range = Unit
+			mask = CanDetectDisguisedSpies
+			player = Self
+			GlowType = Mixed //SupremeLeader
+			OwnerOnly = true
+			Icon = spr_game_unitsupervision
+			Tooltip = tt_power_svision_fallout
+			VTooltip = vtt_power_svision_fallout           
+		}      
+	]
+}
+DbAreaEffectInfo Fire_fallout
+{
+	button = ""
+	selectionType = None
+	duration = 60
+	effects = [
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			radius = 3
+			mask = BuildingsAndConstructionSites
+			player = NonSelf
+			DamageAmount = 2.0		
+			NoDamageSource = true	
+			weaponType = Nuke
+		}
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			radius = 2
+			mask = WoodyUnits
+			player = NonSelf
+			DamageAmount = 2.0		
+			NoDamageSource = true	
+			weaponType = Nuke
+		}		
+		EffectVisualGlow {
+			range = RadiusFromLocation
+			radius = 3
+			mask = BuildingsAndConstructionSites
+			player = NonSelf
+
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_fire2
+			Tooltip = tt_power_fire_fallout2
+			VTooltip = vtt_power_fire_fallout2
+		}		
+            EffectVisualGlow {
+			range = RadiusFromLocation
+			radius = 2
+			mask = WoodyUnits
+			player = NonSelf
+
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_fire2
+			Tooltip = tt_power_fire_fallout2
+			VTooltip = vtt_power_fire_fallout3
+		}			
+	]
+}
+DbAreaEffectInfo DockHealing
+{
+	button = ""
+	selectionType = None
+      effects = [
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = NavalHealingUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinfo_icon_dock
+			Tooltip = tt_power_dock_fallout
+			VTooltip = vtt_power_dock_fallout           
+		}
+            EffectHeal {
+			range = RadiusFromUnit
+			radius = 5
+			mask = NavalHealingUnits
+			player = Self
+			healRate = 10
+		}
+            
+	]
+}
+//---------end newMOD-------------------------------------
+// Electronic Warfare Herc has a built-in anti-missile system, w00t!
+DbAreaEffectInfo HERC_AntiMissileSystem
+{
+	button = "unit_power_antimissile" // see dbunitactions.csv
+	
+	effects = [
+		EffectShield {
+			instant = true
+			player = Self
+			range = Unit	
+			mask = LandRPS
+			
+			// shield radius
+			radius = 4.0
+			
+			// the missile system only protects
+			// against projectile attacks
+			onlyBlocksProjectiles = true
+			
+			// zero HP indicates the shield
+			// can withstand unlimited damage
+			hitPoints = 0
+			
+			// anti-missile system lasts for 50 seconds
+			duration = 5
+			visualName = "HERC_AntiMissileSystem"
+		}
+	]
+}
+DbAreaEffectInfo Plane_AntiMissileSystem
+{
+	button = "unit_power_WW15antimissile" // see dbunitactions.csv
+	effects = [
+		EffectShield {
+			instant = true
+			player = Self
+			range = Unit
+			mask = ww15Plane			
+			// shield radius
+			radius = 2.0
+			// the missile system only protects
+			// against projectile attacks
+			onlyBlocksProjectiles = true
+			// zero HP indicates the shield
+			// can withstand unlimited damage
+			hitPoints = 0
+			// anti-missile system lasts for 5 seconds
+			duration = 3
+			visualName = "Plane_AntiMissileSystem"
+		}
+	]
+}
+DbAreaEffectInfo Air_AntiMissileSystem
+{
+	button = "unit_power_antimissile" // see dbunitactions.csv
+	
+	effects = [
+		EffectShield {
+			instant = true
+			player = Self
+			range = Unit
+			mask = LandRPS			
+			// shield radius
+			radius = 2.0
+			
+			// the missile system only protects
+			// against projectile attacks
+			onlyBlocksProjectiles = true
+			
+			// zero HP indicates the shield
+			// can withstand unlimited damage
+			hitPoints = 0
+			
+			// anti-missile system lasts for 50 seconds
+			duration = 50
+			
+			visualName = "Air_AntiMissileSystem"
+		}
+	]
+}
+
+// Repair Herc can cast a shield
+DbAreaEffectInfo HERC_Shield
+{
+	button = "unit_power_shield" // see dbunitactions.csv
+	selectionType = Unit
+	// if requireSelection,
+	// then maskSelection and playerSelection should also be specified
+	// they are used to determine who valid targets of this super effect are
+	maskSelection = AllHercs
+	playerSelection = Self
+	
+	mouseCursor = HercShield
+	mouseCursorInvalid = HercShield_Invalid
+	
+	// the shield lasts this long
+	effects = [
+		EffectShield {
+			instant = true
+			player = Self
+			range = Unit	
+			mask = LandRPS
+			radius = 2
+			
+			// absorb 1000 points of damage before we go away
+			hitPoints = 200
+			
+			// HERC shield lasts one minute max
+			duration = 10
+			visualName = "HERC_Shield"
+		}
+	]
+}
+
+// EMP blast area effect
+DbAreaEffectInfo HERC_EMP_blast
+{
+	disableDuringCeasefire = true
+	
+	name = tt_power_emp
+	button = unit_action_EMP
+	
+	mouseCursor = HercEMP
+	mouseCursorInvalid = HercEMP_Invalid
+	
+	selectionType = Location
+	//selectionType = Unit
+	//maskSelection = EMP_targets_ground_air
+	playerSelection = NotTheWorld
+
+	// units are disabled for this long
+	// NOTE:  this duration should match that of the other HERC_EMP_blast effects
+	duration = 120
+	
+	effects = [
+		
+		EffectExplode
+		{
+			range = Unit
+			
+			instant = true // just a one-shot thinger
+			
+			explosionName = Expl_emp01
+			
+			// this will make the effect send a (unit) hit list
+			// to the explosion visuals containing units described by
+			// the parameters below
+			hitRadius = 5
+			hitMask = EMP_targets_ground
+			hitPlayerMode = NonSelf
+			
+		}
+		
+		// NOTE:  air units are not frozen in place (ground units are)
+		EffectImmobilize
+		{ 
+			range = RadiusFromLocation 
+			radius = 5
+			mask = LandRPS
+			player = NonSelf	
+			updateOnce = 1		// so that only units in the area initially gets affected
+		}
+
+		EffectPreventAttack
+		{ 
+			range = RadiusFromLocation 
+			radius = 5
+			mask = LandRPS
+			player = NonSelf	
+			updateOnce = 1		// so that only units in the area initially gets affected
+		}	
+				
+		EffectVisualGlow {
+			range = RadiusFromLocation 
+			radius = 5
+			mask = LandRPS
+			player = NonSelf	
+			updateOnce = 1	// so that only units in the area initially gets affected
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = icon_power_emp
+			Tooltip = tt_power_EMP
+			VTooltip = vtt_power_unitinfo_EMP
+		}		
+	]
+}
+
+DbAreaEffectInfo EWPAir_EMP_bombe
+{
+	disableDuringCeasefire = true
+	selectionType = None
+	//selectionType = Unit
+	//maskSelection = EMP_targets_ground_air
+	playerSelection = NotTheWorld
+	// units are disabled for this long
+	// NOTE:  this duration should match that of the other HERC_EMP_blast effects
+	duration = 5
+	
+	effects = [
+		
+		EffectExplode
+		{
+			range = Unit
+			
+			instant = true // just a one-shot thinger
+			
+			explosionName = Expl_emp01
+			// this will make the effect send a (unit) hit list
+			// to the explosion visuals containing units described by
+			// the parameters below
+			hitRadius = 10
+			hitMask = EMP_targets_ground
+			hitPlayerMode = Enemies
+			
+		}
+		
+		// NOTE:  air units are not frozen in place (ground units are)
+		EffectImmobilize
+		{ 
+			range = RadiusFromLocation 
+			radius = 10
+			mask = EMP_targets_ground
+			player = Enemies	
+			updateOnce = 1		// so that only units in the area initially gets affected
+		}
+		
+		EffectSabotage {
+			range = RadiusFromLocation 
+			radius = 10
+			mask = Buildings
+			player = Enemies
+			stateName = "Sabotage"
+		}
+
+		EffectPreventAttack
+		{ 
+			range = RadiusFromLocation 
+			radius = 10
+			mask = EMP_targets_ground_air
+			player = Enemies	
+			updateOnce = 1		// so that only units in the area initially gets affected
+		}
+		EffectPreventAttack
+		{ 
+			range = RadiusFromLocation 
+			radius = 10
+			mask = EMP_targets_ground_NavalDeep
+			player = Enemies	
+			updateOnce = 1		// so that only units in the area initially gets affected
+		}		
+		
+		EffectVisualGlow {
+			range = RadiusFromLocation 
+			radius = 10
+			mask = Buildings
+			player = Enemies	
+			updateOnce = 1	// so that only units in the area initially gets affected
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_sabotage
+			Tooltip = tt_power_EMP
+			VTooltip = vtt_power_unitinfo_EMP
+		}	
+		
+		EffectVisualGlow {
+			range = RadiusFromLocation 
+			radius = 10
+			mask = EMP_targets_ground_air
+			player = Enemies	
+			updateOnce = 1	// so that only units in the area initially gets affected
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = icon_power_emp
+			Tooltip = tt_power_EMP
+			VTooltip = vtt_power_unitinfo_EMP
+		}
+		EffectVisualGlow {
+			range = RadiusFromLocation 
+			radius = 10
+			mask = EMP_targets_ground_NavalDeep
+			player = Enemies	
+			updateOnce = 1	// so that only units in the area initially gets affected
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = icon_power_emp
+			Tooltip = tt_power_EMP
+			VTooltip = vtt_power_unitinfo_EMP
+		}			
+	]
+}
+
+// nuclear blast fallout area effect
+DbAreaEffectInfo Nuclear_fallout
+{
+	selectionType = None
+
+	// units are disabled for this long
+	// NOTE:  this duration should match that of the other HERC_EMP_blast effects
+	duration = 50
+	effects = [
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			radius = 18
+			mask = FootUnit
+			player = NotTheWorld
+			DamageAmount = 15		// How much damage to do per second.
+			NoDamageSource = true	// There should be no source unit when applying damage.
+			weaponType = Nuke
+		}
+				
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			radius = 18
+			mask = LandNonFootUnit
+			player = NotTheWorld
+			DamageAmount = 15		// How much damage to do per second. 
+			NoDamageSource = true	// There should be no source unit when applying damage.
+			weaponType = Nuke
+		}
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			radius = 18
+			mask = AnimalsUnits2
+			player = NotTheWorld
+			DamageAmount = 5		// How much damage to do per second. 
+			NoDamageSource = true	// There should be no source unit when applying damage.
+			weaponType = Nuke
+		}
+		EffectVisualGlow {
+			range = RadiusFromLocation
+			radius = 18
+			mask = FootUnit
+			player = NotTheWorld
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_nuke
+			Tooltip = tt_power_nuclear_fallout
+			VTooltip = vtt_power_nuclear_fallout
+		}
+				
+		EffectVisualGlow {
+			range = RadiusFromLocation
+			radius = 18
+			mask = LandNonFootUnit
+			player = NotTheWorld
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_nuke
+			Tooltip = tt_power_nuclear_fallout
+			VTooltip = vtt_power_nuclear_fallout
+		
+		}	
+	]
+}
+
+// nuclear blast fallout area effect
+DbAreaEffectInfo Nuclear_fallout_nonhuman
+{
+	selectionType = None
+	maskSelection = LandNonFootUnit
+	playerSelection = NotTheWorld
+
+	// units are disabled for this long
+	// NOTE:  this duration should match that of the other HERC_EMP_blast effects
+	duration = 50
+	
+	effects = [
+		EffectCauseDamageOverTime {
+			range = Unit
+			player = Self
+			DamageAmount = 5		// How much damage to do per second.
+			NoDamageSource = true	// There should be no source unit when applying damage.
+			weaponType = Nuke
+		}
+				
+		EffectVisualGlow {
+			range = Unit
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_nuke
+			Tooltip = tt_power_nuclear_fallout
+			VTooltip = vtt_power_nuclear_fallout
+		}		
+	]
+}
+
+
+DbAreaEffectInfo GatherIntelligencePlayer
+{
+	// gathered intelligence lasts this long
+	duration = 30
+	
+	effects = [
+		// this sub-effect must be present (and first)
+		// the area effect system must establish the mask at runtime
+		EffectGiveLOS {
+			range = Global
+			player = Self
+			OverrideUTAMask = true
+			// mask = ? // mask will be established programmatically
+		}
+	]
+}
+
+DbAreaEffectInfo GatherIntelligence
+{
+	disableDuringCeasefire = true
+	
+	name = tx_uarea_GatherIntel_name
+	desc = tx_uarea_GatherIntel_desc
+	button = "unit_power_gatherintel" // see dbunitactions.csv
+	selectionType = Unit
+	
+	maskSelection = SpyCanGatherIntel
+	playerSelection = Enemies
+	
+	mouseCursor = GatherIntel
+	mouseCursorInvalid = GatherIntel_Invalid
+	
+	effects = [
+		// this sub-effect must be present (and first)
+		// to identify this area effect as "gather intelligence"
+		EffectGatherIntel {
+			range = Unit
+			time = 5 // how long to gather intelligence?
+			stateName = "GatherIntel"
+			playerEffectName = "GatherIntelligencePlayer"
+			instant = true
+			
+			// if the spy gathers intel from a city center
+			// then crown status of the player owning that center
+			// will be visible to the spies player for this long
+			intelSourceDuration = 300
+		}
+	]
+}
+
+
+// Units that SpyCanContaminate get this attached to them when ToxicSpill activated,
+// infects nearby units that ContaminationCanSicken with ToxicSickness
+DbAreaEffectInfo ToxicSpill
+{
+	disableDuringCeasefire = true
+	
+	name = tx_uarea_ToxContam_name
+	desc = tx_uarea_ToxContam_desc
+	button = "unit_power_contaminate" // see dbunitactions.csv
+	selectionType = Unit
+	// if requireSelection,
+	// then maskSelection and playerSelection should also be specified
+	// they are used to determine who valid targets of this super effect are
+	maskSelection = SpyCanContaminate
+	playerSelection = Enemies
+	
+	mouseCursor = Contaminate
+	mouseCursorInvalid = Contaminate_Invalid
+	
+	// infected units are contagious for this long
+	duration = 40
+	
+	effects = [
+		// this sub-effect must be present (and first)
+		// to identify this area effect as toxic contamination
+		EffectContaminate {
+			range = Unit
+			time = 5		// how long to contaminate?
+			
+			stateName = "Contaminate"
+		}
+
+		EffectInfect {
+			// what kind of units
+			range = RadiusFromUnit
+			player = Self
+			Mask = ContaminationCanSicken
+			radius = 4
+			// what to infect exposed units with
+			EffectName = "ToxicSickness"
+		}
+
+		EffectVisualGlow {
+			//SuppressGlow = true // don't show the glow
+			range = Unit
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_contam
+			Tooltip = tt_power_ToxicSpill
+			VTooltip = vtt_power_unitinfo_ToxicSpill
+		}		
+	]
+}
+
+// Units that SpyCanContaminate get this attached to them when ToxicSpill activated,
+// infects nearby units that ContaminationCanSicken with ToxicSickness
+DbAreaEffectInfo ToxicSickness
+{
+	name = tx_uarea_ToxSick_name
+	desc = tx_uarea_ToxSick_desc
+	selectionType = None
+	
+	// infected units are sick for this long
+	duration = 20
+	
+	effects = [	
+
+	// uncomment the block below to make the sickness contagious among citizens
+	/*
+		EffectInfect {
+			// what kind of units
+			range = RadiusFromUnit
+			player = Self
+			Mask = ContaminationCanSicken
+			radius = 2
+			// what to infect exposed units with
+			EffectName = "ToxicSickness"
+		}
+	*/
+
+		EffectCauseDamageOverTime {
+			range = Unit
+			player = Self
+
+			// NOTE: If you change this, please change the duration of the ImprovedToxicSickness effect below
+			DamageAmount = 7		// How much damage to do per second.
+
+			NoDamageSource = true	// There should be no source unit when applying damage.
+		}
+		
+		EffectVisualGlow {
+			range = Unit
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_contam
+			Tooltip = tt_power_ToxicSick
+			VTooltip = vtt_power_unitinfo_ToxicSick
+		}
+	]
+}
+
+
+// END Toxic Contamination related effects
+
+DbAreaEffectInfo ImprovedToxicSpill
+{
+	disableDuringCeasefire = true
+	
+	name = tx_uarea_ToxContam_name
+	desc = tx_uarea_ToxContam_desc
+	button = "unit_power_contaminate" // see dbunitactions.csv
+	selectionType = Unit
+	// if requireSelection,
+	// then maskSelection and playerSelection should also be specified
+	// they are used to determine who valid targets of this super effect are
+	maskSelection = SpyCanContaminate
+	playerSelection = Enemies
+	
+	mouseCursor = Contaminate
+	mouseCursorInvalid = Contaminate_Invalid
+	
+	// infected units are contagious for this long
+	duration = 40
+	
+	effects = [
+		// this sub-effect must be present (and first)
+		// to identify this area effect as toxic contamination
+		EffectContaminate {
+			range = Unit
+			time = 5		// how long to contaminate?
+			
+			stateName = "Contaminate"
+		}
+
+		EffectInfect {
+			// what kind of units
+			range = RadiusFromUnit
+			player = Self
+			Mask = ContaminationCanSicken
+			radius = 4
+			// what to infect exposed units with
+			EffectName = "ImprovedToxicSickness"
+		}
+
+		EffectVisualGlow {
+			//SuppressGlow = true // don't show the glow
+			range = Unit
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_contam
+			Tooltip = tt_power_ToxicSpill
+			VTooltip = vtt_power_unitinfo_ToxicSpill
+		}		
+	]
+}
+
+DbAreaEffectInfo ImprovedToxicSickness
+{
+	name = tx_uarea_ToxSick_name
+	desc = tx_uarea_ToxSick_desc
+	selectionType = None
+	
+	// infected units are sick for this long
+	duration = 20
+	
+	effects = [	
+
+	// uncomment the block below to make the sickness contagious among citizens
+	/*
+		EffectInfect {
+			// what kind of units
+			range = RadiusFromUnit
+			player = Self
+			Mask = ContaminationCanSicken
+			radius = 2
+			// what to infect exposed units with
+			EffectName = "ToxicSickness"
+		}
+	*/
+		
+		EffectCauseDamageOverTime {
+			range = Unit
+			player = Self
+			DamageAmount = 8.4	// How much damage to do per second.  should be 20% more than ToxicSickness
+			NoDamageSource = true	// There should be no source unit when applying damage.
+		}
+		
+		EffectVisualGlow {
+			range = Unit
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_contam
+			Tooltip = tt_power_ToxicSick
+			VTooltip = vtt_power_unitinfo_ToxicSick
+		}
+	]
+}
+
+
+// Toxic Decontamination,
+
+DbAreaEffectInfo ToxicCleanup
+{
+	name = tx_uarea_ToxClnup_name
+	desc = tx_uarea_ToxClnup_desc
+	button = "unit_power_decontaminate" // see dbunitactions.csv
+	selectionType = Unit
+	// if requireSelection,
+	// then maskSelection and playerSelection should also be specified
+	// they are used to determine who valid targets of this super effect are
+	maskSelection = SpyCanContaminate
+	playerSelection = SelfAndAllies
+	
+	mouseCursor = Decontaminate
+	mouseCursorInvalid = Decontaminate_Invalid
+	
+	effects = [
+		// this sub-effect must be present (and first)
+		// to identify this area effect as toxic decontamination
+		EffectContaminate {
+			range = Unit
+			time = 5		// how long to decontaminate?
+			undo = true		// this is decontamination remember?
+			undoStateName = "Decontaminate"
+		}
+	]
+}
+
+
+// Sabotage (don't change this power's name, it's code critical)
+DbAreaEffectInfo SabotageBuilding
+{
+
+	disableDuringCeasefire = true
+	
+	name = tx_uarea_sabotage_name
+	desc = tx_uarea_sabotage_desc
+	button = "unit_power_sabotage" // see dbunitactions.csv
+	selectionType = Unit
+	// if requireSelection,
+	// then maskSelection and playerSelection should also be specified
+	// they are used to determine who valid targets of this super effect are
+	maskSelection = Buildings // what kinds of units the spy can sabotage
+	playerSelection = Enemies
+	
+	mouseCursor = Sabotage
+	mouseCursorInvalid = Sabotage_Invalid
+	
+	// sabotaged units are shut down for this long
+	// NOTE: If you change this, please change the duration of the ImprovedSabotageBuilding effect below
+	duration = 120
+
+	effects = [
+		// this sub-effect must be present (and first)
+		// to identify this area effect as sabotage
+		EffectSabotage {
+			range = Unit
+			time = 5		// how long to sabotage?
+			stateName = "Sabotage"
+		}
+		// light it up
+		EffectVisualGlow {
+			range = Unit
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_sabotage
+			Tooltip = tt_power_Sabotage
+			VTooltip = vtt_power_unitinfo_Sabotage
+		}
+	]
+}
+
+DbAreaEffectInfo ImprovedSabotageBuilding
+{
+	disableDuringCeasefire = true
+	
+	name = tx_uarea_sabotage_name
+	desc = tx_uarea_sabotage_desc
+	button = "unit_power_Sabotage" // see dbunitactions.csv
+	selectionType = Unit
+	// if requireSelection,
+	// then maskSelection and playerSelection should also be specified
+	// they are used to determine who valid targets of this super effect are
+	maskSelection = Buildings // what kinds of units the spy can sabotage
+	playerSelection = NonSelf
+	
+	mouseCursor = Sabotage
+	mouseCursorInvalid = Sabotage_Invalid
+	
+	// sabotaged units are shut down for this long
+	// should be 20% more than SabotageBuilding
+	duration = 144
+
+	effects = [
+		// this sub-effect must be present (and first)
+		// to identify this area effect as sabotage
+		EffectSabotage {
+			range = Unit
+			time = 5		// how long to sabotage?
+			stateName = "Sabotage"
+		}
+		// light it up
+		EffectVisualGlow {
+			range = Unit
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_sabotage
+			Tooltip = tt_power_Sabotage
+			VTooltip = vtt_power_unitinfo_Sabotage
+		}
+	]
+}
+
+
+// Sabotage for unique units
+DbAreaEffectInfo SabotageBuildingUnique
+{
+	disableDuringCeasefire = true
+	
+	name = tx_uarea_sabotage_name
+	desc = tx_uarea_sabotage_desc
+	button = "unit_power_sabotageUnique" // see dbunitactions.csv
+	selectionType = Unit
+	// if requireSelection,
+	// then maskSelection and playerSelection should also be specified
+	// they are used to determine who valid targets of this super effect are
+	maskSelection = Buildings // what kinds of units the spy can sabotage
+	playerSelection = NonSelf
+	
+	mouseCursor = Sabotage
+	mouseCursorInvalid = Sabotage_Invalid
+	
+	// Duration of the sabotage effect
+	duration = 180
+
+	effects = [
+		// this sub-effect must be present (and first)
+		// to identify this area effect as sabotage
+		EffectSabotage {
+			range = Unit
+			time = 2		// how long to sabotage?
+			stateName = "Sabotage"
+		}
+		// light it up
+		EffectVisualGlow {
+			range = Unit
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_sabotage
+			Tooltip = tt_power_Sabotage
+			VTooltip = vtt_power_unitinfo_Sabotage
+		}
+	]
+}
+
+// Restore  (undo sabotage)
+DbAreaEffectInfo RestoreBuilding
+{
+	name = tx_uarea_Restore_name
+	desc = tx_uarea_Restore_desc
+	button = "unit_power_restore" // see dbunitactions.csv
+	selectionType = Unit
+	// if requireSelection,
+	// then maskSelection and playerSelection should also be specified
+	// they are used to determine who valid targets of this super effect are
+	maskSelection = Buildings
+	playerSelection = SelfAndAllies
+	
+	mouseCursor = Restore
+	mouseCursorInvalid = Restore_Invalid
+	
+	effects = [
+		// this sub-effect must be present (and first)
+		// to identify this area effect as restore
+		EffectSabotage {
+			range = Unit
+			time = 5		// how long to decontaminate?
+			undo = true		// this is restore remember?
+			undoStateName = "Restore"
+		}
+	]
+}
+
+
+// used by HillControl victory condition
+// we want the unit to take zero damage,
+// and make it so nobody can even target it for destruction
+DbAreaEffectInfo Indestructability
+{
+	name = text_uarea_indestruct_name
+	desc = text_uarea_indestruct_desc
+	button = ""
+	selectionType = None
+	effects = [
+		EffectPreventAttack {
+			range = Unit
+			player = Self
+		}
+		EffectDamage {
+			range = Unit
+			player = Self
+
+			scale = 0
+		}
+		EffectAreaDamage {
+			range = Unit
+			player = Self
+
+			scale = 0
+		}
+	]
+}
+
+DbAreaEffectInfo HealGroup
+{
+	name = text_uarea_healgrp_name
+	desc = text_uarea_healgrp_desc
+	button = "unit_power_healgroup"
+	selectionType = Location
+	mouseCursor = Heal
+	mouseCursorInvalid = Heal_Invalid
+
+	effects = [
+		EffectMassHeal {
+			range = RadiusFromLocation
+			radius = 3
+			mask = LandRPS
+			player = Self
+			instant = 1
+
+			hitpointsHealed = 50	// points healed 
+			effectName = "FX_GroupHeal"
+		}
+	]
+}
+
+DbAreaEffectInfo BreathOfDragon
+{
+	disableDuringCeasefire = true
+	
+	name = text_uarea_dragon_name
+	desc = text_uarea_dragon_desc
+	button = "unit_power_breathofdragon"
+	selectionType = None
+	duration = 30
+	effects = [
+		EffectAttackSpeed {
+			range = Unit
+			player = Self
+
+			scale = 0.5
+		}
+		EffectAttackReplaceAmmo {
+			range = Unit
+			player = Self
+
+			NewAmmo = "Arrow_BreathOfDragon"
+		}
+		EffectVisual {
+			range = Unit
+			player = Self
+
+			visualEffect = FX_Breath_of_Dragon
+		}
+//		EffectVisual {
+//			range = Unit
+//			player = Self
+//
+//			visualEffect = TheTimer
+//		}
+	]
+}
+
+DbAreaEffectInfo DeadlyAim
+{
+	disableDuringCeasefire = true
+	
+	name = text_uarea_deadaim_name
+	desc = text_uarea_deadaim_desc
+	button = "unit_power_deadlyaim"
+	selectionType = None
+	duration = 30
+	effects = [
+		EffectAttack {
+			range = Unit
+			player = Self
+
+			scale = 2
+		}
+		EffectVisual {
+			range = Unit
+			player = Self
+
+			visualEffect = FX_Deadly_Aim
+		}
+		EffectAttackReplaceAmmo {
+			range = Unit
+			player = Self
+
+			NewAmmo = "Arrow_BreathOfDragon"
+		}
+	]
+}
+
+DbAreaEffectInfo Forage
+{
+	name = text_uarea_forage_name
+	desc = text_uarea_forage_desc
+	button = "unit_power_forage"
+	selectionType = None
+	duration = 30
+	effects = [
+		EffectActivateForageAbility {
+			range = Unit
+			player = Self
+		}
+		EffectVisual {
+			range = Unit
+			player = Self
+
+			visualEffect = FX_Forage
+		}
+	]
+}
+
+// (BEGIN BLESS RELATED EFFECTS)
+
+
+// adds grey glow to dudes that are going to be blessed
+DbAreaEffectInfo BlessPreviewGlow
+{
+	effects = [
+		EffectVisualGlow {
+			range = RadiusFromLocation
+			radius = 2 // should match radius in Bless.EffectAttack below
+			mask = LandRPS
+			player = Self
+			GlowType = Neutral
+			OwnerOnly = true
+			
+			// this effect wants to be updated at a higher
+			// frequency, to make the glows responsive to mouse movement
+			period = 0.2
+		}
+	]
+}
+
+// this is the effect that does the actual bless simulation effects
+DbAreaEffectInfo Bless
+{	
+	name = text_uarea_bless_name
+	desc = text_uarea_bless_desc
+	button = "unit_power_bless"
+
+	selectionType = Unit
+	mouseCursor = Bless
+	mouseCursorInvalid = Bless_Invalid
+	MouseRadius = 2 // should match radius in EffectAttack below
+
+	maskSelection = LandRPS
+	playerSelection = Self
+	
+	HighlightAreaEffect = BlessPreviewGlow
+	
+	// the blessing wears off after this many seconds
+	duration = 10
+	
+	effects = [
+		// this sub-effect must be present (and first)
+		// to identify this area effect as bless
+		EffectBless {
+			range = Unit
+			time = 4 	// how long does it take to bless?
+			stateName = "bless"
+		}
+		
+		EffectRepeat {
+			range = RadiusFromUnit
+			radius = 2 // actual radius of the bless effect
+			player = Self
+			mask = LandRPS
+			effectName = "BlessUnits"
+		}		
+	]
+}
+
+DbAreaEffectInfo BlessUnits
+{
+	effects = [ 
+		EffectAttack {
+			// the priest will have moved to the bless location
+			range = Unit
+			player = Self
+			mask = LandRPS
+
+			// boost attack damage by 20%
+			scale = 1.05
+			bless = true
+		}
+			
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			mask = LandRPS
+
+			GlowType = Good
+			OwnerOnly = false
+			Icon = icon_power_bless_s
+			Tooltip = tt_power_Bless
+			VTooltip = vtt_power_unitinfo_Bless
+		}
+	]
+}
+
+// (END BLESS RELATED EFFECTS)
+
+DbAreaEffectInfo Extraction
+{
+	name = text_uarea_extract_name
+	desc = text_uarea_extract_desc
+	button = "unit_power_extraction"
+	selectionType = None
+	mouseCursor = Normal
+
+	duration = 10
+	effects = [
+		EffectExtraction {
+			range = Unit
+			radius = 0
+			mask = LandRPS
+			player = Self
+			instant = 1
+
+			distance = 10
+			effectName = "FX_ExtractionDecal"
+			timerEffectName = "FX_ExtractionTimer"
+			ExtractionRadius = 0.6
+		}
+	]
+}
+
+// city-related area effect
+DbAreaEffectInfo CityHeal
+{
+	name = text_uarea_cityheal_name
+	desc = text_uarea_cityheal_desc
+	button = ""
+	selectionType = None
+
+	effects = [
+		// One for me...
+		EffectHeal {
+			range = CityUnitIsIn
+			radius = 0		// implied through range
+			mask = LandRPS
+			player = Self
+			upgradeFactor = CityHealRate
+			applyEffectHealRateModifier = true
+		}
+		// One for mah homies... yeeeah
+		EffectHeal {
+			range = CityUnitIsIn
+			radius = 0		// implied through range
+			mask = LandRPSNoSpy	// Don't heal allies' spies.
+			player = Allies
+			upgradeFactor = CityHealRate
+			applyEffectHealRateModifier = true
+		}
+	]
+}
+
+DbAreaEffectInfo CityResistCapture
+{
+	name = text_uarea_cresistcap_name
+	desc = text_uarea_cresistcap_desc
+	button = ""
+	selectionType = None
+
+	effects = [
+		EffectCaptureTime {
+			range = CityUnitIsIn
+			radius = 0		// implied through range
+			mask = Buildings
+			player = Self
+			upgradeFactor = CityCaptureResistance
+			
+			scale = 1  // actual value will come from upgradeFactor call
+		}
+	]
+}
+
+
+// a simple general purpose glow
+DbAreaEffectInfo SimpleGlow
+{
+	effects = [
+		EffectVisualGlow {
+			range = Unit
+			GlowType = Good
+		}
+	]
+}
+
+
+// the special glow that "kings" in regicide possess
+DbAreaEffectInfo KingRegicideGlow
+{
+	effects = [
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			mask = RegicideUnits
+			radius = 0.1
+			Player = Self
+			
+			GlowType = King
+			OwnerOnly = false
+		}
+	]
+}
+
+DbAreaEffectInfo ThrowGrenade
+{
+    disableDuringCeasefire = true
+	button = "unit_power_ThrowGrenade"
+	selectionType = Unit
+	maskSelection = MobileNonSeaAircraft // SpyCanContaminate
+	playerSelection = NonSelf
+	mouseCursor = AttackGround
+	mouseCursorInvalid = AttackGround_Invalid
+	duration = 1
+	effects = [
+		EffectContaminate {
+			range = RadiusFromUnit
+			radius = 1
+			time = 4		// how long to contaminate?
+			stateName = "Contaminate"
+		}
+		EffectIncredibleDeath {
+	        range = RadiusFromLocation
+			radius = 1
+	        Mask = AnimalsUnits2
+			player = NonSelf
+		}
+		EffectIncredibleDeath {
+	        range = RadiusFromLocation
+			radius = 1
+	        Mask = Enm_okpy
+			player = NonSelf
+		}
+		EffectExplode
+		{
+			range = Unit	
+			instant = true // just a one-shot thinger
+			explosionName = Expl_Tank_02
+			hitRadius = 1
+			hitMask = Enm_okpy
+			hitPlayerMode = NonSelf	
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			mask = Enm_okpy
+			radius = 3
+			Player = NonSelf
+			
+			GlowType = Bad
+			OwnerOnly = false
+		}
+	]
+}
+DbAreaEffectInfo VineyardBonus1
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = BreweryUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinvine
+			Tooltip = tt_power_vine_fallout
+			VTooltip = vtt_power_vine_fallout
+		}
+         EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = BreweryUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.25
+
+		}
+            
+	]
+}
+
+DbAreaEffectInfo VineyardBonus2
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = UniversitiesAndTemples
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinvine2
+			Tooltip = tt_power_vine2_fallout
+			VTooltip = vtt_power_vine2_fallout
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = UniversitiesAndTemples
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.5
+
+		}
+            
+	]
+}
+
+DbAreaEffectInfo BlacksmithBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = Citizens
+			player = Self
+            GlowType = SupremeLeader
+			OwnerOnly = true                  
+			Icon = spr_game_unitinblack
+			Tooltip = tt_power_black_fallout
+			VTooltip = vtt_power_black_fallout
+		}
+        EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Iron]	
+            affectedResourceSources = Anything		
+			scale = 2.0
+
+		}
+            
+	]
+}
+DbAreaEffectInfo BlackmineBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = IronemineUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinblack3
+			Tooltip = tt_power_ironemine_fallout
+			VTooltip = vtt_power_ironemine_fallout
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = IronemineUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.4
+
+		}
+            
+	]
+}
+DbAreaEffectInfo AI_BlackmineBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = IronemineUnits
+			player = Self
+			OwnerOnly = true
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = IronemineUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.5
+
+		}
+            
+	]
+}
+
+DbAreaEffectInfo OilwellBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = OilRefineryUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinoilwell
+			Tooltip = tt_power_oilwell_fallout
+			VTooltip = vtt_power_oilwell_fallout
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = OilRefineryUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 2.0
+
+		}
+            
+	]
+}
+DbAreaEffectInfo BankBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = BankUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinbank
+			Tooltip = tt_power_bank_fallout
+			VTooltip = vtt_power_bank_fallout
+		}
+             EffectResourceTrade {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = BankUnits
+			player = Self
+			affected = [Gold]			
+			scale = 2.0
+
+		}
+            
+	]
+}
+DbAreaEffectInfo WineryBonus1
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = BreweryUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinwine
+			Tooltip = tt_power_wine_fallout
+			VTooltip = vtt_power_wine_fallout
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = BreweryUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.25
+
+		}
+            
+	]
+}
+DbAreaEffectInfo WineryBonus2
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = Temples
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinwine2
+			Tooltip = tt_power_wine2_fallout
+			VTooltip = vtt_power_wine2_fallout
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Temples
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.25
+
+		}
+            
+	]
+}
+DbAreaEffectInfo WineryBonus3
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = WineryUnits
+			player = Self
+			OwnerOnly = true
+
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = WineryUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 2.0
+
+		}
+            
+	]
+}
+DbAreaEffectInfo ChemistryBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = Citizens
+			player = Self
+           GlowType = SupremeLeader
+			OwnerOnly = true                  
+		}
+         EffectResourceGatherRate {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = Citizens
+			player = Self
+			affectedResourceTypes = [Saltpeter]	
+            affectedResourceSources = Anything		
+			scale = 2.0
+
+		}
+            
+	]
+}
+
+DbAreaEffectInfo SaltmineBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = SaltmineUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinchem3
+			Tooltip = tt_power_saltmine_fallout
+			VTooltip = vtt_power_saltmine_fallout
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = SaltmineUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 1.4
+
+		}
+            
+	]
+}
+DbAreaEffectInfo ChemyplantBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = RectorUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinchem2
+			Tooltip = tt_power_chemyplant_fallout
+			VTooltip = vtt_power_chemyplant_fallout
+		}
+             EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = RectorUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 2.0
+
+		}
+            
+	]
+}
+DbAreaEffectInfo OilRefineryBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+		 EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn					
+			mask = OilRefineryUnits
+			player = Self
+			OwnerOnly = true
+			Icon = spr_game_unitinoilrefinery
+			Tooltip = tt_power_oilrefinery_fallout
+			VTooltip = vtt_power_oilrefinery_fallout
+		}
+        EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn		
+			mask = OilRefineryUnits
+			player = Self
+			affected = [AllNaturalResource]			
+			scale = 2.0
+
+		}
+            
+	]
+}
+DbAreaEffectInfo Deadly_Miss
+{
+	disableDuringCeasefire = true
+	name = text_uarea_deadaim_name
+	desc = text_uarea_deadaim_desc
+	button = "unit_power_deadlyMiss"
+	selectionType = None
+	duration = 10
+	effects = [
+		EffectAttackReplaceAmmo {
+			range = Unit
+			player = Self
+			NewAmmo = "AntiAirFkl03"
+		}
+		EffectAttackSpeed {
+			range = Unit
+			player = Self
+			scale = 10
+		}
+		EffectRange {
+			range = Unit
+			player = Self
+			scale = 1.3
+		}
+		EffectLOS {
+			range = Unit
+			player = Self
+			scale = 3
+		}
+		EffectAttack {
+			range = Unit
+			player = Self
+			scale = 4
+		}
+		EffectVisual {
+			range = Unit
+			player = Self
+			visualEffect = Muzzle_Fkl03somk
+		}
+	]
+}
+
+DbAreaEffectInfo Change_Miss
+{
+	disableDuringCeasefire = true	
+	name = text_uarea_VLS_name
+	desc = text_uarea_VLS_desc
+	button = "unit_power_ChangeMiss"
+	selectionType = None
+	duration = 6
+	effects = [	
+		EffectAttackSpeed {
+			range = Unit
+			player = Self
+			scale = 0.4
+		}
+		EffectAttackReplaceAmmo {
+			range = Unit
+			player = Self
+			NewAmmo = "VLSMissile"
+		}
+		EffectVisual {
+			range = Unit
+			player = Self
+			visualEffect = FX_Breath_of_Dragon
+		}
+		EffectRange {
+			range = Unit
+			player = Self
+			scale = 3
+		}
+		EffectLOS {
+			range = Unit
+			player = Self
+			scale = 3.2
+		}
+	]
+}
+
+
+DbAreaEffectInfo chang_AirShell
+{
+	disableDuringCeasefire = true
+	name = text_uarea_airdefend_name
+	desc = text_uarea_airdefend_desc
+	button = "unit_power_changeAirShell"
+	selectionType = None
+	duration = 30
+	effects = [
+		EffectAttackReplaceAmmo {
+			range = Unit
+			player = Self
+			NewAmmo = "WW2AirShell"
+		}
+		EffectAttackSpeed {
+			range = Unit
+			player = Self
+			scale = 0.3
+		}
+		EffectAttack {
+			range = Unit
+			player = Self
+			scale = 0.5
+		}
+		EffectRange {
+			range = Unit
+			player = Self
+			scale = 1.1
+		}
+		EffectLOS {
+			range = Unit
+			player = Self			
+			scale = 1.3
+		}
+	]
+}
+
+DbAreaEffectInfo Change_Range
+{
+	disableDuringCeasefire = true
+	name = text_uarea_deadaim_name
+	desc = text_uarea_deadaim_desc
+	button = "unit_power_ChangeRange"
+	selectionType = None
+	duration = 20
+	effects = [
+		EffectRange {
+			range = Unit
+			player = Self
+			scale = 10
+		}
+	]
+}
+DbAreaEffectInfo Change_dapaoRange
+{
+	disableDuringCeasefire = true
+	name = text_uarea_deadaim_name
+	desc = text_uarea_deadaim_desc
+	button = "unit_power_ChangedapaoRange"
+	selectionType = None
+	duration = 25
+	effects = [
+		EffectRange {
+			range = Unit
+			player = Self
+			scale = 10
+		}
+	]
+}
+DbAreaEffectInfo AirdefShotSuccess
+{
+	button = ""
+	selectionType = None
+	effects = [
+		EffectShotSuccessRate {
+			range = RadiusFromUnit
+			radius = 25
+			mask = ShotSuc_AirDefenses
+			player = Enemies
+			affectedProjectileMoveTypes = [
+				RegularProjectile,	// arrow, etc.
+			]
+			// allow 80% of shots to succeed
+			successRate = 0.5
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 25
+			mask = ShotSuc_AirDefenses
+			player = Enemies
+			GlowType = Bad
+			Icon = icon_leaderpwr_firemanuever_s
+			Tooltip = tt_power_FireAndManeuver
+			VTooltip = vtt_power_unitinfo_FaM_slow
+		}
+	]
+}

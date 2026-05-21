@@ -1,0 +1,447 @@
+//////////////////////////////Region Area Effects//////////////////////////////
+// Definitions of the area effects to be used by each region power.  These
+// define the specific visual and function effects that occur when the power
+// is activated.  See the upgrades in db/techtree/regionpower_upgrades.ddf 
+// for other information, such as duration and which icon to use for the button.
+
+///////////////////////////// FAREASTERN REGION POWERS ///////////////////////////
+
+DbAreaEffectInfo RegionPowerEastern_1
+{
+	name = text_rarea_citadel_name
+	desc = text_rarea_citadel_desc
+	effects = [
+		EffectDamage {
+			range = SelfClaimedTerritory
+			mask = Citadel
+			player = Self
+
+			scale = 0
+		}
+		EffectAreaDamage {
+			range = SelfClaimedTerritory
+			mask = Citadel
+			player = Self
+
+			scale = 0
+		}
+		EffectVisualGlow {
+			range = SelfClaimedTerritory
+			mask = Citadel
+			player = Self
+
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_regionpower_citadel_s
+			Tooltip = text_rarea_citadel_name
+			VTooltip = vtt_power_unitinfo_citadel
+		}	
+	]
+}
+
+DbAreaEffectInfo RegionPowerEastern_6
+{
+	name = text_rarea_burgmarkets_name
+	desc = text_rarea_burgmarkets_desc
+	effects = [
+		EffectTradePayment {
+			range = Global
+			mask = AffectedByBurgMarkets
+			player = Self
+			
+			types = [ Food Wood Stone Tin Iron Saltpeter Oil Uranium ]
+			amounts = [ 10 10 10 10 10 10 10 10 ] 
+		}
+		
+		EffectVisual {
+			range = Global
+			mask = AffectedByBurgMarkets
+			player = Self
+
+			visualEffect = FX_Mercanitilism
+		}
+		EffectVisual {
+			range = Global
+			mask = TT_TradeUnit
+			player = Self
+
+			visualEffect = FX_Mercanitilism_TradeCart
+		}
+		
+		EffectVisualGlow {
+			range = Global
+			mask = AffectedByBurgMarkets
+			player = Self
+
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_regionpower_mercantilism_s
+			Tooltip = text_rarea_burgmarkets_name
+			VTooltip = vtt_power_unitinfo_burgmarkets
+		}	
+	]
+}
+
+DbAreaEffectInfo RegionPowerEastern_11
+{
+	name = tx_rarea_Overtime_name
+	desc = tx_rarea_Overtime_desc
+	effects = [
+  		EffectProductionTime {
+  			range = Global
+  			player = Self
+  			// only affects certain buildings (producers)
+  			mask = OvertimeProducers
+  			
+  			// anything produced by the overtime producers
+  			affected = Anything
+  			
+  			// production time is halved
+  			scale = 0.8
+  		}
+  		/*
+  		// airport  visual transition
+  		EffectVisual {
+  			range = Global
+  			player = Self
+  			mask = Airports
+  			
+  			visualEffect = FX_Overtime_Airport
+  		}
+  		
+  		// dock visual transition
+		EffectVisual {
+			range = Global
+			player = Self
+			mask = Docks
+
+			visualEffect = FX_Overtime_Dock
+  		}
+  		
+  		// mill  visual transition
+		EffectVisual {
+			range = Global
+			player = Self
+			mask = Mills
+			//mask = Citizens
+
+			visualEffect = FX_Overtime_Mill
+  		}
+  		
+  		// stable  visual transition
+		EffectVisual {
+			range = Global
+			player = Self
+			mask = Stables
+
+			visualEffect = FX_Overtime_Stable
+  		}
+		*/
+  		
+  		EffectVisualGlow {
+  			range = Global
+  			player = Self
+  			mask = OvertimeProducers
+  			
+  			SuppressGlow = true
+  			GlowType = Good
+  			OwnerOnly = true
+  			
+  			Icon = icon_regionpower_overtime_s
+			Tooltip = tt_power_Overtime
+			VTooltip = vtt_power_unitinfo_Overtime
+  		}
+  	]
+
+}
+
+////////////////////////// MIDEASTERN REGION POWERS ///////////////////////////
+
+DbAreaEffectInfo RegionPowerMidEast_1
+{
+	name = text_rarea_supeffort_name
+	desc = text_rarea_supeffort_desc
+	effects = [
+		EffectBuildRepairRate {
+			range = Global
+			mask = BuildingsAndConstructionSites
+			scale = 2.0 // 2x faster build/repair rate
+		}
+  		EffectVisualGlow {
+  			range = Global
+  			player = Self
+  			mask = Citizens
+  			
+  			GlowType = Good
+  			OwnerOnly = true
+  			
+  			Icon = icon_regionpower_supeffort_s
+			Tooltip = tt_power_supreme
+			VTooltip = vtt_power_unitinfo_supreme
+  		}
+	]
+}
+
+DbAreaEffectInfo RegionPowerMidEast_6
+{
+	name = tx_rarea_LostCity_name
+	desc = tx_rarea_LostCity_desc
+
+	bSkipKingOfTheHillUnit = true
+
+	effects = [
+		// Make sure EffectCloak is first in the list of effects.
+  		// this is the effect that hides all units from the UI
+  		EffectCloak {
+	  		range = AllSelfCities
+			player = Self
+			mask = Anything
+  		}
+	
+		EffectVisualShimmer {
+			range = AllSelfCities
+			player = Self
+			mask = Anything
+			
+			visualEffect = LostCityShimmer
+			
+			// what point does the city become totally invisible
+			in = 2
+			// what point does the city flicker back
+			out = 58
+		}
+		
+		EffectVisualGlow {
+			range = AllSelfCities
+			player = Self
+			mask = Anything
+			
+			SuppressGlow = true
+			GlowType = Good
+			OwnerOnly = true
+
+			Icon = icon_regionpower_lostcity_s
+			Tooltip = tt_power_LostCity
+			VTooltip = vtt_power_unitinfo_LostCity
+  		}
+	]
+}
+
+DbAreaEffectInfo RegionPowerMidEast_11
+{
+	name = text_rarea_bmarket_name
+	desc = text_rarea_bmarket_desc
+
+	effects = [
+		EffectBlackMarket {
+			range = SpaceTime
+			player = Self
+
+			TypeToSteal = Gold
+			AmountPerTransactionPercent = 0.1
+		}
+	]
+}
+
+///////////////////////////// WESTERN REGION POWERS ///////////////////////////
+
+DbAreaEffectInfo RegionPowerWestern_1
+{
+	name = text_rarea_tribcust_name
+	desc = text_rarea_tribcust_desc
+	effects = [
+		EffectResourceGatherRate {
+			range = Global
+			mask = TT_BasicGathering
+			player = Self
+
+			// all gathering (except tech) from all resource sites
+			// increased by x%
+			affectedResourceTypes = [Food Wood Stone Gold Tin Iron Saltpeter Oil Uranium]
+			affectedResourceSources = Resources
+			scale = 1.2 // gathering takes place at 2x rate
+		}
+		
+		EffectVisualGlow {
+			range = Global
+			mask = TT_BasicGathering
+			player = Self
+
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_regionpower_tribcust_s
+			Tooltip = text_rarea_tribcust_name
+			VTooltip = vtt_power_unitinfo_tribcust
+		}	
+	]
+}
+
+DbAreaEffectInfo RegionPowerWestern_6
+{
+	name = text_rarea_scifree_name
+	desc = text_rarea_scifree_desc
+	playerEffectNotify = Tech
+	effects = [
+//		EffectTechCost {
+//			range = SpaceTime
+//			player = Self
+//			scale = 0.5
+//		}
+		EffectTechDiscoveryTime {
+			range = SpaceTime
+			player = Self
+
+			scale = 0.5
+		}
+		EffectTechButtonFlash {
+			range = SpaceTime
+			player = Self
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = UniversitiesAndTemples
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_regionpower_scifreedom_s
+			Tooltip = text_rarea_scifree_name
+			VTooltip = text_rarea_scifree_desc
+		}
+	]
+}
+
+DbAreaEffectInfo RegionPowerWestern_11
+{
+	name = tx_rarea_RapidDeploy_name
+	desc = tx_rarea_RapidDeploy_desc
+	mouseCursor = RapidDeployment
+	mouseCursorInvalid = RapidDeployment_Invalid
+	
+	bSkipKingOfTheHillUnit = true
+	
+	effects = [
+		EffectButton {
+			range = Global
+			Player = Self
+			Mask = Fortress
+
+			buttonName = unit_power_rapidDep
+			limitToOneUnit = true
+		}
+		EffectVisualGlow {
+			range = Global
+			Player = Self
+			Mask = Fortress
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_regionpower_scifreedom_s
+			Tooltip = tx_rarea_RapidDeploy_name
+			VTooltip = vtt_power_rapidDep_fortress2
+		}
+	]
+}
+
+///////////////////////////// MESO-AMERICAN REGION POWERS /////////////////////
+
+DbAreaEffectInfo RegionPowerMesoAmer_1
+{
+	name = tx_rarea_MassConversion_name
+	desc = tx_rarea_MassConversion_desc
+	
+	bSkipKingOfTheHillUnit = true
+
+	effects = [
+		EffectMassConvertOverTime {
+			range = AllSelfCities
+			player = Enemies
+			mask = SubjectToConversion
+			chance = 0.25;
+		}
+		EffectVisualGlow {
+			range = Global
+			player = Self
+			mask = CityCenters
+
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_regionpower_massconv_s
+			Tooltip = tx_rarea_MassConversion_name
+			VTooltip = vtt_power_unitinfo_MassConv
+		}
+	]
+}
+
+
+DbAreaEffectInfo RegionPowerMesoAmer_6 {
+	name = text_rarea_favorofgods_name
+	desc = text_rarea_favorofgods_desc
+	
+	effects = [
+		// all Land based units (except buildings)
+		EffectDamage {
+			range = SelfClaimedTerritoryWithTemple
+			mask = LandRPS
+			player = Self			
+
+			scale = 0.66 // 1/3 normal damage
+		}
+		EffectAreaDamage {
+			range = SelfClaimedTerritoryWithTemple
+			mask = LandRPS
+			player = Self
+
+			scale = 0.66 // 1/3 normal damage
+		}
+		// all buildings
+		EffectDamage {
+			range = SelfClaimedTerritoryWithTemple
+			mask = Buildings
+			player = Self
+
+			scale = 0.66 // 1/3 normal damage
+		}
+		EffectAreaDamage {
+			range = SelfClaimedTerritoryWithTemple
+			mask = Buildings
+			player = Self
+
+			scale = 0.66 // 1/3 normal damage
+		}	
+		
+		EffectVisualGlow {
+			range = SelfClaimedTerritoryWithTemple
+			mask = LandRPS
+			player = Self			
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_regionpower_favorofgods_s
+			Tooltip = text_rarea_favorofgods_name
+			VTooltip = vtt_power_unitinfo_FavorOfGods
+		}
+		
+		EffectVisualGlow {
+			range = SelfClaimedTerritoryWithTemple
+			mask = Buildings
+			player = Self			
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_regionpower_favorofgods_s
+			Tooltip = text_rarea_favorofgods_name
+			VTooltip = vtt_power_unitinfo_FavorOfGods
+		}
+	]
+}
+
+
+DbAreaEffectInfo RegionPowerMesoAmer_11
+{
+	name = text_rarea_cloning_name
+	desc = text_rarea_cloning_desc
+	effects = [
+		// all converted units are graced with a duplicate
+		EffectCloning {
+			range = SpaceTime
+			player = Self
+		}
+	]
+}

@@ -426,10 +426,10 @@ c054a_E13_surf_HeavyInfantry2,Ch054AUpgradeEpoch13,[HeavyInfantry2UpgradeEpoch14
 c054a_E13_surf_LightArtillery1,Ch054AUpgradeEpoch13,[LightArtillery1UpgradeEpoch13],0
 c054a_E13_surf_Fortress,Ch054AUpgradeEpoch13,[FortressUpgradeEpoch13],0
 c054a_E13_surf_AircraftCarrier,Ch054AUpgradeEpoch13,[AircraftCarrierUpgradeEpoch13],0
-c054a_E14_air_Fighter,Ch054AUpgradeEpoch14,[FighterUpgradeEpoch14],150
-c054a_E14_air_FighterBomber,Ch054AUpgradeEpoch14,[FighterBomberUpgradeEpoch14],150
-c054a_E14_air_Bomber,Ch054AUpgradeEpoch14,[BomberUpgradeEpoch14],150
-c054a_E14_air_TransHelicopter,Ch054AUpgradeEpoch14,[TransHelicopterUpgradeEpoch14],150
+c054a_E14_air_Fighter,Ch054AUpgradeEpoch14,[FighterUpgradeEpoch14],200
+c054a_E14_air_FighterBomber,Ch054AUpgradeEpoch14,[FighterBomberUpgradeEpoch14],200
+c054a_E14_air_Bomber,Ch054AUpgradeEpoch14,[BomberUpgradeEpoch14],200
+c054a_E14_air_TransHelicopter,Ch054AUpgradeEpoch14,[TransHelicopterUpgradeEpoch14],200
 c054a_E14_air_NavalF18Epoch14,Ch054AUpgradeEpoch14,[NavalF18Epoch14],200
 c054a_E14_air_ChinaPlaneEpoch14,Ch054AUpgradeEpoch14,[ChinaPlaneEpoch14],200
 c054a_E14_air_RussianPlaneEpoch14,Ch054AUpgradeEpoch14,[RussianPlaneEpoch14],200
@@ -494,10 +494,10 @@ ffg_E13_surf_HeavyInfantry2,FregattenFFGUpgradeEpoch13,[HeavyInfantry2UpgradeEpo
 ffg_E13_surf_LightArtillery1,FregattenFFGUpgradeEpoch13,[LightArtillery1UpgradeEpoch13],0
 ffg_E13_surf_Fortress,FregattenFFGUpgradeEpoch13,[FortressUpgradeEpoch13],0
 ffg_E13_surf_AircraftCarrier,FregattenFFGUpgradeEpoch13,[AircraftCarrierUpgradeEpoch13],0
-ffg_E14_air_Fighter,FregattenFFGUpgradeEpoch14,[FighterUpgradeEpoch14],150
-ffg_E14_air_FighterBomber,FregattenFFGUpgradeEpoch14,[FighterBomberUpgradeEpoch14],150
-ffg_E14_air_Bomber,FregattenFFGUpgradeEpoch14,[BomberUpgradeEpoch14],150
-ffg_E14_air_TransHelicopter,FregattenFFGUpgradeEpoch14,[TransHelicopterUpgradeEpoch14],150
+ffg_E14_air_Fighter,FregattenFFGUpgradeEpoch14,[FighterUpgradeEpoch14],200
+ffg_E14_air_FighterBomber,FregattenFFGUpgradeEpoch14,[FighterBomberUpgradeEpoch14],200
+ffg_E14_air_Bomber,FregattenFFGUpgradeEpoch14,[BomberUpgradeEpoch14],200
+ffg_E14_air_TransHelicopter,FregattenFFGUpgradeEpoch14,[TransHelicopterUpgradeEpoch14],200
 ffg_E14_air_NavalF18Epoch14,FregattenFFGUpgradeEpoch14,[NavalF18Epoch14],200
 ffg_E14_air_ChinaPlaneEpoch14,FregattenFFGUpgradeEpoch14,[ChinaPlaneEpoch14],200
 ffg_E14_air_RussianPlaneEpoch14,FregattenFFGUpgradeEpoch14,[RussianPlaneEpoch14],200
@@ -562,10 +562,10 @@ t22350_E13_surf_HeavyInfantry2,Type22350UpgradeEpoch13,[HeavyInfantry2UpgradeEpo
 t22350_E13_surf_LightArtillery1,Type22350UpgradeEpoch13,[LightArtillery1UpgradeEpoch13],0
 t22350_E13_surf_Fortress,Type22350UpgradeEpoch13,[FortressUpgradeEpoch13],0
 t22350_E13_surf_AircraftCarrier,Type22350UpgradeEpoch13,[AircraftCarrierUpgradeEpoch13],0
-t22350_E14_air_Fighter,Type22350UpgradeEpoch14,[FighterUpgradeEpoch14],150
-t22350_E14_air_FighterBomber,Type22350UpgradeEpoch14,[FighterBomberUpgradeEpoch14],150
-t22350_E14_air_Bomber,Type22350UpgradeEpoch14,[BomberUpgradeEpoch14],150
-t22350_E14_air_TransHelicopter,Type22350UpgradeEpoch14,[TransHelicopterUpgradeEpoch14],150
+t22350_E14_air_Fighter,Type22350UpgradeEpoch14,[FighterUpgradeEpoch14],200
+t22350_E14_air_FighterBomber,Type22350UpgradeEpoch14,[FighterBomberUpgradeEpoch14],200
+t22350_E14_air_Bomber,Type22350UpgradeEpoch14,[BomberUpgradeEpoch14],200
+t22350_E14_air_TransHelicopter,Type22350UpgradeEpoch14,[TransHelicopterUpgradeEpoch14],200
 t22350_E14_air_NavalF18Epoch14,Type22350UpgradeEpoch14,[NavalF18Epoch14],200
 t22350_E14_air_ChinaPlaneEpoch14,Type22350UpgradeEpoch14,[ChinaPlaneEpoch14],200
 t22350_E14_air_RussianPlaneEpoch14,Type22350UpgradeEpoch14,[RussianPlaneEpoch14],200
@@ -597,79 +597,3 @@ t22350_E15_surf_HeavyInfantry2,Type22350UpgradeEpoch15,[HeavyInfantry2UpgradeEpo
 t22350_E15_surf_LightArtillery1,Type22350UpgradeEpoch15,[LightArtillery1UpgradeEpoch15],0
 t22350_E15_surf_Fortress,Type22350UpgradeEpoch15,[FortressUpgradeEpoch15],0
 t22350_E15_surf_AircraftCarrier,Type22350UpgradeEpoch15,[AircraftCarrierUpgradeEpoch15],0
-
-//============================================
-// E14 海军RPS四角克制链 - 生成: 2026-05-20
-// Sub > Battleship(140%) > Destroyer(125%) > Sub(130%)
-// Sub > Carrier(130%), Carrier > Battleship(125%)
-// Destroyer vs Carrier(80% 劣势)
-//============================================
-//--- 潜艇克主力舰 (通用 + 三国E14) ---
-sub13_vs_battle13,SubmarineUpgradeEpoch13,[BattleshipUpgradeEpoch13],140
-sub13_vs_battle14,SubmarineUpgradeEpoch13,[BattleshipUpgradeEpoch14],140
-sub15_vs_battle13,SubmarineUpgradeEpoch15,[BattleshipUpgradeEpoch13],140
-sub15_vs_battle14,SubmarineUpgradeEpoch15,[BattleshipUpgradeEpoch14],140
-t039b_vs_battle13,Type039BUpgradeEpoch14,[BattleshipUpgradeEpoch13],140
-t039b_vs_battle14,Type039BUpgradeEpoch14,[BattleshipUpgradeEpoch14],140
-virginia_vs_battle13,VirginiaSubmarineUpgradeEpoch14,[BattleshipUpgradeEpoch13],140
-virginia_vs_battle14,VirginiaSubmarineUpgradeEpoch14,[BattleshipUpgradeEpoch14],140
-//--- 俄罗斯特色：潜艇超额克主力舰(150%) ---
-akula_vs_battle13,akulaUpgradeEpoch14,[BattleshipUpgradeEpoch13],150
-akula_vs_battle14,akulaUpgradeEpoch14,[BattleshipUpgradeEpoch14],150
-//--- 潜艇克航母 (通用 + 三国E14) ---
-sub13_vs_carrier14,SubmarineUpgradeEpoch13,[AircraftCarrierUpgradeEpoch14],130
-sub15_vs_carrier14,SubmarineUpgradeEpoch15,[AircraftCarrierUpgradeEpoch14],130
-t039b_vs_carrier14,Type039BUpgradeEpoch14,[AircraftCarrierUpgradeEpoch14],130
-virginia_vs_carrier14,VirginiaSubmarineUpgradeEpoch14,[AircraftCarrierUpgradeEpoch14],130
-akula_vs_carrier14,akulaUpgradeEpoch14,[AircraftCarrierUpgradeEpoch14],130
-//--- 主力舰克驱逐舰 ---
-battle13_vs_dest13,BattleshipUpgradeEpoch13,[DestroyerUpgradeEpoch13],125
-battle13_vs_dest14,BattleshipUpgradeEpoch13,[DestroyerUpgradeEpoch14],125
-battle14_vs_dest13,BattleshipUpgradeEpoch14,[DestroyerUpgradeEpoch13],125
-battle14_vs_dest14,BattleshipUpgradeEpoch14,[DestroyerUpgradeEpoch14],125
-battle15_vs_dest13,BattleshipUpgradeEpoch15,[DestroyerUpgradeEpoch13],125
-battle15_vs_dest14,BattleshipUpgradeEpoch15,[DestroyerUpgradeEpoch14],125
-battle15_vs_dest15,BattleshipUpgradeEpoch15,[DestroyerUpgradeEpoch15],125
-//--- 驱逐舰克潜艇（翻转原85%反克制）---
-dest13_vs_sub13,DestroyerUpgradeEpoch13,[SubmarineUpgradeEpoch13],130
-dest14_vs_sub13,DestroyerUpgradeEpoch14,[SubmarineUpgradeEpoch13],130
-dest15_vs_sub13,DestroyerUpgradeEpoch15,[SubmarineUpgradeEpoch13],130
-dest13_vs_sub15,DestroyerUpgradeEpoch13,[SubmarineUpgradeEpoch15],130
-dest14_vs_sub15,DestroyerUpgradeEpoch14,[SubmarineUpgradeEpoch15],130
-dest15_vs_sub15,DestroyerUpgradeEpoch15,[SubmarineUpgradeEpoch15],130
-dest14_vs_t039b,DestroyerUpgradeEpoch14,[Type039BUpgradeEpoch14],130
-dest14_vs_virginia,DestroyerUpgradeEpoch14,[VirginiaSubmarineUpgradeEpoch14],130
-dest14_vs_akula,DestroyerUpgradeEpoch14,[akulaUpgradeEpoch14],130
-//--- 驱逐舰对航母劣势 ---
-dest13_vs_carrier14,DestroyerUpgradeEpoch13,[AircraftCarrierUpgradeEpoch14],80
-dest14_vs_carrier14,DestroyerUpgradeEpoch14,[AircraftCarrierUpgradeEpoch14],80
-dest15_vs_carrier14,DestroyerUpgradeEpoch15,[AircraftCarrierUpgradeEpoch14],80
-//--- 航母克主力舰 ---
-carrier14_vs_battle13,AircraftCarrierUpgradeEpoch14,[BattleshipUpgradeEpoch13],125
-carrier14_vs_battle14,AircraftCarrierUpgradeEpoch14,[BattleshipUpgradeEpoch14],125
-carrier14_vs_battle15,AircraftCarrierUpgradeEpoch14,[BattleshipUpgradeEpoch15],125
-
-//============================================
-// 机枪碉堡 1.3x 步兵克制(E11-E15) - 生成: 2026-05-21
-// 机枪是战场上步兵的噩梦，对轻/重/特种步兵全线130%伤害
-//============================================
-//--- E11 ---
-mg11_vs_li11,MachinegunnestUpgradeEpoch11,[LightInfantryUpgradeEpoch11],130
-mg11_vs_hi1_11,MachinegunnestUpgradeEpoch11,[HeavyInfantry1UpgradeEpoch11],130
-mg11_vs_hi2_11,MachinegunnestUpgradeEpoch11,[HeavyInfantry2UpgradeEpoch11],130
-mg11_vs_sn11,MachinegunnestUpgradeEpoch11,[SniperUpgradeEpoch11],130
-//--- E13 ---
-mg13_vs_li13,MachinegunnestUpgradeEpoch13,[LightInfantryUpgradeEpoch13],130
-mg13_vs_hi1_13,MachinegunnestUpgradeEpoch13,[HeavyInfantry1UpgradeEpoch13],130
-mg13_vs_hi2_14,MachinegunnestUpgradeEpoch13,[HeavyInfantry2UpgradeEpoch14],130
-mg13_vs_sn13,MachinegunnestUpgradeEpoch13,[SniperUpgradeEpoch13],130
-//--- E14 ---
-mg14_vs_li13,MachinegunnestUpgradeEpoch14,[LightInfantryUpgradeEpoch13],130
-mg14_vs_hi1_13,MachinegunnestUpgradeEpoch14,[HeavyInfantry1UpgradeEpoch13],130
-mg14_vs_hi2_14,MachinegunnestUpgradeEpoch14,[HeavyInfantry2UpgradeEpoch14],130
-mg14_vs_sn13,MachinegunnestUpgradeEpoch14,[SniperUpgradeEpoch13],130
-//--- E15 ---
-mg15_vs_li15,MachinegunnestUpgradeEpoch15,[LightInfantryUpgradeEpoch15],130
-mg15_vs_hi1_15,MachinegunnestUpgradeEpoch15,[HeavyInfantry1UpgradeEpoch15],130
-mg15_vs_hi2_15,MachinegunnestUpgradeEpoch15,[HeavyInfantry2UpgradeEpoch15],130
-mg15_vs_sn13,MachinegunnestUpgradeEpoch15,[SniperUpgradeEpoch13],130

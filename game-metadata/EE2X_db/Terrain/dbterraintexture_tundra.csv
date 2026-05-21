@@ -1,0 +1,43 @@
+//Name,Seasonal Texture,Alpha Mask texture,Tint fraction (1.0 = use tint; 0.0 = ignore tint)
+# DbSeasonalTextureSets_ = Tundra,,,
+Grass_Tundra,Grass_Tundra,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Grass_Tundra2,Grass_Tundra2,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Grass_Tundra3,Grass_Tundra3,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Grass_Tundra4,Grass_Tundra4,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+IceySnow_arctic,IceySnow_arctic,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Cliff_Arctic,Cliff_Arctic,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Mountain_Arctic,Mountain_Arctic,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Mountain_Arctic2,Mountain_Arctic2,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Mountain_Arctic_Snow,Mountain_Arctic_Snow,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Mountain_Arctic_Snow2,Mountain_Arctic_Snow2,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Arctic_Ocean_Base,Arctic_Ocean_Base,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Arctic_Rocky_Snow,Arctic_Rocky_Snow,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Arctic_Rough_Snow,Arctic_Rough_Snow,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Arctic_Shore_Base,Arctic_Shore_Base,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Arctic_Snow_Riverbank,Arctic_Snow_Riverbank,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Arctic_DirtySnow,Arctic_DirtySnow,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+OceanFloor_Tundra,OceanFloor_Tundra,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+ShallowWater_Tundra,ShallowWater_Tundra,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Coastal_Tundra,Coastal_Tundra,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Arctic_snow_drift,Arctic_snow_drift,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+arctic_dense_snow,arctic_dense_snow,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+arctic_snow1,arctic_snow1,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+arctic_snow2,arctic_snow2,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+arctic_snow3,arctic_snow3,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+arctic_snow4,arctic_snow4,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+arctic_snow5,arctic_snow5,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Cliff01_Temperate,Cliff01_Temperate,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+CoastalGrass01_Arctic,CoastalGrass01_Arctic,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+CoastalGrass02_Arctic,CoastalGrass02_Arctic,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Saltgrass_Arctic,Saltgrass_Arctic,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Beach_Arctic,Beach_Arctic,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+Riverbank_Temperate,Riverbank_Temperate,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+RiverbankGrassy_Temperate,RiverbankGrassy_Temperate,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+RiverbankPatchy_Temperate,RiverbankPatchy_Temperate,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+ForestRoots_Temperate,ForestRoots_Temperate,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+UnderBuilding_1_Temperate,UnderBuilding_1_Temperate,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+UnderBuilding_2_Temperate,UnderBuilding_2_Temperate,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+UnderBuilding_3_Temperate,UnderBuilding_3_Temperate,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+space,space,terr_16_mask.tga, 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+
+

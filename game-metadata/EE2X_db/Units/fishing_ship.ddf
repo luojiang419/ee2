@@ -24,7 +24,7 @@ UnitType FishingShip
 				otherRange = 0.8;
 				dropoffRange = 0.7;
 
-				 foodRate = 0.6; // this is the gather rate from school of fish
+				 foodRate = 2.4; // this is the gather rate from school of fish
 				 woodRate = 0.0;
 				 stoneRate = 0.0;
 				 goldRate = 0.0;

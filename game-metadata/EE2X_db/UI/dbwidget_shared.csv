@@ -1,0 +1,30 @@
+//NAME,CLASS,PARENT,INC ACCUM DEPTH,ANCHORNAME1,ANCHORTYPE1,ANCHORNAME2,ANCHORTYPE2,XOFF,YOFF,XOFF ANCHOR2,YOFF ANCHOR2,WIDTH,HEIGHT,SPRITE,FRAMESTYLE,BUTTONSTYLE,FONTSTYLE,TEXTJUST,XTEXTOFF,YTEXTOFF,LABEL,TOOLTIP,VERBOSE,NOMOUSE,CMDSTR,ARGSTR
+default_mbPanel,Sprite,,0,,,,,0,0,0,0,800,400,spr_bkg_panel_blue,,,,,0,0,,,,1,,"""titleBar=default_titleBar center"""
+default_mbButton,Button,,0,,,,,0,0,0,0,128,32,spr_button,,,fs_std_med_bold_white,CenterMid,0,0,,,,0,,""""""
+default_titleBar,TitleBar,,0,,,,,0,0,0,0,800,30,spr_bkg_panel_blue,,,fs_std_med_bold_white,CenterMid,0,0,,,,0,,""""""
+// Debugging,,,,,,,,,,,,,,,,,,,,,,,,,,
+debugmp_panel,Panel,,0,,SourceURTargetUR,,,-10,263,0,0,450,600,spr_bkg_translucent75,wfs_game_blackline,,,,0,0,tx_dbgmpage_title,,,0,,"""titleBar=ingame_panel_title, close=se_panel_closebox, minimize=se_panel_minimize dontTabToChildren dontEscapeToClose"""
+debugmp_combo,Combo,debugmp_panel,0,,SourceULTargetUL,,SourceURTargetUR,0,32,0,0,-1,32,spr_greybutton_92x40,,,fs_std_med_white,,5,2,,,,0,,"""enum=eDebugMultiPage spriteName=spr_menuback width=300"""
+debugmp_page,Text,debugmp_panel,0,debugmp_combo,SourceLLTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,fs_std_small_white,,5,0,,,,0,,"""wordWrap scrollBar=fe_scrollbar"""
+//debugmp_page,TextPage,debugmp_panel,0,debugmp_combo,SourceLLTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,fs_std_small_white,,5,0,,,,0,,"""dispType=0 wordWrap scrollBar=fe_scrollbar"""
+
+
+// slider widgets,,,,,,,,,,,,,,,,,,,,,,,,,,
+generic_slider_horiz_bkg,Sprite,,0,,,,,0,0,0,0,128,16,spr_slider_bkg,,,,,0,0,,,,0,,""""""
+generic_slider_horiz_thumb,Sprite,,0,,,,,0,0,0,0,19,40,spr_slider_thumb,,,,,0,0,,,,0,,""""""
+generic_slider_horiz,Slider,,0,,,,,0,0,0,0,140,40,,,,,,0,0,,,,0,,"""sliderSprite=generic_slider_horiz_bkg thumbSprite=generic_slider_horiz_thumb offset=10"""
+
+// numeric text field widgets,,,,,,,,,,,,,,,,,,,,,,,,,,
+generic_numedittext,NumEditText,,0,,,,,0,0,0,0,64,32,spr_game_dialog_textinput_bkg,wfs_game_glass_inset,,fs_std_med_white,LeftMid,10,0,,,,0,,"""disabledFrameColors"""
+generic_floatedittext,FloatEditText,,0,,,,,0,0,0,0,64,32,spr_game_dialog_textinput_bkg,wfs_game_glass_inset,,fs_std_med_white,LeftMid,10,0,,,,0,,"""disabledFrameColors"""
+generic_numedittext_big,NumEditText,,0,,,,,0,0,0,0,100,32,spr_game_dialog_textinput_bkg,wfs_game_glass_inset,,fs_std_med_white,LeftMid,10,0,,,,0,,"""disabledFrameColors"""
+generic_floatedittext_big,FloatEditText,,0,,,,,0,0,0,0,100,32,spr_game_dialog_textinput_bkg,wfs_game_glass_inset,,fs_std_med_white,LeftMid,10,0,,,,0,,"""disabledFrameColors"""
+
+// color samples for color menus,,,,,,,,,,,,,,,,,,,,,,,,,,
+generic_combo_colorsample,Sprite,,0,,SourceULTargetUL,,SourceLLTargetLL,5,5,-5,-5,2,-1,spr_whitepixel,wfs_fe_gold_inset,,,,0,0,,,,1,,"""disabledFrameColors"""
+generic_menu_colorsample,Sprite,,0,,SourceULTargetUL,,SourceLRTargetLR,8,8,-8,-8,-1,-1,spr_whitepixel,wfs_game_glass_etch,,,,0,0,,,,1,,""""""
+glass_combo_colorsample,Sprite,,0,,SourceULTargetUL,,SourceLLTargetLL,5,5,-5,-5,2,-1,spr_whitepixel,wfs_game_glass_inset,,,,0,0,,,,1,,""""""
+
+// buttons for IME,,,,,,,,,,,,,,,,,,,,,,,,,,
+IME_button_up,Sprite,,0,,SourceURTargetUR,,,0,0,0,0,16,16,spr_fe_scroll_up,,TwoState,,,0,0,,,,0,,""""""
+IME_button_down,Sprite,,0,IME_button_up,SourceLRTargetUR,,,0,0,0,0,16,16,spr_fe_scroll_down,,TwoState,,,0,0,,,,0,,""""""

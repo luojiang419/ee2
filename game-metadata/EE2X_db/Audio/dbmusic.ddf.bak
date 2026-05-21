@@ -1,0 +1,104 @@
+//	DbMusic.ddf - music db records
+//	------------------------------
+//
+//	Shell looping music
+
+DbMusicCtrlLoopSetDef music_fe
+{
+	filenames = [ "Hero dawn.mp3" "BattleAtWitchCreek.mp3" "The Dawn.mp3"
+	]
+}
+
+//
+//	In-game ambient music
+//
+
+DbMusicCtrlGameAmbientDef music_ingame
+{
+	regionSets = [
+	{
+	region = West
+	filenames = ["amb_we_1.mp3" "amb_we_2.mp3" "amb_we_3.mp3" "amb_we_4.mp3"
+			"amb_we_5.mp3" "amb_we_6.mp3" "amb_we_7.mp3"
+			"amb_we_8.mp3" "amb_we_9.mp3" "amb_we_10.mp3"
+			]
+	}
+	{
+	region = FarEast
+	filenames = ["amb_fe_1.mp3" "amb_fe_2.mp3" "amb_fe_3.mp3"
+			"amb_fe_4.mp3" "amb_fe_4b.mp3" "amb_fe_5.mp3" "amb_fe_5b.mp3"
+			"amb_fe_6.mp3" "amb_fe_6b.mp3" "amb_fe_6c.mp3" 
+			"amb_fe_8.mp3" "chengxunqi.mp3" 
+			"the_mass.mp3" "amb_fe_11.mp3" "amb_fe_12.mp3"
+			]
+	}
+	{
+	region = MiddleEast
+	filenames = ["amb_me_1.mp3" "amb_me_1b.mp3" 
+			"amb_me_2.mp3" "amb_me_2b.mp3" "amb_me_2c.mp3" "amb_me_2d.mp3" 
+			"amb_me_4.mp3" "amb_me_5.mp3" "amb_me_6.mp3" 
+			"amb_me_7.mp3" "amb_me_8.mp3" "amb_me_9.mp3" "amb_me_10.mp3"
+			"amb_me_11.mp3" "amb_me_11b.mp3" "amb_me_11c.mp3"
+			"amb_me_12.mp3" "amb_me_13.mp3" 
+			]
+	}
+	{
+	region = MesoAmerican
+	filenames = ["amb_am_1.mp3" "amb_am_1b.mp3" "amb_am_1c.mp3" "amb_am_1d.mp3" "amb_am_1e.mp3" 
+			"amb_am_2.mp3" "amb_am_2b.mp3" "amb_am_2c.mp3" "amb_am_2d.mp3" 
+			"amb_am_3.mp3" "amb_am_4.mp3" "amb_am_5.mp3" "amb_am_6.mp3" "amb_am_7.mp3" "amb_am_8.mp3"
+			]
+	}
+	// @EE2X @MRC
+	// New African region music.
+ 	{
+	region = African
+	filenames = ["amb_af_1.mp3" "amb_af_2.mp3" "amb_af_3.mp3" "amb_af_4.mp3" "amb_af_5.mp3" 
+			"amb_af_6.mp3" "amb_af_7.mp3" "amb_af_8.mp3" "amb_af_9.mp3" "amb_af_10.mp3" 
+			"amb_af_11.mp3" "amb_af_12.mp3" "amb_af_13.mp3" 
+			]
+	}
+	]
+
+	epochSets = [
+	{
+	epochFirst = Stone
+	epochLast = Industrial
+	filenames = []		// no early-epoch music
+	}
+	/*{
+	epochFirst = Modern
+	epochLast = Digital
+	filenames = ["amb_mid_late_1.mp3" "amb_mid_late_2.mp3" "amb_mid_late_3.mp3" 
+			"amb_mid_late_4.mp3" "amb_mid_late_5.mp3" "amb_mid_late_6.mp3" 
+			"amb_mid_late_7.mp3" "amb_mid_late_8.mp3"]
+	}
+	{
+	epochFirst = Genetic
+	epochLast = Synthetic
+	filenames = ["amb_mid_late_1.mp3" "amb_mid_late_2.mp3" "amb_mid_late_3.mp3" 
+			"amb_mid_late_4.mp3" "amb_mid_late_5.mp3" "amb_mid_late_6.mp3" 
+			"amb_mid_late_7.mp3" "amb_mid_late_8.mp3"]
+	}*/
+	{
+	epochFirst = Modern
+	epochLast = Digital
+	filenames = ["the_dawn.mp3" "hero_is_theme.mp3" "empire_of_angels.mp3" 
+			"breath_and_life.mp3" "heis_pirate.mp3" "amb_mid_late_6.mp3" 
+			"hero_dawn.mp3"]
+	}
+	{
+	epochFirst = Genetic
+	epochLast = Synthetic
+	filenames = ["the_dawn.mp3" "hero_is_theme.mp3" "empire_of_angels.mp3" 
+			"breath_and_life.mp3" "heis_pirate.mp3" "amb_mid_late_6.mp3" 
+			"hero_dawn.mp3"]
+	}
+	]
+
+	fracSilentPieces = 0.5
+	timeSilenceLow = 20
+	timeSilenceHigh = 30
+	numLoopsLow = 2
+	numLoopsHigh = 4
+}

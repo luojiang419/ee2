@@ -19,7 +19,7 @@ UnitType RussianCarrier
 	sounds = {
 	}
 	abilities = [
-		NavalMove {speed = 1.6; accel = 1; angSpeed = 10}
+		NavalMove {speed = 1.725; accel = 1; angSpeed = 10}
 		LOS { range = 0 }
 		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5;}
 		Produce {  } // needs produce ability for EffectSpawn

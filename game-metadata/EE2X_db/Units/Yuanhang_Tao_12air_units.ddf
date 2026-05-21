@@ -1878,7 +1878,7 @@ verboseTooltip = vtt_unit_Ar196
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.1}
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.5}
 		Attack { damage = 1500; range = 13; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 10 }
 		LOS { range = 13 }
 	]

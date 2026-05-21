@@ -1,0 +1,200 @@
+//NAME,FILENAME,U,V,WIDTH,HEIGHT,FLAGS
+
+
+//////////////////////////////////////,,,,,,
+// AFRICAN VARIANTS OF NORMAL UNITS,,,,,,
+
+// LIGHT INFANTRY,,,,,,
+icon_unit_bowman_af,icon_unit_bowman_af.tga,0,0,77,60,0
+icon_unit_composite_bowman_af,icon_unit_composite_bowman_af.tga,0,0,77,60,0
+icon_unit_crossbowman_af,icon_unit_crossbowman_af.tga,0,0,77,60,0
+icon_unit_grenadepistoleer_af,icon_unit_grenadepistoleer_af.tga,0,0,77,60,0
+icon_unit_grenadier_af,icon_unit_grenadier_af.tga,0,0,77,60,0
+icon_unit_incendiarymortar_af,icon_unit_incendiarymortar_af.tga,0,0,77,60,0
+icon_unit_mortarman_af,icon_unit_mortarman_af.tga,0,0,77,60,0
+//icon_unit_bombletmortar,icon_unit_bombletmortar_af.tga,0,0,77,60,0
+
+// HEAVY INFANTRY 1,,,,,,
+icon_unit_assaultrifleman_af,icon_unit_assaultrifleman_af.tga,0,0,77,60,0
+icon_unit_maceman_af,icon_unit_maceman_af.tga,0,0,77,60,0
+icon_unit_manatarms_af,icon_unit_manatarms_af.tga,0,0,77,60,0
+icon_unit_musketeer_af,icon_unit_musketeer_af.tga,0,0,77,60,0
+icon_unit_regular_af,icon_unit_regular_af.tga,0,0,77,60,0
+icon_unit_rifleman_af,icon_unit_rifleman_af.tga,0,0,77,60,0
+icon_unit_swordsman_af,icon_unit_swordsman_af.tga,0,0,77,60,0
+
+// HEAVY INFANTRY 2,,,,,,
+icon_unit_halberdier_af,icon_unit_halberdier_af.tga,0,0,77,60,0
+icon_unit_machinegunner_af,icon_unit_machinegunner_af.tga,0,0,77,60,0
+icon_unit_minigunner_af,icon_unit_minigunner_af.tga,0,0,77,60,0
+icon_unit_pikeman_af,icon_unit_pikeman_af.tga,0,0,77,60,0
+icon_unit_spearman_af,icon_unit_spearman_af.tga,0,0,77,60,0
+
+// LIGHT MOUNTED 1,,,,,,
+icon_unit_Carabineer_af,icon_unit_Carabineer_af.tga,0,0,77,60,0
+icon_unit_Dragoon_af,icon_unit_Dragoon_af.tga,0,0,77,60,0
+icon_unit_horsearcher_af,icon_unit_horsearcher_af.tga,0,0,77,60,0
+icon_unit_mounted_skirmisher_af,icon_unit_mounted_skirmisher_af.tga,0,0,77,60,0
+icon_unit_mounted_slinger_af,icon_unit_mounted_slinger_af.tga,0,0,77,60,0
+
+// HEAVY MOUNTED 1,,,,,,
+icon_unit_armored_cavalry_af,icon_unit_armored_cavalry_af.tga,0,0,77,60,0
+icon_unit_elite_cavalry_af,icon_unit_elitecavalry_af.tga,0,0,77,60,0
+icon_unit_ImperialLancer_af,icon_unit_ImperialLancer_af.tga,0,0,77,60,0
+icon_unit_Lancer_af,icon_unit_Lancer_af.tga,0,0,77,60,0
+icon_unit_MountedInfantry_af,icon_unit_MountedInfantry_af.tga,0,0,77,60,0
+
+// LIGHT ARTILLERY 1,,,,,,
+icon_unit_stonethrower_af,icon_unit_stonethrower_af.tga,0,0,77,60,0
+icon_unit_scorpion_af,icon_unit_scorpion_af.tga,0,0,77,60,0
+icon_unit_ballista_af,icon_unit_ballista_af.tga,0,0,77,60,0
+icon_unit_culverin_af,icon_unit_culverin_af.tga,0,0,77,60,0
+icon_unit_fieldgun_af,icon_unit_fieldgun_af.tga,0,0,77,60,0
+icon_unit_fieldartillery_af,icon_unit_fieldartillery_af.tga,0,0,77,60,0
+
+// HEAVY ARTILLERY,,,,,,
+icon_unit_onager_af,icon_unit_onager_af.tga,0,0,77,60,0
+icon_unit_catapult_af,icon_unit_catapult_af.tga,0,0,77,60,0
+icon_unit_trebuchet_af,icon_unit_trebuchet_af.tga,0,0,77,60,0
+icon_unit_BombardCannon_af,icon_unit_BombardCannon_af.tga,0,0,77,60,0
+icon_unit_SiegeGun_af,icon_unit_SiegeGun_af.tga,0,0,77,60,0
+
+// PRIEST,,,,,,
+icon_unit_priest_af,icon_unit_priest_1_af.tga,0,0,77,60,0
+icon_unit_priest_4_af,icon_unit_priest_4_af.tga,0,0,77,60,0
+icon_unit_priest_7_af,icon_unit_priest_7_af.tga,0,0,77,60,0
+icon_unit_priest_10_af,icon_unit_priest_10_af.tga,0,0,77,60,0
+icon_unit_priest_13_af,icon_unit_priest_13_af.tga,0,0,77,60,0
+
+// SPY,,,,,,
+icon_unit_spy_1_af,icon_unit_spy_1_af.tga,0,0,77,60,0
+icon_unit_spy_4_af,icon_unit_spy_4_af.tga,0,0,77,60,0
+icon_unit_spy_7_af,icon_unit_spy_7_af.tga,0,0,77,60,0
+icon_unit_spy_10_af,icon_unit_spy_10_af.tga,0,0,77,60,0
+
+// SCOUT,,,,,,
+icon_unit_scout_1_af,icon_unit_scout_1_af.tga,0,0,77,60,0
+icon_unit_scout_4_af,icon_unit_scout_4_af.tga,0,0,77,60,0
+icon_unit_scout_7_af,icon_unit_scout_7_af.tga,0,0,77,60,0
+icon_unit_scout_10_af,icon_unit_scout_10_af.tga,0,0,77,60,0
+icon_unit_scout_13_af,icon_unit_scout_13_af.tga,0,0,77,60,0
+
+// CITIZEN,,,,,,
+icon_unit_citizen_male_1_af,icon_unit_citizen_m_1_af.tga,0,0,77,60,0
+icon_unit_citizen_male_4_af,icon_unit_citizen_m_4_af.tga,0,0,77,60,0
+icon_unit_citizen_male_7_af,icon_unit_citizen_m_7_af.tga,0,0,77,60,0
+icon_unit_citizen_male_10_af,icon_unit_citizen_m_10_af.tga,0,0,77,60,0
+icon_unit_citizen_male_13_af,icon_unit_citizen_m_13_af.tga,0,0,77,60,0
+icon_unit_citizen_female_1_af,icon_unit_citizen_f_1_af.tga,0,0,77,60,0
+icon_unit_citizen_female_4_af,icon_unit_citizen_f_4_af.tga,0,0,77,60,0
+icon_unit_citizen_female_7_af,icon_unit_citizen_f_7_af.tga,0,0,77,60,0
+icon_unit_citizen_female_10_af,icon_unit_citizen_f_10_af.tga,0,0,77,60,0
+icon_unit_citizen_female_13_af,icon_unit_citizen_f_13_af.tga,0,0,77,60,0
+
+// MEDIC,,,,,,
+icon_unit_medic_10_af,icon_unit_medic_10_af.tga,0,0,77,60,0
+icon_unit_medic_12_af,icon_unit_medic_12_af.tga,0,0,77,60,0
+icon_unit_medic_14_af,icon_unit_medic_14_af.tga,0,0,77,60,0
+
+// LEADERS,,,,,,
+// The following 3 leaders use the same model and should share an icon,,,,,,
+icon_unit_LeaderEcon_01_af,icon_unit_chief_af.tga,0,0,77,60,0
+icon_unit_LeaderMil_01_af,icon_unit_chief_af.tga,0,0,77,60,0
+icon_unit_LeaderImp_01_af,icon_unit_chief_af.tga,0,0,77,60,0
+
+// The following 3 leaders use the same model and should share an icon,,,,,,
+icon_unit_LeaderEcon_06_af,icon_unit_king_af.tga,0,0,77,60,0
+icon_unit_LeaderMil_06_af,icon_unit_king_af.tga,0,0,77,60,0
+icon_unit_LeaderImp_06_af,icon_unit_king_af.tga,0,0,77,60,0
+
+// The following 3 leaders use the same model and should share an icon,,,,,,
+icon_unit_LeaderEcon_11_af,icon_unit_president_af.tga,0,0,77,60,0
+icon_unit_LeaderMil_11_af,icon_unit_president_af.tga,0,0,77,60,0
+icon_unit_LeaderImp_11_af,icon_unit_president_af.tga,0,0,77,60,0
+
+
+//////////////////////////////////////,,,,,,
+// AFRICAN VARIANTS OF BUILDINGS,,,,,,
+
+// CITY CENTER,,,,,,
+icon_unit_citycenter_1_af,icon_unit_citycenter_1_af.tga,0,0,77,60,0
+icon_unit_citycenter_4_af,icon_unit_citycenter_4_af.tga,0,0,77,60,0
+icon_unit_citycenter_7_af,icon_unit_citycenter_7_af.tga,0,0,77,60,0
+icon_unit_citycenter_10_af,icon_unit_citycenter_10_af.tga,0,0,77,60,0
+
+// HOUSE,,,,,,
+icon_unit_house_1_af,icon_unit_house_1_af.tga,0,0,77,60,0
+icon_unit_house_3_af,icon_unit_house_3_af.tga,0,0,77,60,0
+icon_unit_house_5_af,icon_unit_house_5_af.tga,0,0,77,60,0
+icon_unit_house_7_af,icon_unit_house_7_af.tga,0,0,77,60,0
+icon_unit_house_9_af,icon_unit_house_9_af.tga,0,0,77,60,0
+icon_unit_house_11_af,icon_unit_house_11_af.tga,0,0,77,60,0
+
+// FORTRESS,,,,,,
+icon_unit_fortress_2_af,icon_unit_fortress_2_af.tga,0,0,77,60,0
+icon_unit_fortress_4_af,icon_unit_fortress_4_af.tga,0,0,77,60,0
+icon_unit_fortress_6_af,icon_unit_fortress_6_af.tga,0,0,77,60,0
+icon_unit_fortress_8_af,icon_unit_fortress_8_af.tga,0,0,77,60,0
+icon_unit_fortress_10_af,icon_unit_fortress_10_af.tga,0,0,77,60,0
+icon_unit_fortress_12_af,icon_unit_fortress_12_af.tga,0,0,77,60,0
+
+// TEMPLE,,,,,,
+icon_unit_temple_1_af,icon_unit_temple_1_af.tga,0,0,77,60,0
+icon_unit_temple_4_af,icon_unit_temple_4_af.tga,0,0,77,60,0
+icon_unit_temple_7_af,icon_unit_temple_7_af.tga,0,0,77,60,0
+icon_unit_temple_10_af,icon_unit_temple_10_af.tga,0,0,77,60,0
+
+
+//////////////////////////////////,,,,,,
+// UNIQUE UNITS,,,,,,
+
+// MAASAI,,,,,,
+icon_unit_UUMaasai1,icon_unique_moraniWarrior.tga,0,0,77,60,0
+icon_unit_UUMaasai2,icon_unique_laibon.tga,0,0,77,60,0
+icon_unit_UUMaasai3,icon_unique_siritHeavyBomber.tga,0,0,77,60,0
+
+// ZULU,,,,,,
+icon_unit_UUZulu1,icon_unique_iklwaWarrior.tga,0,0,77,60,0
+icon_unit_UUZulu2,icon_unique_inyanga.tga,0,0,77,60,0
+icon_unit_UUZulu3,icon_unique_hornsOfTheImpi.tga,0,0,77,60,0
+
+// FRENCH,,,,,,
+icon_unit_UUFrench1,icon_unique_mangoneau.tga,0,0,77,60,0
+icon_unit_UUFrench2,icon_unique_cuirassier.tga,0,0,77,60,0
+icon_unit_UUFrench3,icon_unique_rafaleStealthFighter.tga,0,0,77,60,0
+
+// RUSSIAN,,,,,,
+icon_unit_UURussian1,icon_unique_varangianWarrior.tga,0,0,77,60,0
+icon_unit_UURussian2,icon_unique_licornHowitzer.tga,0,0,77,60,0
+icon_unit_UURussian3,icon_unique_T90SGunMissleTank.tga,0,0,77,60,0
+
+
+//////////////////////////////////,,,,,,
+// @EE2X   JCD   03/09/05,,,,,,
+// WONDERS,,,,,,
+icon_unit_WonderAfrican_01,icon_unit_ManyattaWarriors.tga,0,0,77,60,0
+icon_unit_WonderAfrican_06,icon_unit_DjenneMarket.tga,0,0,77,60,0
+icon_unit_WonderAfrican_11,icon_unit_SankoreInstitute.tga,0,0,77,60,0
+
+
+///////////////////////////////////////,,,,,,
+// CAMPAIGN UNITS,,,,,,
+
+// russian campaign,,,,,,
+icon_unit_camp_russiancossack,icon_campaign_russiancossack.tga,0,0,77,60,0
+icon_unit_camp_citycenter10_ru,icon_campaign_citycenter10_ru.tga,0,0,77,60,0
+icon_unit_camp_alexander,icon_campaign_alexander.tga,0,0,77,60,0
+icon_unit_camp_frenchImperial,icon_campaign_frenchImperial.tga,0,0,77,60,0
+icon_unit_camp_conscript,icon_campaign_conscript.tga,0,0,77,60,0
+
+// egyptian campaign,,,,,,
+icon_unit_camp_greatpyramid,icon_campaign_greatpyramid.tga,0,0,77,60,0
+icon_unit_camp_khnum,icon_campaign_khnum.tga,0,0,77,60,0
+icon_unit_camp_horus,icon_campaign_horus.tga,0,0,77,60,0
+icon_unit_camp_sobek,icon_campaign_sobek.tga,0,0,77,60,0
+icon_unit_camp_osiris,icon_campaign_osiris.tga,0,0,77,60,0
+icon_unit_camp_warengine,icon_campaign_warengine.tga,0,0,77,60,0
+
+// masaai,,,,,,
+icon_unit_beriniumtruck,icon_unit_beriniumtruck.tga,0,0,77,60,0
+icon_unit_berinium_bld,icon_unit_berinium_bld.tga,0,0,77,60,0

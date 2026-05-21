@@ -1,0 +1,69 @@
+//NAME,FILENAME,U,V,WIDTH,HEIGHT,FLAGS
+
+
+//////////////////////////////////////,,,,,,
+// EE2X ARMY BUTTONS,,,,,,
+
+// form army button,,,,,,
+icon_unitact_army_form,EE2X_icon_army_form_stone.tga,0,0,77,60,0
+icon_unitact_army_form_r,EE2X_icon_army_form_rollover_stone.tga,0,0,77,60,0
+icon_unitact_army_form_p,EE2X_icon_army_form_pressed_stone.tga,0,0,77,60,0
+icon_unitact_army_form_rp,EE2X_icon_army_form_pressed_stone.tga,0,0,77,60,0
+icon_unitact_army_form_e2,EE2X_icon_army_form_parch.tga,0,0,77,60,0
+icon_unitact_army_form_r_e2,EE2X_icon_army_form_rollover_parch.tga,0,0,77,60,0
+icon_unitact_army_form_p_e2,EE2X_icon_army_form_pressed_parch.tga,0,0,77,60,0
+icon_unitact_army_form_rp_e2,EE2X_icon_army_form_pressed_parch.tga,0,0,77,60,0
+icon_unitact_army_form_e3,EE2X_icon_army_form_metal.tga,0,0,77,60,0
+icon_unitact_army_form_r_e3,EE2X_icon_army_form_rollover_metal.tga,0,0,77,60,0
+icon_unitact_army_form_p_e3,EE2X_icon_army_form_pressed_metal.tga,0,0,77,60,0
+icon_unitact_army_form_rp_e3,EE2X_icon_army_form_pressed_metal.tga,0,0,77,60,0
+
+// disband army button,,,,,,
+icon_unitact_army_disband,EE2X_icon_army_disband_stone.tga,0,0,77,60,0
+icon_unitact_army_disband_r,EE2X_icon_army_disband_rollover_stone.tga,0,0,77,60,0
+icon_unitact_army_disband_p,EE2X_icon_army_disband_pressed_stone.tga,0,0,77,60,0
+icon_unitact_army_disband_rp,EE2X_icon_army_disband_pressed_stone.tga,0,0,77,60,0
+icon_unitact_army_disband_e2,EE2X_icon_army_disband_parch.tga,0,0,77,60,0
+icon_unitact_army_disband_r_e2,EE2X_icon_army_disband_rollover_parch.tga,0,0,77,60,0
+icon_unitact_army_disband_p_e2,EE2X_icon_army_disband_pressed_parch.tga,0,0,77,60,0
+icon_unitact_army_disband_rp_e2,EE2X_icon_army_disband_pressed_parch.tga,0,0,77,60,0
+icon_unitact_army_disband_e3,EE2X_icon_army_disband_metal.tga,0,0,77,60,0
+icon_unitact_army_disband_r_e3,EE2X_icon_army_disband_rollover_metal.tga,0,0,77,60,0
+icon_unitact_army_disband_p_e3,EE2X_icon_army_disband_pressed_metal.tga,0,0,77,60,0
+icon_unitact_army_disband_rp_e3,EE2X_icon_army_disband_pressed_metal.tga,0,0,77,60,0
+
+// quit army button,,,,,,
+icon_unitact_army_quit,EE2X_icon_army_quit_stone.tga,0,0,77,60,0
+icon_unitact_army_quit_r,EE2X_icon_army_quit_rollover_stone.tga,0,0,77,60,0
+icon_unitact_army_quit_p,EE2X_icon_army_quit_pressed_stone.tga,0,0,77,60,0
+icon_unitact_army_quit_rp,EE2X_icon_army_quit_pressed_stone.tga,0,0,77,60,0
+icon_unitact_army_quit_e2,EE2X_icon_army_quit_parch.tga,0,0,77,60,0
+icon_unitact_army_quit_r_e2,EE2X_icon_army_quit_rollover_parch.tga,0,0,77,60,0
+icon_unitact_army_quit_p_e2,EE2X_icon_army_quit_pressed_parch.tga,0,0,77,60,0
+icon_unitact_army_quit_rp_e2,EE2X_icon_army_quit_pressed_parch.tga,0,0,77,60,0
+icon_unitact_army_quit_e3,EE2X_icon_army_quit_metal.tga,0,0,77,60,0
+icon_unitact_army_quit_r_e3,EE2X_icon_army_quit_rollover_metal.tga,0,0,77,60,0
+icon_unitact_army_quit_p_e3,EE2X_icon_army_quit_pressed_metal.tga,0,0,77,60,0
+icon_unitact_army_quit_rp_e3,EE2X_icon_army_quit_pressed_metal.tga,0,0,77,60,0
+
+// Beasthorns formation button,,,,,,
+icon_formation_beasthorns,EE2X_icon_formation_beasthorns_stone.tga,0,0,77,60,0
+icon_formation_beasthorns_r,EE2X_icon_formation_beasthorns_roll_stone.tga,0,0,77,60,0
+icon_formation_beasthorns_e2,EE2X_icon_formation_beasthorns_parch.tga,0,0,77,60,0
+icon_formation_beasthorns_r_e2,EE2X_icon_formation_beasthorns_roll_parch.tga,0,0,77,60,0
+icon_formation_beasthorns_e3,EE2X_icon_formation_beasthorns_metal.tga,0,0,77,60,0
+icon_formation_beasthorns_r_e3,EE2X_icon_formation_beasthorns_roll_metal.tga,0,0,77,60,0
+
+// Heal button,,,,,,
+icon_unitact_heal,EE2X_icon_action_heal_stone.tga,0,0,77,60,0
+icon_unitact_heal_r,EE2X_icon_action_heal_rollover_stone.tga,0,0,77,60,0
+icon_unitact_heal_p,EE2X_icon_action_heal_pressed_stone.tga,0,0,77,60,0
+icon_unitact_heal_rp,EE2X_icon_action_heal_pressed_stone.tga,0,0,77,60,0
+icon_unitact_heal_e2,EE2X_icon_action_heal_parch.tga,0,0,77,60,0
+icon_unitact_heal_r_e2,EE2X_icon_action_heal_rollover_parch.tga,0,0,77,60,0
+icon_unitact_heal_p_e2,EE2X_icon_action_heal_pressed_parch.tga,0,0,77,60,0
+icon_unitact_heal_rp_e2,EE2X_icon_action_heal_pressed_parch.tga,0,0,77,60,0
+icon_unitact_heal_e3,EE2X_icon_action_heal_metal.tga,0,0,77,60,0
+icon_unitact_heal_r_e3,EE2X_icon_action_heal_rollover_metal.tga,0,0,77,60,0
+icon_unitact_heal_p_e3,EE2X_icon_action_heal_pressed_metal.tga,0,0,77,60,0
+icon_unitact_heal_rp_e3,EE2X_icon_action_heal_pressed_metal.tga,0,0,77,60,0

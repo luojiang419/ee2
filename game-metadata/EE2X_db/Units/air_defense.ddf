@@ -184,7 +184,7 @@ UpgradeAbilities AIAirDefenseEpoch11Attack
 UpgradeAbilities AIAirDefenseEpoch13Attack
 {
 	upgradedAbilities = [
-	 Attack {damage = 0; range = 0; reloadTime = 666; angularRange = 360; missileName = "MIM23Missile"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret;areaDamageRadius = 1.5;  }
+	 Attack {damage = 250; range = 30; reloadTime = 3; angularRange = 360; missileName = "MIM23Missile"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret;areaDamageRadius = 1.5;  }
 	]
 }
 

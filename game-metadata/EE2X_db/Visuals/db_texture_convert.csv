@@ -1,0 +1,13 @@
+//NAME,FOLDER,NESTED,NOCONVERT,COMPRESS,MIPMAPS,GENALPHA,Binary alpha
+//, make sure to include trailing slash,,,,,,
+graphics,"""graphics/""",1,0,1,1,0,1
+ui,"""graphics/ui/""",1,0,1,0,0,0
+mapterr,"""graphics/terrain/map/""",0,1,0,0,0,0
+shadows,"""graphics/fx/shadows/""",1,0,1,0,1,0
+fx_noconvert,"""graphics/fx/noconvert/""",1,1,0,0,0,0
+fx_nomipmap,"""graphics/fx/NoMipMap/""",0,0,1,0,0,0
+
+graphics_EE2X,"""Graphics_EE2X/""",1,0,1,1,0,1
+graphics_bld_nomipmap_EE2X,"""Graphics_EE2X/Building/NoMipMap/""",1,0,1,0,0,1
+ui_EE2X,"""Graphics_EE2X/ui/""",1,0,1,0,0,0
+shadows_EE2X,"""Graphics_EE2X/fx/shadows/""",1,0,1,0,1,0

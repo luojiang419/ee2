@@ -194,7 +194,7 @@ UpgradeUnitTypeImprove BomberEpoch13Elite
 UpgradeAbilities BomberEpoch14Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 5.0; angSpeed = 42; CruisingHeight = 10.0; ElevChangeRate = 1.0; OnGroundScale = 0.8}
+		AircraftMove {speed = 6.5; angSpeed = 46; CruisingHeight = 10.0; ElevChangeRate = 1.0; OnGroundScale = 0.8}
 		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "Bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;
 				areaDamageRadius = 2.75; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]

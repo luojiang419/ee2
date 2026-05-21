@@ -194,7 +194,7 @@ UpgradeUnitTypeImprove FighterBomberEpoch13Elite
 UpgradeAbilities FighterBomberEpoch14Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 7.2; angSpeed = 75 CruisingHeight = 10.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 7; angSpeed = 80 CruisingHeight = 10.0; ElevChangeRate = 0.5}
 		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 16;
 				areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.5;throwUnits = true }
 	]

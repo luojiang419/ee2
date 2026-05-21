@@ -9,7 +9,7 @@ UnitType PC3
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1569
+		HitPoints = 785
 		displayName = tx_utn_j2f_name
 		verboseTooltip = vtt_unit_j2f
 		popCount = 2
@@ -17,8 +17,8 @@ UnitType PC3
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.5}
-		Attack { damage = 1500; range = 14; reloadTime = 0.5; applyDamageTime = 0.01; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 20 }
+		AircraftMove {speed = 3.6; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 4500; range = 14; reloadTime = 0.5; applyDamageTime = 0.01; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 20 }
 	LOS { range = 15 }
 	AreaEffect {
 			effects = [ 
@@ -538,14 +538,14 @@ UnitType Antiship_missile
 	parent = Artillery	
 	properties {
 		//rps = LightArtillery
-		rps = HeavyArtillery
+		rps = CoastalDefense
 		SizeX = 1.5
 		SizeY = 0.5
 		mass = 1
 		popCount = 3	
         DisplayName = tx_utn_Antiship_missile_name		
 		VerboseTooltip = vtt_unit_Antiship_missile
-		HitPoints = 3500
+		HitPoints = 1750
 		//stance = HoldFire
 	}
 	sounds = {
@@ -554,7 +554,7 @@ UnitType Antiship_missile
 	 AreaEffect {
 			
 		}
-		Attack { range = 23; reloadTime = 3.5; applyDamageTime = 0.3; damage = 900;packTime = 3.5;unpackTime = 3.5; missileName = "DapaoShell"; ignoreBlocking = 1;  areaDamageRadius = 2; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		Attack { range = 28; reloadTime = 3.5; applyDamageTime = 0.3; damage = 3000;packTime = 3.5;unpackTime = 3.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1;  areaDamageRadius = 3.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
             VehicleMove {speed = 1.6; angSpeed = 80; followTerrainSlope = 1 }
             Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
 		LOS { range = 27 }
@@ -582,7 +582,7 @@ UpgradeAbilities Antiship_missile11Attack
 UpgradeAbilities Antiship_missile13Attack
 {
 	upgradedAbilities = [
-		Attack { range = 23; reloadTime = 3.5; applyDamageTime = 0.3; damage = 900;packTime = 3.5;unpackTime = 3.5; missileName = "CJ10Rocke"; ignoreBlocking = 1;  areaDamageRadius = 2;  throwUnits = true }
+		Attack { range = 28; reloadTime = 3.5; applyDamageTime = 0.3; damage = 3000;packTime = 3.5;unpackTime = 3.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1;  areaDamageRadius = 3.0;  throwUnits = true }
 	]
 }
 UnitModel Antiship_missile_12
@@ -1290,7 +1290,7 @@ UnitType Type85Rocket
 		popCount = 3
 		VerboseTooltip = vtt_unit_Type85Rocket
 		displayName = tx_utn_Type85Rocket_name
-		HitPoints = 2500
+		HitPoints = 600
 	}
 	sounds = {
 		sndSelection = ["v_artillery_select_chn" 
@@ -1311,15 +1311,12 @@ UnitType Type85Rocket
 		sndDeath =  ["v_cmon_unit_death_chn"]
 	}
 	abilities = [
-		PowerReserve { timeToRecharge = 30 }
-	    SpecialPower { 		
-			effects = [ Change_Range ]
-		}
-		Attack { damage = 100; range = 1.8; reloadTime = 0.5; angularRange = 360;  missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1;minRangeMobile = 10; minRangeImmobile = 10; areaDamageRadius =2; areaDamageFriendlyRatio = 0.5; packTime = 2.0; unpackTime = 2.0;turretControllerName = MobileRocketLauncherTurret2; throwUnits = true }
+		Attack { damage = 100; range = 25; reloadTime = 15; angularRange = 360;  missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1;minRangeMobile = 10; minRangeImmobile = 10; areaDamageRadius =1.5; areaDamageFriendlyRatio = 0.5; packTime = 2.0; unpackTime = 2.0;turretControllerName = MobileRocketLauncherTurret2; throwUnits = true }
 		VehicleMove {speed = 0.8; angSpeed = 45; followTerrainSlope = 1 }
 		LOS { range = 21 }
 		Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
-	]
+			PowerReserve { timeToRecharge = 30 }
+		]
 	icon = icon_unit_Type85Rocket
 }
 UnitModel Type85Rocket

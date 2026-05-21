@@ -1,0 +1,405 @@
+//---------------------------------------------------------------------------
+// Definitions for weapons, like muzzle flashes and beams.
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+// BEAM DEFINITIONS
+//---------------------------------------------------------------------------
+BeamEffect 	TestBeam
+{
+//	StartLaserName = laser_linear_Start.nif
+	MiddleLaserName = laser_linear_Middle.nif
+//	EndLaserName = laser_linear_End.nif
+//	StartEffect = laser_linear_PowerUp.nif
+//	SplashEffect = laser_linear_Splash.nif
+	Life  = 0.2
+	DelayBeforeStartLaser = 0.25
+	TravelSpeed = 200
+	DeathLife = 0.2
+	TypeOfDeath = eLaserTypeOfDeath_Message_BegginingToEnd2
+	RepeatEffect = 0
+}
+
+BeamEffect 	Beam_Herc01
+{
+	MiddleLaserName = fx_beam_herc2_16.nif
+	StartEffect = fx_laser_muzzle_1.nif
+	SplashEffect = fx_laser_impact_1.nif
+	//StartEffectLife = 1.5
+	SplashEffectLife = 1.5
+	Life  = 0.4
+	DelayBeforeStartLaser = 0.35
+	TravelSpeed = 200
+	DeathLife = 0.4
+	TypeOfDeath = eLaserTypeOfDeath_Message_BegginingToEnd2
+	RepeatEffect = 0
+}
+
+BeamEffect 	Beam_Herc02
+{
+	MiddleLaserName = fx_beam_herc2.nif
+	StartEffect = fx_laser_muzzle_1.nif
+	SplashEffect = fx_laser_impact_1.nif
+	//StartEffectLife = 1.5
+	SplashEffectLife = 1.5
+	Life  = 0.4
+	DelayBeforeStartLaser = 0.35
+	TravelSpeed = 200
+	DeathLife = 0.4
+	TypeOfDeath = eLaserTypeOfDeath_Message_BegginingToEnd2
+	RepeatEffect = 0
+}
+BeamEffect 	Beam_Herc03
+{
+	MiddleLaserName = fx_beam_herc2_15.nif
+	StartEffect = fx_laser_muzzle_1.nif
+	SplashEffect = fx_laser_impact_1.nif
+	//StartEffectLife = 1.5
+	SplashEffectLife = 1.5
+	Life  = 0.4
+	DelayBeforeStartLaser = 0.35
+	TravelSpeed = 200
+	DeathLife = 0.4
+	TypeOfDeath = eLaserTypeOfDeath_Message_BegginingToEnd2
+	RepeatEffect = 0
+}
+
+BeamEffect 	Beam_HercBoat
+{
+	MiddleLaserName = fx_beam_herc2.nif
+	StartEffect = fx_laser_muzzle_1.nif
+	SplashEffect = fx_laser_impact_1.nif
+	SplashEffectLife = 0.5
+	
+	//StartEffectLife = 1.5
+	Life  = 0.1
+	DelayBeforeStartLaser = 0.0
+	TravelSpeed = 200
+	DeathLife = 0.4
+	TypeOfDeath = eLaserTypeOfDeath_Message_BegginingToEnd2
+	RepeatEffect = 0
+}
+BeamEffect 	Beam_HercTank
+{
+	MiddleLaserName = fx_beam_herc2.nif
+	StartEffect = fx_laser_muzzle_1.nif
+	SplashEffect = fx_laser_impact_1.nif
+	SplashEffectLife = 0.3
+	
+	//StartEffectLife = 1.5
+	Life  = 0.05
+	DelayBeforeStartLaser = 0.0
+	TravelSpeed = 100
+	DeathLife = 0.4
+	TypeOfDeath = eLaserTypeOfDeath_Message_Catchup
+	RepeatEffect = 0
+}
+BeamEffect 	Beam_HercPlane
+{
+	MiddleLaserName = fx_beam_herc2.nif
+	StartEffect = fx_laser_muzzle_1.nif
+	SplashEffect = fx_laser_impact_1.nif
+	SplashEffectLife = 0.3
+	
+	//StartEffectLife = 1.5
+	Life  = 0.4
+	DelayBeforeStartLaser = 0.0
+	TravelSpeed = 200
+	DeathLife = 0.4
+	TypeOfDeath = eLaserTypeOfDeath_Message_BegginingToEnd2
+	RepeatEffect = 0
+}
+
+// repair HERCs send a beam of energy to the HERC they are healing
+BeamEffect 	Beam_HercRepair
+{
+	MiddleLaserName = fx_beam_herc2.nif
+	StartEffect = fx_laser_muzzle_1.nif
+	
+	// @TODO get a different splash effect for healing
+	SplashEffect = fx_laser_impact_1.nif
+	SplashEffectLife = 1.5
+	
+	//StartEffectLife = 1.5
+	Life  = 0.6
+	DelayBeforeStartLaser = 0.0
+	TravelSpeed = 20
+	DeathLife = 0.4
+	TypeOfDeath = eLaserTypeOfDeath_Message_Catchup
+	RepeatEffect = 0
+}
+
+
+// Bullet tracer effect for machineguns and the like.
+BeamEffect 	MachineGunTracer
+{
+	MiddleLaserName = fx_weapon_tracer.nif
+	Life  = 0.005
+	TravelSpeed = 30
+	DeathLife = 0.5
+	TypeOfDeath = eLaserTypeOfDeath_Message_Catchup
+	RepeatEffect = 0
+	FireAndForget = true
+}
+
+// Bullet tracer effect for machineguns and the like.
+BeamEffect 	Beam_Tracer01
+{
+	MiddleLaserName = fx_weapon_tracer.nif
+	Life  = 0.045
+	TravelSpeed = 20
+	DeathLife = 10
+	TypeOfDeath = eLaserTypeOfDeath_Message_Catchup
+	RepeatEffect = 0
+	FireAndForget = true
+}
+
+// This one is for buildings.
+BeamEffect 	Beam_Tracer02
+{
+	MiddleLaserName = fx_building_tracer.nif
+	Life  = 0.025
+	TravelSpeed = 20
+	DeathLife = 10
+	TypeOfDeath = eLaserTypeOfDeath_Message_Catchup
+	RepeatEffect = 0
+	FireAndForget = true
+}
+
+//---------------------------------------------------------------------------
+// MUZZLE FLASHES
+//---------------------------------------------------------------------------
+
+//add as a child to enable a muzzle smoke effect
+MuzzleSmokeEffect 	TheMuzzleSmokeEffect
+{ 
+	EffectModel = [fx_muzzle_tank.NIF] 
+}
+
+//add as a child to enable a muzzle smoke effect for sailing ships
+MuzzleSmokeEffect 	TheMuzzleSmokeEffectWarship
+{ 
+	EffectModel = [Fx_muzzle_warship_1.nif] 
+	EffectScale = 0.05
+}
+
+//add as a child to enable a muzzle smoke effect for leviathan ships
+MuzzleSmokeEffect 	TheMuzzleSmokeEffectLeviathan
+{ 
+	EffectModel = [Fx_muzzle_leviathan_1.nif] 
+}
+
+MuzzleSmokeEffect 	Muzzle_BombardCannon
+{ 
+	EffectModel = [fx_muzzle_fieldgun.nif]
+//	ExplosionName =	Expl_Ammo_03 
+}
+
+MuzzleSmokeEffect 	Muzzle_GunHelicopter
+{ 
+	EffectModel = [fx_muzzle_gunhelicopter_1.nif]
+}
+
+MuzzleSmokeEffect 	Muzzle_Pillbox
+{ 
+	EffectModel = [fx_muzzle_minigunner_1.nif]
+	EffectScale = 0.2
+}
+
+MuzzleSmokeEffect 	Muzzle_Fortress10
+{ 
+	EffectModel = [fx_muzzle_fieldgun.nif]
+	EffectScale = 0.05
+}
+
+MuzzleSmokeEffect 	Muzzle_Fortress12
+{ 
+	EffectModel = [fx_muzzle_tank.nif]
+	EffectScale = 0.05
+}
+
+MuzzleSmokeEffect	Muzzle_HeavyArtillery
+{
+	EffectModel = [fx_muzzle_heavyArtillery_1.nif]
+	EffectScale = 0.08
+}
+
+MuzzleSmokeEffect	Muzzle_Minigunner
+{
+	EffectModel = [fx_muzzle_minigunner_1.nif]
+}
+
+MuzzleSmokeEffect	Muzzle_Rifleman
+{
+	EffectModel = [fx_muzzle_rifleman_1.nif]
+}
+
+MuzzleSmokeEffect	Muzzle_Tank
+{
+	EffectModel = [fx_muzzle_tank_1.nif]
+}
+
+MuzzleSmokeEffect	Muzzle_Silo
+{
+	EffectModel = [fx_smoke_ignition_1.nif]
+}
+
+MuzzleSmokeEffect	Muzzle_SubTorpedo
+{
+	EffectModel = [FX_explosion_cannon_1.NIF]
+}
+
+MuzzleSmokeEffect	Muzzle_SubNuke
+{
+	EffectModel = [fx_watersplash_1.nif]
+}
+
+MuzzleSmokeEffect	Muzzle_Battleship
+{
+	EffectModel = [Fx_muzzle_battleship_1.nif]
+	EffectScale = 0.025
+}
+
+MuzzleSmokeEffect	Muzzle_Mortar
+{
+	EffectModel = [fx_muzzle_mortar_1.nif]
+	EffectScale = 0.02
+}
+
+MuzzleSmokeEffect	Muzzle_MissHelicopter
+{
+	EffectModel = [fx_muzzle_misshelicopter_1.nif]
+	EffectScale = 0.09
+}
+
+MuzzleSmokeEffect	Muzzle_NavalFiringShell1
+{
+	EffectModel = [fx_muzzle_battleship_1.nif]
+}
+
+MuzzleSmokeEffect	Muzzle_FiringShell
+{
+	EffectModel = [fx_muzzle_tank.NIF]
+	EffectScale = 0.2
+}
+
+MuzzleSmokeEffect	Muzzle_Fkl03
+{
+	EffectModel = [fx_muzzle_tank.NIF]
+	EffectScale = 0.06
+}
+
+MuzzleSmokeEffect	Muzzle_FiringShell1
+{
+	EffectModel = [fx_dust_small.nif]
+	EffectScale = 0.02
+}
+
+MuzzleSmokeEffect	Muzzle_Musketeer
+{
+	EffectModel = [fx_musket_muzzle.NIF]
+	EffectScale = 0.05
+}
+
+MuzzleSmokeEffect	Muzzle_Outpost7
+{
+	EffectModel = [fx_muzzle_outpost7.NIF]
+}
+
+MuzzleSmokeEffect 	Muzzle_FieldGun
+{ 
+	EffectModel = [fx_muzzle_fieldgun.nif]
+//	EffectScale = 0.02
+}
+
+MuzzleSmokeEffect	Muzzle_Ram
+{
+	EffectModel = [fx_ram_muzzle.NIF]
+}
+
+MuzzleSmokeEffect	Muzzle_GrenadePistol
+{
+	EffectModel = [fx_muzzle_grenade.NIF]
+	EffectScale = 0.08
+}
+
+MuzzleSmokeEffect	Muzzle_FireMissles1
+{
+	EffectModel = [fx_muzzle_battleship_2.nif]
+	EffectScale = 0.4
+}
+
+MuzzleSmokeEffect	Muzzle_ScudClud
+{
+	EffectModel = [fx_muzzle_outpost7.NIF]
+	//ExplosionName = Expl_Nuke03
+	//TagPoint 	= tag_muzzle_1
+	EffectScale = 0.13
+}
+
+MuzzleSmokeEffect	Muzzle_Howitzer109
+{
+	EffectModel = [fx_muzzle_outpost8.NIF]
+	EffectScale = 0.05
+}
+
+MuzzleSmokeEffect	Muzzle_Phl03
+{
+	EffectModel = [fx_phl03_muzzle.NIF]
+	EffectScale = 0.35
+}
+
+MuzzleSmokeEffect	Muzzle_Phl032
+{
+	EffectModel = [fx_phl03_dust.NIF]
+	EffectScale = 0.05
+}
+
+MuzzleSmokeEffect	Muzzle_Hq61somk
+{
+	EffectModel = [fx_muzzle_hq61smoke7.NIF]
+	EffectScale = 0.13
+}
+
+MuzzleSmokeEffect	Muzzle_T99a2somk
+{
+	EffectModel = [fx_muzzle_hq61smoke7.NIF]
+	EffectScale = 0.07
+}
+
+MuzzleSmokeEffect	Muzzle_Zumwaltsomk
+{
+	EffectModel = [fx_muzzle_hq61smoke7.NIF]
+	EffectScale = 0.045
+}
+
+MuzzleSmokeEffect	Muzzle_054somk1
+{
+	EffectModel = [fx_muzzle_exhaust2.NIF]//[fx_muzzle_des054.NIF]
+	EffectScale = 0.15
+}
+
+MuzzleSmokeEffect	Muzzle_054somk2
+{
+	EffectModel = [fx_muzzle_054batt_1.NIF]
+	EffectScale = 0.07
+}
+
+MuzzleSmokeEffect	Muzzle_054somk3
+{
+	EffectModel = [fx_muzzle_054batt_2.NIF]
+	EffectScale = 0.13
+}
+
+MuzzleSmokeEffect	Muzzle_Fkl03somk
+{
+	EffectModel = [fx_muzzle_hq61smoke7.NIF]
+	//TagPoint 	= tag_muzzle_5
+	EffectScale = 0.10
+}
+
+MuzzleSmokeEffect	Muzzle_katysasomk1
+{
+	EffectModel = [fx_muzzle_katysa1.NIF]
+	EffectScale = 0.08
+}

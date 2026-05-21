@@ -1,0 +1,371 @@
+	// Explosion pieces for tanks.
+// Maybe this will become more generic and be meant for vehicles.  I dunno.  I just
+// want to start separating the sequences because these are going to be long files.
+
+//------------------------------------------------------------------------------------
+// OTHER AMMO DEFINITIONS
+//------------------------------------------------------------------------------------
+AnimatedTerrainTexture HercExplosionTerrainFlash
+{	
+	Texture = fx_explode_terrain1.tga
+	StartColor = [ 255, 255, 255, 255 ]
+	MidColor = [ 255, 255, 255, 255 ]
+	EndColor = [ 255, 255, 255, 0 ]
+
+	TimeColorUp = .01
+	TimeColorPeak = .1
+	TimeColorDown = 1.5
+
+	ColorUpType = QuadFastStart
+	ColorDownType = QuadSlowStart
+
+	StartScale = 0
+	MidScale = 6
+	EndScale = 6
+
+	TimeScaleUp = .04
+	TimeScalePeak = .1
+	TimeScaleDown = 5.5
+
+	ScaleUpType = QuadFastStart
+	ScaleDownType = QuadSlowStart
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION SMOKE TRAILS
+//------------------------------------------------------------------------------------
+ExplosionSmokeTrailDC		expl_herc_Tandrill
+{
+	//File containing object to draw
+	NifName = fx_explosion_trails01.nif
+
+	MessageToStartEffect = Heli_fx_exp_smokeTrail_1
+
+	//Drawing options
+	ShaderName = SmokeTrail_1Texture_Additive
+	//ShaderName = SmokeTrail_1Texture
+	Texture1 = TrailA_1.tga
+	Texture2 = TrailB_1.tga
+	AdditiveBlending = false
+	DrawUnderWater = false
+	DrawingLayer = 3
+
+	//Node options
+	NodePhysicsOn = false
+	NodeProbabilityToPlay = 0.4
+	NodeRandomizerotation = true
+	NodeMinSpeed = 3
+	NodeMaxSpeed = 6
+	NodeVelocityRotation = 80
+	NodeMinLife = 3
+	NodeMaxLife = 10
+
+	//Particle options
+	PhysicsOn = true
+	GravityOn = false
+	WindOn = false
+	MaximumParticle = 150
+	MinLife = 2.0
+	MaxLife = 2.0
+	MinSpeed = 0.0
+	MaxSpeed = 0.0
+	StopSpeed = false
+	ColorStart [0.4, 0.8, 0.972, 1.0]
+	ColorMiddle = [0.180, 0.494, 0.925, 0.8]
+	ColorEnd = [1.0, 1.0, 1.0, 0.0]
+	MiddleColorFor = 0.7
+	BounceOnTerrain = true
+	OriginalSizeMin = 0.13
+	OriginalSizeMax = 0.13
+	SizeGrowMin = -0.07
+	SizeGrowMax = -0.07
+	GrowFor = 0.4
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.06
+}
+
+//------------------------------------------------------------------------------------
+// SEQUENCE
+//------------------------------------------------------------------------------------
+
+ExplosionSequence	sq_herc_fireball01
+{
+	BoundingSphereRadius = 1
+	StartingPositionMinZ = 0.8
+	StartingPositionMaxZ = 0.8
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	SequenceNames = [ fx_explosion_1.nif ]
+	SequenceWorldScales = [0.025]
+	SequenceSoundsNames = [Tank_firing1]
+}
+
+ExplosionSequence	sq_herc_smoke01
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 0.2
+	StartingPositionMinX = 0
+	StartingPositionMaxX = 0
+	StartingPositionMinY = 0
+	StartingPositionMaxY = 0
+	StartingPositionMinZ = 0.8
+	StartingPositionMaxZ = 0.8
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	SequenceNames = [ fx_smokedamage1_large.nif ]
+	SequenceWorldScales = [0.03]
+}
+
+ExplosionSequence	sq_herc_sparks01
+{
+	BoundingSphereRadius = 1
+	StartingPositionMinX = 0
+	StartingPositionMaxX = 0
+	StartingPositionMinY = 0.1
+	StartingPositionMaxY = 0.1
+	StartingPositionMinZ = 0.8
+	StartingPositionMaxZ = 0.8
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	SequenceNames = [ fx_sparks1_large.nif ]
+	SequenceWorldScales = [0.05]
+}
+
+ExplosionSequence	sq_herc_scorch01
+{
+	TimeA = 0.35
+	TimeB = 0.35
+	FiringProbability = 1
+	SequenceType = Decal 
+	PlayAll = false
+	SequenceNames = [ Ambient_Scorch01 ]
+}
+
+ExplosionSequence	sq_herc_pieces01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ startFlyingPartExplosion ]
+}
+
+ExplosionSequence	sq_herc_pieces02
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 0.2
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ startFlyingPartExplosion ]
+}
+
+
+ExplosionSequence	sq_herc_modelswap01
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.35
+	TimeB = 0.35
+	FiringProbability = 1
+	SequenceType = ModelSwap
+	PlayAll = 0
+	SequenceNames = [ lhm15_lightmech_damage.nif ]
+}
+
+// Lighting the terrain
+ExplosionSequence	sq_herc_ground01
+{
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	SequenceNames = [ HercExplosionTerrainFlash ]
+	SequenceWorldScales = [0.05]
+	DelayBeforeDie = 4
+}
+
+ExplosionSequence	sq_herc_smoketrail01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ Tank_fx_exp_smokeTrail_1]
+	SequenceSoundsNames = [ fx_exp_01 fx_exp_02 fx_exp_03 fx_exp_04
+							fx_exp_05 fx_exp_06 fx_exp_07 fx_exp_08]
+}
+
+ExplosionSequence	sq_herc_smoketrail02
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ Sequence_Tank_Explo_1]
+}
+
+ExplosionSequence	sq_herc_tandrill
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ Heli_fx_exp_smokeTrail_1 ]
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION
+//------------------------------------------------------------------------------------
+
+Explosion			Expl_HeavyMounted3_14
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_herc_fireball01 sq_herc_smoke01 sq_herc_sparks01 sq_herc_scorch01 
+								sq_herc_pieces01 sq_herc_modelswap01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Expl_LightMounted3_14
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_herc_smoketrail01 sq_herc_smoketrail02 sq_herc_pieces02 
+						sq_herc_tandrill sq_herc_ground01 sq_herc_scorch01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+
+//------------------------------------------------------------------------------------
+// EXPLOSION MAPPER
+//------------------------------------------------------------------------------------
+
+ExplosionSelector	ExplSelectorLightMounted3_14
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_LightMounted3_14
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorHeavyMounted3_14
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_HeavyMounted3_14
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+//------------------------------------------------------------------------------------
+// UNIT FLYING PART FROM EXPLOSION
+//------------------------------------------------------------------------------------
+
+FlyingPart	ExplPartsLightMounted3_14
+{ 
+	Parts = [
+				{
+					NifName       = lhm15_lightmech_damage_gun.nif
+					VelocityAngle = 90
+					SpeedMin      = 0.5
+					SpeedMax      = 0.5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = -0.5
+					StartingPositionMaxY = -0.5
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 1
+					RotationSpeedMax = 1
+				}
+				{
+					NifName       = lhm15_lightmech_damage_pack1.nif
+					VelocityAngle = 90
+					SpeedMin      = 5
+					SpeedMax      = 5
+					StartingPositionMinX = 0.3
+					StartingPositionMaxX = 0.3
+					StartingPositionMinY = 0.1
+					StartingPositionMaxY = 0.1
+					StartingPositionMinZ = 1
+					StartingPositionMaxZ = 1
+					Mass = 1
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 1
+					RotationSpeedMax = 1
+				}
+				{
+					NifName       = lhm15_lightmech_damage_pack2.nif
+					VelocityAngle = 90
+					SpeedMin      = 5
+					SpeedMax      = 5
+					StartingPositionMinX = -0.3
+					StartingPositionMaxX = -0.3
+					StartingPositionMinY = 0.1
+					StartingPositionMaxY = 0.1
+					StartingPositionMinZ = 1
+					StartingPositionMaxZ = 1
+					Mass = 1
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 1
+					RotationSpeedMax = 1
+				}
+				{
+					NifName       = lhm15_lightmech_damage_panel1.nif
+					VelocityAngle = 90
+					SpeedMin      = 6
+					SpeedMax      = 6.5
+					StartingPositionMinX = 0.3
+					StartingPositionMaxX = 0.3
+					StartingPositionMinY = 0.1
+					StartingPositionMaxY = 0.1
+					StartingPositionMinZ = 0.3
+					StartingPositionMaxZ = 0.3
+					Mass = 1
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 1
+					RotationSpeedMax = 1
+				}
+				{
+					NifName       = lhm15_lightmech_damage_panel2.nif
+					VelocityAngle = 90
+					SpeedMin      = 5.5
+					SpeedMax      = 6
+					StartingPositionMinX = -0.3
+					StartingPositionMaxX = -0.3
+					StartingPositionMinY = 0.1
+					StartingPositionMaxY = 0.1
+					StartingPositionMinZ = 0.3
+					StartingPositionMaxZ = 0.3
+					Mass = 1
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 1
+					RotationSpeedMax = 1
+				}
+
+			]
+	NbrPartToSpawnMin = 5
+	NbrPartToSpawnMax = 5
+}
+

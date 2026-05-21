@@ -13,13 +13,13 @@ UnitType dapao
 		mass = 0
         displayName = tx_utn_dapao11_name
 		VerboseTooltip = vtt_unit_dapao11
-            HitPoints = 22500
+            HitPoints = 29250
 	}
 	sounds {
     	}
 	abilities = [
 		LOS { range = 25 }
-		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "FireArrow"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 4 }
+		Attack { range = 22; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "FireArrow"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 4 }
 	]
 	icon = icon_unit_dapao
 	
@@ -31,7 +31,7 @@ UnitType dapao
 UpgradeAbilities dapaoEpoch1Attack
 {
 	upgradedAbilities = [
-		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "FireArrow";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret }
+		Attack { range = 22; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "FireArrow";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret }
 	]
 }
 //------------------------------------------------
@@ -41,7 +41,7 @@ UpgradeAbilities dapaoEpoch1Attack
 UpgradeAbilities dapaoEpoch5Attack
 {
 	upgradedAbilities = [
-		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "FireArrow";ignoreBlocking = 1;  }
+		Attack { range = 22; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "FireArrow";ignoreBlocking = 1;  }
 	]
 }
 //------------------------------------------------
@@ -51,7 +51,7 @@ UpgradeAbilities dapaoEpoch5Attack
 UpgradeAbilities dapaoEpoch7Attack
 {
 	upgradedAbilities = [
-		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "DapaoBall";ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true }
+		Attack { range = 22; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "DapaoBall";ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true }
 	]
 }
 //------------------------------------------------
@@ -61,7 +61,7 @@ UpgradeAbilities dapaoEpoch7Attack
 UpgradeAbilities dapaoEpoch11Attack
 {
 	upgradedAbilities = [
-		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "DapaoShell";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 2.0; throwUnits = true }
+		Attack { range = 22; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "DapaoShell";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 2.0; throwUnits = true }
 	]
 }
 
@@ -72,19 +72,8 @@ UpgradeAbilities dapaoEpoch11Attack
 UpgradeAbilities dapaoEpoch13Attack
 {
 	upgradedAbilities = [
-	Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "DapaoShell";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 2.5 ; throwUnits = true}
+	Attack { range = 22; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "DapaoShell";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 2.5 ; throwUnits = true}
 	
-	]
-}
-
-//------------------------------------------------
-//	EPOCH 14
-//------------------------------------------------
-// Attack Ability Upgrade
-UpgradeAbilities dapaoEpoch14Attack
-{
-	upgradedAbilities = [
-		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; throwUnits = true }
 	]
 }
 
@@ -95,7 +84,7 @@ UpgradeAbilities dapaoEpoch14Attack
 UpgradeAbilities dapaoEpoch15Attack
 {
 	upgradedAbilities = [
-		Attack { range = 25; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 850; missileName = "DapaoShell";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3 ; throwUnits = true}
+		Attack { range = 22; reloadTime = 1.5; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "DapaoShell";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3 ; throwUnits = true}
 	]
 }
 

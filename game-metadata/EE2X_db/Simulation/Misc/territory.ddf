@@ -14,15 +14,15 @@ DbTerritoryInfo TheTerritoryInfo
 	
 	upgradeableFactors =
 	{
-		moraleBonusPerHouse = 0.02				// 2% per house
-		fervorBonusPerHouse = 0.02  			// 2% per house
-		maxMoraleFervorBonus = 0.14		// 14% max per territory
-		foodBonus = 0.02    			// 1% harvest bonus per house
-		goldBonus = 0.02				// 1% per house
-		stoneBonus = 0.02				// 1% per house
-		woodBonus = 0.02				// 1% per house
-		generalResourceBonus = 0.02		// 1% per house
-		maxResourceBonus = 0.20			// 10% max harvest bonus per territory
+		moraleBonusPerHouse = 0.03				// per house
+		fervorBonusPerHouse = 0.03  			// per house
+		maxMoraleFervorBonus = 0.03		// the maximum morale/fervor bonus
+		foodBonus = 0.001    			// per house
+		goldBonus = 0.001				// per house
+		stoneBonus = 0.001				// per house
+		woodBonus = 0.001				// per house
+		generalResourceBonus = 0.01		// per house
+		maxResourceBonus = 0.01			// the maximum resource bonus
 	}
 
 	// what unit types and associated minimum counts are needed to capture 
@@ -97,55 +97,59 @@ DbTerritoryInfo TheTerritoryInfo
 		[
 			{ type = CityCenter	count = 1 }
 			{ type = AirDefense	count = 7 	showInUI = 1 nameInUI = tx_utn_airdefense_tReqName }
-			{ type = CoastalDefense	count = 12 	showInUI = 1 nameInUI = tx_utn_coastdefense_tReqName }
-			{ type = Fortress	count = 2 	showInUI = 1 }
-			{ type = Wall_Tower	count = 8 	showInUI = 1 nameInUI = tx_utn_walltower_tReqName }
-			{ type = House		count = 8 	showInUI = 1 }			// @NOTE houses requirement is needed for various power upgrades.  please consult Andrew before removing it
-			{ type = Warehouse	count = 12 	showInUI = 0}
-			{ type = Market		count = 2 	showInUI = 0}	
-			{ type = Outpost	count = 12 	showInUI = 1 }
-			{ type = Temple		count = 4 	showInUI = 0 }			// @NOTE temple requirement is needed for "Favor of the Gods" region power to work correctly.  please consult Andrew before removing it
-			{ type = University	count = 4 	showInUI = 0 }
-			{ type = Airport	count = 1 	showInUI = 1 }
-			{ type = Airport2	count = 4 	showInUI = 0 }
-			{ type = Stable	count = 4 	showInUI = 0 }
-			{ type = Mill	count = 4 	showInUI = 0 }
-			{ type = Barracks	count = 6 	showInUI = 0 }
+			{ type = CoastalDefense	count = 6 	showInUI = 1 nameInUI = tx_utn_coastdefense_tReqName }
+			{ type = Fortress	count = 1 	showInUI = 1 }
+			{ type = Wall_Tower	count = 4 	showInUI = 1 nameInUI = tx_utn_walltower_tReqName }
+			{ type = House		count = 7 	showInUI = 1 }			// @NOTE houses requirement is needed for various power upgrades.  please consult Andrew before removing it
+			{ type = Warehouse	count = 12 	showInUI = 1}
+			{ type = Market		count = 1 	showInUI = 1}	
+			{ type = Outpost	count = 4 	showInUI = 1 }
+			{ type = Temple		count = 1 	showInUI = 1 }			// @NOTE temple requirement is needed for "Favor of the Gods" region power to work correctly.  please consult Andrew before removing it
+			{ type = University	count = 1 	showInUI = 1 }
+			{ type = Airport	count = 4 	showInUI = 1 }
+			{ type = Airport2	count = 4 	showInUI = 1 }
+			{ type = Dock	count = 6 	showInUI = 1 }
+			{ type = Stable	count = 6 	showInUI = 1 }
+			{ type = Mill	count = 6 	showInUI = 1 }
+			{ type = Barracks	count = 6 	showInUI = 1 }
 			{ type = Missile_Silo	count = 4 	showInUI = 1 }
 			{ type = AMissileDefense	count = 6 	showInUI = 1 }
 			{ type = dapao	count = 4 	showInUI = 1 }
 			{ type = AIAirDefense	count = 4 	showInUI = 1 }
 			{ type = AICoastalDefense	count = 6 	showInUI = 1 }
-			{ type = Radar	count = 1 	showInUI = 0 }
-			{ type = Machinegunnest	count = 4 	showInUI = 0 }
-			{ type = Fire		count = 4	showInUI = 1 }
-			{ type = poj_popBuild	count = 1 	showInUI = 0 }
-			{ type = Tavern       	count = 4	showInUI = 0 }
-			{ type = Alchemy       	count = 4	showInUI = 0 }
-			{ type = Quarry     	count = 4	showInUI = 0 }
-			{ type = Minegold     	count = 1	showInUI = 0 }
-			{ type = SaltPeterFactory     	count = 4	showInUI = 0 }
-			{ type = Ironref     	count = 4	showInUI = 0 }
-			{ type = Vineyard    	count = 1	showInUI = 0 }
-			{ type = Oilref    	count = 1	showInUI = 0 }
-			{ type = Chemistry    	count = 1	showInUI = 0 }
-			{ type = Autofactory    	count = 1	showInUI = 0 }
-			{ type = bank    	count = 1	showInUI = 0 }
-			{ type = Winery    	count = 1	showInUI = 0 }
-			{ type = AIResource1    	count = 1	showInUI = 0 }
-			{ type = AIResource    	count = 1	showInUI = 0 }
-			{ type = AIBuilding    	count = 1	showInUI = 0 }
-			{ type = AInavyBuilding    	count = 1	showInUI = 0 }
-			{ type = AIMissile_Silo	count = 1 	showInUI = 0 }
-			{ type = NuclearMissile	count = 1 	showInUI = 0 }
-			{ type = NuclearMissile_ch	count = 1	showInUI = 0 }
-			{ type = NuclearMissile_Rus	count = 1	showInUI = 0 }
-			{ type = NuclearMissile_Eng	count = 1 	showInUI = 0 }
-			{ type = NuclearMissile_fre	count = 1 	showInUI = 0 }
-			{ type = MachineGunNest12	count = 5 	showInUI = 0 }
-			{ type = ArmyAcademy	count = 1	showInUI = 0 }
-			{ type = AirAcademy	count = 1 	showInUI = 0 }
-			{ type = NavalAcademy	count = 1 	showInUI = 0 }
+			{ type = Radar	count = 1 	showInUI = 1 }
+			{ type = Machinegunnest	count = 4 	showInUI = 1 }
+			{ type = Fire		count = 2	showInUI = 1 }
+			{ type = poj_popBuild	count = 1 	showInUI = 1 }
+			{ type = Tavern       	count = 1	showInUI = 1 }
+			{ type = Alchemy       	count = 1	showInUI = 1 }
+			{ type = Library     	count = 1	showInUI = 1 }
+			{ type = Lumber     	count = 1	showInUI = 1 }
+			{ type = Quarry     	count = 1	showInUI = 1 }
+			{ type = Minegold     	count = 1	showInUI = 1 }
+			{ type = SaltPeterFactory     	count = 1	showInUI = 1 }
+			{ type = Ironref     	count = 1	showInUI = 1 }
+			{ type = Granary        count = 1	showInUI = 1 }
+			{ type = Vineyard    	count = 1	showInUI = 1 }
+			{ type = Oilref    	count = 1	showInUI = 1 }
+			{ type = Chemistry    	count = 1	showInUI = 1 }
+			{ type = Autofactory    	count = 1	showInUI = 1 }
+			{ type = bank    	count = 1	showInUI = 1 }
+			{ type = Winery    	count = 1	showInUI = 1 }
+			{ type = AIResource1    	count = 1	showInUI = 1 }
+			{ type = AIResource    	count = 1	showInUI = 1 }
+			{ type = AIBuilding    	count = 1	showInUI = 1 }
+			{ type = AInavyBuilding    	count = 1	showInUI = 1 }
+			{ type = AIMissile_Silo	count = 1 	showInUI = 1 }
+			{ type = NuclearMissile	count = 1 	showInUI = 1 }
+			{ type = NuclearMissile_ch	count = 1	showInUI = 1 }
+			{ type = NuclearMissile_Rus	count = 1	showInUI = 1 }
+			{ type = NuclearMissile_Eng	count = 1 	showInUI = 1 }
+			{ type = NuclearMissile_fre	count = 1 	showInUI = 1 }
+			{ type = MachineGunNest12	count = 5 	showInUI = 1 }
+			{ type = ArmyAcademy	count = 1	showInUI = 1 }
+			{ type = AirAcademy	count = 1 	showInUI = 1 }
+			{ type = NavalAcademy	count = 1 	showInUI = 1 }
 		]
 	}
 }

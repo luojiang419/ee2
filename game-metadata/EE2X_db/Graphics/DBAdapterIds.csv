@@ -1,0 +1,44 @@
+//Adpater description.  && = search for string into the video card ID string,"Adapter performance: 0 = slow, 1 = medium, 2 = fast, 3 = very fast"
+"""&&RADEON&&X850&&""",0
+"""&&RADEON&&850&&XT&&""",0
+"""&&RADEON&&800&&XT&&""",0
+"""&&RADEON&&X800&&""",0
+"""&&RADEON&&800&&X&&""",0
+"""&&RADEON&&X700&&""",0
+"""&&RADEON&&700&&X&&""",0
+"""&&RADEON&&9800&&PRO&&""",0
+"""&&RADEON&&9800&&""",0
+"""&&RADEON&&9650&&""",0
+"""&&RADEON&&9600&&""",0
+"""&&RADEON&&9550&&""",0
+"""&&RADEON&&9500&&""",0
+"""&&RADEON&&9250&&""",0
+"""&&RADEON&&9200&&""",0
+"""&&RADEON&&9100&&""",0
+"""&&RADEON&&9000&&""",0
+"""&&RADEON&&8500&&""",0
+"""&&RADEON&&8000&&""",0
+"""&&RADEON&&7500&&""",0
+"""&&RADEON&&7000&&""",0
+"""&&GeForce&&6800&&""",0
+"""&&GeForce&&6600&&""",0
+"""&&GeForce&&6200&&""",0
+"""&&GeForce&&FX5800&&""",0
+"""&&GeForce&&FX5950&&""",0
+"""&&GeForce&&FX5750&&""",0
+"""&&GeForce&&FX5300&&""",0
+"""&&GeForce&&5200&&""",0
+"""&&GeForce4&&MX&&""",0
+"""&&GeForce 4&&MX&&""",0
+"""&&GeForce2&&""",0
+"""&&GeForce 2&&""",0
+"""&&INTEL&&82915G&&""",0
+"""&&RADEON&&""",0
+"""&&GeForce4&&""",0
+"""&&GeForce 4&&""",0
+"""&&GeForce3&&""",0
+"""&&GeForce 3&&""",0
+"""&&nForce&&""",0
+"""&&3Dlabs&&Wildcat&&VP560&&""",0
+"""&&Wildcat&&""",0
+"""&&Xabre&&""",0

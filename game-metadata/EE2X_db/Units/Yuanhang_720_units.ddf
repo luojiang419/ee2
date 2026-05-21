@@ -904,7 +904,7 @@ UnitType CsCommgril
 		popCount = 1
 		displayName = tx_utn_CsCommgril_name
 		VerboseTooltip = vtt_unit_CsCommgril
-		HitPoints = 742
+		HitPoints = 530
 	}
 	sounds = {
 		sndSelection = ["v_female_select_chn01"
@@ -922,7 +922,7 @@ UnitType CsCommgril
 		PowerReserve { timeToRecharge = 15 }
 		Attack { damage = 20; range = 12; reloadTime = 0.5; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 2.0; unpackTime = 0.1;  }
 		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 }
-		Move {speed = 15; angSpeed = 180}
+		Move {speed = 1.3; angSpeed = 180}
         LOS { range = 16 }
 	//	SpecialPower { 
 	//		range = 8;
@@ -1157,7 +1157,7 @@ UnitType ChinaArmy
 		popCount = 1
 		displayName = tx_utn_ChinaArmy_name
 		VerboseTooltip = vtt_unit_ChinaArmy
-		HitPoints = 742
+		HitPoints = 530
 	}
 	sounds = {
 		sndSelection = ["v_infantry_select_chn"
@@ -1249,7 +1249,7 @@ UnitType usaSoldiers
 		popCount = 1
 		displayName = tx_utn_UniqGI_name
 		VerboseTooltip = vtt_unit_UniqGI
-		HitPoints = 742
+		HitPoints = 530
 	}
 	sounds = {
 	}
@@ -1324,7 +1324,7 @@ UnitType RusSoldiers
 		popCount = 1
 		displayName = tx_utn_UniqGI_name
 		VerboseTooltip = vtt_unit_UniqGI
-		HitPoints = 742
+		HitPoints = 530
 	}
 	sounds = {
 	}
@@ -1391,7 +1391,7 @@ UnitType ATSoldiers
 		DisplayName = tx_utn_ATInfantry_name
 		DisplayNameScenEdit = tx_utn_ATInfantry_pname
 		VerboseTooltip = vtt_unit_ATInfantry
-		HitPoints = 672
+		HitPoints = 480
 		rps = HeavyInfantry
 		SizeX = 0.2
 		SizeY = 0.2
@@ -17709,7 +17709,7 @@ UnitType Tavern
 		LOS { range = 8 }
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 25;
+			numOfSlots = 6;
 			gatherRate = 0.5;	
 			gatherType = Gold;
             rightClickToGarrison = 1;
@@ -19400,7 +19400,7 @@ UnitType Harvester
         moveType = Mechanized  
 		SizeX = 0.5
 		SizeY = 0.5
-		mass = 0
+		mass = 1
 		popCount = 1
 		VerboseTooltip = vtt_unit_harvester
 		displayName = tx_utn_harvester_name
@@ -19416,8 +19416,8 @@ UnitType Harvester
 				treeCuttingRange = 1.0; 	
 				otherRange = 0.5;
 				dropoffRange = 0.5;
-				carryLimit = 300;
-				woodRate = 7.0;		
+				carryLimit = 30;
+				woodRate = 0.7;		
 		}
 		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
 		LOS { range = 11 }
@@ -19478,7 +19478,7 @@ UnitType Weelloader
             moveType = Mechanized  
 		SizeX = 0.5
 		SizeY = 0.5
-		mass = 0
+		mass = 1
 		popCount = 1
 		VerboseTooltip = vtt_unit_weelloader
 		displayName = tx_utn_weelloader_name
@@ -19493,14 +19493,12 @@ UnitType Weelloader
             GatherFarm { 				
 				otherRange = 0.5;
 				dropoffRange = 0.5;
-				carryLimit = 300;				
-				stoneRate = 7.0;			
-				goldRate = 7.0;
-				tinRate = 5.0;
-				ironRate = 5.0;
-				saltpeterRate = 7.0;
-					oilRate = 5.0;
-					uraniumRate = 5.0;
+				carryLimit = 30;				
+				stoneRate = 0.7;			
+				goldRate = 0.7;
+				tinRate = 0.5;
+				ironRate = 0.5;
+				saltpeterRate = 0.7;
 		}
             Build { repairRate = 100 }
 		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
@@ -19560,7 +19558,7 @@ UnitType Tractor
         moveType = Mechanized  
 		SizeX = 0.4
 		SizeY = 0.4
-		mass = 0
+		mass = 1
 		popCount = 1
 		VerboseTooltip = vtt_unit_tractor
 		displayName = tx_utn_tractor_name
@@ -19572,12 +19570,12 @@ UnitType Tractor
 	abilities = [		
             GatherFarm { 
 				treeCuttingRange = 1.5; 
-				foodRate = 7.0;
+				foodRate = 0.7;
 				otherRange = 0.5;
 				dropoffRange = 0.5;
-				carryLimit = 300; 
-				farmCarryLimit = 300;			
-				farmRate = 9.0; 	
+				carryLimit = 30; 
+				farmCarryLimit = 30;			
+				farmRate = 0.9; 	
 				
 		}
 		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
@@ -19684,7 +19682,6 @@ UnitType Autofactory
         displayName = tx_utn_autofactory_name
 		VerboseTooltip = vtt_unit_autofactory
             HitPoints = 5000            
-		RallyPlacementFlags = ( Resources | Fortress | Tower | Terrain )
 	}
 	sounds {            
     	}
@@ -19719,7 +19716,7 @@ UnitType gruzovik
 		rps = LandNonCombat
 		SizeX = 0.4
 		SizeY = 0.4
-		mass = 0
+		mass = 1
 		displayName = tx_utn_TradeCart_name
 		moveType = WheeledTrade
 		VerboseTooltip = vtt_unit_TradeCart
@@ -19813,7 +19810,7 @@ UnitType Autobus
 		moveType = Mechanized
         SizeX = 1.5
 		SizeY = 0.7
-		mass = 0
+		mass = 1
 		popCount = 1
 		displayName = tx_utn_autobus_name
 		displayNamePlural = tx_utn_autobus_pname
@@ -19892,7 +19889,7 @@ UnitType TradeCart215
 		rps = LandNonCombat
 		SizeX = 1.25
 		SizeY = 0.7
-		mass = 0
+		mass = 1
 		displayName = tx_utn_TradeCart_name
 		moveType = WheeledTrade
 		hitpoints = 800

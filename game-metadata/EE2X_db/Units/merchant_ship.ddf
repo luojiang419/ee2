@@ -19,7 +19,7 @@ UnitType MerchantShip
 		NavalMove {speed = 1.2; angSpeed = 80}
 		LOS { range = 5 }
 		Trade { MarketType = Docks; 
-				GoldPerTile = 0.13; 
+				GoldPerTile = 1.638; 
 				TechPerTile = 0.00; 
 				TechBonusEpochDiff = 0.00; 
 				TechBonusLikelyhood = [ .01 .02 .04 .08 .1 ]
@@ -41,7 +41,7 @@ UpgradeAbilities MerchantShipTechTreeUpgrade
 	UnitType = MerchantShip
 	upgradedAbilities = [
 		Trade { MarketType = Docks; 
-				GoldPerTile = 0.13; 
+				GoldPerTile = 1.638; 
 				TechPerTile = 0.0; 
 				TechBonusEpochDiff = 0.0;
 				TechBonusLikelyhood = [ .10 .15 .20 .25 .30 ] 

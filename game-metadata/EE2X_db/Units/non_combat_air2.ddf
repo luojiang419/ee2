@@ -230,7 +230,7 @@ UnitType Paratrooper_Mounter3
 		LOS { range = 1 }
 		GarrisonParatrooper { 
 			garrisonType = NavalTransport;	// well paratrooper plane is like air transport here
-			numOfSlots = 18; // NOTE:  leave extra space so that effects that boost paratrooper count will work
+			numOfSlots = 27; // NOTE:  leave extra space so that effects that boost paratrooper count will work
 			initialContents = [ { typeName="ZSL92" count=2} ];	// load up with these paratrooper 
 			dontShowGarrisonButton = 1;	// don't show garrison button in ui unit info area
 		}
@@ -257,13 +257,40 @@ UnitType Paratrooper_Type62
 		LOS { range = 1 }
 		GarrisonParatrooper { 
 			garrisonType = NavalTransport;	// well paratrooper plane is like air transport here
-			numOfSlots = 20; // NOTE:  leave extra space so that effects that boost paratrooper count will work
+			numOfSlots = 30; // NOTE:  leave extra space so that effects that boost paratrooper count will work
 			initialContents = [ { typeName="ZTQ15" count=2 } ];	// load up with these paratrooper 
 			dontShowGarrisonButton = 1;	// don't show garrison button in ui unit info area
 		}
 	]
 
 	icon = icon_Paratrooper_lightTank
+}
+UnitType Paratrooper_AA
+{
+    visualName = NonCombatAir2_boat
+	parent = NavalShallow
+	properties {
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		VerboseTooltip = vtt_unit_Paratrooper_Mounter
+		displayName = tx_utn_Paratrooper_Bmp2cha_name
+		HitPoints = 3000
+		popCount = 5
+	}
+	sounds = {
+	}
+	abilities = [
+		NavalMove {speed = 2.0; accel = 1.0; angSpeed = 130;}
+		LOS { range = 1 }
+		GarrisonParatrooper {
+			garrisonType = NavalTransport;
+			numOfSlots = 27;
+			initialContents = [ { typeName="AntiAir_Fkl03" count=3} ];
+			dontShowGarrisonButton = 1;
+		}
+	]
+	icon = icon_Paratrooper_Vehicle
 }
 UnitType Paratrooper_T72
 {

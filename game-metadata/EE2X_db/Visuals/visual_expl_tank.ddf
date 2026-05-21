@@ -1,0 +1,3057 @@
+// Explosion pieces for tanks and other tracked or wheeled vehicles.
+
+//------------------------------------------------------------------------------------
+// OTHER AMMO DEFINITIONS
+//------------------------------------------------------------------------------------
+AnimatedTerrainTexture TankExplosionTerrainFlash
+{	
+	Texture = fx_explode_terrain1.tga
+	StartColor = [ 255, 255, 255, 255 ]
+	MidColor = [ 255, 255, 255, 255 ]
+	EndColor = [ 255, 255, 255, 0 ]
+
+	TimeColorUp = .01
+	TimeColorPeak = .1
+	TimeColorDown = 1.5
+
+	ColorUpType = QuadFastStart
+	ColorDownType = QuadSlowStart
+
+	StartScale = 0
+	MidScale = 6
+	EndScale = 6
+
+	TimeScaleUp = .04
+	TimeScalePeak = .1
+	TimeScaleDown = 5.5
+
+	ScaleUpType = QuadFastStart
+	ScaleDownType = QuadSlowStart
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION SMOKE TRAILS
+//------------------------------------------------------------------------------------
+ExplosionSmokeTrailDC		expl_tank_Tandrill
+{
+	//File containing object to draw
+	NifName = fx_explosion_trails01.nif
+
+	MessageToStartEffect = Heli_fx_exp_smokeTrail_1
+
+	//Drawing options
+	ShaderName = SmokeTrail_1Texture_Additive
+	//ShaderName = SmokeTrail_1Texture
+	Texture1 = TrailA_1.tga
+	Texture2 = TrailB_1.tga
+	AdditiveBlending = false
+	DrawUnderWater = false
+	DrawingLayer = 3
+
+	//Node options
+	NodePhysicsOn = false
+	NodeProbabilityToPlay = 0.4
+	NodeRandomizerotation = true
+	NodeMinSpeed = 3
+	NodeMaxSpeed = 6
+	NodeVelocityRotation = 80
+	NodeMinLife = 3
+	NodeMaxLife = 10
+
+	//Particle options
+	PhysicsOn = true
+	GravityOn = false
+	WindOn = false
+	MaximumParticle = 150
+	MinLife = 2.0
+	MaxLife = 2.0
+	MinSpeed = 0.0
+	MaxSpeed = 0.0
+	StopSpeed = false
+	ColorStart [0.4, 0.8, 0.972, 1.0]
+	ColorMiddle = [0.180, 0.494, 0.925, 0.8]
+	ColorEnd = [1.0, 1.0, 1.0, 0.0]
+	MiddleColorFor = 0.7
+	BounceOnTerrain = true
+	OriginalSizeMin = 0.13
+	OriginalSizeMax = 0.13
+	SizeGrowMin = -0.07
+	SizeGrowMax = -0.07
+	GrowFor = 0.4
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.06
+}
+
+//------------------------------------------------------------------------------------
+// SEQUENCE
+//------------------------------------------------------------------------------------
+
+// Lighting the terrain
+ExplosionSequence	sq_tank_ground01
+{
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	SequenceNames = [ TankExplosionTerrainFlash ]
+	SequenceWorldScales = [0.05]
+	DelayBeforeDie = 4
+}
+
+ExplosionSequence	sq_tank_pieces01
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.0
+	TimeB = 0.0
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ startFlyingPartExplosion ]
+}
+
+ExplosionSequence	sq_tank_swap01
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 0.2
+	FiringProbability = 1
+	SequenceType = ModelSwap
+	PlayAll = 0
+	SequenceNames = [ ]
+}
+
+
+ExplosionSequence	sq_tank_smoketrail01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ Tank_fx_exp_smokeTrail_1]
+	SequenceSoundsNames = [ fx_exp_01 fx_exp_02 fx_exp_03 fx_exp_04
+							fx_exp_05 fx_exp_06 fx_exp_07 fx_exp_08]
+}
+
+ExplosionSequence	sq_tank_smoketrail02
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ Sequence_Tank_Explo_1]
+}
+
+
+
+AnimatedTerrainTexture TankExplosionTerrainFlashTest
+{	
+	Texture = Flash.tga
+	StartColor = [ 255, 255, 255, 255 ]
+	MidColor = [ 255, 255, 255, 255 ]
+	EndColor = [ 255, 255, 255, 0 ]
+
+	TimeColorUp = .01
+	TimeColorPeak = .1
+	TimeColorDown = 1.5
+
+	ColorUpType = QuadFastStart
+	ColorDownType = QuadSlowStart
+
+	StartScale = 0
+	MidScale = 5
+	EndScale = 5
+
+	TimeScaleUp = .04
+	TimeScalePeak = .1
+	TimeScaleDown = 5.5
+
+	ScaleUpType = QuadFastStart
+	ScaleDownType = QuadSlowStart
+}
+
+ExplosionSequence	sq_tank_ground01Test
+{
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	SequenceNames = [ TankExplosionTerrainFlashTest ]
+	SequenceWorldScales = [0.05]
+	DelayBeforeDie = 4
+}
+
+ExplosionSequence	AnimationTest
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	//SequenceNames = [ AnimatedTankExplosion1 AnimatedTankExplosionSmoke1 AnimatedTankExplosionFlash1]
+	//SequenceNames = [ AnimatedTankExplosion1 AnimatedTankExplosionFlash1]
+	SequenceNames = [ AnimatedTankExplosion1 AnimatedTankExplosionSmoke1 AnimatedTankExplosionFlash1 ]
+}
+
+ExplosionSequence	sq_siegetower4_swap01
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 0.2
+	FiringProbability = 1
+	SequenceType = ModelSwap
+	PlayAll = 0
+	SequenceNames = [ fx_lsf4_SiegeTower_damage01.nif ]
+}
+
+ExplosionSequence	sq_siegetower6_swap01
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 0.2
+	FiringProbability = 1
+	SequenceType = ModelSwap
+	PlayAll = 0
+	SequenceNames = [ fx_lsf6_heavysiegetower_damage01.nif ]
+}
+
+ExplosionSequence	sq_siegetower_explosion1
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ AnimatedSiegeTowerExplosion ]
+}
+
+ExplosionSequence	sq_tank_tandrill
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ Heli_fx_exp_smokeTrail_1 ]
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION
+//------------------------------------------------------------------------------------
+
+// Explosion with fireball, smoke, sparks and scorchmarks.
+Explosion			Expl_Tank_01
+{
+	BoundingSphereRadius = 1
+	//ExplosionSequences =	[ sq_tank_smoketrail01 sq_tank_smoketrail02 sq_tank_pieces01 sq_tank_ground01 sq_tank_swap01]
+	//ExplosionSequences =	[ AnimationTest sq_tank_pieces01 sq_tank_swap01 sq_tank_ground01Test]
+	//ExplosionSequences =	[ AnimationTest sq_tank_pieces01 sq_tank_swap01 sq_tank_ground01Test]
+	ExplosionSequences =	[ sq_tank_smoketrail01 AnimationTest sq_tank_pieces01 sq_tank_swap01 sq_tank_ground01Test sq_tank_tandrill ]
+	
+	VelocityOn = 0  
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Explosion with fireball, smoke, sparks and scorchmarks.
+Explosion			Expl_Tank_02
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_tank_smoketrail01 AnimationTest sq_tank_pieces01 sq_tank_ground01Test sq_tank_tandrill ]
+	
+	VelocityOn = 0  
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Expl_SiegeTower4
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_siegetower4_swap01 sq_siegetower_explosion1 ]
+	
+	VelocityOn = 0  
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Expl_SiegeTower6
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_siegetower6_swap01 sq_siegetower_explosion1 ]
+	
+	VelocityOn = 0  
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION MAPPER
+//------------------------------------------------------------------------------------
+ExplosionSelector	ExplSelectorTank01
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Tank_01
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorTank02
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Tank_02
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorSiegeTower4
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_SiegeTower4
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorSiegeTower6
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_SiegeTower6
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+//------------------------------------------------------------------------------------
+// UNIT FLYING PART FROM EXPLOSION
+//------------------------------------------------------------------------------------
+
+FlyingPart	ExplPartsTank01 
+{ 
+	Parts = [
+				{
+					NifName       = tank_destroyed_turret_1.nif
+					VelocityAngle = 0
+					SpeedMin      = 10
+					SpeedMax      = 15
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0
+					StartingPositionMaxZ = 0
+					Mass = 1
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.2
+				}
+
+			]
+	NbrPartToSpawnMin = 10
+	NbrPartToSpawnMax = 10
+}
+
+// This is just a turret.
+FlyingPart	ExplPartsTank02
+{ 
+	Parts = [
+				{
+					NifName       = tank_destroyed_turret_1.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 9
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 1
+					RotationSpeedMax = 1
+				}
+
+			]
+	NbrPartToSpawnMin = 1
+	NbrPartToSpawnMax = 1
+}
+
+FlyingPart	MainBattleTank_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_mainbattletank_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				//Turret
+				{
+					NifName       = fx_mainbattletank_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				//cannon
+				{
+					NifName       = fx_mainbattletank_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//cannon
+				{
+					NifName       = fx_mainbattletank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_mainbattletank_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_mainbattletank_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_mainbattletank_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_mainbattletank_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+			]
+	NbrPartToSpawnMin = 3
+	NbrPartToSpawnMax = 5
+}
+
+FlyingPart	MRLS_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_MRLS_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				//Turret
+				{
+					NifName       = fx_MRLS_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				//cannon
+				{
+					NifName       = fx_MRLS_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//cannon
+				{
+					NifName       = fx_MRLS_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_MRLS_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_MRLS_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_MRLS_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_MRLS_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+			]
+	NbrPartToSpawnMin = 3
+	NbrPartToSpawnMax = 5
+}
+
+FlyingPart	RPGStriker_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_RPGStriker_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				//Turret
+				{
+					NifName       = fx_RPGStriker_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				//cannon
+				{
+					NifName       = fx_RPGStriker_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//cannon
+				{
+					NifName       = fx_RPGStriker_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_RPGStriker_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_RPGStriker_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_RPGStriker_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//wheel
+				{
+					NifName       = fx_RPGStriker_damage05.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+			]
+	NbrPartToSpawnMin = 3
+	NbrPartToSpawnMax = 5
+}
+
+FlyingPart	AssaultTank_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_assaulttank_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				//Turret
+				{
+					NifName       = fx_assaulttank_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_assaulttank_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_assaulttank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 2
+}
+
+FlyingPart	SelfPropelled_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lha12_selfpropelled_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				//Cannon
+				{
+					NifName       = fx_lha12_selfpropelled_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lha12_selfpropelled_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lha12_selfpropelled_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 2
+}
+
+FlyingPart	NetFireLauncher_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				//Cannon
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//Wheel
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//Wheel
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//Wheel
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//Wheel
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//Wheel
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//Wheel
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//Wheel
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+				//Wheel
+				{
+					NifName       = fx_lha14_NetFireLauncher_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 6
+}
+
+FlyingPart	LightMech_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lhm15_lightmech_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				//Foot
+				{
+					NifName       = fx_lhm15_lightmech_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				//Foot
+				{
+					NifName       = fx_lhm15_lightmech_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				//Leg
+				{
+					NifName       = fx_lhm15_lightmech_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//Leg
+				{
+					NifName       = fx_lhm15_lightmech_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//Leg
+				{
+					NifName       = fx_lhm15_lightmech_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//Leg
+				{
+					NifName       = fx_lhm15_lightmech_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 3
+	NbrPartToSpawnMax = 4
+}
+
+FlyingPart	Mech_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lhm15_mech_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				//Turret
+				{
+					NifName       = fx_lhm15_mech_damage03.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+
+				//Foot
+				{
+					NifName       = fx_lhm15_mech_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				//Foot
+				{
+					NifName       = fx_lhm15_mech_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				//Foot
+				{
+					NifName       = fx_lhm15_mech_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+				}
+
+				//Foot
+				{
+					NifName       = fx_lhm15_mech_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+				}
+
+				//Leg
+				{
+					NifName       = fx_lhm15_mech_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//Leg
+				{
+					NifName       = fx_lhm15_mech_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//Leg
+				{
+					NifName       = fx_lhm15_mech_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				//Leg
+				{
+					NifName       = fx_lhm15_mech_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+
+			]
+	NbrPartToSpawnMin = 4
+	NbrPartToSpawnMax = 6
+}
+
+FlyingPart	AAHalfTrack_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lla11_aahalftrack_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_lla11_aahalftrack_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla11_aahalftrack_damage03.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla11_aahalftrack_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla11_aahalftrack_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 2
+}
+
+FlyingPart	HumveeStriker_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lla13_humveestriker_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage03.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 4
+}
+
+FlyingPart	FusionCaster_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lla15_fusion_caster_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_lla15_fusion_caster_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla15_fusion_caster_damage03.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla15_fusion_caster_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla15_fusion_caster_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 2
+}
+
+FlyingPart	PaladinDefense_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lla15_paladin_defense_truck_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_lla15_paladin_defense_truck_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla15_paladin_defense_truck_damage03.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla15_paladin_defense_truck_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla15_paladin_defense_truck_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla15_paladin_defense_truck_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla15_paladin_defense_truck_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+
+				{
+					NifName       = fx_lla15_paladin_defense_truck_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla15_paladin_defense_truck_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 4
+	NbrPartToSpawnMax = 6
+}
+
+FlyingPart	GunTank_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_llm11_guntank_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage03.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm11_guntank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 4
+	NbrPartToSpawnMax = 8
+}
+
+FlyingPart	TankDestroyer_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_llm12_tankdestroyer_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_llm12_tankdestroyer_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm12_tankdestroyer_damage03.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm12_tankdestroyer_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm12_tankdestroyer_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 2
+}
+
+FlyingPart	DisruptorTank_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_llm15_disrupterTank_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_llm15_disrupterTank_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm15_disrupterTank_damage03.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm15_disrupterTank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm15_disrupterTank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm15_disrupterTank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm15_disrupterTank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+
+				{
+					NifName       = fx_llm15_disrupterTank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_llm15_disrupterTank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 4
+	NbrPartToSpawnMax = 6
+}
+
+FlyingPart	MyrmidonTank_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_myrmidontank_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_myrmidontank_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_myrmidontank_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_myrmidontank_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_myrmidontank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 3
+}
+
+
+FlyingPart	MachinegunTank_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_machineguntank_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_machineguntank_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_machineguntank_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_machineguntank_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_machineguntank_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 3
+}
+
+FlyingPart	PresHumvee_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lla13_humveestriker_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage03.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lla13_humveestriker_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 4
+}
+
+FlyingPart	TradeCart11_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_lsf11_tradecart_damage01.nif
+					VelocityAngle = 5
+					SpeedMin      = 3
+					SpeedMax      = 5
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.1
+					RotationSpeedMax = 0.4
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+				}
+
+				{
+					NifName       = fx_lsf11_tradecart_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lsf11_tradecart_damage02.nif
+					VelocityAngle = 35
+					SpeedMin      = 5
+					SpeedMax      = 8
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 5
+					BouncingEnergyKeep = 0.3
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 2
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lsf11_tradecart_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lsf11_tradecart_damage03.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lsf11_tradecart_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+				{
+					NifName       = fx_lsf11_tradecart_damage04.nif
+					VelocityAngle = 60
+					SpeedMin      = 7
+					SpeedMax      = 10
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.5
+					StartingPositionMaxZ = 0.5
+					Mass = 1
+					BouncingEnergyKeep = 0.6
+					RotationSpeedMin = 2
+					RotationSpeedMax = 4
+					TimeBeforeVanish = 2
+				}
+
+			]
+	NbrPartToSpawnMin = 3
+	NbrPartToSpawnMax = 5
+}
