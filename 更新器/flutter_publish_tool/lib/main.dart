@@ -33,7 +33,7 @@ enum CatalogEntryKind { directory, file }
 
 enum PackageScope { launcher, game }
 
-enum CatalogPanelTab { browse, favorites }
+enum CatalogPanelTab { browse, favorites, packageManager, serverVersions }
 
 const _launcherProtectedPrefixes = <String>[
   '地球帝国二代远航版启动器/Config',
@@ -88,6 +88,69 @@ List<Map<String, Object>> scanCatalogPayload(String rootPath) {
       }
     }
   }
+  return entries;
+}
+
+DateTime? _parseStructuredBundleTimestamp(String raw) {
+  final match = RegExp(r'^(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2})$')
+      .firstMatch(raw);
+  if (match == null) {
+    return null;
+  }
+  try {
+    return DateTime(
+      int.parse(match.group(1)!),
+      int.parse(match.group(2)!),
+      int.parse(match.group(3)!),
+      int.parse(match.group(4)!),
+      int.parse(match.group(5)!),
+      int.parse(match.group(6)!),
+    );
+  } catch (_) {
+    return null;
+  }
+}
+
+List<Map<String, Object?>> scanLocalBundlePayload(String directoryPath) {
+  final directory = Directory(directoryPath);
+  if (!directory.existsSync()) {
+    return const [];
+  }
+
+  final entries = <Map<String, Object?>>[];
+  final bundleNamePattern =
+      RegExp(r'^ee2x-(.+)-(\d{8}-\d{6})\.zip$', caseSensitive: false);
+
+  for (final entity in directory.listSync(followLinks: false)) {
+    if (entity is! File) {
+      continue;
+    }
+    final fileName = p.basename(entity.path);
+    if (!fileName.toLowerCase().endsWith('.zip')) {
+      continue;
+    }
+    final stat = entity.statSync();
+    final match = bundleNamePattern.firstMatch(fileName);
+    final namedTimestamp = match == null
+        ? null
+        : _parseStructuredBundleTimestamp(match.group(2)!);
+    entries.add({
+      'fileName': fileName,
+      'absolutePath': entity.path,
+      'versionLabel': match == null ? '未知版本' : match.group(1)!,
+      'parsedVersion': match == null ? '' : match.group(1)!,
+      'modifiedAtMs': stat.modified.millisecondsSinceEpoch,
+      'sizeBytes': stat.size,
+      'isStructuredName': match != null,
+      'bundleTimestampMs': namedTimestamp?.millisecondsSinceEpoch,
+    });
+  }
+
+  entries.sort(
+    (left, right) => (right['modifiedAtMs'] as int).compareTo(
+      left['modifiedAtMs'] as int,
+    ),
+  );
   return entries;
 }
 
@@ -326,6 +389,49 @@ class BundleExportResult {
       gameDeletedCount: json['gameDeletedCount'] as int? ?? 0,
       launcherTriggersSelfUpdate:
           json['launcherTriggersSelfUpdate'] as bool? ?? false,
+    );
+  }
+}
+
+class LocalBundleEntry {
+  const LocalBundleEntry({
+    required this.fileName,
+    required this.absolutePath,
+    required this.versionLabel,
+    required this.parsedVersion,
+    required this.modifiedAt,
+    required this.sizeBytes,
+    required this.isStructuredName,
+    this.bundleTimestamp,
+  });
+
+  final String fileName;
+  final String absolutePath;
+  final String versionLabel;
+  final String parsedVersion;
+  final DateTime modifiedAt;
+  final int sizeBytes;
+  final bool isStructuredName;
+  final DateTime? bundleTimestamp;
+
+  String get directoryPath => p.dirname(absolutePath);
+
+  factory LocalBundleEntry.fromJson(Map<String, Object?> json) {
+    return LocalBundleEntry(
+      fileName: json['fileName'] as String? ?? '',
+      absolutePath: json['absolutePath'] as String? ?? '',
+      versionLabel: json['versionLabel'] as String? ?? '未知版本',
+      parsedVersion: json['parsedVersion'] as String? ?? '',
+      modifiedAt: DateTime.fromMillisecondsSinceEpoch(
+        json['modifiedAtMs'] as int? ?? 0,
+      ),
+      sizeBytes: json['sizeBytes'] as int? ?? 0,
+      isStructuredName: json['isStructuredName'] as bool? ?? false,
+      bundleTimestamp: (json['bundleTimestampMs'] as int?) == null
+          ? null
+          : DateTime.fromMillisecondsSinceEpoch(
+              json['bundleTimestampMs'] as int,
+            ),
     );
   }
 }
@@ -632,16 +738,26 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
   final List<String> _favoritePaths = <String>[];
   List<CatalogEntry> _catalog = const [];
   List<CatalogTreeNode> _treeRoots = const [];
+  List<LocalBundleEntry> _localBundleEntries = const [];
+  List<ReleaseHistoryEntry> _serverHistoryEntries = const [];
   CatalogPanelTab _catalogTab = CatalogPanelTab.favorites;
   String? _pendingRevealPath;
+  String _serverChannel = '';
+  String _serverCurrentReleaseId = '';
+  String _serverCurrentVersion = '';
+  String _serverLatestUrl = '';
 
   bool _loadingWorkspace = true;
   bool _scanningCatalog = false;
   bool _loadingRemoteInfo = false;
   bool _loadingHistory = false;
+  bool _loadingLocalBundles = false;
+  bool _loadingServerVersions = false;
   bool _publishing = false;
   String? _errorMessage;
   String? _actionMessage;
+  String? _localBundleError;
+  String? _serverVersionsError;
   ActionMessageTone _actionMessageTone = ActionMessageTone.success;
   String _publishStageText = '';
   double? _publishProgress;
@@ -651,6 +767,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
   void initState() {
     super.initState();
     _searchController.addListener(_onStateChanged);
+    _versionController.addListener(_onStateChanged);
     unawaited(_bootstrap());
   }
 
@@ -1098,6 +1215,11 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     setState(() {
       _catalogTab = tab;
     });
+    if (tab == CatalogPanelTab.packageManager) {
+      unawaited(_refreshLocalBundles());
+    } else if (tab == CatalogPanelTab.serverVersions) {
+      unawaited(_loadServerVersions());
+    }
   }
 
   bool _pathCanBeSelected(String relativePath) {
@@ -1279,6 +1401,249 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
       '已选择“导出启动器程序更新（自动排除本地状态）”预设。打包时会自动排除 Config / Logs / data/userdata / update/runtime 中的本地状态文件。',
       tone: ActionMessageTone.warning,
     );
+  }
+
+  String? _tryNormalizeVersionString(String rawValue) {
+    final raw = rawValue.trim();
+    if (raw.isEmpty) {
+      return null;
+    }
+    try {
+      return _normalizeVersionString(rawValue);
+    } on FormatException {
+      return null;
+    }
+  }
+
+  String _formatDateTime(DateTime value) {
+    final month = value.month.toString().padLeft(2, '0');
+    final day = value.day.toString().padLeft(2, '0');
+    final hour = value.hour.toString().padLeft(2, '0');
+    final minute = value.minute.toString().padLeft(2, '0');
+    final second = value.second.toString().padLeft(2, '0');
+    return '${value.year}-$month-$day $hour:$minute:$second';
+  }
+
+  Directory? get _localBundleDirectoryOrNull {
+    final workspace = _workspace;
+    if (workspace == null) {
+      return null;
+    }
+    return _defaultBundleOutputDirectory(workspace);
+  }
+
+  Future<void> _refreshLocalBundles() async {
+    final bundleDir = _localBundleDirectoryOrNull;
+    if (bundleDir == null) {
+      return;
+    }
+    setState(() {
+      _loadingLocalBundles = true;
+      _localBundleError = null;
+    });
+    try {
+      await bundleDir.create(recursive: true);
+      final payload = await Isolate.run(() => scanLocalBundlePayload(bundleDir.path));
+      final entries = payload
+          .map((item) => LocalBundleEntry.fromJson(item))
+          .toList(growable: false);
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _localBundleEntries = entries;
+      });
+    } catch (error) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _localBundleError = '读取本地更新包失败: $error';
+      });
+    } finally {
+      if (mounted) {
+        setState(() {
+          _loadingLocalBundles = false;
+        });
+      }
+    }
+  }
+
+  Future<void> _revealLocalBundle(LocalBundleEntry entry) async {
+    try {
+      if (Platform.isWindows) {
+        final result = await Process.run('explorer.exe', [
+          '/select,${entry.absolutePath}',
+        ]);
+        if (result.exitCode == 0) {
+          return;
+        }
+        await Process.run('explorer.exe', [entry.directoryPath]);
+        return;
+      }
+      if (Platform.isMacOS) {
+        await Process.run('open', ['-R', entry.absolutePath]);
+        return;
+      }
+      await Process.run('xdg-open', [entry.directoryPath]);
+    } catch (error) {
+      _setActionMessage('定位更新包失败: $error', tone: ActionMessageTone.error);
+      _showSnackBar('定位更新包失败: $error');
+    }
+  }
+
+  Future<bool> _confirmDialog({
+    required String title,
+    required String message,
+    required String confirmLabel,
+  }) async {
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: _palette.panel.withValues(alpha: 0.98),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(22),
+        ),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: _palette.primaryText,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        content: Text(
+          message,
+          style: TextStyle(color: _palette.primaryText, height: 1.55),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('取消'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(confirmLabel),
+          ),
+        ],
+      ),
+    );
+    return result == true;
+  }
+
+  Future<void> _deleteLocalBundle(LocalBundleEntry entry) async {
+    final confirmed = await _confirmDialog(
+      title: '删除本地更新包',
+      message: '确认删除 ${entry.fileName} 吗？\n\n这只会删除本地 ZIP 文件，不影响服务器版本。',
+      confirmLabel: '确认删除',
+    );
+    if (!confirmed) {
+      return;
+    }
+    try {
+      final file = File(entry.absolutePath);
+      if (file.existsSync()) {
+        await file.delete();
+      }
+      if (_lastResult?.bundlePath == entry.absolutePath) {
+        setState(() {
+          _lastResult = null;
+        });
+      }
+      await _refreshLocalBundles();
+      _setActionMessage('已删除本地更新包 ${entry.fileName}。', tone: ActionMessageTone.success);
+      _showSnackBar('已删除本地更新包 ${entry.fileName}。');
+    } catch (error) {
+      _setActionMessage('删除本地更新包失败: $error', tone: ActionMessageTone.error);
+      _showSnackBar('删除本地更新包失败: $error');
+    }
+  }
+
+  Future<void> _saveLocalBundleAs(LocalBundleEntry entry) async {
+    final sourceFile = File(entry.absolutePath);
+    if (!sourceFile.existsSync()) {
+      _setActionMessage('本地更新包已不存在，请先刷新列表。', tone: ActionMessageTone.error);
+      _showSnackBar('本地更新包已不存在，请先刷新列表。');
+      return;
+    }
+    final saveLocation = await getSaveLocation(
+      suggestedName: entry.fileName,
+      initialDirectory: sourceFile.parent.path,
+      acceptedTypeGroups: const [
+        XTypeGroup(label: 'ZIP 更新包', extensions: ['zip']),
+      ],
+    );
+    if (saveLocation == null) {
+      _setActionMessage('已取消另存更新包。', tone: ActionMessageTone.warning);
+      return;
+    }
+    final targetPath = _ensureZipExtension(saveLocation.path);
+    try {
+      final targetFile = File(targetPath);
+      if (targetFile.existsSync()) {
+        await targetFile.delete();
+      }
+      await sourceFile.copy(targetPath);
+      _setActionMessage(
+        '已将 ${entry.fileName} 另存到 $targetPath。',
+        tone: ActionMessageTone.success,
+      );
+      _showSnackBar('已另存更新包到 $targetPath。');
+    } catch (error) {
+      _setActionMessage('另存更新包失败: $error', tone: ActionMessageTone.error);
+      _showSnackBar('另存更新包失败: $error');
+    }
+  }
+
+  Future<void> _loadServerVersions() async {
+    setState(() {
+      _loadingServerVersions = true;
+      _serverVersionsError = null;
+    });
+    try {
+      await _refreshRemoteInfo();
+      final payload = await _fetchHistoryPayload(limit: 20);
+      if (payload['ok'] != true) {
+        throw StateError(payload['error'] as String? ?? '读取服务器版本失败');
+      }
+      final items = _parseReleaseHistoryItems(payload);
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _serverHistoryEntries = items;
+        _serverChannel = '${payload['channel'] ?? _remoteInfo?.channel ?? ''}';
+        _serverCurrentReleaseId = '${payload['currentReleaseId'] ?? ''}';
+        _serverCurrentVersion = '${payload['currentVersion'] ?? ''}';
+        _serverLatestUrl = _remoteInfo?.latestUrl ?? '';
+      });
+    } catch (error) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _serverVersionsError = '读取服务器版本失败: $error';
+      });
+    } finally {
+      if (mounted) {
+        setState(() {
+          _loadingServerVersions = false;
+        });
+      }
+    }
+  }
+
+  String? get _normalizedInputVersionForServerCheck =>
+      _tryNormalizeVersionString(_versionController.text);
+
+  List<ReleaseHistoryEntry> get _conflictingServerEntries {
+    final normalizedInput = _normalizedInputVersionForServerCheck;
+    if (normalizedInput == null) {
+      return const [];
+    }
+    return _serverHistoryEntries.where((entry) {
+      final normalizedEntry = _tryNormalizeVersionString(entry.version);
+      return normalizedEntry != null && normalizedEntry == normalizedInput;
+    }).toList(growable: false);
   }
 
   void _setActionMessage(String? message, {required ActionMessageTone tone}) {
@@ -1919,6 +2284,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
         );
       }
       _showSnackBar('已将更新包默认保存到 $outputPath。');
+      unawaited(_refreshLocalBundles());
     } catch (error) {
       _setActionMessage('保存更新包失败: $error', tone: ActionMessageTone.error);
       _showSnackBar('保存更新包失败: $error');
@@ -2315,18 +2681,31 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
             ],
           ),
           const SizedBox(height: 14),
-          Row(
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
             children: [
               _buildCatalogTabButton(
                 CatalogPanelTab.browse,
                 '文件浏览',
                 description: '树形目录',
               ),
-              const SizedBox(width: 10),
               _buildCatalogTabButton(
                 CatalogPanelTab.favorites,
                 '收藏',
                 description: '${_favoritePaths.length} 项',
+              ),
+              _buildCatalogTabButton(
+                CatalogPanelTab.packageManager,
+                '更新包管理',
+                description: _localBundleEntries.isEmpty
+                    ? '本地 ZIP'
+                    : '${_localBundleEntries.length} 个',
+              ),
+              _buildCatalogTabButton(
+                CatalogPanelTab.serverVersions,
+                '服务器版本',
+                description: _serverChannel.isEmpty ? '当前频道' : _serverChannel,
               ),
             ],
           ),
@@ -2384,7 +2763,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                     _buildTreeTile(visibleNodes[index]),
               ),
             ),
-          ] else ...[
+          ] else if (_catalogTab == CatalogPanelTab.favorites) ...[
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(14),
@@ -2426,6 +2805,10 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                           _buildFavoriteTile(favoriteEntries[index]),
                     ),
             ),
+          ] else if (_catalogTab == CatalogPanelTab.packageManager) ...[
+            _buildLocalPackageManagerPanel(),
+          ] else if (_catalogTab == CatalogPanelTab.serverVersions) ...[
+            _buildServerVersionsPanel(),
           ],
         ],
       ),
@@ -2473,6 +2856,417 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildLocalPackageManagerPanel() {
+    final bundleDir = _localBundleDirectoryOrNull;
+    final entries = _localBundleEntries;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                '管理默认输出目录中的历史更新包，可在打包前核对本地版本并清理旧包。',
+                style: TextStyle(
+                  color: _palette.secondaryText,
+                  fontSize: 12.5,
+                  height: 1.5,
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            OutlinedButton.icon(
+              onPressed: _loadingLocalBundles ? null : _refreshLocalBundles,
+              icon: const Icon(Icons.sync_rounded),
+              label: Text(_loadingLocalBundles ? '刷新中...' : '刷新'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: _palette.inputFill,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: _palette.panelBorder),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '默认目录',
+                style: TextStyle(
+                  color: _palette.secondaryText,
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 6),
+              SelectableText(
+                bundleDir?.path ?? '打包环境尚未初始化',
+                style: TextStyle(
+                  color: _palette.primaryText,
+                  fontSize: 12.8,
+                  height: 1.45,
+                ),
+              ),
+            ],
+          ),
+        ),
+        if (_localBundleError != null) ...[
+          const SizedBox(height: 12),
+          _buildMessageCard(
+            _localBundleError ?? '',
+            tone: ActionMessageTone.error,
+          ),
+        ],
+        const SizedBox(height: 12),
+        Text(
+          '共 ${entries.length} 个本地 ZIP，按文件修改时间倒序显示。',
+          style: TextStyle(color: _palette.secondaryText, fontSize: 12.5),
+        ),
+        const SizedBox(height: 12),
+        Expanded(
+          child: _loadingLocalBundles
+              ? Center(
+                  child: CircularProgressIndicator(color: _palette.accent),
+                )
+              : entries.isEmpty
+              ? Center(
+                  child: Text(
+                    '暂无历史更新包。生成并保存到默认目录后，这里会自动显示新 ZIP。',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: _palette.secondaryText,
+                      height: 1.5,
+                    ),
+                  ),
+                )
+              : ListView.separated(
+                  itemCount: entries.length,
+                  separatorBuilder: (_, __) => const SizedBox(height: 10),
+                  itemBuilder: (context, index) =>
+                      _buildLocalBundleCard(entries[index]),
+                ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildLocalBundleCard(LocalBundleEntry entry) {
+    final versionLabel = entry.isStructuredName
+        ? entry.versionLabel
+        : '未知版本';
+    final timeLabel = entry.bundleTimestamp == null
+        ? '文件时间 ${_formatDateTime(entry.modifiedAt)}'
+        : '命名时间 ${_formatDateTime(entry.bundleTimestamp!)} · 文件时间 ${_formatDateTime(entry.modifiedAt)}';
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: _palette.inputFill,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: _palette.panelBorder),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text(
+                versionLabel,
+                style: TextStyle(
+                  color: _palette.primaryText,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              _inlineBadge(
+                entry.isStructuredName ? '规范命名' : '旧命名',
+                entry.isStructuredName
+                    ? _palette.successSoft
+                    : _palette.warningSoft,
+                entry.isStructuredName
+                    ? const Color(0xFF3AB57C)
+                    : const Color(0xFFAF7A08),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            entry.fileName,
+            style: TextStyle(
+              color: _palette.primaryText,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            timeLabel,
+            style: TextStyle(color: _palette.secondaryText, fontSize: 12.5),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            '文件大小: ${_formatByteSize(entry.sizeBytes)}',
+            style: TextStyle(color: _palette.secondaryText, fontSize: 12.5),
+          ),
+          const SizedBox(height: 6),
+          SelectableText(
+            entry.absolutePath,
+            style: TextStyle(
+              color: _palette.secondaryText,
+              fontSize: 12.3,
+              height: 1.45,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: [
+              OutlinedButton.icon(
+                onPressed: () => _revealLocalBundle(entry),
+                icon: const Icon(Icons.folder_open_rounded),
+                label: const Text('定位文件'),
+              ),
+              OutlinedButton.icon(
+                onPressed: () => _saveLocalBundleAs(entry),
+                icon: const Icon(Icons.save_as_rounded),
+                label: const Text('另存到...'),
+              ),
+              FilledButton.tonalIcon(
+                onPressed: () => _deleteLocalBundle(entry),
+                icon: const Icon(Icons.delete_outline_rounded),
+                label: const Text('删除'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildServerVersionsPanel() {
+    final normalizedInput = _normalizedInputVersionForServerCheck;
+    final inputRaw = _versionController.text.trim();
+    final conflicts = _conflictingServerEntries;
+    String? compareMessage;
+    ActionMessageTone? compareTone;
+    if (inputRaw.isEmpty) {
+      compareMessage = '请先填写版本号，再用服务器版本页核对是否存在重号。';
+      compareTone = ActionMessageTone.warning;
+    } else if (normalizedInput == null) {
+      compareMessage = '请先填写合法版本号再核对，格式需为 x.y.z。';
+      compareTone = ActionMessageTone.error;
+    } else if (_serverHistoryEntries.isNotEmpty && conflicts.isNotEmpty) {
+      compareMessage =
+          '当前输入版本 $normalizedInput 已存在于服务器历史，推送可能冲突。';
+      compareTone = ActionMessageTone.warning;
+    } else if (_serverHistoryEntries.isNotEmpty) {
+      compareMessage =
+          '当前输入版本 $normalizedInput 未在服务器历史中发现重复。';
+      compareTone = ActionMessageTone.success;
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                '进入本页会自动拉取当前频道的服务器版本清单，方便打包前核对版本号是否冲突。',
+                style: TextStyle(
+                  color: _palette.secondaryText,
+                  fontSize: 12.5,
+                  height: 1.5,
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            OutlinedButton.icon(
+              onPressed: _loadingServerVersions ? null : _loadServerVersions,
+              icon: const Icon(Icons.cloud_sync_rounded),
+              label: Text(_loadingServerVersions ? '拉取中...' : '刷新'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          children: [
+            _statusChip(
+              '频道',
+              _serverChannel.isEmpty
+                  ? (_remoteInfo?.channel.isNotEmpty == true
+                        ? _remoteInfo!.channel
+                        : '未读取')
+                  : _serverChannel,
+            ),
+            _statusChip(
+              '当前 latest',
+              _serverCurrentVersion.isNotEmpty ? _serverCurrentVersion : '未读取',
+            ),
+            _statusChip('历史数', '${_serverHistoryEntries.length} 条'),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: _palette.inputFill,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: _palette.panelBorder),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'latest URL',
+                style: TextStyle(
+                  color: _palette.secondaryText,
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 6),
+              SelectableText(
+                _serverLatestUrl.isNotEmpty
+                    ? _serverLatestUrl
+                    : (_remoteInfo?.latestUrl ?? '尚未读取'),
+                style: TextStyle(
+                  color: _palette.primaryText,
+                  fontSize: 12.8,
+                  height: 1.45,
+                ),
+              ),
+            ],
+          ),
+        ),
+        if (compareMessage != null && compareTone != null) ...[
+          const SizedBox(height: 12),
+          _buildMessageCard(compareMessage, tone: compareTone),
+        ],
+        if (_serverVersionsError != null) ...[
+          const SizedBox(height: 12),
+          _buildMessageCard(
+            _serverVersionsError ?? '',
+            tone: ActionMessageTone.error,
+          ),
+        ],
+        const SizedBox(height: 12),
+        Expanded(
+          child: _loadingServerVersions
+              ? Center(
+                  child: CircularProgressIndicator(color: _palette.accent),
+                )
+              : _serverHistoryEntries.isEmpty
+              ? Center(
+                  child: Text(
+                    '服务器上暂无历史版本记录。',
+                    style: TextStyle(
+                      color: _palette.secondaryText,
+                      height: 1.5,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              : ListView.separated(
+                  itemCount: _serverHistoryEntries.length,
+                  separatorBuilder: (_, __) => const SizedBox(height: 10),
+                  itemBuilder: (context, index) => _buildServerVersionCard(
+                    _serverHistoryEntries[index],
+                    highlightConflict: conflicts.any(
+                      (conflict) =>
+                          conflict.releaseId ==
+                          _serverHistoryEntries[index].releaseId,
+                    ),
+                  ),
+                ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildServerVersionCard(
+    ReleaseHistoryEntry entry, {
+    required bool highlightConflict,
+  }) {
+    final isCurrent = entry.releaseId == _serverCurrentReleaseId;
+    final versionLabel = entry.version.isEmpty ? entry.releaseId : entry.version;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: _palette.inputFill,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: highlightConflict
+              ? const Color(0xFFD65A54).withValues(alpha: 0.55)
+              : isCurrent
+              ? _palette.accent.withValues(alpha: 0.5)
+              : _palette.panelBorder,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text(
+                versionLabel,
+                style: TextStyle(
+                  color: _palette.primaryText,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              if (isCurrent)
+                _inlineBadge('当前版本', _palette.accentSoft, _palette.accent),
+              if (highlightConflict)
+                _inlineBadge(
+                  '版本冲突',
+                  _palette.dangerSoft,
+                  const Color(0xFFD65A54),
+                ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Release ID: ${entry.releaseId}',
+            style: TextStyle(color: _palette.secondaryText, fontSize: 12.5),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            entry.generatedAt.isEmpty ? '生成时间未知' : entry.generatedAt,
+            style: TextStyle(color: _palette.secondaryText, fontSize: 12.5),
+          ),
+          if (entry.notes.trim().isNotEmpty) ...[
+            const SizedBox(height: 6),
+            Text(
+              entry.notes.trim(),
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: _palette.secondaryText,
+                height: 1.45,
+              ),
+            ),
+          ],
+        ],
       ),
     );
   }
