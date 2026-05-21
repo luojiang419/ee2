@@ -1,4 +1,6 @@
 /Empire Earth II
 __pycache__/
 # 更新器/ 现已允许推送源代码，构建产物排除见 更新器/.gitignore
-backup/
+backup/*
+!backup/INDEX.md
+!backup/*.zip
