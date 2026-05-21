@@ -28,7 +28,8 @@ PROTECTED_RELATIVE_PATHS = [
     f"{LAUNCHER_DIR_NAME}/data/game-csv",
     f"{LAUNCHER_DIR_NAME}/data/Settlement-img",
     f"{LAUNCHER_DIR_NAME}/update/runtime",
-    f"{LAUNCHER_DIR_NAME}/update/ee2x-up.exe",
+    f"{LAUNCHER_DIR_NAME}/update/ee2x-patcher.exe",
+    f"{LAUNCHER_DIR_NAME}/update/ee2x-patcher-cli.exe",
 ]
 
 BLOCKED_SELECTION_PREFIXES = [

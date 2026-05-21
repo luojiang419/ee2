@@ -8,7 +8,6 @@
 - `docs/`：协议与使用说明
 - `src/ee2x_update_suite/shared/`：共享常量、模型、校验与文件处理逻辑
 - `src/ee2x_update_suite/patcher_v2/`：可信新 patcher GUI / CLI
-- `src/ee2x_update_suite/updater_gui/`：旧更新器实现（已停用，保留源码仅供过渡期参考）
 - `src/ee2x_update_suite/builder_gui/`：更新包创建与推送工具 GUI
 - `src/ee2x_update_suite/bridge/`：Flutter 发布端调用的无界面桥接 CLI
 - `src/ee2x_update_suite/publisher/`：发布协议、HTTP 发布客户端与历史兼容逻辑
@@ -120,8 +119,6 @@ PYTHONPATH=更新器/src python -m ee2x_update_suite.publisher.smoke_test --conf
 - `build_bridge.bat`
 - `build_patcher.bat`
 - `build_patcher_cli.bat`
-- `build_updater.bat`（旧）
-- `build_updater_cli.bat`（旧）
 - `build_builder.bat`
 - `build_flutter_publish_tool.bat`
 
