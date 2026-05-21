@@ -92,7 +92,7 @@ def parse_args() -> argparse.Namespace:
 
     history_parser = subparsers.add_parser("release-history", help="读取当前频道的远端发布历史")
     history_parser.add_argument("--config", default="", help="发布配置路径，默认使用 更新器/config/publish.local.json")
-    history_parser.add_argument("--limit", type=int, default=20, help="返回历史条目数量上限")
+    history_parser.add_argument("--limit", type=int, default=0, help="返回历史条目数量上限；0 表示全部")
 
     delete_parser = subparsers.add_parser("delete-release", help="删除当前频道的某个远端发布版本")
     delete_parser.add_argument("--config", default="", help="发布配置路径，默认使用 更新器/config/publish.local.json")
@@ -147,7 +147,7 @@ def command_remote_info(args: argparse.Namespace) -> dict:
 
 def command_release_history(args: argparse.Namespace) -> dict:
     config_path = resolve_config_path(args.config)
-    return fetch_release_history(config_path, limit=max(1, int(args.limit)))
+    return fetch_release_history(config_path, limit=max(0, int(args.limit)))
 
 
 def command_delete_release(args: argparse.Namespace) -> dict:

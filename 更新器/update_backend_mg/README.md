@@ -26,7 +26,7 @@
 - `POST /api/update/v1/auth/login`
 - `GET /api/update/v1/health`
 - `GET /api/update/v1/channels/{channel}/latest`
-- `GET /api/update/v1/channels/{channel}/history?limit=20`
+- `GET /api/update/v1/channels/{channel}/history?limit=0`
 - `POST /api/update/v1/releases/publish`
 - `POST /api/update/v1/releases/publish-bundle`
 - `DELETE /api/update/v1/channels/{channel}/releases/{releaseId}`
@@ -36,6 +36,8 @@
 
 - `latest.json` 的兼容字段始终指向 `game` 包。
 - `packages.launcher` 仅在 launcher manifest 存在实际变更时下发；空 launcher 包不会再对客户端宣告。
+- `history` 接口在 `limit=0` 时返回当前频道全部历史版本，并额外包含下载量、包体大小、最后下载时间等详情字段。
+- 更新包下载入口由后端显式路由提供，服务端会按 `launcher/game` 包自动累计下载次数。
 
 ## 鉴权
 

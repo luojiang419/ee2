@@ -54,6 +54,13 @@ CREATE TABLE IF NOT EXISTS release_files (
     FOREIGN KEY(release_package_id) REFERENCES release_packages(id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS release_package_downloads (
+    release_package_id INTEGER PRIMARY KEY,
+    download_count INTEGER NOT NULL DEFAULT 0,
+    last_downloaded_at TEXT NOT NULL DEFAULT '',
+    FOREIGN KEY(release_package_id) REFERENCES release_packages(id) ON DELETE CASCADE
+);
+
 CREATE TABLE IF NOT EXISTS publish_events (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     channel TEXT NOT NULL,

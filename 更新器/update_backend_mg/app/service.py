@@ -105,6 +105,20 @@ def _fetchall_dicts(conn: sqlite3.Connection, sql: str, params: tuple[Any, ...] 
     return [dict(row) for row in conn.execute(sql, params).fetchall()]
 
 
+def _storage_path_from_relative(settings: Settings, relative_path: str) -> Path:
+    normalized = normalize_relpath(relative_path)
+    if not normalized:
+        return settings.storage_updates_dir
+    return settings.storage_updates_dir.joinpath(*PurePosixPath(normalized).parts)
+
+
+def _find_existing_path(candidates: list[Path]) -> Path | None:
+    for candidate in candidates:
+        if candidate.exists() and candidate.is_file():
+            return candidate
+    return None
+
+
 def verify_publish_username_password(settings: Settings, username: str, password: str) -> None:
     expected_username = settings.admin_username.strip() or "ee2x"
     expected_password = settings.admin_password.strip() or "ee2x"
@@ -138,6 +152,122 @@ def _sha256_and_size(path: Path) -> tuple[str, int]:
             digest.update(chunk)
             total_size += len(chunk)
     return digest.hexdigest(), total_size
+
+
+def resolve_latest_json_file(settings: Settings, channel: str) -> Path:
+    latest_path = static_latest_path(settings, channel)
+    if not latest_path.exists() or not latest_path.is_file():
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"频道 {channel} 尚无版本。")
+    return latest_path
+
+
+def _get_release_package_with_release(
+    conn: sqlite3.Connection,
+    *,
+    channel: str,
+    release_id: str,
+    scope: str,
+) -> dict[str, Any]:
+    if scope not in PACKAGE_SCOPES:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"无效的 package scope: {scope}")
+    row = _fetchone_dict(
+        conn,
+        """
+        SELECT
+            p.*,
+            r.id AS release_db_id,
+            r.channel AS release_channel,
+            r.release_id AS release_slug
+        FROM release_packages p
+        JOIN releases r ON r.id = p.release_id
+        WHERE r.channel = ? AND r.release_id = ? AND p.scope = ?
+        """,
+        (channel, release_id, scope),
+    )
+    if not row:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"频道 {channel} 不存在版本 {release_id} 的 {scope} 包。",
+        )
+    return row
+
+
+def resolve_release_manifest_file(
+    settings: Settings,
+    conn: sqlite3.Connection,
+    *,
+    channel: str,
+    release_id: str,
+    scope: str,
+) -> Path:
+    package_row = _get_release_package_with_release(
+        conn,
+        channel=channel,
+        release_id=release_id,
+        scope=scope,
+    )
+    candidates = [
+        _storage_path_from_relative(settings, str(package_row.get("manifest_path", ""))),
+        release_scope_dir(settings, channel, release_id, scope) / "release-manifest.json",
+    ]
+    if scope == "game":
+        candidates.append(settings.storage_updates_dir / channel / "releases" / release_id / "release-manifest.json")
+    manifest_path = _find_existing_path(candidates)
+    if manifest_path is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"频道 {channel} 版本 {release_id} 的 {scope} manifest 文件不存在。",
+        )
+    return manifest_path
+
+
+def resolve_release_package_file(
+    settings: Settings,
+    conn: sqlite3.Connection,
+    *,
+    channel: str,
+    release_id: str,
+    scope: str,
+    package_file_name: str,
+) -> tuple[Path, dict[str, Any]]:
+    package_row = _get_release_package_with_release(
+        conn,
+        channel=channel,
+        release_id=release_id,
+        scope=scope,
+    )
+    expected_name = str(package_row.get("package_file_name", "")).strip()
+    if not expected_name or expected_name != package_file_name:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"频道 {channel} 版本 {release_id} 的 {scope} 包文件不存在。",
+        )
+    candidates = [
+        _storage_path_from_relative(settings, str(package_row.get("package_path", ""))),
+        release_scope_dir(settings, channel, release_id, scope) / expected_name,
+    ]
+    if scope == "game":
+        candidates.append(settings.storage_updates_dir / channel / "releases" / release_id / expected_name)
+    package_path = _find_existing_path(candidates)
+    if package_path is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"频道 {channel} 版本 {release_id} 的 {scope} 包文件不存在。",
+        )
+    return package_path, package_row
+
+
+def increment_release_package_download(conn: sqlite3.Connection, release_package_id: int) -> None:
+    conn.execute(
+        """
+        INSERT INTO release_package_downloads(release_package_id, download_count, last_downloaded_at)
+        VALUES (?, ?, ?)
+        ON CONFLICT(release_package_id) DO UPDATE SET
+            download_count = release_package_downloads.download_count + 1,
+            last_downloaded_at = excluded.last_downloaded_at
+        """,
+        (release_package_id, 1, utc_now_iso()),
+    )
 
 
 async def _write_upload_to_path(upload: UploadFile, target_path: Path) -> None:
@@ -584,37 +714,76 @@ def get_channel_current(conn: sqlite3.Connection, channel: str) -> dict[str, Any
     return _fetchone_dict(conn, "SELECT * FROM channels WHERE channel = ?", (channel,))
 
 
+def get_history_total_count(conn: sqlite3.Connection, channel: str) -> int:
+    row = conn.execute("SELECT COUNT(*) AS total FROM releases WHERE channel = ?", (channel,)).fetchone()
+    return int(row["total"] or 0) if row else 0
+
+
+def _build_history_entry(
+    row: dict[str, Any],
+) -> dict[str, Any]:
+    launcher_download_count = int(row.get("launcher_download_count", 0) or 0)
+    game_download_count = int(row.get("game_download_count", 0) or 0)
+    last_download_candidates = [
+        str(row.get("launcher_last_downloaded_at", "")).strip(),
+        str(row.get("game_last_downloaded_at", "")).strip(),
+    ]
+    last_downloaded_at = max((value for value in last_download_candidates if value), default="")
+    return {
+        "releaseId": row["release_id"],
+        "version": row["version"],
+        "generatedAt": row["published_at"],
+        "publishedAt": row["published_at"],
+        "notes": row["notes"],
+        "required": bool(row.get("required", 1)),
+        "launcherFileCount": int(row["launcher_file_count"] or 0),
+        "gameFileCount": int(row["game_file_count"] or 0),
+        "launcherDeletedCount": int(row["launcher_delete_count"] or 0),
+        "gameDeletedCount": int(row["game_delete_count"] or 0),
+        "launcherPackageSize": int(row.get("launcher_package_size", 0) or 0),
+        "gamePackageSize": int(row.get("game_package_size", 0) or 0),
+        "launcherDownloadCount": launcher_download_count,
+        "gameDownloadCount": game_download_count,
+        "downloadCount": game_download_count,
+        "totalDownloadCount": launcher_download_count + game_download_count,
+        "lastDownloadedAt": last_downloaded_at,
+    }
+
+
 def get_history(conn: sqlite3.Connection, channel: str, limit: int) -> list[dict[str, Any]]:
-    rows = _fetchall_dicts(
-        conn,
-        """
-        SELECT r.release_id, r.version, r.notes, r.published_at,
-               MAX(CASE WHEN p.scope = 'launcher' THEN p.file_count ELSE 0 END) AS launcher_file_count,
-               MAX(CASE WHEN p.scope = 'game' THEN p.file_count ELSE 0 END) AS game_file_count,
-               MAX(CASE WHEN p.scope = 'launcher' THEN p.delete_count ELSE 0 END) AS launcher_delete_count,
-               MAX(CASE WHEN p.scope = 'game' THEN p.delete_count ELSE 0 END) AS game_delete_count
+    limit_value = int(limit)
+    sql = """
+        SELECT
+            r.release_id,
+            r.version,
+            r.notes,
+            r.required,
+            r.published_at,
+            MAX(CASE WHEN p.scope = 'launcher' THEN p.file_count ELSE 0 END) AS launcher_file_count,
+            MAX(CASE WHEN p.scope = 'game' THEN p.file_count ELSE 0 END) AS game_file_count,
+            MAX(CASE WHEN p.scope = 'launcher' THEN p.delete_count ELSE 0 END) AS launcher_delete_count,
+            MAX(CASE WHEN p.scope = 'game' THEN p.delete_count ELSE 0 END) AS game_delete_count,
+            MAX(CASE WHEN p.scope = 'launcher' THEN p.package_size ELSE 0 END) AS launcher_package_size,
+            MAX(CASE WHEN p.scope = 'game' THEN p.package_size ELSE 0 END) AS game_package_size,
+            MAX(CASE WHEN p.scope = 'launcher' THEN COALESCE(d.download_count, 0) ELSE 0 END) AS launcher_download_count,
+            MAX(CASE WHEN p.scope = 'game' THEN COALESCE(d.download_count, 0) ELSE 0 END) AS game_download_count,
+            MAX(CASE WHEN p.scope = 'launcher' THEN COALESCE(d.last_downloaded_at, '') ELSE '' END) AS launcher_last_downloaded_at,
+            MAX(CASE WHEN p.scope = 'game' THEN COALESCE(d.last_downloaded_at, '') ELSE '' END) AS game_last_downloaded_at
         FROM releases r
         LEFT JOIN release_packages p ON p.release_id = r.id
+        LEFT JOIN release_package_downloads d ON d.release_package_id = p.id
         WHERE r.channel = ?
         GROUP BY r.id
-        ORDER BY r.published_at DESC
-        LIMIT ?
-        """,
-        (channel, max(1, limit)),
-    )
-    return [
-        {
-            "releaseId": row["release_id"],
-            "version": row["version"],
-            "generatedAt": row["published_at"],
-            "notes": row["notes"],
-            "launcherFileCount": int(row["launcher_file_count"] or 0),
-            "gameFileCount": int(row["game_file_count"] or 0),
-            "launcherDeletedCount": int(row["launcher_delete_count"] or 0),
-            "gameDeletedCount": int(row["game_delete_count"] or 0),
-        }
-        for row in rows
-    ]
+        ORDER BY r.published_at DESC, r.id DESC
+    """
+    params: tuple[Any, ...]
+    if limit_value > 0:
+        sql += "\nLIMIT ?"
+        params = (channel, limit_value)
+    else:
+        params = (channel,)
+    rows = _fetchall_dicts(conn, sql, params)
+    return [_build_history_entry(row) for row in rows]
 
 
 def delete_release(settings: Settings, *, channel: str, release_id: str) -> dict[str, Any]:

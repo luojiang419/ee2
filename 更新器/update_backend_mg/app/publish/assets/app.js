@@ -200,7 +200,7 @@
 
   async function fetchHistory() {
     setMessage(historyMessage, "", "");
-    const response = await fetch(`/api/update/v1/channels/${encodeURIComponent(channel)}/history?limit=20`);
+    const response = await fetch(`/api/update/v1/channels/${encodeURIComponent(channel)}/history?limit=0`);
     const payload = await response.json();
     if (!response.ok || payload.ok !== true) {
       throw new Error(payload.detail || payload.error || `读取历史失败: HTTP ${response.status}`);
@@ -242,6 +242,7 @@
             </div>
             <div class="history-tags">
               ${isCurrent ? '<span class="tag current">当前版本</span>' : ""}
+              <span class="tag files">下载 ${entry.downloadCount || 0} 次</span>
               <span class="tag files">启动器 ${entry.launcherFileCount || 0} 项 · 游戏 ${entry.gameFileCount || 0} 项</span>
               <span class="tag delete">删除 ${((entry.launcherDeletedCount || 0) + (entry.gameDeletedCount || 0))} 项</span>
             </div>

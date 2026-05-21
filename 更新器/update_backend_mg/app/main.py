@@ -4,7 +4,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, File, Form, Header, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
 from .config import Settings, load_settings
@@ -15,11 +15,16 @@ from .service import (
     delete_release,
     get_channel_current,
     get_history,
+    get_history_total_count,
     get_latest_payload,
+    increment_release_package_download,
     import_legacy_updates,
     legacy_manifest_payload,
     publish_release,
     rebuild_index_from_storage,
+    resolve_latest_json_file,
+    resolve_release_manifest_file,
+    resolve_release_package_file,
     verify_publish_auth,
     verify_publish_username_password,
 )
@@ -36,7 +41,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.mount("/updates", StaticFiles(directory=str(settings.storage_updates_dir)), name="updates")
 app.mount("/publish/assets", StaticFiles(directory=str(publish_dir / "assets")), name="publish-assets")
 
 
@@ -65,15 +69,18 @@ def latest(channel: str):
 
 
 @app.get("/api/update/v1/channels/{channel}/history")
-def history(channel: str, limit: int = 20):
+def history(channel: str, limit: int = 0):
     with db_session(settings.db_path) as conn:
         current = get_channel_current(conn, channel) or {}
+        total_count = get_history_total_count(conn, channel)
         items = get_history(conn, channel, limit)
     return {
         "ok": True,
         "channel": channel,
         "currentReleaseId": str(current.get("current_release_id", "")),
         "currentVersion": str(current.get("current_version", "")),
+        "historyTotalCount": total_count,
+        "returnedCount": len(items),
         "history": items,
     }
 
@@ -176,6 +183,49 @@ def delete_channel_release(
     return {"ok": True, **result}
 
 
+@app.get("/updates/{channel}/latest.json")
+def latest_static(channel: str):
+    latest_path = resolve_latest_json_file(settings, channel)
+    return FileResponse(latest_path, media_type="application/json")
+
+
+@app.get("/updates/{channel}/releases/{release_id}/{scope}/release-manifest.json")
+def release_manifest_static(channel: str, release_id: str, scope: str):
+    with db_session(settings.db_path) as conn:
+        manifest_path = resolve_release_manifest_file(
+            settings,
+            conn,
+            channel=channel,
+            release_id=release_id,
+            scope=scope,
+        )
+    return FileResponse(manifest_path, media_type="application/json")
+
+
+@app.get("/updates/{channel}/releases/{release_id}/{scope}/{package_file_name}")
+def release_package_static(
+    channel: str,
+    release_id: str,
+    scope: str,
+    package_file_name: str,
+):
+    with db_session(settings.db_path) as conn:
+        package_path, package_row = resolve_release_package_file(
+            settings,
+            conn,
+            channel=channel,
+            release_id=release_id,
+            scope=scope,
+            package_file_name=package_file_name,
+        )
+        increment_release_package_download(conn, int(package_row["id"]))
+    return FileResponse(
+        package_path,
+        media_type="application/zip",
+        filename=package_file_name,
+    )
+
+
 @app.get("/manifest")
 def legacy_manifest(channel: str | None = None):
     with db_session(settings.db_path) as conn:
@@ -191,7 +241,7 @@ def legacy_latest(channel: str | None = None):
 
 
 @app.get("/api/version/history")
-def legacy_history(channel: str | None = None, limit: int = 20):
+def legacy_history(channel: str | None = None, limit: int = 0):
     with db_session(settings.db_path) as conn:
         items = get_history(conn, channel or settings.default_channel, limit)
     return {"versions": items}

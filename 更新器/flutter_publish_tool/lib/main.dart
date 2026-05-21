@@ -92,8 +92,9 @@ List<Map<String, Object>> scanCatalogPayload(String rootPath) {
 }
 
 DateTime? _parseStructuredBundleTimestamp(String raw) {
-  final match = RegExp(r'^(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2})$')
-      .firstMatch(raw);
+  final match = RegExp(
+    r'^(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2})$',
+  ).firstMatch(raw);
   if (match == null) {
     return null;
   }
@@ -118,8 +119,10 @@ List<Map<String, Object?>> scanLocalBundlePayload(String directoryPath) {
   }
 
   final entries = <Map<String, Object?>>[];
-  final bundleNamePattern =
-      RegExp(r'^ee2x-(.+)-(\d{8}-\d{6})\.zip$', caseSensitive: false);
+  final bundleNamePattern = RegExp(
+    r'^ee2x-(.+)-(\d{8}-\d{6})\.zip$',
+    caseSensitive: false,
+  );
 
   for (final entity in directory.listSync(followLinks: false)) {
     if (entity is! File) {
@@ -147,9 +150,8 @@ List<Map<String, Object?>> scanLocalBundlePayload(String directoryPath) {
   }
 
   entries.sort(
-    (left, right) => (right['modifiedAtMs'] as int).compareTo(
-      left['modifiedAtMs'] as int,
-    ),
+    (left, right) =>
+        (right['modifiedAtMs'] as int).compareTo(left['modifiedAtMs'] as int),
   );
   return entries;
 }
@@ -459,32 +461,66 @@ class ReleaseHistoryEntry {
     required this.releaseId,
     required this.version,
     required this.generatedAt,
+    required this.publishedAt,
     required this.notes,
+    required this.required,
     required this.launcherFileCount,
     required this.gameFileCount,
     required this.launcherDeletedCount,
     required this.gameDeletedCount,
+    required this.launcherPackageSize,
+    required this.gamePackageSize,
+    required this.launcherDownloadCount,
+    required this.gameDownloadCount,
+    required this.downloadCount,
+    required this.totalDownloadCount,
+    required this.lastDownloadedAt,
   });
 
   final String releaseId;
   final String version;
   final String generatedAt;
+  final String publishedAt;
   final String notes;
+  final bool required;
   final int launcherFileCount;
   final int gameFileCount;
   final int launcherDeletedCount;
   final int gameDeletedCount;
+  final int launcherPackageSize;
+  final int gamePackageSize;
+  final int launcherDownloadCount;
+  final int gameDownloadCount;
+  final int downloadCount;
+  final int totalDownloadCount;
+  final String lastDownloadedAt;
+
+  String get displayVersion => version.isEmpty ? releaseId : version;
+  String get trimmedNotes => notes.trim();
+  bool get hasNotes => trimmedNotes.isNotEmpty;
 
   factory ReleaseHistoryEntry.fromJson(Map<String, dynamic> json) {
     return ReleaseHistoryEntry(
       releaseId: json['releaseId'] as String? ?? '',
       version: json['version'] as String? ?? '',
       generatedAt: json['generatedAt'] as String? ?? '',
+      publishedAt:
+          json['publishedAt'] as String? ??
+          json['generatedAt'] as String? ??
+          '',
       notes: json['notes'] as String? ?? '',
+      required: json['required'] as bool? ?? true,
       launcherFileCount: json['launcherFileCount'] as int? ?? 0,
       gameFileCount: json['gameFileCount'] as int? ?? 0,
       launcherDeletedCount: json['launcherDeletedCount'] as int? ?? 0,
       gameDeletedCount: json['gameDeletedCount'] as int? ?? 0,
+      launcherPackageSize: json['launcherPackageSize'] as int? ?? 0,
+      gamePackageSize: json['gamePackageSize'] as int? ?? 0,
+      launcherDownloadCount: json['launcherDownloadCount'] as int? ?? 0,
+      gameDownloadCount: json['gameDownloadCount'] as int? ?? 0,
+      downloadCount: json['downloadCount'] as int? ?? 0,
+      totalDownloadCount: json['totalDownloadCount'] as int? ?? 0,
+      lastDownloadedAt: json['lastDownloadedAt'] as String? ?? '',
     );
   }
 }
@@ -746,6 +782,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
   String _serverCurrentReleaseId = '';
   String _serverCurrentVersion = '';
   String _serverLatestUrl = '';
+  int _serverHistoryTotalCount = 0;
 
   bool _loadingWorkspace = true;
   bool _scanningCatalog = false;
@@ -1434,6 +1471,29 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     return '${value.year}-$month-$day $hour:$minute:$second';
   }
 
+  String _formatServerTimestamp(String raw) {
+    final trimmed = raw.trim();
+    if (trimmed.isEmpty) {
+      return '未知';
+    }
+    try {
+      return _formatDateTime(DateTime.parse(trimmed).toLocal());
+    } catch (_) {
+      return trimmed;
+    }
+  }
+
+  String _releaseNotesPreview(String raw, {int maxLength = 120}) {
+    final flattened = raw.replaceAll('\r', '').replaceAll('\n', ' ').trim();
+    if (flattened.isEmpty) {
+      return '无更新说明';
+    }
+    if (flattened.length <= maxLength) {
+      return flattened;
+    }
+    return '${flattened.substring(0, maxLength)}...';
+  }
+
   Directory? get _localBundleDirectoryOrNull {
     final workspace = _workspace;
     if (workspace == null) {
@@ -1534,9 +1594,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
       context: context,
       builder: (context) => AlertDialog(
         backgroundColor: _palette.panel.withValues(alpha: 0.98),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(22),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
         title: Text(
           title,
           style: TextStyle(
@@ -1583,7 +1641,10 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
         });
       }
       await _refreshLocalBundles();
-      _setActionMessage('已删除本地更新包 ${entry.fileName}。', tone: ActionMessageTone.success);
+      _setActionMessage(
+        '已删除本地更新包 ${entry.fileName}。',
+        tone: ActionMessageTone.success,
+      );
       _showSnackBar('已删除本地更新包 ${entry.fileName}。');
     } catch (error) {
       _setActionMessage('删除本地更新包失败: $error', tone: ActionMessageTone.error);
@@ -1634,7 +1695,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     });
     try {
       await _refreshRemoteInfo();
-      final payload = await _fetchHistoryPayload(limit: 20);
+      final payload = await _fetchHistoryPayload(limit: 0);
       if (payload['ok'] != true) {
         throw StateError(payload['error'] as String? ?? '读取服务器版本失败');
       }
@@ -1648,6 +1709,8 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
         _serverCurrentReleaseId = '${payload['currentReleaseId'] ?? ''}';
         _serverCurrentVersion = '${payload['currentVersion'] ?? ''}';
         _serverLatestUrl = _remoteInfo?.latestUrl ?? '';
+        _serverHistoryTotalCount =
+            payload['historyTotalCount'] as int? ?? items.length;
       });
     } catch (error) {
       if (!mounted) {
@@ -1673,10 +1736,12 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     if (normalizedInput == null) {
       return const [];
     }
-    return _serverHistoryEntries.where((entry) {
-      final normalizedEntry = _tryNormalizeVersionString(entry.version);
-      return normalizedEntry != null && normalizedEntry == normalizedInput;
-    }).toList(growable: false);
+    return _serverHistoryEntries
+        .where((entry) {
+          final normalizedEntry = _tryNormalizeVersionString(entry.version);
+          return normalizedEntry != null && normalizedEntry == normalizedInput;
+        })
+        .toList(growable: false);
   }
 
   void _setActionMessage(String? message, {required ActionMessageTone tone}) {
@@ -1691,7 +1756,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     });
   }
 
-  Future<Map<String, dynamic>> _fetchHistoryPayload({int limit = 20}) async {
+  Future<Map<String, dynamic>> _fetchHistoryPayload({int limit = 0}) async {
     final remoteInfo = _remoteInfo;
     if (remoteInfo == null || remoteInfo.publicBaseUrl.trim().isEmpty) {
       throw StateError('后端地址未配置。');
@@ -2002,7 +2067,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
       _loadingHistory = true;
     });
     try {
-      final payload = await _fetchHistoryPayload(limit: 20);
+      final payload = await _fetchHistoryPayload(limit: 0);
       if (payload['ok'] == true) {
         final items = _parseReleaseHistoryItems(payload);
         if (!mounted) return;
@@ -2108,10 +2173,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     if (normalized == null) {
       return;
     }
-    final parts = normalized
-        .split('.')
-        .map(int.parse)
-        .toList(growable: false);
+    final parts = normalized.split('.').map(int.parse).toList(growable: false);
     var patch = parts[2];
     if (delta > 0) {
       patch += delta;
@@ -2303,7 +2365,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           ? '本次发布会触发启动器自升级。'
           : '本次发布不会触发启动器自升级（launcher 仅为空包或无变更）。';
       final launcherSummaryMessage = preparedLauncherDeletedCount > 0
-          ? '$launcherBehaviorMessage\n启动器删除项 ${preparedLauncherDeletedCount} 个。'
+          ? '$launcherBehaviorMessage\n启动器删除项 $preparedLauncherDeletedCount 个。'
           : launcherBehaviorMessage;
       if (preparedWarningText.trim().isNotEmpty) {
         _setActionMessage(
@@ -2972,9 +3034,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
         const SizedBox(height: 12),
         Expanded(
           child: _loadingLocalBundles
-              ? Center(
-                  child: CircularProgressIndicator(color: _palette.accent),
-                )
+              ? Center(child: CircularProgressIndicator(color: _palette.accent))
               : entries.isEmpty
               ? Center(
                   child: Text(
@@ -2988,7 +3048,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                 )
               : ListView.separated(
                   itemCount: entries.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 10),
+                  separatorBuilder: (_, _) => const SizedBox(height: 10),
                   itemBuilder: (context, index) =>
                       _buildLocalBundleCard(entries[index]),
                 ),
@@ -2998,9 +3058,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
   }
 
   Widget _buildLocalBundleCard(LocalBundleEntry entry) {
-    final versionLabel = entry.isStructuredName
-        ? entry.versionLabel
-        : '未知版本';
+    final versionLabel = entry.isStructuredName ? entry.versionLabel : '未知版本';
     final timeLabel = entry.bundleTimestamp == null
         ? '文件时间 ${_formatDateTime(entry.modifiedAt)}'
         : '命名时间 ${_formatDateTime(entry.bundleTimestamp!)} · 文件时间 ${_formatDateTime(entry.modifiedAt)}';
@@ -3097,6 +3155,13 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     final normalizedInput = _normalizedInputVersionForServerCheck;
     final inputRaw = _versionController.text.trim();
     final conflicts = _conflictingServerEntries;
+    final totalHistoryCount = _serverHistoryTotalCount > 0
+        ? _serverHistoryTotalCount
+        : _serverHistoryEntries.length;
+    final totalDownloads = _serverHistoryEntries.fold<int>(
+      0,
+      (sum, entry) => sum + entry.downloadCount,
+    );
     String? compareMessage;
     ActionMessageTone? compareTone;
     if (inputRaw.isEmpty) {
@@ -3106,12 +3171,10 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
       compareMessage = '请先填写合法版本号再核对，格式需为 x.y.z。';
       compareTone = ActionMessageTone.error;
     } else if (_serverHistoryEntries.isNotEmpty && conflicts.isNotEmpty) {
-      compareMessage =
-          '当前输入版本 $normalizedInput 已存在于服务器历史，推送可能冲突。';
+      compareMessage = '当前输入版本 $normalizedInput 已存在于服务器历史，推送可能冲突。';
       compareTone = ActionMessageTone.warning;
     } else if (_serverHistoryEntries.isNotEmpty) {
-      compareMessage =
-          '当前输入版本 $normalizedInput 未在服务器历史中发现重复。';
+      compareMessage = '当前输入版本 $normalizedInput 未在服务器历史中发现重复。';
       compareTone = ActionMessageTone.success;
     }
 
@@ -3122,7 +3185,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           children: [
             Expanded(
               child: Text(
-                '进入本页会自动拉取当前频道的服务器版本清单，方便打包前核对版本号是否冲突。',
+                '进入本页会自动拉取当前频道全部已发布版本。卡片会直接显示版本号、更新时间和更新摘要，点击后可查看推送时间、完整更新内容与下载量详情。',
                 style: TextStyle(
                   color: _palette.secondaryText,
                   fontSize: 12.5,
@@ -3155,7 +3218,8 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
               '当前 latest',
               _serverCurrentVersion.isNotEmpty ? _serverCurrentVersion : '未读取',
             ),
-            _statusChip('历史数', '${_serverHistoryEntries.length} 条'),
+            _statusChip('历史数', '$totalHistoryCount 条'),
+            _statusChip('累计下载', '$totalDownloads 次'),
           ],
         ),
         const SizedBox(height: 12),
@@ -3206,9 +3270,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
         const SizedBox(height: 12),
         Expanded(
           child: _loadingServerVersions
-              ? Center(
-                  child: CircularProgressIndicator(color: _palette.accent),
-                )
+              ? Center(child: CircularProgressIndicator(color: _palette.accent))
               : _serverHistoryEntries.isEmpty
               ? Center(
                   child: Text(
@@ -3222,7 +3284,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                 )
               : ListView.separated(
                   itemCount: _serverHistoryEntries.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 10),
+                  separatorBuilder: (_, _) => const SizedBox(height: 10),
                   itemBuilder: (context, index) => _buildServerVersionCard(
                     _serverHistoryEntries[index],
                     highlightConflict: conflicts.any(
@@ -3242,69 +3304,339 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     required bool highlightConflict,
   }) {
     final isCurrent = entry.releaseId == _serverCurrentReleaseId;
-    final versionLabel = entry.version.isEmpty ? entry.releaseId : entry.version;
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () => _showServerVersionDetails(entry),
+        borderRadius: BorderRadius.circular(18),
+        child: Ink(
+          width: double.infinity,
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: _palette.inputFill,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(
+              color: highlightConflict
+                  ? const Color(0xFFD65A54).withValues(alpha: 0.55)
+                  : isCurrent
+                  ? _palette.accent.withValues(alpha: 0.5)
+                  : _palette.panelBorder,
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(
+                              entry.displayVersion,
+                              style: TextStyle(
+                                color: _palette.primaryText,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            if (isCurrent)
+                              _inlineBadge(
+                                '当前版本',
+                                _palette.accentSoft,
+                                _palette.accent,
+                              ),
+                            if (highlightConflict)
+                              _inlineBadge(
+                                '版本冲突',
+                                _palette.dangerSoft,
+                                const Color(0xFFD65A54),
+                              ),
+                            if (entry.required)
+                              _inlineBadge(
+                                '强制更新',
+                                _palette.warningSoft,
+                                const Color(0xFFAF7A08),
+                              ),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          'Release ID: ${entry.releaseId}',
+                          style: TextStyle(
+                            color: _palette.secondaryText,
+                            fontSize: 12.5,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          '推送时间: ${_formatServerTimestamp(entry.publishedAt)}',
+                          style: TextStyle(
+                            color: _palette.secondaryText,
+                            fontSize: 12.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Icon(
+                    Icons.open_in_new_rounded,
+                    color: _palette.secondaryText,
+                    size: 18,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  _inlineBadge(
+                    '下载 ${entry.downloadCount} 次',
+                    _palette.accentSoft,
+                    _palette.accent,
+                  ),
+                  _inlineBadge(
+                    '启动器 ${entry.launcherFileCount} 项',
+                    _palette.accentSoft,
+                    _palette.accent,
+                  ),
+                  _inlineBadge(
+                    '游戏 ${entry.gameFileCount} 项',
+                    _palette.successSoft,
+                    const Color(0xFF3AB57C),
+                  ),
+                  _inlineBadge(
+                    '删除 ${entry.launcherDeletedCount + entry.gameDeletedCount} 项',
+                    _palette.warningSoft,
+                    const Color(0xFFAF7A08),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Text(
+                _releaseNotesPreview(entry.notes),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: _palette.secondaryText, height: 1.45),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                '点击卡片查看该版本的推送时间、完整更新内容、下载量和包体信息。',
+                style: TextStyle(
+                  color: _palette.secondaryText.withValues(alpha: 0.9),
+                  fontSize: 12.2,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildServerDetailInfoCard(String label, String value) {
     return Container(
-      width: double.infinity,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: _palette.inputFill,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(
-          color: highlightConflict
-              ? const Color(0xFFD65A54).withValues(alpha: 0.55)
-              : isCurrent
-              ? _palette.accent.withValues(alpha: 0.5)
-              : _palette.panelBorder,
-        ),
+        border: Border.all(color: _palette.panelBorder),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            crossAxisAlignment: WrapCrossAlignment.center,
+          Text(
+            label,
+            style: TextStyle(
+              color: _palette.secondaryText,
+              fontSize: 12.5,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 8),
+          SelectableText(
+            value,
+            style: TextStyle(
+              color: _palette.primaryText,
+              fontSize: 13.6,
+              height: 1.45,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _showServerVersionDetails(ReleaseHistoryEntry entry) async {
+    final isCurrent = entry.releaseId == _serverCurrentReleaseId;
+    await showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: _palette.panel.withValues(alpha: 0.98),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        title: Text(
+          '版本详情',
+          style: TextStyle(
+            color: _palette.primaryText,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        content: SizedBox(
+          width: 860,
+          height: 620,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  Text(
+                    entry.displayVersion,
+                    style: TextStyle(
+                      color: _palette.primaryText,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  if (isCurrent)
+                    _inlineBadge(
+                      '当前 latest',
+                      _palette.accentSoft,
+                      _palette.accent,
+                    ),
+                  if (entry.required)
+                    _inlineBadge(
+                      '强制更新',
+                      _palette.warningSoft,
+                      const Color(0xFFAF7A08),
+                    ),
+                  _inlineBadge(
+                    '版本下载 ${entry.downloadCount} 次',
+                    _palette.successSoft,
+                    const Color(0xFF3AB57C),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 14),
+              Wrap(
+                spacing: 12,
+                runSpacing: 12,
+                children: [
+                  SizedBox(
+                    width: 260,
+                    child: _buildServerDetailInfoCard(
+                      '版本号',
+                      entry.displayVersion,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 260,
+                    child: _buildServerDetailInfoCard(
+                      'Release ID',
+                      entry.releaseId,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 260,
+                    child: _buildServerDetailInfoCard(
+                      '推送时间',
+                      _formatServerTimestamp(entry.publishedAt),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 260,
+                    child: _buildServerDetailInfoCard(
+                      '最后下载时间',
+                      entry.lastDownloadedAt.trim().isEmpty
+                          ? '暂无下载记录'
+                          : _formatServerTimestamp(entry.lastDownloadedAt),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 260,
+                    child: _buildServerDetailInfoCard(
+                      '启动器包',
+                      '${_formatByteSize(entry.launcherPackageSize)} · 下载 ${entry.launcherDownloadCount} 次',
+                    ),
+                  ),
+                  SizedBox(
+                    width: 260,
+                    child: _buildServerDetailInfoCard(
+                      '游戏包',
+                      '${_formatByteSize(entry.gamePackageSize)} · 下载 ${entry.gameDownloadCount} 次',
+                    ),
+                  ),
+                  SizedBox(
+                    width: 260,
+                    child: _buildServerDetailInfoCard(
+                      '资源变更',
+                      '启动器 ${entry.launcherFileCount} 项 · 游戏 ${entry.gameFileCount} 项',
+                    ),
+                  ),
+                  SizedBox(
+                    width: 260,
+                    child: _buildServerDetailInfoCard(
+                      '删除变更',
+                      '${entry.launcherDeletedCount + entry.gameDeletedCount} 项',
+                    ),
+                  ),
+                  SizedBox(
+                    width: 260,
+                    child: _buildServerDetailInfoCard(
+                      '累计下载',
+                      '版本 ${entry.downloadCount} 次 · 总计 ${entry.totalDownloadCount} 次',
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
               Text(
-                versionLabel,
+                '更新内容',
                 style: TextStyle(
                   color: _palette.primaryText,
-                  fontSize: 16,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              if (isCurrent)
-                _inlineBadge('当前版本', _palette.accentSoft, _palette.accent),
-              if (highlightConflict)
-                _inlineBadge(
-                  '版本冲突',
-                  _palette.dangerSoft,
-                  const Color(0xFFD65A54),
+              const SizedBox(height: 8),
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: _palette.inputFill,
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(color: _palette.panelBorder),
+                  ),
+                  child: SingleChildScrollView(
+                    child: SelectableText(
+                      entry.hasNotes ? entry.trimmedNotes : '无更新说明',
+                      style: TextStyle(
+                        color: _palette.primaryText,
+                        height: 1.6,
+                      ),
+                    ),
+                  ),
                 ),
+              ),
             ],
           ),
-          const SizedBox(height: 6),
-          Text(
-            'Release ID: ${entry.releaseId}',
-            style: TextStyle(color: _palette.secondaryText, fontSize: 12.5),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('关闭'),
           ),
-          const SizedBox(height: 4),
-          Text(
-            entry.generatedAt.isEmpty ? '生成时间未知' : entry.generatedAt,
-            style: TextStyle(color: _palette.secondaryText, fontSize: 12.5),
-          ),
-          if (entry.notes.trim().isNotEmpty) ...[
-            const SizedBox(height: 6),
-            Text(
-              entry.notes.trim(),
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: _palette.secondaryText,
-                height: 1.45,
-              ),
-            ),
-          ],
         ],
       ),
     );
@@ -4022,9 +4354,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     return StatefulBuilder(
       builder: (context, setDialogState) {
         Future<void> deleteEntry(ReleaseHistoryEntry entry) async {
-          final releaseLabel = entry.version.isEmpty
-              ? entry.releaseId
-              : entry.version;
+          final releaseLabel = entry.displayVersion;
           final confirmed = await showDialog<bool>(
             context: context,
             builder: (context) => AlertDialog(
@@ -4068,7 +4398,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
             if (payload['ok'] != true) {
               throw StateError(payload['error'] as String? ?? '删除版本失败');
             }
-            final historyPayload = await _fetchHistoryPayload(limit: 20);
+            final historyPayload = await _fetchHistoryPayload(limit: 0);
             if (historyPayload['ok'] != true) {
               throw StateError('删除成功，但刷新版本历史失败。');
             }
@@ -4086,6 +4416,18 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
               deletingReleaseId = null;
               dialogMessage = '';
             });
+            if (mounted) {
+              setState(() {
+                _serverHistoryEntries = refreshedItems;
+                _serverCurrentReleaseId =
+                    '${historyPayload['currentReleaseId'] ?? ''}';
+                _serverCurrentVersion =
+                    '${historyPayload['currentVersion'] ?? ''}';
+                _serverHistoryTotalCount =
+                    historyPayload['historyTotalCount'] as int? ??
+                    refreshedItems.length;
+              });
+            }
             _setActionMessage(
               '已删除版本 $releaseLabel。',
               tone: ActionMessageTone.success,
@@ -4202,9 +4544,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                                                   WrapCrossAlignment.center,
                                               children: [
                                                 Text(
-                                                  entry.version.isEmpty
-                                                      ? entry.releaseId
-                                                      : entry.version,
+                                                  entry.displayVersion,
                                                   style: TextStyle(
                                                     color: _palette.primaryText,
                                                     fontSize: 16,
@@ -4221,9 +4561,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                                             ),
                                             const SizedBox(height: 4),
                                             Text(
-                                              entry.generatedAt.isEmpty
-                                                  ? entry.releaseId
-                                                  : entry.generatedAt,
+                                              '推送时间: ${_formatServerTimestamp(entry.publishedAt)}',
                                               style: TextStyle(
                                                 color: _palette.secondaryText,
                                                 fontSize: 12.5,
@@ -4263,6 +4601,11 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                                     runSpacing: 8,
                                     children: [
                                       _inlineBadge(
+                                        '下载 ${entry.downloadCount} 次',
+                                        _palette.accentSoft,
+                                        _palette.accent,
+                                      ),
+                                      _inlineBadge(
                                         '启动器 ${entry.launcherFileCount} 项',
                                         _palette.accentSoft,
                                         _palette.accent,
@@ -4279,10 +4622,23 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                                       ),
                                     ],
                                   ),
-                                  if (entry.notes.trim().isNotEmpty) ...[
+                                  const SizedBox(height: 12),
+                                  Row(
+                                    children: [
+                                      TextButton.icon(
+                                        onPressed: () =>
+                                            _showServerVersionDetails(entry),
+                                        icon: const Icon(
+                                          Icons.open_in_new_rounded,
+                                        ),
+                                        label: const Text('查看详情'),
+                                      ),
+                                    ],
+                                  ),
+                                  if (entry.hasNotes) ...[
                                     const SizedBox(height: 12),
                                     SelectableText(
-                                      entry.notes,
+                                      entry.trimmedNotes,
                                       style: TextStyle(
                                         color: _palette.primaryText,
                                         height: 1.55,

@@ -130,7 +130,7 @@ def static_latest_url(config: PublishBackendConfig) -> str:
     return f"{config.backendBaseUrl}/updates/{config.channel}/{LATEST_FILE_NAME}"
 
 
-def history_api_url(config: PublishBackendConfig, limit: int = 20) -> str:
+def history_api_url(config: PublishBackendConfig, limit: int = 0) -> str:
     return f"{config.backendBaseUrl}/api/update/v1/channels/{config.channel}/history?limit={limit}"
 
 
@@ -155,7 +155,7 @@ def fetch_remote_latest_version(config_path: Path) -> str:
     return latest.version if latest else ""
 
 
-def fetch_release_history(config_path: Path, limit: int = 20) -> dict[str, Any]:
+def fetch_release_history(config_path: Path, limit: int = 0) -> dict[str, Any]:
     config = load_publish_config(config_path)
     response = requests.get(history_api_url(config, limit=limit), timeout=20)
     response.raise_for_status()
