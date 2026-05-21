@@ -84,7 +84,7 @@ def package_public_urls(settings: Settings, channel: str, release_id: str, scope
 
 
 def _package_has_client_visible_change(*, file_count: int, delete_count: int) -> bool:
-    return bool((file_count or 0) > 0 or (delete_count or 0) > 0)
+    return bool((file_count or 0) > 0)
 
 
 def _json_dump(path: Path, payload: Any) -> None:
@@ -478,6 +478,20 @@ def _apply_delete_lists(conn: sqlite3.Connection, channel: str, payloads: dict[s
         delete_lists[scope] = delete_list
         file_counts[scope] = len(current_paths)
     return delete_lists, file_counts
+
+
+def _ensure_safe_launcher_publish(payloads: dict[str, PackagePayload], delete_lists: dict[str, list[str]]) -> None:
+    launcher_payload = payloads.get("launcher")
+    if launcher_payload is None:
+        return
+    launcher_files = launcher_payload.manifest.get("files", []) or []
+    launcher_delete_list = delete_lists.get("launcher", [])
+    if launcher_files or not launcher_delete_list:
+        return
+    raise HTTPException(
+        status_code=status.HTTP_400_BAD_REQUEST,
+        detail="launcher 包仅包含删除项且不包含任何 launcher 文件，会生成危险的纯删除自升级包，已拒绝发布。请重新勾选真实 launcher 文件，或改为仅发布 game 包。",
+    )
 
 
 def _persist_release_to_storage(
@@ -926,6 +940,7 @@ def publish_release(
         event_id = create_publish_event(conn, channel, version, remote_addr)
         try:
             delete_lists, file_counts = _apply_delete_lists(conn, channel, payloads)
+            _ensure_safe_launcher_publish(payloads, delete_lists)
             published_at = utc_now_iso()
             storage_refs = _persist_release_to_storage(
                 settings,

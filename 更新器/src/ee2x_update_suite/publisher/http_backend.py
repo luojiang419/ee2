@@ -246,7 +246,7 @@ def read_release_summary(release_dir: Path) -> dict[str, Any]:
         "gameFileCount": len(game_files),
         "launcherDeletedCount": len(launcher_delete_list),
         "gameDeletedCount": len(game_delete_list),
-        "launcherTriggersSelfUpdate": bool(launcher_files or launcher_delete_list),
+        "launcherTriggersSelfUpdate": bool(launcher_files),
         "launcherPackagePath": str(release_dir / PACKAGE_SCOPE_LAUNCHER / str(launcher_manifest.get("packageFileName", "")).strip()),
         "gamePackagePath": str(release_dir / PACKAGE_SCOPE_GAME / str(game_manifest.get("packageFileName", "")).strip()),
     }

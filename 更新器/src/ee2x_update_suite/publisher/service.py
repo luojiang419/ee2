@@ -173,8 +173,7 @@ def _manifest_has_client_visible_launcher_change(manifest_payload: dict[str, Any
     if not isinstance(manifest_payload, dict):
         return False
     files = manifest_payload.get("files", []) or []
-    delete_list = manifest_payload.get("deleteList", []) or []
-    return bool(files or delete_list)
+    return bool(files)
 
 
 def release_manifest_from_dict(payload: dict) -> ReleaseManifest:

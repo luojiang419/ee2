@@ -385,6 +385,16 @@ def create_dual_release_bundle(
                     )
                 )
 
+        if scope == PACKAGE_SCOPE_LAUNCHER and not file_map and delete_by_scope[scope]:
+            validation.issues.append(
+                ValidationIssue(
+                    level="error",
+                    code="launcher-delete-only-package",
+                    message="启动器包仅包含删除项且不包含任何 launcher 文件，会生成危险的纯删除自升级包，已禁止导出。请重新勾选真实 launcher 文件，或改为仅发布 game 包。",
+                )
+            )
+            return output_root, {}, validation
+
         if scope == PACKAGE_SCOPE_LAUNCHER:
             final_selected_relative_paths.extend(
                 f"{LAUNCHER_DIR_NAME}/{path}" for path in file_map.keys()
