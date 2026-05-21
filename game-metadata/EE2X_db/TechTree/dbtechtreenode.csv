@@ -654,7 +654,7 @@ Russ_katuysa2,text_SA9_name,,14,0,,,0,2,0,Mill,Russ_katuysa2,,85,0,0,400,600,0,0
 //Huopao_other,text_BMP1_name,,13,0,,,0,1,1,Mill,Huopao_other,,80,0,0,400,550,0,0,0,250,550,2,,[],(None)
 Antiship_missile,text_SA9_name,,11,0,,,0,3,1,Mill,Antiship_missile,AntishipMisUpgradeEpoch11,80,0,500,0,500,0,0,0,500,500,2,,[upArmoredCar_11],(None)
 Thaad,text_Thaad_name,,13,0,,,0,2,2,Mill,Thaad,ThaadUpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
-ATSoldiers,text_UUBabylonian3_name,,13,0,,,0,2,1,Barracks,ATSoldiers,,40,72,88,40,96,0,0,0,0,0,0,,[],(None)
+ATSoldiers,text_UUBabylonian3_name,,13,0,,,0,2,1,Barracks,ATSoldiers,,40,72,88,0,96,0,0,0,0,0,0,,[],(None)
 //---------------------------ww2-war-boat-----------------,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ///////////////////////Chinese/////////////////////////
 //Montana1946,text_Battleship_11_name,,12,0,,,0,1,3,Dock,Montana1946,,120,0,2500,0,2500,0,0,2500,2500,0,10,Chinese,[],(None)
