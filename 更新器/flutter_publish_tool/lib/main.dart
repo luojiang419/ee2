@@ -1453,7 +1453,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
     });
     try {
       await bundleDir.create(recursive: true);
-      final payload = await Isolate.run(() => scanLocalBundlePayload(bundleDir.path));
+      final payload = scanLocalBundlePayload(bundleDir.path);
       final entries = payload
           .map((item) => LocalBundleEntry.fromJson(item))
           .toList(growable: false);
@@ -1476,6 +1476,29 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           _loadingLocalBundles = false;
         });
       }
+    }
+  }
+
+  Future<void> _openLocalBundleDirectory() async {
+    final bundleDir = _localBundleDirectoryOrNull;
+    if (bundleDir == null) {
+      _setActionMessage('打包环境尚未初始化。', tone: ActionMessageTone.error);
+      return;
+    }
+    try {
+      await bundleDir.create(recursive: true);
+      if (Platform.isWindows) {
+        await Process.run('explorer.exe', [bundleDir.path]);
+        return;
+      }
+      if (Platform.isMacOS) {
+        await Process.run('open', [bundleDir.path]);
+        return;
+      }
+      await Process.run('xdg-open', [bundleDir.path]);
+    } catch (error) {
+      _setActionMessage('打开更新包目录失败: $error', tone: ActionMessageTone.error);
+      _showSnackBar('打开更新包目录失败: $error');
     }
   }
 
@@ -2887,6 +2910,12 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                   height: 1.5,
                 ),
               ),
+            ),
+            const SizedBox(width: 12),
+            OutlinedButton.icon(
+              onPressed: _openLocalBundleDirectory,
+              icon: const Icon(Icons.folder_special_rounded),
+              label: const Text('打开更新包目录'),
             ),
             const SizedBox(width: 12),
             OutlinedButton.icon(
