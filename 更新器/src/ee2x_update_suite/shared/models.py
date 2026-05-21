@@ -69,6 +69,7 @@ class ApplySummary:
     scope: str = "game"
     updatedFiles: int = 0
     skippedProtectedFiles: int = 0
+    skippedProtectedPaths: list[str] = field(default_factory=list)
     deletedFiles: int = 0
     backedUpFiles: int = 0
     rolledBack: bool = False

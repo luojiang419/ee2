@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import zipfile
 from pathlib import Path
 
 import requests
@@ -21,6 +22,7 @@ from ee2x_update_suite.publisher.http_backend import (
     publish_bundle_http,
     publish_release_http,
 )
+from ee2x_update_suite.patcher_v2.core import run_patcher
 from ee2x_update_suite.shared.constants import LAUNCHER_DIR_NAME, PACKAGE_SCOPE_ALL, PACKAGE_SCOPE_GAME, PACKAGE_SCOPE_LAUNCHER, RELEASE_STATE_NAME, ROOT_DIR_NAME
 from ee2x_update_suite.shared.json_utils import load_json
 from ee2x_update_suite.shared.manifest_builder import create_dual_release_bundle, write_release_bundle_zip
@@ -49,6 +51,13 @@ def _write_launcher_stub(launcher_exe: Path, args_file: Path) -> None:
     launcher_exe.chmod(0o755)
 
 
+def _write_zip_with_root(zip_path: Path, root_dir_name: str, files: dict[str, bytes]) -> None:
+    zip_path.parent.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
+        for rel_path, content in files.items():
+            archive.writestr(f"{root_dir_name}/{rel_path}", content)
+
+
 def _make_publish_config(target: Path, *, backend_base_url: str, admin_username: str, admin_password: str, channel: str) -> Path:
     payload = {
         "backendBaseUrl": backend_base_url,
@@ -75,7 +84,7 @@ def _run_headless_update(
     cmd = [
         "python3",
         "-m",
-        "ee2x_update_suite.updater_gui",
+        "ee2x_update_suite.patcher_v2",
         "--headless",
         "--root",
         str(target_root),
@@ -225,6 +234,102 @@ def main() -> None:
             game_live_rel = "smoke-game/live.txt"
             game_obsolete_rel = "smoke-game/obsolete.txt"
 
+            # 本地选择阶段：冻结区与 UP 文本联动必须直接阻断
+            source_root.mkdir(parents=True, exist_ok=True)
+            (source_root / "UnofficialVersionConfig.txt").write_text("up-config\n", encoding="utf-8")
+            (source_root / "EE2X_db" / "Text").mkdir(parents=True, exist_ok=True)
+            (source_root / "EE2X_db" / "Text" / "dbtext_enums.utf8").write_text("enum\n", encoding="utf-8")
+            up_frozen_release_dir, _frozen_manifests, frozen_validation = create_dual_release_bundle(
+                game_root=source_root,
+                version="9.9.090",
+                release_notes="UP frozen test",
+                selected_paths=[source_root / "UnofficialVersionConfig.txt"],
+                delete_list=[],
+                output_root=release_root,
+                allow_override=False,
+            )
+            _assert(frozen_validation.has_errors, "选择 UnofficialVersionConfig.txt 时应直接阻断")
+            _assert(any(issue.code == "up-frozen-selection" for issue in frozen_validation.issues), "冻结区错误码未命中")
+
+            up_text_release_dir, _text_manifests, text_validation = create_dual_release_bundle(
+                game_root=source_root,
+                version="9.9.091",
+                release_notes="UP text sync test",
+                selected_paths=[source_root / "EE2X_db" / "Text" / "dbtext_enums.utf8"],
+                delete_list=[],
+                output_root=release_root,
+                allow_override=False,
+            )
+            _assert(text_validation.has_errors, "仅选择 dbtext_enums.utf8 时应直接阻断")
+            _assert(any(issue.code == "up-text-sync-incomplete" for issue in text_validation.issues), "UP 文本联动错误码未命中")
+
+            # 服务端阶段：即使绕过本地构建，也必须拒绝 UP 冻结区
+            invalid_release_dir = workspace / "manual-invalid-release"
+            (invalid_release_dir / "launcher").mkdir(parents=True, exist_ok=True)
+            (invalid_release_dir / "game").mkdir(parents=True, exist_ok=True)
+            (invalid_release_dir / "release-notes.txt").write_text("manual invalid release\n", encoding="utf-8")
+            launcher_package_path = invalid_release_dir / "launcher" / "EE2X-launcher-9.9.092.zip"
+            game_package_path = invalid_release_dir / "game" / "EE2X-game-9.9.092.zip"
+            _write_zip_with_root(launcher_package_path, LAUNCHER_DIR_NAME, {})
+            _write_zip_with_root(
+                game_package_path,
+                ROOT_DIR_NAME,
+                {
+                    "UnofficialVersionConfig.txt": b"bad\n",
+                },
+            )
+            import hashlib
+            launcher_sha = hashlib.sha256(launcher_package_path.read_bytes()).hexdigest()
+            game_sha = hashlib.sha256(game_package_path.read_bytes()).hexdigest()
+            (invalid_release_dir / "launcher" / "release-manifest.json").write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "version": "9.9.092",
+                        "rootDirName": LAUNCHER_DIR_NAME,
+                        "packageFileName": launcher_package_path.name,
+                        "packageSha256": launcher_sha,
+                        "applyMode": "overlay",
+                        "protectedPaths": [],
+                        "deleteList": [],
+                        "files": [],
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+            (invalid_release_dir / "game" / "release-manifest.json").write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "version": "9.9.092",
+                        "rootDirName": ROOT_DIR_NAME,
+                        "packageFileName": game_package_path.name,
+                        "packageSha256": game_sha,
+                        "applyMode": "overlay",
+                        "protectedPaths": [],
+                        "deleteList": [],
+                        "files": [
+                            {
+                                "path": "UnofficialVersionConfig.txt",
+                                "size": 4,
+                                "sha256": hashlib.sha256(b"bad\n").hexdigest(),
+                            }
+                        ],
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+            try:
+                publish_release_http(invalid_release_dir, smoke_config_path)
+                raise RuntimeError("服务端应拒绝冻结区发布，但错误未抛出")
+            except requests.HTTPError as exc:
+                _assert(exc.response is not None and exc.response.status_code == 400, "冻结区服务端拒绝应返回 400")
+                _assert("UP1.6" in exc.response.text, "冻结区服务端错误信息不明确")
+
             def write_source_payload(version: str, *, include_obsolete: bool) -> None:
                 if launcher_source_payload_dir.exists():
                     shutil.rmtree(launcher_source_payload_dir)
@@ -323,6 +428,91 @@ def main() -> None:
             _assert(str(release_state.get("pendingVersion") or "") == "", "release-state pendingVersion 应为空")
             _assert(all_update_v1.get("summary", {}).get("executedScopes") == [PACKAGE_SCOPE_LAUNCHER, PACKAGE_SCOPE_GAME], "v1 all scope 未按 launcher->game 执行")
             _assert(all_update_v2.get("summary", {}).get("executedScopes") == [PACKAGE_SCOPE_LAUNCHER, PACKAGE_SCOPE_GAME], "v2 all scope 未按 launcher->game 执行")
+
+            # patcher 运行时：即使 manifest 混入冻结区，也必须跳过且不破坏现有文件
+            patcher_root = workspace / "patcher-freeze-root" / ROOT_DIR_NAME
+            patcher_launcher_dir = patcher_root / LAUNCHER_DIR_NAME
+            patcher_launcher_exe = patcher_launcher_dir / f"{LAUNCHER_DIR_NAME}.exe"
+            patcher_restart_marker = patcher_launcher_dir / "patcher-restarted.args"
+            _write_launcher_stub(patcher_launcher_exe, patcher_restart_marker)
+            (patcher_root / "UnofficialVersionConfig.txt").write_text("safe-up-config\n", encoding="utf-8")
+            (patcher_root / "UP15.dll").write_text("safe-up15\n", encoding="utf-8")
+            (patcher_root / "UP15_GameHelper.dll").write_text("safe-helper\n", encoding="utf-8")
+            (patcher_root / "Unofficial Patch Files" / "EnabledUP15Units").mkdir(parents=True, exist_ok=True)
+            (patcher_root / "Unofficial Patch Files" / "EnabledUP15Units" / "EE2X.exe").write_text("safe-ee2x\n", encoding="utf-8")
+            patcher_server_root = workspace / "patcher-freeze-server"
+            patcher_channel = "freeze"
+            patcher_release_id = "1.0.0"
+            patcher_game_scope_dir = patcher_server_root / "updates" / patcher_channel / "releases" / patcher_release_id / "game"
+            patcher_game_scope_dir.mkdir(parents=True, exist_ok=True)
+            patcher_zip_path = patcher_game_scope_dir / "EE2X-game-1.0.0.zip"
+            _write_zip_with_root(
+                patcher_zip_path,
+                ROOT_DIR_NAME,
+                {
+                    "live_patch.txt": b"patched\n",
+                    "UnofficialVersionConfig.txt": b"unsafe-up-config\n",
+                },
+            )
+            patcher_manifest = {
+                "schemaVersion": 1,
+                "version": "1.0.0",
+                "rootDirName": ROOT_DIR_NAME,
+                "packageFileName": patcher_zip_path.name,
+                "packageSha256": hashlib.sha256(patcher_zip_path.read_bytes()).hexdigest(),
+                "applyMode": "overlay",
+                "protectedPaths": [],
+                "deleteList": ["Unofficial Patch Files/EnabledUP15Units/EE2X.exe"],
+                "files": [
+                    {
+                        "path": "live_patch.txt",
+                        "size": len(b"patched\n"),
+                        "sha256": hashlib.sha256(b"patched\n").hexdigest(),
+                    },
+                    {
+                        "path": "UnofficialVersionConfig.txt",
+                        "size": len(b"unsafe-up-config\n"),
+                        "sha256": hashlib.sha256(b"unsafe-up-config\n").hexdigest(),
+                    },
+                ],
+            }
+            (patcher_game_scope_dir / "release-manifest.json").write_text(json.dumps(patcher_manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+            patcher_latest = {
+                "schemaVersion": 1,
+                "channel": patcher_channel,
+                "version": "1.0.0",
+                "releaseNotes": "freeze test",
+                "manifestUrl": (patcher_game_scope_dir / "release-manifest.json").resolve().as_uri(),
+                "packageUrl": patcher_zip_path.resolve().as_uri(),
+                "packageSha256": patcher_manifest["packageSha256"],
+                "packageSize": patcher_zip_path.stat().st_size,
+                "publishedAt": "2026-05-21T00:00:00+00:00",
+                "required": True,
+                "packages": {
+                    "game": {
+                        "manifestUrl": (patcher_game_scope_dir / "release-manifest.json").resolve().as_uri(),
+                        "packageUrl": patcher_zip_path.resolve().as_uri(),
+                        "packageSha256": patcher_manifest["packageSha256"],
+                        "packageSize": patcher_zip_path.stat().st_size,
+                    }
+                },
+            }
+            patcher_latest_path = patcher_server_root / "updates" / patcher_channel / "latest.json"
+            patcher_latest_path.parent.mkdir(parents=True, exist_ok=True)
+            patcher_latest_path.write_text(json.dumps(patcher_latest, ensure_ascii=False, indent=2), encoding="utf-8")
+            patcher_summary = run_patcher(
+                game_root=patcher_root,
+                launcher_dir=patcher_launcher_dir,
+                server_base=patcher_server_root.resolve().as_uri(),
+                channel=patcher_channel,
+                launcher_exe=patcher_launcher_exe,
+                scope=PACKAGE_SCOPE_GAME,
+            )
+            _assert((patcher_root / "live_patch.txt").read_text(encoding="utf-8").strip() == "patched", "patcher 应正常应用非冻结补丁文件")
+            _assert((patcher_root / "UnofficialVersionConfig.txt").read_text(encoding="utf-8").strip() == "safe-up-config", "patcher 不应覆盖冻结的 UnofficialVersionConfig.txt")
+            _assert((patcher_root / "Unofficial Patch Files" / "EnabledUP15Units" / "EE2X.exe").read_text(encoding="utf-8").strip() == "safe-ee2x", "patcher 不应删除冻结区 EXE")
+            _assert("UnofficialVersionConfig.txt" in patcher_summary.skippedProtectedPaths, "patcher 应记录冻结区覆盖跳过")
+            _assert("Unofficial Patch Files/EnabledUP15Units/EE2X.exe" in patcher_summary.skippedProtectedPaths, "patcher 应记录冻结区删除跳过")
 
             publish_v3 = publish_version(version3, include_obsolete=False)
             latest_v3 = fetch_remote_latest(smoke_config_path)

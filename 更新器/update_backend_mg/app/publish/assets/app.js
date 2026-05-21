@@ -143,6 +143,7 @@
       <div>启动器文件 ${payload.launcherFileCount || 0} 项，游戏文件 ${payload.gameFileCount || 0} 项</div>
       <div>显式删除启动器 ${payload.launcherDeletedCount || 0} 项，游戏 ${payload.gameDeletedCount || 0} 项</div>
       <div>未勾选文件不会被自动删除。</div>
+      <div>UP1.6 保护已启用，官方更新不会覆盖其冻结区文件。</div>
     `;
   }
 

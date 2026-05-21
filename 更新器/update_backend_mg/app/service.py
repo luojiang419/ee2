@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from typing import Any
+import fnmatch
 
 from fastapi import HTTPException, UploadFile, status
 
@@ -26,6 +27,20 @@ ROOT_DIRS = {
 }
 BUNDLE_FORMAT = "ee2x-release-bundle"
 BUNDLE_VERSION = 1
+UP_FROZEN_PATTERNS = (
+    "EE2.exe",
+    "EE2X.exe",
+    "UP15.dll",
+    "UP15_GameHelper.dll",
+    "UnofficialVersionConfig.txt",
+    "Unofficial Patch Files",
+)
+UP_TEXT_SYNC_GROUP = (
+    "EE2X_db/Text/dbtext_enums*.utf8",
+    "EE2X_db/Text/dbtext_cheats.utf8",
+    "zips/dbtext_cheats.utf8",
+    "Unofficial Patch Files/EXEGeneratorData/TextsSource.txt",
+)
 
 
 @dataclass(slots=True)
@@ -94,6 +109,20 @@ def _json_dump(path: Path, payload: Any) -> None:
 
 def _json_load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _path_is_within_prefixes(path_value: str, prefixes: tuple[str, ...]) -> bool:
+    normalized = normalize_relpath(path_value)
+    for prefix in prefixes:
+        normalized_prefix = normalize_relpath(prefix)
+        if normalized == normalized_prefix or normalized.startswith(f"{normalized_prefix}/"):
+            return True
+    return False
+
+
+def _match_any_pattern(path_value: str, patterns: tuple[str, ...]) -> bool:
+    normalized = normalize_relpath(path_value)
+    return any(fnmatch.fnmatch(normalized, pattern) for pattern in patterns)
 
 
 def _fetchone_dict(conn: sqlite3.Connection, sql: str, params: tuple[Any, ...]) -> dict[str, Any] | None:
@@ -469,6 +498,40 @@ def _apply_delete_lists(conn: sqlite3.Connection, channel: str, payloads: dict[s
         delete_lists[scope] = delete_list
         file_counts[scope] = len(current_paths)
     return delete_lists, file_counts
+
+
+def validate_release_payload(payloads: dict[str, PackagePayload], *, allow_up_override: bool = False) -> None:
+    del allow_up_override  # 预留未来独立 UP 发布通道
+    files_and_deletes: list[str] = []
+    for payload in payloads.values():
+        files_and_deletes.extend(
+            normalize_relpath(str(item.get("path", "")))
+            for item in (payload.manifest.get("files", []) or [])
+            if normalize_relpath(str(item.get("path", "")))
+        )
+        files_and_deletes.extend(
+            normalize_relpath(str(item))
+            for item in (payload.manifest.get("deleteList", []) or [])
+            if normalize_relpath(str(item))
+        )
+
+    up_frozen_hits = [item for item in files_and_deletes if _path_is_within_prefixes(item, UP_FROZEN_PATTERNS)]
+    if up_frozen_hits:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="命中 UP1.6 冻结区，官方更新链默认禁止覆盖这些文件。如需更新 UP，必须走专门流程。命中项: " + ", ".join(up_frozen_hits[:12]),
+        )
+
+    sensitive_hits = [item for item in files_and_deletes if _match_any_pattern(item, UP_TEXT_SYNC_GROUP)]
+    if sensitive_hits:
+        missing_patterns = [
+            pattern for pattern in UP_TEXT_SYNC_GROUP if not any(_match_any_pattern(path_value, (pattern,)) for path_value in files_and_deletes)
+        ]
+        if missing_patterns:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="UP1.6 文本联动文件不完整，官方更新链已阻断发布。缺失模式: " + ", ".join(missing_patterns),
+            )
 
 
 def _ensure_safe_launcher_publish(payloads: dict[str, PackagePayload], delete_lists: dict[str, list[str]]) -> None:
@@ -958,6 +1021,7 @@ def publish_release(
         event_id = create_publish_event(conn, channel, version, remote_addr)
         try:
             delete_lists, file_counts = _apply_delete_lists(conn, channel, payloads)
+            validate_release_payload(payloads)
             _ensure_safe_launcher_publish(payloads, delete_lists)
             published_at = utc_now_iso()
             storage_refs = _persist_release_to_storage(

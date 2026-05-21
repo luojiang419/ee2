@@ -2366,7 +2366,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           : '本次发布不会触发启动器自升级（launcher 无补丁文件或无变更）。';
       final launcherSummaryMessage = preparedLauncherDeletedCount > 0
           ? '$launcherBehaviorMessage\n显式删除项: 启动器 $preparedLauncherDeletedCount 个。'
-          : '$launcherBehaviorMessage\n未勾选文件不会被自动删除。';
+          : '$launcherBehaviorMessage\n未勾选文件不会被自动删除。\nUP1.6 保护已启用，官方更新不会覆盖其冻结区文件。';
       if (preparedWarningText.trim().isNotEmpty) {
         _setActionMessage(
           '已将更新包默认保存到 $outputPath。\n\n如需自定义位置，可点击“另存到...”。\n\n$launcherSummaryMessage\n\n$preparedWarningText',
@@ -4092,6 +4092,11 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
           ] else ...[
             Text(
               '未勾选文件不会被自动删除。',
+              style: TextStyle(color: _palette.secondaryText, height: 1.45),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'UP1.6 保护已启用，官方更新不会覆盖其冻结区文件。',
               style: TextStyle(color: _palette.secondaryText, height: 1.45),
             ),
             const SizedBox(height: 6),

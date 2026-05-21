@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import fnmatch
 
-from .constants import BLOCKED_SELECTION_PREFIXES, MIXED_DATABASE_RULE, SENSITIVE_SYNC_PATTERNS
+from .constants import BLOCKED_SELECTION_PREFIXES, MIXED_DATABASE_RULE, UP_FROZEN_PATTERNS, UP_TEXT_SYNC_GROUP
 from .models import ValidationIssue, ValidationResult
 from .path_utils import normalize_relpath, path_is_within_prefixes
 
@@ -26,6 +26,17 @@ def validate_selection(relative_paths: list[str], allow_override: bool = False) 
             )
         )
 
+    up_frozen_hits = [item for item in normalized_paths if path_is_within_prefixes(item, UP_FROZEN_PATTERNS)]
+    if up_frozen_hits:
+        result.issues.append(
+            ValidationIssue(
+                level="error",
+                code="up-frozen-selection",
+                message="选择中命中了 UP1.6 冻结区，官方更新链默认禁止覆盖这些文件。",
+                details=up_frozen_hits,
+            )
+        )
+
     loose_selected = any(
         item == MIXED_DATABASE_RULE["loosePrefix"] or item.startswith(f"{MIXED_DATABASE_RULE['loosePrefix']}/")
         for item in normalized_paths
@@ -41,18 +52,17 @@ def validate_selection(relative_paths: list[str], allow_override: bool = False) 
             )
         )
 
-    sensitive_hits = [item for item in normalized_paths if _match_any(item, SENSITIVE_SYNC_PATTERNS)]
+    sensitive_hits = [item for item in normalized_paths if _match_any(item, UP_TEXT_SYNC_GROUP)]
     if sensitive_hits:
         missing_patterns = [
-            pattern for pattern in SENSITIVE_SYNC_PATTERNS if not any(fnmatch.fnmatch(path, pattern) for path in normalized_paths)
+            pattern for pattern in UP_TEXT_SYNC_GROUP if not any(fnmatch.fnmatch(path, pattern) for path in normalized_paths)
         ]
         if missing_patterns:
-            level = "warning" if allow_override else "error"
             result.issues.append(
                 ValidationIssue(
-                    level=level,
-                    code="sensitive-sync",
-                    message="检测到文本/补丁敏感文件，但同步组不完整。",
+                    level="error",
+                    code="up-text-sync-incomplete",
+                    message="检测到 UP1.6 文本联动文件，但同步组不完整，已阻断发布。",
                     details=sensitive_hits + [f"缺失模式: {pattern}" for pattern in missing_patterns],
                 )
             )

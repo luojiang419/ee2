@@ -7,7 +7,8 @@
 - `config/`：发布配置模板与本地私有配置
 - `docs/`：协议与使用说明
 - `src/ee2x_update_suite/shared/`：共享常量、模型、校验与文件处理逻辑
-- `src/ee2x_update_suite/updater_gui/`：外部更新器 GUI
+- `src/ee2x_update_suite/patcher_v2/`：可信新 patcher GUI / CLI
+- `src/ee2x_update_suite/updater_gui/`：旧更新器实现（已停用，保留源码仅供过渡期参考）
 - `src/ee2x_update_suite/builder_gui/`：更新包创建与推送工具 GUI
 - `src/ee2x_update_suite/bridge/`：Flutter 发布端调用的无界面桥接 CLI
 - `src/ee2x_update_suite/publisher/`：发布协议、HTTP 发布客户端与历史兼容逻辑
@@ -47,10 +48,10 @@ python -m pip install -r 更新器/requirements.txt
 
 ## 本地运行
 
-外部更新器：
+可信新 patcher：
 
 ```bash
-python -m ee2x_update_suite.updater_gui --root "G:\\Empire Earth II" --launcher-dir "G:\\Empire Earth II\\地球帝国二代远航版启动器" --server-base "http://115.231.35.105:3010" --channel stable
+python -m ee2x_update_suite.patcher_v2 --root "G:\\Empire Earth II" --launcher-dir "G:\\Empire Earth II\\地球帝国二代远航版启动器" --server-base "http://115.231.35.105:3010" --channel stable --scope all
 ```
 
 更新包创建工具：
@@ -117,8 +118,10 @@ PYTHONPATH=更新器/src python -m ee2x_update_suite.publisher.smoke_test --conf
 ## Windows 打包
 
 - `build_bridge.bat`
-- `build_updater.bat`
-- `build_updater_cli.bat`
+- `build_patcher.bat`
+- `build_patcher_cli.bat`
+- `build_updater.bat`（旧）
+- `build_updater_cli.bat`（旧）
 - `build_builder.bat`
 - `build_flutter_publish_tool.bat`
 
@@ -132,9 +135,9 @@ Flutter Windows 产物通过 `build_flutter_publish_tool.bat` 先构建 `ee2x-br
 
 ## 当前验证状态
 
-- `ee2x-up-cli.exe` 已完成真实 Windows EXE headless 更新验证
+- `ee2x-patcher-cli.exe` 作为新 patcher 的 headless 验证入口
 - `ee2x-pack-builder.exe` 已完成最小启动验证
-- `ee2x-up.exe` 已复制到启动器 `update/` 目录供实际使用
+- `ee2x-patcher.exe` 作为正式 launcher 的可信更新器入口
 - `create_dual_release_bundle()` 已完成本地双包生成验证
 - `flutter_publish_tool` 已通过 `flutter analyze`
 - `build_flutter_publish_tool.bat` 已完成 Windows 产物验证，输出 `dist/ee2x-flutter-publisher/ee2x_publish_tool.exe`

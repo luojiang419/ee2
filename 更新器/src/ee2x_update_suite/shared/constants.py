@@ -42,12 +42,23 @@ BLOCKED_SELECTION_PREFIXES = [
 
 PUBLIC_LAUNCHER_DEFAULTS_RELATIVE_PATH = f"{LAUNCHER_DIR_NAME}/{LAUNCHER_PUBLIC_DEFAULTS_DIR_NAME}/{LAUNCHER_PUBLIC_DEFAULTS_FILE_NAME}"
 
-SENSITIVE_SYNC_PATTERNS = [
+UP_FROZEN_PATTERNS = [
+    "EE2.exe",
+    "EE2X.exe",
+    "UP15.dll",
+    "UP15_GameHelper.dll",
+    "UnofficialVersionConfig.txt",
+    "Unofficial Patch Files",
+]
+
+UP_TEXT_SYNC_GROUP = [
     "EE2X_db/Text/dbtext_enums*.utf8",
     "EE2X_db/Text/dbtext_cheats.utf8",
     "zips/dbtext_cheats.utf8",
     "Unofficial Patch Files/EXEGeneratorData/TextsSource.txt",
 ]
+
+SENSITIVE_SYNC_PATTERNS = list(UP_TEXT_SYNC_GROUP)
 
 MIXED_DATABASE_RULE = {
     "loosePrefix": "EE2X_db",
