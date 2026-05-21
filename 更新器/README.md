@@ -74,7 +74,7 @@ PYTHONPATH=更新器/src python -m ee2x_update_suite.bridge prepare-dual --root 
 Flutter 发布端版本历史：
 
 ```bash
-PYTHONPATH=更新器/src python -m ee2x_update_suite.bridge release-history --config 更新器/config/publish.local.json --limit 20
+PYTHONPATH=更新器/src python -m ee2x_update_suite.bridge release-history --config 更新器/config/publish.local.json --limit 0
 ```
 
 Flutter 发布端删除远端版本：
@@ -93,7 +93,8 @@ PYTHONPATH=更新器/src python -m ee2x_update_suite.bridge publish-http --relea
 
 - `publish.local.json` 现已改为新后端配置，包含：
   - `backendBaseUrl`
-  - `publishToken`
+  - `adminUsername`
+  - `adminPassword`
   - `channel`
 - 删除项由新后端在发布时基于上一版 `release_files` 服务端自动计算。
 - 启动器安全推送采用“公共默认配置 + 本地私有配置”分层：
@@ -122,6 +123,12 @@ PYTHONPATH=更新器/src python -m ee2x_update_suite.publisher.smoke_test --conf
 - `build_flutter_publish_tool.bat`
 
 Flutter Windows 产物通过 `build_flutter_publish_tool.bat` 先构建 `ee2x-bridge.exe`，再镜像到 ASCII 临时路径打包 Flutter EXE，避免中文目录导致的 Flutter/Windows 构建异常。正式交付目录为 `dist/ee2x-flutter-publisher/`，其中必须同时包含 `ee2x_publish_tool.exe` 与 `ee2x-bridge.exe`。
+
+`build_flutter_publish_tool.bat` 的 Flutter 查找顺序为：
+
+1. `FLUTTER_BIN` 环境变量
+2. `G:\data\flutter\bin\flutter.bat`
+3. `D:\flutter\bin\flutter.bat`
 
 ## 当前验证状态
 

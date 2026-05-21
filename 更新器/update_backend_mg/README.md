@@ -38,6 +38,7 @@
 - `packages.launcher` 仅在 launcher manifest 存在实际变更时下发；空 launcher 包不会再对客户端宣告。
 - `history` 接口在 `limit=0` 时返回当前频道全部历史版本，并额外包含下载量、包体大小、最后下载时间等详情字段。
 - 更新包下载入口由后端显式路由提供，服务端会按 `launcher/game` 包自动累计下载次数。
+- `deploy_backend.py` 默认会先备份远端现有 `db/`、`storage/`、`.env` 与 service 文件，再替换代码并恢复现有数据；只有首次部署且远端没有现有数据时才会执行 `import_legacy`。
 
 ## 鉴权
 
