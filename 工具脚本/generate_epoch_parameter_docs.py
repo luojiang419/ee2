@@ -60,14 +60,15 @@ def parse_brace_block(lines, start_idx):
 # ═══════════════════════════════════════════════════════════════════
 
 class TextNameParser:
-    """解析所有 utf8 文本文件，建立 text_key → 中文名 完整映射"""
+    """解析所有 utf8 文本文件（含游戏ZIP中原始文件），建立 text_key → 中文名 完整映射"""
 
     def __init__(self):
         self.name_map = {}  # {text_key: chinese_name}
 
     def parse_all(self):
         text_dir = os.path.join(DB_DIR, "Text")
-        # 优先加载 unittypenames（最权威），再加载其他文件补充
+
+        # 1. 加载工作DB的Text目录
         priority_files = [
             'dbtext_unittypenames.utf8',
             'dbtext_unittypenames_EE2X.utf8',
@@ -81,18 +82,44 @@ class TextNameParser:
                     if f not in priority_files:
                         all_files.append(f)
         all_files = priority_files + sorted(all_files)
-
         for fname in all_files:
             path = os.path.join(text_dir, fname)
             if os.path.exists(path):
                 self._parse_file(path)
 
-        # 手动补充：已知游戏内单位但文本缺失的
+        # 2. 加载原版游戏 db.zip 中的文本（补充EE2X可能缺失的条目）
+        import zipfile
+        base_zip = os.path.join(BASE_DIR, "Empire Earth II", "zips", "db.zip")
+        if os.path.exists(base_zip):
+            try:
+                with zipfile.ZipFile(base_zip, 'r') as z:
+                    for entry in z.namelist():
+                        if 'dbtext' in entry.lower() and entry.endswith('.utf8'):
+                            data = z.read(entry).decode('utf-8', errors='replace')
+                            self._parse_text(data)
+            except Exception:
+                pass
+
+        # 3. 加载 EE2X_db.zip 中不在工作DB的文本（补充场景文件等）
+        ee2x_zip = os.path.join(BASE_DIR, "Empire Earth II", "zips_ee2x", "EE2X_db.zip")
+        if os.path.exists(ee2x_zip):
+            try:
+                with zipfile.ZipFile(ee2x_zip, 'r') as z:
+                    for entry in z.namelist():
+                        if 'dbtext' in entry.lower() and entry.endswith('.utf8'):
+                            # 检查是否已经加载过
+                            fname = os.path.basename(entry)
+                            if fname not in all_files:
+                                data = z.read(entry).decode('utf-8', errors='replace')
+                                self._parse_text(data)
+            except Exception:
+                pass
+
+        # 4. 手动补充确认为游戏内单位但所有文本文件均缺失的名称
         self._add_fallbacks()
         return self.name_map
 
     def _add_fallbacks(self):
-        """手动补充确认为游戏内单位但所有utf8文件均缺失的名称"""
         fallbacks = {
             'tx_utn_HercFacility_name': '机甲制造设施',
             'tx_utn_e32_name': 'E-3预警机',
@@ -100,6 +127,162 @@ class TextNameParser:
             'tx_utn_scud15_name': '飞毛腿导弹',
             'tx_utn_KingRegicide_name': '摄政王',
             'tx_utn_LeaderKemsa_name': '肯萨领袖',
+            'tx_utn_balloon_name': '观测气球',
+            'tx_utn_bank_name': '银行',
+            'tx_utn_bear_name': '熊',
+            'tx_utn_boar_name': '野猪',
+            'tx_utn_Adria2_name': '阿德里亚海上平台',
+            'tx_utn_Archuii_name': '阿克修伊战机',
+            'tx_utn_BeteGiyorgis_name': '圣乔治教堂',
+            'tx_utn_Bld_BankAsian_name': '亚洲银行',
+            'tx_utn_Bld_SaddamMonument_name': '萨达姆纪念碑',
+            'tx_utn_Bld_Santa_Sofia_name': '圣索菲亚大教堂',
+            'tx_utn_Bld_SouthPacif_name': '南太平洋城市中心',
+            'tx_utn_Bld_Washington_name': '华盛顿纪念碑',
+            'tx_utn_Bld_egipt_name': '埃及建筑',
+            'tx_utn_Bld_torii_name': '鸟居',
+            'tx_utn_Bld_venera_name': '维内拉雕像',
+            'tx_utn_Bld_babel_name': '巴别塔',
+            'tx_utn_FaMenSi_name': '法门寺',
+            'tx_utn_Ferdowsi_name': '菲尔多西墓',
+            'tx_utn_Fire_name': '火焰',
+            'tx_utn_GreatWall_name': '长城',
+            'tx_utn_Guanlitai_name': '观礼台',
+            'tx_utn_Gulag_name': '古拉格集中营',
+            'tx_utn_HeavenTemple_name': '天坛',
+            'tx_utn_HedvigChurch_name': '海德维格教堂',
+            'tx_utn_HorusTemple_name': '荷鲁斯神殿',
+            'tx_utn_Huabiao_name': '华表',
+            'tx_utn_Ikhanda_name': '伊坎达',
+            'tx_utn_Iqbal_name': '伊克巴尔墓',
+            'tx_utn_IshtarGate_name': '伊什塔尔门',
+            'tx_utn_Lavra_name': '拉伏拉修道院',
+            'tx_utn_MinaretofJam_name': '贾姆尖塔',
+            'tx_utn_Naberezhnaya_name': '河岸大教堂',
+            'tx_utn_NubianPyramid_name': '努比亚金字塔',
+            'tx_utn_Pantheon_name': '万神殿',
+            'tx_utn_RomanTemple_name': '罗马神殿',
+            'tx_utn_SaintBasilsCathedral_name': '圣瓦西里大教堂',
+            'tx_utn_ShimabaraCastle_name': '岛原城',
+            'tx_utn_Swords_name': '剑冢',
+            'tx_utn_TourEDF_name': 'EDF大厦',
+            'tx_utn_TourMontparnasse_name': '蒙帕纳斯大厦',
+            'tx_utn_Walidsd_name': '瓦利德大清真寺',
+            'tx_utn_WittenbergChurch_name': '维滕贝格教堂',
+            'tx_utn_anandatemple_name': '阿难陀寺',
+            'tx_utn_apolloprogram_name': '阿波罗计划',
+            'tx_utn_apolo_name': '阿波罗雕像',
+            'tx_utn_aqueduct_name': '罗马引水渠',
+            'tx_utn_arcdetriomphe_name': '凯旋门',
+            'tx_utn_b1Frankfurter_name': '法兰克福大厦',
+            'tx_utn_bankofchinatower_name': '中国银行大厦',
+            'tx_utn_beijintam_name': '北京天坛',
+            'tx_utn_bolshoi_name': '莫斯科大剧院',
+            'tx_utn_bosan_name': '宝山寺',
+            'tx_utn_bubu_name': '步步神庙',
+            'tx_utn_chrysler_name': '克莱斯勒大厦',
+            'tx_utn_cleopatraneedle_name': '克莉奥佩特拉方尖碑',
+            'tx_utn_colosseum0101_name': '罗马竞技场',
+            'tx_utn_cuyahoga_name': '凯霍加大厦',
+            'tx_utn_dangeon_name': '地牢',
+            'tx_utn_earthColosseum4_name': '地球竞技场',
+            'tx_utn_eiffeltower_name': '埃菲尔铁塔',
+            'tx_utn_ezek_name': '以西结墓',
+            'tx_utn_fflacn_name': '法国外籍军团',
+            'tx_utn_giantcross_name': '巨型十字架',
+            'tx_utn_greatlighthouse_name': '亚历山大灯塔',
+            'tx_utn_hanginggardens_name': '空中花园',
+            'tx_utn_hartford_name': '哈特福德大厦',
+            'tx_utn_hermitage_name': '艾尔米塔什博物馆',
+            'tx_utn_hollywood_name': '好莱坞标志',
+            'tx_utn_hongkong_name': '香港中银大厦',
+            'tx_utn_johnhancockcenter_name': '约翰汉考克中心',
+            'tx_utn_kgb_name': '克格勃总部',
+            'tx_utn_lascala_name': '斯卡拉歌剧院',
+            'tx_utn_motherland_name': '祖国母亲雕像',
+            'tx_utn_nanjing_name': '南京紫峰大厦',
+            'tx_utn_nebelwerfer_name': '多管火箭炮',
+            'tx_utn_novotel_name': '诺富特酒店',
+            'tx_utn_osaka_name': '大阪城',
+            'tx_utn_perun_name': '佩伦神殿',
+            'tx_utn_pisa2_name': '比萨斜塔',
+            'tx_utn_reihsstagg01_name': '帝国议会大厦',
+            'tx_utn_ruministry_name': '俄罗斯外交部',
+            'tx_utn_shiatemple_name': '什叶派清真寺',
+            'tx_utn_shunhing_name': '信兴广场',
+            'tx_utn_sistinechapel_name': '西斯廷礼拜堂',
+            'tx_utn_soyuz_name': '联盟雕像',
+            'tx_utn_sphinx0101_name': '狮身人面像',
+            'tx_utn_spiralminaret_name': '螺旋宣礼塔',
+            'tx_utn_statueofliberty_name': '自由女神像',
+            'tx_utn_svarog_name': '斯瓦罗格神殿',
+            'tx_utn_theatre_name': '罗马剧院',
+            'tx_utn_unitednations_name': '联合国总部',
+            'tx_utn_veles_name': '维列斯神殿',
+            'tx_utn_vyramid_name': '卢浮宫金字塔',
+            'tx_utn_wackerjk_name': '瓦克尔化学大厦',
+            'tx_utn_zoroastriancathedral_name': '琐罗亚斯德大教堂',
+            'tx_utn_zoroastrianmonastery_name': '琐罗亚斯德修道院',
+            'tx_utn_zumwalt_ddg1000_name': '朱姆沃尔特级驱逐舰',
+
+            # 原版 db.zip 中可能有的 entry
+            'tx_utn_bank_name': '银行',
+            'tx_utn_balloon_name': '观测气球',
+            'tx_utn_Firearcher_name': '火箭弓箭手',
+
+            # 动物/尸体
+            'tx_utn_Coyote_name': '郊狼',
+            'tx_utn_croc_name': '鳄鱼',
+            'tx_utn_rhino_name': '犀牛',
+            'tx_utn_DeadBear_name': '死熊',
+            'tx_utn_DeadCamel_name': '死骆驼',
+            'tx_utn_DeadCow_name': '死牛',
+            'tx_utn_DeadCoyote_name': '死郊狼',
+            'tx_utn_Deadcroc_name': '死鳄鱼',
+            'tx_utn_DeadDolphin_name': '死海豚',
+            'tx_utn_DeadHawk_name': '死鹰',
+            'tx_utn_DeadRhino_name': '死犀牛',
+            'tx_utn_DeadTiger_name': '死老虎',
+            'tx_utn_DeadVulture_name': '死秃鹫',
+            'tx_utn_Deadwhale_name': '死鲸鱼',
+            'tx_utn_DeadWolf_name': '死狼',
+
+            # 地雷
+            'tx_utn_landmine_name': '地雷',
+
+            # 拿破仑模组领袖
+            'tx_utn_Bagration_name': '巴格拉季昂',
+            'tx_utn_BlUcher_name': '布吕歇尔',
+            'tx_utn_Davout_name': '达武',
+            'tx_utn_Kutuzov_name': '库图佐夫',
+            'tx_utn_Joachim_name': '缪拉',
+            'tx_utn_Ney_name': '内伊',
+            'tx_utn_Suvorov_name': '苏沃洛夫',
+
+            # 抽象基础类型（DDF无displayName，用text_前缀查找也找不到的）
+            'text_Aircraft_name': '飞机基类',
+            'text_Artillery_name': '火炮基类',
+            'text_Human_name': '人类基类',
+            'text_Mounted_name': '骑兵基类',
+            'text_Tank_name': '坦克基类',
+            'text_HeavyTank_name': '重型坦克基类',
+            'text_LightTank_name': '轻型坦克基类',
+            'text_HeavyMounted_name': '重型骑兵基类',
+            'text_NavalDeep_name': '深海海军基类',
+            'text_NavalShallow_name': '浅海海军基类',
+            'text_Helicopter_name': '直升机基类',
+            'text_Herc_name': '机甲基类',
+            'text_Building_name': '建筑基类',
+            'text_Leader_name': '领袖基类',
+            'text_Citizen_name': '市民基类',
+            'text_Scout_name': '侦察基类',
+            'text_Spy_name': '间谍基类',
+            'text_Priest_name': '牧师基类',
+            'text_Medic_name': '医疗基类',
+            'text_Animal_name': '动物基类',
+            'text_LandAnimal_name': '陆地动物基类',
+            'text_AirUnit_name': '空军基类',
+            'text_Ambient_name': '环境装饰基类',
         }
         for k, v in fallbacks.items():
             if k not in self.name_map:
@@ -107,44 +290,46 @@ class TextNameParser:
 
     def _parse_file(self, path):
         with open(path, 'r', encoding='utf-8', errors='replace') as f:
-            for line in f:
-                line = line.strip()
-                if not line or line.startswith('//'):
-                    continue
-                # 匹配多种key格式: tx_utn_*, text_*, tx_eg_*, tx_key*, vtt_unit_* 等
-                m = re.match(r'(\w+),\s*"""(.+?)"""', line)
-                if not m:
-                    continue
-                key = m.group(1)
-                name = m.group(2).strip()
-                if not name:
-                    continue
+            self._parse_text(f.read())
 
-                # 统一存储规则：_name 后缀为权威版本
-                if key.endswith('_name'):
-                    base = key[:-5]
+    def _parse_text(self, text):
+        """直接解析文本内容（用于ZIP中提取的数据）"""
+        for line in text.split('\n'):
+            line = line.strip()
+            if not line or line.startswith('//'):
+                continue
+            m = re.match(r'(\w+),\s*"""(.+?)"""', line)
+            if not m:
+                continue
+            key = m.group(1)
+            name = m.group(2).strip()
+            if not name:
+                continue
+
+            # _name 后缀为权威版本
+            if key.endswith('_name'):
+                base = key[:-5]
+                self.name_map[key] = name
+                if base not in self.name_map:
+                    self.name_map[base] = name
+            elif key.endswith('_pname'):
+                base = key[:-6]
+                base_name_key = base + '_name'
+                if base_name_key not in self.name_map:
                     self.name_map[key] = name
                     if base not in self.name_map:
                         self.name_map[base] = name
-                elif key.endswith('_pname'):
-                    base = key[:-6]
-                    base_name_key = base + '_name'
-                    if base_name_key not in self.name_map:
-                        self.name_map[key] = name
-                        if base not in self.name_map:
-                            self.name_map[base] = name
-                elif key.endswith('_sname'):
-                    base = key[:-6]
-                    base_name_key = base + '_name'
-                    base_pname_key = base + '_pname'
-                    if base_name_key not in self.name_map and base_pname_key not in self.name_map:
-                        self.name_map[key] = name
-                        if base not in self.name_map:
-                            self.name_map[base] = name
-                else:
-                    # 其他后缀（如 vtt_unit_*, tx_key_* 等）
-                    if key not in self.name_map:
-                        self.name_map[key] = name
+            elif key.endswith('_sname'):
+                base = key[:-6]
+                base_name_key = base + '_name'
+                base_pname_key = base + '_pname'
+                if base_name_key not in self.name_map and base_pname_key not in self.name_map:
+                    self.name_map[key] = name
+                    if base not in self.name_map:
+                        self.name_map[base] = name
+            else:
+                if key not in self.name_map:
+                    self.name_map[key] = name
 
     def get_name(self, text_key):
         """根据文本key获取中文名，找不到返回空字符串"""
@@ -1288,6 +1473,9 @@ class DocGenerator:
             else:
                 all_units[ut_name]['category'] = '其他'
 
+        _tp = TextNameParser()
+        _tp.parse_all()
+
         for ut_name in sorted(all_units.keys()):
             info = all_units[ut_name]
             epochs_str = ','.join(f'E{e}' for e in info['epochs'])
@@ -1305,6 +1493,16 @@ class DocGenerator:
                             best_cn = cn
                             break
                 cn_name = best_cn
+            # DDF-only单位：从DDF的displayName查中文名
+            if not cn_name:
+                ddf_entry = self.ddf.units.get(ut_name, {})
+                display_key = ddf_entry.get('displayName', '')
+                if display_key:
+                    cn_name = _tp.get_name(display_key)
+                if not cn_name:
+                    cn_name = _tp.get_name(f'tx_utn_{ut_name}_name')
+                if not cn_name:
+                    cn_name = _tp.get_name(f'text_{ut_name}_name')
             lines.append(f"| **{ut_name}** | {cn_name} | {info['category']} | `{info['ddf_file']}` | {info['ddf_line']} | {epochs_str} |")
 
         lines.append("")
@@ -1334,6 +1532,16 @@ class DocGenerator:
                                     best_cn = cn
                                     break
                         cn_name = best_cn
+                    # DDF-only fallback
+                    if not cn_name:
+                        ddf_entry = self.ddf.units.get(ut_name, {})
+                        dk = ddf_entry.get('displayName', '')
+                        if dk:
+                            cn_name = _tp.get_name(dk)
+                        if not cn_name:
+                            cn_name = _tp.get_name(f'tx_utn_{ut_name}_name')
+                        if not cn_name:
+                            cn_name = _tp.get_name(f'text_{ut_name}_name')
                     epochs_str = ','.join(f'E{e}' for e in info['epochs'])
                     lines.append(f"| **{ut_name}** | {cn_name} | `{info['ddf_file']}` | {info['ddf_line']} | {epochs_str} |")
                 lines.append("")
