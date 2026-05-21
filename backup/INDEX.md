@@ -27,6 +27,8 @@
 | 028 | EE2X_db-028-E14空军去粮食-pre.zip | pre | E14空军移除粮食消耗 | upgrade_unittypes.csv | f16/mig29k/ChinaWZ10/AH64 E14 FOOD归零 | — | 2026-05-21 |
 | 029 | EE2X_db-029-超级主力舰三倍化射速翻倍-pre.zip | pre | 超级主力舰E14(Ch055A/DDG1001/Cruiser1164) + AA护卫舰还原 | upgrade_unittypes.csv, dbtechtreenode.csv | 超级主力舰×3三倍化+装填减半+成本统一3000; AA护卫舰还原为800/600/20; TechPts 10→50 | — | 2026-05-21 |
 | 030 | EE2X_db-029-超级主力舰修改后完整游戏ZIP-runtime.zip | runtime | 超级主力舰E14修改后完整游戏ZIP | EE2X_db.zip 完整 | 快照023+037+040合并: 超级主力舰三倍化+护卫舰还原+射速翻倍+成本统一 | 测试通过 | 2026-05-21 |
+| 031 | EE2X_db-030-E14战斗机三国差异化重平衡-pre.zip | pre | E14制空+多用途战斗机6单位 | upgrade_unittypes.csv | J10B(1500/600/300)+f16(1600/700/330)+mig29k(1500/570/280)+JH7A(2500/1000/450)+A10(2900/1200/500)+su25(2500/850/400) | — | 2026-05-21 |
+| 032 | EE2X_db-030-E14战斗机三国差异化重平衡-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 031修改应用后的完整游戏ZIP | 待测试 | 2026-05-21 |
 
 ## 更新器/启动器备份
 
