@@ -2901,9 +2901,9 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
                     ),
             ),
           ] else if (_catalogTab == CatalogPanelTab.packageManager) ...[
-            _buildLocalPackageManagerPanel(),
+            Expanded(child: _buildLocalPackageManagerPanel()),
           ] else if (_catalogTab == CatalogPanelTab.serverVersions) ...[
-            _buildServerVersionsPanel(),
+            Expanded(child: _buildServerVersionsPanel()),
           ],
         ],
       ),
