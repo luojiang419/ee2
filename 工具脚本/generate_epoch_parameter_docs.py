@@ -1503,6 +1503,23 @@ class DocGenerator:
                     cn_name = _tp.get_name(f'tx_utn_{ut_name}_name')
                 if not cn_name:
                     cn_name = _tp.get_name(f'text_{ut_name}_name')
+                # 缩放变体fallback：AMB_Arid_cactusOP01_x05 → 查 AMB_Arid_cactusOP01
+                if not cn_name:
+                    base_match = re.match(r'(.+)_x\d+$', ut_name)
+                    if base_match:
+                        base_ut = base_match.group(1)
+                        base_entry = self.ddf.units.get(base_ut, {})
+                        base_dk = base_entry.get('displayName', '')
+                        if base_dk:
+                            cn_name = _tp.get_name(base_dk)
+                        if not cn_name:
+                            cn_name = _tp.get_name(f'tx_utn_{base_ut}_name')
+                        if not cn_name:
+                            cn_name = _tp.get_name(f'text_{base_ut}_name')
+                        # 加缩放后缀标记
+                        if cn_name:
+                            scale = re.search(r'_x(\d+)', ut_name).group(1)
+                            cn_name = f'{cn_name} [{scale}×]'
             lines.append(f"| **{ut_name}** | {cn_name} | {info['category']} | `{info['ddf_file']}` | {info['ddf_line']} | {epochs_str} |")
 
         lines.append("")
@@ -1542,6 +1559,20 @@ class DocGenerator:
                             cn_name = _tp.get_name(f'tx_utn_{ut_name}_name')
                         if not cn_name:
                             cn_name = _tp.get_name(f'text_{ut_name}_name')
+                        # 缩放变体fallback
+                        if not cn_name:
+                            base_match = re.match(r'(.+)_x\d+$', ut_name)
+                            if base_match:
+                                base_ut = base_match.group(1)
+                                base_entry = self.ddf.units.get(base_ut, {})
+                                base_dk = base_entry.get('displayName', '')
+                                if base_dk:
+                                    cn_name = _tp.get_name(base_dk)
+                                if not cn_name:
+                                    cn_name = _tp.get_name(f'tx_utn_{base_ut}_name')
+                                if cn_name:
+                                    scale = re.search(r'_x(\d+)', ut_name).group(1)
+                                    cn_name = f'{cn_name} [{scale}×]'
                     epochs_str = ','.join(f'E{e}' for e in info['epochs'])
                     lines.append(f"| **{ut_name}** | {cn_name} | `{info['ddf_file']}` | {info['ddf_line']} | {epochs_str} |")
                 lines.append("")
