@@ -632,7 +632,7 @@ class _Ee2xPublishToolAppState extends State<Ee2xPublishToolApp> {
   final List<String> _favoritePaths = <String>[];
   List<CatalogEntry> _catalog = const [];
   List<CatalogTreeNode> _treeRoots = const [];
-  CatalogPanelTab _catalogTab = CatalogPanelTab.browse;
+  CatalogPanelTab _catalogTab = CatalogPanelTab.favorites;
   String? _pendingRevealPath;
 
   bool _loadingWorkspace = true;
