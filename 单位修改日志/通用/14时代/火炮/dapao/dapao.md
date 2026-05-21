@@ -44,3 +44,38 @@ E14时代火炮阵地此前没有独立的升级数据行（CSV跳过E14，epoch
 - E13及之前时代的火炮阵地不受影响（保留原有对空能力）
 - E15时代火炮阵地不受影响
 - epoch14_upgrades.ddf 中其他条目仅行号偏移1行，内容不变
+
+---
+
+## 第2次修改 — 2026-05-21 11:19
+
+**关联快照**: `进度快照\044-E14火炮阵地炮弹改为火箭弹.md`
+**修改类型**: 数值调整（弹种替换）
+
+### 修改前数据 (2026-05-21 11:00)
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| E14 missileName | DapaoShell (复用E13的dapaoEpoch13Attack) | dapao.ddf |
+| E14 CSV引用 | [dapaoEpoch13Attack] | upgrade_unittypes.csv:669 |
+
+### 修改后数据
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| E14 missileName | **MlrsRocket_PHL03** (与BM30龙卷风统一) | dapao.ddf — 新增 dapaoEpoch14Attack 块 |
+| E14 turretControllerName | MRocketLauncherTurret | dapao.ddf |
+| E14 areaDamageRadius | 3 | dapao.ddf |
+| E14 throwUnits | true | dapao.ddf |
+| E14 CSV引用 | [dapaoEpoch14Attack] | upgrade_unittypes.csv:669 |
+
+### 关联文件
+- `EE2X_db/Units/dapao.ddf` — 新增 dapaoEpoch14Attack 块（第80-89行）
+- `EE2X_db/TechTree/upgrade_unittypes.csv` — 第669行引用修正
+- `Empire Earth II/zips_ee2x/EE2X_db.zip` — 已打包
+
+### 修改依据
+- 需求: E14 火炮阵地炮弹类型修改为火箭弹，与俄罗斯龙卷风火箭炮(BM30)使用一样的弹药
+- 理由: E14 模型(dapao_14.NIF)已是火箭炮外观(Muzzle_Phl032 + fx_battle_rocket_launch)，弹种却用DapaoShell，视觉与数据不匹配
+
+### 已知影响
+- E14 独立使用 dapaoEpoch14Attack，不再与 E13 共用，E13 不受影响
+- E15 继续使用 dapaoEpoch15Attack（DapaoShell），不受影响
