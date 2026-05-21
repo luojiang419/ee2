@@ -30,12 +30,15 @@
 - `POST /api/update/v1/releases/publish`
 - `POST /api/update/v1/releases/publish-bundle`
 - `DELETE /api/update/v1/channels/{channel}/releases/{releaseId}`
+- `POST /api/update/v1/channels/{channel}/latest/rebuild`
 - `GET /updates/{channel}/latest.json`
 
 补充约定：
 
 - `latest.json` 的兼容字段始终指向 `game` 包。
-- `packages.launcher` 仅在 launcher manifest 存在实际变更时下发；空 launcher 包不会再对客户端宣告。
+- `packages.launcher` 仅在 launcher manifest 存在实际 launcher 文件时下发；空包或仅删除项的 delete-only launcher 包都不会再对客户端宣告。
+- `GET /api/update/v1/channels/{channel}/latest` 与 `GET /updates/{channel}/latest.json` 会基于数据库当前 release 自动重写静态 `latest.json`，部署新后端后可自动纠正旧的错误宣告。
+- 如需人工立刻止血，可调用 `POST /api/update/v1/channels/{channel}/latest/rebuild` 强制按当前数据库状态重建该频道的 `latest.json`。
 - `history` 接口在 `limit=0` 时返回当前频道全部历史版本，并额外包含下载量、包体大小、最后下载时间等详情字段。
 - 更新包下载入口由后端显式路由提供，服务端会按 `launcher/game` 包自动累计下载次数。
 - `deploy_backend.py` 默认会先备份远端现有 `db/`、`storage/`、`.env` 与 service 文件，再替换代码并恢复现有数据；只有首次部署且远端没有现有数据时才会执行 `import_legacy`。

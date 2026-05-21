@@ -728,6 +728,24 @@ def get_channel_current(conn: sqlite3.Connection, channel: str) -> dict[str, Any
     return _fetchone_dict(conn, "SELECT * FROM channels WHERE channel = ?", (channel,))
 
 
+def ensure_latest_payload_current(settings: Settings, conn: sqlite3.Connection, channel: str) -> dict[str, Any]:
+    current = get_channel_current(conn, channel)
+    if current and str(current.get("current_release_id", "")).strip():
+        return _write_latest_json_from_db(settings, conn, channel, str(current["current_release_id"]))
+    latest_path = static_latest_path(settings, channel)
+    if latest_path.exists():
+        return _json_load(latest_path)
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"频道 {channel} 尚无版本。")
+
+
+def ensure_latest_json_file_current(settings: Settings, conn: sqlite3.Connection, channel: str) -> Path:
+    ensure_latest_payload_current(settings, conn, channel)
+    latest_path = static_latest_path(settings, channel)
+    if not latest_path.exists() or not latest_path.is_file():
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"频道 {channel} 尚无版本。")
+    return latest_path
+
+
 def get_history_total_count(conn: sqlite3.Connection, channel: str) -> int:
     row = conn.execute("SELECT COUNT(*) AS total FROM releases WHERE channel = ?", (channel,)).fetchone()
     return int(row["total"] or 0) if row else 0
@@ -863,10 +881,19 @@ def delete_release(settings: Settings, *, channel: str, release_id: str) -> dict
 
 
 def get_latest_payload(settings: Settings, conn: sqlite3.Connection, channel: str) -> dict[str, Any]:
-    latest_path = static_latest_path(settings, channel)
-    if not latest_path.exists():
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"频道 {channel} 尚无版本。")
-    return _json_load(latest_path)
+    return ensure_latest_payload_current(settings, conn, channel)
+
+
+def rebuild_channel_latest(settings: Settings, conn: sqlite3.Connection, channel: str) -> dict[str, Any]:
+    payload = ensure_latest_payload_current(settings, conn, channel)
+    current = get_channel_current(conn, channel) or {}
+    return {
+        "channel": channel,
+        "currentReleaseId": str(current.get("current_release_id", "")),
+        "currentVersion": str(current.get("current_version", "")),
+        "latestUrl": latest_static_url(settings, channel),
+        "payload": payload,
+    }
 
 
 def manifest_summary_payload(manifest: dict[str, Any], notes: str, published_at: str, required: bool, package_url: str) -> dict[str, Any]:

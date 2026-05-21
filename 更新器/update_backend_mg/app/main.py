@@ -13,6 +13,7 @@ from .service import (
     build_publish_payload,
     build_publish_payload_from_bundle,
     delete_release,
+    rebuild_channel_latest,
     get_channel_current,
     get_history,
     get_history_total_count,
@@ -22,7 +23,7 @@ from .service import (
     legacy_manifest_payload,
     publish_release,
     rebuild_index_from_storage,
-    resolve_latest_json_file,
+    ensure_latest_json_file_current,
     resolve_release_manifest_file,
     resolve_release_package_file,
     verify_publish_auth,
@@ -183,9 +184,21 @@ def delete_channel_release(
     return {"ok": True, **result}
 
 
+@app.post("/api/update/v1/channels/{channel}/latest/rebuild")
+def rebuild_channel_latest_api(
+    channel: str,
+    authorization: str | None = Header(default=None),
+):
+    verify_publish_auth(settings, authorization)
+    with db_session(settings.db_path) as conn:
+        result = rebuild_channel_latest(settings, conn, channel)
+    return {"ok": True, **result}
+
+
 @app.get("/updates/{channel}/latest.json")
 def latest_static(channel: str):
-    latest_path = resolve_latest_json_file(settings, channel)
+    with db_session(settings.db_path) as conn:
+        latest_path = ensure_latest_json_file_current(settings, conn, channel)
     return FileResponse(latest_path, media_type="application/json")
 
 
