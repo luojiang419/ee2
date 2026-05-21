@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-21 15:30
+> 最后更新: 2026-05-21 16:52
 > 格式 v2: 6 列详细描述（修改目标 + 包含文件 + 修改描述缺一不可）
 > 新备份只打包本次修改涉及的文件，禁止全库快照。
 
@@ -32,6 +32,7 @@
 | 011 | EE2X_db-011-flutter-history-pre.zip | Flutter版本历史 | flutter_publish_tool | Flutter发布端版本历史功能开发前 | 2026-05-20 |
 | 020 | EE2X_db-020-launcher-update-fix-pre.zip | 启动器更新卡死修复 | main.js/preload.js/updater_core.py | 启动器自升级熔断+诊断文件+空包止血 | 2026-05-21 |
 | 021 | EE2X_db-021-baseline-1.0.0-pre-quick.zip | 1.0.0基线快照 | 项目源码+配置 | 1.0.0版本发布前完整源码快照（不含游戏本体） | 2026-05-21 |
+| 025 | EE2X_db-025-infantry-e14-hp1.4x-cost0.8x-pre.zip | E14全部9个步兵单位 | upgrade_unittypes.csv, Yuanhang_720_units.ddf, dbtechtreenode.csv | E14步兵全员HP+40%/成本-20%（3通用+1狙击+5特种） | 2026-05-21 16:52 |
 | 022 | EE2X_db-022-machinegunnest-infantry-1.3x-pre.zip | Machinegunnest(机枪碉堡) E11-E15 | dbcombat_unittypeadjust.csv | 对轻步兵/重步兵/特种部队全线130%(1.3x)克制 | 2026-05-21 12:00 |
 | 023 | EE2X_db-023-Cruiser1164-e14-attr-adjust-pre.zip | Cruiser1164(俄罗斯领袖级) E14 | upgrade_unittypes.csv | HP50000/攻3300/射43/视野43/装填2s/建造130s;金2500/铁2800/油2500/铀2800 | 2026-05-21 14:30 |
 | 024 | EE2X_db-024-autofactory-rallypoint-pre.zip | Autofactory(汽车工厂) | Yuanhang_720_units.ddf | 添加RallyPlacementFlags启用集结点功能 | 2026-05-21 15:30 |
