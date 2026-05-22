@@ -9,8 +9,8 @@ from typing import Iterator
 SCHEMA_SQL = """
 CREATE TABLE IF NOT EXISTS channels (
     channel TEXT PRIMARY KEY,
-    current_release_id TEXT NOT NULL,
-    current_version TEXT NOT NULL,
+    current_release_id TEXT NOT NULL DEFAULT '',
+    current_version TEXT NOT NULL DEFAULT '',
     updated_at TEXT NOT NULL
 );
 
@@ -22,43 +22,67 @@ CREATE TABLE IF NOT EXISTS releases (
     notes TEXT NOT NULL,
     required INTEGER NOT NULL DEFAULT 1,
     published_at TEXT NOT NULL,
-    latest_json_path TEXT NOT NULL,
+    manifest_path TEXT NOT NULL,
     created_at TEXT NOT NULL,
     UNIQUE(channel, release_id)
 );
 
-CREATE TABLE IF NOT EXISTS release_packages (
+CREATE TABLE IF NOT EXISTS release_launcher_assets (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     release_id INTEGER NOT NULL,
-    scope TEXT NOT NULL,
-    root_dir_name TEXT NOT NULL,
-    package_file_name TEXT NOT NULL,
-    package_sha256 TEXT NOT NULL,
-    package_size INTEGER NOT NULL,
-    manifest_path TEXT NOT NULL,
-    package_path TEXT NOT NULL,
-    file_count INTEGER NOT NULL,
-    delete_count INTEGER NOT NULL,
+    feed_path TEXT NOT NULL,
+    metadata_path TEXT NOT NULL,
+    package_id TEXT NOT NULL,
+    channel_name TEXT NOT NULL,
     created_at TEXT NOT NULL,
-    UNIQUE(release_id, scope),
+    UNIQUE(release_id),
     FOREIGN KEY(release_id) REFERENCES releases(id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS release_files (
+CREATE TABLE IF NOT EXISTS release_runtime_assets (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    release_package_id INTEGER NOT NULL,
-    path TEXT NOT NULL,
-    size INTEGER NOT NULL,
-    sha256 TEXT NOT NULL,
-    UNIQUE(release_package_id, path),
-    FOREIGN KEY(release_package_id) REFERENCES release_packages(id) ON DELETE CASCADE
+    release_id INTEGER NOT NULL,
+    manifest_path TEXT NOT NULL,
+    package_path TEXT NOT NULL,
+    package_sha256 TEXT NOT NULL,
+    package_size INTEGER NOT NULL,
+    file_count INTEGER NOT NULL,
+    created_at TEXT NOT NULL,
+    UNIQUE(release_id),
+    FOREIGN KEY(release_id) REFERENCES releases(id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS release_package_downloads (
-    release_package_id INTEGER PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS release_content_assets (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    release_id INTEGER NOT NULL,
+    manifest_path TEXT NOT NULL,
+    delta_from_release_id TEXT NOT NULL DEFAULT '',
+    delta_package_path TEXT NOT NULL DEFAULT '',
+    delta_signature_path TEXT NOT NULL DEFAULT '',
+    full_package_path TEXT NOT NULL,
+    full_signature_path TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    UNIQUE(release_id),
+    FOREIGN KEY(release_id) REFERENCES releases(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS release_cleanup_rules (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    release_id INTEGER NOT NULL,
+    path TEXT NOT NULL,
+    UNIQUE(release_id, path),
+    FOREIGN KEY(release_id) REFERENCES releases(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS downloads (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    release_id INTEGER NOT NULL,
+    asset_type TEXT NOT NULL,
+    asset_path TEXT NOT NULL,
     download_count INTEGER NOT NULL DEFAULT 0,
     last_downloaded_at TEXT NOT NULL DEFAULT '',
-    FOREIGN KEY(release_package_id) REFERENCES release_packages(id) ON DELETE CASCADE
+    UNIQUE(release_id, asset_type, asset_path),
+    FOREIGN KEY(release_id) REFERENCES releases(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS publish_events (

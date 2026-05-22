@@ -1,5 +1,8 @@
 # EE2X 更新器重构工程
 
+> 当前主线为 **v2 三层更新体系**：`launcher(Velopack) + runtime(全量强校验) + content(butler/Wharf)`。
+> 旧 `dual bundle / patcher_v2 / update2 ZIP 覆盖链路` 已退役，不再作为当前分发基线。
+
 本目录存放新的 EE2X 更新器套件源码，目标是替换旧的“直接下载 ZIP 并覆盖解压”的不安全链路，并统一到“双包发布 + 强制一致版本”的新流程。
 
 ## 目录结构

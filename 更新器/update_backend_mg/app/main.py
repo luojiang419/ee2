@@ -1,60 +1,51 @@
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 
 from fastapi import FastAPI, File, Form, Header, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse, JSONResponse
 
-from .config import Settings, load_settings
+from .config import load_settings
 from .db import db_session, init_db
 from .service import (
-    build_publish_payload,
-    build_publish_payload_from_bundle,
-    delete_release,
-    rebuild_channel_latest,
-    get_channel_current,
     get_history,
-    get_history_total_count,
     get_latest_payload,
-    increment_release_package_download,
-    import_legacy_updates,
-    legacy_manifest_payload,
-    publish_release,
-    rebuild_index_from_storage,
-    ensure_latest_json_file_current,
-    resolve_release_manifest_file,
-    resolve_release_package_file,
+    increment_download,
+    promote_release,
+    publish_release_bundle,
+    resolve_content_asset,
+    resolve_launcher_asset,
+    resolve_runtime_asset,
+    rollback_release,
+    save_uploaded_bundle,
     verify_publish_auth,
     verify_publish_username_password,
 )
 
-
 settings = load_settings()
 init_db(settings.db_path)
-publish_dir = Path(__file__).resolve().parent / "publish"
 
-app = FastAPI(title="EE2X Update MG", version="1.0.0")
+app = FastAPI(title="EE2X Update MG v2", version="2.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.mount("/publish/assets", StaticFiles(directory=str(publish_dir / "assets")), name="publish-assets")
 
 
 @app.get("/api/update/v1/health")
+@app.get("/api/update/v2/health")
 def health() -> dict:
     with db_session(settings.db_path) as conn:
         channel_count = conn.execute("SELECT COUNT(*) FROM channels").fetchone()[0]
         release_count = conn.execute("SELECT COUNT(*) FROM releases").fetchone()[0]
     return {
         "ok": True,
-        "service": "ee2x-update-mg",
-        "version": "1.0.0",
-        "time": __import__("datetime").datetime.utcnow().isoformat() + "Z",
+        "service": "ee2x-update-mg-v2",
+        "version": "2.0.0",
         "storageUpdatesDir": str(settings.storage_updates_dir),
         "dbPath": str(settings.db_path),
         "channelCount": int(channel_count),
@@ -62,209 +53,116 @@ def health() -> dict:
     }
 
 
-@app.get("/api/update/v1/channels/{channel}/latest")
+@app.post("/api/update/v1/auth/login")
+@app.post("/api/update/v2/auth/login")
+def login(
+    username: str = Form(...),
+    password: str = Form(...),
+):
+    verify_publish_username_password(settings, username.strip(), password)
+    return {"ok": True, "username": settings.admin_username, "channel": settings.default_channel}
+
+
+@app.get("/api/update/v2/channels/{channel}/manifest")
 def latest(channel: str):
     with db_session(settings.db_path) as conn:
         payload = get_latest_payload(settings, conn, channel)
     return JSONResponse(payload)
 
 
-@app.get("/api/update/v1/channels/{channel}/history")
-def history(channel: str, limit: int = 0):
+@app.get("/api/update/v2/channels/{channel}/history")
+def history(channel: str):
     with db_session(settings.db_path) as conn:
-        current = get_channel_current(conn, channel) or {}
-        total_count = get_history_total_count(conn, channel)
-        items = get_history(conn, channel, limit)
-    return {
-        "ok": True,
-        "channel": channel,
-        "currentReleaseId": str(current.get("current_release_id", "")),
-        "currentVersion": str(current.get("current_version", "")),
-        "historyTotalCount": total_count,
-        "returnedCount": len(items),
-        "history": items,
-    }
+        payload = get_history(conn, channel)
+    return JSONResponse(payload)
 
 
-@app.get("/publish")
-def publish_page_redirect():
-    return RedirectResponse(url="/publish/")
-
-
-@app.get("/publish/", response_class=HTMLResponse)
-def publish_page() -> HTMLResponse:
-    html = (publish_dir / "index.html").read_text(encoding="utf-8")
-    return HTMLResponse(html.replace("__DEFAULT_CHANNEL__", settings.default_channel))
-
-
-@app.post("/api/update/v1/auth/login")
-def login(
-    username: str = Form(...),
-    password: str = Form(...),
-):
-    verify_publish_username_password(settings, username.strip(), password)
-    return {
-        "ok": True,
-        "username": settings.admin_username,
-        "channel": settings.default_channel,
-    }
-
-
-@app.post("/api/update/v1/releases/publish")
-async def publish(
-    request: Request,
-    channel: str = Form(...),
-    version: str = Form(...),
-    releaseNotes: str = Form(""),
-    required: str = Form("true"),
-    launcherManifest: UploadFile = File(...),
-    launcherPackage: UploadFile = File(...),
-    gameManifest: UploadFile = File(...),
-    gamePackage: UploadFile = File(...),
-    authorization: str | None = Header(default=None),
-):
-    verify_publish_auth(settings, authorization)
-    payloads, temp_dir = await build_publish_payload(
-        temp_root=settings.storage_tmp_dir,
-        version=version,
-        launcher_manifest=launcherManifest,
-        launcher_package=launcherPackage,
-        game_manifest=gameManifest,
-        game_package=gamePackage,
-    )
-    try:
-        result = publish_release(
-            settings,
-            channel=channel.strip() or settings.default_channel,
-            version=version.strip(),
-            release_notes=releaseNotes,
-            required=str(required).strip().lower() not in {"false", "0", "no"},
-            payloads=payloads,
-            remote_addr=request.client.host if request.client else "",
-        )
-        return {"ok": True, **result}
-    finally:
-        __import__("shutil").rmtree(temp_dir, ignore_errors=True)
-
-
-@app.post("/api/update/v1/releases/publish-bundle")
+@app.post("/api/update/v2/releases/publish-bundle")
 async def publish_bundle(
     request: Request,
+    channel: str = Form(default=settings.default_channel),
     bundleFile: UploadFile = File(...),
     authorization: str | None = Header(default=None),
 ):
     verify_publish_auth(settings, authorization)
-    version, release_notes, payloads, temp_dir = await build_publish_payload_from_bundle(
-        temp_root=settings.storage_tmp_dir,
-        bundle_file=bundleFile,
-    )
+    bundle_path = await save_uploaded_bundle(settings.storage_tmp_dir, bundleFile)
     try:
-        result = publish_release(
-            settings,
-            channel=settings.default_channel,
-            version=version,
-            release_notes=release_notes,
-            required=True,
-            payloads=payloads,
-            remote_addr=request.client.host if request.client else "",
-        )
+        with db_session(settings.db_path) as conn:
+            result = publish_release_bundle(
+                settings,
+                conn,
+                channel=channel.strip() or settings.default_channel,
+                bundle_path=bundle_path,
+                remote_addr=request.client.host if request.client else "",
+            )
         return {"ok": True, **result}
     finally:
-        __import__("shutil").rmtree(temp_dir, ignore_errors=True)
+        shutil.rmtree(bundle_path.parent, ignore_errors=True)
 
 
-@app.delete("/api/update/v1/channels/{channel}/releases/{release_id}")
-def delete_channel_release(
+@app.post("/api/update/v2/channels/{channel}/promote/{release_id}")
+def promote(
     channel: str,
     release_id: str,
     authorization: str | None = Header(default=None),
 ):
     verify_publish_auth(settings, authorization)
-    result = delete_release(settings, channel=channel, release_id=release_id)
+    with db_session(settings.db_path) as conn:
+        result = promote_release(settings, conn, channel=channel, release_id=release_id)
     return {"ok": True, **result}
 
 
-@app.post("/api/update/v1/channels/{channel}/latest/rebuild")
-def rebuild_channel_latest_api(
+@app.post("/api/update/v2/channels/{channel}/rollback/{release_id}")
+def rollback(
     channel: str,
+    release_id: str,
     authorization: str | None = Header(default=None),
 ):
     verify_publish_auth(settings, authorization)
     with db_session(settings.db_path) as conn:
-        result = rebuild_channel_latest(settings, conn, channel)
+        result = rollback_release(settings, conn, channel=channel, release_id=release_id)
     return {"ok": True, **result}
 
 
-@app.get("/updates/{channel}/latest.json")
-def latest_static(channel: str):
+@app.get("/updates/v2/launcher/{channel}/{release_id}/{asset_path:path}")
+def launcher_asset(channel: str, release_id: str, asset_path: str):
     with db_session(settings.db_path) as conn:
-        latest_path = ensure_latest_json_file_current(settings, conn, channel)
-    return FileResponse(latest_path, media_type="application/json")
-
-
-@app.get("/updates/{channel}/releases/{release_id}/{scope}/release-manifest.json")
-def release_manifest_static(channel: str, release_id: str, scope: str):
-    with db_session(settings.db_path) as conn:
-        manifest_path = resolve_release_manifest_file(
+        file_path, release_db_id = resolve_launcher_asset(
             settings,
             conn,
             channel=channel,
             release_id=release_id,
-            scope=scope,
+            asset_path=asset_path,
         )
-    return FileResponse(manifest_path, media_type="application/json")
+        increment_download(conn, release_db_id=release_db_id, asset_type="launcher", asset_path=asset_path)
+    media_type = "application/json" if file_path.suffix.lower() == ".json" else "application/octet-stream"
+    return FileResponse(file_path, media_type=media_type)
 
 
-@app.get("/updates/{channel}/releases/{release_id}/{scope}/{package_file_name}")
-def release_package_static(
-    channel: str,
-    release_id: str,
-    scope: str,
-    package_file_name: str,
-):
+@app.get("/updates/v2/runtime/{channel}/{release_id}/{file_name}")
+def runtime_asset(channel: str, release_id: str, file_name: str):
     with db_session(settings.db_path) as conn:
-        package_path, package_row = resolve_release_package_file(
+        file_path, release_db_id = resolve_runtime_asset(
             settings,
             conn,
             channel=channel,
             release_id=release_id,
-            scope=scope,
-            package_file_name=package_file_name,
+            file_name=file_name,
         )
-        increment_release_package_download(conn, int(package_row["id"]))
-    return FileResponse(
-        package_path,
-        media_type="application/zip",
-        filename=package_file_name,
-    )
+        increment_download(conn, release_db_id=release_db_id, asset_type="runtime", asset_path=file_name)
+    media_type = "application/json" if file_path.suffix.lower() == ".json" else "application/zip"
+    return FileResponse(file_path, media_type=media_type, filename=file_path.name)
 
 
-@app.get("/manifest")
-def legacy_manifest(channel: str | None = None):
+@app.get("/updates/v2/content/{channel}/{release_id}/{file_name}")
+def content_asset(channel: str, release_id: str, file_name: str):
     with db_session(settings.db_path) as conn:
-        payload = legacy_manifest_payload(settings, conn, channel or settings.default_channel)
-    return JSONResponse(payload)
-
-
-@app.get("/api/version/latest")
-def legacy_latest(channel: str | None = None):
-    with db_session(settings.db_path) as conn:
-        payload = legacy_manifest_payload(settings, conn, channel or settings.default_channel)
-    return JSONResponse(payload)
-
-
-@app.get("/api/version/history")
-def legacy_history(channel: str | None = None, limit: int = 0):
-    with db_session(settings.db_path) as conn:
-        items = get_history(conn, channel or settings.default_channel, limit)
-    return {"versions": items}
-
-
-def main() -> None:
-    import uvicorn
-
-    uvicorn.run("app.main:app", host=settings.host, port=settings.port, reload=False)
-
-
-if __name__ == "__main__":
-    main()
+        file_path, release_db_id = resolve_content_asset(
+            settings,
+            conn,
+            channel=channel,
+            release_id=release_id,
+            file_name=file_name,
+        )
+        increment_download(conn, release_db_id=release_db_id, asset_type="content", asset_path=file_name)
+    return FileResponse(file_path, media_type="application/octet-stream", filename=file_path.name)
