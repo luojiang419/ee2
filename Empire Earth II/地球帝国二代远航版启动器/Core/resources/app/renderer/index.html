@@ -1,0 +1,703 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>EE2X 启动器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="bg_history_styles.css" />
+  </head>
+  <body>
+    <div id="backgroundContainer" class="background-container">
+      <img id="backgroundImage" class="background-image" style="display:none" alt="" />
+      <video id="backgroundVideo" class="background-video" style="display:none" loop muted autoplay alt=""></video>
+    </div>
+    <div class="wrap">
+      <header class="top center" style="-webkit-app-region: drag">
+        <div class="title center">
+          <img id="titleIcon" src="" alt="icon" style="width:48px;height:48px;margin-right:12px;filter:drop-shadow(0 0 8px rgba(59,130,246,0.6));" />
+          <h1 class="title-text">地球帝国二代魔改版 <span class="title-sub">联机对战平台</span></h1>
+        </div>
+        <div id="topRight" class="auth-section" style="position:fixed;right:24px;top:12px;gap:12px;-webkit-app-region: no-drag">
+          <div id="userInfo" class="user-info" style="display:none">
+            <div class="user-avatar-container">
+              <img id="userAvatar" class="user-avatar" src="" alt="avatar" />
+              <div id="userDropdown" class="user-dropdown-menu">
+                <button id="openProfile">查看资料</button>
+                <button id="logoutBtn" class="logout-btn">退出登录</button>
+              </div>
+            </div>
+            <span id="userName" class="username"></span>
+          </div>
+        </div>
+      </header>
+
+      <section class="card score-card">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="online">在线玩家</button>
+          <button class="tab-btn" data-tab="broadcast">战绩播报</button>
+          <button class="tab-btn" data-tab="highlights">巅峰时刻</button>
+          <button id="refreshBroadcastBtn" class="refresh-btn" style="margin-left:auto;display:none" title="刷新战绩">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 3a5 5 0 0 0-5 5h2a3 3 0 1 1 3 3 3 3 0 0 1-3-3H3a5 5 0 1 0 5-5z"/><path d="M3 8l-2.5-2.5L3 3l2.5 2.5L3 8z"/></svg>
+          </button>
+        </div>
+        <div class="section-divider"></div>
+        
+        <div id="tab-online" class="tab-content active">
+           <div id="onlinePlayerList" class="player-list">
+             <div class="no-broadcast">正在获取在线玩家...</div>
+           </div>
+        </div>
+        
+        <div id="tab-broadcast" class="tab-content">
+           <div id="broadcastList" class="files"></div>
+        </div>
+        
+        <div id="tab-highlights" class="tab-content">
+           <div id="highlightsList" class="files" style="text-align:center;color:#94a3b8;padding:20px">巅峰时刻功能开发中...</div>
+        </div>
+
+        <webview id="broadcastView" class="broadcast-view" style="display:none" allowpopups></webview>
+      </section>
+
+      <div class="right-dock">
+        <button id="loginBtn">登录注册</button>
+        <button id="officialSiteBtn">官网入口</button>
+        <button id="rankBtn">战力排行</button>
+        <button id="matchBtn">分组工具</button>
+        <button id="updateBtn">强制同步加载中...</button>
+        <button id="networkBtn" style="margin-top: 5px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.4);">对战平台离线</button>
+      </div>
+
+      <button id="startBtn" class="start-bigger start-cta">启动游戏</button>
+
+      <footer class="foot">
+        <span id="gameDir" style="display:none"></span>
+        <div class="footer-info">
+          <span id="versionBadge" class="version-badge">启动器版本加载中...</span>
+          <span id="footerNetSpeed" class="net-speed-badge" style="display:none">↑ 0.0 KB/s ↓ 0.0 KB/s</span>
+        </div>
+      </footer>
+
+      <!-- 固定定位按钮 -->
+      <button id="shotMainBtn" class="shot-fab" title="截图">📸</button>
+      <button id="settingsBtn" class="settings-fab" title="设置">⚙️</button>
+      <button id="themeBtn" class="theme-fab" title="主题">🎨</button>
+      <button id="battleBtn" class="battle-fab" title="游戏结算">🏁</button>
+      <button id="docBtn" class="doc-fab" title="更新日志">📄</button>
+
+
+      <div id="settingsModal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-head">
+            <h3>设置</h3>
+            <button id="closeSettings">关闭</button>
+          </div>
+          <div class="row modal-top-actions" style="justify-content:flex-end">
+          </div>
+          <div class="form-row">
+            <label>游戏文件夹</label>
+            <div class="row">
+              <input id="set_gameDir" />
+              <button id="browseDir">浏览</button>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>游戏启动程序</label>
+            <div class="row">
+              <input id="set_gameExePath" />
+              <button id="browseExe">浏览</button>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>更新服务器地址</label>
+            <input id="set_serverUrl" type="text" />
+            <div class="row">
+              <button id="testServer">测试连接</button>
+              <button id="editServer">修改服务器地址</button>
+              <button id="openGameDir">打开游戏目录</button>
+              <span id="testStatus" style="margin-left:8px"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>用户注册登录服务器地址</label>
+            <input id="set_userServerUrl" type="text" />
+            <div class="row">
+              <button id="testUserServer">测试连接</button>
+              <span id="autoDetectStatus" style="margin-left:8px"></span>
+              <span id="testUserStatus" style="margin-left:8px"></span>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <label>虚拟组网服务器地址 (IP:Port)</label>
+            <input id="set_networkServer" type="text" placeholder="81.71.49.16:1666" />
+            <div class="row">
+              <button id="testNetworkServer">测试连接</button>
+              <span id="testNetworkStatus" style="margin-left:8px"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>游戏结算识别 API 地址</label>
+            <input id="set_battleApiUrl" type="text" placeholder="http://192.168.0.211:1234/v1/responses" />
+            <div class="row" style="margin-top:6px">
+              <button id="testBattleApiBtn">测试 API</button>
+              <span id="testBattleApiStatus" style="margin-left:8px"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>游戏结算识别 Key</label>
+            <input id="set_battleApiKey" type="password" placeholder="可为空" />
+          </div>
+          <div class="form-row">
+            <label>游戏结算识别模型</label>
+            <input id="set_battleApiModel" type="text" placeholder="zai-org/glm-4.6v-flash" />
+          </div>
+          <div class="form-row">
+            <label>游戏结算快捷键</label>
+            <input id="set_battleHotkey" type="text" placeholder="例如 Ctrl+Shift+F9" />
+            <div style="font-size:12px;color:#94a3b8;margin-top:4px">按下后自动静默截取结算画面并识别。</div>
+          </div>
+          <div class="form-row">
+            <label>网络连接模式</label>
+            <select id="set_networkMode">
+              <option value="tap">TAP 模式 (推荐，支持局域网发现)</option>
+              <option value="tun">TUN 模式 (兼容性更好)</option>
+            </select>
+          </div>
+
+          <div class="form-row" id="tapStrategyRow">
+            <label>TAP 网卡适配策略</label>
+            <select id="set_tapStrategy">
+              <option value="auto">自动 (随机自适应，推荐)</option>
+              <option value="bind">强制绑定 (指定网卡名称)</option>
+            </select>
+            <div style="font-size:12px;color:#666;margin-top:4px">如分发给他人使用，请务必选择"自动"</div>
+          </div>
+          
+          <div class="form-row">
+            <label>战绩播报查询模式</label>
+            <select id="set_broadcastMode">
+              <option value="manual">手动查询（节省流量）</option>
+              <option value="auto">自动查询（定时刷新）</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>关闭主窗口时</label>
+            <select id="set_closeAction">
+              <option value="ask">每次询问</option>
+              <option value="minimize">最小化到托盘</option>
+              <option value="exit">退出程序</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>背景类型</label>
+            <select id="set_bgType">
+              <option value="none">无背景</option>
+              <option value="image">背景图片</option>
+              <option value="video">背景视频</option>
+            </select>
+          </div>
+          <div class="form-row" id="bgImageRow" style="display:none">
+            <label>背景图片</label>
+            <div class="row">
+              <input id="set_bgImage" placeholder="选择图片文件" />
+              <button id="browseBgImage">浏览</button>
+              <button id="selectBgImageHistory">历史图片</button>
+            </div>
+          </div>
+          <div class="form-row" id="bgVideoRow" style="display:none">
+            <label>背景视频</label>
+            <div class="row">
+              <input id="set_bgVideo" placeholder="选择视频文件" />
+              <button id="browseBgVideo">浏览</button>
+              <button id="selectBgVideoHistory">历史视频</button>
+            </div>
+            <div class="form-row">
+              <label>视频音量</label>
+              <input type="range" id="bgVideoVolume" min="0" max="100" value="0" />
+              <span id="volumeValue">0%</span>
+            </div>
+          </div>
+
+          <div class="form-row" id="bgBlurRow" style="display:none">
+            <label>背景模糊</label>
+            <input type="range" id="bgBlur" min="0" max="20" value="0" />
+            <span id="blurValue">0px</span>
+          </div>
+
+                <div class="form-row">
+            <label>常用分辨率</label>
+            <select id="set_resolution">
+              <option value="800x600">800×600</option>
+              <option value="1024x768">1024×768</option>
+              <option value="1280x800">1280×800（默认）</option>
+              <option value="1366x768">1366×768</option>
+              <option value="1600x900">1600×900</option>
+              <option value="1920x1080">1920×1080</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>窗口大小调节</label>
+            <div class="row">
+              <button id="resizeWindowBtn">开启窗口调节</button>
+              <button id="saveWindowSizeBtn">保存当前大小</button>
+              <span id="currentWindowSize" style="margin-left:8px">-</span>
+            </div>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <button id="saveSettings">保存并退出</button>
+          </div>
+        </div>
+      </div>
+      <div id="themeModal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-head">
+            <h3>选择主题</h3>
+            <button id="closeTheme">关闭</button>
+          </div>
+          <div class="form-row">
+            <label>预设风格</label>
+            <div class="row" style="flex-wrap:wrap;gap:8px">
+              <button id="themeEE2X">地球帝国</button>
+              <button id="themeAOE">帝国时代</button>
+              <button id="themeWarcraft">魔兽</button>
+              <button id="themeArmy">军绿</button>
+              <button id="themeAirforce">空军蓝</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="battleModal" class="modal hidden">
+        <div class="modal-content" style="max-width:760px">
+          <div class="modal-head">
+            <h3>游戏结算</h3>
+            <button id="closeBattle">关闭</button>
+          </div>
+          <!-- 主视图：最近结算 + 历史列表 -->
+          <div id="battleMainView">
+            <div id="battleRecentCard" class="item" style="margin-bottom:12px"></div>
+            <div class="row" style="justify-content:flex-end; gap:8px; margin-bottom:12px">
+              <button id="battleRefreshBtn">刷新</button>
+              <button id="battleToggleHistoryBtn">查看列表</button>
+            </div>
+            <div id="battleHistoryWrap" class="files" style="display:none; max-height:320px"></div>
+          </div>
+          <!-- 详情视图：点击历史记录后显示表格 -->
+          <div id="battleDetailView" style="display:none">
+            <div class="row" style="align-items:center;gap:8px;margin-bottom:12px">
+              <button id="battleDetailBackBtn" style="padding:4px 12px">← 返回列表</button>
+              <span id="battleDetailTitle" style="color:#cbd5e1;font-size:13px"></span>
+            </div>
+            <div id="battleDetailContent"></div>
+          </div>
+        </div>
+      </div>
+      <div id="serverEditModal" class="modal hidden">
+        <div class="modal-content">
+          <h3>修改服务器地址</h3>
+          <div class="form-row">
+            <input id="edit_serverUrl" type="text" />
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <button id="saveServerUrl">保存</button>
+            <button id="closeServerUrl">取消</button>
+          </div>
+        </div>
+      </div>
+      <div id="shortcutModal" class="modal hidden">
+        <div class="modal-content">
+          <h3>创建桌面快捷方式</h3>
+          <p>建议创建一个桌面快捷方式，方便后续启动游戏。</p>
+          <div class="row" style="justify-content:flex-end">
+            <button id="createShortcutNow">创建</button>
+            <button id="createShortcutLater">稍后</button>
+          </div>
+        </div>
+      </div>
+      <div id="detailModal" class="modal hidden">
+        <div class="modal-content">
+          <h3>更新详情</h3>
+          <div id="detailContent" class="files"></div>
+          <div class="row" style="justify-content:flex-end"><button id="detailClose">关闭</button></div>
+        </div>
+      </div>
+      <div id="changesModal" class="modal hidden">
+        <div class="modal-content">
+          <h3>文件变更历史</h3>
+          <div id="changesList" class="files"></div>
+          <div class="row" style="justify-content:flex-end">
+            <button id="changesClose">关闭</button>
+          </div>
+        </div>
+      </div>
+      <div id="bgHistoryModal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-head">
+            <h3 id="bgHistoryTitle">选择历史背景</h3>
+            <button id="closeBgHistory">关闭</button>
+          </div>
+          <div id="bgHistoryList" class="files"></div>
+        </div>
+      </div>
+      <div id="rollbackModal" class="modal hidden">
+        <div class="modal-content">
+          <h3>选择回退版本</h3>
+          <div id="rollbackList" class="files"></div>
+          <div class="row" style="justify-content:flex-end">
+            <button id="rollbackClose">关闭</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="authModal" class="modal hidden">
+        <div class="modal-content" style="max-width:560px">
+          <div class="modal-head">
+            <h3 id="authTitle">登录注册</h3>
+            <button id="closeAuth">关闭</button>
+          </div>
+          <div class="form-row">
+            <label>游戏昵称</label>
+            <input id="auth_nickname" type="text" placeholder="请输入昵称" />
+          </div>
+          <div class="form-row">
+            <label>密码（至少4位）</label>
+            <div style="position:relative">
+              <input id="auth_password" type="password" placeholder="请输入密码" style="width:100%;padding-right:36px;box-sizing:border-box;" />
+              <button type="button" class="pwd-eye-btn" data-target="auth_password" title="显示/隐藏密码" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:16px;padding:0;line-height:1">👁</button>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>头像（上传预览）</label>
+            <div class="avatar-upload">
+              <img id="auth_avatar_preview" class="avatar-preview" src="" alt="" />
+              <input id="auth_avatar" type="file" accept="image/*" />
+              <span class="upload-hint">选择图片后自动预览，注册时会保存</span>
+            </div>
+          </div>
+          <div id="auth_error" class="error-message" style="display:none"></div>
+          <div class="row" style="justify-content:space-between; align-items:center">
+            <a href="#" id="forgotPasswordLink" style="font-size:13px; color:#93c5fd; text-decoration:none">忘记密码?</a>
+            <div class="row" style="gap:8px">
+              <button id="doRegister" class="primary-btn">注册并登录</button>
+              <button id="doLogin" class="primary-btn">已有账号登录</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 忘记密码 - 步骤1：输入昵称 -->
+      <div id="forgotPwdModal" class="modal hidden">
+        <div class="modal-content" style="max-width:420px">
+          <div class="modal-head">
+            <h3>重置密码</h3>
+            <button id="closeForgotPwd">关闭</button>
+          </div>
+          <div id="forgotPwdStep1">
+            <div class="form-row">
+              <label>请输入您的游戏昵称</label>
+              <input id="forgotPwdUsername" type="text" placeholder="游戏昵称" />
+            </div>
+            <div id="forgotPwdError" class="error-message" style="display:none"></div>
+            <div class="row" style="justify-content:flex-end; gap:8px">
+              <button id="forgotPwdBack" class="primary-btn" style="background:rgba(255,255,255,0.1)">返回登录</button>
+              <button id="forgotPwdNext" class="primary-btn">下一步</button>
+            </div>
+          </div>
+          <div id="forgotPwdStep2" style="display:none">
+            <div id="firstResetTip" class="form-row" style="display:none; background:rgba(59,130,246,0.15); padding:12px; border-radius:8px; border:1px solid rgba(59,130,246,0.3); color:#93c5fd;">
+              <span style="font-size:13px;">首次重置密码无需验证安全问题，请直接设置新密码。<br>重置成功后建议您设置安全问题，以便下次忘记密码时可以自助找回。</span>
+            </div>
+            <div class="form-row" id="forgotPwdQuestionRow">
+              <label id="forgotPwdQuestionLabel" style="color:#94a3b8">安全问题</label>
+              <input id="forgotPwdAnswer" type="text" placeholder="请输入答案" />
+            </div>
+            <div class="form-row">
+              <label>新密码</label>
+              <div style="position:relative">
+                <input id="forgotPwdNew" type="password" placeholder="新密码（至少4位）" style="width:100%;padding-right:36px;box-sizing:border-box;" />
+                <button type="button" class="pwd-eye-btn" data-target="forgotPwdNew" title="显示/隐藏密码" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:16px;padding:0;line-height:1">👁</button>
+              </div>
+            </div>
+            <div class="form-row">
+              <label>确认新密码</label>
+              <div style="position:relative">
+                <input id="forgotPwdConfirm" type="password" placeholder="再次输入新密码" style="width:100%;padding-right:36px;box-sizing:border-box;" />
+                <button type="button" class="pwd-eye-btn" data-target="forgotPwdConfirm" title="显示/隐藏密码" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:16px;padding:0;line-height:1">👁</button>
+              </div>
+            </div>
+            <div id="forgotPwdStep2Error" class="error-message" style="display:none"></div>
+            <div class="row" style="justify-content:flex-end; gap:8px">
+              <button id="forgotPwdBack2" class="primary-btn" style="background:rgba(255,255,255,0.1)">上一步</button>
+              <button id="forgotPwdSubmit" class="primary-btn">重置密码</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 异地登录确认弹窗 -->
+      <div id="confirmLoginModal" class="modal hidden">
+        <div class="modal-content" style="max-width:420px; text-align:center;">
+          <div class="modal-head" style="justify-content:center;">
+            <h3>账号异地登录</h3>
+          </div>
+          <div style="padding:16px 0 8px;">
+            <div style="font-size:40px; margin-bottom:12px;">🔐</div>
+            <p style="color:#e2e8f0; font-size:15px; line-height:1.6; margin-bottom:6px;">
+              您的账号已在其他设备登录
+            </p>
+            <p style="color:#94a3b8; font-size:13px; margin-bottom:6px;" id="confirmLoginSubMsg">
+              请选择本设备的使用方式
+            </p>
+            <div style="background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.2); border-radius:6px; padding:10px 14px; margin-bottom:16px; font-size:12px; color:#93c5fd; text-align:left; line-height:1.7">
+              <b>确认是本人</b>：重新获取登录凭证，恢复联机功能（对方设备将被挤下线）<br>
+              <b>离线模式</b>：本次以离线方式运行，可启动游戏，联机功能不可用
+            </div>
+            <div id="confirmLoginError" class="error-message" style="display:none; margin-bottom:12px;"></div>
+            <div class="row" style="justify-content:center; gap:12px;">
+              <button id="confirmLoginBtn" class="primary-btn" style="background:linear-gradient(135deg, #3b82f6, #2563eb); min-width:130px; gap:6px;">
+                ✅ 确认是本人
+              </button>
+              <button id="offlineModeBtn" class="primary-btn" style="background:rgba(100,116,139,0.2); border-color:rgba(100,116,139,0.4); color:#94a3b8; min-width:110px;">
+                📴 离线模式
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="profileModal" class="modal hidden">
+        <div class="modal-content" style="max-width:480px">
+          <div class="modal-head">
+            <h3>玩家信息</h3>
+            <button id="closeProfile">关闭</button>
+          </div>
+          
+          <div style="display:flex; gap:20px; align-items:flex-start">
+            <div style="position: relative; display: inline-block;">
+              <img id="profileAvatar" class="avatar-preview" src="" alt="头像" style="width:100px;height:100px; object-fit:cover; border-radius:50%; border:2px solid #3b82f6;" />
+              <button id="changeAvatarBtn" class="edit-avatar-btn" title="更换头像" style="display:none; width:28px; height:28px; font-size:14px; right:0; bottom:0;">✏️</button>
+            </div>
+            
+            <div style="display:flex;flex-direction:column;gap:10px;flex:1;min-width:0">
+              <div style="display:flex; flex-direction:column; gap:2px">
+                 <span style="font-size:12px; color:#94a3b8">昵称</span>
+                 <span id="profileName" style="font-size:18px; font-weight:bold; color:#fff"></span>
+              </div>
+              
+              <div style="display:flex; flex-direction:column; gap:2px">
+                 <span style="font-size:12px; color:#94a3b8">个性签名</span>
+                 <div id="profileSignature" style="font-size:14px; color:#cbd5e1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-height:20px"></div>
+                 <input id="profileSignatureInput" type="text" placeholder="写下你的个性签名..." maxlength="30" style="display:none; padding:6px; font-size:13px;" />
+              </div>
+              
+              <div style="display:flex; flex-direction:column; gap:2px">
+                 <span style="font-size:12px; color:#94a3b8">累计在线时长</span>
+                 <span id="profileTotalRuntime" style="font-family:monospace; color:#fbbf24; font-size:14px">00:00:00</span>
+              </div>
+            </div>
+          </div>
+          
+
+          
+          <div id="profileRankStats" style="margin-top:16px; border-top:1px solid #334155; padding-top:12px; display:none">
+             <div style="font-size:14px; font-weight:bold; margin-bottom:8px">排位数据</div>
+             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px">
+                <div class="stat-box" style="background:rgba(0,0,0,0.2); padding:8px; border-radius:4px">
+                   <div style="font-size:12px; color:#94a3b8">当前段位</div>
+                   <div id="profileTier" style="font-size:16px; font-weight:bold; color:#fbbf24">--</div>
+                </div>
+                <div class="stat-box" style="background:rgba(0,0,0,0.2); padding:8px; border-radius:4px">
+                   <div style="font-size:12px; color:#94a3b8">段位排名</div>
+                   <div id="profileRank" style="font-size:16px; font-weight:bold">--</div>
+                </div>
+                <div class="stat-box" style="background:rgba(0,0,0,0.2); padding:8px; border-radius:4px">
+                   <div style="font-size:12px; color:#94a3b8">战力积分</div>
+                   <div id="profilePoints" style="font-size:16px; font-weight:bold">--</div>
+                </div>
+                <div class="stat-box" style="background:rgba(0,0,0,0.2); padding:8px; border-radius:4px">
+                   <div style="font-size:12px; color:#94a3b8">胜 / 负</div>
+                   <div id="profileWinLoss" style="font-size:16px; font-weight:bold">-- / --</div>
+                </div>
+             </div>
+          </div>
+
+          <div id="profileExtendedData" style="margin-top:16px; border-top:1px solid #334155; padding-top:12px; display:none">
+             <div style="display:flex; gap:12px; margin-bottom:12px;">
+               <button id="tabBtnMatches" class="tab-btn active" style="font-size:13px; padding:4px 12px">近期战绩</button>
+               <button id="tabBtnTiers" class="tab-btn" style="font-size:13px; padding:4px 12px">段位变动</button>
+             </div>
+             
+             <div id="profileTabMatches" style="display:block">
+                <div id="profileMatchList" style="max-height:200px; overflow-y:auto; display:flex; flex-direction:column; gap:6px"></div>
+             </div>
+             
+             <div id="profileTabTiers" style="display:none">
+                <div id="profileTierList" style="max-height:200px; overflow-y:auto; display:flex; flex-direction:column; gap:6px"></div>
+             </div>
+          </div>
+          
+          <div style="display:flex; gap:12px; margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1)">
+             <button id="profileEditBtn" class="primary-btn" style="flex:1; display:flex; align-items:center; justify-content:center; gap:6px">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                <span>修改个人资料</span>
+             </button>
+             <button id="profileLogout" class="primary-btn" style="flex:1; background:rgba(239,68,68,0.15); border-color:rgba(239,68,68,0.3); color:#f87171; display:flex; align-items:center; justify-content:center; gap:6px">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                <span>退出登录</span>
+             </button>
+          </div>
+
+          <!-- 隐藏的文件输入框 -->
+          <input id="profileAvatarInput" type="file" accept="image/*" style="display:none" />
+        </div>
+      </div>
+
+      <!-- 修改个人资料弹窗（Tab式整合） -->
+      <div id="editProfileModal" class="modal hidden">
+        <div class="modal-content" style="max-width:500px">
+          <div class="modal-head">
+            <h3>修改个人资料</h3>
+            <button id="closeEditProfile">关闭</button>
+          </div>
+          <!-- Tab 导航 -->
+          <div style="display:flex; gap:4px; margin-bottom:16px; border-bottom:1px solid #334155; padding-bottom:0">
+            <button class="edit-tab-btn active" data-tab="basic" style="padding:8px 14px; font-size:13px; background:none; border:none; border-bottom:2px solid #3b82f6; color:#93c5fd; cursor:pointer">基本资料</button>
+            <button class="edit-tab-btn" data-tab="username" style="padding:8px 14px; font-size:13px; background:none; border:none; border-bottom:2px solid transparent; color:#94a3b8; cursor:pointer">修改账号名</button>
+            <button class="edit-tab-btn" data-tab="password" style="padding:8px 14px; font-size:13px; background:none; border:none; border-bottom:2px solid transparent; color:#94a3b8; cursor:pointer">修改密码</button>
+            <button class="edit-tab-btn" data-tab="security" style="padding:8px 14px; font-size:13px; background:none; border:none; border-bottom:2px solid transparent; color:#94a3b8; cursor:pointer">安全问题</button>
+          </div>
+
+          <!-- Tab: 基本资料 -->
+          <div id="editTab-basic" class="edit-tab-content">
+            <div style="display:flex; gap:16px; align-items:flex-start; margin-bottom:16px">
+              <div style="position:relative; display:inline-block">
+                <img id="editProfileAvatar" class="avatar-preview" src="" alt="头像" style="width:80px;height:80px;object-fit:cover;border-radius:50%;border:2px solid #3b82f6;" />
+                <button id="editChangeAvatarBtn" title="更换头像" style="position:absolute;right:0;bottom:0;width:24px;height:24px;border-radius:50%;background:#3b82f6;border:none;color:#fff;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center">✏️</button>
+                <input id="editAvatarInput" type="file" accept="image/*" style="display:none" />
+              </div>
+              <div style="flex:1">
+                <div class="form-row" style="margin-bottom:10px">
+                  <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:4px">个性签名</label>
+                  <input id="editSignatureInput" type="text" placeholder="写下你的个性签名..." maxlength="30" style="width:100%;padding:8px;box-sizing:border-box;font-size:13px;" />
+                </div>
+              </div>
+            </div>
+            <div id="editBasicMsg" style="font-size:12px;color:#f87171;display:none;margin-bottom:8px"></div>
+            <div style="display:flex;gap:8px;justify-content:flex-end">
+              <button id="editBasicSaveBtn" class="primary-btn">保存资料</button>
+            </div>
+          </div>
+
+          <!-- Tab: 修改账号名 -->
+          <div id="editTab-username" class="edit-tab-content" style="display:none">
+            <div style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);border-radius:6px;padding:10px 12px;margin-bottom:14px;font-size:12px;color:#fbbf24">
+              ⚠️ 修改账号名后需重新登录，且账号名将在所有地方同步更新。
+            </div>
+            <div class="form-row" style="margin-bottom:10px">
+              <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:4px">新账号名（2-20个字符）</label>
+              <input id="editNewUsername" type="text" placeholder="请输入新账号名" maxlength="20" style="width:100%;padding:8px;box-sizing:border-box;font-size:13px;" />
+            </div>
+            <div id="editUsernameMsg" style="font-size:12px;color:#f87171;display:none;margin-bottom:8px"></div>
+            <div style="display:flex;gap:8px;justify-content:flex-end">
+              <button id="editUsernameSaveBtn" class="primary-btn">确认修改</button>
+            </div>
+          </div>
+
+          <!-- Tab: 修改密码 -->
+          <div id="editTab-password" class="edit-tab-content" style="display:none">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div>
+                <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:4px">当前密码</label>
+                <div style="position:relative">
+                  <input id="editPwdOld" type="password" placeholder="请输入当前密码" style="width:100%;padding:8px 36px 8px 8px;box-sizing:border-box;font-size:13px;" />
+                  <button type="button" class="pwd-eye-btn" data-target="editPwdOld" title="显示/隐藏密码" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:16px;padding:0;line-height:1">👁</button>
+                </div>
+              </div>
+              <div>
+                <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:4px">新密码</label>
+                <div style="position:relative">
+                  <input id="editPwdNew" type="password" placeholder="新密码（至少4位）" style="width:100%;padding:8px 36px 8px 8px;box-sizing:border-box;font-size:13px;" />
+                  <button type="button" class="pwd-eye-btn" data-target="editPwdNew" title="显示/隐藏密码" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:16px;padding:0;line-height:1">👁</button>
+                </div>
+              </div>
+              <div>
+                <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:4px">确认新密码</label>
+                <div style="position:relative">
+                  <input id="editPwdConfirm" type="password" placeholder="再次输入新密码" style="width:100%;padding:8px 36px 8px 8px;box-sizing:border-box;font-size:13px;" />
+                  <button type="button" class="pwd-eye-btn" data-target="editPwdConfirm" title="显示/隐藏密码" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:16px;padding:0;line-height:1">👁</button>
+                </div>
+              </div>
+              <div id="editPwdMsg" style="font-size:12px;color:#f87171;display:none"></div>
+              <div style="display:flex;gap:8px;justify-content:flex-end">
+                <button id="editPwdSaveBtn" class="primary-btn">确认修改</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab: 安全问题 -->
+          <div id="editTab-security" class="edit-tab-content" style="display:none">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div>
+                <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:4px">选择问题</label>
+                <select id="editSecuritySelect" style="width:100%;padding:8px;box-sizing:border-box;font-size:13px;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#fff;">
+                  <option value="">-- 请选择安全问题 --</option>
+                  <option value="您最喜欢的游戏是？">您最喜欢的游戏是？</option>
+                  <option value="您出生在哪个城市？">您出生在哪个城市？</option>
+                  <option value="您的小学叫什么名字？">您的小学叫什么名字？</option>
+                  <option value="您的母亲叫什么名字？">您的母亲叫什么名字？</option>
+                  <option value="custom">自定义问题</option>
+                </select>
+                <input id="editSecurityCustom" type="text" placeholder="输入自定义问题" style="width:100%;padding:8px;box-sizing:border-box;font-size:13px;margin-top:8px;display:none;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#fff;" />
+              </div>
+              <div>
+                <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:4px">答案</label>
+                <input id="editSecurityAnswer" type="text" placeholder="请输入答案" style="width:100%;padding:8px;box-sizing:border-box;font-size:13px;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#fff;" />
+              </div>
+              <div id="editSecurityMsg" style="font-size:12px;color:#f87171;display:none"></div>
+              <div style="display:flex;gap:8px;justify-content:flex-end">
+                <button id="editSecuritySaveBtn" class="primary-btn" style="background:rgba(16,185,129,0.2);border-color:rgba(16,185,129,0.3);color:#6ee7b7">保存设置</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="networkModal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-head">
+            <h3>组网工具状态</h3>
+            <button id="netCloseBtn">关闭</button>
+          </div>
+          <div class="form-row">
+            <label>状态：</label>
+            <span id="netStatus" style="font-weight:bold">--</span>
+          </div>
+          <div class="form-row">
+            <label>本机虚拟IP：</label>
+            <span id="netLocalIp" style="font-family: monospace;">--</span>
+          </div>
+          <div class="form-row">
+            <label>网络模式：</label>
+            <span id="netMode" style="font-family: monospace; font-weight: bold; color: #a78bfa;">--</span>
+          </div>
+          <div class="form-row">
+            <label>网络速度：</label>
+            <span id="netSpeed" style="font-family: monospace;">--</span>
+          </div>
+          <div class="form-row" style="flex-direction: column; align-items: flex-start;">
+            <label style="margin-bottom: 8px;">在线成员 (<span id="netPeerCount">0</span>)</label>
+            <div id="netPeerList" class="files" style="width: 100%; height: 200px; overflow-y: auto; background: rgba(0,0,0,0.2); border-radius: 4px;"></div>
+          </div>
+          <div class="row" style="justify-content:flex-end; margin-top: 12px;">
+            <button id="netStopBtn" class="primary-btn" style="background:#ef4444;border-color:#ef4444">断开连接</button>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+  </html>
