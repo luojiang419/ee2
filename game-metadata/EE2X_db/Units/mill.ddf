@@ -19,12 +19,13 @@ UnitType Mill
 		DisplayNameScenEdit = tx_utn_mill_sname
 		VerboseTooltip = vtt_unit_Mill
 		requiredOpenSides = kBuildingOpenSides_NegY
-		RallyPlacementFlags = ( Fortress | Tower | Terrain )
+		RallyPlacementFlags = ( Resources | Fortress | Tower | Terrain )
 	}
 	sounds {
     	}
 	fullMapOverlay { sprite = spr_fullmap_mill}
 	abilities = [
+		 Produce {}
 		LOS { range = 0 }
 	]
 }
