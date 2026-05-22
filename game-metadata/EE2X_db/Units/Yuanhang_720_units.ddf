@@ -19400,7 +19400,7 @@ UnitType Harvester
         moveType = Mechanized  
 		SizeX = 0.5
 		SizeY = 0.5
-		mass = 1
+		mass = 0
 		popCount = 1
 		VerboseTooltip = vtt_unit_harvester
 		displayName = tx_utn_harvester_name
@@ -19478,7 +19478,7 @@ UnitType Weelloader
             moveType = Mechanized  
 		SizeX = 0.5
 		SizeY = 0.5
-		mass = 1
+		mass = 0
 		popCount = 1
 		VerboseTooltip = vtt_unit_weelloader
 		displayName = tx_utn_weelloader_name
@@ -19499,6 +19499,8 @@ UnitType Weelloader
 				tinRate = 5.0;
 				ironRate = 5.0;
 				saltpeterRate = 7.0;
+						oilRate = 5.0;
+						uraniumRate = 5.0;
 		}
             Build { repairRate = 100 }
 		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
@@ -19558,7 +19560,7 @@ UnitType Tractor
         moveType = Mechanized  
 		SizeX = 0.4
 		SizeY = 0.4
-		mass = 1
+		mass = 0
 		popCount = 1
 		VerboseTooltip = vtt_unit_tractor
 		displayName = tx_utn_tractor_name
@@ -19717,7 +19719,7 @@ UnitType gruzovik
 		rps = LandNonCombat
 		SizeX = 0.4
 		SizeY = 0.4
-		mass = 1
+		mass = 0
 		displayName = tx_utn_TradeCart_name
 		moveType = WheeledTrade
 		VerboseTooltip = vtt_unit_TradeCart
@@ -19811,7 +19813,7 @@ UnitType Autobus
 		moveType = Mechanized
         SizeX = 1.5
 		SizeY = 0.7
-		mass = 1
+		mass = 0
 		popCount = 1
 		displayName = tx_utn_autobus_name
 		displayNamePlural = tx_utn_autobus_pname
@@ -19890,7 +19892,7 @@ UnitType TradeCart215
 		rps = LandNonCombat
 		SizeX = 1.25
 		SizeY = 0.7
-		mass = 1
+		mass = 0
 		displayName = tx_utn_TradeCart_name
 		moveType = WheeledTrade
 		hitpoints = 800

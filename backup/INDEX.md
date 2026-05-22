@@ -49,6 +49,8 @@
 | 050 | EE2X_db-039-Barracks潜艇医院-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 049修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 051 | EE2X_db-040-E14兵营步兵HP加50成本减60-pre.zip | pre | E14兵营步兵9单位 HP+50%成本-60% | upgrade_unittypes.csv, Yuanhang_720_units.ddf | LightInfantry/HeavyInfantry1/HeavyInfantry2/Sniper/M3AT37mm(CSV)+ChinaArmy/usaSoldiers/RusSoldiers/ATSoldiers(DDF HP) | — | 2026-05-22 |
 | 052 | EE2X_db-040-E14兵营步兵HP加50成本减60-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 051修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
+| 053 | EE2X_db-041-三舰HP50成本20-pre.zip | pre | Ch055/Ticonderoga/Kirov三舰全时代+汽车厂6单位+挖掘机油铀 | upgrade_unittypes.csv, Yuanhang_720_units.ddf | 15行CSV: 三舰E11-E15 HP×1.5成本×1.2; 8行DDF: 6单位mass→0 + Weelloader oilRate/uraniumRate 5.0 | — | 2026-05-22 |
+| 054 | EE2X_db-041-三舰HP50成本20-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 053修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
 
 ## 更新器/启动器备份
 
