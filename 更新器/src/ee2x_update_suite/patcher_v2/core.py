@@ -5,6 +5,7 @@ import subprocess
 import time
 import urllib.request
 import zipfile
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
@@ -213,17 +214,54 @@ def _copy_any(src: Path, dest: Path) -> None:
         shutil.copy2(src, dest)
 
 
-def _kill_launcher(executable_name: str) -> None:
-    if not executable_name or subprocess.os.name != "nt":
-        return
-    for args in (["taskkill", "/IM", executable_name], ["taskkill", "/F", "/IM", executable_name]):
-        try:
-            subprocess.run(args, check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5)
-        except Exception:
-            continue
+def _query_launcher_processes_by_path(launcher_exe: Path) -> list[dict] | None:
+    if subprocess.os.name != "nt":
+        return []
+    try:
+        target = str(launcher_exe.resolve()).replace("'", "''")
+        script = (
+            f"$target = [System.IO.Path]::GetFullPath('{target}'); "
+            "$items = Get-CimInstance Win32_Process | Where-Object { "
+            "$_.ExecutablePath -and "
+            "[string]::Equals([System.IO.Path]::GetFullPath($_.ExecutablePath), $target, [System.StringComparison]::OrdinalIgnoreCase) "
+            "} | Select-Object ProcessId, Name, ExecutablePath; "
+            "if ($items) { $items | ConvertTo-Json -Compress }"
+        )
+        completed = subprocess.run(
+            ["powershell", "-NoProfile", "-Command", script],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+            timeout=8,
+        )
+        if completed.returncode != 0:
+            return None
+        output = (completed.stdout or "").strip()
+        if not output:
+            return []
+        payload = json.loads(output)
+        if isinstance(payload, dict):
+            payload = [payload]
+        processes = []
+        for item in payload:
+            pid = int(item.get("ProcessId", 0) or 0)
+            if pid <= 0:
+                continue
+            processes.append(
+                {
+                    "pid": pid,
+                    "name": str(item.get("Name", "") or ""),
+                    "path": str(item.get("ExecutablePath", "") or ""),
+                }
+            )
+        return processes
+    except Exception:
+        return None
 
 
-def _launcher_processes_alive(executable_name: str) -> bool:
+def _launcher_processes_alive_by_name(executable_name: str) -> bool:
     if not executable_name or subprocess.os.name != "nt":
         return False
     try:
@@ -246,22 +284,102 @@ def _launcher_processes_alive(executable_name: str) -> bool:
         return False
 
 
-def _wait_for_launcher_exit(executable_name: str, timeout_seconds: float = 8.0) -> bool:
+def _terminate_launcher_processes_by_pid(processes: list[dict], *, force: bool, log_file: Path | None) -> None:
+    if subprocess.os.name != "nt":
+        return
+    mode = "强制" if force else "温和"
+    for proc in processes:
+        pid = int(proc.get("pid", 0) or 0)
+        if pid <= 0:
+            continue
+        args = ["taskkill", "/PID", str(pid), "/T"]
+        if force:
+            args.insert(1, "/F")
+        try:
+            completed = subprocess.run(
+                args,
+                check=False,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                timeout=5,
+            )
+            _append_log(log_file, f"[LauncherKill] {mode}结束 PID={pid} path={proc.get('path', '')} exit={completed.returncode}")
+        except Exception as exc:
+            _append_log(log_file, f"[LauncherKill] {mode}结束 PID={pid} 失败: {exc}")
+
+
+def _kill_launcher_by_name(executable_name: str, log_file: Path | None) -> None:
+    if not executable_name or subprocess.os.name != "nt":
+        return
+    for args in (["taskkill", "/IM", executable_name], ["taskkill", "/F", "/IM", executable_name]):
+        try:
+            completed = subprocess.run(args, check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5)
+            _append_log(log_file, f"[LauncherKill] 按镜像名结束 {executable_name}: {' '.join(args[1:])} exit={completed.returncode}")
+        except Exception as exc:
+            _append_log(log_file, f"[LauncherKill] 按镜像名结束 {executable_name} 失败: {exc}")
+
+
+def _wait_for_launcher_exit(launcher_exe: Path, log_file: Path | None, timeout_seconds: float = 8.0) -> bool:
+    executable_name = launcher_exe.name
     if not executable_name or subprocess.os.name != "nt":
         return True
     deadline = time.monotonic() + max(timeout_seconds, 0.5)
     while time.monotonic() < deadline:
-        if not _launcher_processes_alive(executable_name):
+        processes = _query_launcher_processes_by_path(launcher_exe)
+        if processes == []:
             return True
+        if processes is None:
+            _append_log(log_file, f"[LauncherKill] 无法按路径查询旧进程，降级为镜像名检测: {executable_name}")
+            if not _launcher_processes_alive_by_name(executable_name):
+                return True
+        else:
+            pids = ",".join(str(proc["pid"]) for proc in processes)
+            _append_log(log_file, f"[LauncherKill] 旧进程仍在运行，等待退出: pids={pids}")
         time.sleep(0.2)
-    return not _launcher_processes_alive(executable_name)
+    processes = _query_launcher_processes_by_path(launcher_exe)
+    if processes is None:
+        alive = _launcher_processes_alive_by_name(executable_name)
+        if alive:
+            _append_log(log_file, f"[LauncherKill] 超时后仍检测到同名进程: {executable_name}")
+        return not alive
+    if processes:
+        pids = ",".join(str(proc["pid"]) for proc in processes)
+        _append_log(log_file, f"[LauncherKill] 超时后仍有残留旧进程: pids={pids}")
+        return False
+    return True
 
 
-def _restart_launcher(launcher_exe: Path) -> tuple[bool, str]:
+def _kill_launcher(launcher_exe: Path, log_file: Path | None) -> bool:
+    executable_name = launcher_exe.name
+    if not executable_name or subprocess.os.name != "nt":
+        return True
+    _append_log(log_file, f"[LauncherKill] 目标启动器路径: {launcher_exe}")
+    processes = _query_launcher_processes_by_path(launcher_exe)
+    if processes is None:
+        _append_log(log_file, f"[LauncherKill] 无法按路径枚举旧进程，降级为镜像名清理: {executable_name}")
+        _kill_launcher_by_name(executable_name, log_file)
+        return _wait_for_launcher_exit(launcher_exe, log_file, timeout_seconds=8.0)
+    if not processes:
+        _append_log(log_file, "[LauncherKill] 未发现同路径旧启动器进程")
+        return True
+    pids = ",".join(str(proc["pid"]) for proc in processes)
+    _append_log(log_file, f"[LauncherKill] 命中旧启动器进程: pids={pids}")
+    _terminate_launcher_processes_by_pid(processes, force=False, log_file=log_file)
+    if _wait_for_launcher_exit(launcher_exe, log_file, timeout_seconds=1.5):
+        return True
+    processes = _query_launcher_processes_by_path(launcher_exe)
+    if processes:
+        pids = ",".join(str(proc["pid"]) for proc in processes)
+        _append_log(log_file, f"[LauncherKill] 温和结束后仍有残留，执行强制结束: pids={pids}")
+        _terminate_launcher_processes_by_pid(processes, force=True, log_file=log_file)
+    return _wait_for_launcher_exit(launcher_exe, log_file, timeout_seconds=8.0)
+
+
+def _restart_launcher(launcher_exe: Path, log_file: Path | None) -> tuple[bool, str]:
     if not launcher_exe.exists():
         return False, f"未找到启动器: {launcher_exe}"
-    if not _wait_for_launcher_exit(launcher_exe.name):
-        return False, f"启动器旧进程未在超时内退出: {launcher_exe.name}"
+    if not _wait_for_launcher_exit(launcher_exe, log_file, timeout_seconds=8.0):
+        return False, f"启动器旧进程未在超时内退出: {launcher_exe}"
     try:
         subprocess.Popen([str(launcher_exe), "--updated"], cwd=str(launcher_exe.parent))
         return True, "启动器已重启"
@@ -388,7 +506,8 @@ def _apply_scope(
         raise PatcherError("latest.json 与 release-manifest.json 的包哈希不一致。")
     package_path = staging_dir / manifest.packageFileName
 
-    _kill_launcher(launcher_exe.name)
+    if not _kill_launcher(launcher_exe, log_file):
+        raise PatcherError(f"启动器旧进程未在超时内退出: {launcher_exe}")
     _emit(progress, log_file, f"{scope}:下载", f"下载 {manifest.packageFileName}", 20.0)
     _download_file(package.packageUrl, package_path, progress=None, log_file=log_file)
     if sha256_file(package_path) != package.packageSha256:
@@ -519,7 +638,7 @@ def run_patcher(
     if log_file is None:
         log_file = runtime_dir / LAST_UPDATER_LOG_NAME
     try:
-        _append_log(log_file, f"[启动] root={game_root} launcherDir={launcher_dir} scope={scope} server={server_base} channel={channel}")
+        _append_log(log_file, f"[启动] root={game_root} launcherDir={launcher_dir} launcherExe={launcher_exe} scope={scope} server={server_base} channel={channel}")
         latest = _latest_release_from_dict(_fetch_json(_latest_url(server_base, channel)))
         latest_version = latest.version
         active_summary = ApplySummary(version=latest.version, scope=scope)
@@ -575,10 +694,13 @@ def run_patcher(
         if not active_summary.executedScopes:
             active_summary.notes.append("无需更新，所有 scope 已是最新版本。")
 
-        active_summary.restartedLauncher, active_summary.restartMessage = _restart_launcher(launcher_exe)
+        active_summary.restartedLauncher, active_summary.restartMessage = _restart_launcher(launcher_exe, log_file)
         if active_summary.restartMessage:
             active_summary.notes.append(active_summary.restartMessage)
-            _append_log(log_file, f"[完成] {active_summary.restartMessage}")
+        if not active_summary.restartedLauncher:
+            _append_log(log_file, f"[错误] {active_summary.restartMessage or '启动器重启失败'}")
+            raise PatcherError(active_summary.restartMessage or "启动器重启失败")
+        _append_log(log_file, f"[完成] {active_summary.restartMessage}")
         if result_file is not None:
             save_json(result_file, _success_payload(active_summary, log_file))
         return active_summary
