@@ -378,11 +378,71 @@ def _kill_launcher(launcher_exe: Path, log_file: Path | None) -> bool:
 def _restart_launcher(launcher_exe: Path, log_file: Path | None) -> tuple[bool, str]:
     if not launcher_exe.exists():
         return False, f"未找到启动器: {launcher_exe}"
-    if not _wait_for_launcher_exit(launcher_exe, log_file, timeout_seconds=8.0):
-        return False, f"启动器旧进程未在超时内退出: {launcher_exe}"
     try:
-        subprocess.Popen([str(launcher_exe), "--updated"], cwd=str(launcher_exe.parent))
-        return True, "启动器已重启"
+        runtime_dir = log_file.parent if log_file is not None else launcher_exe.parent
+        runtime_dir.mkdir(parents=True, exist_ok=True)
+        helper_script = runtime_dir / "launcher-restart-helper.ps1"
+        helper_log = runtime_dir / "launcher-restart-helper.log"
+        target = str(launcher_exe.resolve()).replace("'", "''")
+        target_dir = str(launcher_exe.parent.resolve()).replace("'", "''")
+        helper_log_path = str(helper_log.resolve()).replace("'", "''")
+        helper_script.write_text(
+            "\n".join(
+                [
+                    "$ErrorActionPreference = 'Continue'",
+                    f"$target = '{target}'",
+                    f"$targetDir = '{target_dir}'",
+                    f"$logPath = '{helper_log_path}'",
+                    "function Write-HelperLog([string]$message) {",
+                    "  $line = '[{0}] {1}' -f ([DateTime]::Now.ToString('o')), $message",
+                    "  Add-Content -Path $logPath -Value $line -Encoding UTF8",
+                    "}",
+                    "function Get-LauncherProcesses() {",
+                    "  @(Get-CimInstance Win32_Process | Where-Object {",
+                    "    $_.ExecutablePath -and [string]::Equals([System.IO.Path]::GetFullPath($_.ExecutablePath), $target, [System.StringComparison]::OrdinalIgnoreCase)",
+                    "  })",
+                    "}",
+                    "Write-HelperLog \"helper start target=$target\"",
+                    "$deadline = (Get-Date).AddSeconds(12)",
+                    "while ((Get-Date) -lt $deadline) {",
+                    "  $items = Get-LauncherProcesses",
+                    "  if ($items.Count -eq 0) { break }",
+                    "  Write-HelperLog ('waiting old launcher exit pids=' + (($items | Select-Object -ExpandProperty ProcessId) -join ','))",
+                    "  Start-Sleep -Milliseconds 300",
+                    "}",
+                    "$items = Get-LauncherProcesses",
+                    "if ($items.Count -gt 0) {",
+                    "  Write-HelperLog ('force kill lingering pids=' + (($items | Select-Object -ExpandProperty ProcessId) -join ','))",
+                    "  foreach ($item in $items) {",
+                    "    try {",
+                    "      & taskkill /F /PID $item.ProcessId /T | Out-Null",
+                    "    } catch {",
+                    "      Write-HelperLog ('force kill failed pid=' + $item.ProcessId + ' error=' + $_.Exception.Message)",
+                    "    }",
+                    "  }",
+                    "  Start-Sleep -Milliseconds 600",
+                    "}",
+                    "$items = Get-LauncherProcesses",
+                    "if ($items.Count -gt 0) {",
+                    "  Write-HelperLog ('restart aborted, lingering remain pids=' + (($items | Select-Object -ExpandProperty ProcessId) -join ','))",
+                    "  exit 9",
+                    "}",
+                    "Start-Sleep -Milliseconds 900",
+                    "Write-HelperLog 'launching fresh launcher instance'",
+                    "Start-Process -FilePath $target -ArgumentList '--updated' -WorkingDirectory $targetDir",
+                ]
+            ),
+            encoding="utf-8",
+            newline="\n",
+        )
+        subprocess.Popen(
+            ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-WindowStyle", "Hidden", "-File", str(helper_script)],
+            cwd=str(runtime_dir),
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        _append_log(log_file, f"[LauncherKill] 已启动延迟重启助手脚本: {helper_script}")
+        return True, "启动器重启助手已启动"
     except Exception as exc:
         return False, f"启动器重启失败: {exc}"
 
