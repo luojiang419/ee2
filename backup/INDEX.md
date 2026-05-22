@@ -52,7 +52,7 @@
 | 053 | EE2X_db-041-三舰HP50成本20-pre.zip | pre | Ch055/Ticonderoga/Kirov三舰全时代+汽车厂6单位+挖掘机油铀 | upgrade_unittypes.csv, Yuanhang_720_units.ddf | 15行CSV: 三舰E11-E15 HP×1.5成本×1.2; 8行DDF: 6单位mass→0 + Weelloader oilRate/uraniumRate 5.0 | — | 2026-05-22 |
 | 054 | EE2X_db-041-三舰HP50成本20-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 053修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 055 | EE2X_db-042-E14火炮阵地火箭弹-pre.zip | pre | E14火炮阵地炮弹改为MlrsRocket_PHL03 | dapao.ddf, upgrade_unittypes.csv | DDF新增dapaoEpoch14Attack块+CSV引用修正 | — | 2026-05-22 |
-| 056 | EE2X_db-042-E14火炮阵地火箭弹-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 055修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
+| 056 | EE2X_db-042-E14火炮阵地火箭弹-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 055修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 
 ## 更新器/启动器备份
 
