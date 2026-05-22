@@ -3,9 +3,11 @@ from __future__ import annotations
 import shutil
 import subprocess
 import time
+import tempfile
 import urllib.request
 import zipfile
 import json
+import base64
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
@@ -227,8 +229,9 @@ def _query_launcher_processes_by_path(launcher_exe: Path) -> list[dict] | None:
             "} | Select-Object ProcessId, Name, ExecutablePath; "
             "if ($items) { $items | ConvertTo-Json -Compress }"
         )
+        encoded = base64.b64encode(script.encode("utf-16le")).decode("ascii")
         completed = subprocess.run(
-            ["powershell", "-NoProfile", "-Command", script],
+            ["powershell", "-NoProfile", "-EncodedCommand", encoded],
             check=False,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -327,7 +330,9 @@ def _wait_for_launcher_exit(launcher_exe: Path, log_file: Path | None, timeout_s
     while time.monotonic() < deadline:
         processes = _query_launcher_processes_by_path(launcher_exe)
         if processes == []:
-            return True
+            if not _launcher_processes_alive_by_name(executable_name):
+                return True
+            _append_log(log_file, f"[LauncherKill] 路径查询为空，但同名进程仍存在: {executable_name}")
         if processes is None:
             _append_log(log_file, f"[LauncherKill] 无法按路径查询旧进程，降级为镜像名检测: {executable_name}")
             if not _launcher_processes_alive_by_name(executable_name):
@@ -346,6 +351,9 @@ def _wait_for_launcher_exit(launcher_exe: Path, log_file: Path | None, timeout_s
         pids = ",".join(str(proc["pid"]) for proc in processes)
         _append_log(log_file, f"[LauncherKill] 超时后仍有残留旧进程: pids={pids}")
         return False
+    if _launcher_processes_alive_by_name(executable_name):
+        _append_log(log_file, f"[LauncherKill] 路径查询为空，但超时后同名进程仍存在: {executable_name}")
+        return False
     return True
 
 
@@ -360,6 +368,10 @@ def _kill_launcher(launcher_exe: Path, log_file: Path | None) -> bool:
         _kill_launcher_by_name(executable_name, log_file)
         return _wait_for_launcher_exit(launcher_exe, log_file, timeout_seconds=8.0)
     if not processes:
+        if _launcher_processes_alive_by_name(executable_name):
+            _append_log(log_file, f"[LauncherKill] 未发现同路径旧进程，但检测到同名进程，降级为镜像名清理: {executable_name}")
+            _kill_launcher_by_name(executable_name, log_file)
+            return _wait_for_launcher_exit(launcher_exe, log_file, timeout_seconds=8.0)
         _append_log(log_file, "[LauncherKill] 未发现同路径旧启动器进程")
         return True
     pids = ",".join(str(proc["pid"]) for proc in processes)
@@ -381,17 +393,21 @@ def _restart_launcher(launcher_exe: Path, log_file: Path | None) -> tuple[bool, 
     try:
         runtime_dir = log_file.parent if log_file is not None else launcher_exe.parent
         runtime_dir.mkdir(parents=True, exist_ok=True)
-        helper_script = runtime_dir / "launcher-restart-helper.ps1"
-        helper_log = runtime_dir / "launcher-restart-helper.log"
+        helper_dir = Path(tempfile.gettempdir()) / "ee2x-launcher-restart"
+        helper_dir.mkdir(parents=True, exist_ok=True)
+        helper_script = helper_dir / "launcher-restart-helper.ps1"
+        helper_log = helper_dir / "launcher-restart-helper.log"
         target = str(launcher_exe.resolve()).replace("'", "''")
         target_dir = str(launcher_exe.parent.resolve()).replace("'", "''")
         helper_log_path = str(helper_log.resolve()).replace("'", "''")
+        target_name = launcher_exe.name.replace("'", "''")
         helper_script.write_text(
             "\n".join(
                 [
                     "$ErrorActionPreference = 'Continue'",
                     f"$target = '{target}'",
                     f"$targetDir = '{target_dir}'",
+                    f"$targetName = '{target_name}'",
                     f"$logPath = '{helper_log_path}'",
                     "function Write-HelperLog([string]$message) {",
                     "  $line = '[{0}] {1}' -f ([DateTime]::Now.ToString('o')), $message",
@@ -402,29 +418,45 @@ def _restart_launcher(launcher_exe: Path, log_file: Path | None) -> tuple[bool, 
                     "    $_.ExecutablePath -and [string]::Equals([System.IO.Path]::GetFullPath($_.ExecutablePath), $target, [System.StringComparison]::OrdinalIgnoreCase)",
                     "  })",
                     "}",
+                    "function Has-LauncherByName() {",
+                    "  @(Get-Process -Name ([System.IO.Path]::GetFileNameWithoutExtension($targetName)) -ErrorAction SilentlyContinue).Count -gt 0",
+                    "}",
                     "Write-HelperLog \"helper start target=$target\"",
                     "$deadline = (Get-Date).AddSeconds(12)",
                     "while ((Get-Date) -lt $deadline) {",
                     "  $items = Get-LauncherProcesses",
-                    "  if ($items.Count -eq 0) { break }",
-                    "  Write-HelperLog ('waiting old launcher exit pids=' + (($items | Select-Object -ExpandProperty ProcessId) -join ','))",
+                    "  if ($items.Count -eq 0) {",
+                    "    if (-not (Has-LauncherByName)) { break }",
+                    "    Write-HelperLog ('path query empty but same-name launcher still alive: ' + $targetName)",
+                    "  } else {",
+                    "    Write-HelperLog ('waiting old launcher exit pids=' + (($items | Select-Object -ExpandProperty ProcessId) -join ','))",
+                    "  }",
                     "  Start-Sleep -Milliseconds 300",
                     "}",
                     "$items = Get-LauncherProcesses",
-                    "if ($items.Count -gt 0) {",
-                    "  Write-HelperLog ('force kill lingering pids=' + (($items | Select-Object -ExpandProperty ProcessId) -join ','))",
+                    "if ($items.Count -gt 0 -or (Has-LauncherByName)) {",
+                    "  if ($items.Count -gt 0) {",
+                    "    Write-HelperLog ('force kill lingering pids=' + (($items | Select-Object -ExpandProperty ProcessId) -join ','))",
+                    "  } else {",
+                    "    Write-HelperLog ('force kill by image name fallback: ' + $targetName)",
+                    "  }",
                     "  foreach ($item in $items) {",
                     "    try {",
-                    "      & taskkill /F /PID $item.ProcessId /T | Out-Null",
+                    "      Start-Process -FilePath \"$env:SystemRoot\\System32\\taskkill.exe\" -ArgumentList '/F','/PID',$item.ProcessId,'/T' -NoNewWindow -Wait",
                     "    } catch {",
                     "      Write-HelperLog ('force kill failed pid=' + $item.ProcessId + ' error=' + $_.Exception.Message)",
                     "    }",
                     "  }",
+                    "  try { Start-Process -FilePath \"$env:SystemRoot\\System32\\taskkill.exe\" -ArgumentList '/F','/IM',$targetName,'/T' -NoNewWindow -Wait } catch {}",
                     "  Start-Sleep -Milliseconds 600",
                     "}",
                     "$items = Get-LauncherProcesses",
-                    "if ($items.Count -gt 0) {",
-                    "  Write-HelperLog ('restart aborted, lingering remain pids=' + (($items | Select-Object -ExpandProperty ProcessId) -join ','))",
+                    "if ($items.Count -gt 0 -or (Has-LauncherByName)) {",
+                    "  if ($items.Count -gt 0) {",
+                    "    Write-HelperLog ('restart aborted, lingering remain pids=' + (($items | Select-Object -ExpandProperty ProcessId) -join ','))",
+                    "  } else {",
+                    "    Write-HelperLog ('restart aborted, lingering same-name process remain: ' + $targetName)",
+                    "  }",
                     "  exit 9",
                     "}",
                     "Start-Sleep -Milliseconds 900",
@@ -432,17 +464,21 @@ def _restart_launcher(launcher_exe: Path, log_file: Path | None) -> tuple[bool, 
                     "Start-Process -FilePath $target -ArgumentList '--updated' -WorkingDirectory $targetDir",
                 ]
             ),
-            encoding="utf-8",
+            encoding="utf-8-sig",
             newline="\n",
         )
-        subprocess.Popen(
+        completed = subprocess.run(
             ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-WindowStyle", "Hidden", "-File", str(helper_script)],
-            cwd=str(runtime_dir),
+            cwd=str(helper_dir),
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
+            timeout=25,
         )
-        _append_log(log_file, f"[LauncherKill] 已启动延迟重启助手脚本: {helper_script}")
-        return True, "启动器重启助手已启动"
+        if completed.returncode != 0:
+            _append_log(log_file, f"[LauncherKill] 重启助手执行失败: exit={completed.returncode}, log={helper_log}")
+            return False, f"启动器重启助手执行失败: {helper_log}"
+        _append_log(log_file, f"[LauncherKill] 重启助手执行完成: {helper_script} (log={helper_log})")
+        return True, "启动器已通过重启助手全新拉起"
     except Exception as exc:
         return False, f"启动器重启失败: {exc}"
 
