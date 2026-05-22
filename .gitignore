@@ -1,6 +1,23 @@
-/Empire Earth II
+/Empire Earth II/*
+!/Empire Earth II/地球帝国二代远航版启动器/
+/Empire Earth II/地球帝国二代远航版启动器/*
+!/Empire Earth II/地球帝国二代远航版启动器/Core/
+!/Empire Earth II/地球帝国二代远航版启动器/Defaults/
+/Empire Earth II/地球帝国二代远航版启动器/Core/*
+!/Empire Earth II/地球帝国二代远航版启动器/Core/resources/
+/Empire Earth II/地球帝国二代远航版启动器/Core/resources/*
+!/Empire Earth II/地球帝国二代远航版启动器/Core/resources/app/
+/Empire Earth II/地球帝国二代远航版启动器/Core/resources/app/*
+!/Empire Earth II/地球帝国二代远航版启动器/Core/resources/app/main.js
+!/Empire Earth II/地球帝国二代远航版启动器/Core/resources/app/preload.js
+!/Empire Earth II/地球帝国二代远航版启动器/Core/resources/app/package.json
+!/Empire Earth II/地球帝国二代远航版启动器/Core/resources/app/renderer/
+/Empire Earth II/地球帝国二代远航版启动器/Core/resources/app/renderer/*
+!/Empire Earth II/地球帝国二代远航版启动器/Core/resources/app/renderer/renderer.js
+/Empire Earth II/地球帝国二代远航版启动器/Defaults/*
+!/Empire Earth II/地球帝国二代远航版启动器/Defaults/launcher-public.json
 __pycache__/
-# 更新器/ 现已允许推送源代码，构建产物排除见 更新器/.gitignore
+/更新器/
 backup/*
 !backup/INDEX.md
 !backup/*.zip
