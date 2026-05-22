@@ -5,6 +5,8 @@ UnitType Mill
 {
 	parent = Building
 	properties {
+		 ownerType = PlayerOnly
+		 rps = Building
 		SizeX = 2.5
 		SizeY = 2.5
 		OffsetX = 0.75
