@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-21 23:00
+> 最后更新: 2026-05-22 23:59
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -53,6 +53,8 @@
 | 054 | EE2X_db-041-三舰HP50成本20-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 053修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 055 | EE2X_db-042-E14火炮阵地火箭弹-pre.zip | pre | E14火炮阵地炮弹改为MlrsRocket_PHL03 | dapao.ddf, upgrade_unittypes.csv | DDF新增dapaoEpoch14Attack块+CSV引用修正 | — | 2026-05-22 |
 | 056 | EE2X_db-042-E14火炮阵地火箭弹-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 055修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
+| 057 | EE2X_db-043-三舰射速减半Cruiser1164增强-pre.zip | pre | Ch055A/DDG1001/Cruiser1164 E14三舰 | upgrade_unittypes.csv | 三舰RELOAD统一×2(Ch055A/DDG1001 1.0→2.0; Cruiser1164 1.15→2.3); Cruiser1164 HP 37500→52000 DAMAGE 2850→3300 RANGE 46→43 | — | 2026-05-22 |
+| 058 | EE2X_db-043-三舰射速减半Cruiser1164增强-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 057修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
 
 ## 更新器/启动器备份
 
