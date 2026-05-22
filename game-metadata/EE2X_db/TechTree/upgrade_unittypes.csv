@@ -666,7 +666,7 @@ dapaoUpgradeEpoch10,dapao,"""Building""",10,6500,13,210,13,3,30,0,0,90,91,0,0,0,
 dapaoUpgradeEpoch11,dapao,"""Building""",11,7000,14,240,14,3,30,0,0,90,91,0,0,0,0,0,tx_utn_dapao11_name,tx_utn_dapao11_pname,dapao_11,,icon_unit_dapao,[0 0 0 0],0,0,vtt_unit_dapao11,[AirDefense_select],[],[],[],[dapaoEpoch11Attack],All
 dapaoUpgradeEpoch12,dapao,"""Building""",12,7500,15,300,15,3,30,0,0,90,91,0,0,0,0,0,tx_utn_dapao11_name,tx_utn_dapao11_pname,dapao_12,,icon_unit_dapao,[0 0 0 0],0,0,vtt_unit_dapao11,[AirDefense_select],[],[],[],[dapaoEpoch11Attack],All
 dapaoUpgradeEpoch13,dapao,"""Building""",13,8000,17,400,17,3,30,0,0,200,200,0,0,0,0,0,tx_utn_dapao11_name,tx_utn_dapao11_pname,dapao_13,,icon_unit_dapao,[0 0 0 0],0,0,vtt_unit_dapao11,[AirDefense_select],[],[],[],[dapaoEpoch13Attack],All
-dapaoUpgradeEpoch14,dapao,"""Building""",14,8000,14,400,14,3,30,0,0,200,200,0,0,0,0,0,tx_utn_dapao11_name,tx_utn_dapao11_pname,dapao_14,,icon_unit_dapao,[0 0 0 0],0,0,vtt_unit_dapao11,[],[],[],[],[dapaoEpoch13Attack],All
+dapaoUpgradeEpoch14,dapao,"""Building""",14,8000,14,400,14,3,30,0,0,200,200,0,0,0,0,0,tx_utn_dapao11_name,tx_utn_dapao11_pname,dapao_14,,icon_unit_dapao,[0 0 0 0],0,0,vtt_unit_dapao11,[],[],[],[],[dapaoEpoch14Attack],All
 dapaoUpgradeEpoch15,dapao,"""Building""",15,8500,18,500,18,3,30,0,0,310,310,0,0,0,0,0,tx_utn_dapao11_name,tx_utn_dapao11_pname,dapao_15,,icon_unit_dapao,[0 0 0 0],0,0,vtt_unit_dapao11,[AirDefense_select],[],[],[],[dapaoEpoch15Attack],All
 
 RadarUpgradeEpoch11,Radar,"""Building""",11,10000,25,0,0,0,40,0,300,300,300,0,0,0,0,0,tx_utn_radar_name,tx_utn_radar_pname,Radar,,icon_unit_radar,[0 0 0 0],0,0,vtt_radar,[AirDefense_select],[],[],[],[],All
