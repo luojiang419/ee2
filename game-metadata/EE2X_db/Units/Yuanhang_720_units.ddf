@@ -1157,7 +1157,7 @@ UnitType ChinaArmy
 		popCount = 1
 		displayName = tx_utn_ChinaArmy_name
 		VerboseTooltip = vtt_unit_ChinaArmy
-		HitPoints = 530
+		HitPoints = 795
 	}
 	sounds = {
 		sndSelection = ["v_infantry_select_chn"
@@ -1249,7 +1249,7 @@ UnitType usaSoldiers
 		popCount = 1
 		displayName = tx_utn_UniqGI_name
 		VerboseTooltip = vtt_unit_UniqGI
-		HitPoints = 530
+		HitPoints = 795
 	}
 	sounds = {
 	}
@@ -1324,7 +1324,7 @@ UnitType RusSoldiers
 		popCount = 1
 		displayName = tx_utn_UniqGI_name
 		VerboseTooltip = vtt_unit_UniqGI
-		HitPoints = 530
+		HitPoints = 795
 	}
 	sounds = {
 	}
@@ -1391,7 +1391,7 @@ UnitType ATSoldiers
 		DisplayName = tx_utn_ATInfantry_name
 		DisplayNameScenEdit = tx_utn_ATInfantry_pname
 		VerboseTooltip = vtt_unit_ATInfantry
-		HitPoints = 480
+		HitPoints = 720
 		rps = HeavyInfantry
 		SizeX = 0.2
 		SizeY = 0.2

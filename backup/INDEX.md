@@ -47,6 +47,8 @@
 | 048 | EE2X_db-038-汽车工厂集结点-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 047修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 049 | EE2X_db-039-Barracks潜艇医院-pre.zip | pre | Barracks(HP+50%/成本-60%)+潜艇(高伤低HP)+医院→大学 | upgrade_unittypes.csv, dbtechtreenode.csv | 11行: Barracks E1-E15×6 + 潜艇×3 + Medcar/SisterMona→University | — | 2026-05-22 |
 | 050 | EE2X_db-039-Barracks潜艇医院-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 049修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
+| 051 | EE2X_db-040-E14兵营步兵HP加50成本减60-pre.zip | pre | E14兵营步兵9单位 HP+50%成本-60% | upgrade_unittypes.csv, Yuanhang_720_units.ddf | LightInfantry/HeavyInfantry1/HeavyInfantry2/Sniper/M3AT37mm(CSV)+ChinaArmy/usaSoldiers/RusSoldiers/ATSoldiers(DDF HP) | — | 2026-05-22 |
+| 052 | EE2X_db-040-E14兵营步兵HP加50成本减60-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 051修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
 
 ## 更新器/启动器备份
 
