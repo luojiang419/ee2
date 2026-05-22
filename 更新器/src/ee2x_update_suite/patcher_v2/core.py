@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import shutil
 import subprocess
+import time
 import urllib.request
 import zipfile
 from datetime import datetime, timezone
@@ -222,9 +223,45 @@ def _kill_launcher(executable_name: str) -> None:
             continue
 
 
+def _launcher_processes_alive(executable_name: str) -> bool:
+    if not executable_name or subprocess.os.name != "nt":
+        return False
+    try:
+        completed = subprocess.run(
+            ["tasklist", "/FI", f"IMAGENAME eq {executable_name}", "/FO", "CSV", "/NH"],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            encoding="utf-8",
+            timeout=5,
+        )
+        output = (completed.stdout or "").strip()
+        if not output:
+            return False
+        if "No tasks are running" in output or "没有运行的任务" in output:
+            return False
+        return executable_name.lower() in output.lower()
+    except Exception:
+        return False
+
+
+def _wait_for_launcher_exit(executable_name: str, timeout_seconds: float = 8.0) -> bool:
+    if not executable_name or subprocess.os.name != "nt":
+        return True
+    deadline = time.monotonic() + max(timeout_seconds, 0.5)
+    while time.monotonic() < deadline:
+        if not _launcher_processes_alive(executable_name):
+            return True
+        time.sleep(0.2)
+    return not _launcher_processes_alive(executable_name)
+
+
 def _restart_launcher(launcher_exe: Path) -> tuple[bool, str]:
     if not launcher_exe.exists():
         return False, f"未找到启动器: {launcher_exe}"
+    if not _wait_for_launcher_exit(launcher_exe.name):
+        return False, f"启动器旧进程未在超时内退出: {launcher_exe.name}"
     try:
         subprocess.Popen([str(launcher_exe), "--updated"], cwd=str(launcher_exe.parent))
         return True, "启动器已重启"
