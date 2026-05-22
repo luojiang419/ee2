@@ -12,7 +12,7 @@ UnitType Aaship
 		mass = 1		
 		popCount = 3            
 		VerboseTooltip = vtt_unit_aaship
-		HitPoints = 4000            
+		HitPoints = 6000            
 	}
 	attributes = [
 		HealedByHERC 

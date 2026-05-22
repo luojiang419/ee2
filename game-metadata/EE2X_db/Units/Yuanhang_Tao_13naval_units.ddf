@@ -165,7 +165,7 @@ UnitType Ch054A
 		popCount = 2
 		displayName = tx_utn_Ch054A_name
 		VerboseTooltip = vtt_unit_Ch054A
-		HitPoints = 8000
+		HitPoints = 6000
 	}
 	attributes = [
 		HealedByHERC 
@@ -2410,7 +2410,7 @@ UnitType Type22350
 		popCount = 2
 		displayName = tx_utn_Type22350_name
 		VerboseTooltip = vtt_unit_Type22350
-		HitPoints = 8000
+		HitPoints = 6000
 	}
 	attributes = [
 		HealedByHERC 
