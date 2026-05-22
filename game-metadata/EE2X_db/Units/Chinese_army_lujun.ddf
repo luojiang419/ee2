@@ -779,9 +779,9 @@ UnitType AntiAir_HQ9
 				//RocketLaunchingTBMFix1
 			]
 		}
-		Attack { damage = 700; range = 24; reloadTime = 2; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 3.0; unpackTime =3.0;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
+		Attack { damage = 1500; range = 35; reloadTime = 1.5; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 3.0; unpackTime =3.0;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
-		LOS { range = 27 }
+		LOS { range = 35 }
 		VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1}
 			]
 attributes = [
