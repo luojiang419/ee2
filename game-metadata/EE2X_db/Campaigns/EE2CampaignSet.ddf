@@ -1,0 +1,8 @@
+CampaignSet EE {
+	campaigns = [
+		"EE2X_Egypt"
+		"EE2X_Russian"
+		"EE2X_Maasai"
+		"EE2X_TurningPoints"
+	]
+}

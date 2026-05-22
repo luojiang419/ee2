@@ -434,22 +434,42 @@ UpgradeRefSet Traits_SpecRes_Cost {
 	]
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// --- China E14 Civilization Bonuses ---
+UpgradeRefSet Traits_Fortress_HP {
+	upgrades = [
+		CivUpgd_Fortress_HP
+	]
+}
+UpgradeRefSet Traits_Tower_HP {
+	upgrades = [
+		CivUpgd_Tower_HP
+	]
+}
+UpgradeRefSet Traits_Infantry_Cost {
+	upgrades = [
+		CivUpgd_Infantry_Cost_LI
+		CivUpgd_Infantry_Cost_HI
+	]
+}
+UpgradeRefSet Traits_Infantry_BuildTime {
+	upgrades = [
+		CivUpgd_Infantry_BT_LI
+		CivUpgd_Infantry_BT_HI
+	]
+}
+UpgradeRefSet Traits_Citizen_Gather {
+	upgrades = [
+		CivUpgd_Citizen_GatherFood
+		CivUpgd_Citizen_GatherWood
+	]
+}
+UpgradeRefSet Traits_Navy_Penalty {
+	upgrades = [
+		CivUpgd_Navy_Cost
+		CivUpgd_Navy_HP
+	]
+}
+UpgradeRefSet Traits_Air_Penalty {
+	upgrades = [
+		CivUpgd_Air_Cost
+		CivUpgd_Air_HP

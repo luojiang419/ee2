@@ -86,3 +86,36 @@
 ### 已知影响
 - Cruiser1164从三艘统一配置中独立出来，HP最高但射程最短装填最慢
 - 与Ch055A(1.0s)/DDG1001(1.0s)射速差距拉大(2.0s vs 1.0s)
+
+---
+
+## 第3次修改 — 2026-05-22
+
+**关联快照**: 本次修改
+**修改类型**: 数值调整
+
+### 修改前数据
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| HP | 37500 | upgrade_unittypes.csv:1190 |
+| DAMAGE | 2850 | upgrade_unittypes.csv:1190 |
+| RANGE | 46 | upgrade_unittypes.csv:1190 |
+| RELOAD | 1.15 | upgrade_unittypes.csv:1190 |
+
+### 修改后数据
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| HP | 52000 | upgrade_unittypes.csv:1190 |
+| DAMAGE | 3300 | upgrade_unittypes.csv:1190 |
+| RANGE | 43 | upgrade_unittypes.csv:1190 |
+| RELOAD | 2.3 | upgrade_unittypes.csv:1190 |
+
+### 关联文件
+- `EE2X_db/TechTree/upgrade_unittypes.csv` — Cruiser1164UpgradeEpoch14 行
+
+### 修改依据
+- 需求: Cruiser1164 HP→52000/DAMAGE→3300/RANGE→43/RELOAD 1.15→2.3（射速减半+增强）
+- 理由: 俄系风格化定位——最高HP+最高伤害+最短射程+最慢装填，与Ch055A/DDG1001形成差异化
+
+### 已知影响
+- 三舰差异化格局: Ch055A/DDG1001(42000/3000/48/2.0)，Cruiser1164(52000/3300/43/2.3)

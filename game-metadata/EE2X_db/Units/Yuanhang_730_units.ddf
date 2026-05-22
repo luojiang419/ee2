@@ -1,6 +1,6 @@
 
 ////////////////////////////
-//  Ê÷Ä¾£¬Ö²±»
+//  ï¿½ï¿½Ä¾ï¿½ï¿½Ö²ï¿½ï¿½
 ////////////////////////////
 //Gardener units:
 UnitType TRE_BANANA2
@@ -15,6 +15,7 @@ UnitType TRE_BANANA2
         HitPoints = 1500
         mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_BANANA2
 }
 
@@ -72,6 +73,7 @@ UnitType TRE_ORANGE2
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_ORANGE2
 }
 
@@ -110,6 +112,7 @@ UnitType TRE_MANGO2
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+		abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 		icon = icon_TRE_MANGO2
 }
 
@@ -147,6 +150,7 @@ UnitType TRE_POMEGRANATE2
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+		abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 		icon = icon_TRE_POMEGRANATE2
 }
 
@@ -184,6 +188,7 @@ UnitType TRE_APPLE2
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+		abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 		icon = icon_TRE_APPLE2
 }
 
@@ -217,6 +222,7 @@ UnitType TRE_OAK_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_OAK_15
 }
 
@@ -250,6 +256,7 @@ UnitType TRE_BAOBAB2_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_BAOBAB2_15
 }
 
@@ -283,6 +290,7 @@ UnitType TRE_BIRCH2_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_BIRCH2_15
 }
 
@@ -315,6 +323,7 @@ UnitType TRE_BIRCH_DEAD2_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+    abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
     icon = icon_TRE_BIRCH_DEAD2_15
 }
 
@@ -347,6 +356,7 @@ UnitType TRE_MAPLE_012_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_MAPLE_012_15
 }
 
@@ -379,6 +389,7 @@ UnitType TRE_PINE2_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_PINE2_15
 }
 
@@ -399,6 +410,7 @@ UnitType TRE_PALM_032_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_PALM_032_15
 }
 
@@ -423,6 +435,7 @@ UnitType TRE_PALM2_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_PALM2_15
 }
 
@@ -443,6 +456,7 @@ UnitType TRE_MULTIPALM2_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_MULTIPALM2_15
 }
 
@@ -463,6 +477,7 @@ SizeX = 0.5
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_PALMETTO2_15
 }
 
@@ -497,6 +512,7 @@ UnitType TRE_PALM_042_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+    abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
     icon = icon_TRE_PALM_042_15
 }
 
@@ -531,10 +547,11 @@ UnitType TRE_CYPRESS2_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
+	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_CYPRESS2_15
 }
 ////////////////////////////
-//  Ææ¼££¬±±¾©Ìì°²ÃÅ
+//  ï¿½æ¼£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì°²ï¿½ï¿½
 ////////////////////////////
 UnitType beijintam
 {
@@ -573,7 +590,7 @@ UnitModel beijintam
 ChildNames	= [ HugeGlow ExplSelectorBuild_Big ]
 }
 ///////////////////////////////
-// »ª±í£¬Ìì°²ÃÅ×é¼þ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì°²ï¿½ï¿½ï¿½ï¿½ï¿½
 //////////////////////////////
 UnitType Huabiao
 {
@@ -612,7 +629,7 @@ UnitModel Huabiao
     ChildNames	= [ HugeGlow ExplSelectorBuild_Big ]
 }
 ////////////////////////////////////
-// ¹ÛÀñÌ¨
+// ï¿½ï¿½ï¿½ï¿½Ì¨
 ////////////////////////////////////
 UnitType Guanlitai
 {
@@ -1335,7 +1352,7 @@ UnitModel UIRoadBig_3
 	DefaultModel	= road3.nif
 }
 ////////////////////////////////
-//  40¹Ü»ð¼ýµ¯
+//  40ï¿½Ü»ï¿½ï¿½ï¿½ï¿½
 ////////////////////////////////
 UnitType Russ_katuysa2
 {
@@ -1411,7 +1428,7 @@ UIRenderingParams {
 	ChildNames 		= [  TheHealthBar SelectCircleMedium  TankTracks DustHeavyMonted ExplSelectorTank01	TradeCart11_FlyingParts LargeGlow  NetFireLauncherShadow Muzzle_katysasomk1 Muzzle_Phl03] //Muzzle_Silo Muzzle_Phl032 Muzzle_Phl03
 }
 //////////////////////////////////////
-// Ö±Éý»ú º½Ä¸
+// Ö±ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¸
 ////////////////////////////////////
 UnitType Heliport_Carrier02
 {
@@ -1473,7 +1490,7 @@ UnitModel Heliport_Carrier02
 	}
 }
 /////////////////////////////////////////
-// Î÷±±·ç Á½ÆÜ¹¥»÷½¢
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½ï¿½
 ////////////////////////////////////////
 UnitType xbf_Carrier01
 {
@@ -1536,7 +1553,7 @@ UnitModel xbf_Carrier01
 	}
 }
 ////////////////////////////////////
-//  Ò°Õ½»ðÅÚ
+//  Ò°Õ½ï¿½ï¿½ï¿½ï¿½
 ///////////////////////////////////
 UnitType PlzArtillerys
 {
@@ -1560,7 +1577,7 @@ UnitType PlzArtillerys
 	icon = icon_unit_fieldartillery
 }
 ////////////////////////////////////
-// Åç»ðÌ¹¿Ë
+// ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½
 ///////////////////////////////////
 UnitType Dragon
 {
@@ -1627,7 +1644,7 @@ UnitModel DragonUnitModel
 
 }
 //------------------------------------------------------------------------------------------------
-//	Ã×¸ñ8Îä×°ÔËÊäÖ±Éý»ú - UNIT TYPE INFO
+//	ï¿½×¸ï¿½8ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ - UNIT TYPE INFO
 //------------------------------------------------------------------------------------------------
 UnitType Mi8
 {
@@ -1705,7 +1722,7 @@ DamageDecalsSetName = BuildingDamageDecals
 }
 
 //------------------------------------------------------------------------------------------------
-//	Ã×¸ñ26´óÐÍÔËÊäÖ±Éý»ú - UNIT TYPE INFO
+//	ï¿½×¸ï¿½26ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ - UNIT TYPE INFO
 //------------------------------------------------------------------------------------------------
 UnitType mi26
 {
@@ -1781,7 +1798,7 @@ UnitModel mi26
 DamageDecalsSetName = BuildingDamageDecals
 }
 //------------------------------------------------------------------------------------------------
-//	ÖÐ¹úÃ×¸ñ21Õ½¶·»ú - UNIT TYPE INFO
+//	ï¿½Ð¹ï¿½ï¿½×¸ï¿½21Õ½ï¿½ï¿½ï¿½ï¿½ - UNIT TYPE INFO
 //------------------------------------------------------------------------------------------------
 UnitType mig21Ki
 {
@@ -1851,7 +1868,7 @@ UnitType PHL_03
 		mass = 3
 		displayName = tx_utn_PHL_03_name
 		verboseTooltip = vtt_unit_PHL_03
-		HitPoints = 1100
+		HitPoints = 800
 		popCount = 3
 	}
 	sounds = {
@@ -1873,12 +1890,8 @@ UnitType PHL_03
 		sndDeath =  ["v_cmon_unit_death_chn"]
 	}
 	abilities = [
-	PowerReserve { timeToRecharge = 60}
-	SpecialPower { 		
-			effects = [ Change_Range ]
-		}
-		Attack {range = 2.3; reloadTime = 0.42; damage = 165; angularRange = 360; packTime = 1.7;unpackTime = 1.7; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-		VehicleMove {speed = 0.92; angSpeed = 80; followTerrainSlope = 1 }
+		Attack {range = 23; reloadTime = 0.5; damage = 100; angularRange = 360; packTime = 2.0;unpackTime = 2.0; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 10; minRangeImmobile = 10; areaDamageRadius = 2.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		VehicleMove {speed = 0.8; angSpeed = 80; followTerrainSlope = 1 }
 		LOS { range = 16 }
 		Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 	]

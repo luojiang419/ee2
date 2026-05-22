@@ -1,0 +1,405 @@
+StreaksEffect			SwordStreak
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		StateToStart = WaitForMessage
+		RotationSpeed = 0
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.6
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			PropellerStreak1
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.6
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			PropellerStreak2
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_2
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.6
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			PropellerStreak3
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_3
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.6
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			PropellerStreak4
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_4
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.6
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			ArrowStreak
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		RotationSpeed = 24
+		NeverKillEffect = true
+		Red = 0.8
+		Green = 0.8
+		Blue = 0.8
+		Alpha = 0.8
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 180
+}
+
+StreaksEffect			BulletStreak
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		RotationSpeed = 24
+		NeverKillEffect = true
+		Red = 0.9
+		Green = 0.9
+		Blue = 0.9
+		Alpha = 0.8
+		ModifiedAlpha = 1.5
+		MamimumWidthVertices = 210
+}
+
+StreaksEffect			BulletStreak_b2
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		RotationSpeed = 24
+		NeverKillEffect = true
+		Red = 0.8
+		Green = 0.8
+		Blue = 0.8
+		Alpha = 0.5
+		ModifiedAlpha = 1
+		MamimumWidthVertices = 210
+}
+
+StreaksEffect			ProjectileRockStreak
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		RotationSpeed = 30
+		NeverKillEffect = true
+		Red = 0.8
+		Green = 0.8
+		Blue = 0.8
+		Alpha = 0.5
+		ModifiedAlpha = 1
+		MamimumWidthVertices = 180
+}
+
+StreaksEffect			ProjectileRocketHercStreak
+{
+		BoundingSphereRadius = 12
+		TagName = tag_trail_1
+		RotationSpeed = 20
+		NeverKillEffect = true
+		Red = 0.9
+		Green = 0.2
+		Blue = 0.2
+		Alpha = 1
+		ModifiedAlpha = 0.7
+		MamimumWidthVertices = 180
+}
+
+StreaksEffect			ProjectileMissileStreak
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		RotationSpeed = 24
+		NeverKillEffect = true
+		Red = 0.7
+		Green = 0.7
+		Blue = 0.7
+		Alpha = 0.5
+		ModifiedAlpha = 1
+		MamimumWidthVertices = 180
+}
+
+StreaksEffect			ProjectiletankStreak
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		RotationSpeed = 12
+		NeverKillEffect = true
+		Red = 0.8
+		Green = 0.5
+		Blue = 0.2
+		Alpha = 0.2
+		ModifiedAlpha = 0.4
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			ArrowStreak_Red
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		RotationSpeed = 24
+		NeverKillEffect = true
+		Red = 1
+		Green = 0.3
+		Blue = 0.3
+		Alpha = 1
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 180
+}
+
+StreaksEffect			ProjectileBombStreak
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		RotationSpeed = 30
+		NeverKillEffect = true
+		Red = 0.8
+		Green = 0.8
+		Blue = 0.8
+		Alpha = 0.5
+		ModifiedAlpha = 1
+		MamimumWidthVertices = 180
+}
+
+StreaksEffect			VaporTrail1
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		NeverKillEffect = true
+		//StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.4
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			VaporTrail2
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_2
+		NeverKillEffect = true
+		//StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.4
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			VaporTrail3
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_3
+		NeverKillEffect = true
+		//StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.5
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			VaporTrail4
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_4
+		NeverKillEffect = true
+		//StateToStart = Idle
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.5
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			VaporTrail5
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_5
+		NeverKillEffect = true
+		//StateToStart = Idle
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.2
+		ModifiedAlpha = 1
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect			VaporTrail6
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_6
+		NeverKillEffect = true
+		//StateToStart = Idle
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.2
+		ModifiedAlpha = 1
+		MamimumWidthVertices = 80
+}
+
+
+StreaksEffect			HeliTrail1
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.25
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 60
+}
+
+StreaksEffect			HeliTrail2
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_2
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.25
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 60
+}
+
+StreaksEffect			HeliTrail3
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_3
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.25
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+StreaksEffect			HeliTrail4
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_4
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.25
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 60
+}
+
+StreaksEffect			HeliTrail5
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_5
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.25
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 60
+}
+
+StreaksEffect			HeliTrail6
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_6
+		NeverKillEffect = true
+		StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.25
+		ModifiedAlpha = 2
+		MamimumWidthVertices = 80
+}
+
+StreaksEffect		EngineTrail1
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_1
+		NeverKillEffect = true
+		//StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.6
+		ModifiedAlpha = 1
+		MamimumWidthVertices = 80
+}
+StreaksEffect		EngineTrail2
+{
+		BoundingSphereRadius = 2
+		TagName = tag_trail_2
+		NeverKillEffect = true
+		//StateToStart = Idle
+		RotationSpeed = 24
+		Red = 0.6
+		Green = 0.6
+		Blue = 0.6
+		Alpha = 0.6
+		ModifiedAlpha = 1
+		MamimumWidthVertices = 80
+}

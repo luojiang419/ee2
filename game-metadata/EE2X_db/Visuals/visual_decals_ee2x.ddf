@@ -1,0 +1,73 @@
+//---------------------------------------------------------------------------
+// Decals to be placed under buildings and other units that need them.
+//---------------------------------------------------------------------------
+
+//	char*							StateName;
+//	// these arrays are the same size, they contain the epoch number and the corresponding sprite to use
+//	LSizedArray<int>				EpochNumberForSprites;
+//	LSizedArray<DBINDEX(DbSprite)>	RuralSpriteNames;		
+//	LSizedArray<DBINDEX(DbSprite)>	UrbanSpriteNames;		
+//	float							FadeOutTime;	// time to fade out
+//	float							WorldSize;
+
+/////////////////////////
+//	EE2X
+//	JCD 03/09/04
+/////////////////////////
+
+Decal UnderWonderAfrican_01
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_manyatta under_manyatta under_manyatta ] 
+			UrbanSpriteNames = [ under_manyatta under_manyatta under_manyatta ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_manyatta_d under_manyatta_d under_manyatta_d ]
+			UrbanSpriteNames = [ under_manyatta_d under_manyatta_d under_manyatta_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderAfrican_06
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_djenne under_djenne under_djenne ] 
+			UrbanSpriteNames = [ under_djenne under_djenne under_djenne ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_djenne_d under_djenne_d under_djenne_d ]
+			UrbanSpriteNames = [ under_djenne_d under_djenne_d under_djenne_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderAfrican_11
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_sankore under_sankore under_sankore ] 
+			UrbanSpriteNames = [ under_sankore under_sankore under_sankore ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_sankore_d under_sankore_d under_sankore_d ]
+			UrbanSpriteNames = [ under_sankore_d under_sankore_d under_sankore_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}

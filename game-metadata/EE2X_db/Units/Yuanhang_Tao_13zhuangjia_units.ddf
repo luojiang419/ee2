@@ -1,4 +1,4 @@
-﻿UnitType Type87
+UnitType Type87
 {
 	parent = Mounted
 	properties {
@@ -1570,9 +1570,9 @@ UnitType ZiYuan
 		
 	}
 	abilities = [
-		Attack { damage = 700; range = 24; reloadTime = 2; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 3.0; unpackTime =3.0;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
+		Attack { damage = 1000; range = 25; reloadTime = 1.0; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 3.0; unpackTime =3.0;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
-		LOS { range = 26 }
+		LOS { range = 25 }
 		VehicleMove {speed = 2.0; angSpeed = 50; followTerrainSlope = 1}
 			]
 attributes = [
@@ -1673,7 +1673,7 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 	}
 	abilities = [
       Attack { range = 15; reloadTime = 3; applyDamageTime = 0.5; damage = 400; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2; throwUnits = true }
-	  VehicleMove {speed = 1.7; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
+	  VehicleMove {speed = 1.4; angSpeed = 45;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [ Taran_Tanks ]		}	
 	Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }	
@@ -1789,7 +1789,7 @@ UnitType ZTQ15
 	}
 	abilities = [
       Attack { range = 15; reloadTime = 3.0; applyDamageTime = 0.5; damage = 400; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2; throwUnits = true }
-	  VehicleMove {speed = 1.8; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
+	  VehicleMove {speed = 2.0; angSpeed = 70;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [ Taran_Tanks ]		}	
 	Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }	
@@ -1882,7 +1882,7 @@ UnitType T90A_Naval
 		popCount = 2
 		displayName = tx_utn_T90A_name
         verboseTooltip = vtt_unit_T90A
-		HitPoints = 4600
+		HitPoints = 9900
 	}
 	sounds = {
 		sndSelection = ["CWCruT72_MA_sel_01" 
@@ -1903,8 +1903,8 @@ UnitType T90A_Naval
 		sndDeath =  ["CWCruT72_MA_cru_01" ]
 	}
 	abilities = [
-      Attack { range = 15; reloadTime = 3.0; applyDamageTime = 0.5; damage = 390; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2; throwUnits = true }
-	  VehicleMove {speed = 1.8; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
+      Attack { range = 16; reloadTime = 3.0; applyDamageTime = 0.5; damage = 840; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2; throwUnits = true }
+	  VehicleMove {speed = 1.95; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [ Taran_Tanks ]		}	
 	Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }	
@@ -2015,8 +2015,8 @@ UnitType BM30
 	SpecialPower { 		
 			effects = [ Change_Range ]
 		}
-		Attack {range = 2.2; reloadTime = 0.45; damage = 158; angularRange = 360; packTime = 1.8;unpackTime = 1.8; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-		VehicleMove {speed = 0.92; angSpeed = 70; followTerrainSlope = 1 }
+		Attack {range = 2; reloadTime = 0.35; damage = 128; angularRange = 360; packTime = 1.5;unpackTime = 1.5; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		VehicleMove {speed = 1.2; angSpeed = 70; followTerrainSlope = 1 }
 		LOS { range = 16 }
 		Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 	]
@@ -2452,7 +2452,7 @@ UnitType Boxer
 		popCount = 2
 		displayName = tx_utn_ZSL92_name
         verboseTooltip = vtt_unit_ZSL92
-		HitPoints = 2000
+		HitPoints = 1800
 	}
 	sounds = {
 		sndSelection = ["Ger_Troops_Sel_1" 
@@ -2466,8 +2466,8 @@ UnitType Boxer
 		sndDeath =  []
 	}
 	abilities = [
-		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.1; missileName = "fkjqAmmo"; turretControllerName = TankTurret;  }
-		VehicleMove {speed = 1.6; angSpeed = 70;followTerrainSlope = 1;mustMoveToTurn = 0} 
+		Attack { damage = 36; range = 12; reloadTime = 0.17; applyDamageTime = 0.1; missileName = "fkjqAmmo"; turretControllerName = TankTurret;  }
+		VehicleMove {speed = 1.35; angSpeed = 65;followTerrainSlope = 1;mustMoveToTurn = 0} 
 		LOS { range = 17 }
 	Garrison { 
 			garrisonType = Tower; 
@@ -2543,7 +2543,7 @@ UnitType GermanLeopard2A5
 		popCount = 2
 		displayName = tx_utn_Leo_name
         verboseTooltip = vtt_unit_Leo2
-		HitPoints = 5000
+		HitPoints = 4500
 	}
 	sounds = {
 		sndSelection = [
@@ -2557,8 +2557,8 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 //		sndDeath =  [""]
 	}
 	abilities = [
-      Attack { range = 16; reloadTime = 3.0; applyDamageTime = 0.5; damage = 400; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2;}
-	  VehicleMove {speed = 1.65; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
+      Attack { range = 17; reloadTime = 2.55; applyDamageTime = 0.5; damage = 500; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2;}
+	  VehicleMove {speed = 1.53; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [ Taran_Tanks ]		}	
 	Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }	
@@ -2738,7 +2738,7 @@ UnitType Leopard2A6
 		popCount = 2
 		displayName = tx_utn_Leopard2A6_name
         verboseTooltip = vtt_unit_Leopard2A6
-		HitPoints = 5300
+		HitPoints = 11900
 	}
 	sounds = {
 		sndSelection = [
@@ -2752,8 +2752,8 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 //		sndDeath =  [""]
 	}
 	abilities = [
-      Attack { range = 16; reloadTime = 3.0; applyDamageTime = 0.5; damage = 420; missileName = TankShell; turretControllerName = TankTurret; }
-	  VehicleMove {speed = 1.65; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
+      Attack { range = 18; reloadTime = 2.55; applyDamageTime = 0.5; damage = 1310; missileName = TankShell; turretControllerName = TankTurret; }
+	  VehicleMove {speed = 1.53; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [ Taran_Tanks ]		}	
 	Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }	
@@ -2930,13 +2930,13 @@ UnitType MarderATGM
 		popCount = 2
 		displayName = tx_utn_Hongjian10_name
 		VerboseTooltip = vtt_unit_Hongjian10
-		HitPoints = 3700
+		HitPoints = 1665
 	}
 	sounds = {
 	}
 	abilities = [
-		Attack { damage = 420; range = 16; reloadTime = 3; applyDamageTime = 0.5; missileName = "AntankMissile"; areaDamageRadius =1.0; turretControllerName = Coast13Turret; throwUnits = true} 
-		VehicleMove {speed = 1.1; angSpeed = 50; followTerrainSlope = 1 }
+		Attack { damage = 504; range = 18; reloadTime = 2.55; applyDamageTime = 0.5; missileName = "AntankMissile"; areaDamageRadius =1.0; turretControllerName = Coast13Turret; throwUnits = true} 
+		VehicleMove {speed = 0.85; angSpeed = 50; followTerrainSlope = 1 }
 		LOS { range = 18 }
 		Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
 	]
@@ -3659,8 +3659,8 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 	SpecialPower { 		
 			effects = [ Change_Range ]
 		}
-		Attack {range = 2.3; reloadTime = 0.42; damage = 165; angularRange = 360; packTime = 1.8;unpackTime = 1.8; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-		VehicleMove {speed = 0.88; angSpeed = 70; followTerrainSlope = 1 }
+		Attack {range = 2; reloadTime = 0.5; damage = 150; angularRange = 360; packTime = 2.0;unpackTime = 2.0; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		VehicleMove {speed = 0.8; angSpeed = 70; followTerrainSlope = 1 }
 		LOS { range = 16 }
 		Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 	]
@@ -4092,15 +4092,15 @@ UnitType Pzh2000
 		popCount = 3
 		DisplayName = tx_utn_Pzh2000_pname
 		VerboseTooltip = vtt_unit_Pzh2000
-		HitPoints = 2000
+		HitPoints = 450
 	}
 	sounds = {
 	}
 	abilities = [
-	     Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	     Attack { damage = 805; range = 19; angularRange = 360; reloadTime = 6.8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport ] }
 		LOS { range = 20 }
-		VehicleMove {speed = 0.8; angSpeed = 50; followTerrainSlope = 1 }
+		VehicleMove {speed = 0.72; angSpeed = 50; followTerrainSlope = 1 }
 	]
 	Attributes = [ 
 		HealedByMedic

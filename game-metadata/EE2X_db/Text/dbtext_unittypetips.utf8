@@ -258,7 +258,7 @@ vtt_unit_China_T99A,"""中国99A坦克\n<b><color green>功能：重型坦克，
 vtt_unit_Type74,"""74式主战坦克是日本三菱重工在上个世纪六十年代末七十年代初为日本陆上自卫队研制生产的中型主战坦克\n<b><color green>功能：重型坦克，血量：4400；攻击：300</color></b>"""
 /////////////////////tao 8.05 Units////////////////////////////
 vtt_unit_Antiship_missile12,"""移动反舰炮。\n<b><color green>功能：反舰/对陆攻击</color></b>"""
-vtt_unit_Antiship_missile,"""移动反舰导弹。\n<b><color green>功能：反舰/对陆攻击</color></b>"""
+vtt_unit_Antiship_missile,"""移动反舰导弹。\n<b><color green>功能：反舰攻击</color></b>"""
 vtt_airdefense5_dsc,"""萨姆5防空导弹。\n<b><color green>功能：反导，需配合雷达</color></b>"""
 vtt_unit_jiqiangpika,"""机枪皮卡。\n<b><color green>功能：轻型骑乘，血量：1500；攻击：40</color></b>"""
 vtt_unit_huojianpika,"""火箭皮卡。\n<b><color green>功能：轻型火炮，血量：1500；攻击：100</color></b>"""

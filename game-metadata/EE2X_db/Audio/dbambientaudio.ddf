@@ -1,0 +1,377 @@
+//	DbAmbientAudio.ddf - ambient audio database records
+//
+//	---------------------------------------------
+//	Generic ambient audio components: weather
+//	---------------------------------------------
+
+DbAmbientWeatherSoundSet ambset_rainlt
+{
+	weather = RainLt
+	loopingSounds =
+	[
+		{sound = ambloop_rainlt; priority = 1}
+	]
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+DbAmbientWeatherSoundSet ambset_rainhv
+{
+	weather = RainHv
+	loopingSounds =
+	[
+		{sound = ambloop_rainhv; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+DbAmbientWeatherSoundSet ambset_snowlt
+{
+	weather = SnowLt
+	loopingSounds =
+	[
+		{sound = ambloop_snowlt; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+DbAmbientWeatherSoundSet ambset_snowhv
+{
+	weather = SnowHv
+	loopingSounds =
+	[
+		{sound = ambloop_snowhv; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+DbAmbientWeatherSoundSet ambset_dustlt
+{
+	weather = DustLt
+	loopingSounds =
+	[
+		{sound = ambloop_dustlt; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+DbAmbientWeatherSoundSet ambset_dusthv
+{
+	weather = DustHv
+	loopingSounds =
+	[
+		{sound = ambloop_dusthv; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+//	---------------------------------------------
+//	Generic ambient audio component for water
+//	---------------------------------------------
+
+DbAmbientSoundSet ambset_water
+{
+	loopingSounds =
+	[
+		{sound = ambloop_sea_waves_01; priority = 1}
+		{sound = ambloop_sea_waves_02; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	sounds =
+	[
+		{sound = amb_sea_gulls_01; priority = 1}
+		{sound = amb_sea_gulls_02; priority = 1}
+		{sound = amb_sea_gulls_03; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.2
+	minVolume = 0.3
+}
+
+//	---------------------------------------------
+//	Temperate climate
+//	---------------------------------------------
+
+DbAmbientSoundSet ambset_land_temperate
+{
+	loopingSounds =
+	[
+		{sound = ambloop_land_01_temp; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.2
+	minVolume = 0.3
+}
+
+DbAmbientSoundSet ambset_forest_temperate
+{
+	loopingSounds =
+	[
+		{sound = ambloop_forest_02_temp; priority = 1}
+		{sound = ambloop_forest_01_temp; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	sounds =
+	[
+		{sound = amb_temp_bird_call_01; priority = 1}
+		{sound = amb_temp_bird_call_02; priority = 1}
+		{sound = amb_temp_bird_call_03; priority = 1}
+		{sound = amb_temp_crow_solo; priority = 1}
+		{sound = amb_temp_hawk_multiple; priority = 1}
+		{sound = amb_temp_hawk_solo; priority = 1}
+		{sound = amb_temp_loon_call; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.2
+	minVolume = 0.5
+}
+
+DbAmbientMasterSoundSet ambient_master_set_temperate
+{
+	weatherSoundSets = [ambset_rainlt ambset_rainhv ambset_snowlt ambset_snowhv]
+	waterSoundSet = ambset_water
+	landSoundSet = ambset_land_temperate
+	forestSoundSet = ambset_forest_temperate
+}
+
+//	---------------------------------------------
+//	Tropical climate
+//	---------------------------------------------
+
+DbAmbientSoundSet ambset_land_tropical
+{
+	loopingSounds =
+	[
+		{sound = ambloop_land_01_jungle; priority = 1}
+	]
+	sounds =
+	[
+		{sound = amb_jungle_bird_calling; priority = 1}
+		{sound = amb_jungle_bird_chatting; priority = 1}
+		{sound = amb_jungle_bird_chatting_2; priority = 1}
+		{sound = amb_jungle_monkey_call; priority = 1}
+		{sound = amb_jungle_thing; priority = 1}
+		{sound = amb_jungle_thing_2; priority = 1}
+		{sound = amb_jungle_thing_3; priority = 1}
+		{sound = amb_jungle_thing_4; priority = 1}
+		{sound = amb_jungle_thing_5; priority = 1}
+		{sound = amb_jungle_thing_6; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	oneShotFreq = 4
+	cutoffPriority = 0.2
+	minVolume = 0.3
+}
+
+DbAmbientSoundSet ambset_forest_tropical
+{
+	loopingSounds =
+	[
+		{sound = ambloop_forest_01_jungle; priority = 1}
+		{sound = ambloop_forest_02_jungle; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	sounds =
+	[
+		{sound = amb_jungle_bird_calling; priority = 1}
+		{sound = amb_jungle_bird_chatting; priority = 1}
+		{sound = amb_jungle_bird_chatting_2; priority = 1}
+		{sound = amb_jungle_monkey_call; priority = 1}
+		{sound = amb_jungle_thing; priority = 1}
+		{sound = amb_jungle_thing_2; priority = 1}
+		{sound = amb_jungle_thing_3; priority = 1}
+		{sound = amb_jungle_thing_4; priority = 1}
+		{sound = amb_jungle_thing_5; priority = 1}
+		{sound = amb_jungle_thing_6; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	oneShotFreq = 15
+	cutoffPriority = 0.2
+	minVolume = 0.5
+}
+
+DbAmbientMasterSoundSet ambient_master_set_tropical
+{
+	weatherSoundSets = [ambset_rainlt ambset_rainhv]
+	waterSoundSet = ambset_water
+	landSoundSet = ambset_land_tropical
+	forestSoundSet = ambset_forest_tropical
+}
+
+//	---------------------------------------------
+//	Arid climate
+//	---------------------------------------------
+
+DbAmbientSoundSet ambset_land_arid
+{
+	loopingSounds =
+	[
+		{sound = ambloop_land_01_arid; priority = 1}
+		//{sound = ambloop_land_02_arid; priority = 1}
+	]
+	sounds =
+	[
+		{sound = amb_arid_bugs; priority = 1}
+		{sound = amb_arid_hawk; priority = 1}
+		{sound = amb_arid_insect_buzz; priority = 1}
+		{sound = amb_arid_rattler; priority = 1}
+		//{sound = up15_index_hotfix; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.2
+	minVolume = 0.3
+}
+
+DbAmbientSoundSet ambset_forest_arid
+{
+	loopingSounds =
+	[
+		//{sound = ambloop_land_01_arid; priority = 1}
+		{sound = ambloop_land_02_arid; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.2
+	minVolume = 0.5
+}
+
+DbAmbientMasterSoundSet ambient_master_set_arid
+{
+	weatherSoundSets = [ambset_rainlt ambset_rainhv ambset_dustlt ambset_dusthv]
+	waterSoundSet = ambset_water
+	landSoundSet  = ambset_land_arid
+    forestSoundSet = ambset_forest_arid
+}
+
+//	---------------------------------------------
+//	Tundra climate
+//	---------------------------------------------
+
+DbAmbientWeatherSoundSet ambset_tundra_rainlt
+{
+	weather = RainLt
+	loopingSounds =
+	[
+		//{sound = ambloop_tundra_rainlt; priority = 1}
+		{sound = ambset_rainlt; priority = 1}
+	]
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+DbAmbientWeatherSoundSet ambset_tundra_rainhv
+{
+	weather = RainHv
+	loopingSounds =
+	[
+		{sound = ambloop_tundra_rainhv; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+DbAmbientWeatherSoundSet ambset_tundra_snowlt
+{
+	weather = SnowLt
+	loopingSounds =
+	[
+		{sound = ambloop_tundra_snowlt; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+DbAmbientWeatherSoundSet ambset_tundra_snowhv
+{
+	weather = SnowHv
+	loopingSounds =
+	[
+		{sound = ambloop_tundra_snowhv_01; priority = 1}
+		{sound = ambloop_tundra_snowhv_02; priority = 1}
+		{sound = ambloop_tundra_snowhv_03; priority = 1}
+		{sound = ambloop_tundra_snowhv_04; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.5
+	minVolume = 1.0
+}
+
+DbAmbientSoundSet ambset_tundra_water
+{
+	loopingSounds =
+	[
+		{sound = ambloop_sea_tundra_01; priority = 1}
+	]
+	sounds =
+	[
+		{sound = amb_tundra_gulls_02; priority = 1}
+		{sound = amb_tundra_gulls_01; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.2
+	minVolume = 0.3
+}
+
+DbAmbientSoundSet ambset_land_tundra
+{
+	loopingSounds =
+	[
+		{sound = ambloop_land_01_tundra; priority = 1}
+		{sound = ambloop_land_02_tundra; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.2
+	minVolume = 0.3
+}
+
+DbAmbientSoundSet ambset_forest_tundra
+{
+	loopingSounds =
+	[
+		{sound = ambloop_forest_01_tundra; priority = 1}
+		{sound = ambloop_forest_02_tundra; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+	]
+	sounds =
+	[
+		{sound = amb_tundra_bird_call_01; priority = 1}
+		{sound = amb_tundra_bird_call_02; priority = 1}
+		{sound = amb_tundra_bird_call_03; priority = 1}
+		{sound = amb_tundra_bird_call_04; priority = 1}
+		{sound = amb_tundra_bird_call_05; priority = 1}
+		{sound = up15_index_hotfix; priority = 1}
+		//{sound = amb_tundra_crow_solo; priority = 1}
+		//{sound = amb_tundra_hawk_multiple; priority = 1}
+		//{sound = amb_tundra_hawk_solo; priority = 1}
+		//{sound = amb_tundra_loon_call; priority = 1}
+	]
+	oneShotFreq = 5
+	cutoffPriority = 0.2
+	minVolume = 0.5
+}
+
+DbAmbientMasterSoundSet ambient_master_set_tundra
+{
+	weatherSoundSets = [ambset_rainlt ambset_tundra_rainhv ambset_tundra_snowlt ambset_tundra_snowhv]
+	waterSoundSet = ambset_tundra_water
+	landSoundSet = ambset_land_tundra
+	forestSoundSet = ambset_forest_tundra
+}
+

@@ -62,8 +62,8 @@ UpgradeAbilities UniversityEpoch1Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 3;
-			gatherRate = 0.02;	// number of tech points generated per second.
+			numOfSlots = 6;
+			gatherRate = 0.08;	// number of tech points generated per second.
 			gatherType = Tech;
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -80,8 +80,8 @@ UpgradeAbilities UniversityEpoch4Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 3;
-			gatherRate = 0.03;	// number of tech points generated per second.
+			numOfSlots = 6;
+			gatherRate = 0.12;	// number of tech points generated per second.
 			gatherType = Tech;
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -98,8 +98,8 @@ UpgradeAbilities UniversityEpoch7Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 3;
-			gatherRate = 0.04;	// number of tech points generated per second.
+			numOfSlots = 6;
+			gatherRate = 0.16;	// number of tech points generated per second.
 			gatherType = Tech;
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -116,8 +116,8 @@ UpgradeAbilities UniversityEpoch10Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 3;
-			gatherRate = 0.05;	// number of tech points generated per second.
+			numOfSlots = 6;
+			gatherRate = 0.20;	// number of tech points generated per second.
 			gatherType = Tech;
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -134,8 +134,8 @@ UpgradeAbilities UniversityEpoch13Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 3;
-			gatherRate = 0.06;	// number of tech points generated per second.
+			numOfSlots = 6;
+			gatherRate = 0.24;	// number of tech points generated per second.
 			gatherType = Tech;
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -273,8 +273,8 @@ UpgradeAbilities UniversityEpoch15Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 3;
-			gatherRate = 0.06;	// number of tech points generated per second.
+			numOfSlots = 6;
+			gatherRate = 0.24;	// number of tech points generated per second.
 			gatherType = Tech;
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"

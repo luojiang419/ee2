@@ -1,0 +1,141 @@
+//NAME,FILENAME,U,V,WIDTH,HEIGHT,FLAGS
+
+// flags,,,,,,
+spr_flag_naval,UI_flag_naval.tga,0,0,64,32,0
+spr_flag_naval_pc,UI_flag_naval_pc.tga,0,0,64,32,0
+spr_flag_air,UI_flag_air.tga,0,0,64,32,0
+spr_flag_air_pc,UI_flag_air_pc.tga,0,0,64,32,0
+spr_flag_infantry,UI_flag_infantry.tga,0,0,64,32,0
+spr_flag_infantry_pc,UI_flag_infantry_pc.tga,0,0,64,32,0
+spr_flag_mobile,UI_flag_mobile.tga,0,0,64,32,0
+spr_flag_mobile_pc,UI_flag_mobile_pc.tga,0,0,64,32,0
+spr_flag_machine,UI_flag_machine.tga,0,0,64,32,0
+spr_flag_machine_pc,UI_flag_machine_pc.tga,0,0,64,32,0
+spr_flag_cultural,UI_flag_cultural.tga,0,0,64,32,0
+spr_flag_cultural_pc,UI_flag_cultural_pc.tga,0,0,64,32,0
+spr_flag_religious,UI_flag_religious.tga,0,0,64,32,0
+spr_flag_religious_pc,UI_flag_religious_pc.tga,0,0,64,32,0
+spr_flag_financial,UI_flag_financial.tga,0,0,64,32,0
+spr_flag_financial_pc,UI_flag_financial_pc.tga,0,0,64,32,0
+
+// flags power icons (for unitinfo icons),,,,,,
+icon_flag_naval,icon_flag_naval.tga,0,0,32,32,0
+icon_flag_air,icon_flag_air.tga,0,0,32,32,0
+icon_flag_infantry,icon_flag_infantry.tga,0,0,32,32,0
+icon_flag_mobile,icon_flag_mobile.tga,0,0,32,32,0
+icon_flag_machine,icon_flag_machine.tga,0,0,32,32,0
+icon_flag_cultural,icon_flag_cultural.tga,0,0,32,32,0
+icon_flag_religious,icon_flag_religious.tga,0,0,32,32,0
+icon_flag_financial,icon_flag_financial.tga,0,0,32,32,0
+
+// endgame banners,,,,,,
+spr_bkg_endgame_win_1_af,ui_endgame_win_1_af.tga,0,0,768,512,0
+spr_bkg_endgame_win_2_af,ui_endgame_win_2_af.tga,0,0,768,512,0
+spr_bkg_endgame_win_3_af,ui_endgame_win_3_af.tga,0,0,768,512,0
+spr_bkg_endgame_win_4_af,ui_endgame_win_4_af.tga,0,0,768,512,0
+spr_bkg_endgame_win_5_af,ui_endgame_win_5_af.tga,0,0,768,512,0
+spr_bkg_endgame_lose_1_af,ui_endgame_lose_1_af.tga,0,0,768,512,0
+spr_bkg_endgame_lose_2_af,ui_endgame_lose_2_af.tga,0,0,768,512,0
+spr_bkg_endgame_lose_3_af,ui_endgame_lose_3_af.tga,0,0,768,512,0
+spr_bkg_endgame_lose_4_af,ui_endgame_lose_4_af.tga,0,0,768,512,0
+spr_bkg_endgame_lose_5_af,ui_endgame_lose_5_af.tga,0,0,768,512,0
+
+//Region power icons (normal state- pressed state - uncharged state),,,,,,
+icon_regionpower_sotribe,icon_regionpower_spiritoftribe.tga,25,25,77,77,0
+icon_regionpower_sotribe_p,icon_regionpower_spiritoftribe_pressed.tga,25,25,77,77,0
+icon_regionpower_sotribe_u,icon_regionpower_spiritoftribe_uncharged.tga,25,25,77,77,0
+icon_regionpower_bvoudon,icon_regionpower_badvoudon.tga,25,25,77,77,0
+icon_regionpower_bvoudon_p,icon_regionpower_badvoudon_pressed.tga,25,25,77,77,0
+icon_regionpower_bvoudon_u,icon_regionpower_badvoudon_uncharged.tga,25,25,77,77,0
+icon_regionpower_ttrance,icon_regionpower_technologytrance.tga,25,25,77,77,0
+icon_regionpower_ttrance_p,icon_regionpower_technologytrance_pressed.tga,25,25,77,77,0
+icon_regionpower_ttrance_u,icon_regionpower_technologytrance_uncharged.tga,25,25,77,77,0
+
+// native tribes power icons,,,,,,
+icon_tribepower_adobe,icon_tribepower_adobe.tga,0,0,32,32,0
+icon_tribepower_community,icon_tribepower_community.tga,0,0,32,32,0
+icon_tribepower_determination,icon_tribepower_determination.tga,0,0,32,32,0
+icon_tribepower_faith,icon_tribepower_faith.tga,0,0,32,32,0
+icon_tribepower_fertility,icon_tribepower_fertility.tga,0,0,32,32,0
+icon_tribepower_herbs,icon_tribepower_herbs.tga,0,0,32,32,0
+icon_tribepower_migration,icon_tribepower_migration.tga,0,0,32,32,0
+icon_tribepower_scouts,icon_tribepower_scouts.tga,0,0,32,32,0
+icon_tribepower_traders,icon_tribepower_traders.tga,0,0,32,32,0
+icon_tribepower_warriorSpirit,icon_tribepower_warriorSpirit.tga,0,0,32,32,0
+
+spr_game_unitinfo_icon_badv,icon_unitinfo_badvoudon.tga,0,0,32,32,0
+
+spr_game_unitinfo_icon_food,icon_resource_food_sm.tga,0,0,32,32,0
+
+spr_game_unitinfo_icon_kills,icon_unitinfo_kills.tga,0,0,32,32,0
+
+// Fealty related stuff,,,,,,
+// demand fealty,,,,,,
+icon_diplo_demand_fealty,ui_ingame_diplo_demand_fealty.tga,8,8,48,48,0
+icon_diplo_demand_fealty_r,ui_ingame_diplo_demand_fealty_rollover.tga,8,8,48,48,0
+icon_diplo_demand_fealty_p,ui_ingame_diplo_demand_fealty_pressed.tga,8,8,48,48,0
+icon_diplo_demand_fealty_rp,ui_ingame_diplo_demand_fealty_pressed.tga,8,8,48,48,0
+// offer fealty,,,,,,
+icon_diplo_offer_fealty,ui_ingame_diplo_offer_fealty.tga,8,8,48,48,0
+icon_diplo_offer_fealty_r,ui_ingame_diplo_offer_fealty_rollover.tga,8,8,48,48,0
+icon_diplo_offer_fealty_p,ui_ingame_diplo_offer_fealty_pressed.tga,8,8,48,48,0
+icon_diplo_offer_fealty_rp,ui_ingame_diplo_offer_fealty_pressed.tga,8,8,48,48,0
+// demanding fealty icon for waiting for a response,,,,,,
+icon_diplo_waitingForFealty,ui_ingame_diplo_waiting_fealty.tga,8,8,48,48,0
+// this is your liege lord,,,,,,
+icon_diplo_your_liege,ui_ingame_diplo_your_liege.tga,8,8,48,48,0
+// execute vassal,,,,,,
+icon_diplo_execute_vassal,ui_ingame_diplo_execute_vassal.tga,8,8,48,48,0
+icon_diplo_execute_vassal_r,ui_ingame_diplo_execute_vassal_rollover.tga,8,8,48,48,0
+icon_diplo_execute_vassal_p,ui_ingame_diplo_execute_vassal_pressed.tga,8,8,48,48,0
+icon_diplo_execute_vassal_rp,ui_ingame_diplo_execute_vassal_pressed.tga,8,8,48,48,0
+
+// VoiceChat,,,,,,
+spr_voicechat_active,icon_voicechat_inactive.tga,0,0,128,128,0
+spr_voicechat_active_on,icon_voicechat_active.tga,0,0,128,128,0
+spr_voicechat_console_bkg,spr_voicechat_console.tga,0,0,512,200,0
+spr_voicechat_console_coll_bkg,spr_voicechat_console_collapsed.tga,0,0,180,200,0
+spr_voicechat_expcol,spr_voicechat_expcol.tga,0,0,64,64,0
+spr_voicechat_expcol_on,spr_voicechat_expcol_on.tga,0,0,64,64,0
+spr_voicechat_playerSel,spr_voicechat_playerUnSel.tga,0,0,64,64,0
+spr_voicechat_playerSel_on,spr_voicechat_playerSel.tga,0,0,64,64,0
+spr_voicechat_playerTalking,spr_voicechat_playerTalking.tga,0,0,64,64,0
+spr_voicechat_playerDisabled,spr_voicechat_playerDisabled.tga,0,0,64,64,0
+spr_voicechat_allies,spr_voicechat_allies_inactive.tga,0,0,82,64,0
+spr_voicechat_allies_on,spr_voicechat_allies.tga,0,0,82,64,0
+spr_voicechat_enemies,spr_voicechat_enemies_inactive.tga,0,0,82,64,0
+spr_voicechat_enemies_on,spr_voicechat_enemies.tga,0,0,82,64,0
+spr_voicechat_all,spr_voicechat_all_inactive.tga,0,0,82,64,0
+spr_voicechat_all_on,spr_voicechat_all.tga,0,0,82,64,0
+
+// Warplans save button,,,,,,
+icon_warplans_save,ui_warplans_save_stone.tga,0,0,77,52,0
+icon_warplans_save_r,ui_warplans_save_rollover_stone.tga,0,0,77,52,0
+icon_warplans_save_p,ui_warplans_save_pressed_stone.tga,0,0,77,52,0
+icon_warplans_save_rp,ui_warplans_save_pressed_stone.tga,0,0,77,52,0
+icon_warplans_save_e2,ui_warplans_save_parch.tga,0,0,77,52,0
+icon_warplans_save_r_e2,ui_warplans_save_rollover_parch.tga,0,0,77,52,0
+icon_warplans_save_p_e2,ui_warplans_save_pressed_parch.tga,0,0,77,52,0
+icon_warplans_save_rp_e2,ui_warplans_save_pressed_parch.tga,0,0,77,52,0
+icon_warplans_save_e3,ui_warplans_save_metal.tga,0,0,77,52,0
+icon_warplans_save_r_e3,ui_warplans_save_rollover_metal.tga,0,0,77,52,0
+icon_warplans_save_p_e3,ui_warplans_save_pressed_metal.tga,0,0,77,52,0
+icon_warplans_save_rp_e3,ui_warplans_save_pressed_metal.tga,0,0,77,52,0
+
+// Supreme leader icons,,,,,,
+icon_crown_sleader_mil,icon_crown_sleader_mil.tga,0,0,64,64,0
+icon_crown_sleader_mil_s,icon_crown_sleader_mil.tga,0,0,64,64,0
+icon_crown_sleader_eco,icon_crown_sleader_eco.tga,0,0,64,64,0
+icon_crown_sleader_eco_s,icon_crown_sleader_eco.tga,0,0,64,64,0
+icon_crown_sleader_imp,icon_crown_sleader_imp.tga,0,0,64,64,0
+icon_crown_sleader_imp_s,icon_crown_sleader_imp.tga,0,0,64,64,0
+
+// Fullmap warplan control group selection border,,,,,,
+spr_ui_fullmap_cgroup_border,ui_fullmap_cgroup_selected.tga,0,0,77,60,0
+
+// Fealty - vassal status icons,,,,,,
+spr_ui_fealty_liege,ui_ingame_fealty_liege.tga,0,0,64,64,0
+spr_ui_fealty_liege_pc,ui_ingame_fealty_liege_pc.tga,0,0,64,64,0
+spr_ui_fealty_vassal,ui_ingame_fealty_vassal.tga,0,0,64,64,0
+spr_ui_fealty_vassal_pc,ui_ingame_fealty_vassal_pc.tga,0,0,64,64,0
+spr_ui_stats_nativetribe,ui_stats_native_tribes.tga,0,0,32,32,0

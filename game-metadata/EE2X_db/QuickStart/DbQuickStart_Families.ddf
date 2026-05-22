@@ -1,0 +1,145 @@
+//
+// DbQuickStart_Families.ddf
+//
+// family definitions for quick start
+// a family is a group of unit types, used when a particular weight in the
+// QuickStart spreadsheet should correspond to different unit types depending
+// on epoch
+//
+// for each family, you should specify two or more unit types, and for each unit
+// type, specify
+//	1. unitType (string)
+//	2. weight (float)
+//	3. startEpoch (int)
+//
+// example:
+//
+//	Family HeavyMountedOrTank
+//	{
+//		unitTypes = [
+//			{ unitType = HeavyMounted1 	weight = 1.0	startEpoch = 1 }
+//			{ unitType = Tank	 	weight = 0.5	startEpoch = 11 }
+//		]
+//	}
+//
+//////////////////////////////////////////////////////////////////////////////////
+
+// until we have HeavyInfantry2, build HeavyInfantry1
+Family HeavyInfantry1or2
+{
+	unitTypes = [
+		{ unitType = HeavyInfantry1	weight = 1.25	startEpoch = 1 }
+		{ unitType = HeavyInfantry2	weight = 1.0	startEpoch = 2 }
+	]
+}
+
+Family HeavyOrLightArtillery
+{
+	unitTypes = [
+		{ unitType = LightArtillery1	weight = 1.5	startEpoch = 1 }
+		{ unitType = HeavyArtillery	weight = 1.0	startEpoch = 2 }
+	]
+}
+
+Family LightMountedOrInfantry
+{
+	unitTypes = [
+		{ unitType = LightInfantry	weight = 1.25	startEpoch = 1 }
+		{ unitType = LightMounted1	weight = 1.0	startEpoch = 2 }
+		{ unitType = Tank		weight = 0.5	startEpoch = 11 }
+	]
+}
+
+Family HeavyMountedOrInfantry
+{
+	unitTypes = [
+		{ unitType = HeavyInfantry1	weight = 2.5	startEpoch = 1 }
+		{ unitType = HeavyMounted1	weight = 1.0	startEpoch = 2 }
+		{ unitType = HeavyTank		weight = 0.5	startEpoch = 11 }
+	]
+}
+
+Family StableOrBarracks
+{
+	unitTypes = [
+		{ unitType = Barracks	weight = 1.0	startEpoch = 1 }
+		{ unitType = Stable	weight = 1.0	startEpoch = 2 }
+	]
+}
+
+Family MarketOrHouse
+{
+	unitTypes = [
+		{ unitType = House	weight = 2.0	startEpoch = 1 }
+		{ unitType = Market	weight = 1.0	startEpoch = 2 }
+	]
+}
+
+Family BalloonOrSatellite
+{
+	unitTypes = [
+		{ unitType = ObservationBalloon	weight = 1.0	startEpoch = 11 }
+		{ unitType = Satellite		weight = 1.0	startEpoch = 13 }
+	]
+}
+
+Family GalleyOrTransport
+{
+	unitTypes = [
+		{ unitType = WarGalley		weight = 1.0	startEpoch = 1 }
+		{ unitType = CargoShip		weight = 3.0	startEpoch = 6 }
+	]
+}
+
+Family GalleonOrBattleship
+{
+	unitTypes = [
+		{ unitType = Galleon		weight = 2.0	startEpoch = 6 }
+		{ unitType = Battleship		weight = 1.0	startEpoch = 11 }
+	]
+}
+
+Family FightingSailOrDestroyer
+{
+	unitTypes = [
+		{ unitType = FightingSail	weight = 1.5	startEpoch = 6 }
+		{ unitType = Destroyer		weight = 1.0	startEpoch = 11 }
+	]
+}
+
+Family FrigateOrSubmarine
+{
+	unitTypes = [
+		{ unitType = Frigate		weight = 1.0	startEpoch = 6 }
+		{ unitType = Submarine		weight = 1.0	startEpoch = 11 }
+	]
+}
+
+Family RamOrArtillery
+{
+	unitTypes = [
+		{ unitType = LightArtillery1	weight = 1.0	startEpoch = 1 }
+		{ unitType = HeavyArtillery	weight = 1.5	startEpoch = 2 }
+		{ unitType = Ram		weight = 1.25	startEpoch = 3 }
+		{ unitType = HeavyArtillery	weight = 1.5	startEpoch = 7 }
+	]
+}
+
+Family TowerOrArtillery
+{
+	unitTypes = [
+		{ unitType = LightArtillery1	weight = 1.0	startEpoch = 1 }
+		{ unitType = HeavyArtillery	weight = 1.5	startEpoch = 2 }
+		{ unitType = SiegeTower		weight = 1.25	startEpoch = 4 }
+		{ unitType = HeavyArtillery	weight = 1.5	startEpoch = 8 }
+	]
+}
+
+Family AirDefenseOrOutpost
+{
+	unitTypes =
+	[
+		{ unitType = Outpost	weight = 2.0	startEpoch = 1 }
+		{ unitType = AirDefense	weight = 1.0	startEpoch = 10 }
+	]
+}

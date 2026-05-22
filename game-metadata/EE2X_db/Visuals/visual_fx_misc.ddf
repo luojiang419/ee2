@@ -1,0 +1,326 @@
+//---------------------------------------------------------------------------
+// Various FX definitions.  These are pretty much all base models with .nifs
+// for various purposes.
+//---------------------------------------------------------------------------
+
+
+
+BaseModel	FX_Awacontrol1
+{
+	ModelFileName 	= fx_awacflash.nif
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER
+}
+
+BaseModel	FX_Air_antimissle1
+{
+	ModelFileName 	= fx_laser_impact_8.nif //fx_anti_missile.nif
+	TagPoint 	= tag_exhaust1_1
+	DeletionMode	= eNEVER
+}
+
+BaseModel	FX_Air_Engine_Trail_1
+{
+	ModelFileName 	= fx_J10A_exhaust.nif
+	TagPoint 		= tag_trail_12
+	DeletionMode	= eNEVER
+	Scale = 0.5
+	DisableWorldPhysics = true
+}
+
+//---------------------------------------------------------------------------
+// human FX
+//---------------------------------------------------------------------------
+BaseModel	FX_BloodSpurt1
+{
+	ModelFileName 	= fx_blood.NIF
+	TagPoint 	= Bip01
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_BloodSpurt2
+{
+	ModelFileName 	= fx_blood.NIF
+	TagPoint 	= "Bip01 Neck"
+	DeletionMode	= ePLAYONCE
+}
+BaseModel	FX_Conversion
+{
+	ModelFileName 	= fx_conversion.NIF
+	TagPoint 		= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_BeingConverted
+{
+	ModelFileName 	= fx_converted.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_BeingCaptured
+{
+	ModelFileName 	= fx_smoke_capture_1.nif
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER
+}
+
+BaseModel	FX_BeingHealed
+{
+	ModelFileName 	= fx_healing.NIF
+	TagPoint 		= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_GroupHeal
+{
+	ModelFileName 	= fx_multiheal.NIF
+	TagPoint 		= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_Wheat_Harvest_1
+{
+	ModelFileName 	= fx_wheat_harvest_1.nif
+	TagPoint 	= ROOT
+	DeletionMode	= eSTATECHANGE
+}
+
+
+//---------------------------------------------------------------------------
+// Missile generic attachements
+//---------------------------------------------------------------------------
+BaseModel	FX_GuidedMissile_Explosion_1
+{
+	ModelFileName 	= fx_explosion_1.NIF
+	TagPoint 		= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+//---------------------------------------------------------------------------
+// battleship generic attachements
+//---------------------------------------------------------------------------
+BaseModel	FX_ExaustSmoke
+{
+	ModelFileName 	= fx_exhaust1.NIF
+	TagPoint 	= tag_exhaust1_1
+}
+BaseModel	FX_ExaustSmoke1
+{
+	ModelFileName 	= fx_exhaust1.NIF
+	TagPoint 	= tag_exhaust1_2
+}
+BaseModel	FX_ExaustSmoke2
+{
+	ModelFileName 	= fx_exhaust1.NIF
+	TagPoint 	= tag_exhaust1_3
+}
+BaseModel	FX_ExaustSmoke3
+{
+	ModelFileName 	= fx_exhaust1.NIF
+	TagPoint 	= tag_exhaust1_4
+}
+BaseModel	FX_ExaustSmoke4
+{
+	ModelFileName 	= fx_exhaust1.NIF
+	TagPoint 	= tag_exhaust1_5
+}
+BaseModel	FX_ExaustSmoke5
+{
+	ModelFileName 	= fx_exhaust1.NIF
+	TagPoint 	= tag_exhaust1_6
+}
+BaseModel	FX_Smoke_Chimney_Small
+{
+	ModelFileName 	= fx_smoke_chimney_small.NIF
+	TagPoint 	= tag_smoke_chimney
+}
+BaseModel	FX_Smoke_Chimney_Large
+{
+	ModelFileName 	= fx_smoke_chimney_large.NIF
+	TagPoint 	= tag_smoke_chimney
+}
+
+BaseModel	FX_Campfire_Flame
+{
+	ModelFileName 	= fx_campfire.nif
+	TagPoint 	= tag_smoke_campfire
+}
+
+BaseModel FX_TrailingSmoke
+{
+	ModelFileName 	= fx_exhaust1.NIF
+	TagPoint 	= ROOT
+}
+
+BaseModel FX_AircraftExhaust
+{
+    ModelFileName 	= fx_smoke_crash.nif //FX_AircraftExhaust
+	TagPoint 	= tag_exhaust1_1
+}
+
+//BaseModel FX_AircraftSmoke
+//{
+//	ModelFileName = fx_smoke_crash.nif
+//	TagPoint = ROOT
+//}
+BaseModel FX_Falling_Leaves
+{
+	ModelFileName 	= fx_falling_leaves.nif
+	DeletionMode	= ePLAYONCE
+	TagPoint	 = ROOT
+}
+
+//---------------------------------------------------------------------------
+// Region Powers Visuals
+//---------------------------------------------------------------------------
+
+BaseModel FX_Citadel_Connector
+{
+	ModelFileName = bld_wall8_connector_civpower.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel FX_Citadel_Tower
+{
+	ModelFileName = bld_wall8_tower_civpower.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel FX_Citadel_Gate
+{
+	ModelFileName = bld_wall8_gate_civpower.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel FX_Tolerance_Priest
+{
+	ModelFileName = fx_tolerance.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_Tolerance_Target
+{
+	ModelFileName 	= fx_conv_enhanced.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_Scientific_Freedom
+{
+	ModelFileName 	= fx_sc_freedom.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_Mercanitilism
+{
+	ModelFileName 	= fx_mercantilism.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_Mercanitilism_tradecart
+{
+	ModelFileName 	= fx_merc_coin.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER	
+}
+
+
+//---------------------------------------------------------------------------
+// Wonder Related Visuals
+//---------------------------------------------------------------------------
+
+BaseModel	FX_RapidDeploymentCrate
+{
+//	ModelFileName = fx_watersplash_1.nif
+	ModelFileName 	= fx_rapid_deployment.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE
+}
+
+BaseModel	FX_Overtime_Airport
+{
+	ModelFileName 	= fx_airport11_overtime.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER
+}
+
+BaseModel	FX_Overtime_Mill
+{
+	ModelFileName 	= fx_mill12_overtime.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER
+}
+
+BaseModel	FX_Overtime_Dock
+{
+	ModelFileName 	= fx_dock13_overtime.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER
+}
+
+BaseModel	FX_Overtime_Stable
+{
+	ModelFileName 	= fx_stable11_overtime.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER
+}
+
+//---------------------------------------------------------------------------
+// Unique Unit Visuals
+//---------------------------------------------------------------------------
+BaseModel	FX_Breath_of_Dragon
+{
+	ModelFileName 	= fx_BreathOfDragon.NIF
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER
+	DisableWorldPhysics = true	
+}
+
+BaseModel	FX_Deadly_Aim
+{
+	ModelFileName 	= fx_DeadlyAim.nif
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER	
+}
+
+BaseModel	FX_Forage
+{
+	ModelFileName 	= fx_Forage.nif
+	TagPoint 	= ROOT
+	DeletionMode	= eNEVER	
+}
+
+BaseModel	FX_Bless
+{
+	ModelFileName 	= fx_Bless.nif
+	TagPoint 	= ROOT
+	DeletionMode	= ePLAYONCE	
+}
+
+TimerEffect		FX_ExtractionTimer 
+{
+	Radius = 0.15;
+	Offset = 2;
+}
+
+SelectCircle		FX_ExtractionDecal
+{
+	TextureFilename		= fx_extraction.tga
+	UseGeometry			= 0
+	RadiusMode			= UnitRadius
+}
+
+BaseModel	FX_Deadly_Miss
+{
+	ModelFileName 	= fx_muzzle_hq61smoke7.nif
+	TagPoint 	= tag_muzzle_5
+	DeletionMode	= eNEVER
+	Scale = 0.5
+}

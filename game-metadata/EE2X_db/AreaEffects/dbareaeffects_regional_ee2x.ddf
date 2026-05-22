@@ -1,0 +1,87 @@
+//////////////////////////////Region Area Effects//////////////////////////////
+// Definitions of the area effects to be used by each region power.  These
+// define the specific visual and function effects that occur when the power
+// is activated.  See the upgrades in db/techtree/regionpower_upgrades.ddf 
+// for other information, such as duration and which icon to use for the button.
+
+///////////////////////////// AFRICAN REGION POWERS ///////////////////////////
+
+DbAreaEffectInfo RegionPowerAfrican_1
+{
+	name = text_rarea_sotribe_name
+	desc = text_rarea_sotribe_desc
+	effects = [
+		EffectMaxMoraleFervor
+		{
+			Range = SpaceTime
+			player = Self
+		}
+	]
+}
+
+//UP1.5.5: changed mask from "Anything" to "MobileUnits", as it was killing even projectitles.
+DbAreaEffectInfo RegionPowerAfrican_6
+{
+	name = text_rarea_bvoudon_name
+	desc = text_rarea_bvoudon_desc
+	effects = [
+		EffectCauseDamageOverTime {
+			range = SelfClaimedTerritory
+			player = Enemies
+			Mask = MobileUnits
+
+			DamageAmount = 2		// How much damage to do per second.
+
+			NoDamageSource = true	// There should be no source unit when applying damage.
+		}
+
+		EffectVisualGlow {
+			range = SelfClaimedTerritory
+			player = Enemies
+			Mask = MobileUnits
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_badv
+			Tooltip = text_rarea_bvoudon_name
+			VTooltip = vtt_rarea_bvoudon_unitinfo
+		}
+	]
+}
+
+DbAreaEffectInfo RegionPowerAfrican_11
+{
+	name = text_rarea_ttrance_name
+	desc = text_rarea_ttrance_desc
+	effects = [
+		EffectHeal
+		{
+			range = UnitsInArmies
+			player = Self
+			healRate = 3.0;  // Health per second to heal.  This is approximately what CityCenters heal at
+							// this point in the game.
+		}
+  	]
+
+}
+
+
+// Stupid special "glow" to add to City Centers and Warehouses for African
+// civs
+DbAreaEffectInfo AfricanFoodDropoffGlow
+{
+	effects = [
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			SuppressGlow = true
+			Icon = spr_game_unitinfo_icon_food
+			Tooltip = text_marea_foodbonus_name
+			VTooltip = text_marea_foodbonus_desc
+		}
+	]
+}
+
+
+

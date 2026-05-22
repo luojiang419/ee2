@@ -11,7 +11,7 @@ UnitType T50
 		popCount = 2
         displayName = tx_utn_T50_name
 		VerboseTooltip = vtt_unit_T50
-		HitPoints = 2100
+		HitPoints = 2200
 	}
 	sounds = {
 		sndSelection = ["CWCruSu27_MA_sel_01" 
@@ -32,9 +32,9 @@ UnitType T50
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 8.8; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-            Attack { damage = 950; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
-		LOS { range = 24 }
+		AircraftMove {speed = 9.5; angSpeed = 100; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+            Attack { damage = 900; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+		LOS { range = 22 }
 		AreaEffect {
 			effects = [ 
 				SuperVision,
@@ -101,7 +101,7 @@ UnitType Su75
 		popCount = 2
         displayName = tx_utn_Su75_name
 		VerboseTooltip = vtt_unit_Su75
-		HitPoints = 2000
+		HitPoints = 2200
 	}
 	sounds = {
 		sndSelection = ["CWCruSu27_MA_sel_01" 
@@ -122,9 +122,9 @@ UnitType Su75
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 8.7; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-            Attack { damage = 880; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
-		LOS { range = 24 }
+		AircraftMove {speed = 9; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+            Attack { damage = 900; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+		LOS { range = 20 }
 		AreaEffect {
 			effects = [ 
 				SuperVision,
@@ -209,7 +209,7 @@ UnitType Su34
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-	AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+	AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 1000; range = 20; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;
 				areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 		LOS { range 17 }
@@ -289,7 +289,7 @@ verboseTooltip = vtt_unit_Su47
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 8.5; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 	LOS { range = 17 }
 	SpecialPower { 		
@@ -665,8 +665,8 @@ sounds = {
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+		AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 855; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 12;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 		LOS { range = 17 }
 		SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -929,7 +929,7 @@ UnitType su25
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-HitPoints = 1900
+HitPoints = 2200
 		displayName = tx_utn_su25_name
 verboseTooltip = vtt_unit_su25
 		popCount = 2
@@ -953,9 +953,9 @@ verboseTooltip = vtt_unit_su25
 		sndDeath =  ["CWCruSu25T_AN_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 7; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 500; range = 15; reloadTime = 0.2; angularRange = 60; applyDamageTime = 0; missileName = "GroundRocketHerc"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;
-				areaDamageRadius = 2.0; areaDamageFriendlyRatio = 0.5;throwUnits = true }
+		AircraftMove {speed = 5.5; angSpeed = 55; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 550; range = 12; reloadTime = 0.2; angularRange = 60; applyDamageTime = 0; missileName = "GroundRocketHerc"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 60;
+				areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.3;throwUnits = true }
 		LOS { range 16 }
 			SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -1211,8 +1211,8 @@ verboseTooltip = vtt_unit_su37
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+		AircraftMove {speed = 8.5; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 855; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 	LOS { range = 17}
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -1348,8 +1348,8 @@ HitPoints = 1800
 		sndDeath =  []
 	}
 	abilities = [
-		AircraftMove {speed = 7.0; angSpeed = 35; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
-		Attack { damage = 35000; range = 60; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
+		AircraftMove {speed = 8; angSpeed = 35; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
+		Attack { damage = 35000; range = 66; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 2;areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
 				
 		LOS { range = 28 }
 	]
@@ -1895,14 +1895,14 @@ UnitType A100
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 6.0; angSpeed = 58; CruisingHeight = 9.0 }
+		AircraftMove {speed = 5.5; angSpeed = 58; CruisingHeight = 9.0 }
             Attack { range = 0; reloadTime = 0; applyDamageTime = 0; damage = 0; missileName = "Arrow" }
             AreaEffect {
 			effects = [ 
 				Awacs,SuperVision
 			]
 		}
-        LOS { range = 30 } 		
+        LOS { range = 32} 		
 	]
 	attributes [
 		GoesOnAirMissions
@@ -1950,64 +1950,4 @@ UnitModel A100
 		angle = 18.95
 	}
 
-}
-
-//------------------------------------------------
-//	EPOCH 11 - RUSSIAN AIR FORCE UPGRADES
-//------------------------------------------------
-// Attack Ability Upgrade - MiG-29K
-UpgradeAbilities Mig29kEpoch11Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 7.6; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "OutpostBullet";ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50 }
-	]
-}
-
-// Attack Ability Upgrade - Su-25
-UpgradeAbilities Su25Epoch11Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 6.0; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "OutpostBullet";ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50 }
-	]
-}
-
-// Attack Ability Upgrade - Tu-22M
-UpgradeAbilities Tu22MEpoch11Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 4.5; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 24;
-				areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-	]
-}
-//------------------------------------------------
-//	EPOCH 14
-//------------------------------------------------
-// Attack Ability Upgrade
-UpgradeAbilities Mig29kEpoch14Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 8.0; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
-	]
-}
-
-UpgradeAbilities Su25Epoch14Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 6.0; angSpeed = 80; CruisingHeight = 8.5; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 16;
-				areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-	]
-}
-
-UpgradeAbilities Tu22MEpoch14Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 7.0; angSpeed = 46; CruisingHeight = 10.0; ElevChangeRate = 1.0; OnGroundScale = 0.8}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "Bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;
-				areaDamageRadius = 2.75; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-	]
 }

@@ -1,0 +1,68 @@
+//,,,,,,,,,,,,,,,
+// DbQuickStart.csv,,,,,,,,,,,,,,,
+//,,,,,,,,,,,,,,,
+// usage notes:,,,,,,,,,,,,,,,
+//,1.) the ENTRY NAMEs should be unique but are otherwise unimportant,,,,,,,,,,,,,,
+//,2.) only one of UNITTYPE (an actual unit type) or QUICKSTART FAMILY (an entry in DbQuickStart_Families.ddf) should be specified,,,,,,,,,,,,,,
+//,"3.) the FAMILY TYPE can be Standard or IslandsOnly or InAirport (leave blank for Standard) - if InAirport is specified, an Airport must precede this entry, and this airplane will start out garrisoned in the airport",,,,,,,,,,,,,,
+//,4.) the arrays are indexed by army size [advanced large huge],,,,,,,,,,,,,,
+//,,,,,,,,,,,,,,,
+//////////////////////////////////////////////////////////////////,,,,,,,,,,,,,,,
+//,"NOTE:  Citizens MUST come first, they're required for the building placement to work.  CityCenters are AUTOMATICALLY ALWAYS PLACED, and should not be included in this table.",,,,,,,,,,,,,,
+
+
+//,,,,BALANCED EMPIRE,,,MILITARY EMPIRE,,,IMPERIAL EMPIRE,,,ECONOMIC EMPIRE,,
+// ENTRY NAME,UNITTYPE,QUICKSTART FAMILY,FAMILY TYPE,STANDARD,AGGRESSIVE,DEFENSIVE,STANDARD,AGGRESSIVE,DEFENSIVE,STANDARD,AGGRESSIVE,DEFENSIVE,STANDARD,AGGRESSIVE,DEFENSIVE
+//CityCenter,CityCenter,,,[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1]
+Citizen,Citizen,,,[8 15 28],[6 12 24],[8 18 32],[6 12 20],[4 10 16],[8 14 24],[6 18 30],[4 15 26],[8 21 34],[10 20 34],[8 16 30],[12 24 38]
+Barracks,Barracks,,,[1 1 2],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[0 0 1],[1 1 1]
+Stable,,StableOrBarracks,,[0 0 0],[1 1 1],[0 0 0],[1 1 1],[1 1 1],[0 0 0],[0 0 1],[0 1 1],[0 0 0],[0 0 1],[1 1 1],[0 0 0]
+Mill,Mill,,,[0 0 0],[0 0 0],[0 0 0],[0 1 1],[0 0 1],[0 1 1],[0 0 1],[0 0 1],[0 1 0],[0 0 0],[0 0 0],[0 0 0]
+Fortress,Fortress,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+Outpost,Outpost,,,[0 0 0],[0 0 0],[1 2 4],[0 0 0],[0 0 0],[1 2 3],[0 0 0],[0 0 0],[1 3 4],[0 0 1],[0 0 0],[1 2 3]
+Dock,Dock,,NotPlains,[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1]
+CoastalDefense,CoastalDefense,,NotPlains,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+Airport,Airport,,,[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1],[1 1 1]
+Airport2,Airport2,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+AirDefense,AirDefense,,,[0 0 0],[0 0 0],[0 1 2],[0 0 0],[0 0 0],[1 0 2],[0 0 0],[0 0 0],[1 1 2],[0 0 0],[0 0 0],[1 1 2]
+Temple,Temple,,,[0 0 1],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[1 1 1],[0 0 1],[1 1 1],[0 0 0],[0 0 0],[0 0 0]
+University,University,,,[0 1 1],[0 0 1],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[1 1 1],[1 1 1],[0 0 1],[0 1 1],[0 0 1],[0 0 1]
+Market,,MarketOrHouse,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[1 1 1],[1 1 1],[1 1 1]
+House,House,,,[1 2 3],[0 2 2],[0 1 3],[0 0 0],[1 0 0],[0 0 3],[1 2 2],[1 2 0],[0 2 3],[2 2 4],[2 2 2],[1 2 4]
+Warehouse,Warehouse,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 1 2],[0 1 1],[0 0 1]
+Scout,Scout,,,[1 1 1],[1 2 2],[1 1 1],[1 2 3],[1 2 1],[1 1 1],[1 1 3],[1 2 3],[0 1 1],[1 1 1],[1 2 3],[1 1 1]
+Medic,Medic,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+Priest,Priest,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[1 2 4],[0 0 0],[2 2 4],[0 0 0],[0 0 0],[0 0 0]
+Spy,Spy,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[1 2 4],[1 2 2],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+LightInfantry,LightInfantry,,,[2 4 8],[2 4 8],[4 6 8],[3 4 12],[2 4 7],[2 4 10],[1 2 4],[2 4 6],[0 0 4],[2 4 7],[2 2 10],[2 0 8]
+HeavyInfantry1,HeavyInfantry1,,,[3 4 8],[1 2 5],[4 2 4],[2 4 8],[1 2 4],[2 4 8],[1 2 4],[1 2 4],[2 4 5],[1 2 4],[2 2 4],[1 2 4]
+HeavyInfantry2,,HeavyInfantry1or2,,[1 2 4],[1 2 5],[0 2 4],[2 4 8],[1 2 4],[1 2 4],[0 2 4],[1 2 4],[0 4 5],[1 2 4],[1 2 4],[1 2 4]
+LightArtillery1,LightArtillery1,,,[1 2 4],[1 2 4],[4 2 4],[1 2 4],[1 2 7],[2 4 6],[1 2 4],[1 2 5],[1 0 4],[1 2 4],[1 2 6],[1 2 4]
+LightArtillery2,LightArtillery2,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+HeavyArtillery,,HeavyOrLightArtillery,,[1 2 4],[1 2 4],[0 2 4],[1 2 4],[1 2 6],[1 2 4],[0 0 0],[0 0 0],[0 0 0],[1 2 4],[1 2 4],[0 0 0]
+LightMounted1,,LightMountedOrInfantry,,[2 4 6],[3 6 10],[0 0 0],[2 4 8],[4 8 16],[0 0 0],[0 0 0],[3 2 12],[0 0 0],[1 2 4],[2 4 8],[0 0 0]
+LightMounted2,LightMounted2,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+LightMounted3,LightMounted3,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+HeavyMounted1,,HeavyMountedOrInfantry,,[2 4 6],[3 6 10],[0 0 0],[2 4 8],[3 6 10],[0 0 0],[0 2 4],[2 2 6],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+HeavyMounted2,HeavyMounted2,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+HeavyMounted3,HeavyMounted3,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+HercElecWarfare,HercElecWarfare,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+HercRepair,HercRepair,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+WarGalley,,GalleyOrTransport,NotPlains,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+Galleon,,GalleonOrBattleship,NotPlains,[0 0 1],[1 1 2],[0 0 0],[1 1 1],[1 1 2],[0 0 0],[1 0 0],[1 1 1],[0 0 1],[0 0 0],[0 1 1],[0 0 0]
+FightingSail,,FightingSailOrDestroyer,NotPlains,[2 2 2],[0 0 0],[2 2 2],[0 0 2],[0 0 0],[2 2 2],[0 2 2],[0 0 2],[2 2 2],[1 2 2],[0 0 2],[1 2 2]
+Frigate,,FrigateOrSubmarine,NotPlains,[0 1 1],[0 1 1],[0 1 3],[0 1 1],[0 1 1],[0 1 3],[0 1 1],[0 1 1],[0 1 0],[0 1 1],[1 0 0],[0 1 2]
+TransportHelicopter,TransportHelicopter,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+Fighter,Fighter,,InAirport,[1 1 2],[0 0 01],[1 2 5],[0 1 2],[0 0 2],[1 2 6],[1 1 2],[0 0 2],[1 2 4],[1 2 2],[0 1 1],[1 2 5]
+FighterBomber,FighterBomber,,InAirport,[1 0 1],[0 1 2],[1 1 1],[0 0 1],[0 1 0],[1 1 0],[1 0 1],[0 1 1],[1 1 3],[1 1 1],[0 0 0],[1 1 2]
+Bomber,Bomber,,InAirport,[0 1 2],[1 1 2],[0 0 1],[1 1 2],[1 1 3],[1 0 1],[0 1 2],[1 1 2],[0 0 0],[0 0 2],[1 1 3],[0 0 0]
+NuclearBomber,NuclearBomber,,InAirport,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+NonCombatAir2,NonCombatAir2,,InAirport,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+AircraftCarrier,AircraftCarrier,,NotPlains,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+ObservationBalloon,,BalloonOrSatellite,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+TradeCart,TradeCart,,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+Ram,,RamOrArtillery,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+SiegeTower,,TowerOrArtillery,,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+MerchantShip,MerchantShip,,NotPlains,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 2 2],[0 1 1],[0 0 1],[1 2 3],[2 2 1],[1 1 2]
+FishingShip,FishingShip,,NotPlains,[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0],[0 0 0]
+CargoShip,CargoShip,,NotPlains,[0 2 0],[0 1 0],[0 2 2],[0 2 0],[0 1 0],[0 2 2],[1 0 4],[1 0 2],[0 1 0],[0 0 1],[2 2 1],[0 1 2]

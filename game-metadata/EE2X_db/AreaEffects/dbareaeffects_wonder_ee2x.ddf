@@ -1,0 +1,50 @@
+//////////////////////////////Wonder Area Effects//////////////////////////////
+
+//------------------------------------------------------------------------------------------------
+//	AFRICAN WONDERS
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	MANYATTA OF THE WARRIORS (EPOCH 1)
+//	POWER: units love you (african wonder power)
+//	DESC: One Light Infantry unit is produced every X minutes and every yth unit is that civ's unique unit
+//------------------------------------------------
+DbAreaEffectInfo WonderPowerAfrican_1
+{
+	name = text_rarea_manyatta_name
+	desc = text_rarea_manyatta_desc
+
+	effects = [
+			EffectSpawn {
+				range = Unit
+				usePlayersCivilization = true	// true, create units in the player's civilization
+				restrictToPopCap = true	// true, don't create units if it will push above pop cap
+				
+				delay = 60;	// how many seconds until next spawn time.
+				minCount = 1;	// how many units (minimum) to spawn when the time comes
+				maxCount = 1;	// how many units (maximum) to spawn when the time comes
+				unitTypes = [ "LightInfantry", "LightInfantry", "LightInfantry", "LightInfantry", "UniqueUnit" ]; // what kind of units to spawn, randomly chooses
+			}
+		]
+}
+
+//------------------------------------------------
+//	MARKET OF DJENNE (EPOCH 6)
+//	POWER: Trade loves you (african wonder power)
+//	DESC: The player receives a percentage of gold from all Market trade routes on the map whether enemy, neutral or ally.
+//------------------------------------------------
+DbAreaEffectInfo WonderPowerAfrican_6
+{
+	name = text_rarea_djenne_name
+	desc = text_rarea_djenne_desc
+
+	effects = [
+		EffectBlackMarket {
+			range = SpaceTime
+			player = Self
+
+			TypeToSteal = Gold
+			AmountPerTransactionFixed = 1
+			AffectSelf = 1
+		}
+	]
+}

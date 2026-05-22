@@ -408,6 +408,20 @@ CivUpgd_Wall_Cost,,WallsGatesTowers,,0,Cost,AddPermMul,-10,0,None
 CivUpgd_Fort_Health,,Fortress,,0,HitPoints,AddPermMul,15,0,None
 CivUpgd_Pallisade_Health,,PalisadesGates,,0,HitPoints,AddPermMul,15,0,None
 
+// --- China E14 Civilization Bonuses ---
+CivUpgd_Fortress_HP,,Fortress,,0,HitPoints,AddPermMul,300,0,None
+CivUpgd_Tower_HP,,Outpost,,0,HitPoints,AddPermMul,100,0,None
+CivUpgd_Infantry_Cost_LI,,LightInfantry,,0,Cost,AddPermMul,-15,0,None
+CivUpgd_Infantry_Cost_HI,,HeavyInfantryAll,,0,Cost,AddPermMul,-15,0,None
+CivUpgd_Infantry_BT_LI,,LightInfantry,,0,BuildTime,AddPermMul,-30,0,None
+CivUpgd_Infantry_BT_HI,,HeavyInfantryAll,,0,BuildTime,AddPermMul,-30,0,None
+CivUpgd_Citizen_GatherFood,,Citizens,,0,GatherFood,AddPermMul,50,0,None
+CivUpgd_Citizen_GatherWood,,Citizens,,0,GatherWood,AddPermMul,50,0,None
+CivUpgd_Navy_Cost,,NavalDeep,,0,Cost,AddPermMul,15,0,None
+CivUpgd_Navy_HP,,NavalDeep,,0,HitPoints,AddPermMul,-10,0,None
+CivUpgd_Air_Cost,,FightersAndBombers,,0,Cost,AddPermMul,15,0,None
+CivUpgd_Air_HP,,FightersAndBombers,,0,HitPoints,AddPermMul,-10,0,None
+
 // OTHER,,,,,,,,,
 // general resource gathering upgrades,,,,,,,,,
 BasicGather_Food,,TT_BasicGathering,,0,GatherFood,AddPermMul,30,0,None

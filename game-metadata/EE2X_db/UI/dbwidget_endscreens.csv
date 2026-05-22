@@ -1,0 +1,571 @@
+//NAME,CLASS,PARENT,INC ACCUM DEPTH,ANCHORNAME1,ANCHORTYPE1,ANCHORNAME2,ANCHORTYPE2,XOFF,YOFF,XOFF ANCHOR2,YOFF ANCHOR2,WIDTH,HEIGHT,SPRITE,FRAMESTYLE,BUTTONSTYLE,FONTSTYLE,TEXTJUST,XTEXTOFF,YTEXTOFF,LABEL,TOOLTIP,VERBOSE,NOMOUSE,CMDSTR,ARGSTR
+
+
+// @TODO just use fe scrollbar?,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_scrollbar,ScrollBar,,0,,,,,0,0,0,0,25,128,spr_fe_bkg_scroll,wfs_fe_scroll_bkg,,,,0,0,,,,0,,"""slider=egstats_scrollbar_slider up=egstats_scrollbar_up down=egstats_scrollbar_down"""
+egstats_scrollbar_slider,Sprite,,0,,,,,0,0,0,0,25,50,spr_fe_scroll_vert,wfs_fe_scroll_slider,TwoState,,,0,0,,,,0,,""""""
+egstats_scrollbar_up,Sprite,,0,,,,,0,0,0,0,25,25,spr_fe_scroll_up,,TwoStateRollover,,,0,0,,,,0,,""""""
+egstats_scrollbar_down,Sprite,,0,,,,,0,0,0,0,25,25,spr_fe_scroll_down,,TwoStateRollover,,,0,0,,,,0,,""""""
+
+
+////////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// WIDGETS ON ALL EGSTATS PANES,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// root,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_root,Unknown,,0,,,,,0,0,0,0,1600,1200,,wfs_fe_screen,,,,0,0,,,,1,,""""""
+
+// 'done' button,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_done,Button,egstats_root,0,,SourceLRTargetLR,,,-25,-15,0,0,344,87,spr_fe_button_big,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_done,,,0,,""""""
+egstats_logstats,Button,egstats_root,0,,SourceLLTargetLL,,,25,-15,0,0,344,87,spr_fe_button_big,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_savestats,,,0,,""""""
+
+// the main panel,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_panel,Widget,egstats_root,0,,SourceULTargetUL,,SourceLRTargetLR,25,25,-25,-115,-1,-1,,wfs_fe_panel,,,,0,0,,,,1,,""""""
+egstats_bkg1,Sprite,egstats_panel,0,,SourceULTargetUL,,,0,0,0,0,512,512,spr_fe_panel_bkg_top_left,,,,,0,0,,,,1,,"""tileUV tilingScale=2.0"""
+egstats_bkg2,Sprite,egstats_panel,0,egstats_bkg1,SourceURTargetUL,,,0,0,0,0,512,512,spr_fe_panel_bkg_top_mid,,,,,0,0,,,,1,,"""tileUV tilingScale=2.0"""
+egstats_bkg3,Sprite,egstats_panel,0,egstats_bkg2,SourceURTargetUL,,SourceURTargetUR,0,0,0,0,-1,512,spr_fe_panel_bkg_top_right,,,,,0,0,,,,1,,"""tileUV tilingScale=2.0"""
+egstats_bkg4,Sprite,egstats_panel,0,egstats_bkg1,SourceLLTargetUL,,SourceLLTargetLL,0,0,0,0,512,-1,spr_fe_panel_bkg_bot_left,,,,,0,0,,,,1,,"""tileUV tilingScale=2.0"""
+egstats_bkg5,Sprite,egstats_panel,0,egstats_bkg4,SourceURTargetUL,egstats_bkg4,SourceLRTargetLL,0,0,0,0,512,-1,spr_fe_panel_bkg_bot_mid,,,,,0,0,,,,1,,"""tileUV tilingScale=2.0"""
+egstats_bkg6,Sprite,egstats_panel,0,egstats_bkg5,SourceURTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,spr_fe_panel_bkg_bot_right,,,,,0,0,,,,1,,"""tileUV tilingScale=2.0"""
+
+// the panes,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_summary_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_crowns_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_flags_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_military_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_military2_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_battles_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_economy_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_trade_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_imperial_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_diplomacy_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_technology_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_timeline_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_misc_pane,Widget,egstats_panel,0,,SourceULTargetUL,,SourceLRTargetLR,0,160,0,-85,-1,-1,,,,,,0,0,,,,1,,""""""
+
+// the tabs,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_summary_tab,RadioButton,egstats_panel,0,,,,,30,20,0,0,205,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_summary,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_summary_pane, value=1"""
+egstats_crowns_tab,RadioButton,egstats_panel,0,egstats_summary_tab,SourceLRTargetLL,,,0,0,0,0,206,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_crowns,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_crowns_pane, value=0"""
+egstats_flags_tab,RadioButton,egstats_panel,0,egstats_crowns_tab,SourceLRTargetLL,,,0,0,0,0,206,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_flags,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_flags_pane, value=0"""
+egstats_military_tab,RadioButton,egstats_panel,0,egstats_flags_tab,SourceLRTargetLL,,,0,0,0,0,206,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_military,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_military_pane, value=0"""
+egstats_military2_tab,RadioButton,egstats_panel,0,egstats_military_tab,SourceLRTargetLL,,,0,0,0,0,206,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_military2,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_military2_pane, value=0"""
+egstats_battle_tab,RadioButton,egstats_panel,0,egstats_military2_tab,SourceLRTargetLL,,,0,0,0,0,205,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_battles,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_battles_pane, value=0"""
+egstats_economy_tab,RadioButton,egstats_panel,0,egstats_battle_tab,SourceLRTargetLL,,SourceLRTargetLR,0,0,-30,0,-1,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_economy,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_economy_pane, value=0"""
+egstats_trade_tab,RadioButton,egstats_panel,0,egstats_summary_tab,SourceLLTargetUL,,,0,0,0,0,240,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_trade,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_trade_pane, value=0"""
+egstats_imperial_tab,RadioButton,egstats_panel,0,egstats_trade_tab,SourceLRTargetLL,,,0,0,0,0,240,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_imperial,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_imperial_pane, value=0"""
+egstats_diplomacy_tab,RadioButton,egstats_panel,0,egstats_imperial_tab,SourceLRTargetLL,,,0,0,0,0,240,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_diplomacy,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_diplomacy_pane, value=0"""
+egstats_technology_tab,RadioButton,egstats_panel,0,egstats_diplomacy_tab,SourceLRTargetLL,,,0,0,0,0,240,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_technology,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_technology_pane, value=0"""
+egstats_timeline_tab,RadioButton,egstats_panel,0,egstats_technology_tab,SourceLRTargetLL,,,0,0,0,0,240,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_timeline,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_timeline_pane, value=0"""
+egstats_misc_tab,RadioButton,egstats_panel,0,egstats_timeline_tab,SourceLRTargetLL,,SourceLRTargetLR,0,0,-30,0,-1,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_misc,,,0,,"""family=egstats_tab_family, widgetToShowHide=egstats_misc_pane, value=0"""
+
+// misc widgets on all panes,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_timeplayed_text,Text,egstats_panel,0,,SourceLLTargetLL,,SourceLRTargetLR,0,-15,0,0,-1,40,,,,fs_std_large_white,CenterMid,0,0,,,,1,,""""""
+egstats_divider_top,Sprite,egstats_panel,0,,SourceULTargetUL,,SourceURTargetUR,35,140,-35,0,-1,7,spr_fe_divider_horiz,,,,,0,0,,,,1,,""""""
+egstats_divider_bottom,Sprite,egstats_panel,0,,SourceLLTargetLL,,SourceLRTargetLR,35,-60,-35,0,-1,7,spr_fe_divider_horiz,,,,,0,0,,,,1,,""""""
+
+// player name background pieces,,,,,,,,,,,,,,,,,,,,,,,,,,
+// @NOTE these should go after the panes so they draw in front of ledger lines,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_pl_name_bkg_0,Sprite,egstats_panel,0,,,,,57,295,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+egstats_pl_name_bkg_1,Sprite,egstats_panel,0,egstats_pl_name_bkg_0,SourceLLTargetUL,,,0,20,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+egstats_pl_name_bkg_2,Sprite,egstats_panel,0,egstats_pl_name_bkg_1,SourceLLTargetUL,,,0,20,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+egstats_pl_name_bkg_3,Sprite,egstats_panel,0,egstats_pl_name_bkg_2,SourceLLTargetUL,,,0,20,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+egstats_pl_name_bkg_4,Sprite,egstats_panel,0,egstats_pl_name_bkg_3,SourceLLTargetUL,,,0,20,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+egstats_pl_name_bkg_5,Sprite,egstats_panel,0,egstats_pl_name_bkg_4,SourceLLTargetUL,,,0,20,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+egstats_pl_name_bkg_6,Sprite,egstats_panel,0,egstats_pl_name_bkg_5,SourceLLTargetUL,,,0,20,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+egstats_pl_name_bkg_7,Sprite,egstats_panel,0,egstats_pl_name_bkg_6,SourceLLTargetUL,,,0,20,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+egstats_pl_name_bkg_8,Sprite,egstats_panel,0,egstats_pl_name_bkg_7,SourceLLTargetUL,,,0,20,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+egstats_pl_name_bkg_9,Sprite,egstats_panel,0,egstats_pl_name_bkg_8,SourceLLTargetUL,,,0,20,0,0,250,34,spr_postgame_player_bkg,,,,,0,0,,,,1,,""""""
+
+// player name text,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_pl_name_0,Text,egstats_pl_name_bkg_0,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+egstats_pl_name_1,Text,egstats_pl_name_bkg_1,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+egstats_pl_name_2,Text,egstats_pl_name_bkg_2,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+egstats_pl_name_3,Text,egstats_pl_name_bkg_3,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+egstats_pl_name_4,Text,egstats_pl_name_bkg_4,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+egstats_pl_name_5,Text,egstats_pl_name_bkg_5,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+egstats_pl_name_6,Text,egstats_pl_name_bkg_6,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+egstats_pl_name_7,Text,egstats_pl_name_bkg_7,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+egstats_pl_name_8,Text,egstats_pl_name_bkg_8,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+egstats_pl_name_9,Text,egstats_pl_name_bkg_9,0,,SourceULTargetUL,,SourceLRTargetLR,8,0,-8,0,-1,-1,,,,fs_std_med_white_sc_drop,LeftMid,0,0,,,,1,,"""autoTruncStd"""
+
+
+
+// ledger lines,,,,,,,,,,,,,,,,,,,,,,,,,,
+// created multiple times as needed by some of the panes,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_ledger_cont,Widget,,0,,SourceULTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+egstats_ledger_0,Widget,egstats_ledger_cont,0,egstats_pl_name_bkg_0,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,,,,,,0,0,,,,1,,""""""
+egstats_ledger_1,Sprite,egstats_ledger_cont,0,egstats_pl_name_bkg_1,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,spr_blackpixel_alpha25,,,,,0,0,,,,1,,""""""
+egstats_ledger_2,Widget,egstats_ledger_cont,0,egstats_pl_name_bkg_2,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,,,,,,0,0,,,,1,,""""""
+egstats_ledger_3,Sprite,egstats_ledger_cont,0,egstats_pl_name_bkg_3,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,spr_blackpixel_alpha25,,,,,0,0,,,,1,,""""""
+egstats_ledger_4,Widget,egstats_ledger_cont,0,egstats_pl_name_bkg_4,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,,,,,,0,0,,,,1,,""""""
+egstats_ledger_5,Sprite,egstats_ledger_cont,0,egstats_pl_name_bkg_5,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,spr_blackpixel_alpha25,,,,,0,0,,,,1,,""""""
+egstats_ledger_6,Widget,egstats_ledger_cont,0,egstats_pl_name_bkg_6,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,,,,,,0,0,,,,1,,""""""
+egstats_ledger_7,Sprite,egstats_ledger_cont,0,egstats_pl_name_bkg_7,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,spr_blackpixel_alpha25,,,,,0,0,,,,1,,""""""
+egstats_ledger_8,Widget,egstats_ledger_cont,0,egstats_pl_name_bkg_8,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,,,,,,0,0,,,,1,,""""""
+egstats_ledger_9,Sprite,egstats_ledger_cont,0,egstats_pl_name_bkg_9,SourceULTargetUL,,SourceURTargetUR,-10,-10,-10,0,-1,54,spr_blackpixel_alpha25,,,,,0,0,,,,1,,""""""
+
+// end game stats widgets referenced programmatically,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_column_star,Sprite,,0,,SourceULTargetUL,,SourceURTargetUR,-1,0,1,0,-1,45,spr_stats_gold_frame,,,,,0,0,,,,1,,""""""
+egstats_column_star_large,Sprite,,0,,SourceULTargetUL,,SourceURTargetUR,-1,0,1,0,-1,45,spr_stats_gold_frame_large,,,,,0,0,,,,1,,""""""
+egstats_column_lose,Sprite,,0,,SourceULTargetUL,,SourceURTargetUR,-1,0,1,0,-1,45,spr_stats_red_frame,,,,,0,0,,,,1,,""""""
+egstats_infinity,Sprite,,0,,,,,0,0,0,0,48,30,spr_stats_infinity,,,,,0,0,,,,1,,""""""
+
+// single text entry for a column,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_column_entry_text,Text,,0,,,,,0,0,0,0,2,54,,,,fs_std_med_black_feButton,CenterMid,0,0,,,,1,,"""autoTruncStd"""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// SUMMARY PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// summary pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_sum_col_0,Sprite,egstats_summary_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,65,-14,0,14,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_s_gamescore""",,0,,"""tileUV tilingScale=1.5"""
+egstats_sum_col_1,Sprite,egstats_summary_pane,0,egstats_sum_col_0,SourceURTargetUL,egstats_sum_col_0,SourceLRTargetLL,50,0,0,0,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_s_military""",,0,,"""tileUV tilingScale=1.5"""
+egstats_sum_col_2,Sprite,egstats_summary_pane,0,egstats_sum_col_1,SourceURTargetUL,egstats_sum_col_1,SourceLRTargetLL,50,0,0,0,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_s_economy""",,0,,"""tileUV tilingScale=1.5"""
+egstats_sum_col_3,Sprite,egstats_summary_pane,0,egstats_sum_col_2,SourceURTargetUL,egstats_sum_col_2,SourceLRTargetLL,50,0,0,0,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_s_imperial""",,0,,"""tileUV tilingScale=1.5"""
+egstats_sum_col_4,Sprite,egstats_summary_pane,0,egstats_sum_col_3,SourceURTargetUL,egstats_sum_col_3,SourceLRTargetLL,50,0,0,0,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_s_totalscore""",,0,,"""tileUV tilingScale=1.5"""
+
+// summary pane titles,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_sum_title_0,Text,egstats_summary_pane,0,egstats_sum_col_0,SourceULTargetLL,egstats_sum_col_0,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_gamepts,"""tt_stats_s_gamescore""",,0,,"""noClip wordWrap"""
+egstats_sum_title_1,Text,egstats_summary_pane,0,egstats_sum_col_1,SourceULTargetLL,egstats_sum_col_1,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_miltarypts,"""tt_stats_s_military""",,0,,"""noClip wordWrap"""
+egstats_sum_title_2,Text,egstats_summary_pane,0,egstats_sum_col_2,SourceULTargetLL,egstats_sum_col_2,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_economypts,"""tt_stats_s_economy""",,0,,"""noClip wordWrap"""
+egstats_sum_title_3,Text,egstats_summary_pane,0,egstats_sum_col_3,SourceULTargetLL,egstats_sum_col_3,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_imperialpts,"""tt_stats_s_imperial""",,0,,"""noClip wordWrap"""
+egstats_sum_title_4,Text,egstats_summary_pane,0,egstats_sum_col_4,SourceULTargetLL,egstats_sum_col_4,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_totalpts,"""tt_stats_s_totalscore""",,0,,"""noClip wordWrap"""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// CROWNS PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// crown pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_crown_col_0,Sprite,egstats_crowns_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,200,-14,0,14,200,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_c_military""",,0,,"""tileU"""
+egstats_crown_col_1,Sprite,egstats_crowns_pane,0,egstats_crown_col_0,SourceURTargetUL,egstats_crown_col_0,SourceLRTargetLL,80,0,0,0,200,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_c_economy""",,0,,"""tileU"""
+egstats_crown_col_2,Sprite,egstats_crowns_pane,0,egstats_crown_col_1,SourceURTargetUL,egstats_crown_col_1,SourceLRTargetLL,80,0,0,0,200,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_c_imperial""",,0,,"""tileU"""
+
+// crown pane titles,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_crown_title_0,Text,egstats_crowns_pane,0,egstats_crown_col_0,SourceULTargetLL,egstats_crown_col_0,SourceURTargetLR,0,-84,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_militarycrown,"""tt_stats_c_military""",,0,,"""noClip wordWrap"""
+egstats_crown_title_1,Text,egstats_crowns_pane,0,egstats_crown_col_1,SourceULTargetLL,egstats_crown_col_1,SourceURTargetLR,0,-84,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_economycrown,"""tt_stats_c_economy""",,0,,"""noClip wordWrap"""
+egstats_crown_title_2,Text,egstats_crowns_pane,0,egstats_crown_col_2,SourceULTargetLL,egstats_crown_col_2,SourceURTargetLR,0,-84,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_imperialcrown,"""tt_stats_c_imperial""",,0,,"""noClip wordWrap"""
+
+// crown pane icons,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_crown_icon_0,Sprite,egstats_crowns_pane,0,egstats_crown_col_0,SourceULTargetLL,,,72,-10,0,0,64,64,icon_crown_military,,,,,0,0,,"""tt_stats_c_military""",,0,,""""""
+egstats_crown_icon_1,Sprite,egstats_crowns_pane,0,egstats_crown_col_1,SourceULTargetLL,,,72,-10,0,0,64,64,icon_crown_economic,,,,,0,0,,"""tt_stats_c_economy""",,0,,""""""
+egstats_crown_icon_2,Sprite,egstats_crowns_pane,0,egstats_crown_col_2,SourceULTargetLL,,,72,-10,0,0,64,64,icon_crown_imperial,,,,,0,0,,"""tt_stats_c_imperial""",,0,,""""""
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// FLAGS PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// flag pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_flag_col_0,Sprite,egstats_flags_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,20,-14,0,14,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_f_naval""",,0,,"""tileU"""
+egstats_flag_col_1,Sprite,egstats_flags_pane,0,egstats_flag_col_0,SourceURTargetUL,egstats_flag_col_0,SourceLRTargetLL,16,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_f_air""",,0,,"""tileU"""
+egstats_flag_col_2,Sprite,egstats_flags_pane,0,egstats_flag_col_1,SourceURTargetUL,egstats_flag_col_1,SourceLRTargetLL,16,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_f_infantry""",,0,,"""tileU"""
+egstats_flag_col_3,Sprite,egstats_flags_pane,0,egstats_flag_col_2,SourceURTargetUL,egstats_flag_col_2,SourceLRTargetLL,16,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_f_mobile""",,0,,"""tileU"""
+egstats_flag_col_4,Sprite,egstats_flags_pane,0,egstats_flag_col_3,SourceURTargetUL,egstats_flag_col_3,SourceLRTargetLL,16,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_f_machine""",,0,,"""tileU"""
+egstats_flag_col_5,Sprite,egstats_flags_pane,0,egstats_flag_col_4,SourceURTargetUL,egstats_flag_col_4,SourceLRTargetLL,16,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_f_cultural""",,0,,"""tileU"""
+egstats_flag_col_6,Sprite,egstats_flags_pane,0,egstats_flag_col_5,SourceURTargetUL,egstats_flag_col_5,SourceLRTargetLL,16,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_f_religious""",,0,,"""tileU"""
+egstats_flag_col_7,Sprite,egstats_flags_pane,0,egstats_flag_col_6,SourceURTargetUL,egstats_flag_col_6,SourceLRTargetLL,16,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_f_financial""",,0,,"""tileU"""
+
+// flag pane icons,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_flag_icon_0,Sprite,egstats_flags_pane,0,egstats_flag_col_0,SourceULTargetLL,,,30,-10,0,0,64,32,spr_flag_naval,,,,,0,0,,"""tt_stats_f_naval""",,0,,""""""
+egstats_flag_icon_1,Sprite,egstats_flags_pane,0,egstats_flag_col_1,SourceULTargetLL,,,30,-10,0,0,64,32,spr_flag_air,,,,,0,0,,"""tt_stats_f_air""",,0,,""""""
+egstats_flag_icon_2,Sprite,egstats_flags_pane,0,egstats_flag_col_2,SourceULTargetLL,,,30,-10,0,0,64,32,spr_flag_infantry,,,,,0,0,,"""tt_stats_f_infantry""",,0,,""""""
+egstats_flag_icon_3,Sprite,egstats_flags_pane,0,egstats_flag_col_3,SourceULTargetLL,,,30,-10,0,0,64,32,spr_flag_mobile,,,,,0,0,,"""tt_stats_f_mobile""",,0,,""""""
+egstats_flag_icon_4,Sprite,egstats_flags_pane,0,egstats_flag_col_4,SourceULTargetLL,,,30,-10,0,0,64,32,spr_flag_machine,,,,,0,0,,"""tt_stats_f_machine""",,0,,""""""
+egstats_flag_icon_5,Sprite,egstats_flags_pane,0,egstats_flag_col_5,SourceULTargetLL,,,30,-10,0,0,64,32,spr_flag_cultural,,,,,0,0,,"""tt_stats_f_cultural""",,0,,""""""
+egstats_flag_icon_6,Sprite,egstats_flags_pane,0,egstats_flag_col_6,SourceULTargetLL,,,30,-10,0,0,64,32,spr_flag_religious,,,,,0,0,,"""tt_stats_f_religious""",,0,,""""""
+egstats_flag_icon_7,Sprite,egstats_flags_pane,0,egstats_flag_col_7,SourceULTargetLL,,,30,-10,0,0,64,32,spr_flag_financial,,,,,0,0,,"""tt_stats_f_financial""",,0,,""""""
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// MILITARY PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+//military pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_mil_col_0,Sprite,egstats_military_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,20,-14,0,14,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_eunits_killed""",,0,,"""tileU"""
+egstats_mil_col_1,Sprite,egstats_military_pane,0,egstats_mil_col_0,SourceURTargetUL,egstats_mil_col_0,SourceLRTargetLL,6,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_ebuild_razed""",,0,,"""tileU"""
+egstats_mil_col_2,Sprite,egstats_military_pane,0,egstats_mil_col_1,SourceURTargetUL,egstats_mil_col_1,SourceLRTargetLL,6,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_ebuild_capt""",,0,,"""tileU"""
+egstats_mil_col_3,Sprite,egstats_military_pane,0,egstats_mil_col_2,SourceURTargetUL,egstats_mil_col_2,SourceLRTargetLL,6,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_ecc_razed""",,0,,"""tileU"""
+egstats_mil_col_4,Sprite,egstats_military_pane,0,egstats_mil_col_3,SourceURTargetUL,egstats_mil_col_3,SourceLRTargetLL,9,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_units_killed""",,0,,"""tileU"""
+egstats_mil_col_5,Sprite,egstats_military_pane,0,egstats_mil_col_4,SourceURTargetUL,egstats_mil_col_4,SourceLRTargetLL,6,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_build_razed""",,0,,"""tileU"""
+egstats_mil_col_6,Sprite,egstats_military_pane,0,egstats_mil_col_5,SourceURTargetUL,egstats_mil_col_5,SourceLRTargetLL,6,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_build_capt""",,0,,"""tileU"""
+egstats_mil_col_7,Sprite,egstats_military_pane,0,egstats_mil_col_6,SourceURTargetUL,egstats_mil_col_6,SourceLRTargetLL,6,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_cc_razed""",,0,,"""tileU"""
+egstats_mil_col_8,Sprite,egstats_military_pane,0,egstats_mil_col_7,SourceURTargetUL,egstats_mil_col_7,SourceLRTargetLL,9,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_vet_upgrades""",,0,,"""tileU"""
+egstats_mil_col_9,Sprite,egstats_military_pane,0,egstats_mil_col_8,SourceURTargetUL,egstats_mil_col_8,SourceLRTargetLL,6,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_elite_upgrades""",,0,,"""tileU"""
+egstats_mil_col_10,Sprite,egstats_military_pane,0,egstats_mil_col_9,SourceURTargetUL,egstats_mil_col_9,SourceLRTargetLL,6,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_killratio""",,0,,"""tileU"""
+egstats_mil_col_11,Sprite,egstats_military_pane,0,egstats_mil_col_10,SourceURTargetUL,egstats_mil_col_10,SourceLRTargetLL,6,0,0,0,80,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_w_killratio""",,0,,"""tileU"""
+
+// military pane titles,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_mil_icon_0,Sprite,egstats_military_pane,0,egstats_mil_col_0,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_dest_unit,,,,,0,0,,"""tt_stats_m_eunits_killed""",,0,,""""""
+egstats_mil_icon_1,Sprite,egstats_military_pane,0,egstats_mil_col_1,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_dest_building,,,,,0,0,,"""tt_stats_m_ebuild_razed""",,0,,""""""
+egstats_mil_icon_2,Sprite,egstats_military_pane,0,egstats_mil_col_2,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_capt_building,,,,,0,0,,"""tt_stats_m_ebuild_capt""",,0,,""""""
+egstats_mil_icon_3,Sprite,egstats_military_pane,0,egstats_mil_col_3,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_dest_cc,,,,,0,0,,"""tt_stats_m_ecc_razed""",,0,,""""""
+egstats_mil_icon_4,Sprite,egstats_military_pane,0,egstats_mil_col_4,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_dest_unit,,,,,0,0,,"""tt_stats_m_units_killed""",,0,,""""""
+egstats_mil_icon_5,Sprite,egstats_military_pane,0,egstats_mil_col_5,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_dest_building,,,,,0,0,,"""tt_stats_m_build_razed""",,0,,""""""
+egstats_mil_icon_6,Sprite,egstats_military_pane,0,egstats_mil_col_6,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_capt_building,,,,,0,0,,"""tt_stats_m_build_capt""",,0,,""""""
+egstats_mil_icon_7,Sprite,egstats_military_pane,0,egstats_mil_col_7,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_dest_cc,,,,,0,0,,"""tt_stats_m_cc_razed""",,0,,""""""
+egstats_mil_icon_8,Sprite,egstats_military_pane,0,egstats_mil_col_8,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_vetupgrades,,,,,0,0,,"""tt_stats_m_vet_upgrades""",,0,,""""""
+egstats_mil_icon_9,Sprite,egstats_military_pane,0,egstats_mil_col_9,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_eliteupgrades,,,,,0,0,,"""tt_stats_m_elite_upgrades""",,0,,""""""
+egstats_mil_icon_10,Sprite,egstats_military_pane,0,egstats_mil_col_10,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_killratio,,,,,0,0,,"""tt_stats_m_killratio""",,0,,""""""
+egstats_mil_icon_11,Sprite,egstats_military_pane,0,egstats_mil_col_11,SourceULTargetLL,,,12,-15,0,0,64,64,icon_postgame_w_killratio,,,,,0,0,,"""tt_stats_m_w_killratio""",,0,,""""""
+egstats_mil_enemy,Text,egstats_military_pane,0,egstats_mil_col_0,SourceULTargetLL,egstats_mil_col_3,SourceURTargetLR,0,-90,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_mil_enemy,,,1,,""""""
+egstats_mil_player,Text,egstats_military_pane,0,egstats_mil_col_4,SourceULTargetLL,egstats_mil_col_7,SourceURTargetLR,0,-90,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_mil_player,,,1,,""""""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// MILITARY 2 PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+//military2 pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_mil2_col_0,Sprite,egstats_military2_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,20,-14,0,14,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_largest_army""",,0,,"""tileU"""
+egstats_mil2_col_1,Sprite,egstats_military2_pane,0,egstats_mil2_col_0,SourceURTargetUL,egstats_mil2_col_0,SourceLRTargetLL,7,0,0,0,239,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_mosteffective""",,0,,"""tileU"""
+egstats_mil2_col_2,Sprite,egstats_military2_pane,0,egstats_mil2_col_1,SourceURTargetUL,egstats_mil2_col_1,SourceLRTargetLL,7,0,0,0,239,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_leasteffective""",,0,,"""tileU"""
+egstats_mil2_col_3,Sprite,egstats_military2_pane,0,egstats_mil2_col_2,SourceURTargetUL,egstats_mil2_col_2,SourceLRTargetLL,7,0,0,0,239,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_mosteffectiveenemy""",,0,,"""tileU"""
+egstats_mil2_col_4,Sprite,egstats_military2_pane,0,egstats_mil2_col_3,SourceURTargetUL,egstats_mil2_col_3,SourceLRTargetLL,7,0,0,0,239,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_m_leasteffectiveenemy""",,0,,"""tileU"""
+
+// military2 pane titles,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_mil2_title_0,Text,egstats_military2_pane,0,egstats_mil2_col_0,SourceULTargetLL,egstats_mil2_col_0,SourceURTargetLR,0,-10,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_mil_largestarmy,"""tt_stats_m_largest_army""",,0,,"""noClip wordWrap"""
+egstats_mil2_title_1,Text,egstats_military2_pane,0,egstats_mil2_col_1,SourceULTargetLL,egstats_mil2_col_1,SourceURTargetLR,0,-10,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_mil_mosteffective,"""tt_stats_m_mosteffective""",,0,,"""noClip wordWrap"""
+egstats_mil2_title_2,Text,egstats_military2_pane,0,egstats_mil2_col_2,SourceULTargetLL,egstats_mil2_col_2,SourceURTargetLR,0,-10,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_mil_leasteffective,"""tt_stats_m_leasteffective""",,0,,"""noClip wordWrap"""
+egstats_mil2_title_3,Text,egstats_military2_pane,0,egstats_mil2_col_3,SourceULTargetLL,egstats_mil2_col_3,SourceURTargetLR,0,-10,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_mil_mosteffenemy,"""tt_stats_m_mosteffectiveenemy""",,0,,"""noClip wordWrap"""
+egstats_mil2_title_4,Text,egstats_military2_pane,0,egstats_mil2_col_4,SourceULTargetLL,egstats_mil2_col_4,SourceURTargetLR,0,-10,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_mil_leasteffenemy,"""tt_stats_m_leasteffectiveenemy""",,0,,"""noClip wordWrap"""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// ECONOMY PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// economy pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_ec_col_0,Sprite,egstats_economy_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,20,-14,0,14,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_food,,0,,"""tileU"""
+egstats_ec_col_1,Sprite,egstats_economy_pane,0,egstats_ec_col_0,SourceURTargetUL,egstats_ec_col_0,SourceLRTargetLL,6,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_wood,,0,,"""tileU"""
+egstats_ec_col_2,Sprite,egstats_economy_pane,0,egstats_ec_col_1,SourceURTargetUL,egstats_ec_col_1,SourceLRTargetLL,6,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_stone,,0,,"""tileU"""
+egstats_ec_col_3,Sprite,egstats_economy_pane,0,egstats_ec_col_2,SourceURTargetUL,egstats_ec_col_2,SourceLRTargetLL,6,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_gold,,0,,"""tileU"""
+egstats_ec_col_4,Sprite,egstats_economy_pane,0,egstats_ec_col_3,SourceURTargetUL,egstats_ec_col_3,SourceLRTargetLL,6,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_tin,,0,,"""tileU"""
+egstats_ec_col_5,Sprite,egstats_economy_pane,0,egstats_ec_col_4,SourceURTargetUL,egstats_ec_col_4,SourceLRTargetLL,6,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_iron,,0,,"""tileU"""
+egstats_ec_col_6,Sprite,egstats_economy_pane,0,egstats_ec_col_5,SourceURTargetUL,egstats_ec_col_5,SourceLRTargetLL,6,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_saltpeter,,0,,"""tileU"""
+egstats_ec_col_7,Sprite,egstats_economy_pane,0,egstats_ec_col_6,SourceURTargetUL,egstats_ec_col_6,SourceLRTargetLL,6,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_oil,,0,,"""tileU"""
+egstats_ec_col_8,Sprite,egstats_economy_pane,0,egstats_ec_col_7,SourceURTargetUL,egstats_ec_col_7,SourceLRTargetLL,6,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_uranium,,0,,"""tileU"""
+egstats_ec_col_9,Sprite,egstats_economy_pane,0,egstats_ec_col_8,SourceURTargetUL,egstats_ec_col_8,SourceLRTargetLL,14,0,0,0,105,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_tot_gather,,0,,"""tileU"""
+egstats_ec_col_10,Sprite,egstats_economy_pane,0,egstats_ec_col_9,SourceURTargetUL,egstats_ec_col_9,SourceLRTargetLL,6,0,0,0,105,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,tt_stats_e_tot_spent,,0,,"""tileU"""
+
+// ec pane titles,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_ec_icon_0,Sprite,egstats_economy_pane,0,egstats_ec_col_0,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_food,,,,,0,0,,"""tt_stats_e_food""",,1,,""""""
+egstats_ec_icon_1,Sprite,egstats_economy_pane,0,egstats_ec_col_1,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_wood,,,,,0,0,,"""tt_stats_e_wood""",,1,,""""""
+egstats_ec_icon_2,Sprite,egstats_economy_pane,0,egstats_ec_col_2,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_stone,,,,,0,0,,"""tt_stats_e_stone""",,1,,""""""
+egstats_ec_icon_3,Sprite,egstats_economy_pane,0,egstats_ec_col_3,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_gold,,,,,0,0,,"""tt_stats_e_gold""",,1,,""""""
+egstats_ec_icon_4,Sprite,egstats_economy_pane,0,egstats_ec_col_4,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_tin,,,,,0,0,,"""tt_stats_e_tin""",,1,,""""""
+egstats_ec_icon_5,Sprite,egstats_economy_pane,0,egstats_ec_col_5,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_iron,,,,,0,0,,"""tt_stats_e_iron""",,1,,""""""
+egstats_ec_icon_6,Sprite,egstats_economy_pane,0,egstats_ec_col_6,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_saltpeter,,,,,0,0,,"""tt_stats_e_saltpeter""",,1,,""""""
+egstats_ec_icon_7,Sprite,egstats_economy_pane,0,egstats_ec_col_7,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_oil,,,,,0,0,,"""tt_stats_e_oil""",,1,,""""""
+egstats_ec_icon_8,Sprite,egstats_economy_pane,0,egstats_ec_col_8,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_uranium,,,,,0,0,,"""tt_stats_e_uranium""",,1,,""""""
+egstats_ec_title_9,Text,egstats_economy_pane,0,egstats_ec_col_9,SourceULTargetLL,egstats_ec_col_9,SourceURTargetLR,0,-10,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_econstats9,"""tt_stats_e_tot_gather""",,1,,"""noClip wordWrap"""
+egstats_ec_title_10,Text,egstats_economy_pane,0,egstats_ec_col_10,SourceULTargetLL,egstats_ec_col_10,SourceURTargetLR,0,-10,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_econstats10,"""tt_stats_e_tot_spent""",,1,,"""noClip wordWrap"""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// TRADE PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// trade pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_trade_col_0,Sprite,egstats_trade_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,20,-14,0,14,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_t_food""",,0,,"""tileU"""
+egstats_trade_col_1,Sprite,egstats_trade_pane,0,egstats_trade_col_0,SourceURTargetUL,egstats_trade_col_0,SourceLRTargetLL,8,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_t_wood""",,0,,"""tileU"""
+egstats_trade_col_2,Sprite,egstats_trade_pane,0,egstats_trade_col_1,SourceURTargetUL,egstats_trade_col_1,SourceLRTargetLL,8,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_t_stone""",,0,,"""tileU"""
+egstats_trade_col_3,Sprite,egstats_trade_pane,0,egstats_trade_col_2,SourceURTargetUL,egstats_trade_col_2,SourceLRTargetLL,8,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_t_tin""",,0,,"""tileU"""
+egstats_trade_col_4,Sprite,egstats_trade_pane,0,egstats_trade_col_3,SourceURTargetUL,egstats_trade_col_3,SourceLRTargetLL,8,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_t_iron""",,0,,"""tileU"""
+egstats_trade_col_5,Sprite,egstats_trade_pane,0,egstats_trade_col_4,SourceURTargetUL,egstats_trade_col_4,SourceLRTargetLL,8,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_t_saltpeter""",,0,,"""tileU"""
+egstats_trade_col_6,Sprite,egstats_trade_pane,0,egstats_trade_col_5,SourceURTargetUL,egstats_trade_col_5,SourceLRTargetLL,8,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_t_oil""",,0,,"""tileU"""
+egstats_trade_col_7,Sprite,egstats_trade_pane,0,egstats_trade_col_6,SourceURTargetUL,egstats_trade_col_6,SourceLRTargetLL,8,0,0,0,85,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_t_uranium""",,0,,"""tileU"""
+egstats_trade_col_8,Sprite,egstats_trade_pane,0,egstats_trade_col_7,SourceURTargetUL,egstats_trade_col_7,SourceLRTargetLL,70,0,0,0,220,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_t_gold_gen""",,0,,"""tileU"""
+
+// trade pane titles,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_trade_icon_0,Sprite,egstats_trade_pane,0,egstats_trade_col_0,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_food,,,,,0,0,,"""tt_stats_t_food""",,1,,""""""
+egstats_trade_icon_1,Sprite,egstats_trade_pane,0,egstats_trade_col_1,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_wood,,,,,0,0,,"""tt_stats_t_wood""",,1,,""""""
+egstats_trade_icon_2,Sprite,egstats_trade_pane,0,egstats_trade_col_2,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_stone,,,,,0,0,,"""tt_stats_t_stone""",,1,,""""""
+egstats_trade_icon_3,Sprite,egstats_trade_pane,0,egstats_trade_col_3,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_tin,,,,,0,0,,"""tt_stats_t_tin""",,1,,""""""
+egstats_trade_icon_4,Sprite,egstats_trade_pane,0,egstats_trade_col_4,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_iron,,,,,0,0,,"""tt_stats_t_iron""",,1,,""""""
+egstats_trade_icon_5,Sprite,egstats_trade_pane,0,egstats_trade_col_5,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_saltpeter,,,,,0,0,,"""tt_stats_t_saltpeter""",,1,,""""""
+egstats_trade_icon_6,Sprite,egstats_trade_pane,0,egstats_trade_col_6,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_oil,,,,,0,0,,"""tt_stats_t_oil""",,1,,""""""
+egstats_trade_icon_7,Sprite,egstats_trade_pane,0,egstats_trade_col_7,SourceULTargetLL,,,14,-15,0,0,64,64,icon_resource_uranium,,,,,0,0,,"""tt_stats_t_uranium""",,1,,""""""
+egstats_trade_title_8,Text,egstats_trade_pane,0,egstats_trade_col_8,SourceULTargetLL,egstats_trade_col_8,SourceURTargetLR,0,-10,0,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_tradestats9,"""tt_stats_t_gold_gen""",,1,,"""noClip wordWrap"""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// IMPERIAL PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// imperial pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_imp_col_0,Sprite,egstats_imperial_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,20,-14,0,14,100,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_i_cnt_wonder""",,0,,"""tileU"""
+egstats_imp_col_1,Sprite,egstats_imperial_pane,0,egstats_imp_col_0,SourceURTargetUL,egstats_imp_col_0,SourceLRTargetLL,6,0,0,0,100,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_i_cnt_leader""",,0,,"""tileU"""
+egstats_imp_col_2,Sprite,egstats_imperial_pane,0,egstats_imp_col_1,SourceURTargetUL,egstats_imp_col_1,SourceLRTargetLL,6,0,0,0,150,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_i_cnt_citizen""",,0,,"""tileU"""
+egstats_imp_col_3,Sprite,egstats_imperial_pane,0,egstats_imp_col_2,SourceURTargetUL,egstats_imp_col_2,SourceLRTargetLL,6,0,0,0,100,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_i_bridges""",,0,,"""tileU"""
+egstats_imp_col_4,Sprite,egstats_imperial_pane,0,egstats_imp_col_3,SourceURTargetUL,egstats_imp_col_3,SourceLRTargetLL,6,0,0,0,100,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_i_roads""",,0,,"""tileU"""
+egstats_imp_col_5,Sprite,egstats_imperial_pane,0,egstats_imp_col_4,SourceURTargetUL,egstats_imp_col_4,SourceLRTargetLL,6,0,0,0,105,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_I_civs_used""",,0,,"""tileU"""
+egstats_imp_col_6,Sprite,egstats_imperial_pane,0,egstats_imp_col_5,SourceURTargetUL,egstats_imp_col_5,SourceLRTargetLL,6,0,0,0,110,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_i_units_converted""",,0,,"""tileU"""
+egstats_imp_col_7,Sprite,egstats_imperial_pane,0,egstats_imp_col_6,SourceURTargetUL,egstats_imp_col_6,SourceLRTargetLL,16,0,0,0,120,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_i_terr_conq""",,0,,"""tileU"""
+egstats_imp_col_8,Sprite,egstats_imperial_pane,0,egstats_imp_col_7,SourceURTargetUL,egstats_imp_col_7,SourceLRTargetLL,6,0,-30,0,120,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_i_terr_claimed""",,0,,"""tileU"""
+
+// imperial pane titles,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_imp_title_0,Text,egstats_imperial_pane,0,egstats_imp_col_0,SourceULTargetLL,egstats_imp_col_0,SourceURTargetLR,-10,-10,10,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats0,"""tt_stats_i_cnt_wonder""",,1,,"""noClip wordWrap"""
+egstats_imp_title_1,Text,egstats_imperial_pane,0,egstats_imp_col_1,SourceULTargetLL,egstats_imp_col_1,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats1,"""tt_stats_i_cnt_leader""",,1,,"""noClip wordWrap"""
+egstats_imp_title_2,Text,egstats_imperial_pane,0,egstats_imp_col_2,SourceULTargetLL,egstats_imp_col_2,SourceURTargetLR,-10,-10,10,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats2,"""tt_stats_i_cnt_citizen""",,1,,"""noClip wordWrap"""
+egstats_imp_title_3,Text,egstats_imperial_pane,0,egstats_imp_col_3,SourceULTargetLL,egstats_imp_col_3,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats3,"""tt_stats_i_bridges""",,1,,"""noClip wordWrap"""
+egstats_imp_title_4,Text,egstats_imperial_pane,0,egstats_imp_col_4,SourceULTargetLL,egstats_imp_col_4,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats4,"""tt_stats_i_roads""",,1,,"""noClip wordWrap"""
+egstats_imp_title_5,Text,egstats_imperial_pane,0,egstats_imp_col_5,SourceULTargetLL,egstats_imp_col_5,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats5,"""tt_stats_I_civs_used""",,1,,"""noClip wordWrap"""
+egstats_imp_title_6,Text,egstats_imperial_pane,0,egstats_imp_col_6,SourceULTargetLL,egstats_imp_col_6,SourceURTargetLR,-10,-10,10,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats6,"""tt_stats_i_units_converted""",,1,,"""noClip wordWrap"""
+egstats_imp_title_7,Text,egstats_imperial_pane,0,egstats_imp_col_7,SourceULTargetLL,egstats_imp_col_7,SourceURTargetLR,-5,-10,5,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats7,"""tt_stats_i_terr_conq""",,1,,"""noClip wordWrap"""
+egstats_imp_title_8,Text,egstats_imperial_pane,0,egstats_imp_col_8,SourceULTargetLL,egstats_imp_col_8,SourceURTargetLR,-5,-10,5,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats8,"""tt_stats_i_terr_claimed""",,1,,"""noClip wordWrap"""
+egstats_imp_terr,Text,egstats_imperial_pane,0,egstats_imp_title_7,SourceULTargetLL,egstats_imp_title_8,SourceURTargetLR,0,-20,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_impstats_terr,,,1,,"""noClip wordWrap"""
+egstats_imp_terr_line1,Sprite,egstats_imperial_pane,0,egstats_imp_title_7,SourceULTargetLL,egstats_imp_title_8,SourceURTargetLR,40,-10,-40,0,-1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_imp_terr_line2,Sprite,egstats_imperial_pane,0,egstats_imp_terr_line1,SourceLLTargetUL,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_imp_terr_line3,Sprite,egstats_imperial_pane,0,egstats_imp_terr_line1,SourceLRTargetUR,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// DIPLOMACY PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// diplomacy pane columns (non-fealty games),,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_dipl_col_0,Sprite,egstats_diplomacy_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,20,-14,0,14,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_trib_sent""",,0,,"""tileU"""
+egstats_dipl_col_1,Sprite,egstats_diplomacy_pane,0,egstats_dipl_col_0,SourceURTargetUL,egstats_dipl_col_0,SourceLRTargetLL,8,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_trib_received""",,0,,"""tileU"""
+egstats_dipl_col_2,Sprite,egstats_diplomacy_pane,0,egstats_dipl_col_1,SourceURTargetUL,egstats_dipl_col_1,SourceLRTargetLL,27,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_unittrib_sent""",,0,,"""tileU"""
+egstats_dipl_col_3,Sprite,egstats_diplomacy_pane,0,egstats_dipl_col_2,SourceURTargetUL,egstats_dipl_col_2,SourceLRTargetLL,8,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_unittrib_rec""",,0,,"""tileU"""
+egstats_dipl_col_4,Sprite,egstats_diplomacy_pane,0,egstats_dipl_col_3,SourceURTargetUL,egstats_dipl_col_3,SourceLRTargetLL,27,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_terrtrib_sent""",,0,,"""tileU"""
+egstats_dipl_col_5,Sprite,egstats_diplomacy_pane,0,egstats_dipl_col_4,SourceURTargetUL,egstats_dipl_col_4,SourceLRTargetLL,8,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_terrtrib_rec""",,0,,"""tileU"""
+egstats_dipl_col_6,Sprite,egstats_diplomacy_pane,0,egstats_dipl_col_5,SourceURTargetUL,egstats_dipl_col_5,SourceLRTargetLL,27,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_ally_entered""",,0,,"""tileU"""
+egstats_dipl_col_7,Sprite,egstats_diplomacy_pane,0,egstats_dipl_col_6,SourceURTargetUL,egstats_dipl_col_6,SourceLRTargetLL,8,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_ally_broken""",,0,,"""tileU"""
+
+// diplomacy pane titles (non-fealty games),,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_dipl_title_0,Text,egstats_diplomacy_pane,0,egstats_dipl_col_0,SourceULTargetLL,egstats_dipl_col_0,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_sent,"""tt_stats_d_trib_sent""",,1,,"""noClip wordWrap"""
+egstats_dipl_title_1,Text,egstats_diplomacy_pane,0,egstats_dipl_col_1,SourceULTargetLL,egstats_dipl_col_1,SourceURTargetLR,-10,-10,10,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_received,"""tt_stats_d_trib_received""",,1,,"""noClip wordWrap"""
+egstats_dipl_resources,Text,egstats_diplomacy_pane,0,egstats_dipl_title_0,SourceULTargetLL,egstats_dipl_title_1,SourceURTargetLR,45,-20,-45,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_resources,,,1,,"""noClip wordWrap"""
+egstats_dipl_res_line1,Sprite,egstats_diplomacy_pane,0,egstats_dipl_title_0,SourceULTargetLL,egstats_dipl_title_1,SourceURTargetLR,45,-10,-45,0,1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_res_line2,Sprite,egstats_diplomacy_pane,0,egstats_dipl_res_line1,SourceLLTargetUL,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_res_line3,Sprite,egstats_diplomacy_pane,0,egstats_dipl_res_line1,SourceLRTargetUR,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_title_2,Text,egstats_diplomacy_pane,0,egstats_dipl_col_2,SourceULTargetLL,egstats_dipl_col_2,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_sent,"""tt_stats_d_unittrib_sent""",,1,,"""noClip wordWrap"""
+egstats_dipl_title_3,Text,egstats_diplomacy_pane,0,egstats_dipl_col_3,SourceULTargetLL,egstats_dipl_col_3,SourceURTargetLR,-10,-10,10,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_received,"""tt_stats_d_unittrib_rec""",,1,,"""noClip wordWrap"""
+egstats_dipl_units,Text,egstats_diplomacy_pane,0,egstats_dipl_title_2,SourceULTargetLL,egstats_dipl_title_3,SourceURTargetLR,45,-20,-45,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_units,,,1,,"""noClip wordWrap"""
+egstats_dipl_units_line1,Sprite,egstats_diplomacy_pane,0,egstats_dipl_title_2,SourceULTargetLL,egstats_dipl_title_3,SourceURTargetLR,45,-10,-45,0,1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_units_line2,Sprite,egstats_diplomacy_pane,0,egstats_dipl_units_line1,SourceLLTargetUL,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_units_line3,Sprite,egstats_diplomacy_pane,0,egstats_dipl_units_line1,SourceLRTargetUR,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_title_4,Text,egstats_diplomacy_pane,0,egstats_dipl_col_4,SourceULTargetLL,egstats_dipl_col_4,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_sent,"""tt_stats_d_terrtrib_sent""",,1,,"""noClip wordWrap"""
+egstats_dipl_title_5,Text,egstats_diplomacy_pane,0,egstats_dipl_col_5,SourceULTargetLL,egstats_dipl_col_5,SourceURTargetLR,-10,-10,10,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_received,"""tt_stats_d_terrtrib_rec""",,1,,"""noClip wordWrap"""
+egstats_dipl_terr,Text,egstats_diplomacy_pane,0,egstats_dipl_title_4,SourceULTargetLL,egstats_dipl_title_5,SourceURTargetLR,45,-20,-45,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_terr,,,1,,"""noClip wordWrap"""
+egstats_dipl_terr_line1,Sprite,egstats_diplomacy_pane,0,egstats_dipl_title_4,SourceULTargetLL,egstats_dipl_title_5,SourceURTargetLR,45,-10,-45,0,-1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_terr_line2,Sprite,egstats_diplomacy_pane,0,egstats_dipl_terr_line1,SourceLLTargetUL,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_terr_line3,Sprite,egstats_diplomacy_pane,0,egstats_dipl_terr_line1,SourceLRTargetUR,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_title_6,Text,egstats_diplomacy_pane,0,egstats_dipl_col_6,SourceULTargetLL,egstats_dipl_col_6,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_entered,"""tt_stats_d_ally_entered""",,1,,"""noClip wordWrap"""
+egstats_dipl_title_7,Text,egstats_diplomacy_pane,0,egstats_dipl_col_7,SourceULTargetLL,egstats_dipl_col_7,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_broken,"""tt_stats_d_ally_broken""",,1,,"""noClip wordWrap"""
+egstats_dipl_alliances,Text,egstats_diplomacy_pane,0,egstats_dipl_title_6,SourceULTargetLL,egstats_dipl_title_7,SourceURTargetLR,45,-20,-45,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_alliances,,,1,,"""noClip wordWrap"""
+egstats_dipl_ally_line1,Sprite,egstats_diplomacy_pane,0,egstats_dipl_title_6,SourceULTargetLL,egstats_dipl_title_7,SourceURTargetLR,45,-10,-45,0,-1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_ally_line2,Sprite,egstats_diplomacy_pane,0,egstats_dipl_ally_line1,SourceLLTargetUL,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_dipl_ally_line3,Sprite,egstats_diplomacy_pane,0,egstats_dipl_ally_line1,SourceLRTargetUR,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+
+// diplomacy pane columns (fealty games),,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_diplf_col_0,Sprite,egstats_diplomacy_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,20,-14,0,14,94,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_trib_sent""",,0,,"""tileU"""
+egstats_diplf_col_1,Sprite,egstats_diplomacy_pane,0,egstats_diplf_col_0,SourceURTargetUL,egstats_diplf_col_0,SourceLRTargetLL,8,0,0,0,94,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_trib_received""",,0,,"""tileU"""
+egstats_diplf_col_2,Sprite,egstats_diplomacy_pane,0,egstats_diplf_col_1,SourceURTargetUL,egstats_diplf_col_1,SourceLRTargetLL,17,0,0,0,94,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_unittrib_sent""",,0,,"""tileU"""
+egstats_diplf_col_3,Sprite,egstats_diplomacy_pane,0,egstats_diplf_col_2,SourceURTargetUL,egstats_diplf_col_2,SourceLRTargetLL,8,0,0,0,94,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_unittrib_rec""",,0,,"""tileU"""
+egstats_diplf_col_4,Sprite,egstats_diplomacy_pane,0,egstats_diplf_col_3,SourceURTargetUL,egstats_diplf_col_3,SourceLRTargetLL,17,0,0,0,94,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_terrtrib_sent""",,0,,"""tileU"""
+egstats_diplf_col_5,Sprite,egstats_diplomacy_pane,0,egstats_diplf_col_4,SourceURTargetUL,egstats_diplf_col_4,SourceLRTargetLL,8,0,0,0,94,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_terrtrib_rec""",,0,,"""tileU"""
+egstats_diplf_col_6,Sprite,egstats_diplomacy_pane,0,egstats_diplf_col_5,SourceURTargetUL,egstats_diplf_col_5,SourceLRTargetLL,17,0,0,0,94,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_ally_entered""",,0,,"""tileU"""
+egstats_diplf_col_7,Sprite,egstats_diplomacy_pane,0,egstats_diplf_col_6,SourceURTargetUL,egstats_diplf_col_6,SourceLRTargetLL,8,0,0,0,94,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_ally_broken""",,0,,"""tileU"""
+egstats_diplf_col_8,Sprite,egstats_diplomacy_pane,0,egstats_diplf_col_7,SourceURTargetUL,egstats_diplf_col_7,SourceLRTargetLL,17,0,0,0,94,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_vassals""",,0,,"""tileU"""
+egstats_diplf_col_9,Sprite,egstats_diplomacy_pane,0,egstats_diplf_col_8,SourceURTargetUL,egstats_diplf_col_8,SourceLRTargetLL,8,0,0,0,120,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_d_fealty""",,0,,"""tileU"""
+
+// diplomacy pane titles (fealty games),,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_diplf_title_0,Text,egstats_diplomacy_pane,0,egstats_diplf_col_0,SourceULTargetLL,egstats_diplf_col_0,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_sent,"""tt_stats_d_trib_sent""",,1,,"""noClip wordWrap"""
+egstats_diplf_title_1,Text,egstats_diplomacy_pane,0,egstats_diplf_col_1,SourceULTargetLL,egstats_diplf_col_1,SourceURTargetLR,-10,-10,10,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_received,"""tt_stats_d_trib_received""",,1,,"""noClip wordWrap"""
+egstats_diplf_resources,Text,egstats_diplomacy_pane,0,egstats_diplf_title_0,SourceULTargetLL,egstats_diplf_title_1,SourceURTargetLR,45,-20,-45,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_resources,,,1,,"""noClip wordWrap"""
+egstats_diplf_res_line1,Sprite,egstats_diplomacy_pane,0,egstats_diplf_title_0,SourceULTargetLL,egstats_diplf_title_1,SourceURTargetLR,45,-10,-45,0,1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_res_line2,Sprite,egstats_diplomacy_pane,0,egstats_diplf_res_line1,SourceLLTargetUL,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_res_line3,Sprite,egstats_diplomacy_pane,0,egstats_diplf_res_line1,SourceLRTargetUR,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_title_2,Text,egstats_diplomacy_pane,0,egstats_diplf_col_2,SourceULTargetLL,egstats_diplf_col_2,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_sent,"""tt_stats_d_unittrib_sent""",,1,,"""noClip wordWrap"""
+egstats_diplf_title_3,Text,egstats_diplomacy_pane,0,egstats_diplf_col_3,SourceULTargetLL,egstats_diplf_col_3,SourceURTargetLR,-10,-10,10,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_received,"""tt_stats_d_unittrib_rec""",,1,,"""noClip wordWrap"""
+egstats_diplf_units,Text,egstats_diplomacy_pane,0,egstats_diplf_title_2,SourceULTargetLL,egstats_diplf_title_3,SourceURTargetLR,45,-20,-45,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_units,,,1,,"""noClip wordWrap"""
+egstats_diplf_units_line1,Sprite,egstats_diplomacy_pane,0,egstats_diplf_title_2,SourceULTargetLL,egstats_diplf_title_3,SourceURTargetLR,45,-10,-45,0,1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_units_line2,Sprite,egstats_diplomacy_pane,0,egstats_diplf_units_line1,SourceLLTargetUL,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_units_line3,Sprite,egstats_diplomacy_pane,0,egstats_diplf_units_line1,SourceLRTargetUR,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_title_4,Text,egstats_diplomacy_pane,0,egstats_diplf_col_4,SourceULTargetLL,egstats_diplf_col_4,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_sent,"""tt_stats_d_terrtrib_sent""",,1,,"""noClip wordWrap"""
+egstats_diplf_title_5,Text,egstats_diplomacy_pane,0,egstats_diplf_col_5,SourceULTargetLL,egstats_diplf_col_5,SourceURTargetLR,-10,-10,10,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_received,"""tt_stats_d_terrtrib_rec""",,1,,"""noClip wordWrap"""
+egstats_diplf_terr,Text,egstats_diplomacy_pane,0,egstats_diplf_title_4,SourceULTargetLL,egstats_diplf_title_5,SourceURTargetLR,45,-20,-45,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_terr,,,1,,"""noClip wordWrap"""
+egstats_diplf_terr_line1,Sprite,egstats_diplomacy_pane,0,egstats_diplf_title_4,SourceULTargetLL,egstats_diplf_title_5,SourceURTargetLR,45,-10,-45,0,-1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_terr_line2,Sprite,egstats_diplomacy_pane,0,egstats_diplf_terr_line1,SourceLLTargetUL,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_terr_line3,Sprite,egstats_diplomacy_pane,0,egstats_diplf_terr_line1,SourceLRTargetUR,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_title_6,Text,egstats_diplomacy_pane,0,egstats_diplf_col_6,SourceULTargetLL,egstats_diplf_col_6,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_entered,"""tt_stats_d_ally_entered""",,1,,"""noClip wordWrap"""
+egstats_diplf_title_7,Text,egstats_diplomacy_pane,0,egstats_diplf_col_7,SourceULTargetLL,egstats_diplf_col_7,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_broken,"""tt_stats_d_ally_broken""",,1,,"""noClip wordWrap"""
+egstats_diplf_alliances,Text,egstats_diplomacy_pane,0,egstats_diplf_title_6,SourceULTargetLL,egstats_diplf_title_7,SourceURTargetLR,45,-20,-45,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_alliances,,,1,,"""noClip wordWrap"""
+egstats_diplf_ally_line1,Sprite,egstats_diplomacy_pane,0,egstats_diplf_title_6,SourceULTargetLL,egstats_diplf_title_7,SourceURTargetLR,45,-10,-45,0,-1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_ally_line2,Sprite,egstats_diplomacy_pane,0,egstats_diplf_ally_line1,SourceLLTargetUL,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_ally_line3,Sprite,egstats_diplomacy_pane,0,egstats_diplf_ally_line1,SourceLRTargetUR,,,0,0,0,0,1,7,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_diplf_title_8,Text,egstats_diplomacy_pane,0,egstats_diplf_col_8,SourceULTargetLL,egstats_diplf_col_8,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_vassals,"""tt_stats_d_vassals""",,1,,"""noClip wordWrap"""
+egstats_diplf_title_9,Text,egstats_diplomacy_pane,0,egstats_diplf_col_9,SourceULTargetLL,egstats_diplf_col_9,SourceURTargetLR,0,-10,0,0,-1,35,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_dipl_sworefealty,"""tt_stats_d_fealty""",,1,,"""noClip wordWrap"""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// TECHNOLOGY PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// technology pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_tech_col_0,Sprite,egstats_technology_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,65,-14,0,14,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_tech_percent""",,0,,"""tileU"""
+egstats_tech_col_1,Sprite,egstats_technology_pane,0,egstats_tech_col_0,SourceURTargetUL,egstats_tech_col_0,SourceLRTargetLL,50,0,0,0,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_tech_points""",,0,,"""tileU"""
+egstats_tech_col_2,Sprite,egstats_technology_pane,0,egstats_tech_col_1,SourceURTargetUL,egstats_tech_col_1,SourceLRTargetLL,50,0,0,0,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_tech_military""",,0,,"""tileU"""
+egstats_tech_col_3,Sprite,egstats_technology_pane,0,egstats_tech_col_2,SourceURTargetUL,egstats_tech_col_2,SourceLRTargetLL,50,0,0,0,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_tech_economic""",,0,,"""tileU"""
+egstats_tech_col_4,Sprite,egstats_technology_pane,0,egstats_tech_col_3,SourceURTargetUL,egstats_tech_col_3,SourceLRTargetLL,50,0,0,0,165,-1,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_tech_imperial""",,0,,"""tileU"""
+
+// technology pane titles,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_tech_title_0,Text,egstats_technology_pane,0,egstats_tech_col_0,SourceULTargetLL,egstats_tech_col_0,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_techstats0,"""tt_stats_tech_percent""",,0,,"""noClip wordWrap"""
+egstats_tech_title_1,Text,egstats_technology_pane,0,egstats_tech_col_1,SourceULTargetLL,egstats_tech_col_1,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_techstats1,"""tt_stats_tech_points""",,0,,"""noClip wordWrap"""
+egstats_tech_title_2,Text,egstats_technology_pane,0,egstats_tech_col_2,SourceULTargetLL,egstats_tech_col_2,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_techstats2,"""tt_stats_tech_military""",,0,,"""noClip wordWrap"""
+egstats_tech_title_3,Text,egstats_technology_pane,0,egstats_tech_col_3,SourceULTargetLL,egstats_tech_col_3,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_techstats3,"""tt_stats_tech_economic""",,0,,"""noClip wordWrap"""
+egstats_tech_title_4,Text,egstats_technology_pane,0,egstats_tech_col_4,SourceULTargetLL,egstats_tech_col_4,SourceURTargetLR,-20,-10,20,0,-1,50,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_techstats4,"""tt_stats_tech_imperial""",,0,,"""noClip wordWrap"""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// MISC PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// misc pane columns,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_misc_col_0,Sprite,egstats_misc_pane,0,egstats_pl_name_bkg_0,SourceURTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLL,20,-14,0,14,96,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_misc_mapexplored""",,0,,"""tileU"""
+egstats_misc_col_1,Sprite,egstats_misc_pane,0,egstats_misc_col_0,SourceURTargetUL,egstats_misc_col_0,SourceLRTargetLL,8,0,0,0,96,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_misc_hotkeys""",,0,,"""tileU"""
+egstats_misc_col_2,Sprite,egstats_misc_pane,0,egstats_misc_col_1,SourceURTargetUL,egstats_misc_col_1,SourceLRTargetLL,8,0,0,0,96,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_misc_clicks""",,0,,"""tileU"""
+egstats_misc_col_3,Sprite,egstats_misc_pane,0,egstats_misc_col_2,SourceURTargetUL,egstats_misc_col_2,SourceLRTargetLL,8,0,0,0,96,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_misc_fullmap""",,0,,"""tileU"""
+egstats_misc_col_4,Sprite,egstats_misc_pane,0,egstats_misc_col_3,SourceURTargetUL,egstats_misc_col_3,SourceLRTargetLL,8,0,0,0,96,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_misc_warplans_sent""",,0,,"""tileU"""
+egstats_misc_col_5,Sprite,egstats_misc_pane,0,egstats_misc_col_4,SourceURTargetUL,egstats_misc_col_4,SourceLRTargetLL,8,0,0,0,96,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_misc_warplans_rec""",,0,,"""tileU"""
+egstats_misc_col_6,Sprite,egstats_misc_pane,0,egstats_misc_col_5,SourceURTargetUL,egstats_misc_col_5,SourceLRTargetLL,8,0,0,0,96,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_misc_heroes""",,0,,"""tileU"""
+egstats_misc_col_7,Sprite,egstats_misc_pane,0,egstats_misc_col_6,SourceURTargetUL,egstats_misc_col_6,SourceLRTargetLL,8,0,0,0,96,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_misc_armies""",,0,,"""tileU"""
+egstats_misc_col_8,Sprite,egstats_misc_pane,0,egstats_misc_col_7,SourceURTargetUL,egstats_misc_col_7,SourceLRTargetLL,8,0,0,0,252,705,spr_fe_insetpanel_tall,wfs_fe_copper_inset,,,,0,0,,"""tt_stats_misc_favunit""",,0,,"""tileU"""
+
+// misc pane titles,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_misc_title_0,Text,egstats_misc_pane,0,egstats_misc_col_0,SourceULTargetLL,egstats_misc_col_0,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_miscstats0,"""tt_stats_misc_mapexplored""",,1,,"""noClip wordWrap"""
+egstats_misc_title_1,Text,egstats_misc_pane,0,egstats_misc_col_1,SourceULTargetLL,egstats_misc_col_1,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_miscstats1,"""tt_stats_misc_hotkeys""",,1,,"""noClip wordWrap"""
+egstats_misc_title_2,Text,egstats_misc_pane,0,egstats_misc_col_2,SourceULTargetLL,egstats_misc_col_2,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_miscstats2,"""tt_stats_misc_clicks""",,1,,"""noClip wordWrap"""
+egstats_misc_title_3,Text,egstats_misc_pane,0,egstats_misc_col_3,SourceULTargetLL,egstats_misc_col_3,SourceURTargetLR,-10,-10,10,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_miscstats3,"""tt_stats_misc_fullmap""",,1,,"""noClip wordWrap"""
+egstats_misc_title_4,Text,egstats_misc_pane,0,egstats_misc_col_4,SourceULTargetLL,egstats_misc_col_4,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_miscstats4,"""tt_stats_misc_warplans_sent""",,1,,"""noClip wordWrap"""
+egstats_misc_title_5,Text,egstats_misc_pane,0,egstats_misc_col_5,SourceULTargetLL,egstats_misc_col_5,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_miscstats5,"""tt_stats_misc_warplans_rec""",,1,,"""noClip wordWrap"""
+egstats_misc_title_6,Text,egstats_misc_pane,0,egstats_misc_col_6,SourceULTargetLL,egstats_misc_col_6,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_misc_heroes,"""tt_stats_misc_heroes""",,1,,"""noClip wordWrap"""
+egstats_misc_title_7,Text,egstats_misc_pane,0,egstats_misc_col_7,SourceULTargetLL,egstats_misc_col_7,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_misc_armiesformed,"""tt_stats_misc_armies""",,1,,"""noClip wordWrap"""
+egstats_misc_title_8,Text,egstats_misc_pane,0,egstats_misc_col_8,SourceULTargetLL,egstats_misc_col_8,SourceURTargetLR,0,-10,0,0,-1,100,,,,fs_std_med_white_sc,CenterBottom,0,0,tx_fe_eg_miscstats6,"""tt_stats_misc_favunit""",,1,,"""noClip wordWrap"""
+
+
+/////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// BATTLES PANE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// player name radio buttons for battles pane,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_batt_pl_name_0,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_0,SourceULTargetUL,egstats_pl_name_bkg_0,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_0 value=1 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+egstats_batt_pl_name_1,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_1,SourceULTargetUL,egstats_pl_name_bkg_1,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_1 value=0 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+egstats_batt_pl_name_2,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_2,SourceULTargetUL,egstats_pl_name_bkg_2,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_2 value=0 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+egstats_batt_pl_name_3,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_3,SourceULTargetUL,egstats_pl_name_bkg_3,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_3 value=0 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+egstats_batt_pl_name_4,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_4,SourceULTargetUL,egstats_pl_name_bkg_4,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_4 value=0 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+egstats_batt_pl_name_5,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_5,SourceULTargetUL,egstats_pl_name_bkg_5,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_5 value=0 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+egstats_batt_pl_name_6,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_6,SourceULTargetUL,egstats_pl_name_bkg_6,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_6 value=0 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+egstats_batt_pl_name_7,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_7,SourceULTargetUL,egstats_pl_name_bkg_7,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_7 value=0 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+egstats_batt_pl_name_8,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_8,SourceULTargetUL,egstats_pl_name_bkg_8,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_8 value=0 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+egstats_batt_pl_name_9,RadioButton,egstats_battles_pane,0,egstats_pl_name_bkg_9,SourceULTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""family=battles_player widgetToShowHide=egstats_battle_container_9 value=0 autoTruncStd boxSprite=spr_fe_radio boxWidth=32"""
+
+// battles pane,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_battle_container_0,Container,egstats_battles_pane,0,,SourceURTargetUR,,SourceLRTargetLR,-30,15,0,-15,1120,600,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_container_1,Container,egstats_battles_pane,0,egstats_battle_container_0,SourceULTargetUL,egstats_battle_container_0,SourceLRTargetLR,0,0,0,0,-1,-1,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_container_2,Container,egstats_battles_pane,0,egstats_battle_container_0,SourceULTargetUL,egstats_battle_container_0,SourceLRTargetLR,0,0,0,0,-1,-1,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_container_3,Container,egstats_battles_pane,0,egstats_battle_container_0,SourceULTargetUL,egstats_battle_container_0,SourceLRTargetLR,0,0,0,0,-1,-1,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_container_4,Container,egstats_battles_pane,0,egstats_battle_container_0,SourceULTargetUL,egstats_battle_container_0,SourceLRTargetLR,0,0,0,0,-1,-1,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_container_5,Container,egstats_battles_pane,0,egstats_battle_container_0,SourceULTargetUL,egstats_battle_container_0,SourceLRTargetLR,0,0,0,0,-1,-1,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_container_6,Container,egstats_battles_pane,0,egstats_battle_container_0,SourceULTargetUL,egstats_battle_container_0,SourceLRTargetLR,0,0,0,0,-1,-1,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_container_7,Container,egstats_battles_pane,0,egstats_battle_container_0,SourceULTargetUL,egstats_battle_container_0,SourceLRTargetLR,0,0,0,0,-1,-1,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_container_8,Container,egstats_battles_pane,0,egstats_battle_container_0,SourceULTargetUL,egstats_battle_container_0,SourceLRTargetLR,0,0,0,0,-1,-1,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_container_9,Container,egstats_battles_pane,0,egstats_battle_container_0,SourceULTargetUL,egstats_battle_container_0,SourceLRTargetLR,0,0,0,0,-1,-1,spr_blackpixel_alpha50,wfs_fe_gold_bevel,,,,0,0,,,,0,,"""scrollVert=egstats_scrollbar"""
+egstats_battle_title,Text,,0,,SourceULTargetUL,,SourceURTargetUR,0,5,-26,5,-1,50,,,,fs_std_large_bold_white,CenterMid,0,0,,,,1,,"""wordWrap markup"""
+egstats_battle_basic_info,Text,,0,egstats_battle_title,SourceLLTargetUL,egstats_battle_title,SourceLRTargetUR,0,10,0,0,-1,80,,,,fs_std_small_white,CenterMid,0,0,,,,1,,"""wordWrap markup"""
+egstats_battle_allied_order,Text,,0,egstats_battle_basic_info,SourceLLTargetUL,,,0,10,0,0,545,150,,,,fs_std_small_white,Center,0,5,,,,1,,"""wordWrap markup"""
+egstats_battle_enemy_order,Text,,0,egstats_battle_basic_info,SourceLRTargetUR,,,0,10,0,0,545,150,,,,fs_std_small_white,Center,0,5,,,,1,,"""wordWrap markup"""
+egstats_battle_allied_units,Text,,0,egstats_battle_allied_order,SourceLLTargetUL,,,0,10,0,0,545,150,,,,fs_std_small_white,Center,0,5,,,,1,,"""wordWrap markup"""
+egstats_battle_enemy_units,Text,,0,egstats_battle_enemy_order,SourceLLTargetUL,,,0,10,0,0,545,150,,,,fs_std_small_white,Center,0,5,,,,1,,"""wordWrap markup"""
+egstats_battle_divider,Sprite,,0,,SourceLLTargetUL,,SourceLRTargetUR,0,-5,-26,-5,-1,1,spr_whitepixel_alpha50,,,,,0,0,,,,1,,""""""
+egstats_battle_details,Sprite,,0,,SourceULTargetUL,,SourceURTargetUR,0,0,0,0,-1,1,,,,,,0,0,,,,1,,""""""
+
+
+///////////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// TIMELINE WIDGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// timeline tabs,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_tl_epoch_tab,RadioButton,egstats_timeline_pane,0,,SourceLRTargetLR,,,-30,0,0,0,158,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_statsepoch,,,0,,"""family=egstats_tab_tl_family, value=0"""
+egstats_tl_crown_tab,RadioButton,egstats_timeline_pane,0,egstats_tl_epoch_tab,SourceLLTargetLR,,,0,0,0,0,157,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_statscrowns,,,0,,"""family=egstats_tab_tl_family, value=0"""
+egstats_tl_flag_tab,RadioButton,egstats_timeline_pane,0,egstats_tl_crown_tab,SourceLLTargetLR,,,0,0,0,0,157,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_statsflags,,,0,,"""family=egstats_tab_tl_family, value=0"""
+egstats_tl_traderoutes_tab,RadioButton,egstats_timeline_pane,0,egstats_tl_flag_tab,SourceLLTargetLR,,,0,0,0,0,180,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_statstraderoutes,,,0,,"""family=egstats_tab_tl_family, value=0"""
+egstats_tl_buildings_tab,RadioButton,egstats_timeline_pane,0,egstats_tl_traderoutes_tab,SourceLLTargetLR,,,0,0,0,0,157,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_statsbuildingcount,,,0,,"""family=egstats_tab_tl_family, value=0"""
+egstats_tl_territories_tab,RadioButton,egstats_timeline_pane,0,egstats_tl_buildings_tab,SourceLLTargetLR,,,0,0,0,0,157,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_statsterritories,,,0,,"""family=egstats_tab_tl_family, value=0"""
+egstats_tl_citizen_tab,RadioButton,egstats_timeline_pane,0,egstats_tl_territories_tab,SourceLLTargetLR,,,0,0,0,0,157,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_statscitizencount,,,0,,"""family=egstats_tab_tl_family, value=0"""
+egstats_tl_army_tab,RadioButton,egstats_timeline_pane,0,egstats_tl_citizen_tab,SourceLLTargetLR,,,0,0,0,0,157,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_statsarmysize,,,0,,"""family=egstats_tab_tl_family, value=0"""
+egstats_tl_pop_tab,RadioButton,egstats_timeline_pane,0,egstats_tl_army_tab,SourceLLTargetLR,,SourceLLTargetLL,0,0,30,0,-1,50,spr_fe_tab_med,,TwoStateRollover,fs_std_large_black_feButton,CenterMid,0,0,tx_fe_eg_statspopulation,,,0,,"""family=egstats_tab_tl_family, value=1"""
+
+// timeline graphs,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_tl_population,PlayerGraph,egstats_timeline_pane,0,,SourceURTargetUR,egstats_pl_name_bkg_9,SourceLRTargetLL,-30,70,120,20,-1,-1,,,,,,0,0,,,,0,,""""""
+egstats_tl_army_size,PlayerGraph,egstats_timeline_pane,0,,SourceURTargetUR,egstats_pl_name_bkg_9,SourceLRTargetLL,-30,70,120,20,-1,-1,,,,,,0,0,,,,0,,""""""
+egstats_tl_citizens,PlayerGraph,egstats_timeline_pane,0,,SourceURTargetUR,egstats_pl_name_bkg_9,SourceLRTargetLL,-30,70,120,20,-1,-1,,,,,,0,0,,,,0,,""""""
+egstats_tl_territories,PlayerGraph,egstats_timeline_pane,0,,SourceURTargetUR,egstats_pl_name_bkg_9,SourceLRTargetLL,-30,70,120,20,-1,-1,,,,,,0,0,,,,0,,""""""
+egstats_tl_buildings,PlayerGraph,egstats_timeline_pane,0,,SourceURTargetUR,egstats_pl_name_bkg_9,SourceLRTargetLL,-30,70,120,20,-1,-1,,,,,,0,0,,,,0,,""""""
+egstats_tl_epoch,PlayerGraph,egstats_timeline_pane,0,,SourceURTargetUR,egstats_pl_name_bkg_9,SourceLRTargetLL,-30,70,120,20,-1,-1,,,,,,0,0,,,,0,,""""""
+egstats_tl_crown,PlayerGraph,egstats_timeline_pane,0,,SourceURTargetUR,egstats_pl_name_bkg_9,SourceLRTargetLL,-30,70,120,20,-1,-1,,,,,,0,0,,,,0,,""""""
+egstats_tl_flag,PlayerGraph,egstats_timeline_pane,0,,SourceURTargetUR,egstats_pl_name_bkg_9,SourceLRTargetLL,-30,70,120,20,-1,-1,,,,,,0,0,,,,0,,""""""
+egstats_tl_traderoutes,PlayerGraph,egstats_timeline_pane,0,,SourceURTargetUR,egstats_pl_name_bkg_9,SourceLRTargetLL,-30,70,120,20,-1,-1,,,,,,0,0,,,,0,,""""""
+
+// graph axes,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_tl_xaxis,Sprite,egstats_timeline_pane,0,egstats_tl_population,SourceLLTargetUL,egstats_tl_population,SourceLRTargetUR,0,0,0,0,-1,3,spr_blackpixel,,,,,0,0,,,,0,,""""""
+egstats_tl_yaxis,Sprite,egstats_timeline_pane,0,egstats_tl_population,SourceULTargetUR,egstats_tl_xaxis,SourceLLTargetLR,0,0,0,0,3,-1,spr_blackpixel,,,,,0,0,,,,0,,""""""
+
+// player name check boxes for timeline,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_tl_plcbox_0,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_0,SourceULTargetUL,egstats_pl_name_bkg_0,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+egstats_tl_plcbox_1,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_1,SourceULTargetUL,egstats_pl_name_bkg_1,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+egstats_tl_plcbox_2,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_2,SourceULTargetUL,egstats_pl_name_bkg_2,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+egstats_tl_plcbox_3,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_3,SourceULTargetUL,egstats_pl_name_bkg_3,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+egstats_tl_plcbox_4,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_4,SourceULTargetUL,egstats_pl_name_bkg_4,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+egstats_tl_plcbox_5,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_5,SourceULTargetUL,egstats_pl_name_bkg_5,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+egstats_tl_plcbox_6,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_6,SourceULTargetUL,egstats_pl_name_bkg_6,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+egstats_tl_plcbox_7,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_7,SourceULTargetUL,egstats_pl_name_bkg_7,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+egstats_tl_plcbox_8,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_8,SourceULTargetUL,egstats_pl_name_bkg_8,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+egstats_tl_plcbox_9,CheckBox,egstats_timeline_pane,0,egstats_pl_name_bkg_9,SourceULTargetUL,egstats_pl_name_bkg_9,SourceLRTargetLR,-42,0,0,0,-1,-1,,,,fs_std_large_black_feButton,Mid,0,0,,,,0,,"""boxSprite=spr_fe_checkbox boxWidth=32, value=1"""
+
+// used to create container widgets for our labels,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_graph_labels_cont,Widget,egstats_timeline_pane,0,,SourceULTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+
+// labels and tick marks for the axes,,,,,,,,,,,,,,,,,,,,,,,,,,
+// @NOTE tick marks anchor to the *other* axis to get everything to line up just so,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_graph_label_xaxis,Text,,0,egstats_tl_xaxis,SourceLLTargetUL,,,0,9,0,0,2,32,,,,fs_std_med_white,Center,0,0,,,,1,,"""noClip"""
+egstats_graph_tick_xaxis,Sprite,,0,egstats_tl_yaxis,SourceLLTargetUL,,,0,0,0,0,1,9,spr_blackpixel,,,,,0,0,,,,1,,""""""
+egstats_graph_label_yaxis,Text,,0,egstats_tl_yaxis,SourceLRTargetLR,,,-15,0,0,0,100,32,,,,fs_std_med_white,RightMid,0,0,,,,1,,"""noClip"""
+egstats_graph_tick_yaxis,Sprite,,0,egstats_tl_xaxis,SourceULTargetUR,,,0,0,0,0,9,1,spr_blackpixel,,,,,0,0,,,,1,,""""""
+
+// crown icons used as y-axis labels for the crowns graph,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+egstats_graph_mil_label,Sprite,,0,egstats_tl_yaxis,SourceLRTargetLR,,,-20,-412,0,0,64,64,icon_crown_military,,,,,0,0,,,,1,,""""""
+egstats_graph_eco_label,Sprite,,0,egstats_tl_yaxis,SourceLRTargetLR,,,-20,-264,0,0,64,64,icon_crown_economic,,,,,0,0,,,,1,,""""""
+egstats_graph_imp_label,Sprite,,0,egstats_tl_yaxis,SourceLRTargetLR,,,-20,-116,0,0,64,64,icon_crown_imperial,,,,,0,0,,,,1,,""""""
+
+// flag icons used on the flag timeline,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_flag_naval,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,64,32,spr_flag_naval,,,,,0,0,,,,1,,""""""
+egstats_flag_air,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,64,32,spr_flag_air,,,,,0,0,,,,1,,""""""
+egstats_flag_infantry,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,64,32,spr_flag_infantry,,,,,0,0,,,,1,,""""""
+egstats_flag_mobile,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,64,32,spr_flag_mobile,,,,,0,0,,,,1,,""""""
+egstats_flag_machine,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,64,32,spr_flag_machine,,,,,0,0,,,,1,,""""""
+egstats_flag_cultural,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,64,32,spr_flag_cultural,,,,,0,0,,,,1,,""""""
+egstats_flag_religious,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,64,32,spr_flag_religious,,,,,0,0,,,,1,,""""""
+egstats_flag_financial,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,64,32,spr_flag_financial,,,,,0,0,,,,1,,""""""
+
+
+// player epoch time label,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_tl_epochTimeLabel,Text,egstats_tl_epoch,0,egstats_timeline_pane,SourceULTargetUL,,,310,70,0,0,2,2,,,,fs_std_small_white_drop,CenterMid,0,0,,,,1,,"""noClip"""
+
+// vertical divider for the epoch graph,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_graph_epoch_div,Sprite,egstats_tl_epoch,0,egstats_tl_yaxis,SourceULTargetUL,egstats_tl_yaxis,SourceLLTargetLL,0,50,0,0,1,-1,spr_blackpixel,,,,,0,0,,,,0,,""""""
+
+// epoch number labels for the epoch graph,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_graph_epoch_lbl_1,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch1,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_2,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch2,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_3,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch3,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_4,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch4,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_5,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch5,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_6,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch6,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_7,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch7,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_8,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch8,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_9,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch9,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_10,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch10,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_11,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch11,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_12,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch12,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_13,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch13,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_14,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch14,,,1,,"""noClip"""
+egstats_graph_epoch_lbl_15,Text,,0,egstats_tl_yaxis,SourceURTargetUL,,,0,0,0,0,2,32,,,,fs_std_med_white,CenterMid,0,0,tx_fe_eg_epoch15,,,1,,"""noClip"""
+
+// fealty icons for population timeline,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_lord_icon,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,32,32,spr_ui_fealty_liege,,,,,0,0,,,,0,,""""""
+egstats_lord_icon_pc,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,32,32,spr_ui_fealty_liege_pc,,,,,0,0,,,,0,,""""""
+egstats_vassal_icon,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,32,32,spr_ui_fealty_vassal,,,,,0,0,,,,0,,""""""
+egstats_vassal_icon_pc,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,32,32,spr_ui_fealty_vassal_pc,,,,,0,0,,,,0,,""""""
+
+// native tribe icons for territory timeline,,,,,,,,,,,,,,,,,,,,,,,,,,
+egstats_nativetribe_icon,Sprite,,0,,SourceULTargetUL,,,0,0,0,0,32,32,spr_ui_stats_nativetribe,,,,,0,0,,,,0,,""""""

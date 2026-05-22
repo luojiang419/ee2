@@ -282,7 +282,7 @@ UpgradeUnitTypeImprove LightInfantryEpoch9Elite
 UpgradeAbilities LightInfantryEpoch11Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 2.0; missileName = "MortarShell"; ignoreBlocking = 1; packTime = 1.5; unpackTime = 1.5; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 2.0; missileName = "MortarShell"; ignoreBlocking = 1; packTime = 1.5; unpackTime = 1.5; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
 
@@ -321,7 +321,7 @@ UpgradeUnitTypeImprove LightInfantryEpoch11Elite
 UpgradeAbilities LightInfantryEpoch13Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 2.0; missileName = "MortarShell"; ignoreBlocking = 1; packTime = 2.0; unpackTime = 2.0; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 2.0; missileName = "MortarShell"; ignoreBlocking = 1; packTime = 2.0; unpackTime = 2.0; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
 

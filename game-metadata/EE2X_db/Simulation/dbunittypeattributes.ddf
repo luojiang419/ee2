@@ -411,35 +411,10 @@ UnitTypeAttribute NavalHealingUnits {
             "WarGalley"
             "FightingSail"
             "Galleon"
-            "ZhengHe"
-            "MaChuan"
-            "Guichuan"
-            "JapanBoat1"
-            "JapanBoat2"
-            "WesternBoat1"
-            "WesternBoat2"
-            "AfricanBoat"
-            "MesoAmerBoat"
-            "MiddleEastBoat"
-            "Frigate"
-            // 8时代文明特色战船
-            "Frangaleon"
-            "Ruslinkor"
-            "Rusgaleon"
-            "germlinkor"
-            "germgaleon"
-            "HMSVictory"
-            "LinkorEng"
-            "Itallinkor"
-            "Galleon_91"
-            "SpainwargALeon"
-            "origFrigate"
-            "Greclin"
-            "origGalleon"
-            "Franlin"
+            "Frigate"   
 			"Destroyer"
 			"Battleship"
-            "Sanantonio"
+            "Sanantonio"            
             "Submarine"
             "SSBN"
             "AircraftCarrier"
@@ -474,7 +449,7 @@ UnitTypeAttribute NavalHealingUnits {
 			"DDG123"
 			"Cruiser1164"
 			"DestroyerKDX2"
-			"AsagiriDestroyer"
+			"AsagiriDestroyer"			
 			"Type075"
 			"Type003"
 			"moskva_Heliport"
@@ -512,7 +487,7 @@ UnitTypeAttribute NavalHealingUnits {
 			"vanguard"
 			"Iowa"
 			"Bismark"
-
+		
 	]
 }
 UnitTypeAttribute WoodyUnits {
@@ -709,6 +684,21 @@ UnitTypeAttribute OvertimeProducers
 		Dock		
 	]
 }
+UnitTypeAttribute CentralBuildings
+{
+	UnitTypeFamilies = [
+		Fortress
+		Outpost
+		dapao	
+		
+	]
+}
+UnitTypeAttribute CityCenterBuildings
+{
+	UnitTypeFamilies = [	
+		CityCenter
+	]
+}
 
 // These are the buildings that you're NOT allowed to build
 // outside your home territory during an initial ceasefire.
@@ -722,8 +712,12 @@ UnitTypeAttribute InitialCeasefireBuildings
 		dapao
 		AIAirDefense
 		radar
+		Temple
+		University
+		Library
 	]
 }
+
 
 UnitTypeAttribute EMP_targets_ground
 {
@@ -2436,17 +2430,6 @@ UnitTypeAttribute FightingSails {
 UnitTypeAttribute Galleons {
 	UnitTypeFamilies = [
 		"Galleon"
-		"ZhengHe"
-		"Guichuan"
-		"JapanBoat1"
-		"WesternBoat1"
-		"germlinkor"
-		"HMSVictory"
-		"Itallinkor"
-		"SpainwargALeon"
-		"Greclin"
-		"Franlin"
-		"Ruslinkor"
 	]
 }
 
@@ -2539,17 +2522,6 @@ UnitTypeAttribute CivAtt_BoatGroup1 {
 UnitTypeAttribute CivAtt_BoatGroup2 {
 	UnitTypeFamilies = [
 		"Galleon"
-		"ZhengHe"
-		"Guichuan"
-		"JapanBoat1"
-		"WesternBoat1"
-		"germlinkor"
-		"HMSVictory"
-		"Itallinkor"
-		"SpainwargALeon"
-		"Greclin"
-		"Franlin"
-		"Ruslinkor"
 		"Submarine"
 		"AircraftCarrier"
 	]
@@ -3693,8 +3665,7 @@ UnitTypeAttribute CitizenEmergencyHosts {
 		CityCenter
 		Fortress
 		Wall_Tower
-		Warehouse
-	]
+	]	
 }
 
 // this includes most producers, with the exception of the Robotics Factory
@@ -3883,40 +3854,57 @@ UnitTypeAttribute AllPlanes {
 		AmericanCampaignBomber
 		UniqueUnitMaasai3
 		J10B
+		JH7A
+		J11A
 		J15
 		J16
-		F15
+		Tu16Kitai
 		F16
 		A10
-		F2
-		Japanf15
-		JetFighterTurkey
-		Mirage2000Greece
-		Mirage2000Egypt
-		Mirage2000C
-		Mirage4000
-		EurofighterGermany
-		EurofighterBritain
-		EurofighterItaly
-		Tu16Kitai
+		f14
+		F15
+		B1b
 		MiG29k
+		Su27
+		su25
+		Su37
+		Tu22M
+		tu160
+		TornadoGerman
+		G91
+		EurofighterGermany
+		ho229Ger
+		F2
+		JapanF1
+		Japanf15
+		canberraJapan
+		TornadoBritain
+		Scimitar
+		EurofighterBritain
+		vulcan
+		Mirage2000C
+		JaguarAFre
+		Mirage4000
+		Mirage4
+		FA50
+		MiG23_Korean
+		F15K_Korean
+		TornadoItaly
+		ItalyG91
+		EurofighterItaly
+		canberraItaly
+		F16_Greek
+		A7CII_Greek
+		Mirage2000Greece
+		F16XL
+		FC1
+		JetFighterTurkey
+		Mirage2000Egypt
 		MiG35
 		Mig29Iraq
 		Mig29Iran
-		Su27
-		Su34
-		Su37
-		Su47
-		mig21Ki
 		IndiaSu30
 		IndiaMirage2000
-		MiG23_Korean
-		F15K_Korean
-		FA50
-		Scimitar
-		TornadoBritain
-		TornadoGerman
-		TornadoItaly
 		NavalF18
 		FrenchPlane
 		EnglishPlane
@@ -3925,24 +3913,13 @@ UnitTypeAttribute AllPlanes {
 		GermanPlane
 		RussianPlane
 		IncaPlane
-		B1b
-		Tu22M
-		tu160
-		Tu16Kitai
 		F5Mexico
 		F14Iran
 		mig25irak
 		F4Iran
-		A7CII_Greek
-		F16_Greek
 		F4Turcey
 		F5Turkey
-		canberraJapan
-		JapanF1
-		vulcan
-		Mirage4
-		ho229Ger
-		canberraItaly
+
 		LN401
 		b24kitai
 		j2f
@@ -4014,10 +3991,6 @@ UnitTypeAttribute AllPlanes {
 		b24france
 		ms406
 		pzlp24
-		F16XL
-		f14
-		J11A
-		FC1
 	]
 }
 

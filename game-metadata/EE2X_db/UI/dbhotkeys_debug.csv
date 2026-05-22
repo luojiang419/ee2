@@ -1,0 +1,205 @@
+// NAME,DISPLAY NAME,KEYMAP,EVENT NAME,EVENT ARG,KEY (Advanced),KEY (Simple),REPEAT,ALLOW REMAP?
+
+// -------------------------------------------------------,,,,,,,,
+// Shell keys are used by the overall game shell,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_shell_ScreenFullToggle,tx_key_ScreenFullToggle,Shell,ScreenFullToggle,,"""alt+ENTER""","""alt+ENTER""",0,1
+
+key_shell_profEnableChildren,,Shell,ConfigCommand,"""PROF: EnableChildren""","""ctrl+alt+C""","""ctrl+alt+C""",0,1
+key_shell_profResetFrameTime,,Shell,ConfigCommand,"""PROF: ResetMaxFrameTime""","""ctrl+alt+F""","""ctrl+alt+F""",0,1
+key_shell_DebugConsoleToggle,,Shell,DebugConsoleToggle,,"""ctrl+TAB""","""ctrl+TAB""",0,1
+key_shell_GameExit,,Shell,GameExit,,"""Ctrl+Alt+Shift+Q""","""Ctrl+Alt+Shift+Q""",0,1
+
+key_shell_FastLoad,,Shell,FastLoad,,"""Ctrl+G""","""Ctrl+G""",0,1
+key_shell_FastLoad_saveGame,,Shell,FastLoad,"""savegame""","""Ctrl+Shift+G""","""Ctrl+Shift+G""",0,1
+key_shell_FastLoad_scenario,,Shell,FastLoad,"""scenario""","""Ctrl+Alt+Shift+G""","""Ctrl+Alt+Shift+G""",0,1
+key_shell_FastLoad_editor,,Shell,FastLoad,"""edit""","""Ctrl+E""","""Ctrl+E""",0,1
+key_shell_FastLoad_editScen,,Shell,FastLoad,"""edit scenario""","""Ctrl+Alt+Shift+E""","""Ctrl+Alt+Shift+E""",0,1
+
+key_shell_DebugMultiPage,,Shell,ShowDebugMultiPage,,"""ctrl+O""","""ctrl+O""",0,1
+key_shell_DebugMultiPage_alt,,Shell,ShowDebugMultiPage,,"""ctrl+Alt+Shift+O""","""ctrl+Alt+Shift+O""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Stats keys are used on the postgame stats screen,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_stats_ScreenFullToggle,tx_key_ScreenFullToggle,Stats,ScreenFullToggle,,"""alt+ENTER""","""alt+ENTER""",0,1
+
+key_stats_GameExit,,Stats,GameExit,,"""Ctrl+Alt+Shift+Q""","""Ctrl+Alt+Shift+Q""",0,1
+
+key_stats_DebugConsoleToggle,,Stats,DebugConsoleToggle,,"""ctrl+TAB""","""ctrl+TAB""",0,1
+key_stats_DebugMultiPage,,Stats,ShowDebugMultiPage,,"""ctrl+O""","""ctrl+O""",0,1
+key_stats_DebugMultiPage_alt,,Stats,ShowDebugMultiPage,,"""ctrl+Alt+Shift+O""","""ctrl+Alt+Shift+O""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Camera keys are used by the main camera controller(s),,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+// toggle fly mode,,,,,,,,
+key_camera_FlyModeToggle,,Camera,CamFlyModeToggle,,"""ctrl+F""","""ctrl+F""",0,1
+
+// rotate camera up (only used in fly-mode),,,,,,,,
+key_camera_RotUp,tx_key_camera_RotUp,Camera,CamCtrl,RotUp,"""ctrl+UP""","""ctrl+UP""",1,1
+key_camera_RotUpFast,tx_key_camera_RotUpFast,Camera,CamCtrl,RotUpFast,"""ctrl+shift+UP""","""ctrl+shift+UP""",1,1
+key_camera_RotUp_alt,tx_key_camera_RotUp_alt,Camera,CamCtrl,RotUp,"""ctrl+PAD8""","""ctrl+PAD8""",1,1
+key_camera_RotUpFast_alt,tx_key_camera_RotUpFast_alt,Camera,CamCtrl,RotUpFast,"""ctrl+shift+PAD8""","""ctrl+shift+PAD8""",1,1
+
+// rotate camera down (only used in fly-mode),,,,,,,,
+key_camera_RotDown,tx_key_camera_RotDown,Camera,CamCtrl,RotDown,"""ctrl+DOWN""","""ctrl+DOWN""",1,1
+key_camera_RotDownFast,tx_key_camera_RotDownFast,Camera,CamCtrl,RotDownFast,"""ctrl+shift+DOWN""","""ctrl+shift+DOWN""",1,1
+key_camera_RotDown_alt,tx_key_camera_RotDown_alt,Camera,CamCtrl,RotDown,"""ctrl+PAD2""","""ctrl+PAD2""",1,1
+key_camera_RotDownFast_alt,tx_key_camera_RotDownFast_alt,Camera,CamCtrl,RotDownFast,"""ctrl+shift+PAD2""","""ctrl+shift+PAD2""",1,1
+
+// look straight down (only used in fly-mode),,,,,,,,
+key_camera_LookStraightDown,,Camera,CamLookStraightDown,,"""ctrl+shift+F""","""ctrl+shift+F""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Editor keys are used by the scenario editor,,,,,,,,
+// most (all) of these are bound to menu actions,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_editor_ScreenFullToggle,tx_key_ScreenFullToggle,Editor,ScreenFullToggle,,"""alt+ENTER""","""alt+ENTER""",0,1
+
+key_editor_TerrainGridToggle,,Editor,TerrainGridToggle,,"""Alt+G""","""Alt+G""",0,1
+key_editor_ToggleWireframeBV,,Editor,ToggleWireframeBV,,"""ctrl+w""","""ctrl+w""",0,1
+key_editor_DebugConsoleToggle,,Editor,DebugConsoleToggle,,"""ctrl+TAB""","""ctrl+TAB""",0,1
+key_editor_profResetFrameTime,,Editor,ConfigCommand,"""PROF: ResetMaxFrameTime""","""ctrl+alt+F""","""ctrl+alt+F""",0,1
+
+// debug multi page (ctrl+o is already bound in the editor),,,,,,,,
+key_DebugMultiPage,,Editor,ShowDebugMultiPage,,"""ctrl+Alt+Shift+O""","""ctrl+Alt+Shift+O""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Cinematic keys are the only keys enabled during,,,,,,,,
+// playback of cutscenes,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_cine_ScreenFullToggle,tx_key_ScreenFullToggle,Cinematic,ScreenFullToggle,,"""alt+ENTER""","""alt+ENTER""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Fullmap keys are used while the fullmap is open,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_fullmap_ScreenFullToggle,tx_key_ScreenFullToggle,Fullmap,ScreenFullToggle,,"""alt+ENTER""","""alt+ENTER""",0,1
+
+key_fullmap_EndGame,,Fullmap,EndGame,,"""ctrl+shift+Q""","""ctrl+shift+Q""",0,1
+key_fullmap_GameExit,,Fullmap,GameExit,,"""Ctrl+Alt+Shift+Q""","""Ctrl+Alt+Shift+Q""",0,1
+key_fullmap_DebugConsoleToggle,,Fullmap,DebugConsoleToggle,,"""ctrl+TAB""","""ctrl+TAB""",0,1
+
+// debug multi page,,,,,,,,
+key_fullmap_DebugMultiPage,,Fullmap,ShowDebugMultiPage,,"""ctrl+O""","""ctrl+O""",0,1
+key_fullmap_DebugMultiPage_alt,,Fullmap,ShowDebugMultiPage,,"""ctrl+Alt+Shift+O""","""ctrl+Alt+Shift+O""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Game keys are used in-game,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_game_ScreenFullToggle,tx_key_ScreenFullToggle,Game,ScreenFullToggle,,"""alt+ENTER""","""alt+ENTER""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Debug keys are for debugging purposes in-game.  We put,,,,,,,,
+// them in a separate keymapper space in case we want to someday,,,,,,,,
+// be able to toggle them on and off in-game.  ,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+// General convenience,,,,,,,,
+key_debug_EndGame,,Debug,EndGame,,"""ctrl+shift+Q""","""ctrl+shift+Q""",0,1
+key_debug_GameExit,,Debug,GameExit,,"""Ctrl+Alt+Shift+Q""","""Ctrl+Alt+Shift+Q""",0,1
+
+// Profiling and debugging,,,,,,,,
+key_debug_DebugConsoleToggle,,Debug,DebugConsoleToggle,,"""ctrl+TAB""","""ctrl+TAB""",0,1
+key_debug_profEnableChildren,,Debug,ConfigCommand,"""PROF: EnableChildren""","""ctrl+alt+C""","""ctrl+alt+C""",0,1
+key_debug_profResetFrameTime,,Debug,ConfigCommand,"""PROF: ResetMaxFrameTime""","""ctrl+alt+F""","""ctrl+alt+F""",0,1
+key_debug_TerrainGridToggle,,Debug,TerrainGridToggle,,"""ctrl+G""","""ctrl+G""",0,1
+key_debug_PathPlannerDraw_1,,Debug,PathPlannerDraw,"""1""","""ctrl+P""","""ctrl+P""",0,1
+key_debug_PathPlannerDraw_2,,Debug,PathPlannerDraw,"""0""","""ctrl+shift+P""","""ctrl+shift+P""",0,1
+key_debug_FogOfWarDebugToggle,,Debug,FogOfWarDebugToggle,,"""ctrl+shift+F""","""ctrl+shift+F""",0,1
+key_debug_ToggleWireframeBV,,Debug,ToggleWireframeBV,,"""ctrl+w""","""ctrl+w""",0,1
+key_debug_SimStepOneTick,,Debug,SimStepOneTick,,"""ctrl+alt+shift+s""","""ctrl+alt+shift+s""",0,1
+
+// Debug multipage,,,,,,,,
+key_debug_DebugMultiPage,,Debug,ShowDebugMultiPage,,"""ctrl+O""","""ctrl+O""",0,1
+key_debug_DebugMultiPage_alt,,Debug,ShowDebugMultiPage,,"""ctrl+Alt+Shift+O""","""ctrl+Alt+Shift+O""",0,1
+key_debug_DebugMultiPageNext,,Debug,DebugMultiPageToggle,"""+""","""ctrl+alt+PERIOD""","""ctrl+alt+PERIOD""",0,1
+key_debug_DebugMultiPagePrev,,Debug,DebugMultiPageToggle,"""-""","""ctrl+alt+COMMA""","""ctrl+alt+COMMA""",0,1
+
+// Switch players,,,,,,,,
+key_debug_SwitchPlayer_world,,Debug,SwitchPlayer,"""0""","""ctrl+alt+w""","""ctrl+alt+w""",0,1
+key_debug_SwitchPlayer_1,,Debug,SwitchPlayer,"""1""","""ctrl+alt+_1""","""ctrl+alt+_1""",0,1
+key_debug_SwitchPlayer_2,,Debug,SwitchPlayer,"""2""","""ctrl+alt+_2""","""ctrl+alt+_2""",0,1
+key_debug_SwitchPlayer_3,,Debug,SwitchPlayer,"""3""","""ctrl+alt+_3""","""ctrl+alt+_3""",0,1
+key_debug_SwitchPlayer_4,,Debug,SwitchPlayer,"""4""","""ctrl+alt+_4""","""ctrl+alt+_4""",0,1
+key_debug_SwitchPlayer_5,,Debug,SwitchPlayer,"""5""","""ctrl+alt+_5""","""ctrl+alt+_5""",0,1
+key_debug_SwitchPlayer_6,,Debug,SwitchPlayer,"""6""","""ctrl+alt+_6""","""ctrl+alt+_6""",0,1
+key_debug_SwitchPlayer_7,,Debug,SwitchPlayer,"""7""","""ctrl+alt+_7""","""ctrl+alt+_7""",0,1
+key_debug_SwitchPlayer_8,,Debug,SwitchPlayer,"""8""","""ctrl+alt+_8""","""ctrl+alt+_8""",0,1
+key_debug_SwitchPlayer_9,,Debug,SwitchPlayer,"""9""","""ctrl+alt+_9""","""ctrl+alt+_9""",0,1
+key_debug_SwitchPlayer_10,,Debug,SwitchPlayer,"""10""","""ctrl+alt+_0""","""ctrl+alt+_0""",0,1
+key_debug_SwitchPlayer_NT_1,,Debug,SwitchPlayer,"""11""","""ctrl+alt+shift+_1""","""ctrl+alt+shift+_1""",0,1
+key_debug_SwitchPlayer_NT_2,,Debug,SwitchPlayer,"""12""","""ctrl+alt+shift+_2""","""ctrl+alt+shift+_2""",0,1
+key_debug_SwitchPlayer_NT_3,,Debug,SwitchPlayer,"""13""","""ctrl+alt+shift+_3""","""ctrl+alt+shift+_3""",0,1
+key_debug_SwitchPlayer_NT_4,,Debug,SwitchPlayer,"""14""","""ctrl+alt+shift+_4""","""ctrl+alt+shift+_4""",0,1
+key_debug_SwitchPlayer_NT_5,,Debug,SwitchPlayer,"""15""","""ctrl+alt+shift+_5""","""ctrl+alt+shift+_5""",0,1
+
+// Environmental controls,,,,,,,,
+key_debug_SeasonMonth_dec_3,,Debug,SeasonMonthAdvance,"""-3""","""ctrl+MINUS""","""ctrl+MINUS""",0,1
+key_debug_SeasonMonth_inc_3,,Debug,SeasonMonthAdvance,"""3""","""ctrl+EQUALS""","""ctrl+EQUALS""",0,1
+key_debug_SeasonMonth_dec_1,,Debug,SeasonMonthAdvance,"""-1""","""ctrl+alt+MINUS""","""ctrl+alt+MINUS""",0,1
+key_debug_SeasonMonth_inc_1,,Debug,SeasonMonthAdvance,"""+1""","""ctrl+alt+EQUALS""","""ctrl+alt+EQUALS""",0,1
+key_debug_PauseCalendar,,Debug,PauseCalendar,,"""ctrl+alt+BACKSLASH""","""ctrl+alt+BACKSLASH""",0,1
+key_debug_ToggleAtmospherePanel,,Debug,ToggleAtmospherePanel,,"""Ctrl+alt+shift+A""","""Ctrl+alt+shift+A""",0,1
+
+// Miscellaneous,,,,,,,,
+key_debug_ToggleCheatingInGame,,Debug,ToggleCheatingInGame,"""""","""ctrl+shift+alt+C""","""ctrl+shift+alt+C""",0,1
+key_debug_ShowHideUI,,Debug,ShowHideUI,"""""","""ctrl+alt+H""","""ctrl+alt+H""",0,1
+key_debug_ExecScenEditGotoXY,,Debug,ExecScenEditGotoXY,,"""ctrl+shift+g""","""ctrl+shift+g""",0,1
+key_debug_ShowAreasToggle,,Debug,ShowAreasToggle,,"""ctrl+alt+a""","""ctrl+alt+a""",0,1
+key_debug_ToggleCityBoundaries,,Debug,ToggleCityBoundaries,,"""ctrl+B""","""ctrl+B""",0,1
+key_debug_ScenEdit_ToolsToggle,,Debug,ScenEdit_ToolsToggle,"""se_objects""","""Ctrl+shift+z""","""Ctrl+shift+z""",0,1
+key_debug_rotateUnit,,Debug,TestUnitCmd,"""Rotate""","""R""","""R""",0,1
+
+// AI Related,,,,,,,,
+key_debug_AI_DbgObstacleToggle,,Debug,ToggleAIObstacleDebugging,,"""debug+ctrl+a""","""debug+ctrl+a""",0,1
+key_debug_AI_BuildManagerStep,,Debug,AI_BuildManagerStepNow ,,"""debug+space""","""debug+space""",0,1
+key_debug_AI_DbgGfx_plan,,Debug,AI_SelectDebugGraphics,"""Plan""","""debug+ctrl+_1""","""debug+ctrl+_1""",0,1
+key_debug_AI_DbgGfx_army,,Debug,AI_SelectDebugGraphics,"""Army""","""debug+ctrl+_2""","""debug+ctrl+_2""",0,1
+key_debug_AI_DbgGfx_buildMan,,Debug,AI_SelectDebugGraphics,"""BuildManager""","""debug+ctrl+_3""","""debug+ctrl+_3""",0,1
+key_debug_AI_DbgGfx_gather,,Debug,AI_SelectDebugGraphics,"""Gather""","""debug+ctrl+_4""","""debug+ctrl+_4""",0,1
+key_debug_AI_DbgGfx_explore,,Debug,AI_SelectDebugGraphics,"""ExplorationMap""","""debug+ctrl+_5""","""debug+ctrl+_5""",0,1
+key_debug_AI_DbgGfx_deathMap,,Debug,AI_SelectDebugGraphics,"""DeathMap""","""debug+ctrl+_6""","""debug+ctrl+_6""",0,1
+key_debug_AI_DbgGfx_threatMap,,Debug,AI_SelectDebugGraphics,"""ThreatMap""","""debug+ctrl+_7""","""debug+ctrl+_7""",0,1
+key_debug_AI_DbgGfx_resMap,,Debug,AI_SelectDebugGraphics,"""ResourceMap""","""debug+ctrl+_8""","""debug+ctrl+_8""",0,1
+key_debug_AI_DbgGfx_enemyBase,,Debug,AI_SelectDebugGraphics,"""EnemyBaseMap""","""debug+ctrl+_9""","""debug+ctrl+_9""",0,1
+key_debug_AI_DbgGfx_friendBase,,Debug,AI_SelectDebugGraphics,"""FriendlyBaseMap""","""debug+ctrl+_0""","""debug+ctrl+_0""",0,1
+key_debug_AI_DbgGfx,,Debug,AI_SelectDebugGraphics,"""NULL""","""debug+ctrl+shift+_0""","""debug+ctrl+shift+_0""",0,1
+
+key_debug_AI_TogglePause,,Debug,AI_TogglePause,"""*""","""debug+ctrl+p""","""debug+ctrl+p""",0,1
+key_debug_AI_DbgGfx_next,,Debug,AI_CycleDebugGraphics,"""+""","""debug+ctrl+UP""","""debug+ctrl+UP""",0,1
+key_debug_AI_DbgGfx_prev,,Debug,AI_CycleDebugGraphics,"""-""","""debug+ctrl+DOWN""","""debug+ctrl+DOWN""",0,1
+
+key_debug_AI_SelDebugUnit_task,,Debug,AI_SelectDebugUnit,"""task""","""debug+t""","""debug+t""",0,1
+key_debug_AI_SelDebugUnit_res,,Debug,AI_SelectDebugUnit,"""resource""","""debug+r""","""debug+r""",0,1
+
+// -------------------------------------------------------,,,,,,,,
+// Cheat hotkeys are turned on with chat-based cheats,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_cheat_DecResOfPlayer_10,,Cheat,ChangeResourceOfPlayer,"""-10""","""alt+MINUS""","""alt+MINUS""",0,1
+key_cheat_IncResOfPlayer_100,,Cheat,ChangeResourceOfPlayer,"""100""","""alt+EQUALS""","""alt+EQUALS""",0,1
+key_cheat_HurtSelection,,Cheat,HurtSelection,"""5""","""alt+BACKSPACE""","""alt+BACKSPACE""",0,1
+key_cheat_ToggleInstantBuild,,Cheat,GameCheatToggleNetworked,"""InstantBuild""","""ctrl+B""","""ctrl+B""",0,1
+key_cheat_ToggleFog,,Cheat,GameCheatToggleNetworked,"""FogOfWar""","""ctrl+shift+alt+F""","""ctrl+shift+alt+F""",0,1
+key_cheat_ToggleGodMode,,Cheat,GameCheatToggleNetworked,"""GodMode""","""ctrl+shift+alt+G""","""ctrl+shift+alt+G""",0,1
+key_cheat_AdvanceEpoch,,Cheat,AdvanceEpoch,,"""ctrl+shift+alt+E""","""ctrl+shift+alt+E""",0,1
+key_cheat_IncResOfPlayer_10000,,Cheat,ChangeResourceOfPlayer,"""10000""","""ctrl+shift+alt+L""","""ctrl+shift+alt+L""",0,1
+key_cheat_AddTechPoints,,Cheat,AddTechPoints,"""10000""","""ctrl+shift+alt+T""","""ctrl+shift+alt+T""",0,1
+key_cheat_ConvertSelection,,Cheat,ConvertSelection,"""1""","""ctrl+shift+C""","""ctrl+shift+C""",0,1
+key_cheat_RechargePower,,Cheat,InstantlyRechargePower,,"""alt+P""","""alt+P""",0,1
+key_cheat_ToggleUnitTargetLines,,Cheat,ToggleUnitTargetLines,,"""alt+L""","""alt+L""",0,1

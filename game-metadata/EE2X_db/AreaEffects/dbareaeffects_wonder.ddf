@@ -1,0 +1,383 @@
+//////////////////////////////Wonder Area Effects//////////////////////////////
+
+//------------------------------------------------------------------------------------------------
+//	WESTERN WONDERS
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	BRANDENBURG GATE (EPOCH 6)
+//	POWER: SPOILS OF WAR
+//	DESC: PLAYER EARNS 1 TECH POINT FOR EVERY 5 UNITS KILLED
+//------------------------------------------------
+DbAreaEffectInfo SpoilsOfWar
+{
+	name = text_rarea_spoilsofwar_name
+	desc = text_rarea_spoilsofwar_desc
+	effects = [
+		EffectKillPayment {
+			range = Global_Unit
+			mask = AttackingUnits
+			player = Self
+			
+			// 1 tech for 5 units killed, so 0.2 tech per unit
+			payment = [
+				{
+					resource = Tech
+					bonus = 0.2		// Tag on the 01 to make sure it isn't rounded down below 0.2 due
+										// to precision problems.
+				}
+			]
+		}
+	]
+}
+
+//------------------------------------------------
+//	PENTAGON (EPOCH 11)
+//	POWER: HOMELAND DEFENSE
+//	DESC: HOUSES CAN FIRE ON ENEMY TARGETS
+//------------------------------------------------
+DbAreaEffectInfo HomelandDefense
+{
+  effects = [
+	     EffectActivateAttackAbility {
+	       range = Global_Unit
+	       mask = Houses
+	       player = Self
+	     }
+  ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	MIDDLE EASTERN WONDERS
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	SPHINX (EPOCH 1)
+//	POWER: RIDDLE OF THE SPHINX 
+//	DESC: ALL BUILDINGS ARE IMMUNE TO CAPTURE
+//------------------------------------------------
+DbAreaEffectInfo RiddleOfTheSphinx
+{
+	bSkipKingOfTheHillUnit = true
+
+  effects = [
+	     EffectNoConversion {
+	       // notice that this is a unit attached effect range
+	       range = Global_Unit
+	       player = Self
+	       mask = SubjectToCapture
+	     }
+  ]
+}
+
+//------------------------------------------------
+//	SELIMYE MOSQUE (EPOCH 6)
+//	POWER: SULTANS REWARD
+//	DESC: WHENEVER AN ENEMY UNIT\BUILDING IS DESTROYED, YOU GET 20% OF ITS BUILD COST
+//------------------------------------------------
+DbAreaEffectInfo SultansReward
+{
+	effects = [
+		EffectKillPayment {
+			range = Global_Unit
+			mask = AttackingUnits
+			player = Self
+			
+			// 20% of killed unit's gold cost
+			payment = [
+				{
+					resource = Gold
+					scale = 0.2
+					bonus = 0.0
+				}
+			]
+		}
+	]
+}
+
+//------------------------------------------------
+//	DESALINZATION PLANT (EPOCH 11)
+//	POWER: LIFE TO THE DESERT
+//	DESC: CITIZENS GATHER FOOD 50% FASTER AND POPULATION CAPACITY IS INCREASED BY 35
+//------------------------------------------------
+// this effect is attached to player that owns the wonder via the wonder manager,
+// and the 'glue' that enables this is here: /db/simulation/misc/wonder.ddf
+DbAreaEffectInfo LifeToTheDesert
+{
+  effects = [
+	     EffectPopulationAdditive {
+	       range = PopCap
+	       player = Self
+	       amount = 35
+	     }
+	     
+		 EffectResourceGatherRate {
+		   range = Global
+		   player = Self
+		   mask = Citizens
+
+		   affectedResourceTypes = [ Food ]
+		   affectedResourceSources = Resources
+
+		   // increase gather rate by 50%
+		   scale = 1.5
+	     }
+  ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	FAR EASTERN WONDERS
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	TOWER OF THE MOON AND STARS (EPOCH 1)
+//	POWER: FARSEEING 
+//	DESC: PLAYERS LOS ON ALL BUILDINGS IS INCREASED TO 14 AND PLAYER HAS LOS ON EVERY OTHER PLAYERS CITY CENTER
+//------------------------------------------------
+DbAreaEffectInfo Farseeing
+{
+	name = tx_warea_Farseeing_name
+	desc = tx_warea_Farseeing_desc
+	
+//	duration = 30
+	selectionType = kSelectionType_None	
+
+	effects = [
+		EffectGiveLOS {
+			range = Global_Unit
+			player = NonSelf
+			mask = CityCenters
+		}
+		EffectAddLOS {
+			range = Global_Unit
+			player = Self
+			mask = Buildings
+			additionalLOS = 14
+		}
+	]
+}
+
+//------------------------------------------------
+//	FORBIDDEN PALACE (EPOCH 6)
+//	POWER: SPLENDOR 
+//	DESC: No loss of resources when one of your buildings is captured.
+//	If you capture another player's building, you receive an additional 35% of the resources captured.
+//------------------------------------------------
+DbAreaEffectInfo Splendor
+{
+  effects = [
+	     EffectCaptureResourceYield {
+	       range = Global_Unit
+	       player = Self
+	       mask = SubjectToCapture
+	       
+	       // yield 0% normal resource amount on capture
+	       scale = 0
+	     }
+
+	     EffectCaptureResourceYield {
+	       range = Global_Unit
+	       player = NonSelf
+	       mask = SubjectToCapture
+	       
+	       // yield 35% more resources on capture
+	       scale = 1.35
+	     }
+  ]
+}
+
+//------------------------------------------------
+//	ROBOTICS FACTORY (EPOCH 11)
+//	POWER: AUTOMATION 
+//	DESC: Every minute a randomly generated unit is created at the robotics factory.
+//------------------------------------------------
+DbAreaEffectInfo AutomationEpoch11
+{
+	effects = [
+		EffectSpawn {
+			range = Unit
+			player = Self
+			
+			delay = 60	// how many seconds until next spawn time.
+			minCount = 1;	// how many units (minimum) to spawn when the time comes
+			maxCount = 1;	// how many units (maximum) to spawn when the time comes
+			unitTypes = [ "Tank" "HeavyTank" ]; // what kind of units to spawn
+			showImmigrationMsg = false;
+		}
+	]
+}
+
+// Automation - Make Hercs appear at the factory for epoch 15, we make hercs
+DbAreaEffectInfo AutomationEpoch15
+{
+	effects = [
+		EffectSpawn {
+			range = Unit
+			player = Self
+			
+			delay = 60	// how many seconds until next spawn time.
+			minCount = 1;	// how many units (minimum) to spawn when the time comes
+			maxCount = 1;	// how many units (maximum) to spawn when the time comes
+			unitTypes = [ "Tank" "HeavyTank" "HeavyMounted3" "LightMounted3" ]; // what kind of units to spawn
+			showImmigrationMsg = false;
+		}
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	MESO AMERICAN WONDERS
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	TEMPLE OF THE GREAT JAGUAR (EPOCH 1)
+//	POWER: ART OF WAR 
+//	DESC: All enemy players housing provides same Morale/Fervor bonus for your invading troops as their defending troops while power is active.
+//------------------------------------------------
+DbAreaEffectInfo ArtOfWar
+{
+	effects = [
+		// Morale
+		EffectDamage {
+			range = OtherClaimedTerritory_Unit
+			mask = LandRPS
+			player = Self
+			upgradeFactor = TerritoryMoraleBonus
+			
+			// even though this is a unit attached effect,
+			// we need to get upgradeable values from the affected units
+			forceUpgradeFromAffectedUnit = true
+			
+			scale = 1 // actual value comes from upgrade system
+		}
+		EffectAreaDamage {
+			range = OtherClaimedTerritory_Unit
+			mask = LandRPS
+			player = Self
+			upgradeFactor = TerritoryMoraleBonus 
+			// even though this is a unit attached effect,
+			// we need to get upgradeable values from the affected units
+			forceUpgradeFromAffectedUnit = true
+			
+			scale = 1 // actual value comes from upgrade system
+		}
+				
+		// Fervor
+		EffectAttack {
+			range = OtherClaimedTerritory_Unit
+			mask = LandRPS
+			player = Self
+			upgradeFactor = TerritoryFervorBonus
+			// even though this is a unit attached effect,
+			// we need to get upgradeable values from the affected units
+			forceUpgradeFromAffectedUnit = true
+			
+			scale = 1 // actual value comes from upgrade system
+		}
+		
+		EffectVisualGlow {
+			SuppressGlow = true
+			range = OtherClaimedTerritory_Unit
+			mask = LandRPS
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_regionpower_terrclaims_s
+			Tooltip = tt_power_ArtOfWar
+			VTooltip = vtt_power_unitinfo_ArtOfWar
+		}
+	]
+}
+
+//------------------------------------------------
+//	GREAT PYRMAMID OF TENOCHTITLAN (EPOCH 6)
+//	POWER: PROSELTYIZE
+//	DESC: Whenever a unit is converted, there is a 5% chance that any units within X tiles of the newly converted unit will also be
+//	instantaneously converted.
+//------------------------------------------------
+DbAreaEffectInfo Proselytizing
+{
+  effects = [
+  		EffectProselytizing {
+  			range = Global_Unit
+			mask = Priests
+  			player = Self
+
+			// units to convert
+			targetMask = SubjectToConversion
+			targetPlayer = NonSelf
+
+  			// chance of conversion
+  			chance = 0.05
+			// radius of conversion
+			radius = 3
+  		}
+  ]
+}
+
+//------------------------------------------------
+//	SOLAR POWER STATION (EPOCH 11)
+//	POWER: ENERGY EFFICIENCY
+//	DESC: All building construction\building repair costs are reduced by 50%.
+//------------------------------------------------
+// this effect is attached to player that owns the wonder via the wonder manager,
+// and the 'glue' that enables this is here: /db/simulation/misc/wonder.ddf
+DbAreaEffectInfo EnergyEfficiency
+{
+  effects = [
+  		// @TODO - this effect should modulate building repair costs as well
+  		EffectConstructionCost {
+  			range = SpaceTime
+  			player = Self
+  			affected = Anything
+  			
+  			// cost reduced by 50%
+  			scale = 0.5
+  		}
+  ]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	OLD WONDER POWERS
+//------------------------------------------------------------------------------------------------
+DbAreaEffectInfo RapidDeployment
+{
+	name = tx_warea_RapidDeploy_name
+	desc = tx_warea_RapidDeploy_desc
+	button = "unit_power_RapidDeploy"
+	selectionType = Location	
+
+	mouseCursor = RapidDeployment
+	mouseCursorInvalid = RapidDeployment_Invalid
+	
+	duration = 2
+
+	effects = [
+		EffectRapidDeployment {
+			range = Unit
+			player = Self
+			mask = Anything
+			overallEffectName = "FX_RapidDeploymentCrate"
+		}
+	]
+}
+
+DbAreaEffectInfo HardTeachings
+{
+	effects = [
+		// 0.1 techpoints per kill
+		EffectKillPayment {
+			range = Global_Unit
+			player = Self
+			mask = AttackingUnits
+			
+			payment = [
+				{
+					resource = Tech
+					scale = 0.0
+					bonus = 0.1
+				}
+			]
+		}
+	]
+}
+
+
+
+

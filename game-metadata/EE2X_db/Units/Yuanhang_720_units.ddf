@@ -904,7 +904,7 @@ UnitType CsCommgril
 		popCount = 1
 		displayName = tx_utn_CsCommgril_name
 		VerboseTooltip = vtt_unit_CsCommgril
-		HitPoints = 742
+		HitPoints = 530
 	}
 	sounds = {
 		sndSelection = ["v_female_select_chn01"
@@ -922,7 +922,7 @@ UnitType CsCommgril
 		PowerReserve { timeToRecharge = 15 }
 		Attack { damage = 20; range = 12; reloadTime = 0.5; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 2.0; unpackTime = 0.1;  }
 		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 }
-		Move {speed = 15; angSpeed = 180}
+		Move {speed = 1.3; angSpeed = 180}
         LOS { range = 16 }
 	//	SpecialPower { 
 	//		range = 8;
@@ -1157,7 +1157,7 @@ UnitType ChinaArmy
 		popCount = 1
 		displayName = tx_utn_ChinaArmy_name
 		VerboseTooltip = vtt_unit_ChinaArmy
-		HitPoints = 742
+		HitPoints = 795
 	}
 	sounds = {
 		sndSelection = ["v_infantry_select_chn"
@@ -1249,7 +1249,7 @@ UnitType usaSoldiers
 		popCount = 1
 		displayName = tx_utn_UniqGI_name
 		VerboseTooltip = vtt_unit_UniqGI
-		HitPoints = 742
+		HitPoints = 795
 	}
 	sounds = {
 	}
@@ -1324,7 +1324,7 @@ UnitType RusSoldiers
 		popCount = 1
 		displayName = tx_utn_UniqGI_name
 		VerboseTooltip = vtt_unit_UniqGI
-		HitPoints = 742
+		HitPoints = 795
 	}
 	sounds = {
 	}
@@ -1391,7 +1391,7 @@ UnitType ATSoldiers
 		DisplayName = tx_utn_ATInfantry_name
 		DisplayNameScenEdit = tx_utn_ATInfantry_pname
 		VerboseTooltip = vtt_unit_ATInfantry
-		HitPoints = 672
+		HitPoints = 720
 		rps = HeavyInfantry
 		SizeX = 0.2
 		SizeY = 0.2
@@ -17709,7 +17709,7 @@ UnitType Tavern
 		LOS { range = 8 }
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 25;
+			numOfSlots = 6;
 			gatherRate = 0.5;	
 			gatherType = Gold;
             rightClickToGarrison = 1;
@@ -19499,8 +19499,8 @@ UnitType Weelloader
 				tinRate = 5.0;
 				ironRate = 5.0;
 				saltpeterRate = 7.0;
-					oilRate = 5.0;
-					uraniumRate = 5.0;
+						oilRate = 5.0;
+						uraniumRate = 5.0;
 		}
             Build { repairRate = 100 }
 		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
@@ -19684,7 +19684,7 @@ UnitType Autofactory
         displayName = tx_utn_autofactory_name
 		VerboseTooltip = vtt_unit_autofactory
             HitPoints = 5000            
-		RallyPlacementFlags = ( Resources | Fortress | Tower | Terrain )
+			RallyPlacementFlags = ( Resources | Fortress | Tower | Terrain )
 	}
 	sounds {            
     	}

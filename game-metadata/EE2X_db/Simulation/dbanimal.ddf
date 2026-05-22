@@ -30,7 +30,6 @@ Animal Cow
 	// Every approximately m_TimeBetweenWandering seconds, they'll get a
 	// new move order.
 	TimeBetweenWandering = 10
-	ReproPeriod = 60
 }
 
 Animal Cow2
@@ -39,7 +38,6 @@ Animal Cow2
 	AnimalType = Domesticated
 	WanderRadius = 3
 	TimeBetweenWandering = 10
-	ReproPeriod = 60
 }
 
 Animal Llama
@@ -139,7 +137,7 @@ Animal Deer
 	
 	// If there are 2X animals in the herd, a new one will be created
 	// every ReproPeriod/X seconds, up to MaxHerdSize.
-	ReproPeriod = 100
+	ReproPeriod = 360
 }
 
 Animal Camel
@@ -155,7 +153,7 @@ Animal Camel
 	
 	// If there are 2X animals in the herd, a new one will be created
 	// every ReproPeriod/X seconds, up to MaxHerdSize.
-	ReproPeriod = 100
+	ReproPeriod = 360
 }
 
 Animal Elephant
@@ -165,7 +163,7 @@ Animal Elephant
 	WanderRadius = 4
 	TimeBetweenWandering = 6
 	MaxHerdSize =  { min = 5 max = 10 }
-	ReproPeriod = 100
+	ReproPeriod = 360
 }
 
 Animal Boar
@@ -175,6 +173,6 @@ Animal Boar
 	WanderRadius = 4
 	TimeBetweenWandering = 6
 	MaxHerdSize = { min = 5 max = 10 }
-	ReproPeriod = 100
+	ReproPeriod = 360
 }
 

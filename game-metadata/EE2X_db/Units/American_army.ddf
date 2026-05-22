@@ -84,9 +84,9 @@ UnitType F35
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 8.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-            Attack { damage = 900; range = 20; reloadTime =1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
-		LOS { range = 24 }
+		AircraftMove {speed = 7.5; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+            Attack { damage = 900; range = 18; reloadTime =1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+		LOS { range = 26 }
 		AreaEffect {
 			effects = [ 
 				SuperVision,
@@ -158,9 +158,9 @@ UnitType F22
 			 sndDeath = ["fix_plane_deathh3" "fix_plane_deathh2" "fix_plane_deathh1"]
 	}
 	abilities = [
-		AircraftMove {speed = 8.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 950; range = 20; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
-	LOS { range = 24 }
+		AircraftMove {speed = 9.5; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 950; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
+	LOS { range = 26 }
 	AreaEffect {
 			effects = [ 
 				SuperVision,
@@ -239,9 +239,9 @@ UnitType YF23
 			 sndDeath = ["fix_plane_deathh3" "fix_plane_deathh2" "fix_plane_deathh1"]
 	}
 	abilities = [
-		AircraftMove {speed = 8.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 950; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
-	LOS { range = 24 }
+		AircraftMove {speed = 9.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 950; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
+	LOS { range = 26 }
 	AreaEffect {
 			effects = [ 
 				SuperVision
@@ -315,8 +315,8 @@ UnitType F14
 			 sndDeath = ["fix_plane_deathh3" "fix_plane_deathh2" "fix_plane_deathh1"]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 78; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 850; range = 15; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; }
+		AircraftMove {speed = 8.5; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 850; range = 18; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0; }
 	LOS { range = 16 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -435,9 +435,9 @@ UnitType f15
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 920; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; }
-	LOS { range = 17 }
+		AircraftMove {speed = 9; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 950; range = 18; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; }
+	LOS { range = 20 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
 		}
@@ -555,9 +555,9 @@ UnitType f16
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
-	LOS { range = 17 }
+		AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 850; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+	LOS { range = 18 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
 		}
@@ -742,14 +742,14 @@ UnitType A10
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1900
+		HitPoints = 2500
 		displayName = tx_utn_A10_name
 		verboseTooltip = vtt_unit_A10
 		popCount = 2
 	}
 	abilities = [
-		AircraftMove {speed = 7; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 500; range = 15; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius = 2;}
+		AircraftMove {speed = 5; angSpeed = 50; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 600; range = 12; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 70;areaDamageRadius = 1.5;}
 		LOS { range = 16 }
 		SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -1030,13 +1030,13 @@ UnitType B1b
 		displayName = tx_utn_B1b_name
 verboseTooltip = vtt_unit_B1b
 		popCount = 3
-HitPoints = 1900
+HitPoints = 3500
 	}
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 7.5; angSpeed = 56; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
-		Attack { damage = 10000; range = 50; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 2;areaDamageRadius =5.0; }
+		AircraftMove {speed = 6.5; angSpeed = 40; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 8000; range = 45; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius =5.0; }
 		LOS { range = 28 }
 	]
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
@@ -1187,8 +1187,8 @@ UnitType B2
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 35; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
-		Attack { damage = 35000; range = 60; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
+		AircraftMove {speed = 6; angSpeed = 30; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
+		Attack { damage = 35000; range = 55; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 2;areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
 		LOS { range = 30 }
 		AreaEffect {
 			effects = [ 
@@ -1234,65 +1234,4 @@ UnitModel B2
 		angle = 18.95
 	}
 
-}
-
-
-//------------------------------------------------
-//	EPOCH 11 - US AIR FORCE UPGRADES
-//------------------------------------------------
-// Attack Ability Upgrade - F-16
-UpgradeAbilities F16Epoch11Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 8.2; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "OutpostBullet";ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50 }
-	]
-}
-
-// Attack Ability Upgrade - A-10
-UpgradeAbilities A10Epoch11Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 6.5; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "OutpostBullet";ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50 }
-	]
-}
-
-// Attack Ability Upgrade - B-1B
-UpgradeAbilities B1bEpoch11Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 4.0; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "bomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 24;
-				areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-	]
-}
-//------------------------------------------------
-//	EPOCH 14
-//------------------------------------------------
-// Attack Ability Upgrade
-UpgradeAbilities F16Epoch14Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 8.8; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
-	]
-}
-
-UpgradeAbilities A10Epoch14Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 6.5; angSpeed = 80; CruisingHeight = 8.5; ElevChangeRate = 1.0}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 16;
-				areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-	]
-}
-
-UpgradeAbilities B1bEpoch14Attack
-{
-	upgradedAbilities = [
-		AircraftMove {speed = 5.5; angSpeed = 46; CruisingHeight = 10.0; ElevChangeRate = 1.0; OnGroundScale = 0.8}
-		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "Bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;
-				areaDamageRadius = 2.75; areaDamageFriendlyRatio = 0.5; throwUnits = true }
-	]
 }

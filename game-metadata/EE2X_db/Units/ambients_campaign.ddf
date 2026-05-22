@@ -107,7 +107,7 @@ UnitType MachineGunNest12
 {
 	parent = AmbientCampaignBuilding
 	properties {
-		hitpoints = 1000
+		hitpoints = 2000
 		rps = BuildingCombat
 		SizeX = 1.0
 		SizeY = 1.0
@@ -116,8 +116,8 @@ UnitType MachineGunNest12
 		VerboseTooltip = vtt_unit_machinegunnest12
 	}
 	abilities = [
-		Attack { range = 13.0; reloadTime = 0.3; applyDamageTime = 0.5; damage = 30; turretControllerName = BuildingTurret; }
-		LOS { range = 13 }
+		Attack { range = 15; reloadTime = 0.3; applyDamageTime = 0.5; damage = 30; turretControllerName = BuildingTurret; }
+		LOS { range = 15 }
 	]
 	icon = icon_unit_machinegunnest
 }

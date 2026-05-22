@@ -1,0 +1,306 @@
+///////////////////////////////////////////////////////////////////////////////
+// This file is intended to contain area effects that can be invoked through
+// scripts for the scenarios.  This is not intended for more generic powers
+// that a player might invoke in normal skirmish play, such as leader powers,
+// region powers, crown powers, etc.  These should mostly be one-off effects
+// that are needed to make a scenario work right.
+//
+// WHEN TO USE AN AREA EFFECT
+//
+// Area effects are ideal for adjusting the properties of existing units after 
+// they have been created, but when you do not want to effect an entire UnitType. 
+// 
+// Lets say you have a special maceman, Martin.  Martin is just like the other
+// macemen, so you don't want to create a special UnitType for him.  Halfway
+// through the scenario, the Germans raze Martin's house, killing his wife and
+// children.  Martin proceeds to go into a berzerker rage, and you want to beef
+// him up for a little while.  An area effect would be great in this situation.
+
+//
+// You can do a bunch of things with area effects, including visual and UI
+// effects.  Check out the other area effect ddf files for ideas.  Also,
+// DbAreaEffectDefs.h contains the data definitions for all of the area effects.
+// In particular, ENUM eEffectType lists all of the possible sub-effects that
+// you can add to an area effect.  When in doubt, ask a programmer (probably me,
+// Matt C).
+//
+// WHEN NOT TO USE AN AREA EFFECT:
+// 
+// Area effects are probably not a good idea if you want a unique unit for an
+// entire scenario.  So, lets say you want Napoleon in one of your scenarios, and
+// you want Napoleon to be some kind of beefed-up cavalry for the entire scenario.
+// In that case, it would probably be best to define a new UnitType.  This is for
+// performance reasons.  AreaEffects require some extra processing that having
+// a new UnitType does not.
+//
+// Also, if you want to modify all units of one UnitType partway through a scenario,
+// you should avoid using an AreaEffect.  Let's say that the player discovers
+// a steroid warehouse while playing your scenario, and you want to increase
+// the carrying capacity of your citizens until the end of the scenario.  In this
+// case, it will probably best to upgrade the citizen UnitType.
+//
+// NOTE (MRC): I've talked with Rex, and it is likely that we will be added a
+// mechanism for designers to add per-scenario UnitTypes.  These will be stored
+// in a different location than the normal unit .ddfs, and will be set up to
+// only exist for the pertinent scenarios.  The designers will be notified about
+// this when it's put in place.  Also, I don't think there are script commands
+// for performing upgrades.  That could also be added, however.
+//
+// HOW TO USE AREA EFFECTS
+//
+// First, you need to define the area effect.  Area Effect definitions look like
+// the one below.  There is an overall effect that contains the name and duration
+// of the effect.  There are also one or more sub-effects.  These are the meat
+// of the effect, and they define what actually happens, and to whom it happens.
+//
+// The following area effect makes Martin do 100 times more damage and receive
+// only 10% of inflicted damage for 60 seconds.
+//
+//	DbAreaEffectInfo MartinsBerzerkerRage
+//	{
+//		name = "Martin's Berzerker Rage"
+//		desc = "Martins gets buff so he can lay waste to the Germans"
+//		duration = 60
+//		effects = [
+//			// This is one sub-effect that modifies attack
+//			EffectAttack {
+//				range = Unit
+//				player = Self
+//				scale = 100
+//			}
+//			// This is another sub-effect that modifies damage done to this unit.
+//			EffectDamage {
+//				range = Unit
+//				player = Self
+//				scale = 0.1
+//			}
+//		]
+//	}
+//
+// To activate an area effect in script, you want something that looks like this
+// in your script.  There are a few script commands for invoking area effects.
+// They are pretty straight forward.
+//
+// int effectID;
+// effectID = AttachEffectToUnit("Martin", "MartinsBerzerkerRage");
+//
+// You can set effects to time out, by using the duration.  Also, each command
+// that starts an area effect returns an int ID for that effect.  You can use another
+// script command to cancel the area effect by using that ID.
+//
+// CancelEffect(effectID);
+
+// Increase the carrying capacity of a citizen.
+DbAreaEffectInfo CitizenCapacityIncrease
+{
+	name = text_sarea_citcap_name
+	desc = text_sarea_citcap_desc
+	effects = [
+		EffectCapacity {
+			range = Unit
+			player = Self
+			scale = 2
+		}
+	]
+}
+
+// Invincibility!
+DbAreaEffectInfo Invincibility
+{
+	name = text_sarea_invinc_name
+	desc = text_sarea_invinc_desc
+	effects = [
+		EffectDamage {
+			range = Unit
+			player = Self
+			scale = 0
+		}
+		EffectAreaDamage {
+			range = Unit
+			player = Self
+			scale = 0
+		}
+	]
+}
+
+// This is to make sure an effect still applies even if a unit changes
+// ownership.
+DbAreaEffectInfo InvincibilityAnyPlayer
+{
+	name = text_sarea_invinc_name
+	desc = text_sarea_invinc_desc
+	effects = [
+		EffectDamage {
+			range = Unit
+			player = Anybody
+			scale = 0
+		}
+		EffectAreaDamage {
+			range = Unit
+			player = Anybody
+			scale = 0
+		}
+	]
+}
+
+// Area effect to damage a particular unit over a period of time.
+DbAreaEffectInfo DamageUnitOverTime
+{
+	name = text_sarea_damunit_name
+	desc = text_sarea_damunit_desc
+	effects = [
+		EffectCauseDamageOverTime {
+			range = Unit
+			player = Self
+			DamageAmount = 1
+		}
+	]
+}
+
+DbAreaEffectInfo DamageUnitsOverTimeNearLocation
+{
+	name = text_sarea_damloc_name
+	desc = text_sarea_damloc_desc
+	duration = 10
+	effects = [
+		EffectCauseDamageOverTime {
+			range = RadiusFromLocation
+			player = Anybody
+			Radius = 3
+			DamageAmount = 5
+		}
+		EffectVisualGlow {
+			range = RadiusFromLocation
+			radius = 3
+			player = Anybody
+		}
+	]
+}
+
+// This is a healing area effect for Chris Bold for one of his scenarios.
+// It's intended to just heal a bunch of units after a battle.
+DbAreaEffectInfo ChrisBsHealAreaEffect
+{
+	name = text_sarea_damloc_name
+	desc = text_sarea_damloc_desc
+	duration = 10
+	effects = [
+		EffectHeal {
+			range = RadiusFromLocation
+			radius = 15
+			mask = Anything
+			player = Self
+			healRate = 1
+		}
+	]
+}
+
+// German 3 effect to attach to Marienburg Castle
+DbAreaEffectInfo MarienburgHealing
+{
+	effects = [
+		EffectHeal {
+			range = RadiusFromUnit
+			radius = 40
+			mask = LandRPS
+			player = Self
+			healRate = 10
+		}
+	]
+}
+
+// American 8 immune to Nuke damage effect
+DbAreaEffectInfo American8_ImmuneToNuke
+{
+	effects = [
+		EffectDamage {
+			range = Unit
+			mask = LandRPS
+			player = Self
+			scale = 0
+			type = Nuke
+		}
+		EffectAreaDamage {
+			range = Unit
+			mask = LandRPS
+			player = Self
+			scale = 0
+			type = Nuke
+		}
+	]
+}
+
+// Make your leaders immune!  To deletion.
+DbAreaEffectInfo PreventDeletion
+{
+	effects = [
+		EffectPreventDeletion {
+		range = Unit
+		player = Self
+		}
+	]
+}
+
+//KOREAN 3: The Inchon Refugees and later Supply Carts move too fast.  Slow them down.
+DbAreaEffectInfo RefugeeSpeedModifier
+{
+	effects = 
+		[
+		 EffectSpeed 
+				{
+					range = Unit
+					player = Self
+					scale = 0.5
+				}
+		 ]
+}
+
+//KOREAN 3: The Inchon Refugees and later Supply Carts move too fast.  Slow them down.
+DbAreaEffectInfo SupplyCartSpeedModifier
+{
+	effects = 
+		[
+		 EffectSpeed 
+				{
+					range = Unit
+					player = Self
+					scale = 0.6
+				}
+		 ]
+}
+
+// Area effect to prevent capture of a building
+DbAreaEffectInfo ImmuneToCapture
+{
+  effects = [
+	     EffectNoConversion {
+	       range = Unit
+	       player = Self
+	     }
+  ]
+}
+
+DbAreaEffectInfo Dorogstroi
+{
+	name = text_larea_Obrazovanie_name
+	desc = text_larea_Obrazovanie_desc
+	effects = [
+		EffectBuildRepairRate {
+			range = RadiusFromUnit
+			radius = 2
+			mask = BuildingsAndConstructionSites
+			player = Anybody
+			scale = 1.2
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 2
+			mask = ResourceGatherers
+			player = Anybody
+			GlowType = Good
+			SuppressGlow = true
+			OwnerOnly = true
+			Icon = icon_Obrazovanie_s
+		}
+	]
+}

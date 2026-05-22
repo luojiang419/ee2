@@ -395,7 +395,7 @@ tx_fe_main_editor,"""地图编辑器"""
 tx_fe_main_tools,"""工具"""
 tx_fe_main_quit,"""离开"""
 tx_fe_main_title,"""主画面"""
-tx_fe_main_version,"""版本：远航版8.48"""
+tx_fe_main_version,"""版本：远航改进1.0"""
 
 // Single Player Screen,
 tx_fe_sp_playcampaign,"""战役模式"""

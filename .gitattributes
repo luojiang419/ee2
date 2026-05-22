@@ -1,0 +1,4 @@
+# DDF files MUST use LF line endings, otherwise game crashes with ACCESS VIOLATION
+*.ddf text eol=lf
+# CSV files should also use LF for consistency with game engine
+*.csv text eol=lf
