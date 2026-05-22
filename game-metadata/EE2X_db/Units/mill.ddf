@@ -5,8 +5,6 @@ UnitType Mill
 {
 	parent = Building
 	properties {
-		 ownerType = PlayerOnly
-		 rps = Building
 		SizeX = 2.5
 		SizeY = 2.5
 		OffsetX = 0.75
@@ -21,13 +19,12 @@ UnitType Mill
 		DisplayNameScenEdit = tx_utn_mill_sname
 		VerboseTooltip = vtt_unit_Mill
 		requiredOpenSides = kBuildingOpenSides_NegY
-		RallyPlacementFlags = ( Resources | Fortress | Tower | Terrain )
+		RallyPlacementFlags = ( Fortress | Tower | Terrain )
 	}
 	sounds {
     	}
 	fullMapOverlay { sprite = spr_fullmap_mill}
 	abilities = [
-		 Produce {}
 		LOS { range = 0 }
 	]
 }
