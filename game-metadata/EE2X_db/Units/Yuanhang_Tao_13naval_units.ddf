@@ -1370,7 +1370,7 @@ UnitType Type039B
 		SizeX = 3.0
 		SizeY = 0.2
 		mass = 1
-		HitPoints = 7500
+		HitPoints = 15000
 displayName = tx_utn_Type039B_name
 verboseTooltip = vtt_unit_Type039B
 popCount = 2
@@ -1391,7 +1391,7 @@ popCount = 2
 		sndDeath =  ["v_cmon_unit_death_chn"]
 	}
 	abilities = [
-	 Attack { damage = 1000; range = 15; reloadTime = 3; angularRange = 1;  missileName = "Torpedo"}
+	 Attack { damage = 2000; range = 15; reloadTime = 3; angularRange = 1;  missileName = "Torpedo"}
 	LOS { range = 12 }
 	SpecialPower { 
 		effects = [ SubmarineDiveing ]	
@@ -2871,7 +2871,7 @@ UnitType akula
 		SizeX = 3.0
 		SizeY = 0.4
 		mass = 1
-		HitPoints = 8000
+		HitPoints = 16000
 displayName = tx_utn_akula_name
 verboseTooltip = vtt_unit_akula
 popCount = 2
@@ -2886,7 +2886,7 @@ popCount = 2
 		sndDeath =  []
 	}
 	abilities = [
-	Attack { damage = 1000; range = 15; reloadTime = 3; angularRange = 1;  missileName = "Torpedo"}
+	Attack { damage = 2000; range = 15; reloadTime = 3; angularRange = 1;  missileName = "Torpedo"}
 	LOS { range = 12 }
 	SpecialPower { 
 			effects = [ SubmarineDiveing ]	
@@ -5650,7 +5650,7 @@ UnitType VirginiaSubmarine
 		SizeX = 3.2
 		SizeY = 0.4
 		mass = 1
-		HitPoints = 7500
+		HitPoints = 15000
 displayName = tx_utn_VirginiaSubmarine_name
 verboseTooltip = vtt_unit_VirginiaSubmarine
 popCount = 3
@@ -5658,7 +5658,7 @@ popCount = 3
 	sounds = {
 	}
 	abilities = [
-	 Attack { damage = 1000; range = 15; reloadTime = 3; angularRange = 1; missileName = "Torpedo"}
+	 Attack { damage = 2000; range = 15; reloadTime = 3; angularRange = 1; missileName = "Torpedo"}
 	LOS { range = 14 }
 	SpecialPower { 
 			effects = [ SubmarineDiveing ]	
