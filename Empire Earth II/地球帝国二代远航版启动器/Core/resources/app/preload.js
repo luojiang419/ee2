@@ -40,6 +40,8 @@ contextBridge.exposeInMainWorld('ee2x', {
   ,markChangelogShown: (version) => ipcRenderer.invoke('release:markChangelogShown', version)
   ,extractAndInstallLauncher: () => ipcRenderer.invoke('launcher:extractAndInstall')
   ,restartLauncher: () => ipcRenderer.invoke('launcher:restart')
+  ,downloadLauncherUpdate: () => ipcRenderer.invoke('launcher:downloadAndStage')
+  ,triggerLauncherExternalUpdate: (payload) => ipcRenderer.invoke('launcher:triggerExternalUpdate', payload)
   ,quitApp: () => ipcRenderer.invoke('app:quit')
   ,openPath: (targetPath) => ipcRenderer.invoke('shell:openPath', targetPath)
   ,forceAlign: () => ipcRenderer.invoke('align:prune')

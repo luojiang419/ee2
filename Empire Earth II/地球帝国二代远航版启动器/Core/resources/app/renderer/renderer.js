@@ -2248,6 +2248,12 @@ async function init(){
             <div class="release-update-notes">${releaseNotes}</div>
           </div>
           ` : ''}
+          ${(status && status.launcherNeedsUpdate) ? `
+          <div class="release-update-card" style="border-left:3px solid #f59e0b">
+            <div class="release-update-metric-label">启动器更新</div>
+            <div class="release-update-notes">检测到启动器有新版本可用。游戏内容同步完成后将自动下载启动器更新，并提示重启启动器以应用更新。</div>
+          </div>
+          ` : ''}
           <div class="row" style="justify-content:flex-end;margin-top:4px">
             <button id="manualForceSyncCancelBtn">取消</button>
             <button id="manualForceSyncConfirmBtn">确认强制同步</button>
@@ -2272,6 +2278,23 @@ async function init(){
       try {
         await runReleaseUpdater('game', { force: true })
       } catch {}
+      // 如果有启动器更新，下载并提示重启
+      if (status && status.launcherNeedsUpdate && window.ee2x && window.ee2x.downloadLauncherUpdate) {
+        try {
+          const dlResult = await window.ee2x.downloadLauncherUpdate()
+          if (dlResult && dlResult.ok) {
+            const launcherVersion = String(status.latestVersion || '').trim()
+            const msg = `启动器更新 v${launcherVersion} 已就绪。\n\n是否现在重启以应用启动器更新？（启动器退出后将自动完成文件替换并重新启动）`
+            if (confirm(msg)) {
+              window.ee2x.triggerLauncherExternalUpdate({
+                version: launcherVersion,
+                stagingDir: dlResult.stagingDir,
+                extractDir: dlResult.extractDir
+              })
+            }
+          }
+        } catch (err) { console.error('启动器更新失败:', err) }
+      }
     }
   }
 
@@ -4949,13 +4972,41 @@ class LauncherUpdateManager {
 
   // 检查启动器更新
   async checkForUpdates() {
+    this.disabledReason = ''
     const statusEl = document.getElementById('launcherUpdateStatus')
-    if (statusEl) {
-      statusEl.textContent = '已停用'
-      statusEl.style.color = '#94a3b8'
+    try {
+      const status = await window.ee2x.releaseStatus()
+      if (!status || !status.ok) throw new Error((status && status.error) || '获取状态失败')
+      if (status.launcherNeedsUpdate) {
+        const pkg = status.packages && status.packages.launcher
+        if (pkg) {
+          const remoteVersion = String(status.latestVersion || '').trim()
+          if (remoteVersion && this.isVersionNewer(remoteVersion, this.currentLauncherVersion)) {
+            this.updateInfo = {
+              version: remoteVersion,
+              notes: status.releaseNotes || '',
+              packageUrl: pkg.packageUrl,
+              packageSha256: pkg.packageSha256,
+              packageSize: pkg.packageSize,
+              forceUpdate: status.required || false
+            }
+            this.showUpdateInfo()
+            if (statusEl) {
+              statusEl.textContent = `发现新版本 v${remoteVersion}`
+              statusEl.style.color = '#22c55e'
+            }
+            return true
+          }
+        }
+      }
+      if (statusEl) { statusEl.textContent = '已是最新'; statusEl.style.color = '#94a3b8' }
+      this.updateInfo = null
+      return false
+    } catch (error) {
+      if (statusEl) { statusEl.textContent = '检查失败'; statusEl.style.color = '#ef4444' }
+      console.error('检查启动器更新失败:', error)
+      return false
     }
-    this.updateInfo = null
-    return false
   }
   
   // 版本比较
@@ -5038,9 +5089,25 @@ class LauncherUpdateManager {
     }
   }
 
-  // 下载更新
+  // 下载启动器更新
   async downloadUpdate() {
-    alert(this.disabledReason)
+    if (!this.updateInfo) return
+    this.isUpdating = true
+    try {
+      const result = await window.ee2x.downloadLauncherUpdate()
+      if (result && result.ok) {
+        this.updateInfo.stagingDir = result.stagingDir
+        this.updateInfo.extractDir = result.extractDir
+        this.showInstallPrompt()
+      } else {
+        alert('下载启动器更新失败: ' + ((result && result.error) || '未知错误'))
+      }
+    } catch (error) {
+      alert('下载启动器更新失败: ' + (error.message || error))
+      console.error('下载启动器更新失败:', error)
+    } finally {
+      this.isUpdating = false
+    }
   }
 
   // 显示安装提示
@@ -5048,14 +5115,9 @@ class LauncherUpdateManager {
     const message = this.updateInfo.forceUpdate
       ? '启动器更新已下载完成！这是一个强制更新，请保存当前工作并重新启动启动器。'
       : '启动器更新已下载完成！建议您重新启动启动器以应用更新。'
-
-    if (confirm(message + '\n\n是否现在重新启动启动器？')) {
-      // 重新启动应用
-      if (window.ee2x && window.ee2x.restartLauncher) {
-        window.ee2x.restartLauncher()
-      } else {
-        // 备用方案：使用location.reload
-        location.reload()
+    if (confirm(message + '\n\n是否现在重新启动启动器？（启动器退出后将自动完成文件替换并重新启动）')) {
+      if (window.ee2x && window.ee2x.triggerLauncherExternalUpdate) {
+        window.ee2x.triggerLauncherExternalUpdate(this.updateInfo)
       }
     }
   }

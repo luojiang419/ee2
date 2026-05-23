@@ -3540,6 +3540,202 @@ ipcMain.handle('launcher:extractAndInstall', async () => {
   }
 })
 
+// 下载并暂存启动器更新包
+ipcMain.handle('launcher:downloadAndStage', async (evt) => {
+  try {
+    const cfg = loadConfig()
+    const status = await getUnifiedReleaseStatus(cfg, '')
+    const launcherPkg = status.packages.launcher
+    if (!launcherPkg || !launcherPkg.packageUrl) {
+      return { ok: false, error: '无可用启动器更新包' }
+    }
+    const runtimeDir = getReleaseRuntimeDir()
+    const stagingDir = path.join(runtimeDir, 'staging', `launcher-${status.latestVersion}`)
+    const extractDir = path.join(stagingDir, 'extracted')
+    const packagePath = path.join(stagingDir, 'EE2X-launcher.zip')
+    const logFile = getLastUpdaterLogPath()
+
+    fs.mkdirSync(extractDir, { recursive: true })
+
+    if (evt && evt.sender) {
+      evt.sender.send('update:stage', { stage: 'download', message: '正在下载启动器更新...' })
+    }
+
+    const expectedSize = Number(launcherPkg.packageSize || 0)
+    await downloadReleasePackage(launcherPkg.packageUrl, packagePath, evt, logFile, expectedSize)
+
+    const hash = await computeFileSha256(packagePath)
+    if (launcherPkg.packageSha256 && hash !== launcherPkg.packageSha256) {
+      appendUpdaterLog(logFile, `[error] 启动器更新包 SHA256 校验失败: 预期 ${launcherPkg.packageSha256}, 实际 ${hash}`)
+      return { ok: false, error: '下载包 SHA256 校验失败' }
+    }
+
+    if (evt && evt.sender) {
+      evt.sender.send('update:stage', { stage: 'extract', message: '正在解压启动器更新...' })
+    }
+    await extractReleasePackage(packagePath, extractDir, logFile)
+    appendUpdaterLog(logFile, `[info] 启动器更新 v${status.latestVersion} 已下载并暂存到 ${stagingDir}`)
+
+    return {
+      ok: true,
+      stagingDir,
+      extractDir,
+      version: status.latestVersion,
+      logPath: logFile
+    }
+  } catch (error) {
+    log(`[LauncherUpdate] downloadAndStage 失败: ${error}`)
+    return { ok: false, error: String(error && error.message || error) }
+  }
+})
+
+// 触发外部启动器更新进程
+ipcMain.handle('launcher:triggerExternalUpdate', async (evt, payload) => {
+  try {
+    const launcherExe = findLauncherExecutablePath()
+    const launcherDir = getAppRoot()
+    const cfg = loadConfig()
+    const runtimeDir = getReleaseRuntimeDir()
+    const logFile = getLastUpdaterLogPath()
+    const resultFile = getLastUpdaterResultPath()
+    const version = String((payload && payload.version) || '').trim()
+    const extractDir = String((payload && payload.extractDir) || '').trim()
+    const { spawn } = require('child_process')
+
+    const patcherCliPath = path.join(runtimeDir, 'ee2x-patcher-cli.exe')
+    if (fs.existsSync(patcherCliPath)) {
+      const serverBase = String((cfg && cfg.updateServerBase) || '').trim() || 'http://115.231.35.105:3010'
+      const channel = String((cfg && cfg.updateChannel) || 'stable').trim() || 'stable'
+      const child = spawn(patcherCliPath, [
+        '--root', path.dirname(launcherDir),
+        '--launcher-dir', launcherDir,
+        '--server-base', serverBase,
+        '--channel', channel,
+        '--scope', 'launcher',
+        '--launcher-exe', launcherExe,
+        '--result-file', resultFile,
+        '--log-file', logFile,
+        '--headless'
+      ], { detached: true, stdio: 'ignore', windowsHide: true })
+      child.unref()
+      appendUpdaterLog(logFile, `[info] 已启动 ee2x-patcher-cli.exe PID=${child.pid} scope=launcher`)
+    } else if (extractDir) {
+      const psScript = generateLauncherUpdatePsScript({
+        launcherDir, launcherExe, extractDir, version, runtimeDir, logFile
+      })
+      const psPath = path.join(runtimeDir, 'staging', `launcher-${version || 'update'}`, 'apply-launcher-update.ps1')
+      fs.writeFileSync(psPath, psScript, { encoding: 'utf8' })
+      const child = spawn('powershell', [
+        '-NoProfile', '-ExecutionPolicy', 'Bypass', '-WindowStyle', 'Hidden',
+        '-File', psPath
+      ], { detached: true, stdio: 'ignore', windowsHide: true })
+      child.unref()
+      appendUpdaterLog(logFile, `[info] 已启动 PowerShell 启动器更新脚本 PID=${child.pid}`)
+    } else {
+      return { ok: false, error: '无 patcher-cli 且无 extractDir，无法执行启动器更新' }
+    }
+
+    prepareForLauncherReplacement('launcher-update')
+    setTimeout(() => app.exit(0), 300)
+    return { ok: true, phase: 'exiting' }
+  } catch (error) {
+    log(`[LauncherUpdate] triggerExternalUpdate 失败: ${error}`)
+    return { ok: false, error: String(error && error.message || error) }
+  }
+})
+
+// 生成启动器更新 PowerShell 后备脚本
+function generateLauncherUpdatePsScript({ launcherDir, launcherExe, extractDir, version, runtimeDir, logFile }) {
+  const extractSource = path.join(extractDir, '地球帝国二代远航版启动器')
+  const backupDir = path.join(runtimeDir, 'backups', `launcher-${version || 'manual'}`)
+  const releaseStatePath = path.join(runtimeDir, 'release-state.json')
+
+  return `
+# EE2X 启动器更新脚本 - 由启动器自动生成
+$ErrorActionPreference = 'Stop'
+$extractSource = '${extractSource.replace(/'/g, "''")}'
+$launcherDir = '${launcherDir.replace(/'/g, "''")}'
+$backupDir = '${backupDir.replace(/'/g, "''")}'
+$launcherExe = '${launcherExe.replace(/'/g, "''")}'
+$version = '${(version || '').replace(/'/g, "''")}'
+$statePath = '${releaseStatePath.replace(/'/g, "''")}'
+$logFile = '${(logFile || '').replace(/'/g, "''")}'
+
+function Write-Log($msg) {
+  $line = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') [PS] $msg"
+  if ($logFile) { Add-Content -Path $logFile -Value $line -ErrorAction SilentlyContinue }
+  Write-Host $line
+}
+
+Write-Log "启动器更新脚本开始，来源: $extractSource"
+
+# 1. 等待旧进程退出
+$deadline = (Get-Date).AddSeconds(15)
+while ((Get-Date) -lt $deadline) {
+  $running = Get-Process -Name '地球帝国二代远航版启动器' -ErrorAction SilentlyContinue
+  if (-not $running) { Write-Log "旧启动器进程已退出"; break }
+  Start-Sleep -Milliseconds 500
+}
+
+# 2. 强制清理残留
+taskkill /F /IM '地球帝国二代远航版启动器.exe' /T 2>$null
+Start-Sleep -Seconds 2
+
+if (-not (Test-Path $extractSource)) {
+  Write-Log "错误: 解压目录不存在 $extractSource"
+  if (Test-Path $launcherExe) { Start-Process $launcherExe }
+  throw "解压目录不存在"
+}
+
+# 3. 受保护目录（跳过不覆盖）
+$protectedPrefixes = @('Config', 'Logs', 'data\\userdata', 'data\\game-csv', 'data\\Settlement-img', 'update\\runtime')
+
+# 4. 复制文件（原子替换）
+Get-ChildItem -Recurse -File $extractSource | ForEach-Object {
+  $relPath = $_.FullName.Substring($extractSource.Length + 1)
+  $isProtected = $false
+  foreach ($pfx in $protectedPrefixes) {
+    if ($relPath.StartsWith($pfx)) { $isProtected = $true; break }
+  }
+  if ($isProtected) { return }
+
+  $target = Join-Path $launcherDir $relPath
+  $backup = Join-Path $backupDir $relPath
+  $targetDir = Split-Path $target -Parent
+  if (-not (Test-Path $targetDir)) { New-Item -ItemType Directory -Force -Path $targetDir | Out-Null }
+  $backupParent = Split-Path $backup -Parent
+  if (-not (Test-Path $backupParent)) { New-Item -ItemType Directory -Force -Path $backupParent | Out-Null }
+
+  if (Test-Path $target) { Copy-Item $target $backup -Force -ErrorAction SilentlyContinue }
+
+  $tmpFile = "$target.ee2x_tmp"
+  Copy-Item $_.FullName $tmpFile -Force
+  try { [System.IO.File]::Move($tmpFile, $target) } catch { throw "文件替换失败: $relPath — $_" }
+}
+
+Write-Log "文件替换完成"
+
+# 5. 更新 release-state.json
+if (Test-Path $statePath -and $version) {
+  try {
+    $state = Get-Content $statePath -Raw -Encoding UTF8 | ConvertFrom-Json
+    if (-not $state.launcher) { $state | Add-Member -MemberType NoteProperty -Name 'launcher' -Value @{} }
+    $state.launcher.version = $version
+    $state.launcher.appliedAt = (Get-Date -Format 'yyyy-MM-ddTHH:mm:ss.fffZ')
+    $state | ConvertTo-Json -Depth 10 | Set-Content $statePath -Encoding UTF8
+    Write-Log "release-state.json 已更新 launcher version=$version"
+  } catch {
+    Write-Log "更新 release-state.json 失败: $_"
+  }
+}
+
+# 6. 重启启动器
+Write-Log "正在重新启动启动器: $launcherExe"
+Start-Process $launcherExe -ArgumentList '--updated'
+Write-Log "启动器更新完成"
+`.trim()
+}
+
 // 处理更新文件
 async function processUpdateFile(updateFilePath, launcherDir) {
   log(`找到更新包: ${updateFilePath}`)
