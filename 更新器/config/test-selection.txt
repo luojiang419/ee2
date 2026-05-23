@@ -1,0 +1,4 @@
+地球帝国二代远航版启动器/Core/resources/app/main.js
+地球帝国二代远航版启动器/Core/resources/app/preload.js
+地球帝国二代远航版启动器/Core/resources/app/renderer/renderer.js
+zips_ee2x/EE2X_db.zip

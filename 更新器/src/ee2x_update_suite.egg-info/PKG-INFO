@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: ee2x-update-suite
+Version: 0.1.0
+Summary: EE2X 安全更新器与发布包创建工具
+Requires-Python: >=3.12
+Requires-Dist: paramiko<4,>=3.4
+Requires-Dist: requests<3,>=2.31
