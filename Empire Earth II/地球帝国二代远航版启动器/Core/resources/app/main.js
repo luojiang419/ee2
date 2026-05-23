@@ -1824,11 +1824,13 @@ async function applyGameReleaseManifest({
         await fse.ensureDir(path.dirname(backupPath))
         await fse.copy(targetPath, backupPath, { overwrite: true, errorOnExist: false })
         summary.backedUpFiles += 1
+        // 先删除旧文件，再复制新文件，避免 rename 覆盖冲突（如 .vbs/.dll 被系统锁定）
+        try { await fse.remove(targetPath) } catch (delErr) {
+          appendUpdaterLog(logFilePath, `[delete-before-copy-warn] ${relPath}: ${delErr.message || delErr}`)
+        }
       }
       await fse.ensureDir(path.dirname(targetPath))
-      const tempPath = `${targetPath}${GAME_UPDATE_TEMP_SUFFIX}`
-      await fse.copy(sourcePath, tempPath, { overwrite: true, errorOnExist: false })
-      await fse.move(tempPath, targetPath, { overwrite: true })
+      await fse.copy(sourcePath, targetPath, { overwrite: true, errorOnExist: false })
       touchedRecords.push({ path: relPath, existed, deleted: false })
       summary.updatedFiles += 1
       emitUpdateStage(evt, {
@@ -3615,6 +3617,7 @@ ipcMain.handle('launcher:triggerExternalUpdate', async (evt, payload) => {
         '--launcher-exe', launcherExe,
         '--result-file', resultFile,
         '--log-file', logFile,
+        '--force',
         '--headless'
       ], { detached: true, stdio: 'ignore', windowsHide: true })
       child.unref()
@@ -3706,11 +3709,16 @@ Get-ChildItem -Recurse -File $extractSource | ForEach-Object {
   $backupParent = Split-Path $backup -Parent
   if (-not (Test-Path $backupParent)) { New-Item -ItemType Directory -Force -Path $backupParent | Out-Null }
 
-  if (Test-Path $target) { Copy-Item $target $backup -Force -ErrorAction SilentlyContinue }
+  if (Test-Path $target) {
+    Copy-Item $target $backup -Force -ErrorAction SilentlyContinue
+    # 先删除旧文件，避免 rename 覆盖冲突（如 .vbs/.dll 被系统锁定）
+    try { Remove-Item $target -Force -ErrorAction Stop } catch {
+      Write-Log "删除旧文件失败（将尝试直接覆盖）: $relPath — $_"
+    }
+  }
 
-  $tmpFile = "$target.ee2x_tmp"
-  Copy-Item $_.FullName $tmpFile -Force
-  try { [System.IO.File]::Move($tmpFile, $target) } catch { throw "文件替换失败: $relPath — $_" }
+  Copy-Item $_.FullName $target -Force
+  if (-not (Test-Path $target)) { throw "文件复制失败（目标未生成）: $relPath" }
 }
 
 Write-Log "文件替换完成"
