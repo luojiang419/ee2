@@ -557,7 +557,7 @@ icon = icon_unit_J16
 UpgradeAbilities J1613Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 7.5; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		AircraftMove {speed = 5.2; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 1.0}
 		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
 	]
 }

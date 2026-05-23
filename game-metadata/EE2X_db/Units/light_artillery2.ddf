@@ -122,18 +122,6 @@ UpgradeUnitTypeImprove LightArtillery2Epoch13Elite
 		LightArtillery2_Improve_Default
 	]
 }
-
-//------------------------------------------------
-//	EPOCH 14
-//------------------------------------------------
-// Attack Ability Upgrade
-UpgradeAbilities LightArtillery2Epoch14Attack
-{
-	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.01; missileName = "OutpostBullet"; ignoreBlocking = 1; turretControllerName = TankTurret; }
-	]
-}
-
 // Veteran Upgrade
 UpgradeUnitTypeImprove LightArtillery2Epoch14Veteran
 {

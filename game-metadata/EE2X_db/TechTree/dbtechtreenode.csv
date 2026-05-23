@@ -645,7 +645,7 @@ Scud,tx_utn_Scud12_name,,12,0,,,0,0,3,Mill,Scud,ScudUpgradeEpoch12,60,0,0,0,0,0,
 T90A_Naval,text_HeavyMounted1_11_name,,13,0,,,0,1,4,Stable,T90A_Naval,T90A_NavalUpgradeEpoch13,70,0,450,0,450,0,0,0,250,450,2,Russian,[upHelicopter_13],(None)
 American_M1A1,text_HeavyMounted1_11_name,,13,0,,,0,1,4,Stable,American_M1A1,USAM1A1UpgradeEpoch13,70,0,500,0,500,0,0,0,300,500,2,American,[upHelicopter_13],(None)
 ZiYuan,text_SA9_name,,14,0,,,0,2,2,Mill,ZiYuan,,70,0,550,0,550,0,0,0,0,550,2,Western,[upAirDefense_14],(None)
-PC3,text_Fighter_11_name,,11,0,,,0,2,1,Airport,PC3,PC3UpgradeEpoch11,70,0,800,0,1500,0,0,400,500,200,5,,[],(None)
+PC3,text_Fighter_11_name,,11,0,,,0,2,1,Airport,PC3,PC3UpgradeEpoch11,70,0,400,0,400,0,0,400,200,0,5,,[],(None)
 MobileSAM,text_SA9_name,,13,0,,,0,2,2,Mill,MobileSAM,,70,0,550,0,550,0,0,0,0,550,2,FarEast,[],(None)
 MRLS_American,text_SA9_name,,14,0,,,0,2,0,Mill,MRLS_American,,85,0,0,480,720,0,0,0,360,720,5,Western,[upHeavyArtillery_14],(None)
 Tracked_Antiaircraft,text_BMP1_name,,13,0,,,0,0,2,Stable,Tracked_Antiaircraft,,65,0,300,0,300,0,0,0,300,150,1,,[],(None)

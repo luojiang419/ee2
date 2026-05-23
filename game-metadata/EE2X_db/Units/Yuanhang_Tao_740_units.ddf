@@ -9,7 +9,7 @@ UnitType PC3
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 2800
+		HitPoints = 785
 		displayName = tx_utn_j2f_name
 		verboseTooltip = vtt_unit_j2f
 		popCount = 2
@@ -18,7 +18,7 @@ UnitType PC3
 	}
 	abilities = [
 		AircraftMove {speed = 3.6; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.5}
-		Attack { damage = 8000; range = 25; reloadTime = 0.5; applyDamageTime = 0.01; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 2 }
+		Attack { damage = 4500; range = 14; reloadTime = 0.5; applyDamageTime = 0.01; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 20 }
 	LOS { range = 15 }
 	AreaEffect {
 			effects = [ 

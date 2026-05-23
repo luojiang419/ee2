@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-24 20:30
+> 最后更新: 2026-05-24 (同步其他开发者最新参数)
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -59,6 +59,8 @@
 | 060 | EE2X_db-044-E14防空三梯次改造-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 059修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 17:52 |
 | 061 | EE2X_db-045-汽车工厂集结点修复-pre.zip | pre | Autofactory 集结点 | EE2X_db.zip 完整 | 游戏ZIP修复前的当前状态（缺失RallyPlacementFlags） | — | 2026-05-24 20:30 |
 | 062 | EE2X_db-045-汽车工厂集结点修复-runtime.zip | runtime | Autofactory 集结点 | EE2X_db.zip 完整 | 重新打包ZIP恢复RallyPlacementFlags=(Resources\|Fortress\|Tower\|Terrain) | 待测试 | 2026-05-24 20:30 |
+| 063 | EE2X_db-046-sync-other-dev-pre.zip | pre | 同步其他开发者最新参数(19文件) | dbcombat_unittypeadjust.csv, dbtechtreenode.csv, epoch14_upgrades.ddf, upgrade_unittypes.csv, aaship/Chinese_army_lujun/dapao/fortress/light_artillery2/mill/radar/Russian_army/American_army_lujun/Chinese_army/Russian_army_lujun/Yuanhang_720_units/Yuanhang_Tao_13naval_units/Yuanhang_Tao_13zhuangjia_units/Yuanhang_Tao_740_units.ddf | 以其他开发者最新版本为准，覆盖RPS克制/科技树/E14升级集/升级表/15个DDF | — | 2026-05-24 |
+| 064 | EE2X_db-046-sync-other-dev-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 063同步修改后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 

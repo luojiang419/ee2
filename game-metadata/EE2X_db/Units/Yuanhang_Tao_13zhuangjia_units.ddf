@@ -1570,9 +1570,9 @@ UnitType ZiYuan
 		
 	}
 	abilities = [
-		Attack { damage = 1000; range = 25; reloadTime = 1.0; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 3.0; unpackTime =3.0;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
+		Attack { damage = 700; range = 24; reloadTime = 2; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 3.0; unpackTime =3.0;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
-		LOS { range = 25 }
+		LOS { range = 26 }
 		VehicleMove {speed = 2.0; angSpeed = 50; followTerrainSlope = 1}
 			]
 attributes = [
