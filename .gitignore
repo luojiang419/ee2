@@ -1,6 +1,5 @@
 /Empire Earth II/
 __pycache__/
-/更新器/
 backup/*
 !backup/INDEX.md
 !backup/*.zip
