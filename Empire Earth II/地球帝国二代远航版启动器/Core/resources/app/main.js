@@ -1831,6 +1831,8 @@ async function applyGameReleaseManifest({
       }
       await fse.ensureDir(path.dirname(targetPath))
       await fse.copy(sourcePath, targetPath, { overwrite: true, errorOnExist: false })
+      // Windows copyFile 保留源文件时间戳，显式更新为目标文件的当前时间
+      try { fs.utimesSync(targetPath, new Date(), new Date()) } catch {}
       touchedRecords.push({ path: relPath, existed, deleted: false })
       summary.updatedFiles += 1
       emitUpdateStage(evt, {
@@ -3719,6 +3721,9 @@ Get-ChildItem -Recurse -File $extractSource | ForEach-Object {
 
   Copy-Item $_.FullName $target -Force
   if (-not (Test-Path $target)) { throw "文件复制失败（目标未生成）: $relPath" }
+  # 强制更新文件时间为当前时刻
+  (Get-Item $target).LastWriteTime = Get-Date
+  (Get-Item $target).CreationTime = Get-Date
 }
 
 Write-Log "文件替换完成"
