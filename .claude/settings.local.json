@@ -3,6 +3,7 @@
     "allow": [
       "PowerShell(git -C \"g:\\\\ee2\" log --oneline -5)",
       "Bash(git pull *)",
+      "PowerShell(git pull origin main)",
       "Bash(bash -c 'ls \"单位修改日志/\"')",
       "Bash(git add *)"
     ]
