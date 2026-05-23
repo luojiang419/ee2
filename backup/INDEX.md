@@ -58,9 +58,11 @@
 | 059 | EE2X_db-044-E14防空三梯次改造-pre.zip | pre | E14陆军防空9单位三梯次改造 | upgrade_unittypes.csv, light_artillery2.ddf, Chinese_army_lujun.ddf, American_army_lujun.ddf, Russian_army_lujun.ddf, Yuanhang_Tao_13zhuangjia_units.ddf | 近程(R15/Rel0.3/Dmg500): LightArtillery2; 中程(R25/Rel1.0/Dmg1000): HQ61+PAC3+BUKM1_2+ZiYuan; 远程(R35/Rel1.5/Dmg1500): Thaad+HQ9+Am_THAAD+Ru_S400 | — | 2026-05-22 17:52 |
 | 060 | EE2X_db-044-E14防空三梯次改造-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 059修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 17:52 |
 | 061 | EE2X_db-045-汽车工厂集结点修复-pre.zip | pre | Autofactory 集结点 | EE2X_db.zip 完整 | 游戏ZIP修复前的当前状态（缺失RallyPlacementFlags） | — | 2026-05-24 20:30 |
-| 062 | EE2X_db-045-汽车工厂集结点修复-runtime.zip | runtime | Autofactory 集结点 | EE2X_db.zip 完整 | 重新打包ZIP恢复RallyPlacementFlags=(Resources\|Fortress\|Tower\|Terrain) | 待测试 | 2026-05-24 20:30 |
+| 062 | EE2X_db-045-汽车工厂集结点修复-runtime.zip | runtime | Autofactory 集结点 | EE2X_db.zip 完整 | 重新打包ZIP恢复RallyPlacementFlags=(Resources\|Fortress\|Tower\|Terrain) | 测试通过 | 2026-05-24 20:30 |
 | 063 | EE2X_db-046-sync-other-dev-pre.zip | pre | 同步其他开发者最新参数(19文件) | dbcombat_unittypeadjust.csv, dbtechtreenode.csv, epoch14_upgrades.ddf, upgrade_unittypes.csv, aaship/Chinese_army_lujun/dapao/fortress/light_artillery2/mill/radar/Russian_army/American_army_lujun/Chinese_army/Russian_army_lujun/Yuanhang_720_units/Yuanhang_Tao_13naval_units/Yuanhang_Tao_13zhuangjia_units/Yuanhang_Tao_740_units.ddf | 以其他开发者最新版本为准，覆盖RPS克制/科技树/E14升级集/升级表/15个DDF | — | 2026-05-24 |
-| 064 | EE2X_db-046-sync-other-dev-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 063同步修改后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 064 | EE2X_db-046-sync-other-dev-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 063同步修改后的完整游戏ZIP | 测试通过 | 2026-05-24 |
+| 065 | EE2X_db-047-autofactory-rallypoint-pre.zip | pre | Autofactory(Yuanhang_720_units.ddf) | Yuanhang_720_units.ddf | 同步后恢复丢失的RallyPlacementFlags=(Resources\|Fortress\|Tower\|Terrain) | — | 2026-05-24 |
+| 066 | EE2X_db-047-autofactory-rallypoint-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 065修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 

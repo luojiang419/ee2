@@ -57,3 +57,30 @@
 
 ### 已知影响
 - 汽车工厂集结点功能恢复，无其他影响
+
+---
+
+## 第3次修改 — 2026-05-24
+
+**关联快照**: `进度快照\068-同步其他开发者最新参数.md`
+**修改类型**: [修复 - 同步后恢复]
+
+### 修改前数据 (同步后丢失)
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| RallyPlacementFlags | (缺失) | Yuanhang_720_units.ddf:19687 |
+
+### 修改后数据
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| RallyPlacementFlags | ( Resources \| Fortress \| Tower \| Terrain ) | Yuanhang_720_units.ddf:19687 |
+
+### 关联文件
+- `EE2X_db/Units/Yuanhang_720_units.ddf` — UnitType Autofactory properties 块, 行19687
+
+### 修改依据
+- 原因: 同步其他开发者最新参数时(046)，Yuanhang_720_units.ddf 被覆盖，丢失了之前添加的 RallyPlacementFlags
+- 修复: 在 Autofactory UnitType 的 properties 块中重新添加 RallyPlacementFlags = ( Resources \| Fortress \| Tower \| Terrain )
+
+### 已知影响
+- 汽车工厂集结点功能恢复，可右键设置集结点到资源/堡垒/塔/地形

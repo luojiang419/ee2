@@ -19684,6 +19684,7 @@ UnitType Autofactory
         displayName = tx_utn_autofactory_name
 		VerboseTooltip = vtt_unit_autofactory
             HitPoints = 5000            
+			RallyPlacementFlags = ( Resources | Fortress | Tower | Terrain )
 	}
 	sounds {            
     	}
