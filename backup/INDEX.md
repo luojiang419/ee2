@@ -62,7 +62,7 @@
 | 063 | EE2X_db-046-sync-other-dev-pre.zip | pre | 同步其他开发者最新参数(19文件) | dbcombat_unittypeadjust.csv, dbtechtreenode.csv, epoch14_upgrades.ddf, upgrade_unittypes.csv, aaship/Chinese_army_lujun/dapao/fortress/light_artillery2/mill/radar/Russian_army/American_army_lujun/Chinese_army/Russian_army_lujun/Yuanhang_720_units/Yuanhang_Tao_13naval_units/Yuanhang_Tao_13zhuangjia_units/Yuanhang_Tao_740_units.ddf | 以其他开发者最新版本为准，覆盖RPS克制/科技树/E14升级集/升级表/15个DDF | — | 2026-05-24 |
 | 064 | EE2X_db-046-sync-other-dev-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 063同步修改后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 065 | EE2X_db-047-autofactory-rallypoint-pre.zip | pre | Autofactory(Yuanhang_720_units.ddf) | Yuanhang_720_units.ddf | 同步后恢复丢失的RallyPlacementFlags=(Resources\|Fortress\|Tower\|Terrain) | — | 2026-05-24 |
-| 066 | EE2X_db-047-autofactory-rallypoint-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 065修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 066 | EE2X_db-047-autofactory-rallypoint-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 065修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
