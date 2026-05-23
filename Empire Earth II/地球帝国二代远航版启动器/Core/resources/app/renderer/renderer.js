@@ -2189,12 +2189,12 @@ async function init(){
   function updatePrimaryUpdateButton(status) {
     if (!updateBtn) return
     const currentVersion = String((status && status.localGameVersion) || '--').trim() || '--'
-    updateBtn.textContent = releaseUpdateInProgress ? `正在同步 V${currentVersion}` : `强制同步 V${currentVersion}`
+    updateBtn.textContent = releaseUpdateInProgress ? `正在同步 V${currentVersion}` : `当前版本 V${currentVersion}`
     updateBtn.classList.toggle('blink', !!(status && status.gameNeedsUpdate && !releaseUpdateInProgress))
     updateBtn.disabled = !!releaseUpdateInProgress
     updateBtn.title = releaseUpdateInProgress
       ? '正在同步服务器版本'
-      : '点击后强制同步到服务器版本'
+      : '当前版本 V' + currentVersion
     updateBtn.onclick = releaseUpdateInProgress ? null : () => { void handlePrimaryUpdateButtonClick() }
   }
 
