@@ -76,6 +76,7 @@
 | 025 | EE2X_db-025-E14步兵HP加40成本减20-pre.zip | pre | E14全部9个步兵单位 | upgrade_unittypes.csv, Yuanhang_720_units.ddf, dbtechtreenode.csv | E14步兵全员HP+40%/成本-20%（3通用+1狙击+5特种） | — | 2026-05-21 |
 | 026 | EE2X_db-026-E14步兵反坦克迫击炮狙击手-pre.zip | pre | ATSoldiers/HeavyInfantry2/Sniper/CsCommgril | upgrade_unittypes.csv, Yuanhang_720_units.ddf, dbtechtreenode.csv | 反坦克兵去石头/迫击炮射程20/狙击手视野18/女特种兵速度15 | — | 2026-05-21 |
 | 027 | EE2X_db-027-Mill工厂4类单位差异化-pre.zip | pre | Mill工厂4类单位(SPG/MLRS/AA短程/AA远程)中美俄E14 | upgrade_unittypes.csv, dbtechtreenode.csv, *lujun.ddf×3, Yuanhang_*.ddf×3 | 射程/伤害/装填/速度/部署/成本百分比差异化调整 | — | 2026-05-21 |
+| 048 | EE2X_db-048-launcher-changelog-pre.zip | pre | 启动器强制更新后跳过更新日志弹窗 | renderer.js | checkUpdateAndRender在source='after-update'时跳过showReleaseChangelog，直接markChangelogShown | — | 2026-05-24 |
 
 ## 旧格式全量快照（历史遗留）
 
