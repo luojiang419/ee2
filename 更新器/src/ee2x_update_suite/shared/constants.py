@@ -21,25 +21,9 @@ TEMP_SUFFIX = ".ee2x_tmp"
 BUNDLE_FORMAT = "ee2x-release-bundle"
 BUNDLE_VERSION = 1
 
-PROTECTED_RELATIVE_PATHS = [
-    f"{LAUNCHER_DIR_NAME}/Config",
-    f"{LAUNCHER_DIR_NAME}/Logs",
-    f"{LAUNCHER_DIR_NAME}/data/userdata",
-    f"{LAUNCHER_DIR_NAME}/data/game-csv",
-    f"{LAUNCHER_DIR_NAME}/data/Settlement-img",
-    f"{LAUNCHER_DIR_NAME}/update/runtime",
-    f"{LAUNCHER_DIR_NAME}/update/ee2x-patcher.exe",
-    f"{LAUNCHER_DIR_NAME}/update/ee2x-patcher-cli.exe",
-]
+PROTECTED_RELATIVE_PATHS: list[str] = []
 
-BLOCKED_SELECTION_PREFIXES = [
-    f"{LAUNCHER_DIR_NAME}/Config",
-    f"{LAUNCHER_DIR_NAME}/Logs",
-    f"{LAUNCHER_DIR_NAME}/data/userdata",
-    f"{LAUNCHER_DIR_NAME}/data/game-csv",
-    f"{LAUNCHER_DIR_NAME}/data/Settlement-img",
-    f"{LAUNCHER_DIR_NAME}/update/runtime",
-]
+BLOCKED_SELECTION_PREFIXES: list[str] = []
 
 PUBLIC_LAUNCHER_DEFAULTS_RELATIVE_PATH = f"{LAUNCHER_DIR_NAME}/{LAUNCHER_PUBLIC_DEFAULTS_DIR_NAME}/{LAUNCHER_PUBLIC_DEFAULTS_FILE_NAME}"
 

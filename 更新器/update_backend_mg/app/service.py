@@ -974,7 +974,6 @@ def publish_release(
             delete_lists, file_counts = _apply_delete_lists(conn, channel, payloads)
             validate_release_payload(payloads)
             _ensure_safe_launcher_publish(payloads, delete_lists)
-            _ensure_game_only_publish(payloads, delete_lists)
             published_at = utc_now_iso()
             storage_refs = _persist_release_to_storage(
                 settings,
