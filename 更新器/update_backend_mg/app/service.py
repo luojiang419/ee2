@@ -578,7 +578,7 @@ def _write_latest_json(
     package_urls: dict[str, str],
 ) -> dict[str, Any]:
     game_payload = payloads["game"]
-    announced_packages = {
+    announced_packages: dict[str, Any] = {
         "game": {
             "manifestUrl": manifest_urls["game"],
             "packageUrl": package_urls["game"],
@@ -586,6 +586,14 @@ def _write_latest_json(
             "packageSize": game_payload.package_size,
         }
     }
+    if "launcher" in payloads and "launcher" in manifest_urls and "launcher" in package_urls:
+        launcher_payload = payloads["launcher"]
+        announced_packages["launcher"] = {
+            "manifestUrl": manifest_urls["launcher"],
+            "packageUrl": package_urls["launcher"],
+            "packageSha256": launcher_payload.package_sha256,
+            "packageSize": launcher_payload.package_size,
+        }
     latest_payload = {
         "schemaVersion": 1,
         "channel": channel,
@@ -622,6 +630,15 @@ def _write_latest_json_from_db(settings: Settings, conn: sqlite3.Connection, cha
             "packageSize": game_row["package_size"],
         }
     }
+    if "launcher" in package_by_scope:
+        launcher_row = package_by_scope["launcher"]
+        launcher_urls = package_public_urls(settings, channel, release_id, "launcher", launcher_row["package_file_name"])
+        packages_payload["launcher"] = {
+            "manifestUrl": launcher_urls["manifestUrl"],
+            "packageUrl": launcher_urls["packageUrl"],
+            "packageSha256": launcher_row["package_sha256"],
+            "packageSize": launcher_row["package_size"],
+        }
 
     game_payload = packages_payload["game"]
     latest_payload = {
