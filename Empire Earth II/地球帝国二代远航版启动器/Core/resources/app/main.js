@@ -2136,6 +2136,51 @@ function isGameProcessRunning(gameExePath){
   return queryProcessesByExecutablePath(gameExePath).length > 0
 }
 
+async function fetchHistory(base, channel){
+  const apiUrl = `${base}/api/update/v1/channels/${channel}/history`
+  try {
+    const res = await axios.get(apiUrl, { timeout: 5000 })
+    const data = res && res.data || {}
+    return Array.isArray(data.history) ? data.history : []
+  } catch (e) {
+    log(`fetchHistory failed ${apiUrl}: ${e}`)
+    return []
+  }
+}
+
+function buildVersionChain(state, history, latestVersion, forceSync, logFilePath){
+  const currentVersion = String(getScopeStateVersion(state, 'game') || '')
+  if (!Array.isArray(history) || history.length === 0) return []
+  const sorted = [...history].sort((a, b) => {
+    const ta = String(a && a.publishedAt || '')
+    const tb = String(b && b.publishedAt || '')
+    return ta < tb ? -1 : ta > tb ? 1 : 0
+  })
+  if (forceSync || !currentVersion) return sorted
+  const currentIndex = sorted.findIndex(entry => String(entry && entry.version || '') === currentVersion)
+  if (currentIndex < 0) {
+    appendUpdaterLog(logFilePath, `[chain] 当前版本 ${currentVersion} 不在历史列表中，将应用全部历史版本`)
+    return sorted
+  }
+  return sorted.slice(currentIndex + 1)
+}
+
+async function resolveHistoricalPackageInfo(base, channel, releaseId){
+  const manifestUrl = `${base}/updates/${channel}/releases/${releaseId}/game/release-manifest.json`
+  const manifestPayload = await fetchReleaseManifestPayload(manifestUrl)
+  if (!manifestPayload) return null
+  const packageFileName = String(manifestPayload.packageFileName || '')
+  const packageSha256 = String(manifestPayload.packageSha256 || '')
+  if (!packageFileName || !packageSha256) return null
+  return {
+    manifestUrl,
+    packageUrl: `${base}/updates/${channel}/releases/${releaseId}/game/${packageFileName}`,
+    packageSha256,
+    packageSize: Number(manifestPayload.packageSize || 0),
+    manifestPayload
+  }
+}
+
 async function runEmbeddedGameUpdater(evt, cfg, preferredBaseUrl, options = {}){
   cancelRequested = false
   const forceSync = !!(options && options.force)
@@ -2205,63 +2250,146 @@ async function runEmbeddedGameUpdater(evt, cfg, preferredBaseUrl, options = {}){
   }
 
   const runtimeDir = getReleaseRuntimeDir()
-  const stagingDir = path.join(runtimeDir, 'staging', `game-${String(latest.version || 'latest')}`)
-  const extractDir = path.join(stagingDir, 'extracted')
-  const backupDir = path.join(runtimeDir, 'backups', `${new Date().toISOString().replace(/[:.]/g, '-')}--game`)
   try {
-    const manifestPayload = await fetchReleaseManifestPayload(gamePackage.manifestUrl)
-    if (!manifestPayload) {
-      emitUpdateStage(evt, { stage: 'failed', message: '无法读取服务器 game manifest。' })
-      throw new Error('无法读取服务器 game manifest。')
+    // 构建版本链
+    let chain = []
+    try {
+      const history = await fetchHistory(base, channel)
+      chain = buildVersionChain(currentState, history, String(latest.version || ''), forceSync, logFilePath)
+    } catch (e) {
+      appendUpdaterLog(logFilePath, `[chain] 获取历史版本失败，降级为单版本模式: ${e}`)
     }
-    if (String(manifestPayload.packageSha256 || '') !== String(gamePackage.packageSha256 || '')) {
-      emitUpdateStage(evt, { stage: 'failed', message: 'latest.json 与 release-manifest.json 的包哈希不一致。' })
-      throw new Error('latest.json 与 release-manifest.json 的包哈希不一致。')
+    if (!chain || chain.length === 0) {
+      chain = [{
+        releaseId: '',
+        version: String(latest.version || ''),
+        publishedAt: String(latest.publishedAt || ''),
+        notes: String(latest.releaseNotes || ''),
+        required: latest.required !== false
+      }]
+      appendUpdaterLog(logFilePath, `[chain] game 版本链为空，降级为直接应用 latest v${latest.version}`)
     }
-    const packagePath = path.join(stagingDir, String(manifestPayload.packageFileName || 'EE2X-game.zip'))
-    emitUpdateStage(evt, { stage: 'prepare', message: `准备同步到 ${latest.version || '(未知版本)'}` })
-    appendUpdaterLog(logFilePath, `[start] base=${base} channel=${channel} version=${latest.version || ''} root=${resolved.gameDir}`)
-    await downloadReleasePackage(gamePackage.packageUrl, packagePath, evt, logFilePath, gamePackage.packageSize)
-    emitUpdateStage(evt, { stage: 'verify', message: '校验下载包' })
-    const downloadedHash = await computeFileSha256(packagePath)
-    if (downloadedHash !== String(gamePackage.packageSha256 || '')) {
-      emitUpdateStage(evt, { stage: 'failed', message: '下载包 SHA-256 校验失败。' })
-      throw new Error('下载包 SHA-256 校验失败。')
+    appendUpdaterLog(logFilePath, `[chain] game 版本链(${chain.length}个): ${chain.map(function(e){ return e.version || '?' }).join(' → ')}`)
+    emitUpdateStage(evt, { stage: 'prepare', message: `共 ${chain.length} 个版本待同步` })
+    appendUpdaterLog(logFilePath, `[start] base=${base} channel=${channel} latestVersion=${latest.version || ''} chainLength=${chain.length} root=${resolved.gameDir}`)
+
+    var totalUpdatedFiles = 0
+    var totalDeletedFiles = 0
+    var totalBackedUpFiles = 0
+    var totalSkippedFrozenFiles = 0
+    var totalSkippedFrozenPaths = []
+    var totalVersions = chain.length
+
+    for (var idx = 0; idx < totalVersions; idx += 1) {
+      var entry = chain[idx]
+      var entryVersion = String(entry.version || '')
+      var entryReleaseId = String(entry.releaseId || '')
+      var versionLabel = '(' + (idx + 1) + '/' + totalVersions + ')'
+
+      ensureUpdateNotCancelled()
+
+      var pkg, manifestPayload
+      if (entryVersion === String(latest.version || '')) {
+        manifestPayload = await fetchReleaseManifestPayload(gamePackage.manifestUrl)
+        if (!manifestPayload) {
+          emitUpdateStage(evt, { stage: 'failed', message: 'v' + entryVersion + ' 无法读取 manifest' })
+          throw new Error('v' + entryVersion + ' 无法读取 manifest')
+        }
+        pkg = gamePackage
+      } else {
+        var historical = await resolveHistoricalPackageInfo(base, channel, entryReleaseId)
+        if (!historical) {
+          appendUpdaterLog(logFilePath, '[chain] v' + entryVersion + ' releaseId=' + entryReleaseId + ' 无法获取包信息，跳过')
+          continue
+        }
+        pkg = historical
+        manifestPayload = historical.manifestPayload
+      }
+
+      if (String(manifestPayload.packageSha256 || '') !== String(pkg.packageSha256 || '')) {
+        emitUpdateStage(evt, { stage: 'failed', message: 'v' + entryVersion + ' manifest 与包哈希不一致' })
+        throw new Error('v' + entryVersion + ' manifest 与包哈希不一致')
+      }
+
+      var vStagingDir = path.join(runtimeDir, 'staging', 'game-' + entryVersion)
+      var vExtractDir = path.join(vStagingDir, 'extracted')
+      var vBackupDir = path.join(runtimeDir, 'backups', new Date().toISOString().replace(/[:.]/g, '-') + '--game-v' + entryVersion)
+      var vPackagePath = path.join(vStagingDir, String(manifestPayload.packageFileName || 'EE2X-game.zip'))
+
+      emitUpdateStage(evt, { stage: 'download_start', message: 'v' + entryVersion + ' ' + versionLabel + ' 下载中' })
+      appendUpdaterLog(logFilePath, '[chain] v' + entryVersion + ' ' + versionLabel + ' 开始下载')
+      await downloadReleasePackage(pkg.packageUrl, vPackagePath, evt, logFilePath, pkg.packageSize)
+
+      emitUpdateStage(evt, { stage: 'verify', message: 'v' + entryVersion + ' ' + versionLabel + ' 校验中' })
+      var downloadedHash = await computeFileSha256(vPackagePath)
+      if (downloadedHash !== String(pkg.packageSha256 || '')) {
+        emitUpdateStage(evt, { stage: 'failed', message: 'v' + entryVersion + ' SHA-256 校验失败' })
+        throw new Error('v' + entryVersion + ' SHA-256 校验失败')
+      }
+
+      emitUpdateStage(evt, { stage: 'extract', message: 'v' + entryVersion + ' ' + versionLabel + ' 解压中' })
+      await extractReleasePackage(vPackagePath, vExtractDir, logFilePath)
+
+      emitUpdateStage(evt, { stage: 'validate', message: 'v' + entryVersion + ' ' + versionLabel + ' 校验文件' })
+      var vExtractedRoot = await validateExtractedGameTree(vExtractDir, manifestPayload, logFilePath)
+
+      emitUpdateStage(evt, { stage: 'apply', message: 'v' + entryVersion + ' ' + versionLabel + ' 应用更新', percent: 40 })
+      var vSummary = await applyGameReleaseManifest({
+        gameRoot: resolved.gameDir,
+        extractedRoot: vExtractedRoot,
+        manifest: manifestPayload,
+        backupDir: vBackupDir,
+        evt: evt,
+        logFilePath: logFilePath
+      })
+
+      totalUpdatedFiles += vSummary.updatedFiles || 0
+      totalDeletedFiles += vSummary.deletedFiles || 0
+      totalBackedUpFiles += vSummary.backedUpFiles || 0
+      totalSkippedFrozenFiles += vSummary.skippedFrozenFiles || 0
+      if (vSummary.skippedFrozenPaths) {
+        totalSkippedFrozenPaths = totalSkippedFrozenPaths.concat(vSummary.skippedFrozenPaths)
+      }
+
+      var versionLatest = {
+        version: entryVersion,
+        notes: String(entry.notes || ''),
+        publishedAt: String(entry.publishedAt || ''),
+        required: entry.required !== false
+      }
+      persistAppliedGameRelease(versionLatest, pkg)
+      updateLocalVersionHistory(entryVersion, String(entry.notes || ''), String(entry.publishedAt || ''))
+
+      appendUpdaterLog(logFilePath, '[chain] v' + entryVersion + ' ' + versionLabel + ' 应用完成 updated=' + vSummary.updatedFiles + ' deleted=' + vSummary.deletedFiles)
+      await cleanupDirectorySafe(vStagingDir, logFilePath)
     }
-    emitUpdateStage(evt, { stage: 'extract', message: '解压更新包' })
-    await extractReleasePackage(packagePath, extractDir, logFilePath)
-    emitUpdateStage(evt, { stage: 'validate', message: '校验文件清单' })
-    const extractedRoot = await validateExtractedGameTree(extractDir, manifestPayload, logFilePath)
-    emitUpdateStage(evt, { stage: 'apply', message: '应用游戏更新', percent: 40 })
-    const summary = await applyGameReleaseManifest({
-      gameRoot: resolved.gameDir,
-      extractedRoot,
-      manifest: manifestPayload,
-      backupDir,
-      evt,
-      logFilePath
-    })
-    persistAppliedGameRelease(latest, gamePackage)
+
+    var lastBackupDir = path.join(runtimeDir, 'backups')
+    await cleanupOldGameUpdateBackups(runtimeDir, lastBackupDir, logFilePath)
+
     clearPendingGameUpdate(latest.version)
-    updateLocalVersionHistory(latest.version, latest.notes, latest.publishedAt)
     saveConfig(cfg, { skipGamePathNormalize: true })
-    emitUpdateStage(evt, { stage: 'done', message: `已同步到 ${latest.version || '(未知版本)'}`, percent: 100 })
-    const payload = buildUpdaterResultPayload({
+    emitUpdateStage(evt, { stage: 'done', message: '已同步到 ' + (latest.version || '(未知版本)'), percent: 100 })
+
+    var finalSummary = {
+      version: String(latest.version || ''),
+      scope: 'game',
+      updatedFiles: totalUpdatedFiles,
+      deletedFiles: totalDeletedFiles,
+      backedUpFiles: totalBackedUpFiles,
+      skippedFrozenFiles: totalSkippedFrozenFiles,
+      skippedFrozenPaths: totalSkippedFrozenPaths
+    }
+    var payload = buildUpdaterResultPayload({
       ok: true,
       scope: 'game',
       version: String(latest.version || ''),
-      base,
-      channel,
-      summary: {
-        version: String(latest.version || ''),
-        scope: 'game',
-        ...summary
-      }
+      base: base,
+      channel: channel,
+      summary: finalSummary
     })
     writeLastUpdaterResult(payload)
-    appendUpdaterLog(logFilePath, `[done] version=${latest.version || ''} updated=${summary.updatedFiles} deleted=${summary.deletedFiles}`)
-    await cleanupDirectorySafe(stagingDir, logFilePath)
-    await cleanupOldGameUpdateBackups(runtimeDir, backupDir, logFilePath)
+    appendUpdaterLog(logFilePath, '[done] chain=' + chain.length + ' versions updated=' + totalUpdatedFiles + ' deleted=' + totalDeletedFiles)
     return payload
   } catch (error) {
     emitUpdateStage(evt, { stage: 'failed', message: String(error && error.message || error) })
