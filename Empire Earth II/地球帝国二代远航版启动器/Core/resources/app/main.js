@@ -2416,7 +2416,7 @@ function describeUpdaterEarlyExit(code, signal){
   return '更新器启动后立即退出'
 }
 
-function resolveLatestPackage(latest, scope){
+function resolveLatestPackage(latest, scope, baseUrl){
   const packages = latest && latest.packages ? latest.packages : null
   if (packages && packages[scope] && packages[scope].packageUrl) return packages[scope]
   if (scope === 'game' && latest && latest.packageUrl) {
@@ -2425,6 +2425,18 @@ function resolveLatestPackage(latest, scope){
       manifestUrl: latest.manifestUrl || '',
       packageSha256: latest.packageSha256 || '',
       packageSize: Number(latest.packageSize) || 0
+    }
+  }
+  // 兜底：服务端未宣告 launcher 包时，通过 URL 模式构造
+  if (scope === 'launcher' && baseUrl && latest && latest.version) {
+    var channel = 'stable'
+    var releaseId = String(latest.version || '')
+    var manifestUrl = String(baseUrl).replace(/\/+$/, '') + '/updates/' + channel + '/releases/' + releaseId + '/launcher/release-manifest.json'
+    return {
+      manifestUrl: manifestUrl,
+      packageUrl: '',
+      packageSha256: '',
+      packageSize: 0
     }
   }
   return null
@@ -2450,7 +2462,7 @@ async function getUnifiedReleaseStatus(cfg, preferredBaseUrl){
   const state = bootstrap.state
   const resolvedGame = resolveConfiguredGameLocation(cfg)
   const gameRunning = !!(resolvedGame && isGameProcessRunning(resolvedGame.gameExePath))
-  const rawLauncherPkg = resolveLatestPackage(latest, 'launcher')
+  const rawLauncherPkg = resolveLatestPackage(latest, 'launcher', base)
   const launcherPkgResolution = await resolveLauncherPackageForClient(rawLauncherPkg)
   const launcherPkg = launcherPkgResolution.package
   const gamePkg = resolveLatestPackage(latest, 'game')
