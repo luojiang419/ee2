@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-24 (同步其他开发者最新参数)
+> 最后更新: 2026-05-24 (Ch055A E15属性上调20%+成本上调30%)
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -63,6 +63,8 @@
 | 064 | EE2X_db-046-sync-other-dev-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 063同步修改后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 065 | EE2X_db-047-autofactory-rallypoint-pre.zip | pre | Autofactory(Yuanhang_720_units.ddf) | Yuanhang_720_units.ddf | 同步后恢复丢失的RallyPlacementFlags=(Resources\|Fortress\|Tower\|Terrain) | — | 2026-05-24 |
 | 066 | EE2X_db-047-autofactory-rallypoint-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 065修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
+| 067 | EE2X_db-049-Ch055A-E15属性上调20%-pre.zip | pre | Ch055A(中国海军055A) E15 | upgrade_unittypes.csv | E15全部属性×1.2(按E14基准): HP50400/LOS86/DAMAGE3600/RANGE58/RELOAD2.4; 造价×1.3: BUILD468/食3900/木5850/金5850/油5850/铀5850 | — | 2026-05-24 |
+| 068 | EE2X_db-049-Ch055A-E15属性上调20%-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 067修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
