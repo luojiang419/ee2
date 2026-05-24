@@ -87,6 +87,8 @@
 | 088 | EE2X_db-061-E14防空四单位资源调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 087修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 | 089 | EE2X_db-062-刺针石油450-pre.zip | pre | LightArtillery2 E14 | upgrade_unittypes.csv | 刺针石油从400调为450 | — | 2026-05-24 |
 | 090 | EE2X_db-062-刺针石油450-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 089修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 091 | EE2X_db-063-刺针E13石油450-pre.zip | pre | LightArtillery2 E13 | upgrade_unittypes.csv | 刺针E13取消铀改石油450 | — | 2026-05-24 |
+| 092 | EE2X_db-063-刺针E13石油450-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 091修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
