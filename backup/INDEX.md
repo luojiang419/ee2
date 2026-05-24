@@ -104,6 +104,8 @@
 | 103 | EE2X_db-103-中远程防空射速降75-pre.zip | pre | E14中远程8个防空单位 | upgrade_unittypes.csv, Yuanhang_Tao_13zhuangjia_units.ddf, American_army_lujun.ddf, Chinese_army_lujun.ddf, Russian_army_lujun.ddf | 中程HQ61/PAC3/BUKM1_2装填0.5→2.0; 远程Thaad装填0.75→3.0 + ZiYuan装填1.0→4.0 + American_THAAD/HQ9/Ru_S400装填0.75→3.0 | — | 2026-05-24 |
 | 104 | EE2X_db-103-中远程防空射速降75-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 103修改应用后的完整游戏ZIP | 已废弃 | 2026-05-24 |
 | 105 | EE2X_db-104-中程0.75s远程1.2s-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 中程0.75s/远程1.2s修正后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 106 | EE2X_db-105-E14飞机移除石头-pre.zip | pre | J10B/JH7A/J11A/f16/A10/f14/mig29k/su25/su27 E14 | upgrade_unittypes.csv | 9架E14飞机生产STONE成本归零 | — | 2026-05-24 |
+| 107 | EE2X_db-105-E14飞机移除石头-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 106修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
