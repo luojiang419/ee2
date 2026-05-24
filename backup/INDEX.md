@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-24 回退狙击手修改(导致游戏崩溃)
+> 最后更新: 2026-05-24 JH7A/A10/su25三机溅射统一1.3
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -97,6 +97,8 @@
 | 096 | EE2X_db-096-狙击手视野18-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 095修改应用后的完整游戏ZIP | 已废弃 | 2026-05-24 |
 | 097 | EE2X_db-097-狙击手老兵精英视野射程-pre.zip | pre | Sniper(狙击手) E11/E13老兵/精英 | upgrade_unittypes.csv, Yuanhang_720_units.ddf, dbtechtreenode.csv | 退役基础视野→老兵(16/16)+精英(18/18) | 已废弃 | 2026-05-24 |
 | 098 | EE2X_db-098-狙击手老兵精英视野射程-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 097修改应用后的完整游戏ZIP | 崩溃 | 2026-05-24 |
+| 099 | EE2X_db-099-对地攻击机溅射1.3-pre.zip | pre | JH7A/A10/su25 E14 溅射半径 | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | JH7A(3.0→1.3)/A10(1.5→1.3)/su25(1.5→1.3)三机溅射统一为1.3 | — | 2026-05-24 |
+| 100 | EE2X_db-099-对地攻击机溅射1.3-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 099修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 

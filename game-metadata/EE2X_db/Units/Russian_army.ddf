@@ -955,7 +955,7 @@ verboseTooltip = vtt_unit_su25
 	abilities = [
 		AircraftMove {speed = 5.5; angSpeed = 55; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 550; range = 12; reloadTime = 0.2; angularRange = 60; applyDamageTime = 0; missileName = "GroundRocketHerc"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 60;
-				areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.3;throwUnits = true }
+				areaDamageRadius = 1.3; areaDamageFriendlyRatio = 0.3;throwUnits = true }
 		LOS { range 16 }
 			SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -1642,7 +1642,7 @@ UnitType Tu142
 		popCount = 2
 displayName = tx_utn_Tu142_name
 verboseTooltip = vtt_unit_Tu142
-HitPoints = 1900
+HitPoints = 2800
 	}
 	sounds = {
 		sndSelection = ["CWCruTu160_AN_sel_01" 
@@ -1662,7 +1662,7 @@ HitPoints = 1900
 	}
 	abilities = [
 		AircraftMove {speed = 7; angSpeed = 46; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
-		Attack { damage = 1500; range = 15; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 10 }
+		Attack { damage = 8000; range = 25; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 2 }
 
 		LOS { range = 15 }
 		AreaEffect {
