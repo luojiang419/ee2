@@ -1367,6 +1367,8 @@ const GAME_UPDATE_MULTIPART_THRESHOLD_BYTES = 8 * 1024 * 1024
 const GAME_UPDATE_MULTIPART_CONCURRENCY = 4
 const GAME_UPDATE_MULTIPART_MAX_RETRIES = 2
 const GAME_UPDATE_FROZEN_PREFIXES = []
+const GAME_UPDATE_DOWNLOAD_TIMEOUT_MS = 5 * 60 * 1000
+const GAME_UPDATE_STREAM_IDLE_TIMEOUT_MS = 60 * 1000
 
 function writeLastUpdaterResult(payload){
   try {
@@ -1522,15 +1524,46 @@ async function downloadReleasePackageSingle(url, targetPath, tracker, logFilePat
   ensureUpdateNotCancelled()
   appendUpdaterLog(logFilePath, `[download-single] ${url}`)
   await fse.ensureDir(path.dirname(targetPath))
-  const response = await axios.get(url, { responseType: 'stream', timeout: 0 })
+  const response = await axios.get(url, {
+    responseType: 'stream',
+    timeout: GAME_UPDATE_DOWNLOAD_TIMEOUT_MS,
+  })
   return await new Promise((resolve, reject) => {
     const writer = fs.createWriteStream(targetPath)
+    let lastDataAt = Date.now()
+    let idleTimer = null
+    let settled = false
+
+    const cleanup = () => {
+      if (idleTimer) { clearInterval(idleTimer); idleTimer = null }
+    }
+
     const fail = async (error) => {
+      if (settled) return
+      settled = true
+      cleanup()
       try { writer.destroy() } catch {}
       try { await fse.remove(targetPath) } catch {}
       reject(error)
     }
+
+    const safeResolve = () => {
+      if (settled) return
+      settled = true
+      cleanup()
+      emitTrackedDownloadProgress(tracker, {}, true)
+      resolve()
+    }
+
+    idleTimer = setInterval(() => {
+      if (settled) return
+      if (Date.now() - lastDataAt > GAME_UPDATE_STREAM_IDLE_TIMEOUT_MS) {
+        response.data.destroy(new Error(`下载流 ${GAME_UPDATE_STREAM_IDLE_TIMEOUT_MS / 1000} 秒无数据，连接可能已中断`))
+      }
+    }, 5000)
+
     response.data.on('data', (chunk) => {
+      lastDataAt = Date.now()
       tracker.downloadedBytes += chunk.length
       if (cancelRequested) {
         response.data.destroy(new Error('更新已取消'))
@@ -1539,10 +1572,16 @@ async function downloadReleasePackageSingle(url, targetPath, tracker, logFilePat
       emitTrackedDownloadProgress(tracker)
     })
     response.data.on('error', fail)
+    response.data.on('close', () => {
+      appendUpdaterLog(logFilePath, '[download-single] response stream closed')
+    })
     writer.on('error', fail)
-    writer.on('finish', () => {
-      emitTrackedDownloadProgress(tracker, {}, true)
-      resolve()
+    writer.on('finish', safeResolve)
+    writer.on('close', () => {
+      if (!settled) {
+        appendUpdaterLog(logFilePath, '[download-single] writer closed unexpectedly')
+        fail(new Error('文件写入流异常关闭'))
+      }
     })
     response.data.pipe(writer)
   })
@@ -1553,7 +1592,7 @@ async function downloadReleasePackagePart(url, start, end, partPath, tracker, lo
   await fse.ensureDir(path.dirname(partPath))
   const response = await axios.get(url, {
     responseType: 'stream',
-    timeout: 0,
+    timeout: GAME_UPDATE_DOWNLOAD_TIMEOUT_MS,
     headers: { Range: `bytes=${start}-${end}` },
     validateStatus: () => true,
   })
@@ -1567,13 +1606,40 @@ async function downloadReleasePackagePart(url, start, end, partPath, tracker, lo
   return await new Promise((resolve, reject) => {
     const writer = fs.createWriteStream(partPath)
     let writtenBytes = 0
+    let lastDataAt = Date.now()
+    let idleTimer = null
+    let settled = false
+
+    const cleanup = () => {
+      if (idleTimer) { clearInterval(idleTimer); idleTimer = null }
+    }
+
     const fail = async (error) => {
+      if (settled) return
+      settled = true
+      cleanup()
       tracker.downloadedBytes = Math.max(0, tracker.downloadedBytes - writtenBytes)
       try { writer.destroy() } catch {}
       try { await fse.remove(partPath) } catch {}
       reject(error)
     }
+
+    const safeResolve = () => {
+      if (settled) return
+      settled = true
+      cleanup()
+      resolve()
+    }
+
+    idleTimer = setInterval(() => {
+      if (settled) return
+      if (Date.now() - lastDataAt > GAME_UPDATE_STREAM_IDLE_TIMEOUT_MS) {
+        response.data.destroy(new Error(`分片下载 ${GAME_UPDATE_STREAM_IDLE_TIMEOUT_MS / 1000} 秒无数据，连接可能已中断`))
+      }
+    }, 5000)
+
     response.data.on('data', (chunk) => {
+      lastDataAt = Date.now()
       writtenBytes += chunk.length
       tracker.downloadedBytes += chunk.length
       if (cancelRequested) {
@@ -1586,6 +1652,9 @@ async function downloadReleasePackagePart(url, start, end, partPath, tracker, lo
       })
     })
     response.data.on('error', fail)
+    response.data.on('close', () => {
+      appendUpdaterLog(logFilePath, `[download-part] response stream closed range=${start}-${end}`)
+    })
     writer.on('error', fail)
     writer.on('finish', async () => {
       const expectedLength = end - start + 1
@@ -1593,7 +1662,13 @@ async function downloadReleasePackagePart(url, start, end, partPath, tracker, lo
         await fail(createRangeDownloadError(`分段长度不符（${start}-${end} expected=${expectedLength} actual=${writtenBytes}）`, 'range-length-mismatch'))
         return
       }
-      resolve()
+      safeResolve()
+    })
+    writer.on('close', () => {
+      if (!settled) {
+        appendUpdaterLog(logFilePath, `[download-part] writer closed unexpectedly range=${start}-${end}`)
+        fail(new Error('分片写入流异常关闭'))
+      }
     })
     response.data.pipe(writer)
   })
