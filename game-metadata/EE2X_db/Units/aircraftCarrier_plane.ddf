@@ -58,6 +58,24 @@ UpgradeAbilities ChinaPlaneEpoch14Attack
 	]
 }
 
+// Attack Ability Upgrade
+UpgradeAbilities NavalF18Epoch14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 8.5; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 16; areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.1 }
+	]
+}
+
+// Attack Ability Upgrade
+UpgradeAbilities RussianPlaneEpoch14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 8.0; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 28; areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.1 }
+	]
+}
+
 
 UnitType NavalF18
 {
