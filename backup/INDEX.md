@@ -99,6 +99,8 @@
 | 098 | EE2X_db-098-狙击手老兵精英视野射程-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 097修改应用后的完整游戏ZIP | 崩溃 | 2026-05-24 |
 | 099 | EE2X_db-099-对地攻击机溅射1.3-pre.zip | pre | JH7A/A10/su25 E14 溅射半径 | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | JH7A(3.0→1.3)/A10(1.5→1.3)/su25(1.5→1.3)三机溅射统一为1.3 | — | 2026-05-24 |
 | 100 | EE2X_db-099-对地攻击机溅射1.3-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 099修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 101 | EE2X_db-101-歼20攻击力2000-歼20S攻击力2300-pre.zip | pre | J20/J20S E14攻击力 | Chinese_army.ddf | J20 damage 950→2000; J20S damage 900→2300 | — | 2026-05-24 |
+| 102 | EE2X_db-101-歼20攻击力2000-歼20S攻击力2300-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 101修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 

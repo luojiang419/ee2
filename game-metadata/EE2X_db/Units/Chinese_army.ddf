@@ -1739,7 +1739,7 @@ UnitType J20
 	}
 	abilities = [
 		AircraftMove {speed = 9; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 950; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
+		Attack { damage = 2000; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
 	LOS { range = 28 }
 	AreaEffect {
 			effects = [ 
@@ -1833,7 +1833,7 @@ UnitType J20S
 	}
 	abilities = [
 		AircraftMove {speed = 9.0; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
+		Attack { damage = 2300; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
 	LOS { range = 28 }
 	AreaEffect {
 			effects = [ 
