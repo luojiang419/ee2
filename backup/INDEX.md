@@ -89,6 +89,8 @@
 | 090 | EE2X_db-062-刺针石油450-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 089修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 | 091 | EE2X_db-063-刺针E13石油450-pre.zip | pre | LightArtillery2 E13 | upgrade_unittypes.csv | 刺针E13取消铀改石油450 | — | 2026-05-24 |
 | 092 | EE2X_db-063-刺针E13石油450-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 091修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 093 | EE2X_db-064-E13三国中程防空石油化-pre.zip | pre | AntiAir_HQ61/PAC3/BUKM1_2 E13 | upgrade_unittypes.csv | HQ61 E13铀改石油400; PAC3 E13铀改石油250+铀250; BUKM1_2 E13铀改石油400 | — | 2026-05-24 |
+| 094 | EE2X_db-064-E13三国中程防空石油化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 093修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
