@@ -102,7 +102,8 @@
 | 101 | EE2X_db-101-歼20攻击力2000-歼20S攻击力2300-pre.zip | pre | J20/J20S E14攻击力 | Chinese_army.ddf | J20 damage 950→2000; J20S damage 900→2300 | — | 2026-05-24 |
 | 102 | EE2X_db-101-歼20攻击力2000-歼20S攻击力2300-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 101修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 | 103 | EE2X_db-103-中远程防空射速降75-pre.zip | pre | E14中远程8个防空单位 | upgrade_unittypes.csv, Yuanhang_Tao_13zhuangjia_units.ddf, American_army_lujun.ddf, Chinese_army_lujun.ddf, Russian_army_lujun.ddf | 中程HQ61/PAC3/BUKM1_2装填0.5→2.0; 远程Thaad装填0.75→3.0 + ZiYuan装填1.0→4.0 + American_THAAD/HQ9/Ru_S400装填0.75→3.0 | — | 2026-05-24 |
-| 104 | EE2X_db-103-中远程防空射速降75-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 103修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 104 | EE2X_db-103-中远程防空射速降75-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 103修改应用后的完整游戏ZIP | 已废弃 | 2026-05-24 |
+| 105 | EE2X_db-104-中程0.75s远程1.2s-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 中程0.75s/远程1.2s修正后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
