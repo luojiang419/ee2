@@ -467,7 +467,7 @@ UnitType Ch052d
 		popCount = 3
 		displayName = tx_utn_054destory_name
 		VerboseTooltip = vtt_unit_054destory
-		HitPoints = 15000
+		HitPoints = 16000
 	}
 	attributes = [
 		HealedByHERC 
@@ -700,7 +700,7 @@ UnitType Ch055
 		popCount = 4
 		displayName = tx_utn_Ch055_name
 		VerboseTooltip = vtt_unit_Ch055
-		HitPoints = 22000
+		HitPoints = 26000
 	}
 	attributes = [
 		HealedByHERC 
@@ -1805,7 +1805,7 @@ UnitType kirov
 		popCount = 4
 		displayName = tx_utn_kirov_name
 		VerboseTooltip = vtt_unit_kirov
-		HitPoints = 22000
+		HitPoints = 26000
 	}
 	attributes = [
 		HealedByHERC 
@@ -2421,7 +2421,7 @@ UnitType Type22350
 		popCount = 2
 		displayName = tx_utn_Type22350_name
 		VerboseTooltip = vtt_unit_Type22350
-		HitPoints = 6000
+		HitPoints = 16000
 	}
 	attributes = [
 		HealedByHERC 
@@ -2436,7 +2436,7 @@ UnitType Type22350
 		sndDeath =  []
 	}
 	abilities = [
-        Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
+        Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
         NavalMove {speed = 2.0; accel = 1; angSpeed = 40}
 		LOS { range = 25}
 		AreaEffect {
@@ -4645,7 +4645,7 @@ UnitType Ticonderoga
 		popCount = 4
 		displayName = tx_utn_TiconderogaCruiser_name
 		VerboseTooltip = vtt_unit_TiconderogaCruiser
-		HitPoints = 22000
+		HitPoints = 26000
 	}
 	attributes = [
 		HealedByHERC 
@@ -4893,7 +4893,7 @@ UnitType DDG123
 		popCount = 3
 		displayName = tx_utn_arley_name
 		VerboseTooltip = vtt_unit_arley
-		HitPoints = 15000
+		HitPoints = 16000
 	}
 	attributes = [
 		HealedByHERC 
