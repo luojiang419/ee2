@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-24 (Ch055A E14攻击力2500 + 20%递增)
+> 最后更新: 2026-05-24 (Ch055A E14基准 属性25%/成本30%递增)
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -76,7 +76,9 @@
 | 077 | EE2X_db-054-Ch055A-E14攻击1800递增-pre.zip | pre | Ch055A E11-E15 DAMAGE | upgrade_unittypes.csv, Yuanhang_Tao_13naval_units.ddf | E14 DAMAGE=1800基准，20%递增: E11(1042)/E12(1250)/E13(1500)/E14(1800)/E15(2160) | — | 2026-05-24 |
 | 078 | EE2X_db-054-Ch055A-E14攻击1800递增-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 077修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 079 | EE2X_db-055-Ch055A-E14攻击2500递增-pre.zip | pre | Ch055A E11-E15 DAMAGE | upgrade_unittypes.csv, Yuanhang_Tao_13naval_units.ddf | E14 DAMAGE=2500基准，20%递增: E11(1447)/E12(1736)/E13(2083)/E14(2500)/E15(3000) | — | 2026-05-24 |
-| 080 | EE2X_db-055-Ch055A-E14攻击2500递增-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 079修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 080 | EE2X_db-055-Ch055A-E14攻击2500递增-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 079修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
+| 081 | EE2X_db-056-Ch055A-E14基准25递增-pre.zip | pre | Ch055A E11-E15 全属性+全成本 | upgrade_unittypes.csv, Yuanhang_Tao_13naval_units.ddf | 以其他开发者E14为基准，属性25%递增+成本30%递增，DDF同步，新增Ch055Epoch14Attack块 | — | 2026-05-24 |
+| 082 | EE2X_db-056-Ch055A-E14基准25递增-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 081修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
