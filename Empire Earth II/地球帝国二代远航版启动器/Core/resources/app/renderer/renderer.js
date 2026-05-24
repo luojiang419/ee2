@@ -1721,7 +1721,7 @@ async function init(){
     }
   } catch {}
   document.getElementById('officialSiteBtn').addEventListener('click', async () => {
-    const u = 'https://ee2x.xyz/'
+    const u = 'https://ee2x.cn/'
     try { await window.ee2x.openPageWindow(u, '官网入口') }
     catch { try { await window.ee2x.openExternal(u) } catch { try { window.open(u, '_blank') } catch {} } }
   })

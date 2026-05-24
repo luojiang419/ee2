@@ -54,7 +54,7 @@
 | 055 | EE2X_db-042-E14火炮阵地火箭弹-pre.zip | pre | E14火炮阵地炮弹改为MlrsRocket_PHL03 | dapao.ddf, upgrade_unittypes.csv | DDF新增dapaoEpoch14Attack块+CSV引用修正 | — | 2026-05-22 |
 | 056 | EE2X_db-042-E14火炮阵地火箭弹-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 055修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 057 | EE2X_db-043-三舰射速减半Cruiser1164增强-pre.zip | pre | Ch055A/DDG1001/Cruiser1164 E14三舰 | upgrade_unittypes.csv | 三舰RELOAD统一×2(Ch055A/DDG1001 1.0→2.0; Cruiser1164 1.15→2.3); Cruiser1164 HP 37500→52000 DAMAGE 2850→3300 RANGE 46→43 | — | 2026-05-22 |
-| 058 | EE2X_db-043-三舰射速减半Cruiser1164增强-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 057修改应用后的完整游戏ZIP | 待测试 | 2026-05-22 |
+| 058 | EE2X_db-043-三舰射速减半Cruiser1164增强-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 057修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 |
 | 059 | EE2X_db-044-E14防空三梯次改造-pre.zip | pre | E14陆军防空9单位三梯次改造 | upgrade_unittypes.csv, light_artillery2.ddf, Chinese_army_lujun.ddf, American_army_lujun.ddf, Russian_army_lujun.ddf, Yuanhang_Tao_13zhuangjia_units.ddf | 近程(R15/Rel0.3/Dmg500): LightArtillery2; 中程(R25/Rel1.0/Dmg1000): HQ61+PAC3+BUKM1_2+ZiYuan; 远程(R35/Rel1.5/Dmg1500): Thaad+HQ9+Am_THAAD+Ru_S400 | — | 2026-05-22 17:52 |
 | 060 | EE2X_db-044-E14防空三梯次改造-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 059修改应用后的完整游戏ZIP | 测试通过 | 2026-05-22 17:52 |
 | 061 | EE2X_db-045-汽车工厂集结点修复-pre.zip | pre | Autofactory 集结点 | EE2X_db.zip 完整 | 游戏ZIP修复前的当前状态（缺失RallyPlacementFlags） | — | 2026-05-24 20:30 |
