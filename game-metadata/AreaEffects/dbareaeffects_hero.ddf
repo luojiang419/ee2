@@ -1,0 +1,86 @@
+//////////////////////////////Hero Area Effects///////////////////////////////
+
+// Effect granted to units in army that a hero runs
+DbAreaEffectInfo PrimaryHeroArmyBonus
+{
+	name = text_harea_parmy_name
+	desc = text_harea_parmy_desc
+	effects = [
+
+		// Everyone gets a glow for being in the army.	
+		EffectVisualGlow {
+			range = HeroArmyOwnAll
+			mask = Anything
+			player = Self
+			GlowType = HeroArmy
+			OwnerOnly = false
+		}
+		
+		// This is a bit of a hack, but - this is a second glow for
+		// the leading hero.  Since you can only have one of any
+		// given hero type, this will only hit him.
+		// The glow code knows not to display the normal army glow
+		// if he's got a leader glow.
+		// @DANIEL 03/16/05 -- we are going to try having this glow
+		// appear all the time for a hero, so the effect is no longer needed
+		//EffectVisualGlow {
+		//	range = HeroArmyOwnSame
+		//	mask = Heroes
+		//	player = Self
+		//	GlowType = HeroArmyLeader
+		//	OwnerOnly = false
+		//}
+		
+		// 25% attack/HP bonus for those of the same hero class.
+		EffectAttack {
+			range = HeroArmyOwnSame
+			mask = NonHeroes
+			player = Self
+			scale = 1.05
+		}
+		EffectMaxHitPoints {
+			range = HeroArmyOwnSame
+			mask = NonHeroes
+			player = Self
+			scale = 1.05
+		}
+		
+		// 10% attack/HP bonus for those of a different hero class.
+		EffectAttack {
+			range = HeroArmyOwnDifferent
+			mask = NonHeroes
+			player = Self
+			scale = 1.04
+		}
+		EffectMaxHitPoints {
+			range = HeroArmyOwnDifferent
+			mask = NonHeroes
+			player = Self
+			scale = 1.04
+		}
+	]
+}
+
+// Effect granted to units in army that a hero belongs to, but doesn't run (secondary hero)
+DbAreaEffectInfo SupportingHeroArmyBonus
+{
+	name = text_harea_sarmy_name
+	desc = text_harea_sarmy_desc
+	effects = [
+		// +15% attack/HP bonus for those of the same hero class,
+		// to bring them up to 25% (when added to the 10% they get from
+		// the primary hero).
+		EffectAttack {
+			range = HeroArmyOtherSame
+			mask = NonHeroes
+			player = Self
+			scale = 1.05
+		}
+		EffectMaxHitPoints {
+			range = HeroArmyOtherSame
+			mask = NonHeroes
+			player = Self
+			scale = 1.05
+		}
+	]
+}

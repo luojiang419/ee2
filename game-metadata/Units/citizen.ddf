@@ -1,0 +1,652 @@
+//------------------------------------------------------------------------------------------------
+//	CITIZEN - basic type
+//------------------------------------------------------------------------------------------------
+UnitType Citizen 
+{
+	parent = Human
+	icon = icon_unit_citizen_male_1
+	properties {
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+		displayName = tx_utn_citizen_name
+		displayNamePlural = tx_utn_citizen_pname
+		rps = Citizen
+		stance = Cautious
+		VerboseTooltip = vtt_unit_citizen
+	}
+	abilities [
+		Move {speed = 1.4; angSpeed = 720; angAccel = 720}		
+		LOS { range = 5 }
+		Build { repairRate = 60 }
+	]
+}
+
+UnitType FullCitizen
+{
+	parent = Citizen
+	properties {
+		moveType = FootCitizen
+	}
+	abilities [
+		Attack { range = 0.0; reloadTime = 1; applyDamageTime = 0.0; damage = 0 }
+		Move {speed = 1.3; angSpeed = 720; angAccel = 720}		
+		LOS { range = 5 }
+		Build { repairRate = 60 }
+		GatherFarm { 
+				treeCuttingRange = 0.9; 	// at this range, the axe of the citizen contact tree trunk
+				otherRange = 0.8;
+				dropoffRange = 0.7;
+				carryLimit = 15; 
+				farmCarryLimit = 15;
+
+				// Food Resource gather rates.  This is the amount of the resource gathered per second.
+				animalRate = 0.5;		// this is the gather rate from animals
+				foodRate = 0.4;		// this is the gather rate from forage patch
+				forageTreeRate = 0.4;	// this is the gather rate from forage trees
+				farmRate = 0.8; 		// this is the gather rate from farms
+
+				// Other basic resource gather rates.  This is the amount of the resource gathered per second.
+				woodRate = 0.45;
+				stoneRate = 0.45;
+				goldRate = 0.45;
+				tinRate = 0.45;
+				ironRate = 0.45;
+				saltpeterRate =0.5;
+				oilRate = 0.6;
+				uraniumRate = 0.6;
+		}
+		Garrisonable { garrisonTypes = [ UniWarehouseOilDerrickCityCenter Fortress Tower NavalTransport SeigeTower AirTransport ] }
+	]
+}
+
+// Male Citizen
+UnitType CitizenM
+{
+	parent = FullCitizen
+	properties {
+		DisplayNameScenEdit = tx_utn_citMale_sname
+		hitpoints = 100
+	}
+	sounds {
+		sndCmdMove = ["v_cit_m_ack_01" "v_cit_m_ack_02" "v_cit_m_ack_03" "v_cit_m_ack_04"]
+		sndCmdAttack = ["v_cit_m_att_01" "v_cit_m_att_02"]
+		sndSelection = ["v_cit_m_sel_01" "v_cit_m_sel_02" "v_cit_m_sel_03" "v_cit_m_sel_04"]
+		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+    	}
+	abilities [
+		Attack { range = 0.3; reloadTime = 3; applyDamageTime = 1.3; damage = 5 }
+	]
+}
+
+// Female Citizen
+UnitType CitizenF
+{
+	parent = FullCitizen
+	icon = icon_unit_citizen_female_1
+	properties {
+		DisplayNameScenEdit = tx_utn_citFemale_sname
+		hitpoints = 100
+	}
+	sounds {
+		sndCmdMove = ["v_cit_f_ack_01" "v_cit_f_ack_02" "v_cit_f_ack_03" "v_cit_f_ack_04"]
+		sndCmdAttack = ["v_cit_f_att_01" "v_cit_f_att_02"]
+		sndSelection = ["v_cit_f_sel_01" "v_cit_f_sel_02" "v_cit_f_sel_03" "v_cit_f_sel_04"]
+		sndDeath =  ["fx_death_female_01" "fx_death_female_02" "fx_death_female_03" "fx_death_female_04"]
+    }
+	abilities [
+		Attack { range = 0.3; reloadTime = 3; applyDamageTime = 1.3; damage = 5 }
+	]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	ENGINEER
+//------------------------------------------------------------------------------------------------
+UnitType Engineer
+{
+	parent = Citizen
+	properties {
+		displayName = tx_utn_engineer_name
+		displayNamePlural = tx_utn_engineer_pname
+		DisplayNameScenEdit = tx_utn_engineer_name
+		VerboseTooltip = vtt_unit_engineer
+		hitpoints = 100
+	}
+	sounds {
+		sndCmdMove = ["v_cit_m_ack_01" "v_cit_m_ack_02" "v_cit_m_ack_03" "v_cit_m_ack_04"]
+		sndSelection = ["v_cit_m_sel_01" "v_cit_m_sel_02" "v_cit_m_sel_03" "v_cit_m_sel_04"]
+		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+    	}
+	icon = icon_unit_engineer
+
+}
+
+UnitModel Engineer
+{
+	Parent = CitizenM
+	DefaultModel 		= lsf5_engineer_fe.nif
+}
+
+UnitModel Engineer_12
+{
+	Parent = CitizenM
+	DefaultModel 		= lsf12_engineer_we.nif
+}
+//Unofficial Patch 1.5, 30.06.2014, edited by Dr.MonaLisa:
+UnitType Engineer2
+{
+	parent = Citizen
+	properties {
+		displayName = tx_utn_engineer_name
+		displayNamePlural = tx_utn_engineer_pname
+		DisplayNameScenEdit = tx_utn_engineer_name
+		VerboseTooltip = vtt_unit_engineer
+		hitpoints = 50
+	}
+	sounds {
+		sndCmdMove = ["v_cit_m_ack_01" "v_cit_m_ack_02" "v_cit_m_ack_03" "v_cit_m_ack_04"]
+		sndSelection = ["v_cit_m_sel_01" "v_cit_m_sel_02" "v_cit_m_sel_03" "v_cit_m_sel_04"]
+		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+    	}
+	icon = icon_unit_engineer
+
+}
+
+UnitModel Engineer2
+{
+	Parent = CitizenM
+	DefaultModel 		= lsf5_engineer_fe.nif
+}
+
+UnitModel Engineer2_12
+{
+	Parent = CitizenM
+	DefaultModel 		= lsf12_engineer_we.nif
+}
+//Unofficial Patch 1.5, 30.06.2014, edited by Dr.MonaLisa:
+UnitType MyEngineer2
+{
+	parent = FullCitizen
+	icon = icon_unit_citizen_female_1
+	properties {
+		DisplayNameScenEdit = tx_utn_citFemale_sname
+		hitpoints = 30
+	}
+	sounds {
+		sndCmdMove = ["v_cit_f_ack_01" "v_cit_f_ack_02" "v_cit_f_ack_03" "v_cit_f_ack_04"]
+		sndCmdAttack = ["v_cit_f_att_01" "v_cit_f_att_02"]
+		sndSelection = ["v_cit_f_sel_01" "v_cit_f_sel_02" "v_cit_f_sel_03" "v_cit_f_sel_04"]
+		sndDeath =  ["fx_death_female_01" "fx_death_female_02" "fx_death_female_03" "fx_death_female_04"]
+    }
+	abilities [
+		Attack { range = 0.3; reloadTime = 3; applyDamageTime = 1.3; damage = 5 }
+		LOS { range = 5 }
+	]
+
+
+}
+
+UnitModel MyEngineer2
+{
+	Parent = CitizenF
+	DefaultModel 		= LSF1_citizen_f.nif
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+UnitModel MyEngineer2_4
+{
+	Parent 		= CitizenF_4
+	DefaultModel 	= LSF4_citizen_f.NIF
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+UnitModel MyEngineer2_7
+{
+	Parent 		= CitizenF_7
+	DefaultModel 	= LSF7_citizen_f.nif
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel MyEngineer2_10
+{
+	Parent 		= CitizenF_10
+	DefaultModel 	= LSF10_citizen_f.nif
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel MyEngineer2_13
+{
+	Parent 		= CitizenF_13
+	DefaultModel 	= LSF13_citizen_f.nif
+}
+//------------------------------------------------------------------------------------------------
+//	CITIZEN - UPGRADES
+//------------------------------------------------------------------------------------------------
+UpgradeSet IntCitizenUpgradeEpoch1 {
+	upgrades = [
+		// do icon upgrade for generic citizen too
+		UpgradeIcon {UnitType = Citizen; icon = icon_unit_citizen_male_1;}
+
+		// generic citizen upgrades
+		UpgradeUnitTypeFactor {UnitType = Citizen; factor = HitPoints; method = Set; value = 30; upgradeChildren = 1;}
+		UpgradeUnitTypeFactor {UnitType = FullCitizen; factor = Damage; method = Set; value = 5; upgradeChildren = 1;}
+
+		// MALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenM; newVisual = CitizenM;}
+		UpgradeIcon {UnitType = CitizenM; icon = icon_unit_citizen_male_1;}
+
+		// FEMALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenF; newVisual = CitizenF;}
+		UpgradeIcon {UnitType = CitizenF; icon = icon_unit_citizen_female_1;}
+	]
+}
+
+UpgradeSet IntCitizenUpgradeEpoch4 {
+	upgrades = [
+		// do icon upgrade for generic citizen too
+		UpgradeIcon {UnitType = Citizen; icon = icon_unit_citizen_male_4;}
+
+		// generic citizen upgrades
+		UpgradeUnitTypeFactor {UnitType = Citizen; factor = HitPoints; method = Set; value = 30; upgradeChildren = 1;}
+		UpgradeUnitTypeFactor {UnitType = FullCitizen; factor = Damage; method = Set; value = 6; upgradeChildren = 1;}
+
+		// MALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenM; newVisual = CitizenM_4;}
+		UpgradeIcon {UnitType = CitizenM; icon = icon_unit_citizen_male_4;}
+
+		// FEMALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenF; newVisual = CitizenF_4;}
+		UpgradeIcon {UnitType = CitizenF; icon = icon_unit_citizen_female_4;}
+	]
+}
+
+UpgradeSet IntCitizenUpgradeEpoch7 {
+	upgrades = [
+		// do icon upgrade for generic citizen too
+		UpgradeIcon {UnitType = Citizen; icon = icon_unit_citizen_male_7;}
+
+		// generic citizen upgrades
+		UpgradeUnitTypeFactor {UnitType = Citizen; factor = HitPoints; method = Set; value = 40; upgradeChildren = 1;}
+		UpgradeUnitTypeFactor {UnitType = FullCitizen; factor = Damage; method = Set; value = 7; upgradeChildren = 1;}
+
+		// MALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenM; newVisual = CitizenM_7;}
+		UpgradeIcon {UnitType = CitizenM; icon = icon_unit_citizen_male_7;}
+
+		// FEMALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenF; newVisual = CitizenF_7;}
+		UpgradeIcon {UnitType = CitizenF; icon = icon_unit_citizen_female_7;}
+	]
+}
+
+UpgradeSet IntCitizenUpgradeEpoch10 {
+	upgrades = [
+		// do icon upgrade for generic citizen too
+		UpgradeIcon {UnitType = Citizen; icon = icon_unit_citizen_male_10;}
+
+		// generic citizen upgrades
+		UpgradeUnitTypeFactor {UnitType = Citizen; factor = HitPoints; method = Set; value = 50; upgradeChildren = 1;}
+		UpgradeUnitTypeFactor {UnitType = FullCitizen; factor = Damage; method = Set; value = 8; upgradeChildren = 1;}
+
+		// MALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenM; newVisual = CitizenM_10;}
+		UpgradeIcon {UnitType = CitizenM; icon = icon_unit_citizen_male_10;}
+
+		// FEMALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenF; newVisual = CitizenF_10;}
+		UpgradeIcon {UnitType = CitizenF; icon = icon_unit_citizen_female_10;}
+	]
+}
+
+UpgradeSet IntCitizenUpgradeEpoch13 {
+	upgrades = [
+		// do icon upgrade for generic citizen too
+		UpgradeIcon {UnitType = Citizen; icon = icon_unit_citizen_male_13;}
+
+		// generic citizen upgrades
+		UpgradeUnitTypeFactor {UnitType = Citizen; factor = HitPoints; method = Set; value = 60; upgradeChildren = 1;}
+		UpgradeUnitTypeFactor {UnitType = FullCitizen; factor = Damage; method = Set; value = 9; upgradeChildren = 1;}
+
+		// MALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenM; newVisual = CitizenM_13;}
+		UpgradeIcon {UnitType = CitizenM; icon = icon_unit_citizen_male_13;}
+
+		// FEMALE CITIZEN UPGRADES
+		UpgradeVisual {UnitType = CitizenF; newVisual = CitizenF_13;}
+		UpgradeIcon {UnitType = CitizenF; icon = icon_unit_citizen_female_13;}
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	CITIZEN - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+
+UnitModel CitizenM
+{
+	Parent = BaseHuman
+	
+	ChildNames 		= [ UnitShadow ]
+	DefaultModel 		= LSF1_citizen_m.NIF
+	States 			= [
+		{	StateName = Idle	AnimName = sh_citizen_idle01.kf	
+			AnimVariants = [ sh_citizen_idle04.kf sh_citizen_region01.KF sh_citizen_season01.KF ] AnimVariantsWeights = [ 0.2 0.1 0.1 ]
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+
+					] }
+		{ 	StateName = Walk	AnimName = sh_citizen_walk01.kf	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					] }
+		{ 	StateName = Attack1	AnimName = sh_citizen_attack01.KF
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = fx_battle_swing      KeyTime = 1.25 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+
+					{ Name = SHOW_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+				]	}
+		{ 	StateName = Death	AnimName = sh_citizen_death01.KF	}
+		{ 	StateName = Mine	AnimName = sh_citizen_tool_mine_PickAxe.KF	}
+		{ 	StateName = CarryWood	AnimName = sh_citizen_tool_haul.KF	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					] }
+		{	StateName = ChopWood  	AnimName = sh_citizen_tool_wood_axe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+
+					{ Name = SHOW_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = Resource_wood KeyTime = 0.46 }
+					] }
+		{	StateName = MineGold  	AnimName = sh_citizen_tool_mine_PickAxe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+
+					{ Name = SHOW_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = Resource_gold KeyTime = 0.46 }
+					] }
+		{	StateName = MineStone  	AnimName = sh_citizen_tool_mine_PickAxe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+
+					{ Name = SHOW_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = Resource_stone KeyTime = 0.46 }
+					] }
+		{	StateName = GatherSaltpeter 	AnimName = sh_citizen_tool_mine_PickAxe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+
+					{ Name = SHOW_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = Resource_saltpeter KeyTime = 0.46 }
+					] }
+		{	StateName = FarmPlanting 	AnimName = sh_citizen_tool_farm_seedbag.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+
+					{ Name = SHOW_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					] }
+ {	StateName = FarmHarvesting 	AnimName = sh_citizen_tool_farm_scythe.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+
+					{ Name = SHOW_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = ATTACH_VISUAL	Data = FX_Wheat_Harvest_1	KeyTime = 0 }
+					] }
+		 {	StateName = Forage 	AnimName = sh_citizen_tool_farm_forage.kf 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					] }
+		 {	StateName = TreeForage 	AnimName = sh_citizen_tool_farm_forage02.kf 	
+			TextKeys = [ 
+					{ Name = SHOW_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					] }
+		 {	StateName = ReturnResources 	AnimName = sh_citizen_tool_haul.KF 	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Build_Hammer 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					] }
+		{	StateName = Build 	AnimName = sh_citizen_tool_build_hammer.KF	
+			TextKeys = [ 
+					{ Name = HIDE_NODE Data = Tool_Mine_Pick 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_bowl 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Wood_Axe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Haul_Stretcher 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Scythe 	KeyTime = 0 }
+					{ Name = HIDE_NODE Data = Tool_Farm_Bag 	KeyTime = 0 }
+					{ Name = SHOW_NODE Data = Tool_Build_Hammer KeyTime = 0 } 
+					{ Name = PLAY_SOUND Data = Citizen_build KeyTime = 0.4 }
+			] }
+		{	StateName = Flinch	AnimName = sh_citizen_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_citizen_flying01.KF
+			AnimVariants = [ sh_citizen_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_citizen_ground_death01.KF	}
+			] // end states
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.33
+		zOffset = -10.00
+		scale = 3.07
+		angle = 23.68
+	}
+}
+
+UnitModel CitizenF
+{
+	Parent		= CitizenM
+	DefaultModel 	= LSF1_citizen_f.nif
+}
+
+//Fast moving citizens for cinematic only
+UnitModel CitizenFastM
+{
+	Parent 			= CitizenM
+	DefaultModel	=	LSF1_citizen_m.nif
+}
+
+UnitModel CitizenFastF
+{
+	Parent			= CitizenM
+	DefaultModel	= LSF1_citizen_f.nif
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+UnitModel CitizenM_4
+{
+	Parent 		= CitizenM
+	DefaultModel 	= LSF4_citizen_m.NIF
+}
+
+UnitModel CitizenF_4
+{
+	Parent 		= CitizenF
+	DefaultModel 	= LSF4_citizen_f.NIF
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+UnitModel CitizenM_7
+{
+	Parent 		= CitizenM_4
+	DefaultModel 	= LSF7_citizen_m.NIF
+}
+
+UnitModel CitizenF_7
+{
+	Parent 		= CitizenF_4
+	DefaultModel 	= LSF7_citizen_f.nif
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel CitizenM_10
+{
+	Parent 		= CitizenM_7
+	DefaultModel 	= LSF10_citizen_m.NIF
+}
+
+UnitModel CitizenF_10
+{
+	Parent 		= CitizenF_7
+	DefaultModel 	= LSF10_citizen_f.nif
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel CitizenM_13
+{
+	Parent 		= CitizenM_10
+	DefaultModel 	= LSF13_citizen_m.NIF
+}
+
+UnitModel CitizenF_13
+{
+	Parent 		= CitizenF_10
+	DefaultModel 	= LSF13_citizen_f.nif
+}
+
+//------------------------------------------------
+//	THESE UPGRADES ARE FOR THE EEE
+//------------------------------------------------
+
+UpgradeUnitTypeUpgrade CitizenFUpgradeEpoch1
+{
+	UnitType = "CitizenF"
+	UpgradeRefs = [
+		]
+}
+
+UpgradeUnitTypeUpgrade CitizenFUpgradeEpoch4
+{
+	UnitType = "CitizenF"
+	UpgradeRefs = [
+		]
+}
+
+UpgradeUnitTypeUpgrade CitizenUpgradeEpoch1
+{
+	UnitType = "CitizenM"
+	UpgradeRefs = [
+		IntCitizenUpgradeEpoch1
+		]
+}
+
+UpgradeUnitTypeUpgrade CitizenUpgradeEpoch4
+{
+	UnitType = "CitizenM"
+	UpgradeRefs = [
+		IntCitizenUpgradeEpoch4
+		]
+}
+
+UpgradeUnitTypeUpgrade CitizenUpgradeEpoch7
+{
+	UnitType = "CitizenM"
+	UpgradeRefs = [
+		IntCitizenUpgradeEpoch7
+		]
+}
+
+UpgradeUnitTypeUpgrade CitizenUpgradeEpoch10
+{
+	UnitType = "CitizenM"
+	UpgradeRefs = [
+		IntCitizenUpgradeEpoch10
+		]
+}
+
+UpgradeUnitTypeUpgrade CitizenUpgradeEpoch13
+{
+	UnitType = "CitizenM"
+	UpgradeRefs = [
+		IntCitizenUpgradeEpoch13
+		]
+}

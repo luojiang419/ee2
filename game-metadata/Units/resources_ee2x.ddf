@@ -1,0 +1,32 @@
+//---------------------------------------------------------------------------
+// Resources Human Body Resource Patch
+//---------------------------------------------------------------------------
+
+
+StateDatabase ResourceHumanStates
+{
+	DefaultModel 	= amb1_citfood_m_fe_dead.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death	ModelName = NULL.nif }
+		]
+}
+CompositeModel ResourceHumanPatch
+{
+	ScaleType 		= kScaleUnit
+	StateDatabaseName 	= ResourceHumanStates
+//	ForceScale      	= 0.22
+}
+UnitType ResourceHumanPatch
+{
+	parent = ResourceNotTree
+	properties {
+		displayName = tx_utn_ResourceEg1_name
+		DisplayNameScenEdit = tx_utn_ResourceEg1_sname
+		VerboseTooltip = vtt_unit_UUEgypt1
+	}
+	abilities [ 
+		Resource { type = kResourceType_Food; alwaysExhaustible = 1; amount = 6000; maxNumOfWorkers = 6}
+	]
+}

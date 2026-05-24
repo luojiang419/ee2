@@ -1,0 +1,246 @@
+//------------------------------------------------------------------------------------
+// SEQUENCE
+//------------------------------------------------------------------------------------
+
+//ExplosionSequence SequenceName
+//{
+//	TimeA = 0
+//	TimeB = 0
+//	StartingPositionMinX = -1
+//	StartingPositionMaxX = 1
+//	StartingPositionMinY = -1
+//	StartingPositionMaxY = 1
+//	StartingPositionMinZ = -1
+//	StartingPositionMaxZ = 1
+//	StartFromMainModel = 1
+//	Replay = 10
+//	FiringProbability = 1
+//	SequenceType = Nif
+//	PlayAll = 0
+//	SequenceNames = [ fx_explosion_1.NIF fx_explosion_1.NIF ]
+//	SequenceWorldScales = [0]
+//	SequenceSoundsNames = [Tank_firing1 Tank_firing1]	
+//}
+
+ExplosionSequence	Sequence_1
+{
+	BoundingSphereRadius = 1
+	TimeA = 0
+	TimeB = 0
+	StartingPositionMinX = -1
+	StartingPositionMaxX = 1
+	StartingPositionMinY = -1
+	StartingPositionMaxY = 1
+	StartingPositionMinZ = -1
+	StartingPositionMaxZ = 1
+	Replay = 10
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 0
+	SequenceNames = [ fx_explosion_1.NIF fx_explosion_1.NIF ]
+	SequenceWorldScales = [0]
+	SequenceSoundsNames = [Tank_firing1 Tank_firing1]	
+}
+
+ExplosionSequence	Sequence_2
+{
+	BoundingSphereRadius = 1
+	TimeA = 0
+	TimeB = 0
+	StartingPositionMinX = -60
+	StartingPositionMaxX = 60
+	StartingPositionMinY = -60
+	StartingPositionMaxY = 60
+	StartingPositionMinZ = -60
+	StartingPositionMaxZ = 60
+	Replay = 10
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 0
+	SequenceNames = [ fx_explosion_1.NIF fx_explosion_1.NIF ]
+	SequenceWorldScales = [0]
+	SequenceSoundsNames = [Tank_firing1 Tank_firing1]	
+}
+
+ExplosionSequence	Sequence_3
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.25
+	TimeB = 0.5
+	StartingPositionMinX = 0
+	StartingPositionMaxX = 1
+	StartingPositionMinY = 0
+	StartingPositionMaxY = 1
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 1
+	Replay = 10
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 0
+	SequenceNames = [ fx_explosion_1.NIF fx_explosion_1.NIF ]
+	SequenceSoundsNames = [Tank_firing1]
+}
+
+ExplosionSequence	Sequence_4
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 0.2
+	StartingPositionMinX = 0
+	StartingPositionMaxX = 0
+	StartingPositionMinY = 0
+	StartingPositionMaxY = 0
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 0
+	Replay = 0
+	FiringProbability = 1
+	SequenceType = Message
+	PlayAll = 0
+	SequenceNames = [ startFlyingPartExplosion ]
+	SequenceSoundsNames = [Tank_firing1]
+}
+
+ExplosionSequence	Sequence_heli_pieces
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 0.2
+	StartingPositionMinX = 0
+	StartingPositionMaxX = 0
+	StartingPositionMinY = 0
+	StartingPositionMaxY = 0
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 0
+	Replay = 0
+	FiringProbability = 1
+	SequenceType = Message
+	PlayAll = 0
+	SequenceNames = [ startFlyingPartExplosion ]
+	SequenceSoundsNames = [Tank_firing1]
+}
+
+ExplosionSequence	Sequence_heli_explosion
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.0
+	TimeB = 0.0
+	StartingPositionMinX = 0
+	StartingPositionMaxX = 0
+	StartingPositionMinY = 0
+	StartingPositionMaxY = 0
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 0
+	Replay = 0
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 0
+	SequenceNames = [ fx_explo_tank.NIF ]
+	SequenceWorldScales = [0.07]
+	SequenceSoundsNames = [Tank_firing1]
+}
+
+ExplosionSequence	Sequence_aircraft_fire
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.0
+	TimeB = 0.3
+	StartingPositionMinX = 0
+	StartingPositionMaxX = 0
+	StartingPositionMinY = 0
+	StartingPositionMaxY = 0
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 0
+	StartFromMainModel = 1
+	Replay = 3
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 0
+	SequenceNames = [ fx_explo_tank.NIF ]
+	SequenceWorldScales = [0.01]
+	SequenceSoundsNames = []
+}
+
+ExplosionSequence	Sequence_StartExplosion
+{
+	BoundingSphereRadius = 1
+	TimeA = 0
+	TimeB = 0
+	StartingPositionMinX = 0
+	StartingPositionMaxX = 0
+	StartingPositionMinY = 0
+	StartingPositionMaxY = 0
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 0
+	Replay = 0
+	FiringProbability = 1
+	SequenceType = ShockWave
+	PlayAll = 0
+	SequenceNames = [ fx_explo_tank.NIF ]
+	SequenceWorldScales = [0.02]
+	SequenceSoundsNames = []	
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION
+//------------------------------------------------------------------------------------
+
+Explosion			Explosion_Test2
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ Sequence_3 Sequence_3 Sequence_3 Sequence_4]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Explosion_Test_Heli
+{
+	BoundingSphereRadius = 1 
+	ExplosionSequences =	[ Sequence_aircraft_fire ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Explosion_Test_Heli2
+{ 
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ Sequence_heli_explosion ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION MAPPER
+//------------------------------------------------------------------------------------
+ExplosionSelector	ExplosionHeli
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (None)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Explosion_Test_Heli
+									HitPoint = -1
+									Hide = true
+								}
+
+								{
+									BoundingSphereRadius = 1
+									Weapon = (None)
+									Trigger = DynamicMessage
+									MessageName = airPlaneCrash
+									ExplosionName = Explosion_Test_Heli2
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}

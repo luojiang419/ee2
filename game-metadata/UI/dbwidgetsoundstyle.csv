@@ -1,0 +1,42 @@
+//NAME,LEFTDOWN,LEFTUP,RIGHTDOWN,RIGHTUP,LEFTSEL,RIGHTSEL,DBLCLICK,ENTER,LEAVE,EXTRA1,EXTRA2
+DontUse,,,,,,,,,,,0
+Default,UnitCreate,UnitCreate,,,UnitCreate,,,,,,0
+
+// generic widget styles (used in game and in front end),,,,,,,,,,,
+sndsty_button,uigen_button_click,,,,,,,uigen_button_rollover,,,0
+sndsty_checkbox,,,,,uigen_checkbox_select,,,,,,0
+sndsty_radiobutton,,,,,uigen_tab_select,,,uigen_tab_rollover,,,0
+sndsty_foldertab,,,,,uigen_tab_select,,,uigen_tab_rollover,,,0
+sndsty_combo,,,,,uigen_dropdown_open,,,,,,0
+sndsty_menuitem,,,,,uigen_dropdown_select,,,uigen_dropdown_rollover,,,0
+sndsty_edittext,,,,,uigen_edittext_select,,,,,,0
+sndsty_slider,uigen_slider,,,,,,,,,,0
+
+// for panel open/close sounds,,,,,,,,,,,
+sndsty_panel,,,,,,,,,,uigen_panel_open,uigen_panel_close
+sndsty_panel_chat,,,,,,,,,,ui_chat_open,0
+sndsty_panel_diplomacy,,,,,,,,,,ui_diplomacy_open,0
+sndsty_panel_pause,,,,,,,,,,ui_pausepanel_open,ui_pausepanel_close
+
+// for diplomacy widgets,,,,,,,,,,,
+sndsty_diplomacy_tributebutton,,,,,ui_diplomacy_tributebut_demand,ui_diplomacy_tributebut_give,,,,,0
+
+// ingame button sound styles,,,,,,,,,,,
+sndsty_button_buttonbar,ui_dash_button_click,,,,,,,ui_dash_button_rollover,,,0
+sndsty_button_dash,ui_dash_button_click,,,,,,,ui_dash_button_rollover,,,0
+sndsty_button_techtree,,,,,,,,ui_dash_button_rollover,,,0
+sndsty_button_tech,ui_dash_button_click,,ui_dash_button_click,,,,,ui_dash_button_rollover,,,0
+sndsty_button_action,ui_dash_button_click,,,,,,,ui_dash_button_rollover,,,0
+sndsty_button_pip,,,,,,,,ui_dash_button_rollover,,,0
+
+// warplans sound styles,,,,,,,,,,,
+sndsty_wp_button_accept,,,,,ui_warplans_accept,,,,,,0
+sndsty_wp_button_reject,,,,,ui_warplans_reject,,,,,,0
+sndsty_wp_button_copy,,,,,ui_warplans_copy,,,,,,0
+sndsty_wp_button_delete,,,,,ui_warplans_delete,,,,,,0
+
+// eee sound styles,,,,,,,,,,,
+sndsty_eee_text,,,,,,,,,,ui_eee_folder_itemSelect,0
+sndsty_eee_listtext,,,,,,,,,,ui_eee_folder_open,ui_eee_folder_close
+sndsty_eee_scrollbar,ui_eee_scrollbar_grab,ui_eee_scrollbar_release,,,,,,,,,0
+sndsty_eee_button,,,,,ui_eee_button,,,,,,0

@@ -1,0 +1,160 @@
+//------------------------------------------------------------------------------------------------
+//	登陆艇
+//------------------------------------------------------------------------------------------------
+UnitType LandShip
+{
+	parent = NavalShallow
+	properties {
+		RPS = SeaNonCombat
+		SizeX = 1.3
+		SizeY = 0.5
+		mass = 1
+		hitpoints = 2000
+		VerboseTooltip = vtt_unit_LandShip
+		displayName = tx_utn_LandShip_name
+		popCount = 5
+	}
+	sounds = {
+	}
+	abilities = [
+		NavalMove {speed = 2.2; accel = 1.0; angSpeed = 130;}
+		LOS { range = 0 }
+		GarrisonParatrooper { 
+			garrisonType = NavalTransport;	// well paratrooper plane is like air transport here
+			numOfSlots = 20; // NOTE:  leave extra space so that effects that boost paratrooper count will work
+			initialContents = [ { typeName="LightInfantry" count=10 } ];	// load up with these paratrooper 
+			dontShowGarrisonButton = 1;	// don't show garrison button in ui unit info area
+		}
+	]
+	icon = icon_unit_LandShip
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LandShipEpoch11Attack
+{
+	upgradedAbilities = [
+		NavalMove {speed = 2.2; accel = 1.0; angSpeed = 90}
+	]
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LandShipEpoch12Attack
+{
+	upgradedAbilities = [
+		NavalMove {speed = 2.5; accel = 1.0; angSpeed = 90}
+	]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LandShipEpoch13Attack
+{
+	upgradedAbilities = [
+		NavalMove {speed = 3.0; accel = 1.0; angSpeed = 90}
+	]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LandShipEpoch15Attack
+{
+	upgradedAbilities = [
+            NavalMove {speed = 3.0; accel = 1; angSpeed = 90}
+	]
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel LandShip_11
+{
+Parent		= BaseShip
+	DefaultModel = Landship.nif
+	ForceScale = 0.07
+     States = [
+				{ StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = Tank_firing1 KeyTime=0.5 }  
+							] 
+				}
+			      { StateName = Walk				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_destroyer1 KeyTime = 0}
+					   ]
+				}
+                        { StateName= Death  TextKeys = [ { Name = PLAY_SOUND Data = fx_dea_ship_metal_3 KeyTime = 0 }   ] }
+	]
+	ChildNames 		= [  FX_Smoke_Chimney_Large2  TheMuzzleSmokeEffect Muzzle_GrenadePistol  ExplSelectorIronShip TheBoatWake4 MerchantMarine_FlyingParts ]
+}
+
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+
+UnitModel LandShip_12
+{
+	Parent		= BaseShip
+	DefaultModel = Landship.nif
+	ForceScale = 0.07
+     States = [
+				{ StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = Tank_firing1 KeyTime=0.5 }  
+							] 
+				}
+			      { StateName = Walk				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_destroyer1 KeyTime = 0}
+					   ]
+				}
+                        { StateName= Death  TextKeys = [ { Name = PLAY_SOUND Data = fx_dea_ship_metal_3 KeyTime = 0 }   ] }
+	]
+	ChildNames 		= [  FX_Smoke_Chimney_Large2  TheMuzzleSmokeEffect Muzzle_GrenadePistol  ExplSelectorIronShip TheBoatWake4 MerchantMarine_FlyingParts ]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+
+UnitModel LandShip_13
+{
+	Parent		= BaseShip
+	DefaultModel = Landship.nif
+	ForceScale = 0.06
+     States = [
+				{ StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = Tank_firing1 KeyTime=0.5 }  
+							] 
+				}
+			      { StateName = Walk				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_destroyer1 KeyTime = 0}
+					   ]
+				}
+                        { StateName= Death  TextKeys = [ { Name = PLAY_SOUND Data = fx_dea_ship_metal_3 KeyTime = 0 }   ] }
+	]
+	ChildNames 		= [  FX_Smoke_Chimney_Large2  TheMuzzleSmokeEffect Muzzle_GrenadePistol  ExplSelectorIronShip TheBoatWake4 MerchantMarine_FlyingParts ]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+
+UnitModel LandShip_15
+{
+	Parent		= BaseShip
+	DefaultModel = Landship.nif
+	ForceScale = 0.06
+     States = [
+				{ StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = Tank_firing1 KeyTime=0.5 }  
+							] 
+				}
+			      { StateName = Walk				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_destroyer1 KeyTime = 0}
+					   ]
+				}
+                        { StateName= Death  TextKeys = [ { Name = PLAY_SOUND Data = fx_dea_ship_metal_3 KeyTime = 0 }   ] }
+	]
+	ChildNames 		= [  FX_Smoke_Chimney_Large2  TheMuzzleSmokeEffect Muzzle_GrenadePistol  ExplSelectorIronShip TheBoatWake4 MerchantMarine_FlyingParts ]
+}

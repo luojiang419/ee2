@@ -1,0 +1,850 @@
+//////////////////////////////////////////////////////////////////////
+// WEATHER SETTINGS
+// UP1.5 Modification 31.07.2014, Dr.MonaLisa: -0.88 -0.47 -0.09 = ~62 degrees / ~5
+// Changed sky effects, depending on the time of the day.
+
+// Temperate
+DbClimateWeatherInfo ClimateWeatherTemperate
+{
+	RainySeasonStart = 3
+	RainySeasonStop = 6
+	
+	SnowySeasonStart = 11
+	SnowySeasonStop = 3
+	SnowRequiredLeadTime = 5
+	SnowRequiredMonths = 3
+
+	DustySeasonStart = -1
+
+	LeafySeasonStart = 9
+	LeafySeasonStop = 11
+}
+
+// Arid
+DbClimateWeatherInfo ClimateWeatherArid
+{
+	RainySeasonStart = 11
+	RainySeasonStop = 0
+
+	SnowySeasonStart = -1
+
+	DustySeasonStart = 4
+	DustySeasonStop = 9
+
+	LeafySeasonStart = -1
+}
+
+// Tropical
+DbClimateWeatherInfo ClimateWeatherTropical
+{
+	RainySeasonStart = 10
+	RainySeasonStop = 5
+	
+	SnowySeasonStart = -1
+
+	DustySeasonStart = -1
+
+	LeafySeasonStart = -1
+}
+
+// Tundra
+DbClimateWeatherInfo ClimateWeatherTundra
+{
+	RainySeasonStart = 5
+	RainySeasonStop = 7
+	
+	SnowySeasonStart = 10
+	SnowySeasonStop = 5
+	SnowRequiredLeadTime = 5
+	SnowRequiredMonths = 4
+
+	DustySeasonStart = -1
+
+	LeafySeasonStart = -1
+}
+
+//////////////////////////////////////////////////////////////////////
+// SKYBOXES
+
+DbClimateSkyboxInfo ClimateSkyboxClear01
+{
+	TextureRight = skyclear_right.bmp
+	TextureLeft = skyclear_left.bmp
+	TextureFront = skyclear_front.bmp
+	TextureBack = skyclear_back.bmp
+	TextureTop = skyclear_top.bmp
+}
+
+DbClimateSkyboxInfo ClimateSkyboxStormy01
+{
+	TextureRight = skystorm_right.bmp
+	TextureLeft = skystorm_left.bmp
+	TextureFront = skystorm_front.bmp
+	TextureBack = skystorm_back.bmp
+	TextureTop = skystorm_top.bmp
+}
+
+DbClimateSkyboxInfo ClimateSkyboxBlack01
+{
+	TextureRight = sky_black_right.bmp
+	TextureLeft = sky_black_left.bmp
+	TextureFront = sky_black_front.bmp
+	TextureBack = sky_black_back.bmp
+	TextureTop = sky_black_top.bmp
+}
+
+DbClimateSkyboxInfo ClimateSkyboxNight01
+{
+	TextureRight = sky_night_left_15new.tga
+	TextureLeft = sky_night_left_15new.tga
+	TextureFront = sky_night_back_15new.tga
+	TextureBack = sky_night_back_15new.tga
+	TextureTop = sky_night_top_15new.tga
+}
+
+DbClimateSkyboxInfo ClimateSkyboxCloud01
+{
+	TextureRight = skycloud1_right.bmp
+	TextureLeft = skycloud1_left.bmp
+	TextureFront = skycloud1_front.bmp
+	TextureBack = skycloud1_back.bmp
+	TextureTop = skycloud1_top.bmp
+}
+
+DbClimateSkyboxInfo ClimateSkyboxCloud02
+{
+	TextureRight = skycloud2_right.bmp
+	TextureLeft = skycloud2_left.bmp
+	TextureFront = skycloud2_front.bmp
+	TextureBack = skycloud2_back.bmp
+	TextureTop = skycloud2_top.bmp
+}
+
+DbClimateSkyboxInfo ClimateSkyboxSmoke01
+{
+	TextureRight = skysmoke_right.bmp
+	TextureLeft = skysmoke_left.bmp
+	TextureFront = skysmoke_front.bmp
+	TextureBack = skysmoke_back.bmp
+	TextureTop = skysmoke_top.bmp
+}
+
+DbClimateSkyboxInfo ClimateSkyboxSunrise01
+{
+	TextureRight = skysunrise_right.bmp
+	TextureLeft = skysunrise_left.bmp
+	TextureFront = skysunrise_front.bmp
+	TextureBack = skysunrise_back.bmp
+	TextureTop = skysunrise_top.bmp
+}
+
+//////////////////////////////////////////////////////////////////////
+// TIME OF DAY SETTINGS
+
+// Temperate morning
+DbClimateToDInfo ClimateToD_Temperate_Morn
+{
+	SunDirectionVec3f = [ -0.88 0.41 -0.26 ]
+	SkyboxSettingsNormal = ClimateSkyboxSunrise01
+	SkyboxSettingsStormy = ClimateSkyboxStormy01
+	AtmosphericSettingsNormal = Atm_Temperate_Morn_normal
+	AtmosphericSettingsRainLight = Atm_Temperate_Morn_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Temperate_Morn_rainHv
+	AtmosphericSettingsSnowLight = Atm_Temperate_Morn_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Temperate_Morn_snowHv
+	AtmosphericSettingsDustLight = Atm_Temperate_Morn_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Temperate_Morn_dustHv
+}
+// Temperate afternoon
+DbClimateToDInfo ClimateToD_Temperate_Aft
+{
+	SunDirectionVec3f = [ -0.60 0.22 -0.77 ]
+	SkyboxSettingsNormal = ClimateSkyboxClear01
+	SkyboxSettingsStormy = ClimateSkyboxStormy01
+	AtmosphericSettingsNormal = Atm_Temperate_Aft_normal
+	AtmosphericSettingsRainLight = Atm_Temperate_Aft_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Temperate_Aft_rainHv
+	AtmosphericSettingsSnowLight = Atm_Temperate_Aft_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Temperate_Aft_snowHv
+	AtmosphericSettingsDustLight = Atm_Temperate_Aft_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Temperate_Aft_dustHv
+}
+// Temperate evening
+DbClimateToDInfo ClimateToD_Temperate_Eve
+{
+	SunDirectionVec3f = [ -0.72 0.60 -0.34 ]
+	SkyboxSettingsNormal = ClimateSkyboxCloud02
+	SkyboxSettingsStormy = ClimateSkyboxSmoke01
+	AtmosphericSettingsNormal = Atm_Temperate_Eve_normal
+	AtmosphericSettingsRainLight = Atm_Temperate_Eve_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Temperate_Eve_rainHv
+	AtmosphericSettingsSnowLight = Atm_Temperate_Eve_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Temperate_Eve_snowHv
+	AtmosphericSettingsDustLight = Atm_Temperate_Eve_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Temperate_Eve_dustHv
+}
+// Temperate night
+DbClimateToDInfo ClimateToD_Temperate_Nght
+{
+	SunDirectionVec3f = [ -0.58 0.69 -0.42 ]
+	SkyboxSettingsNormal = ClimateSkyboxNight01
+	SkyboxSettingsStormy = ClimateSkyboxBlack01
+	AtmosphericSettingsNormal = Atm_Temperate_Nght_normal
+	AtmosphericSettingsRainLight = Atm_Temperate_Nght_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Temperate_Nght_rainHv
+	AtmosphericSettingsSnowLight = Atm_Temperate_Nght_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Temperate_Nght_snowHv
+	AtmosphericSettingsDustLight = Atm_Temperate_Nght_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Temperate_Nght_dustHv
+}
+
+// Arid morning
+DbClimateToDInfo ClimateToD_Arid_Morn
+{
+	SunDirectionVec3f = [ 0.15 0.85 -0.50 ]
+	SkyboxSettingsNormal = ClimateSkyboxSunrise01
+	SkyboxSettingsStormy = ClimateSkyboxStormy01
+	AtmosphericSettingsNormal = Atm_Arid_Morn_normal
+	AtmosphericSettingsRainLight = Atm_Arid_Morn_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Arid_Morn_rainHv
+	AtmosphericSettingsSnowLight = Atm_Arid_Morn_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Arid_Morn_snowHv
+	AtmosphericSettingsDustLight = Atm_Arid_Morn_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Arid_Morn_dustHv
+}
+// Arid afternoon
+DbClimateToDInfo ClimateToD_Arid_Aft
+{
+	SunDirectionVec3f = [ -0.38 0.32 -0.87 ]
+	SkyboxSettingsNormal = ClimateSkyboxClear01
+	SkyboxSettingsStormy = ClimateSkyboxStormy01
+	AtmosphericSettingsNormal = Atm_Arid_Aft_normal
+	AtmosphericSettingsRainLight = Atm_Arid_Aft_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Arid_Aft_rainHv
+	AtmosphericSettingsSnowLight = Atm_Arid_Aft_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Arid_Aft_snowHv
+	AtmosphericSettingsDustLight = Atm_Arid_Aft_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Arid_Aft_dustHv
+}
+// Arid evening
+DbClimateToDInfo ClimateToD_Arid_Eve
+{
+	SunDirectionVec3f = [ -0.71 0.59 -0.37 ]
+	SkyboxSettingsNormal = ClimateSkyboxCloud01
+	SkyboxSettingsStormy = ClimateSkyboxSmoke01
+	AtmosphericSettingsNormal = Atm_Arid_Eve_normal
+	AtmosphericSettingsRainLight = Atm_Arid_Eve_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Arid_Eve_rainHv
+	AtmosphericSettingsSnowLight = Atm_Arid_Eve_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Arid_Eve_snowHv
+	AtmosphericSettingsDustLight = Atm_Arid_Eve_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Arid_Eve_dustHv
+}
+// Arid night
+DbClimateToDInfo ClimateToD_Arid_Nght
+{
+	SunDirectionVec3f = [ -0.56 0.66 -0.50 ]
+	SkyboxSettingsNormal = ClimateSkyboxNight01
+	SkyboxSettingsStormy = ClimateSkyboxBlack01
+	AtmosphericSettingsNormal = Atm_Arid_Nght_normal
+	AtmosphericSettingsRainLight = Atm_Arid_Nght_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Arid_Nght_rainHv
+	AtmosphericSettingsSnowLight = Atm_Arid_Nght_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Arid_Nght_snowHv
+	AtmosphericSettingsDustLight = Atm_Arid_Nght_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Arid_Nght_dustHv
+}
+
+// Tropical morning
+DbClimateToDInfo ClimateToD_Tropical_Morn
+{
+	SunDirectionVec3f = [ -0.72 0.60 -0.34 ]
+	SkyboxSettingsNormal = ClimateSkyboxSunrise01
+	SkyboxSettingsStormy = ClimateSkyboxStormy01
+	AtmosphericSettingsNormal = Atm_Tropical_Morn_normal
+	AtmosphericSettingsRainLight = Atm_Tropical_Morn_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Tropical_Morn_rainHv
+	AtmosphericSettingsSnowLight = Atm_Tropical_Morn_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Tropical_Morn_snowHv
+	AtmosphericSettingsDustLight = Atm_Tropical_Morn_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Tropical_Morn_dustHv
+}
+// Tropical afternoon
+DbClimateToDInfo ClimateToD_Tropical_Aft
+{
+	SunDirectionVec3f = [ -0.43 0.25 -0.87 ]
+	SkyboxSettingsNormal = ClimateSkyboxClear01
+	SkyboxSettingsStormy = ClimateSkyboxStormy01
+	AtmosphericSettingsNormal = Atm_Tropical_Aft_normal
+	AtmosphericSettingsRainLight = Atm_Tropical_Aft_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Tropical_Aft_rainHv
+	AtmosphericSettingsSnowLight = Atm_Tropical_Aft_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Tropical_Aft_snowHv
+	AtmosphericSettingsDustLight = Atm_Tropical_Aft_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Tropical_Aft_dustHv
+}
+// Tropical evening
+DbClimateToDInfo ClimateToD_Tropical_Eve
+{
+	SunDirectionVec3f = [ -0.71 0.59 -0.37 ]
+	SkyboxSettingsNormal = ClimateSkyboxCloud01
+	SkyboxSettingsStormy = ClimateSkyboxSmoke01
+	AtmosphericSettingsNormal = Atm_Tropical_Eve_normal
+	AtmosphericSettingsRainLight = Atm_Tropical_Eve_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Tropical_Eve_rainHv
+	AtmosphericSettingsSnowLight = Atm_Tropical_Eve_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Tropical_Eve_snowHv
+	AtmosphericSettingsDustLight = Atm_Tropical_Eve_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Tropical_Eve_dustHv
+}
+// Tropical night
+DbClimateToDInfo ClimateToD_Tropical_Nght
+{
+	SunDirectionVec3f = [ -0.56 0.66 -0.50 ]
+	SkyboxSettingsNormal = ClimateSkyboxNight01
+	SkyboxSettingsStormy = ClimateSkyboxBlack01
+	AtmosphericSettingsNormal = Atm_Tropical_Nght_normal
+	AtmosphericSettingsRainLight = Atm_Tropical_Nght_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Tropical_Nght_rainHv
+	AtmosphericSettingsSnowLight = Atm_Tropical_Nght_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Tropical_Nght_snowHv
+	AtmosphericSettingsDustLight = Atm_Tropical_Nght_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Tropical_Nght_dustHv
+}
+
+// Tundra morning
+DbClimateToDInfo ClimateToD_Tundra_Morn
+{
+	SunDirectionVec3f = [ -0.58 0.41 -0.27 ]
+	SkyboxSettingsNormal = ClimateSkyboxSunrise01
+	SkyboxSettingsStormy = ClimateSkyboxStormy01
+	AtmosphericSettingsNormal = Atm_Tundra_Morn_normal
+	AtmosphericSettingsRainLight = Atm_Tundra_Morn_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Tundra_Morn_rainHv
+	AtmosphericSettingsSnowLight = Atm_Tundra_Morn_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Tundra_Morn_snowHv
+	AtmosphericSettingsDustLight = Atm_Tundra_Morn_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Tundra_Morn_dustHv
+}
+// Tundra afternoon
+DbClimateToDInfo ClimateToD_Tundra_Aft
+{
+	SunDirectionVec3f = [ -0.44 0.27 -0.38 ]
+	SkyboxSettingsNormal = ClimateSkyboxClear01
+	SkyboxSettingsStormy = ClimateSkyboxStormy01
+	AtmosphericSettingsNormal = Atm_Tundra_Aft_normal
+	AtmosphericSettingsRainLight = Atm_Tundra_Aft_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Tundra_Aft_rainHv
+	AtmosphericSettingsSnowLight = Atm_Tundra_Aft_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Tundra_Aft_snowHv
+	AtmosphericSettingsDustLight = Atm_Tundra_Aft_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Tundra_Aft_dustHv
+}
+// Tundra evening
+DbClimateToDInfo ClimateToD_Tundra_Eve
+{
+	SunDirectionVec3f = [ -0.69 0.46 -0.33 ]
+	SkyboxSettingsNormal = ClimateSkyboxCloud02
+	SkyboxSettingsStormy = ClimateSkyboxSmoke01
+	AtmosphericSettingsNormal = Atm_Tundra_Eve_normal
+	AtmosphericSettingsRainLight = Atm_Tundra_Eve_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Tundra_Eve_rainHv
+	AtmosphericSettingsSnowLight = Atm_Tundra_Eve_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Tundra_Eve_snowHv
+	AtmosphericSettingsDustLight = Atm_Tundra_Eve_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Tundra_Eve_dustHv
+}
+// Tundra night
+DbClimateToDInfo ClimateToD_Tundra_Nght
+{
+	SunDirectionVec3f = [ -0.58 0.69 -0.42 ]
+	SkyboxSettingsNormal = ClimateSkyboxNight01
+	SkyboxSettingsStormy = ClimateSkyboxBlack01
+	AtmosphericSettingsNormal = Atm_Tundra_Nght_normal
+	AtmosphericSettingsRainLight = Atm_Tundra_Nght_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Tundra_Nght_rainHv
+	AtmosphericSettingsSnowLight = Atm_Tundra_Nght_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Tundra_Nght_snowHv
+	AtmosphericSettingsDustLight = Atm_Tundra_Nght_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Tundra_Nght_dustHv
+}
+
+//////////////////////////////////////////////////////////////////////
+// SCENARIO OVERWRITE TIME OF DAY SETTINGS
+//
+DbClimateToDInfo ScenarioClimate_Korean5.scn
+{
+	SunDirectionVec3f = [ 0.91 0.16 -0.37 ]
+	SkyboxSettingsNormal = ClimateSkyboxClear01
+	SkyboxSettingsStormy = ClimateSkyboxStormy01
+	AtmosphericSettingsNormal = Atm_Temperate_Morn_normal
+	AtmosphericSettingsRainLight = Atm_Temperate_Morn_rainLt
+	AtmosphericSettingsRainHeavy = Atm_Temperate_Morn_rainHv
+	AtmosphericSettingsSnowLight = Atm_Temperate_Morn_snowLt
+	AtmosphericSettingsSnowHeavy = Atm_Temperate_Morn_snowHv
+	AtmosphericSettingsDustLight = Atm_Temperate_Morn_dustLt
+	AtmosphericSettingsDustHeavy = Atm_Temperate_Morn_dustHv
+}
+
+//////////////////////////////////////////////////////////////////////
+// CLIMATE DATA
+DbClimateInfo Temperate
+{
+	pTerrainDbName = DbTerrain_Temperate
+	pSeasonalTexturesDbName = DbSeasonalTextureSets_Temperate
+	pTerrainTextureDbName = DbTerrainTexture_Temperate
+	bSnow = 1
+
+	// Weather
+	WeatherInfo = ClimateWeatherTemperate
+	ToDSettingsMorning = ClimateToD_Temperate_Morn
+	ToDSettingsAfternoon = ClimateToD_Temperate_Aft
+	ToDSettingsEvening = ClimateToD_Temperate_Eve
+	ToDSettingsNight = ClimateToD_Temperate_Nght
+
+	// Animals
+	domesticatedAnimals [ 
+		{minGroupSize = 6; maxGroupSize = 6; unitType = Cow }
+		{minGroupSize = 6; maxGroupSize = 6; unitType = Goat }
+	]
+	wildAnimals [ 
+		{minGroupSize = 6; maxGroupSize = 10; unitType = Deer }
+		{minGroupSize = 6; maxGroupSize = 10; unitType = Boar }
+	]
+	predators [ 
+		{minGroupSize = 4; maxGroupSize = 8; unitType = Deer }
+		{minGroupSize = 4; maxGroupSize = 8; unitType = Boar }
+	]
+	birds
+	[
+		Hawk Vulture
+	]
+	
+	// Food type info
+	farms
+	[
+		FarmWheat FarmYam
+	]
+	forageTrees
+	[
+		TRE_APPLE TRE_ORANGE
+	]
+
+	# DbTerrain_ = Temperate
+	terrainBrushes {
+		grassBrush {
+			terrainTypes [
+				{terrainType = Grass; weight = 30;}
+				{terrainType = GrassPatchy; weight = 25;}
+				{terrainType = GrassDark; weight = 5;}
+				{terrainType = SparseGrass01; weight = 15;}
+				{terrainType = SparseGrass02; weight = 5;}
+				{terrainType = SparseGrass03; weight = 5;}
+				{terrainType = HillMeadow; weight = 5;}
+				{terrainType = FloodMeadow; weight = 5;}
+			]
+		}
+		oceanBrush {
+			brushes
+			[
+				{terrainTypes [
+					{terrainType = OceanFloor; weight = 100;}
+// @NOTE: we probably want to create an 'OceanFloor2' which uses the ShallowWater texture, but has the 
+// oceanfloor movement type
+//					{terrainType = ShallowWater; weight = 50;}
+				]}
+				{terrainTypes [{terrainType = Beach; weight = 100;}]}
+				{terrainTypes [
+					{terrainType = CoastalGrass01; weight = 50;}
+					{terrainType = CoastalGrass02; weight = 50;}
+				]} 
+				{terrainTypes [{terrainType = Saltgrass; weight = 100}]}
+				{terrainTypes [{terrainType = SparseGrass03; weight = 100}]}
+			]
+		}
+		forestBrush {
+			brushes [
+				{terrainTypes [{terrainType = ForestRoots; weight = 100;}]}
+				{terrainTypes [
+					{terrainType = UnderstoryThicket; weight = 50;}
+					{terrainType = GrassDark; weight = 50;}
+				]}
+				{terrainTypes [
+					{terrainType = GrassDark; weight = 50;}
+					{terrainType = HillMeadow; weight = 50;}
+				]}
+			]
+		}
+		riverBrush {
+			brushes [
+				{terrainTypes [{terrainType = ShallowWater; weight = 100}]}
+				{terrainTypes [{terrainType = RiverBank; weight = 100}]}
+				{terrainTypes [
+					{terrainType = RiverBankGrassy; weight = 50}
+					{terrainType = RiverBankPatchy; weight = 50}
+				]}
+			]
+		}
+		// @NOTE: The first three entries should all have the 'Mountain' movement type
+		mountainBrush {
+			brushes [
+				{terrainTypes [{terrainType = MountainTop; weight = 100;}]}
+				{terrainTypes [{terrainType = Mountain01; weight = 100;}]}
+				{terrainTypes [{terrainType = Mountain01; weight = 100;}]}
+				{terrainTypes [{terrainType = MountainGrass; weight = 100;}]}
+			]
+		}
+	}
+
+	// Ambient audio
+	ambientAudio = ambient_master_set_temperate
+
+	// Season suffixes for asset load
+	winterSuffix = _wi
+	springSuffix = _sp
+	summerSuffix = _su
+	fallSuffix   = _fa
+}
+    	
+DbClimateInfo Arid
+{  
+	pTerrainDbName = DbTerrain_Arid
+	pSeasonalTexturesDbName = DbSeasonalTextureSets_Arid
+	pTerrainTextureDbName = DbTerrainTexture_Arid
+	bSnow = 0
+
+	// Weather
+	WeatherInfo = ClimateWeatherArid
+	ToDSettingsMorning = ClimateToD_Arid_Morn
+	ToDSettingsAfternoon = ClimateToD_Arid_Aft
+	ToDSettingsEvening = ClimateToD_Arid_Eve
+	ToDSettingsNight = ClimateToD_Arid_Nght
+
+	// Animals
+	domesticatedAnimals [ 
+		{minGroupSize = 6; maxGroupSize = 6; unitType = LLama} 
+		{minGroupSize = 6; maxGroupSize = 6; unitType = Cow} 
+	]
+	wildAnimals [ 
+		{minGroupSize = 6; maxGroupSize = 10; unitType = Elephant} 
+		{minGroupSize = 6; maxGroupSize = 10; unitType = Camel} 
+	]
+	predators [ 
+		{minGroupSize = 4; maxGroupSize = 8; unitType = Camel} 
+	]
+	birds
+	[
+		Hawk Vulture
+	]
+	
+	// Food type info
+	farms
+	[
+		FarmWheat FarmYam
+	]
+	forageTrees
+	[
+		TRE_POMEGRANATE TRE_DATE
+	]
+	
+
+	# DbTerrain_ = Arid
+	terrainBrushes {
+		grassBrush {
+			terrainTypes [
+                {terrainType = AridGrass; weight = 30;}
+				{terrainType = GrassPrairieArid; weight = 15;}
+				{terrainType = AridDenseGrass; weight = 15;}
+				{terrainType = AridSmallScrub; weight = 10;}
+				{terrainType = AridDesertScrub; weight = 10;}
+				{terrainType = AridSparseGrass; weight = 20;}
+			]
+		}
+		oceanBrush {
+			brushes
+			[
+				{terrainTypes [
+					{terrainType = OceanFloor; weight = 100;}
+// @NOTE: we probably want to create an 'OceanFloor2' which uses the ShallowWater texture, but has the 
+// oceanfloor movement type
+//					{terrainType = ShallowWater; weight = 50;}
+				]}
+				{terrainTypes [{terrainType = Beach; weight = 100;}]}
+				{terrainTypes [
+					{terrainType = CoastalGrass01; weight = 50;}
+					{terrainType = CoastalGrass02; weight = 50;}]}
+			]
+		}
+		forestBrush {
+			brushes [
+				{terrainTypes [{terrainType = UnderTreeArid; weight = 100;}]}
+				{terrainTypes [
+					{terrainType = UnderTreeArid; weight = 50;}
+					{terrainType = AridGrass; weight = 50;}
+				]}
+				{terrainTypes [
+					{terrainType = AridSparseGrass; weight = 50;}
+					{terrainType = AridDesertScrub; weight = 50;}
+				]}
+			]
+		}
+		riverBrush {
+			brushes [
+				{terrainTypes [{terrainType = ShallowWater; weight = 100}]}
+				{terrainTypes [{terrainType = RiverBank; weight = 100}]}
+				{terrainTypes [
+					{terrainType = GrassPrairieArid; weight = 50}
+					{terrainType = AridDenseGrass; weight = 50}
+				]}
+			]
+		}
+		// @NOTE: The first three entries should all have the 'Mountain' movement type
+		mountainBrush {
+			brushes [
+				{terrainTypes [{terrainType = MountainArid; weight = 100;}]}
+				{terrainTypes [{terrainType = MountainArid; weight = 100;}]}
+				{terrainTypes [{terrainType = MountainGrassArid; weight = 100;}]}
+				{terrainTypes [
+					{terrainType = AridLongDryGrass; weight = 50;}
+					{terrainType = AridSmallScrub; weight = 50;}
+					{terrainType = AridDesertScrub; weight = 50;}
+				]}
+			]
+		}
+	}
+
+	// Ambient audio
+	ambientAudio = ambient_master_set_arid
+
+	// Season suffixes for asset load (just pretend it's always summer)
+	winterSuffix = _su
+	springSuffix = _su
+	summerSuffix = _su
+	fallSuffix   = _su
+}
+
+DbClimateInfo Tropical
+{
+	pTerrainDbName = DbTerrain_Tropical
+	pSeasonalTexturesDbName = DbSeasonalTextureSets_Tropical
+	pTerrainTextureDbName = DbTerrainTexture_Tropical
+	bSnow = 0
+
+	// Weather
+	WeatherInfo = ClimateWeatherTropical
+	ToDSettingsMorning = ClimateToD_Tropical_Morn
+	ToDSettingsAfternoon = ClimateToD_Tropical_Aft
+	ToDSettingsEvening = ClimateToD_Tropical_Eve
+	ToDSettingsNight = ClimateToD_Tropical_Nght
+
+	// Animals
+	domesticatedAnimals [ 
+		{minGroupSize = 6; maxGroupSize = 6; unitType = LLama} 
+		{minGroupSize = 6; maxGroupSize = 6; unitType = Goat}
+	]
+	wildAnimals [ 
+		{minGroupSize = 6; maxGroupSize = 10; unitType = Elephant} 
+		{minGroupSize = 6; maxGroupSize = 10; unitType = Boar} 
+	]
+	predators 
+	[ 
+		{minGroupSize = 4; maxGroupSize = 8; unitType = Boar} 
+	]
+	birds
+	[
+		Hawk Vulture
+	]
+	
+	// Food type info
+	farms
+	[
+		FarmSugarCane FarmYam
+	]
+	forageTrees
+	[
+		TRE_BANANA TRE_MANGO
+	]
+	
+
+	# DbTerrain_ = Tropical
+	terrainBrushes {
+		grassBrush {
+			terrainTypes [
+				{terrainType = MossyCover; weight = 30;}
+				{terrainType = UnderstoryCover; weight = 25;}
+				{terrainType = Grass; weight = 5;}
+				{terrainType = ClayShrubs; weight = 15;}
+				{terrainType = Kudzu; weight = 5;}
+				{terrainType = TropicalCoverRocky; weight = 5;}
+				{terrainType = GrassPatchy; weight = 5;}
+				{terrainType = TropicalCover; weight = 5;}
+			]
+		}
+		oceanBrush {
+			brushes
+			[
+				{terrainTypes [
+					{terrainType = OceanFloor; weight = 100;}
+// @NOTE: we probably want to create an 'OceanFloor2' which uses the ShallowWater texture, but has the 
+// oceanfloor movement type
+//					{terrainType = ShallowWater; weight = 50;}
+				]}
+				{terrainTypes [{terrainType = Beach; weight = 100;}]}
+				{terrainTypes [
+					{terrainType = CoastalGrass01; weight = 50;}
+					{terrainType = CoastalGrass02; weight = 50;}]}
+			]
+		}
+	forestBrush {
+			brushes [
+				{terrainTypes [{terrainType = ForestRoots; weight = 100;}]}
+				{terrainTypes [
+					{terrainType = ClayShrubs; weight = 50;}
+					{terrainType = ForestRoots; weight = 50;}
+				]}
+				{terrainTypes [
+					{terrainType = MossyCover; weight = 50;}
+					{terrainType = Kudzu; weight = 50;}
+				]}
+			]
+		}
+		riverBrush {
+			brushes [
+				{terrainTypes [{terrainType = ShallowWater; weight = 100}]}
+				{terrainTypes [{terrainType = RiverBank; weight = 100}]}
+				{terrainTypes [
+					{terrainType = RiverBankGrassy; weight = 50}
+					{terrainType = RiverBankPatchy; weight = 50}
+				]}
+			]
+		}
+		mountainBrush {
+			brushes [
+			// @NOTE: 'Mountain' is the only terrain type in the tropical terrain 
+			// database that has the Mountain movement type, which is required
+			// for the first three entries here
+				{terrainTypes [{terrainType = Mountain; weight = 100;}]}
+				{terrainTypes [{terrainType = Mountain; weight = 100;}]}
+				{terrainTypes [{terrainType = Mountain; weight = 100;}]}
+				{terrainTypes [{terrainType = MountainGrass; weight = 100;}]}
+			]
+		}
+	}
+
+	// Ambient audio
+	ambientAudio = ambient_master_set_tropical
+
+	// Season suffixes for asset load (just pretend it's always summer)
+	winterSuffix = _su
+	springSuffix = _su
+	summerSuffix = _su
+	fallSuffix   = _su
+}
+
+DbClimateInfo Tundra
+{
+	pTerrainDbName = DbTerrain_Tundra
+	pSeasonalTexturesDbName = DbSeasonalTextureSets_Tundra
+	pTerrainTextureDbName = DbTerrainTexture_Tundra
+	bSnow = 1
+
+	// Weather
+	WeatherInfo = ClimateWeatherTundra
+	ToDSettingsMorning = ClimateToD_Tundra_Morn
+	ToDSettingsAfternoon = ClimateToD_Tundra_Aft
+	ToDSettingsEvening = ClimateToD_Tundra_Eve
+	ToDSettingsNight = ClimateToD_Tundra_Nght
+
+	// Animals
+	domesticatedAnimals [ 
+	//	{minGroupSize = 6; maxGroupSize = 8; unitType = TundraRabbit }
+		{minGroupSize = 6; maxGroupSize = 6; unitType = Cow }
+		{minGroupSize = 6; maxGroupSize = 6; unitType = Goat }
+	]
+	wildAnimals [ 
+		{minGroupSize = 6; maxGroupSize = 10; unitType = Deer }
+		{minGroupSize = 6; maxGroupSize = 10; unitType = Boar }
+	]
+	predators [ 
+		{minGroupSize = 4; maxGroupSize = 8; unitType = Deer }
+		{minGroupSize = 4; maxGroupSize = 8; unitType = Boar }
+	]
+	
+	birds
+	[
+		Hawk Vulture
+	]
+	
+	// Food type info
+	farms
+	[
+		FarmWheat FarmYam
+	]
+	forageTrees
+	[
+		TRE_BANANA TRE_MANGO 
+	]
+
+	# DbTerrain_ = Tundra
+	terrainBrushes {
+		grassBrush {
+			terrainTypes [
+				{terrainType = GrassTundra; weight = 55;}
+				{terrainType = GrassTundra2; weight = 35;}
+				{terrainType = GrassTundra4; weight = 10;}
+			]
+		}
+		oceanBrush {
+			brushes
+			[
+				{terrainTypes [
+					{terrainType = OceanFloor; weight = 100;}
+// @NOTE: we probably want to create an 'OceanFloor2' which uses the ShallowWater texture, but has the 
+// oceanfloor movement type
+//					{terrainType = ShallowWater; weight = 50;}
+				]}
+				{terrainTypes [{terrainType = Beach; weight = 100;}]}
+				{terrainTypes [
+					{terrainType = CoastalArctic01; weight = 50;}
+					{terrainType = CoastalArctic02; weight = 50;}]}
+			]
+		}
+		forestBrush {
+			brushes [
+				{terrainTypes [{terrainType = ForestRoots; weight = 100;}]}
+				{terrainTypes [
+					{terrainType = GrassTundra3; weight = 100;}
+                    //{terrainType = GrassTundra4; weight = 50;}
+				]}
+			]
+		}
+		riverBrush {
+			brushes [
+				{terrainTypes [{terrainType = ShallowWater; weight = 100}]}
+				{terrainTypes [{terrainType = RiverBank; weight = 100}]}
+				{terrainTypes [
+					{terrainType = RiverBankGrassy; weight = 50}
+					{terrainType = RiverBankPatchy; weight = 50}
+				]}
+			]
+		}
+		// @NOTE: The first three entries should all have the 'Mountain' movement type
+		mountainBrush {
+			brushes [
+				{terrainTypes [{terrainType = MountainArctic_Snow2; weight = 100;}]}
+				{terrainTypes [{terrainType = MountainArctic; weight = 100;}]}
+				{terrainTypes [{terrainType = MountainArctic; weight = 100;}]}
+				{terrainTypes [{terrainType = GrassTundra4; weight = 100;}]}
+			]
+		}
+	}
+
+	// Ambient audio
+	ambientAudio = ambient_master_set_tundra
+
+	// Season suffixes for asset load
+	winterSuffix = _wi
+	springSuffix = _sp
+	summerSuffix = _su
+	fallSuffix   = _fa
+}

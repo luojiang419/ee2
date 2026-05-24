@@ -1,0 +1,27 @@
+
+
+DbWonderInfo TheWonderInfo
+{
+	// associate player attached powers with certain wonders
+	// that require this kind of area effect handling
+	// (not all do, in fact most wonder powers have been implemented via unit attached effects).
+	
+	playerEffects = [
+		{ // Desalinization Plant
+			typeName = WonderMiddleEast_11
+			effectName = LifeToTheDesert
+		}
+		
+		{	// Solar Power Station
+			typeName = WonderMesoAmerican_11
+			effectName = EnergyEfficiency
+		}
+		
+		// @EE2X
+		// @JCD 03/15/2005
+		{
+			typeName = WonderAfrican_06
+			effectName = WonderPowerAfrican_6
+		}
+	]
+}

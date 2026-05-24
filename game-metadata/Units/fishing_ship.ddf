@@ -1,0 +1,115 @@
+//------------------------------------------------------------------------------------------------
+//	FISHING SHIP
+//------------------------------------------------------------------------------------------------
+UnitType FishingShip
+{
+	parent = NavalShallow
+	icon = icon_unit_fishing_galley
+	properties {
+		SizeX = 1.8
+		SizeY = 0.5
+		mass = 1
+		hitpoints = 50
+		VerboseTooltip = vtt_unit_FishingShip
+		displayName = tx_utn_fishShip_name
+		displayNameTTTooltip = tx_utn_fishShip_tt_name
+		popCount = 1
+	}
+	sounds = {
+	}
+	abilities = [
+		NavalMove {speed = 1.3; angSpeed = 80}
+		GatherFarm { 
+				treeCuttingRange = 0.55; 	// do we even need this in here?
+				otherRange = 0.8;
+				dropoffRange = 0.7;
+
+				 foodRate = 2.4; // this is the gather rate from school of fish
+				 woodRate = 0.0;
+				 stoneRate = 0.0;
+				 goldRate = 0.0;
+				 tinRate = 0.0;
+				 ironRate = 0.0;
+				 saltpeterRate = 0.0;
+				 oilRate = 0.0;
+				 uraniumRate = 0.0;
+				 carryLimit = 30; // upgraded Nord 1/13/05
+				 farmRate = 0.0;
+				 farmCarryLimit = 0;
+				}		
+		LOS { range = 5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+
+//------------------------------------------------------------------------------------------------
+//	FISHING SHIP - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+UnitModel FishingShip
+{
+	Parent		= BaseShip
+	DefaultModel 	= NNC1_FishingShip.NIF
+	ForceScale = 0.12
+	ChildNames 	= [ FishingGalley ExplSelectorNaval FishingShip1_FlyingParts TheBoatWake3 ]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 1.54
+		zOffset = 1.27
+		scale = 1.40
+		angle = 47.37
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+UnitModel FishingShip_6
+{
+	Parent		= BaseShip
+	DefaultModel 	= NNC6_FishingShip.NIF
+	ForceScale = 0.14
+	ChildNames 	= [ FishingGalley2 TheBoatWake1 ExplSelectorNaval FishingShip6_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.69
+		zOffset = 2.36
+		scale = 1.66
+		angle = 47.37
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel FishingShip_11
+{
+	Parent		= BaseShip
+	DefaultModel 	= NNC11_FishingShip.NIF
+	ForceScale = 0.2
+	ChildNames 	= [ TheBoatWake1 ExplSelectorNaval FishingShip11_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.69
+		zOffset = 2.36
+		scale = 1.66
+		angle = 47.37
+	}
+}
+

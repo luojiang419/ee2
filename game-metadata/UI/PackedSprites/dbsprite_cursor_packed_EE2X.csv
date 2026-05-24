@@ -1,0 +1,19 @@
+//NAME,FILENAME,U,V,WIDTH,HEIGHT,FLAGS
+
+// basic cursors,,,,,,
+cursor_flag_naval,UI_flag_naval.tga,0,0,64,32,0
+cursor_flag_naval_invalid,UI_flag_naval_pc.tga,0,0,64,32,0
+cursor_flag_air,UI_flag_air.tga,0,0,64,32,0
+cursor_flag_air_invalid,UI_flag_air_pc.tga,0,0,64,32,0
+cursor_flag_infantry,UI_flag_infantry.tga,0,0,64,32,0
+cursor_flag_infantry_invalid,UI_flag_infantry_pc.tga,0,0,64,32,0
+cursor_flag_mobile,UI_flag_mobile.tga,0,0,64,32,0
+cursor_flag_mobile_invalid,UI_flag_mobile_pc.tga,0,0,64,32,0
+cursor_flag_machine,UI_flag_machine.tga,0,0,64,32,0
+cursor_flag_machine_invalid,UI_flag_machine_pc.tga,0,0,64,32,0
+cursor_flag_cultural,UI_flag_cultural.tga,0,0,64,32,0
+cursor_flag_cultural_invalid,UI_flag_cultural_pc.tga,0,0,64,32,0
+cursor_flag_religious,UI_flag_religious.tga,0,0,64,32,0
+cursor_flag_religious_invalid,UI_flag_religious_pc.tga,0,0,64,32,0
+cursor_flag_financial,UI_flag_financial.tga,0,0,64,32,0
+cursor_flag_financial_invalid,UI_flag_financial_pc.tga,0,0,64,32,0

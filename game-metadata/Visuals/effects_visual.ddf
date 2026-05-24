@@ -1,0 +1,1997 @@
+//---------------------------------------------------------------------------
+//	Generic visual pieces. Add to any composite model
+//---------------------------------------------------------------------------
+
+DamageDecalSet	BuildingDamageDecals
+{
+	Decals = [ fx_decal_damage_01.tga fx_decal_damage_02.tga fx_decal_damage_03.tga fx_decal_damage_04.tga fx_decal_damage_05.tga fx_decal_damage_06.tga fx_decal_damage_07.tga fx_decal_damage_08.tga ]
+}
+
+DamageDecalSet	UnderlayDamageDecals
+{
+	Decals = [ fx_decal_damage_underlay_01.tga fx_decal_damage_underlay_02.tga fx_decal_damage_underlay_03.tga fx_decal_damage_underlay_04.tga fx_decal_damage_underlay_05.tga fx_decal_damage_underlay_06.tga ]
+}
+
+//-----------------------------------------
+//------ Sail
+//
+SailEffect		FishingGalley
+{
+	Sails = [	{
+				TextureName = nnc1_FishingShip_sail.tga
+				FlagWidth =	11.2
+				FlagHeight=	13.6
+				NbrVertexWidth = 6
+				NbrVertexHeight = 6
+				PlaneOn = true
+				WindDamping = 1
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+			]
+}
+
+SailEffect		FishingGalley2
+{
+	Sails = [	{
+				TextureName = nnc6_fishingship_sail.tga
+				FlagWidth =	25.0
+				FlagHeight=	12.0
+				NbrVertexWidth = 5
+				NbrVertexHeight = 5
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+			]
+}
+
+SailEffect		TradingGalley1
+{
+	Sails = [	{
+				TextureName = nnc1_merchantship_sail.tga 
+				FlagWidth =	16.5
+				FlagHeight=	12.5
+				NbrVertexWidth = 4
+				NbrVertexHeight = 4
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+			]
+}
+
+SailEffect		TradingGalley2
+{
+	Sails = [	{
+				TextureName = nnc6_merchantship_sail.tga
+				FlagWidth =	12.0
+				FlagHeight=	12.5
+				NbrVertexWidth = 3
+				NbrVertexHeight = 4
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+			]
+}
+
+SailEffect		WarGalleySail
+{
+	Sails = [	{
+				TextureName = nwg1_galley_sail.tga
+				FlagWidth =	21.5
+				FlagHeight=	14.6
+				NbrVertexWidth = 4
+				NbrVertexHeight = 4
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+			]
+}
+
+
+SailEffect		WarGalleySail2
+{
+	Sails = [	{
+				TextureName = nwg3_trireme_sail.tga
+				FlagWidth =	30.5
+				FlagHeight=	11.4
+				NbrVertexWidth = 4
+				NbrVertexHeight = 4
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = nwg3_trireme_sail.tga
+				FlagWidth =	18.7
+				FlagHeight=	7.3
+				NbrVertexWidth = 4
+				NbrVertexHeight = 4
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+			] 
+}
+
+SailEffect		WarGalleySail3
+{
+	Sails = [	{
+				TextureName = nwg5_decareme_sail.tga
+				FlagWidth =	29.0
+				FlagHeight=	9
+				NbrVertexWidth = 4
+				NbrVertexHeight = 4
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = nwg5_decareme_sail.tga
+				FlagWidth =	29.5
+				FlagHeight=	8.0
+				NbrVertexWidth = 4
+				NbrVertexHeight = 4
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = nwg5_decareme_sail.tga
+				FlagWidth =	21.0
+				FlagHeight=	6.2
+				NbrVertexWidth = 4
+				NbrVertexHeight = 4
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+			] 
+}
+
+SailEffect		GalleassSail
+{
+	Sails = [	{
+				TextureName = NG6_Galleas_sail.tga
+				FlagWidth =	27.0
+				FlagHeight=	20.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = NG6_Galleas_sail.tga
+				FlagWidth =	21.0
+				FlagHeight=	13.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NG6_Galleas_sail.tga
+				FlagWidth =	19.0
+				FlagHeight=	19.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+			] 
+}
+
+SailEffect		CarrackSail
+{
+	Sails = [	{
+				TextureName = NG8_Carrack_sail_02.tga
+				FlagWidth =	22.1
+				FlagHeight=	6.8
+				NbrVertexWidth = 3
+				NbrVertexHeight = 2
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = NG8_Carrack_sail_01.tga
+				FlagWidth =	21.42
+				FlagHeight=	9.35
+				NbrVertexWidth = 6
+				NbrVertexHeight = 6
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NG8_Carrack_sail_01.tga
+				FlagWidth =	14.45
+				FlagHeight=	5.1
+				NbrVertexWidth = 5
+				NbrVertexHeight = 5
+				PlaneOn = true
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+
+			] 
+}
+
+SailEffect		galleonSail
+{
+	Sails = [	{
+				TextureName = NG10_Galleon_sail02.tga
+				FlagWidth =	18.5
+				FlagHeight=	9.5
+				NbrVertexWidth = 3
+				NbrVertexHeight = 3
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = false
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = NG10_Galleon_sail02.tga
+				FlagWidth =	18.2
+				FlagHeight=	13.0
+				NbrVertexWidth = 3
+				NbrVertexHeight = 3
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = false
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NG10_Galleon_sail02.tga
+				FlagWidth =	10.0
+				FlagHeight=	5.0
+				NbrVertexWidth = 3
+				NbrVertexHeight = 3
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = false
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NG10_Galleon_sail01.tga
+				FlagWidth =	7.2
+				FlagHeight=	4.0
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NG10_Galleon_sail01.tga
+				FlagWidth =	10.5
+				FlagHeight=	7.0
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NG10_Galleon_sail01.tga
+				FlagWidth =	19.0
+				FlagHeight=	9.0
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NG10_Galleon_sail01.tga
+				FlagWidth =	12.70
+				FlagHeight=	5.0
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NG10_Galleon_sail01.tga
+				FlagWidth =	16.5
+				FlagHeight=	6.5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NG10_Galleon_sail01.tga
+				FlagWidth =	21.5
+				FlagHeight=	9.5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NG10_Galleon_sail01.tga
+				FlagWidth =	11.5
+				FlagHeight=	7.0
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+			] 
+}
+
+SailEffect		ShipOfTheLineSail
+{
+	Sails = [	{
+				TextureName = NFS8_ShipOfTheLine_sail02.tga
+				FlagWidth =	19.0
+				FlagHeight=	6.8
+				NbrVertexWidth = 3
+				NbrVertexHeight = 2
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+{
+				TextureName = NFS8_ShipOfTheLine_sail01.tga
+				FlagWidth =	12.5
+				FlagHeight=	5.0
+				NbrVertexWidth = 5
+				NbrVertexHeight = 5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				}
+
+{
+				TextureName = NFS8_ShipOfTheLine_sail01.tga
+				FlagWidth =	16.5
+				FlagHeight=	5.0
+				NbrVertexWidth = 5
+				NbrVertexHeight = 5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NFS8_ShipOfTheLine_sail01.tga
+				FlagWidth =	11.9
+				FlagHeight=	6.5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NFS8_ShipOfTheLine_sail01.tga
+				FlagWidth =	20.5
+				FlagHeight=	7.0
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NFS8_ShipOfTheLine_sail01.tga
+				FlagWidth =	25.0
+				FlagHeight=	8.0
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NFS8_ShipOfTheLine_sail01.tga
+				FlagWidth =	15.70
+				FlagHeight=	5.0
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NFS8_ShipOfTheLine_sail01.tga
+				FlagWidth =	22.5
+				FlagHeight=	6.8
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NFS8_ShipOfTheLine_sail01.tga
+				FlagWidth =	24.5
+				FlagHeight=	7.5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NFS8_ShipOfTheLine_sail03.tga
+				FlagWidth =	30.5
+				FlagHeight=	9.5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NFS8_ShipOfTheLine_sail03.tga
+				FlagWidth =	21.8
+				FlagHeight=	5.0
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+				{
+				TextureName = NFS8_ShipOfTheLine_sail03.tga
+				FlagWidth =	14.0
+				FlagHeight=	4.6
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+
+			] 
+}
+
+SailEffect		CargoShipSail
+{
+	Sails = [	{
+				TextureName = nnc6_cargoship_sail.tga
+				FlagWidth =	25.5
+				FlagHeight=	8.8
+				NbrVertexWidth = 6
+				NbrVertexHeight = 6
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = nnc6_cargoship_sail.tga
+				FlagWidth =	29.0
+				FlagHeight=	8.2
+				NbrVertexWidth = 6
+				NbrVertexHeight = 6
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+			] 
+}
+
+SailEffect		CaravelSail
+{
+	Sails = [	{
+				TextureName = nf6_barque_sail_1.tga
+				FlagWidth =	17.0
+				FlagHeight=	4.5
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = nf6_barque_sail_1.tga
+				FlagWidth =	24.0
+				FlagHeight=	8.5
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = nf6_barque_sail_1.tga
+				FlagWidth =	13.0
+				FlagHeight=	5.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = nf6_barque_sail_2.tga
+				FlagWidth =	22.0
+				FlagHeight=	7.5
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = nf6_barque_sail_2.tga
+				FlagWidth =	28.0
+				FlagHeight=	8.9
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+				
+				{
+				TextureName = nf6_barque_sail_2.tga
+				FlagWidth =	37.0
+				FlagHeight=	15.0
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+			] 
+}
+
+SailEffect		BarqueSail
+{
+	Sails = [	{
+				TextureName = nf6_barque_sail_2.tga
+				FlagWidth =	28.0
+				FlagHeight=	12.0
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = nf6_barque_sail_1.tga
+				FlagWidth =	20.5
+				FlagHeight=	14.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = nf6_barque_sail_1.tga
+				FlagWidth =	12.2
+				FlagHeight=	7.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = nf6_barque_sail_1.tga
+				FlagWidth =	15.5
+				FlagHeight=	10.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+				
+				{
+				TextureName = nf6_barque_sail_1.tga
+				FlagWidth =	14.1
+				FlagHeight=	5.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+			] 
+}
+
+SailEffect		FrigateSail1
+{
+	Sails = [	{
+				TextureName = nwg3_trireme_sail.tga
+				FlagWidth =	31.0
+				FlagHeight=	16.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = nwg3_trireme_sail.tga
+				FlagWidth =	18.0
+				FlagHeight=	10.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = nwg3_trireme_sail.tga
+				FlagWidth =	18.0
+				FlagHeight=	10.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = nwg3_trireme_sail.tga
+				FlagWidth =	18.0
+				FlagHeight=	10.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+				
+				{
+				TextureName = nwg3_trireme_sail.tga
+				FlagWidth =	18.0
+				FlagHeight=	10.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = true
+				blockCornerRight = false
+				} 
+			] 
+}
+
+SailEffect		privateerSail
+{
+	Sails = [	{
+				TextureName = nf8_privateer_sail2.tga
+				FlagWidth =	26.0
+				FlagHeight=	11.6
+				NbrVertexWidth = 5
+				NbrVertexHeight = 3
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = nf8_privateer_sail3.tga
+				FlagWidth =	15.2
+				FlagHeight=	10.6
+				NbrVertexWidth = 5
+				NbrVertexHeight = 5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = nf8_privateer_sail.tga
+				FlagWidth =	15.2
+				FlagHeight=	12.5
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = nf8_privateer_sail3.tga
+				FlagWidth =	10.8
+				FlagHeight=	7.4
+				NbrVertexWidth = 5
+				NbrVertexHeight = 5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+				
+				{
+				TextureName = nf8_privateer_sail.tga
+				FlagWidth =	10.8
+				FlagHeight=	8.8
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+			] 
+}
+
+SailEffect		FrigateSail
+{
+	Sails = [	{
+				TextureName = NF10_Frigate_sail3.tga
+				FlagWidth =	9.0
+				FlagHeight=	6.8
+				NbrVertexWidth = 5
+				NbrVertexHeight = 2
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				}
+				
+				{
+				TextureName = NF10_Frigate_sail2.tga
+				FlagWidth =	13.5
+				FlagHeight=	5.2
+				NbrVertexWidth = 5
+				NbrVertexHeight = 2
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail2.tga
+				FlagWidth =	11.2
+				FlagHeight=	4.8
+				NbrVertexWidth = 5
+				NbrVertexHeight = 2
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 				
+
+				{
+				TextureName = NF10_Frigate_sail2.tga
+				FlagWidth =	9.8
+				FlagHeight=	3.8
+				NbrVertexWidth = 5
+				NbrVertexHeight = 2
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	true
+				blockBottom = true
+				blockRight = true
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail.tga
+				FlagWidth =	23.8
+				FlagHeight=	9.3
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail.tga
+				FlagWidth =	12.8
+				FlagHeight=	6.65
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail.tga
+				FlagWidth =	10.2
+				FlagHeight=	6.0
+				NbrVertexWidth = 5
+				NbrVertexHeight = 5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail.tga
+				FlagWidth =	17.8
+				FlagHeight=	9.2
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail.tga
+				FlagWidth =	13.3
+				FlagHeight=	7.4
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail.tga
+				FlagWidth =	10.6
+				FlagHeight=	6.0
+				NbrVertexWidth = 5
+				NbrVertexHeight = 5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail.tga
+				FlagWidth =	13.8
+				FlagHeight=	8.2
+				NbrVertexWidth = 5
+				NbrVertexHeight = 5
+				PlaneOn = false
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail.tga
+				FlagWidth =	9.6
+				FlagHeight=	6.1
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+
+				{
+				TextureName = NF10_Frigate_sail.tga
+				FlagWidth =	7.4
+				FlagHeight=	6.0
+				blockTop = true
+				blockLeft =	false
+				blockBottom = true
+				blockRight = false
+				blockCornerTop = false
+				blockCornerLeft = false
+				blockCornerBottom = false
+				blockCornerRight = false
+				} 
+			] 
+}
+
+//---------------------------------------------
+//Force field
+//
+VisualForceFieldDC	HERC_Armors0
+{
+	//Shield born
+	fadeInSecond = 0.5
+	fadeInScale = true
+	fadeInTransparency = true
+	//Shield death
+	fadeOutSecond = 6
+	fadeOutScale = true
+	fadeOutTransparency = true
+	//Geometry
+	shieldNameVHigh = fx_anti_missile.nif
+	shieldNameHigh = fx_anti_missile.nif
+	shieldNameMedium = fx_anti_missile.nif
+	shieldNameLow = fx_anti_missile.nif	
+	impactNameVHigh = fx_anti_missile_splash.nif
+	impactNameHigh = fx_anti_missile_splash.nif
+	impactNameMedium = fx_anti_missile_splash.nif
+	impactNameLow = fx_anti_missile_splash.nif
+		
+	// radius in world space
+	// @NOTE - should match radius of shield
+	//         in associated area effect.
+	shieldRadius = 8
+	
+	//Message
+	msgStartEffect = BeginForceField
+	msgStopEffect = EndForceField
+	msgImpact = HitForceField
+}
+
+VisualForceFieldDC	HERC_AntiMissileSystem
+{
+	//Shield born
+	fadeInSecond = 0.5
+	fadeInScale = true
+	fadeInTransparency = true
+	//Shield death
+	fadeOutSecond = 6
+	fadeOutScale = true
+	fadeOutTransparency = true
+	//Geometry
+	shieldNameVHigh = fx_anti_missile.nif
+	shieldNameHigh = fx_anti_missile.nif
+	shieldNameMedium = fx_anti_missile.nif
+	shieldNameLow = fx_anti_missile.nif	
+	impactNameVHigh = fx_anti_missile_splash.nif
+	impactNameHigh = fx_anti_missile_splash.nif
+	impactNameMedium = fx_anti_missile_splash.nif
+	impactNameLow = fx_anti_missile_splash.nif
+		
+	// radius in world space
+	// @NOTE - should match radius of shield
+	//         in associated area effect.
+	shieldRadius = 4
+	
+	//Message
+	msgStartEffect = BeginForceField
+	msgStopEffect = EndForceField
+	msgImpact = HitForceField
+}
+VisualForceFieldDC	Plane_AntiMissileSystem
+{
+	//Shield born
+	fadeInSecond = 0.5
+	fadeInScale = true
+	fadeInTransparency = true
+	//Shield death
+	fadeOutSecond = 6
+	fadeOutScale = true
+	fadeOutTransparency = true
+	//Geometry
+	shieldNameVHigh = fx_anti_missile.nif
+	shieldNameHigh = fx_anti_missile.nif
+	shieldNameMedium = fx_anti_missile.nif
+	shieldNameLow = fx_anti_missile.nif	
+	impactNameVHigh = fx_anti_missile_splash.nif
+	impactNameHigh = fx_anti_missile_splash.nif
+	impactNameMedium = fx_anti_missile_splash.nif
+	impactNameLow = fx_anti_missile_splash.nif
+		
+	// radius in world space
+	// @NOTE - should match radius of shield
+	//         in associated area effect.
+	shieldRadius = 1
+	
+	//Message
+	msgStartEffect = BeginForceField
+	msgStopEffect = EndForceField
+	msgImpact = HitForceField
+}
+VisualForceFieldDC	Ammo_System
+{
+	//Shield born
+	fadeInSecond = 0.5
+	fadeInScale = true
+	fadeInTransparency = true
+	//Shield death
+	fadeOutSecond = 6
+	fadeOutScale = true
+	fadeOutTransparency = true
+	//Geometry
+	shieldNameVHigh = fx_anti_missile.nif
+	shieldNameHigh = fx_anti_missile.nif
+	shieldNameMedium = fx_anti_missile.nif
+	shieldNameLow = fx_anti_missile.nif	
+	impactNameVHigh = fx_anti_missile_splash.nif
+	impactNameHigh = fx_anti_missile_splash.nif
+	impactNameMedium = fx_anti_missile_splash.nif
+	impactNameLow = fx_anti_missile_splash.nif
+		
+	// radius in world space
+	// @NOTE - should match radius of shield
+	//         in associated area effect.
+	shieldRadius = 0.1
+	
+	//Message
+	msgStartEffect = BeginForceField
+	msgStopEffect = EndForceField
+	msgImpact = HitForceField
+}
+VisualForceFieldDC	HERC_Shield
+{
+	//Shield born
+	fadeInSecond = 0.5
+	fadeInScale = true
+	fadeInTransparency = true
+	//Shield death
+	fadeOutSecond = 6
+	fadeOutScale = true
+	fadeOutTransparency = true
+	//Geometry
+	shieldNameVHigh = fx_anti_missile.nif
+	shieldNameHigh = fx_anti_missile.nif
+	shieldNameMedium = fx_anti_missile.nif
+	shieldNameLow = fx_anti_missile.nif
+	impactNameVHigh = fx_anti_missile_splash.nif
+	impactNameHigh = fx_anti_missile_splash.nif
+	impactNameMedium = fx_anti_missile_splash.nif
+	impactNameLow = fx_anti_missile_splash.nif
+		
+	// radius in world space
+	shieldRadius = 2
+	
+	//Message
+	msgStartEffect = BeginForceField
+	msgStopEffect = EndForceField
+	msgImpact = HitForceField
+}
+
+//
+// @NOTE:
+// Shimmer visual names are code critical;
+// if you change the name here without changing MsgIDs.h, things will break.
+//
+
+// Shimmer effect used by spy
+VisualShimmerDC		SpyShimmer
+{
+	// how opaque does unit appear when shimmer is disabled
+	disabledOpacity = 1.0
+	// how opaque does unit appear to friendly eyes (when in disguise)
+	friendlyOpacity = 0.3
+	// how opaque does unit appear to enemy eyes (when in disguise)
+	enemyOpacity = 0.0
+	// what is the  opacity pulse amplitude?
+	opacityPulseAmplitude = 0.2
+	// what is the  opacity pulse wavelength?
+	opacityPulseWavelength = 4.0
+
+	// how fast does  opacity blend?
+	opacityBlendRate = 0.1
+	// how fast does  pulse amplitude blend?
+	amplitudeBlendRate = 0.1
+	//  emissive color is driven by opacity for friendly eyes
+	friendlyEmissiveFactor = 1.0
+}
+// Shimmer effect used by Plane
+VisualShimmerDC		PlaneShimmer
+{
+	// how opaque does unit appear when shimmer is disabled
+	disabledOpacity = 1.0
+	// how opaque does unit appear to friendly eyes (when in disguise)
+	friendlyOpacity = 0.3
+	// how opaque does unit appear to enemy eyes (when in disguise)
+	enemyOpacity = 0.0
+	// what is the  opacity pulse amplitude?
+	opacityPulseAmplitude = 0.2
+	// what is the  opacity pulse wavelength?
+	opacityPulseWavelength = 4.0
+
+	// how fast does  opacity blend?
+	opacityBlendRate = 0.1
+	// how fast does  pulse amplitude blend?
+	amplitudeBlendRate = 0.1
+	//  emissive color is driven by opacity for friendly eyes
+	friendlyEmissiveFactor = 1.0
+}
+// Shimmer effect used by phantom formation in Diversion leader power
+VisualShimmerDC		DiversionShimmer
+{
+	// how opaque does unit appear when shimmer is disabled
+	disabledOpacity = 0.0
+	// how opaque does unit appear to friendly eyes
+	friendlyOpacity = 0.5
+	// how opaque does unit appear to enemy eyes
+	enemyOpacity = 1.0
+	// what is the  opacity pulse amplitude?
+	opacityPulseAmplitude = 0.2
+	// what is the  opacity pulse wavelength?
+	opacityPulseWavelength = 2.0
+
+	// how fast does  opacity blend?
+	opacityBlendRate = 0.1
+	// how fast does  pulse amplitude blend?
+	amplitudeBlendRate = 0.1
+	//  emissive color is driven by opacity for friendly eyes
+	friendlyEmissiveFactor = 0.4
+}
+
+// Shimmer effect used by "The Lost City" Wonder power
+VisualShimmerDC		LostCityShimmer
+{
+	lostCityMode = true
+	
+	// how opaque does unit appear when shimmer is disabled
+	disabledOpacity = 0.5
+	// how opaque does unit appear to friendly eyes
+	friendlyOpacity = 0.5
+	// how opaque does unit appear to enemy eyes
+	enemyOpacity = 0.0
+	// what is the  opacity pulse amplitude?
+	opacityPulseAmplitude = 0.2
+	// what is the  opacity pulse wavelength?
+	opacityPulseWavelength = 4.0
+
+	// how fast does  opacity blend?
+	opacityBlendRate = 0.1
+	// how fast does  pulse amplitude blend?
+	amplitudeBlendRate = 0.1
+	//  emissive color is driven by opacity for friendly eyes
+	friendlyEmissiveFactor = 0.4
+}
+
+
+
+//---------------------------------------------
+//Flags
+//
+FlagEffect		TheVisualFlag 
+{
+	FlagWidth = 15
+	FlagHeight = 10
+	BannerWidth = 10
+	BannerHeight = 15
+	BannerWallOn = true
+	PennantWidth = 15
+	PennantHeight = 10
+}
+
+FlagEffect		TheVisualFlag2 
+{
+	FlagWidth = 15
+	FlagHeight = 10
+	BannerWidth = 10
+	BannerHeight = 10
+	BannerWallOn = true
+	PennantWidth = 15
+	PennantHeight = 10
+}
+
+FlagEffect		TheVisualFlag3 
+{
+	FlagWidth = 25
+	FlagHeight = 10
+	BannerWidth = 10
+	BannerHeight = 10
+	BannerWallOn = true
+	PennantWidth = 10
+	PennantHeight = 10
+}
+
+FlagEffect		TheVisualFlagBoat 
+{
+	FlagWidth = 5
+	FlagHeight = 2.5
+	BannerWidth = 2.5
+	BannerHeight = 5
+	PennantWidth = 5
+	PennantHeight = 2.5
+	OnMobileUnit = true
+}
+
+// add as a child to enable a construction effect
+BuildEffect 		TheBuildEffect			{Scaffolding = [scafford7_r0.nif scafford7_r1.nif scafford7_r2.nif scafford7_r3.nif scafford7_r4.nif scafford7_na.nif] Fence = [foundation.nif lumber7.nif stone7.nif]}
+
+//=======================================
+// wall construction effects
+BuildEffectStep		Wall2_BuildEffectStep		{ ConstructionModels = [ bld_wall2_construction_1.nif bld_wall2_construction_2.nif bld_wall2_construction_3.nif ] }
+BuildEffectStep		Wall2_ConnectorBuildEffectStep	{ ConstructionModels = [ bld_wall2_connector_construction_1.NIF bld_wall2_connector_construction_2.NIF bld_wall2_connector_construction_3.NIF] }
+BuildEffectStep		Wall2_FragmentBuildEffectStep	{ ConstructionModels = [ bld_wall2_fragment_construction_1.nif bld_wall2_fragment_construction_2.nif bld_wall2_fragment_construction_3.nif] }
+BuildEffectStep		Wall2_GateBuildEffectStep	{ ConstructionModels = [ bld_wall2_gate_construction_1.nif bld_wall2_gate_construction_2.nif bld_wall2_gate_construction_3.nif ] }
+BuildEffectStep		Wall5_BuildEffectStep		{ ConstructionModels = [ bld_wall5_construction_1.nif bld_wall5_construction_2.nif bld_wall5_construction_3.nif ] }
+BuildEffectStep		Wall5_ConnectorBuildEffectStep	{ ConstructionModels = [ bld_wall5_connector_construction_1.NIF bld_wall5_connector_construction_2.NIF bld_wall5_connector_construction_3.NIF] }
+BuildEffectStep		Wall5_FragmentBuildEffectStep	{ ConstructionModels = [ bld_wall5_fragment_construction_1.nif bld_wall5_fragment_construction_2.nif bld_wall5_fragment_construction_3.nif] }
+BuildEffectStep		Wall5_GateBuildEffectStep	{ ConstructionModels = [ bld_wall5_gate.nif bld_wall5_gate.nif bld_wall5_gate.nif ] }
+BuildEffectStep		Wall8_BuildEffectStep		{ ConstructionModels = [ bld_wall8_construction_1.nif bld_wall8_construction_2.nif bld_wall8_construction_3.nif ] }
+BuildEffectStep		Wall8_ConnectorBuildEffectStep	{ ConstructionModels = [ bld_wall8_connector_construction_1.NIF bld_wall8_connector_construction_2.NIF bld_wall8_connector_construction_3.NIF] }
+BuildEffectStep		Wall8_FragmentBuildEffectStep	{ ConstructionModels = [ bld_wall8_fragment_construction_1.nif bld_wall8_fragment_construction_2.nif bld_wall8_fragment_construction_3.nif] }
+BuildEffectStep		Wall8_GateBuildEffectStep	{ ConstructionModels = [ bld_wall8_gate.nif bld_wall8_gate.nif bld_wall8_gate.nif ] }
+BuildEffectStep		Wall11_BuildEffectStep		{ ConstructionModels = [ bld_wall11_construction_1.nif bld_wall11_construction_2.nif bld_wall11_construction_3.nif ] }
+BuildEffectStep		Wall11_ConnectorBuildEffectStep	{ ConstructionModels = [ bld_wall11_connector_construction_1.NIF bld_wall11_connector_construction_2.NIF bld_wall11_connector_construction_3.NIF] }
+BuildEffectStep		Wall11_FragmentBuildEffectStep	{ ConstructionModels = [ bld_wall11_fragment_construction_1.nif bld_wall11_fragment_construction_2.nif bld_wall11_fragment_construction_3.nif] }
+BuildEffectStep		Wall11_GateBuildEffectStep	{ ConstructionModels = [ bld_wall11_gate.nif bld_wall11_gate.nif bld_wall11_gate.nif ] }
+BuildEffectStep		Wall14_BuildEffectStep		{ ConstructionModels = [ bld_wall14_construction_1.nif bld_wall14_construction_2.nif bld_wall14_construction_3.nif ] }
+BuildEffectStep		Wall14_ConnectorBuildEffectStep	{ ConstructionModels = [ bld_wall14_connector_construction_1.NIF bld_wall14_connector_construction_2.NIF bld_wall14_connector_construction_3.NIF] }
+BuildEffectStep		Wall14_FragmentBuildEffectStep	{ ConstructionModels = [ bld_wall14_fragment_construction_1.nif bld_wall14_fragment_construction_2.nif bld_wall14_fragment_construction_3.nif] }
+BuildEffectStep		Wall14_GateBuildEffectStep	{ ConstructionModels = [ bld_wall14_gate.nif bld_wall14_gate.nif bld_wall14_gate.nif ] }
+
+//=======================================
+// palisade construction effects
+BuildEffectStep		Palisade1_BuildEffectStep	{ ConstructionModels = [ bld_palisade1_construction_1.nif bld_palisade1_construction_2.nif bld_palisade1_construction_3.nif ] }
+BuildEffectStep		Palisade1_ConnectBldEffectStep	{ ConstructionModels = [ bld_palisade1_connector_construction_1.NIF bld_palisade1_connector_construction_2.NIF bld_palisade1_connector_construction_3.NIF] }
+BuildEffectStep		Palisade1_FragmentBldEffectStep	{ ConstructionModels = [ bld_palisade1_fragment_construction_1.nif bld_palisade1_fragment_construction_2.nif bld_palisade1_fragment_construction_3.nif] }
+BuildEffectStep		Palisade1_GateBuildEffectStep	{ ConstructionModels = [ bld_palisade1_gate.nif bld_palisade1_gate.nif bld_palisade1_gate.nif ] }
+BuildEffectStep		Palisade4_BuildEffectStep	{ ConstructionModels = [ bld_palisade4_construction_1.nif bld_palisade4_construction_2.nif bld_palisade4_construction_3.nif ] }
+BuildEffectStep		Palisade4_ConnectBldEffectStep	{ ConstructionModels = [ bld_palisade4_connector_construction_1.NIF bld_palisade4_connector_construction_2.NIF bld_palisade4_connector_construction_3.NIF] }
+BuildEffectStep		Palisade4_FragmentBldEffectStep	{ ConstructionModels = [ bld_palisade4_fragment_construction_1.nif bld_palisade4_fragment_construction_2.nif bld_palisade4_fragment_construction_3.nif] }
+BuildEffectStep		Palisade4_GateBuildEffectStep	{ ConstructionModels = [ bld_palisade4_gate.nif bld_palisade4_gate.nif bld_palisade4_gate.nif ] }
+BuildEffectStep		Palisade7_BuildEffectStep	{ ConstructionModels = [ bld_palisade7_construction_1.nif bld_palisade7_construction_2.nif bld_palisade7_construction_3.nif ] }
+BuildEffectStep		Palisade7_ConnectBldEffectStep	{ ConstructionModels = [ bld_palisade7_connector_construction_1.NIF bld_palisade7_connector_construction_2.NIF bld_palisade7_connector_construction_3.NIF] }
+BuildEffectStep		Palisade7_FragmentBldEffectStep	{ ConstructionModels = [ bld_palisade7_fragment_construction_1.nif bld_palisade7_fragment_construction_2.nif bld_palisade7_fragment_construction_3.nif] }
+BuildEffectStep		Palisade7_GateBuildEffectStep	{ ConstructionModels = [ bld_palisade7_gate.nif bld_palisade7_gate.nif bld_palisade7_gate.nif ] }
+BuildEffectStep		Palisade10_BuildEffectStep	{ ConstructionModels = [ bld_palisade10_construction_1.nif bld_palisade10_construction_2.nif bld_palisade10_construction_3.nif ] }
+BuildEffectStep		Palisade10_ConnectBldEffectStep	{ ConstructionModels = [ bld_palisade10_connector_construction_1.NIF bld_palisade10_connector_construction_2.NIF bld_palisade10_connector_construction_3.NIF] }
+BuildEffectStep		Palisade10_FragBldEffectStep	{ ConstructionModels = [ bld_palisade10_fragment_construction_1.nif bld_palisade10_fragment_construction_2.nif bld_palisade10_fragment_construction_3.nif] }
+BuildEffectStep		Palisade10_GateBuildEffectStep	{ ConstructionModels = [ bld_palisade10_gate.nif bld_palisade10_gate.nif bld_palisade10_gate.nif ] }
+BuildEffectStep		Palisade13_BuildEffectStep	{ ConstructionModels = [ bld_palisade13_construction_1.nif bld_palisade13_construction_2.nif bld_palisade13_construction_3.nif ] }
+BuildEffectStep		Palisade13_ConnectBldEffectStep	{ ConstructionModels = [ bld_palisade13_connector_construction_1.NIF bld_palisade13_connector_construction_2.NIF bld_palisade13_connector_construction_3.NIF] }
+BuildEffectStep		Palisade13_FragBldEffectStep	{ ConstructionModels = [ bld_palisade13_fragment_construction_1.nif bld_palisade13_fragment_construction_2.nif bld_palisade13_fragment_construction_3.nif] }
+BuildEffectStep		Palisade13_GateBuildEffectStep	{ ConstructionModels = [ bld_palisade13_gate.nif bld_palisade13_gate.nif bld_palisade13_gate.nif ] }
+
+//Tower Upgrade Effects
+ScaffoldBuildEffectStep	TowerUpgradeScaffolding		{ ScaffoldModel = bld_tower_scaffold.NIF }
+
+BoatDeath			TheBoatDeath { boatDeathModelOpaque = fx_oilslick_props.nif 
+								   boatDeathModelTransparent = fx_oilslick_base.nif}
+
+
+// displays a collapsing building on death
+CollapseEffect 		TheCollapseEffect { Weight= [47, 126, 102, 55, 47, 126, 102, 55] Translation = [3,3,3,3, 4,4,4,4]}
+CollapseEffect 		TheCollapseEffect2{ Weight= [50, 50, 50, 50, 50, 50, 50, 50] Translation = [10,10,10,10, 20,20,20,20]}
+
+
+//display a domage effect on a building
+BldDamageEffect		TheBldDamageEffect
+{ 
+	TagDefs = [
+			{
+				TagName = "front"
+				Models = [ { ModelName = fx_damage_fire_1.NIF ModelScale = 0.05 }
+						   { ModelName = fx_damage_fire_2.NIF ModelScale = 0.05 }
+						 ]
+			}
+			{
+				TagName = "corner"
+				Models = [ { ModelName = fx_damage_fire_1.NIF ModelScale = 0.05 }
+						   { ModelName = fx_damage_fire_2.NIF ModelScale = 0.05 }
+						 ]
+			}
+			{
+				TagName = "top"
+				Models = [ { ModelName = fx_damage_fire_1.NIF ModelScale = 0.05 }
+						   { ModelName = fx_damage_fire_2.NIF ModelScale = 0.05 }
+						 ]
+			}
+		]
+	FireDataClassName = Building_fire
+	SmokeDataClassName = Building_smoke
+	UseHitPointThreshold = 0
+	HitPointThreshold = 0
+	
+	// dynamic lights
+	FireLights = [ DL_Fire1 DL_Fire2 DL_Fire3 DL_Fire4 DL_Fire5 DL_Fire6 ]
+}
+
+BldDamageEffect		TheBoatDamageEffect 
+{ 
+	TagDefs = [
+			{
+				TagName = "front"
+				Models = [ { ModelName = fx_damage_fire_1.NIF ModelScale = 0.02 }
+						   { ModelName = fx_damage_fire_2.NIF ModelScale = 0.02 }
+						 ]
+			}
+			{
+				TagName = "corner"
+				Models = [ { ModelName = fx_damage_fire_1.NIF ModelScale = 0.02 }
+						   { ModelName = fx_damage_fire_2.NIF ModelScale = 0.02 }
+						 ]
+			}
+			{
+				TagName = "top"
+				Models = [ { ModelName = fx_damage_fire_1.NIF ModelScale = 0.02 }
+						   { ModelName = fx_damage_fire_2.NIF ModelScale = 0.02 }
+						 ]
+			}
+		]
+	FireDataClassName = MobileUnit_fire
+	SmokeDataClassName = MobileUnit_smoke
+	UseHitPointThreshold = 0
+	HitPointThreshold = 0
+}
+
+BldDamageEffect		TheSiegeUnitDamageEffect
+{ 
+	TagDefs = [
+			{
+				TagName = "front"
+				Models = [ { ModelName = fx_damage_fire_1.NIF ModelScale = 0.02 }
+						   { ModelName = fx_damage_fire_2.NIF ModelScale = 0.02 }
+						 ]
+			}
+			{
+				TagName = "corner"
+				Models = [ { ModelName = fx_damage_fire_1.NIF ModelScale = 0.02 }
+						   { ModelName = fx_damage_fire_2.NIF ModelScale = 0.02 }
+						 ]
+			}
+			{
+				TagName = "top"
+				Models = [ { ModelName = fx_damage_fire_1.NIF ModelScale = 0.02 }
+						   { ModelName = fx_damage_fire_2.NIF ModelScale = 0.02 }
+						 ]
+			}
+		]
+	FireDataClassName = MobileUnit_fire
+	SmokeDataClassName = MobileUnit_smoke
+	UseHitPointThreshold = 1
+	HitPointThreshold = 0.10
+}
+
+
+
+//slpash
+WaterSplash		TheWaterSplash { SplashInModelsName = BoatWakeIdle_02_L1.nif SplashOutModelsName = BoatWakeIdle_02_L1.nif }
+
+//Do not add this effect in any ddf file.  This effect is added in the code
+WavesArray		TheWavesArray {}
+
+
+
+// Add to non-mobile units that want to have a nice shadow
+ShadowData        BuildingShadow
+{
+	Flags = (UseStencil | AutoGenerated)
+}
+
+// for buildings with turrets
+ShadowData        BuildingWithTurretsShadow
+{
+	Flags = (UseStencil | AutoGenerated | HasTurret)
+}
+
+// Add to mobile units for a blobby ellipsoid shadow
+ShadowData        UnitShadow
+{
+	Flags = (UseStencil | IsMobile)
+
+	FlatBillboard
+	{
+		TextureFilename = TreeShadow.tga
+		WidthScale = 0.9
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+// Dynamic stencil shadow only (no projected shadow)
+// for use on mobile units, like tanks, that don't look good with 
+// a blobby ellipsoid shadow
+ShadowData        MobileStencilShadow
+{
+	Flags = (UseStencil | IsMobile)
+}
+
+
+// Wall shadow; enabled only when stencil shadows are used
+ShadowData        WallShadow
+{
+	Flags = (UseStencil | SkipAlpha)
+}
+
+SinkAnim	SinkRubbles
+{
+	LifeSpan 	= 15;
+	StartDelay	= 10;
+	SinkSpeed	= 0.3;
+}
+
+
+SinkAnim	SinkCorpse
+{
+	LifeSpan 	= 30;
+	StartDelay	= 1;
+	SinkSpeed	= 0.001;
+}
+
+SinkAnim	SinkArtillery
+{
+	LifeSpan 	= 20;
+	StartDelay	= 1.5;
+	SinkSpeed	= 0.2;
+}
+
+SinkAnim	SinkHerc
+{
+	LifeSpan 	= 20;
+	StartDelay	= 1.5;
+	SinkSpeed	= 2;
+}
+
+SinkAnim	SinkSiegeTower
+{
+	LifeSpan 	= 20;
+	StartDelay	= 0.25;
+	SinkSpeed	= 5;
+}
+
+SinkAnim	SinkParachute
+{
+	LifeSpan 	= 20;
+	StartDelay	= 0.0;
+	SinkSpeed	= 5;
+}
+
+
+AttachmentPlacerData TheAmbientPlacer
+{
+ DefaultSet = TheSet
+ ScaleType  = kScaleTree
+ Ambients = [
+ {
+  TagNameRoot = tag_tree1   //sculpted bushes for placement on buildings
+  SetName = Temperate
+  AmbientList [ amb_decobush03.nif amb_decobush02.nif ]        
+ }
+ {
+  TagNameRoot = tag_tree1   //sculpted bushes for placement on buildings
+  SetName = Arid
+  AmbientList [ amb_decobush03.nif amb_decobush02.nif ]        
+ }
+ {
+  TagNameRoot = tag_tree2
+  SetName = Arid
+  AmbientList [  tre_fern_trop01.nif tre_fern_trop01.nif tre_fern_trop01.nif ]
+ }
+ {
+  TagNameRoot = tag_tree3
+  SetName = Arid
+  AmbientList [ tre_fern_trop01.nif tre_desertfern.nif ]
+ }
+ //short thin wild bushes
+{
+  TagNameRoot = tag_tree3
+  SetName = temperate
+  AmbientList [   amb_wildbush17.nif amb_wildbush18.nif amb_wildbush19.nif amb_wildbush20.nif]
+ }
+ {
+  TagNameRoot = tag_tree3
+  SetName = tropical
+  AmbientList [ tre_fern_trop01.nif ]
+ }
+
+ {
+  TagNameRoot = tag_tree4
+  SetName = Arid
+  AmbientList [ ]
+ }
+ 
+//tall thin wild bushes
+{
+  TagNameRoot = tag_tree4
+  SetName = temperate
+  AmbientList [ amb_wildbush13.nif amb_wildbush14.nif amb_wildbush15.nif amb_wildbush16.nif  ]
+ }
+ {
+  TagNameRoot = tag_tree4
+  SetName = tropical
+  AmbientList [ ]
+ }
+
+ {
+  TagNameRoot = tag_bush_shrub
+  SetName = Temperate
+  AmbientList [ bush_shrub.nif ]
+ }
+ {
+  TagNameRoot = tag_bush_shrub
+  SetName = arid
+  AmbientList [ bush_shrub.nif ]
+ }
+ {
+  TagNameRoot = tag_bush_shrub
+  SetName = tropical
+  AmbientList [ bush_shrub.nif ]
+ }
+{
+  TagNameRoot = tag_bush_grass
+  SetName = Temperate
+  AmbientList [ bush_grass.nif ]
+ }
+ {
+  TagNameRoot = tag_bush_grass
+  SetName = arid
+  AmbientList [ bush_grass.nif ]
+ }
+ {
+  TagNameRoot = tag_bush_grass
+  SetName = tropical
+  AmbientList [ bush_grass.nif ]
+ }
+{
+  TagNameRoot = tag_bush_vine
+  SetName = Temperate
+  AmbientList [  ] //bush_vine.nif
+ }
+ {
+  TagNameRoot = tag_bush_vine
+  SetName = arid
+  AmbientList [  ] //bush_vine.nif
+ }
+ {
+  TagNameRoot = tag_bush_vine
+  SetName = tropical
+  AmbientList [  ] //bush_vine.nif
+ }
+ {
+  TagNameRoot = tag_wildbush_s   //small wild bushes for placement on buildings
+  SetName = Temperate
+  AmbientList [  amb_wildbush17.nif amb_wildbush18.nif amb_wildbush19.nif amb_wildbush20.nif ]         
+ }
+
+// the following entries are valid in all climates and place chimey smoke on buildings
+//======================================================================================
+ {
+  TagNameRoot 	= tag_smoke_chimney
+  AmbientList [ fx_smoke_chimney_small.nif ]
+ }
+ {
+  TagNameRoot 	= tag_smoke_campfire_small
+  AmbientList [ fx_campfire_small.nif ]
+ }
+// place campfires around buildings 
+//======================================================================================
+ {
+  TagNameRoot 	= tag_smoke_campfire_large
+  AmbientList [ fx_campfire_large.nif ]
+ }
+
+// place damage smoke on decorative burned out buildings 
+//======================================================================================
+ {
+  TagNameRoot 	= tag_smoke_damage1_1
+  AmbientList [ fx_smoke_damage_1.nif ]
+ }
+ {
+  TagNameRoot 	= tag_smoke_damage2_1
+  AmbientList [ fx_smoke_damage_2.nif ]
+ }
+
+// @TEMPORARY FOR FEBRUARTY DEMO@
+// place production smoke on production buildings SMALL
+//======================================================================================
+ {
+  TagNameRoot 	= tag_steam_production_small
+  AmbientList [ fx_steam_production_1.nif ]
+ }
+ // place production smoke on production buildings LARGE
+//======================================================================================
+ {
+  TagNameRoot 	= tag_steam_production_large
+  AmbientList [ fx_steam_production_2.nif ]
+ }
+
+  ]
+}
+
+//----------------------------------------- 
+//Dust
+//
+//DustEffect	DustHeavyMonted
+//{
+//	DustTerrainNifName = [fx_dust_medium.NIF fx_dust_medium.NIF fx_dust_medium.NIF fx_dust_medium.NIF]
+//	WaterDust = fx_dust_medium.NIF
+//	DustRoadNifName = [fx_dust_medium.NIF fx_dust_medium.NIF]
+//}
+DustEffect	DustHeavyTank
+{
+	DustTerrainNifName = [fx_snow_medium.NIF fx_dust_tank.NIF fx_dust_tank.NIF fx_dust_tank.NIF]
+	WaterDust = fx_dust_tank.NIF
+	DustRoadNifName = [fx_dust_tank.NIF fx_dust_tank.NIF]
+
+}
+
+DustEffect	DustHeavyMonted
+{
+	DustTerrainNifName = [fx_snow_medium.NIF fx_dust_medium.NIF fx_dust_medium.NIF fx_dust_medium.NIF]
+	WaterDust = fx_dust_medium.NIF
+	DustRoadNifName = [fx_dust_medium.NIF fx_dust_medium.NIF]
+}
+
+DustEffect	DustHelicopter
+{
+	DustTerrainNifName = [fx_helicopter_dust_snow.nif fx_helicopter_dust.nif fx_helicopter_dust.nif fx_helicopter_dust.nif]
+	WaterDust = fx_helicopter_water_dust.nif
+	DustRoadNifName = [fx_helicopter_dust.nif fx_helicopter_dust.nif]
+	AlwaysPlay = true
+	KeepDustOnGround = true
+	MaxHeight = 8
+}
+
+DustEffect	DustLightInfantry
+{
+	DustTerrainNifName = [fx_snow_medium.NIF fx_dust_medium.NIF fx_dust_medium.NIF fx_dust_medium.NIF]
+	WaterDust = fx_dust_medium.NIF
+	DustRoadNifName = [fx_dust_medium.NIF fx_dust_medium.NIF]
+}
+
+
+//------------------------------------
+//WORLD VISUAL
+//
+WorldVisual		TheWorldVisualMapper {}
+
+// Empty screen flash.  We need this for the base object.
+ScreenFlash TheScreenFlash 
+{
+}
+
+
+//------------------------------------
+// @EE2X - Thrown Unit visual
+ThrownUnit	VisualThrownUnit
+{
+	SpeedMin		= 3.5
+	SpeedMax		= 3.5
+	Mass			= 1
+	RotationSpeedXMin	= 3.0
+	RotationSpeedXMax	= 3.0
+	RotationSpeedZMin	= 0.0
+	RotationSpeedZMax	= 0.0
+	InitialVelocityZMin	= 1.2
+	InitialVelocityZMax	= 1.75
+	SinkDelay		= 1
+	TimeBeforeVanish	= 10
+}

@@ -1,0 +1,111 @@
+//
+// styles for in-game screens
+//
+WidgetStyleSet GameStyles
+{
+	styles = 
+	[
+		{ name = "EnumMenu" 		style = game_menu_style }
+		{ name = "EnumFlagsMenu" 	style = game_menu_style }
+		{ name = "EnumColorsMenu" 	style = game_enumcolorsmenu_style }
+		{ name = "Combo" 		style = game_combo_style }
+		{ name = "MetaCombo" 		style = game_combo_style }
+		{ name = "ColorCombo" 		style = game_combo_style }
+		{ name = "CheckBox" 		style = game_checkbox_style }
+		{ name = "MetaCheckBox" 	style = game_checkbox_style }
+		{ name = "RadioButton"  	style = game_radiobutton_style }
+		{ name = "MetaRadioButton"  	style = game_radiobutton_style }
+		{ name = "FolderTab" 		style = game_foldertab_style }
+		{ name = "Button" 		style = game_button_style }
+		{ name = "MetaButton" 		style = game_button_style }
+		{ name = "Icon" 		style = game_button_style }
+		{ name = "MetaIcon" 		style = game_button_style }
+		{ name = "EditText" 		style = game_edittext_style }
+	]
+}
+
+//
+// styles for front-end screens
+//
+WidgetStyleSet FrontEndStyles
+{
+	styles = 
+	[
+		{ name = "EnumMenu" 			style = fe_menu_style }
+		{ name = "EnumFlagsMenu" 		style = fe_menu_style }
+		{ name = "EnumColorsMenu" 		style = fe_enumcolorsmenu_style }
+		{ name = "Combo" 				style = fe_combo_style }
+		{ name = "ComboExclusive" 		style = fe_combo_style }
+		{ name = "ComboWithSprite" 		style = fe_combo_style }
+		{ name = "ColorCombo" 			style = fe_combo_style }
+		{ name = "ColorComboExclusive" 	style = fe_combo_style }
+		{ name = "MPNameCombo" 			style = fe_combo_style }
+		{ name = "CheckBox" 			style = fe_checkbox_style }
+		{ name = "RadioButton" 			style = fe_radiobutton_style }
+		{ name = "FolderTab" 			style = game_foldertab_style }
+		{ name = "Button" 				style = fe_button_style }
+		{ name = "Icon" 				style = fe_button_style }
+		{ name = "EditText" 			style = fe_edittext_style }
+		{ name = "SelectText" 			style = fe_selecttext_style }
+		{ name = "NumEditText" 			style = fe_edittext_style }
+		{ name = "FloatEditText" 		style = fe_edittext_style }
+		{ name = "PasswordEditText" 	style = fe_edittext_style }
+		{ name = "ListText" 			style = fe_listtext_style }
+		{ name = "Slider"				style = fe_slider_style }
+	]
+}
+
+
+//
+// styles for EEE
+//
+WidgetStyleSet EEEStyles
+{
+	styles = 
+	[
+		{ name = "EnumMenu" 			style = game_menu_style }
+		{ name = "Combo" 				style = game_combo_style }
+		{ name = "Text" 				style = eee_text_style }
+		{ name = "ListText" 			style = eee_listtext_style }
+		{ name = "ScrollBar" 			style = eee_scrollbar_style }
+		{ name = "Button" 				style = eee_button_style }
+		{ name = "Icon" 				style = eee_button_style }
+	]
+}
+
+
+//
+// styles for scen-edit screen
+//
+WidgetStyleSet ScenEditStyles
+{
+	styles = 
+	[
+		{ name = "MenuTitle" 			style = se_menutitle_style }
+		{ name = "EnumMenuTitle" 		style = se_combo_style }
+		{ name = "Combo" 				style = se_combo_style }
+		{ name = "ColorCombo"			style = se_combo_style }
+		{ name = "ComboExclusive"		style = se_combo_style }
+		{ name = "ColorComboExclusive"	style = se_combo_style }
+		{ name = "NameOtherCombo" 		style = se_combo_style }
+		{ name = "TerritoryNameCategoryCombo" 	style = se_combo_style }
+		{ name = "CinematicNameCombo" 	style = se_combo_style }
+		{ name = "Menu" 				style = se_menu_style }
+		{ name = "EnumMenu" 			style = se_enummenu_style }
+		{ name = "EnumFlagsMenu" 		style = se_enummenu_style }
+		{ name = "EnumColorsMenu"		style = se_enumcolorsmenu_style }
+		{ name = "Text" 				style = se_text_style }
+		{ name = "EditText" 			style = se_edittext_style }
+		{ name = "NumEditText" 			style = se_edittext_style }
+		{ name = "ListText"				style = se_listtext_style }
+		{ name = "CheckBox" 			style = se_checkbox_style }
+		{ name = "RadioButton" 			style = se_radiobutton_style }
+		{ name = "FolderTab" 			style = se_foldertab_style }
+		{ name = "Button" 				style = se_button_style }
+		
+		// @HACK editor needs meta-styles defined for diplomacy proposal panel
+		{ name = "MetaCombo" 			style = se_combo_style }
+		{ name = "MetaButton" 			style = se_button_style }
+		{ name = "MetaRadioButton" 		style = se_radiobutton_style }
+	]
+}

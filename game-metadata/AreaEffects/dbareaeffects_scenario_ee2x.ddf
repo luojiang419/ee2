@@ -1,0 +1,129 @@
+// Toughness!
+DbAreaEffectInfo Maasai_Tough_Walls
+{
+	effects = [
+		EffectDamage {
+			range = Unit
+			player = Self
+			scale = 0.1
+		}
+		EffectAreaDamage {
+			range = Unit
+			player = Self
+			scale = 0.1
+		}
+	]
+}
+DbAreaEffectInfo Maasai_Herd_Heal
+{
+	name = text_sarea_damloc_name
+	desc = text_sarea_damloc_desc
+	duration = 10
+	effects = [
+		EffectHeal {
+			range = RadiusFromLocation
+			radius = 20
+			mask = Anything
+			player = Self
+			healRate = 5
+		}
+	]
+}
+
+// MILITARY LEADER POWER - that you can attach to the player!
+// HIGH FERVOR
+DbAreaEffectInfo HighFervorPlayer
+{
+	name = text_larea_hifervor_name
+	desc = text_larea_hifervor_desc
+	effects = [
+		EffectAttack {
+			range = Global
+			mask = LandRPS
+			player = Self
+
+			scale = 1.2
+		}
+		// give the land dudes a good glow
+		EffectVisualGlow {
+			range = Global
+			mask = LandRPS
+			player = Self
+			GlowType = Good
+			Icon = icon_leaderpwr_highfervor_s
+			Tooltip = tt_power_HighFervor
+			VTooltip = vtt_power_unitinfo_HighFervor
+		}
+		
+		EffectAttack {
+			range = Global
+			mask = BuildingsThatAttackRPS
+			player = Self
+
+			scale = 1.2
+		}
+		// and the attacking buildings get a good glow too
+		EffectVisualGlow {
+			range = Global
+			mask = BuildingsThatAttackRPS
+			player = Self
+			GlowType = Good
+			Icon = icon_leaderpwr_highfervor_s
+			Tooltip = tt_power_HighFervor
+			VTooltip = vtt_power_unitinfo_HighFervor
+		}
+	]
+}
+
+// Egypt 4 effect to attach to Oasis (stolen from German 3 Marienberg Castle)
+DbAreaEffectInfo OasisHealing
+{
+	effects = [
+		EffectHeal {
+			range = RadiusFromLocation
+			radius = 8
+			mask = LandRPS
+			player = Self
+			healRate = 10
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 8
+			mask = LandRPS
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = spr_game_unitinfo_icon_fire
+			Tooltip = tt_power_fire_fallout
+			VTooltip = vtt_power_fire_fallout           
+		}
+	]
+}
+
+//Russian 4 effect to make French troops freeze when winter first hits
+DbAreaEffectInfo RussianWinter
+{
+	name = tx_r4_RussianWinter
+	desc = tx_r4_RussianWinter_desc
+	duration = 360
+	effects = [
+		// Make enemies stop
+		EffectImmobilize {
+			range = Global
+//			radius = 5
+			mask = LandRPS
+			player = Self
+		}
+		// Make em glow
+		EffectVisualGlow {
+			range = Global
+//			radius = 5
+			mask = LandRPS
+			player = Self
+			GlowType = Bad
+			Icon = icon_leaderpwr_firemanuever_s
+			Tooltip = tt_power_RussianWinter
+			VTooltip = vtt_power_RussianWinter
+		}
+		]
+}

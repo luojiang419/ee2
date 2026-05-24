@@ -1,0 +1,1830 @@
+// Explosions to tie to buildings.
+
+// Here's a generic sequence
+//ExplosionSequence SequenceName
+//{
+//	TimeA = 0
+//	TimeB = 0
+//	StartingPositionMinX = -1
+//	StartingPositionMaxX = 1
+//	StartingPositionMinY = -1
+//	StartingPositionMaxY = 1
+//	StartingPositionMinZ = -1
+//	StartingPositionMaxZ = 1
+//	StartFromMainModel = 1
+//	Replay = 10
+//	FiringProbability = 1
+//	SequenceType = Nif
+//	PlayAll = 0
+//	SequenceNames = [ fx_explosion_1.NIF fx_explosion_1.NIF ]
+//	SequenceWorldScales = [0]
+//	SequenceSoundsNames = [Tank_firing1 Tank_firing1]	
+//}
+
+//------------------------------------------------------------------------------------
+// SEQUENCE
+//------------------------------------------------------------------------------------
+
+// Start debris flying from a building.
+ExplosionSequence	s_building_debris
+{
+	SequenceType = Message
+	FiringProbability = 1
+	SequenceNames = [ startFlyingPartExplosion ]
+}
+
+ExplosionSequence	s_bridge_debris_splash01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 0.5
+	SequenceType = Nif
+	SequenceNames = [ fx_watersplash_1.nif ]
+	SequenceWorldScales = [0.2]
+}
+
+ExplosionSequence	sq_collapse_Tiny_1
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 1.0
+	DelayBeforeDie = 5
+	StartingPositionMinX = -0.5
+	StartingPositionMaxX = 0.5
+	StartingPositionMinY = -0.5
+	StartingPositionMaxY = 0.5
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 0
+	StartFromMainModel = 1
+	FiringProbability = 1
+	Replay = 2
+	SequenceType = Nif
+	SequenceNames = [ fx_Smoke_BuildingCollapse.nif ]
+	SequenceWorldScales = [0.03]
+}
+
+
+ExplosionSequence	sq_collapse_Small_1
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 0.6
+	DelayBeforeDie = 5
+	StartingPositionMinX = -1.5
+	StartingPositionMaxX = 1.5
+	StartingPositionMinY = -1.5
+	StartingPositionMaxY = 1.5
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 0
+	StartFromMainModel = 1
+	FiringProbability = 1
+	Replay = 3
+	SequenceType = Nif
+	SequenceNames = [ fx_Smoke_BuildingCollapse.nif ]
+	SequenceWorldScales = [0.03]
+}
+
+ExplosionSequence	sq_collapse_Medium_1
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.1
+	TimeB = 0.6
+	DelayBeforeDie = 5
+	StartingPositionMinX = -2
+	StartingPositionMaxX = 2
+	StartingPositionMinY = -2
+	StartingPositionMaxY = 2
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 0
+	StartFromMainModel = 1
+	FiringProbability = 1
+	Replay = 5
+	SequenceType = Nif
+	SequenceNames = [ fx_Smoke_BuildingCollapse.nif ]
+	SequenceWorldScales = [0.03]
+}
+
+ExplosionSequence	sq_collapse_Big_1
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.1
+	TimeB = 0.6
+	DelayBeforeDie = 5
+	StartingPositionMinX = -3
+	StartingPositionMaxX = 3
+	StartingPositionMinY = -3
+	StartingPositionMaxY = 3
+	StartingPositionMinZ = 0
+	StartingPositionMaxZ = 0
+	StartFromMainModel = 1
+	FiringProbability = 1
+	Replay = 7
+	SequenceType = Nif
+	SequenceNames = [ fx_Smoke_BuildingCollapse.nif]
+	SequenceWorldScales = [0.03]
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION
+//------------------------------------------------------------------------------------
+
+Explosion			Expl_Building_01
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ s_building_debris ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Expl_Building_Collapse_Tiny
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[  sq_collapse_Tiny_1 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Expl_Building_Collapse_Small
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[  sq_collapse_Small_1 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Expl_Building_Collapse_Medium
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[  sq_collapse_Medium_1 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Expl_Building_Collapse_Big
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[  sq_collapse_Big_1 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+Explosion			Expl_BridgeDebrisSplash_01
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[  s_bridge_debris_splash01 ]
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION MAPPER
+//------------------------------------------------------------------------------------
+ExplosionSelector	ExplSelectorBuild_Tiny
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MediumProjectile | Missile | Beam)
+									Trigger = DynamicMessage
+									MessageName = HitPosition
+									ExplosionName = Expl_Building_01
+									HitPoint = -1
+									Hide = false
+								}
+
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Melee | LightProjectile | MediumProjectile | Missile | Beam | Nuke)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Building_Collapse_Tiny
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorBuild_Small
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MediumProjectile | Missile | Beam)
+									Trigger = DynamicMessage
+									MessageName = HitPosition
+									ExplosionName = Expl_Building_01
+									HitPoint = -1
+									Hide = false
+								}
+
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Melee | LightProjectile | MediumProjectile | Missile | Beam | Nuke)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Building_Collapse_Small
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorBuild_Medium
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MediumProjectile | Missile | Beam)
+									Trigger = DynamicMessage
+									MessageName = HitPosition
+									ExplosionName = Expl_Building_01
+									HitPoint = -1
+									Hide = false
+								}
+
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Melee | LightProjectile | MediumProjectile | Missile | Beam | Nuke)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Building_Collapse_Medium
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorBuild_Big
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MediumProjectile | Missile | Beam)
+									Trigger = DynamicMessage
+									MessageName = HitPosition
+									ExplosionName = Expl_Building_01
+									HitPoint = -1
+									Hide = false
+								}
+
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Melee | LightProjectile | MediumProjectile | Missile | Beam | Nuke)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Building_Collapse_Big
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorBridge01
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = BridgePieceFalling
+									ExplosionName = Expl_Building_01
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+//------------------------------------------------------------------------------------
+// UNIT FLYING PART FROM EXPLOSION
+//------------------------------------------------------------------------------------
+
+
+// Stone debris to attatch to buildings.
+FlyingPart	ExplPartsBridge01 
+{ 
+	Parts = [
+				{
+					NifName       = fx_StoneD_a.nif
+					VelocityAngleMin = 90
+					VelocityAngle = 110
+					SpeedMin      = 3
+					SpeedMax      = 4
+					Mass = 100
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+					DeathExplosionNameWater = Expl_BridgeDebrisSplash_01
+				}
+				{
+					NifName       = fx_StoneD_b.nif
+					VelocityAngleMin = 90
+					VelocityAngle = 110
+					SpeedMin      = 3
+					SpeedMax      = 4
+					Mass = 100
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+					DeathExplosionNameWater = Expl_BridgeDebrisSplash_01
+				}
+				{
+					NifName       = fx_StoneD_c.nif
+					VelocityAngleMin = 90
+					VelocityAngle = 110
+					SpeedMin      = 3
+					SpeedMax      = 4
+					Mass = 100
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+					DeathExplosionNameWater = Expl_BridgeDebrisSplash_01
+				}
+				{
+					NifName       = fx_StoneD_d.nif
+					VelocityAngleMin = 90
+					VelocityAngle = 110
+					SpeedMin      = 3
+					SpeedMax      = 4
+					Mass = 100
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+					DeathExplosionNameWater = Expl_BridgeDebrisSplash_01
+				}
+
+			]
+	NbrPartToSpawnMin = 2
+	NbrPartToSpawnMax = 4
+}
+
+FlyingPart	ExplPartsWall5
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_wall5_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wall5_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wall5_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wall5_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wall5_05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsWall8
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_wall8_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wall8_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wall8_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wall8_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wall8_05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsBarracks7
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_bax7_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_bax7_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_bax7_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_bax7_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_bax7_05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsCityCenter7
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_cc7_01_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_cc7_02_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_cc7_03_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_cc7_04_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_cc7_05_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsDock7
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_dock7_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_dock7_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_dock7_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_dock7_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_dock7_05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+
+FlyingPart	ExplPartsHouse7
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_house7_01_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_house7_02_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_house7_03_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_house7_04_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsHouse9
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_house9_01_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_house9_02_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_house9_03_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_house9_04_we.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsPalisade7
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_pallisade7_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_pallisade7_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_pallisade7_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_pallisade7_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsUniversity7
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_univ7_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_univ7_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_univ7_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_univ7_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_univ7_05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsStable5
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_stable5_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stable5_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stable5_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stable5_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsTemple
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_temple_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_temple_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_temple_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_temple_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_temple_05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsMill
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_mill_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_mill_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_mill_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_mill_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsFort
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_fort_01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_fort_02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_fort_03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_fort_04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_fort_05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsWood
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_wood01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsThatch
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_thatch01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsStone
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_stone01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsBrick
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_brick01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_brick02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_brick03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_brick04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_brick05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsConcrete
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_concrete01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_concrete02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_concrete03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_concrete04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_concrete05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+
+
+FlyingPart	ExplPartsStoneWood
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_stone01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+				{
+					NifName       = fx_db_wood01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsStoneThatch
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_stone01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+				{
+					NifName       = fx_db_thatch01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsWoodThatch
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_wood01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_wood05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+				{
+					NifName       = fx_db_thatch01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_thatch05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}
+
+FlyingPart	ExplPartsStoneBrick
+{ 
+	Parts = [
+				{
+					NifName       = fx_db_stone01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_stone05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+				{
+					NifName       = fx_db_brick01.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_brick02.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_brick03.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_brick04.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+				{
+					NifName       = fx_db_brick05.nif
+					VelocityAngle = 45
+					SpeedMin      = 2
+					SpeedMax      = 5
+					Mass = 10
+					BouncingEnergyKeep = 0.2
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.8
+				}
+
+
+			]
+	NbrPartToSpawnMin = 8
+	NbrPartToSpawnMax = 10
+}

@@ -1,0 +1,39 @@
+//NAME,FILENAME,U,V,WIDTH,HEIGHT,FLAGS
+spr_zero_placeholder_donotuse,thereisnosuchfile.tga,0,0,1,1,0
+spr_checkbox_off,ui_checkbox_off.tga,0,0,128,32,0
+spr_checkbox_on,ui_checkbox_on.tga,0,0,128,32,0
+spr_radiobutton_off,ui_radiobutton_off.tga,0,0,128,32,0
+spr_radiobutton_on,ui_radiobutton_on.tga,0,0,128,32,0
+spr_checkbox_small_off,ui_checkbox_small_off.tga,0,0,32,32,0
+spr_checkbox_small_on,ui_checkbox_small_on.tga,0,0,32,32,0
+spr_combo,ui_combo.tga,0,0,128,32,0
+spr_combo_sml,ui_combo_sml.tga,0,0,64,32,0
+spr_menu_back,ui_combo.tga,0,0,16,16,0
+spr_edittext_back,ui_edittext.tga,0,0,128,32,0
+spr_edittext_cursor,ui_edittext_cursor.tga,0,0,1,1,0
+spr_launch_button,launch_button.tga,0,0,128,64,0
+
+// Shared items,,,,,,
+spr_bkg_translucent25,bkg_translucent25.tga,0,0,1,1,0
+spr_bkg_translucent75,bkg_translucent75.tga,0,0,1,1,0
+
+// colors,,,,,,
+spr_empty,ui_empty.tga,0,0,1,1,0
+spr_whitepixel,ui_whitepixel.tga,0,0,1,1,0
+spr_whitepixel_alpha25,ui_whitepixel_quarteralpha.tga,0,0,1,1,0
+spr_whitepixel_alpha50,ui_whitepixel_halfalpha.tga,0,0,1,1,0
+spr_blackpixel,ui_blackpixel.tga,0,0,1,1,0
+spr_blackpixel_alpha25,ui_blackpixel_quarteralpha.tga,0,0,1,1,0
+spr_blackpixel_alpha50,ui_blackpixel_halfalpha.tga,0,0,1,1,0
+spr_blackpixel_alpha75,ui_blackpixel_threequartersalpha.tga,0,0,1,1,0
+
+// logos,,,,,,
+spr_logo_ee2,EE2X_logo.tga,0,0,384,216,0
+spr_logo_gamespy,GameSpy_logo.tga,0,0,418,100,0
+
+// slider widgets,,,,,,
+spr_slider_bkg,ui_slider_glass_bkg.tga,0,0,128,16,0
+spr_slider_thumb,ui_slider_glass_thumb.tga,0,0,19,40,0
+
+// Misc,,,,,,
+spr_dotted_underline,ui_dotted_underline.tga,0,0,8,32,0

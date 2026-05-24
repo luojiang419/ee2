@@ -1,0 +1,105 @@
+Objective Russian3_Objective1 {
+	name		= tx_r3_finland
+	description	= tx_r3_finland_desc
+	type		= Primary
+	startHidden	= 0
+	targetTerritories	= [ "territoryTavastland" "territoryKarelen" ]
+}
+
+Objective Russian3_Objective2 {
+	name		= tx_r3_subdue_sweden
+	description	= tx_r3_subdue_sweden_desc
+	type		= Primary
+	startHidden	= 1
+}
+
+Objective Russian3_Objective3 {
+	name		= tx_r3_economic_crown
+	description	= tx_r3_economic_crown_desc
+	type		= Secondary
+	startHidden	= 1
+}
+
+Objective Russian3_Objective4 {
+	name		= tx_r3_swedish_navy
+	description	= tx_r3_swedish_navy_desc
+	type		= Secondary
+	startHidden	= 1
+}
+
+Objective Russian3_Objective5 {
+	name		= tx_r3_defend_Alexander
+	description	= tx_r3_defend_Alexander_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits	= [ "Alexander" ]
+}
+
+Objective Russian3_Objective6 {
+	name		= tx_r3_defend_StPete
+	description	= tx_r3_defend_StPete_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits	= [ "cityStPetersburg" ]
+}
+
+Scenario EE2X_Russian3 {
+	name = text_scen_r3_name
+	mapfilename = "EE2X_Russian3.scn"
+	briefing = text_scen_r3_desc
+	sprite = spr_rus3_camp_screenshot
+	thumbnail = spr_rus3_camp_thumb
+
+	reinforcementLocX = 154.0
+	reinforcementLocY = 56.0
+	numReinforcements = 1
+
+	reinforcementGroups = 
+[
+		{ members = 
+			[
+			{type = Resource amount = 250 resType = Gold}
+			{type = Resource amount = 500 resType = Food}
+			{type = Resource amount = 250 resType = Wood}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 4 unitType = HeavyInfantry1}
+			{type = Unit amount = 4 unitType = LightInfantry}
+			{type = Unit amount = 4 unitType = LightMounted1}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 2 unitType = HeavyInfantry1}
+			{type = Unit amount = 2 unitType = LightInfantry}
+			{type = Unit amount = 2 unitType = LightArtillery1}
+			{type = Unit amount = 1 unitType = HeavyArtillery}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = Military9_1}
+			{type = Tech tech = Military9_4}
+			{type = Tech tech = Economic9_2}
+			]
+		}
+]
+
+	victory = text_scen_r3_victory
+	loss = text_scen_r3_loss	
+	hints = text_scen_r3_hints	
+	historicalInfo = text_scen_r3_history
+	description = text_scen_r3_desc	
+	date = text_scen_r3_date
+
+	objectives = [
+		Russian3_Objective1
+		Russian3_Objective2
+		Russian3_Objective3
+		Russian3_Objective4
+		Russian3_Objective5
+		Russian3_Objective6
+	]
+}

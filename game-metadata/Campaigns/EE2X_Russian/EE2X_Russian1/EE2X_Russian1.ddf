@@ -1,0 +1,99 @@
+
+// PRIMARY OBJECTIVES:
+
+Objective Russian1_Objective1 {
+	name		= tx_r1_enter_olmutz
+	description	= tx_r1_enter_olmutz_desc
+	type		= Primary
+	startHidden	= 0
+	targetLocations = [ { x = 36 y = 109 } ]
+
+}
+
+Objective Russian1_Objective2 {
+	name		= tx_r1_destroy_vanguard
+	description	= tx_r1_destroy_vanguard_desc
+	type		= Primary
+	startHidden	= 1
+}
+
+Objective Russian1_Objective3 {
+	name		= tx_r1_sabotage_stables
+	description	= tx_r1_sabotage_stables_desc
+	type		= Secondary
+	startHidden	= 1
+	targetUnits = [ "French Stable" ]
+}
+
+Objective Russian1_Objective4 {
+	name		= tx_r1_alexander_dies
+	description	= tx_r1_alexander_dies_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "Alexander" ]
+}
+
+Objective Russian1_Objective5 {
+	name		= tx_r1_defend_olmutz
+	description	= tx_r1_defend_olmutz_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "OlmutzCityCenter" ]
+}
+
+Objective Russian1_Objective6 {
+	name		= tx_r1_find_stables
+	description	= tx_r1_find_stables_desc
+	type		= Secondary
+	startHidden	= 1
+}
+
+
+Scenario EE2X_Russian1 {
+	name = text_scen_r1_name
+	mapfilename = "EE2X_Russian1.scn"
+	briefing = text_scen_r1_desc
+	sprite = spr_rus1_camp_screenshot
+	thumbnail = spr_rus1_camp_thumb
+
+	reinforcementLocX = 62.0
+	reinforcementLocY = 5.0
+	numReinforcements = 1
+
+	reinforcementGroups = 
+[
+		{ members = 
+			[
+			{type = Resource amount = 1000 resType = Gold}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 6 unitType = HeavyInfantry1}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 2 unitType = LightInfantry}
+			{type = Unit amount = 2 unitType = LightArtillery1}
+			]
+		}
+]
+
+	victory = text_scen_r1_victory
+	loss = text_scen_r1_loss
+	hints = text_scen_r1_hints
+	historicalInfo = text_scen_r1_history
+	description = text_scen_r1_desc
+	date = text_scen_r1_date
+
+	objectives = [
+		Russian1_Objective1
+		Russian1_Objective2
+		Russian1_Objective3
+		Russian1_Objective4
+		Russian1_Objective5
+		Russian1_Objective6
+	]
+}
+

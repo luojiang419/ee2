@@ -1,0 +1,119 @@
+﻿// NAME,TEXT
+// FORMAT: text_scenario_<scenario>_<name>,"""Your text should be in quotes"""
+// EXAMPLE: text_scenario_russian1_killed,"""Your leader has been killed!"""
+
+tx_r1_blank,""""""
+
+text_scen_r1_name,"""奥斯德利兹战役之后"""
+text_scen_r1_desc,"""奥斯德利兹战役之后。\n\n1805年，奥地利。 \n\n在对抗法国入侵奥地利的激烈战争退败后，俄国的沙皇亚历山大，带领了战争残余的势力回到了波兰，他帝国的边疆。拿破仑胜利的大军紧追在后试图追捕他，亚历山大必须进入奥尔米茨并且准备防御来对抗拿破仑的军队，以争取他逃回俄罗斯的时间。"""
+text_scen_r1_victory,"""你赢了！"""
+text_scen_r1_loss,"""你输了。"""
+text_scen_r1_hints,""">使用你的间谍来侦察前方的路径，但是要让你的军队紧跟在后以防他被敌人发现。\n\n> 在进入奥尔米茨之前要小心与法国军队遭遇，亚历山大军队的规模对这场战争来说实在是太小了。 \n\n> 使用你的市民来修复前哨站和城塔，来帮助你的防御。 \n\n> 别忘了将你的单位升级成老鸟或是菁英。"""
+text_scen_r1_history,"""奥斯德利兹战役或许是拿破仑所获得最大的胜利。利用大量的数量来围攻，他诱骗奥地利人跟俄罗斯人进入一个弱势的位置，然后派遣他的菁英部队一次迅速重鎚般的打击并粉碎他们。在失败与羞辱之后，俄罗斯人很快的退出了战争，奥地利人马上投降并且同意交换领地来跟法蓝西帝国求得和平。俄国沙皇亚历山大，知道他必须要在经过一段很长的时间才有能力对抗法国，同时他也知道了他的国家尚未准备好作战。"""
+text_scen_r1_date,"""1805"""
+
+//cinematic text
+tx_r1_intro1,"""俄国的沙皇亚历山大，领导着残余的部队回到了他帝国的边境波兰。"""
+tx_r1_intro2,"""拿破仑和战胜的法国大军紧紧的在后面试图追捕他。"""
+tx_r1_intro3,"""亚历山大必须要进入奥尔米茨，并准备防御阵线以对抗拿破仑的前锋部队，并且为部队返回俄国争取一些时间。"""
+tx_r1_win1,"""由于遭受严重的死伤，法国决定放弃对于沙皇的追补，并且撤退重新集结部队。俄国军队顺利返家。"""
+tx_r1_lose1,"""沙皇战死在战场，现在已经没有人可以领导俄国来抵御拿破仑的攻击！"""
+tx_r1_lose2,"""城市的保卫证明是无用的，看起来似乎没有方法可以抵挡法国的毁灭力量了。"""
+
+//==OBJECTIVE TEXT== ; used in ddf
+tx_r1_enter_olmutz,"""护送亚历山大到奥尔米茨"""
+tx_r1_enter_olmutz_desc,"""护送沙皇到奥尔米茨，但是要小心敌人的巡逻队。法国先锋部队很快的就会到达这里，同时对方的侦察单位似乎已经在这个区域了。"""
+
+tx_r1_destroy_vanguard,"""拖延拿破仑的先锋部队"""
+tx_r1_destroy_vanguard_desc,"""拿破仑的先锋部队很快的就会到达来攻击这座城市。现在有一些时间来准备防御，所以快速的工作来聚集资源、修筑防御工事、及重新装备你的部队。你不需要摧毁拿破仑的全部势力，只要阻挡他们一段够长的时间，他们就会撤退来等待主力部队，以布置另一场进攻。这些时间足够让亚历山大逃回俄罗斯，而无须再害怕法国军队。"""
+
+
+//SECONDARY
+tx_r1_find_stables,"""侦察"""
+tx_r1_find_stables_desc,"""这些巡逻的骑兵队在附近一定有座马厩，如果可以侦测到它的地点，就可以帮助我们防御奥尔米茨。"""
+tx_r1_sabotage_stables,"""破坏法国的马厩"""
+tx_r1_sabotage_stables_desc,"""破坏法国的马厩以迫使法国骑兵撤退。无论如何，别让任何的骑乘单位发现你不然你将会丧失破坏马厩的机会。同时，法国的先锋部队主体已经 毫无疑问的越来越接近了，所以任何的破坏行动都必须在他们到达前完成才行。\n提示：确定让你的军队离开或是停火，这将会给你的间谍一个大机会来避免引起注意。"""
+tx_r1_cav_leaves,"""破坏！"""
+tx_r1_cav_leaves_desc,"""感谢因为他们的马厩被成功的破坏，让拿破仑的骑兵退出了这个区域。"""
+
+
+//LOSE
+tx_r1_alexander_dies,"""亚历山大被杀害"""
+tx_r1_alexander_dies_desc,"""如果沙皇在战争中被杀害，便代表了俄罗斯的混乱。"""
+tx_r1_defend_olmutz,"""奥尔米茨市中心被摧毁或是占领"""
+tx_r1_defend_olmutz_desc,"""为了阻碍拿破仑的前进，奥尔米茨的城市必须掌控在俄罗斯的手中。"""
+
+
+// end obj txt
+////
+
+//START GAME
+
+
+//DIALOGUE BOX STUFF
+
+tx_r1_french_flee,"""法国人正在逃离！"""
+tx_r1_french_flee_desc,"""由于遭受严重的死伤，法国决定放弃对于沙皇的追补，并且撤退重新集结部队。俄国军队顺利返家。"""
+tx_r1_alexander_dead,"""亚历山大阵亡。"""
+tx_r1_alexander_dead_desc,"""沙皇战死在战场，现在已经没有人可以领导俄国来抵御拿破仑的攻击！"""
+tx_r1_olmutz_destroyed,"""奥尔米茨被掠夺！"""
+tx_r1_olmutz_destroyed_desc,"""城市的保卫证明是无用的，看起来似乎没有方法可以抵挡法国的毁灭力量了。"""
+tx_r1_ambush,"""被发现！"""
+tx_r1_ambush_desc,"""一个巡逻骑兵队盯上我们了！准备战斗！"""
+tx_r1_vanguard,"""先锋部队到达"""
+tx_r1_vanguard_desc,"""拿破仑先锋部队的主力已经到达！准备接受攻击！"""
+
+
+//DISPLAY NAMES
+tx_r1_Alexander,"""亚历山大"""
+tx_r1_Napoleon,"""拿破仑"""
+tx_r1_Olmutz,"""奥尔米茨"""
+tx_r1_Academy,"""奥尔米茨大学"""
+tx_r1_OlmutzHighlands,"""奥尔米茨高地"""
+tx_r1_OlmutzHills,"""奥尔米茨山丘"""
+tx_r1_OlmutzOutskirts,"""奥尔米茨郊区"""
+tx_r1_OlmutzApproach,"""即将到达奥尔米茨"""
+text_r1_vanguard_timer,"""先锋部队预计到达时间"""
+text_r1_defend_timer,"""保卫奥尔米茨"""
+text_russian_hero_hurt,"""亚历山大受伤！"""
+text_russian_hero_hurt_desc,"""亚历山大受伤！如果沙皇以死去将会全盘皆输!"""
+
+//Campaign specific object names
+tx_utn_rus_univer_sname,"""俄罗斯的大学"""
+tx_utn_rus_univer_name,"""大学"""
+vtt_unit_RussianUniversity,"""一栋专门研究进阶知识的建筑。让人民驻扎在大学里面可以生产科技点数。生产间谍。"""
+
+tx_utn_Napoleon_name,"""拿破仑·波拿巴"""
+tx_utn_Napoleon_pname,"""拿破仑家族"""
+tx_utn_Napoleon_sname,"""拿破仑·波拿巴"""
+vtt_unit_Napoleon,"""拿破仑·波拿巴。一位伟大的军事家。"""
+
+tx_utn_Alexander_name,"""亚历山大·罗曼诺夫"""
+tx_utn_Alexander_pname,"""亚历山大家族"""
+tx_utn_Alexander_sname,"""亚历山大·罗曼诺夫"""
+vtt_unit_Alexander,"""亚历山大·罗曼诺夫。一位伟大的苏联沙皇。"""
+
+tx_utn_RuscityCenter_name,"""俄罗斯市中心"""
+tx_utn_RuscityCenter_sname,"""俄罗斯市中心"""
+vtt_unit_RusCityCenter,"""这是俄罗斯城市的焦点同时也是资源的集散地。围绕在市中心的四周有下列的好处：修补任何被损坏的单位、并提高被占领单位的反抗能力。人民、斥侯及领袖单位由市中心生产， 同时可以驻防来提升资源生产的能力。"""
+
+tx_utn_Cossack_name,"""哥萨克骑士"""
+tx_utn_Cossack_pname,"""哥萨克骑士"""
+tx_utn_Cossack_sname,"""哥萨克骑士"""
+vtt_unit_Cossack,"""俄罗斯的哥萨克骑士是勇猛的骑兵。行动快速又强健，这些轻骑乘单位在对抗轻火砲单位及重骑乘单位时有攻击优势。"""
+
+tx_utn_ImperialGuard_name,"""帝国警卫军"""
+tx_utn_ImperialGuard_pname,"""帝国警卫军"""
+tx_utn_ImperialGuard_sname,"""帝国警卫军"""
+vtt_unit_ImperialGuard,"""帝国的警卫由拿破仑的菁英部队中挑选组成。这些重步兵在对抗轻骑乘单位及轻砲兵单位时拥有攻击优势。"""
+
+tx_utn_Conscript_name,"""征召兵员"""
+tx_utn_Conscript_pname,"""征召兵员"""
+tx_utn_Conscript_sname,"""征召兵员"""
+vtt_unit_Conscript,"""俄国的征召兵员从祖国的人力中征调过来，虽然训练并非良好，但是这些重步兵还是在对抗轻骑乘及轻火砲单位上有攻击的优势。"""
+
+
+
+
+
+

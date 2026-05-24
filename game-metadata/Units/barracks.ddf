@@ -1,0 +1,203 @@
+//------------------------------------------------------------------------------------------------
+//	BARRACKS - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType Barracks
+{
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 2
+		FootprintSizeX = 3.5
+		FootprintSizeY = 3.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		UndertextureSizeX = 3
+		UndertextureSizeY = 2
+		UndertextureOffsetX = -0.5
+		UndertextureOffsetY = 0
+		mass = 1
+		displayName = tx_utn_barracks_name
+		DisplayNameScenEdit = tx_utn_barracks_sname
+		VerboseTooltip = vtt_unit_Barracks
+		RallyPlacementFlags = ( Fortress | Tower | Terrain )
+		requiredOpenSides = kBuildingOpenSides_PosX
+	}
+	sounds {
+    	}
+	fullMapOverlay { sprite = spr_fullmap_barracks }
+	abilities = [
+		LOS { range = 0 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+// BarracksUpgradeEpoch1 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+// BarracksUpgradeEpoch4 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+// BarracksUpgradeEpoch7 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+// BarracksUpgradeEpoch10 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// BarracksUpgradeEpoch13 is in upgrade_unittypes.csv
+
+//------------------------------------------------------------------------------------------------
+//	BARRACKS - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+UnitModel Barracks
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_barracks1.NIF
+	ChildNames 	= [ UnderBarracks LargeGlow ExplSelectorBuild_Small ExplPartsWood ]
+	UIRenderingParams {
+		xOffset = 0.23
+		yOffset = 0.46
+		zOffset = 1.53
+		scale = 1.20
+		angle = 42.63
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+UnitModel Barracks_4
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_barracks4.NIF
+	ChildNames 	= [ UnderBarracks LargeGlow ExplSelectorBuild_Small ExplPartsStone ]
+	UIRenderingParams {
+		xOffset = 0.23
+		yOffset = 0.79
+		zOffset = 0.90
+		scale = 1.28
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 40.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+UnitModel Barracks_7
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_barracks7.NIF
+	ChildNames 	= [ UnderBarracks LargeGlow ExplSelectorBuild_Small ExplPartsBarracks7 ]
+	UIRenderingParams {
+		xOffset = 0.23
+		yOffset = 1.18
+		zOffset = 0.53
+		scale = 1.40
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 30.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel Barracks_10
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_barracks10.NIF
+	ChildNames 	= [ UnderBarracks LargeGlow ExplSelectorBuild_Small ExplPartsWood ]
+	UIRenderingParams {
+		xOffset = 0.23
+		yOffset = 0.53
+		zOffset = 1.84
+		scale = 1.28
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 30.79
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel Barracks_13
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_barracks13.NIF
+	ChildNames 	= [ UnderBarracks LargeGlow ExplSelectorBuild_Small ExplPartsConcrete ]
+	UIRenderingParams {
+		xOffset = 0.23
+		yOffset = 1.16
+		zOffset = 1.34
+		scale = 1.15
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 30.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//UP1.5:
+UnitModel Barracks_15
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= Bld_barack15.NIF
+	ChildNames 	= [ UnderBarracks LargeGlow ExplSelectorBuild_Small ExplPartsConcrete ]
+	UIRenderingParams {
+		xOffset = 0.23
+		yOffset = 1.16
+		zOffset = 1.34
+		scale = 1.15
+		angle = 37.89
+		rotationSpeed = 0.00
+		pitch = 30.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

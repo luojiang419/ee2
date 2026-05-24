@@ -1,0 +1,2914 @@
+// Naval explosions
+
+//------------------------------------------------------------------------------------
+// SEQUENCE
+//------------------------------------------------------------------------------------
+
+ExplosionSequence	sq_naval_explosion1
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ AnimatedNavalExplosion1 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+
+ExplosionSequence	sq_naval_explosion2
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+//	SequenceNames = [ AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceNames = [ AnimatedNavalExplosion3  AnimatedNavalExplosionFlash3 AnimatedTorpedoSplash3 ]
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+ExplosionSequence	sq_naval_explosion3
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+//	SequenceNames = [ AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceNames = [ AnimatedTorpedoSplash3 ]
+	SequenceSoundsNames = []
+}
+ExplosionSequence	sq_naval_explosion4
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+//	SequenceNames = [ AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceNames = [ AnimatedTorpedoSplash3 ]
+	SequenceSoundsNames = []
+}
+ExplosionSequence	sq_naval_explosion5
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+//	SequenceNames = [ AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceNames = [ AnimatedTorpedoSplash3 AnimatedNavalExplosionSmoke1]
+	SequenceSoundsNames = [fx_exp_small_1]
+}
+ExplosionSequence	sq_naval_explosion6
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+//	SequenceNames = [ AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceNames = [ AnimatedTorpedoSplash3 AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1]
+	SequenceSoundsNames = [fx_exp_small_1]
+}
+ExplosionSequence	sq_naval_explosion7
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+//	SequenceNames = [ AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceNames = [ AnimatedTorpedoSplash3 AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 ]
+	SequenceSoundsNames = [fx_bomb_explosion ]
+}
+ExplosionSequence	sq_naval_explosion8
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+//	SequenceNames = [ AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceNames = [ AnimatedTorpedoSplash3 AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 ]
+	SequenceSoundsNames = [fx_bomb_explosion ]
+}
+ExplosionSequence	sq_naval_explosion9
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+//	SequenceNames = [ AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceNames = [ AnimatedTorpedoSplash3 AnimatedNavalExplosion1 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 ]
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+ExplosionSequence	sq_naval_explosion10
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = 1
+	StartFromMainModel = 1
+//	SequenceNames = [ AnimatedNavalExplosion3 AnimatedNavalExplosionSmoke1 AnimatedNavalExplosionFlash1 AnimatedTorpedoSplash2 ]
+	SequenceNames = [ AnimatedTorpedoSplash3 AnimatedNavalExplosion3  AnimatedNavalExplosionFlash1 ]
+	SequenceSoundsNames = [fx_exp_underwater_4]
+}
+ExplosionSequence	sq_naval_flash01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_flash01.nif]
+	SequenceWorldScales = [0.1]
+	SequenceDrawingOrderLayer = [2]	
+	SequenceSoundsNames = []
+}
+
+ExplosionSequence	sq_naval_deathwake1
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Wake
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_deathwake01.nif]
+	SequenceWorldScales = [1.25]
+	SequenceDrawingOrderLayer = [2]	
+	SequenceSoundsNames = []
+}
+
+ExplosionSequence	sq_naval_deathwake2
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Wake
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_deathwake01.nif]
+	SequenceWorldScales = [0.75]
+	SequenceDrawingOrderLayer = [2]	
+	SequenceSoundsNames = []
+}
+
+ExplosionSequence	sq_naval_deathwake3
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Wake
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_deathwake01.nif]
+	SequenceWorldScales = [0.5]
+	SequenceDrawingOrderLayer = [2]	
+	SequenceSoundsNames = []
+}
+
+ExplosionSequence	sq_naval_dark01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_dark01.nif]
+	SequenceWorldScales = [0.15]
+	SequenceDrawingOrderLayer = [1]	
+}
+
+ExplosionSequence	sq_naval_light01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_light01.nif]
+	SequenceWorldScales = [0.1]
+	SequenceDrawingOrderLayer = [0]	
+}
+
+ExplosionSequence	sq_naval_debris01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_debris01.nif]
+	SequenceWorldScales = [0.15]
+	SequenceDrawingOrderLayer = [1]	
+}
+
+ExplosionSequence	sq_naval_pieces01
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.0
+	TimeB = 0.0
+	FiringProbability = 1
+	SequenceType = Message
+	SequenceNames = [ startFlyingPartExplosion ]
+}
+
+ExplosionSequence	sq_naval_swap01
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.2
+	TimeB = 0.2
+	FiringProbability = 1
+	SequenceType = ModelSwap
+	PlayAll = 0
+	SequenceNames = [ ]
+}
+
+
+
+//------------------------------------------------------------------------------------
+// EXPLOSION
+//------------------------------------------------------------------------------------
+
+// Splash explosion for missiles.
+Explosion			Expl_naval_10
+{
+	BoundingSphereRadius = 1
+//	ExplosionSequences =	[ sq_naval_debris01 sq_naval_dark01 sq_naval_light01 sq_naval_flash01 sq_naval_pieces01 sq_naval_swap01 ]
+	ExplosionSequences =	[ sq_naval_explosion1 sq_naval_deathwake1 sq_naval_pieces01 sq_naval_swap01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+	AttachToParent = true
+}
+
+Explosion			Expl_naval_01
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion2 sq_naval_deathwake2 sq_naval_pieces01 sq_naval_swap01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for fishing ship.
+Explosion			Expl_naval_fish
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion3 sq_naval_deathwake3 sq_naval_pieces01 sq_naval_swap01 sq_naval_debris01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for galley.
+Explosion			Expl_naval_galley
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion3 sq_naval_deathwake2 sq_naval_pieces01 sq_naval_swap01 sq_naval_debris01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for big galleys ships.
+Explosion			Expl_naval_galley2
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion4 sq_naval_deathwake2 sq_naval_pieces01 sq_naval_swap01 sq_naval_debris01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for sail ships.
+Explosion			Expl_naval_SailL
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion5 sq_naval_deathwake2 sq_naval_pieces01 sq_naval_swap01 sq_naval_debris01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for big sail ships.
+Explosion			Expl_naval_SailB
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion6 sq_naval_deathwake1 sq_naval_pieces01 sq_naval_swap01 sq_naval_debris01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for little modern ships.
+Explosion			Expl_naval_IronShip
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion7 sq_naval_deathwake1 sq_naval_pieces01 sq_naval_swap01 sq_naval_dark01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for medium modern ships.
+Explosion			Expl_naval_Destroy
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion8 sq_naval_deathwake1 sq_naval_pieces01 sq_naval_swap01 sq_naval_dark01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for medium modern ships.
+Explosion			Expl_naval_Mikasa
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion9 sq_naval_deathwake1 sq_naval_pieces01 sq_naval_swap01 sq_naval_dark01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for medium modern ships.
+Explosion			Expl_naval_Submarine
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion10 sq_naval_deathwake2 sq_naval_pieces01 sq_naval_swap01 sq_naval_light01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+//Sail Ships Death
+Explosion			Expl_naval_02
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_naval_explosion2 sq_naval_deathwake2 sq_naval_pieces01 sq_naval_swap01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION MAPPER
+//------------------------------------------------------------------------------------
+ExplosionSelector	ExplSelectorNaval
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_01
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorFish
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_Fish
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+ExplosionSelector	ExplSelectorGalley
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_Galley
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+ExplosionSelector	ExplSelectorGalley2
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_Galley2
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+ExplosionSelector	ExplSelectorSailL
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_SailL
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+ExplosionSelector	ExplSelectorSailB
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_SailB
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+ExplosionSelector	ExplSelectorIronShip
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_IronShip
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+ExplosionSelector	ExplSelectorDestroy
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_Destroy
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+ExplosionSelector	ExplSelectorMikasa
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_Mikasa
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+ExplosionSelector	ExplSelectorBattleship11
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_10
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorSubmarine
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_Submarine
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorAircraftCarrier
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_10
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorTallShip
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_naval_02
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+
+
+//------------------------------------------------------------------------------------
+// UNIT FLYING PART FROM EXPLOSION
+//------------------------------------------------------------------------------------
+
+FlyingPart	Galley_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = NWG1_Galley_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = NWG1_Galley_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = NWG1_Galley_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Trireme_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NWG3_trireme_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NWG3_trireme_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NWG3_trireme_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Decareme_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NWG5_decareme_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NWG5_decareme_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NWG5_decareme_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Galleas_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NG6_galleas_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NG6_galleas_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NG6_galleas_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Carrack_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NG8_carrack_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.10
+					StartingPositionMaxZ = 0.10
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NG8_carrack_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.10
+					StartingPositionMaxZ = 0.10
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NG8_carrack_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+
+FlyingPart	Galleon_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NG10_galleon_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NG10_galleon_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NG10_galleon_damage03.nif
+					VelocityAngle = 30
+					VelocityAngleMin = 30
+					SpeedMin      = 2
+					SpeedMax      = 2
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.2
+					StartingPositionMaxZ = 0.2
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 6.0
+					RotationSpeedMax = 6.0
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NG10_galleon_damage04.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Caravel_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NFS6_caravel_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NFS6_caravel_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NFS6_caravel_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	ShipOfTheLine_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NFS8_ShipOfTheLine_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NFS8_ShipOfTheLine_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NFS8_ShipOfTheLine_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Ironclad_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NFS10_Ironclad_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NFS10_Ironclad_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NFS10_Ironclad_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Barque_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NF6_Barque_damage01.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NF6_Barque_damage02.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NF6_Barque_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Privateer_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NF8_Privateer_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NF8_Privateer_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+
+				}
+
+				//Mast
+				{
+					NifName       = fx_NF8_Privateer_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Frigate_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NF10_Frigate_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NF10_Frigate_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NF10_Frigate_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	MerchantShip1_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC1_MerchantShip_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC1_MerchantShip_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NNC1_MerchantShip_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	MerchantShip6_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC6_Trading_Cog_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC6_Trading_Cog_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NNC6_Trading_Cog_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	MerchantShip11_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC11_merchantship03_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC11_merchantship03_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NNC11_merchantship03_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NNC11_merchantship03_damage04.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	FishingShip1_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC1_FishingBoat_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC1_FishingBoat_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NNC1_FishingBoat_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	FishingShip6_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC6_WhalingShip_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC6_WhalingShip_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NNC6_WhalingShip_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	FishingShip11_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC11_fishingship_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC11_fishingship_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NNC11_fishingship_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NNC11_fishingship_damage04.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	CargoShip_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC6_CargoShip_damage01.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC6_CargoShip_damage02.nif
+					VelocityAngle = 15
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Mast
+				{
+					NifName       = fx_NNC6_CargoShip_damage03.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	MerchantMarine_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC11_merchantmarine_damage01.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC11_merchantmarine_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 20
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.75
+					RotationSpeedMax = 0.75
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC11_merchantmarine_damage03.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 1.0
+					RotationSpeedMax = 1.0
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	AircraftCarrier_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC11_aircraftcarrier_damage01.nif
+					VelocityAngle = 35
+					VelocityAngleMin = 35
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC11_aircraftcarrier_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 20
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC11_aircraftcarrier_damage03.nif
+					VelocityAngle = 5
+					VelocityAngleMin = 5
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	SeaArcher_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NNC14_SeaArcher_damage01.nif
+					VelocityAngle = 35
+					VelocityAngleMin = 35
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC14_SeaArcher_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 20
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NNC14_SeaArcher_damage03.nif
+					VelocityAngle = 5
+					VelocityAngleMin = 5
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Destroyer_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_ND11_Destroyer_damage01.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_ND11_Destroyer_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 20
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.75
+					RotationSpeedMax = 0.75
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_ND11_Destroyer_damage03.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 1.0
+					RotationSpeedMax = 1.0
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+
+				{
+					NifName       = fx_ND11_Destroyer_damage04.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	SensorDestroyer_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_ND13_SensorDestroyer_damage01.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_ND13_SensorDestroyer_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 20
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.75
+					RotationSpeedMax = 0.75
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_ND13_SensorDestroyer_damage03.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 1.0
+					RotationSpeedMax = 1.0
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+
+				{
+					NifName       = fx_ND13_SensorDestroyer_damage04.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 2
+					SpeedMax      = 2
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.25
+					StartingPositionMaxZ = 0.25
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 10.0
+					RotationSpeedMax = 10.0
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	XShip_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_ND15_XShip_damage01.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_ND15_XShip_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 20
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.75
+					RotationSpeedMax = 0.75
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_ND15_XShip_damage03.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 1.0
+					RotationSpeedMax = 1.0
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Submarine_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NS11_Submarine_damage01.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NS11_Submarine_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	NuclearSubmarine_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NS13_NuclearSubmarine_damage01.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NS13_NuclearSubmarine_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Manta_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NS15_Manta_damage01.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NS15_Manta_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Battleship_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NB11_Battleship_damage01.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NB11_Battleship_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 20
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.75
+					RotationSpeedMax = 0.75
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NB11_Battleship_damage03.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 1.0
+					RotationSpeedMax = 1.0
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+
+				{
+					NifName       = fx_NB11_Battleship_damage04.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				{
+					NifName       = fx_NB11_Battleship_damage05.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+
+FlyingPart	MissileCruiser_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NB13_MissileCruiser_damage01.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NB13_MissileCruiser_damage02.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 20
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.75
+					RotationSpeedMax = 0.75
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NB13_MissileCruiser_damage03.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 1.0
+					RotationSpeedMax = 1.0
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+
+				{
+					NifName       = fx_NB13_MissileCruiser_damage04.nif
+					VelocityAngle = 45
+					VelocityAngleMin = 45
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}
+
+FlyingPart	Leviathan_FlyingParts
+{ 
+	Parts = [
+				//Body
+				{
+					NifName       = fx_NB15_Leviathan_damage01.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 10
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.5
+					RotationSpeedMax = 0.5
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 5
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NB15_Leviathan_damage03.nif
+					VelocityAngle = 20
+					VelocityAngleMin = 20
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 0.75
+					RotationSpeedMax = 0.75
+					NoRandom_ForceToPlay = true
+					TimeBeforeVanish = 2
+					FloatOnWater = true
+				}
+
+				//Body
+				{
+					NifName       = fx_NB15_Leviathan_damage04.nif
+					VelocityAngle = 10
+					VelocityAngleMin = 10
+					SpeedMin      = 1
+					SpeedMax      = 1
+					StartingPositionMinX = 0
+					StartingPositionMaxX = 0
+					StartingPositionMinY = 0
+					StartingPositionMaxY = 0
+					StartingPositionMinZ = 0.15
+					StartingPositionMaxZ = 0.15
+					Mass = 5
+					BouncingEnergyKeep = 0.0
+					RotationSpeedMin = 1.0
+					RotationSpeedMax = 1.0
+					NoRandom_ForceToPlay = true
+					FloatOnWater = true
+				}
+			]
+	RenderAtAllLOD = true
+}

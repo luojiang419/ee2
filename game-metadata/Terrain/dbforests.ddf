@@ -1,0 +1,676 @@
+//treetypes:
+//TRE_PALM
+//TRE_PALM_DARK
+//TRE_PALMETTO
+//TRE_FERNTROP1
+//TRE_FERNTROP2
+//TRE_PALM_03
+//TRE_BIRCH
+
+//TRE_BIRCH_DEAD
+//TRE_CYPRESS
+//TRE_CYPRESS_DEAD
+//TRE_OAK
+//TRE_OAK_DEAD
+//TRE_FIR
+//TRE_MAPLE_01
+//TRE_MAPLE_02
+//TRE_OAK2
+
+//reetypes 15:
+//TREE_arid_palm_date1
+//TREE_arid_palm_yellow1
+//TREE_arid_pillarwood1
+//TREE_arid_acacia1
+//TREE_arid_buffalo_thorn1
+//TREE_arid_boabab1
+//TREE_arid_bush_canary1
+//TREE_arid_draceana1
+//TREE_arid_date_desert1
+//TREE_arid_cordia1
+//TREE_arid_cactus_hairbrush1
+//TREE_arid_naivasha_thorn1
+//TREE_arid_stinging_nettle1
+//TREE_arid_umbrella1
+
+//TREE_temp_basswood1
+//TREE_temp_camphor1
+//TREE_temp_apricot1
+//TREE_temp_aspen1
+//TREE_temp_birch1
+//TREE_temp_camellia1
+//TREE_temp_catalpa1
+//TREE_temp_cedar_eastern1
+//TREE_temp_cherry_chinese1
+//TREE_temp_cypress_lawson1
+//TREE_temp_daphne1
+//TREE_temp_oak_common1
+//TREE_temp_oak_english1
+//TREE_temp_pine_austrian1
+//TREE_temp_walnut_american1
+//TREE_temp_sweet_gum1
+
+//TREE_trop_olive_european1
+//TREE_trop_palm_fiber1
+//TREE_trop_palm_fountain1
+//TREE_trop_palm_mexicanwashi
+//TREE_trop_palm_royal1
+//TREE_trop_palm_sugar1
+//TREE_trop_mulberry1
+//TREE_trop_hazel_turkish1
+//TREE_trop_holly_japanese1
+//TREE_trop_palm_canary1
+//TREE_trop_bamboo1
+//TREE_trop_cypress
+//TREE_trop_cypress_sawara1
+//TREE_trop_cypress_flo1
+//TREE_trop_coconut1
+//TREE_trop_catalpa1
+//TREE_trop_banian1
+//TREE_trop_fig_yellow1
+//TREE_trop_canopy_01
+//TREE_trop_canopy_02
+
+//TREE_arct_aspen1_winter
+//TREE_arctic_aspen02_winter
+//TREE_arctic_aspen03_winter
+//TREE_arctic_sapling01_Winter
+//TREE_arctic_sapling02_Winter
+//TREE_arct_fir1
+//TREE_arct_fir2
+//TREE_arct_fir3
+
+//wood_space_carbon_01
+//wood_space_carbon_02
+//wood_space_carbon_03
+//wood_space_carbon_04
+//wood_space_carbon_05
+//wood_space_carbon_06
+//wood_space_carbon_07
+//wood_space_carbon_08
+//wood_space_carbon_09
+//wood_space_carbon_10
+//wood_space_carbon_11
+//wood_space_carbon_12
+
+// Tropic Brushes
+
+ForestBrush Tropic1 {
+	trees = [
+		{tree = TRE_PALM weight = 10}
+		{tree = TRE_PALMETTO weight = 5}
+	]
+}
+
+ForestBrush Tropic2 {
+	trees = [
+		{tree = TRE_PALM weight = 10}
+		{tree = TRE_PALM_DARK weight = 5}
+		{tree = TRE_PALMETTO weight = 7}
+	]
+}
+
+ForestBrush Tropic3 {
+	trees = [
+		{tree = TRE_PALM weight = 10}
+		{tree = TRE_PALM_DARK weight = 5}
+		{tree = TRE_PALMETTO weight = 2}
+		{tree = TRE_PALM_03 weight = 2}
+	]
+}
+
+ForestBrush Tropic4 {
+	trees = [
+		{tree = TRE_FERNTROP1 weight = 1}
+		{tree = TRE_FERNTROP2 weight = 2}
+		{tree = TRE_FERNTROP3 weight = 3}
+		{tree = TRE_FERNTROP4 weight = 4}
+		{tree = TRE_FERNTROP5 weight = 5}
+	]
+}
+
+ForestBrush Loew_Tropic5_15 {
+	trees = [
+	{tree = TREE_trop_olive_european1 weight = 1}
+	{tree = TREE_trop_palm_fiber1 weight = 2}
+	{tree = TREE_trop_palm_fountain1 weight = 2}
+	{tree = TREE_trop_palm_mexicanwashi weight = 3}
+	{tree = TREE_trop_palm_royal1 weight = 5}
+	{tree = TREE_trop_palm_sugar1 weight = 6}
+	]
+}
+
+ForestBrush Loew_Tropic6_15 {
+	trees = [
+	{tree = TREE_trop_mulberry1 weight = 3}
+	{tree = TREE_trop_hazel_turkish1 weight = 5}
+	{tree = TREE_trop_holly_japanese1 weight = 5}
+	{tree = TREE_trop_palm_canary1 weight = 3}
+	{tree = TREE_trop_bamboo1 weight = 4}
+	]
+}
+
+ForestBrush Loew_Tropic7_15 {
+	trees = [
+	{tree = TREE_trop_bamboo1 weight = 4}
+	{tree = TREE_trop_cypress weight = 5}
+	{tree = TREE_trop_cypress_sawara1 weight = 5}
+	{tree = TREE_trop_cypress_flo1 weight = 2}
+	]
+}
+
+ForestBrush Loew_Tropic8_15 {
+	trees = [
+	{tree = TREE_trop_coconut1 weight = 5}
+	{tree = TREE_trop_palm_royal1 weight = 3}
+	{tree = TREE_trop_bamboo1 weight = 2}
+	{tree = TREE_trop_palm_sugar1 weight = 5}
+	]
+}
+
+ForestBrush Loew_Tropic9_15 {
+	trees = [
+	{tree = TREE_trop_mulberry1 weight = 3}
+	{tree = TREE_trop_hazel_turkish1 weight = 5}
+	{tree = TREE_trop_holly_japanese1 weight = 5}
+	{tree = TREE_trop_catalpa1 weight = 4}
+	]
+}
+
+ForestBrush Loew_Tropic10_15 {
+	trees = [
+	{tree = TREE_trop_coconut1 weight = 3}
+	{tree = TREE_trop_palm_royal1 weight = 1}
+	{tree = TREE_trop_bamboo1 weight = 2}
+	{tree = TREE_trop_palm_sugar1 weight = 3}
+	{tree = TREE_trop_palm_canary1 weight = 3}
+	{tree = TREE_trop_palm_fountain1 weight = 2}
+	]
+}
+
+ForestBrush Loew_Tropic11_15 {
+	trees = [
+	{tree = TREE_trop_canopy_01 weight = 2}
+	{tree = TREE_trop_canopy_02 weight = 2}
+	]
+}
+
+ForestBrush Loew_Tropic_Random_15 {
+	trees = [
+	{tree = TREE_trop_canopy_01 weight = 1}
+	{tree = TREE_trop_canopy_02 weight = 1}
+	{tree = TREE_trop_catalpa1 weight = 10}
+	{tree = TREE_trop_coconut1 weight = 10}
+	{tree = TREE_trop_palm_sugar1 weight = 10}
+	{tree = TREE_trop_cypress weight = 10}
+	{tree = TREE_trop_cypress_sawara1 weight = 10}
+	{tree = TREE_trop_cypress_flo1 weight = 10}
+	{tree = TREE_trop_mulberry1 weight = 10}
+	{tree = TREE_trop_hazel_turkish1 weight = 10}
+	{tree = TREE_trop_holly_japanese1 weight = 10}
+	{tree = TREE_trop_palm_canary1 weight = 10}
+	{tree = TREE_trop_bamboo1 weight = 10}
+	{tree = TREE_trop_olive_european1 weight = 10}
+	{tree = TREE_trop_palm_fiber1 weight = 10}
+	{tree = TREE_trop_palm_fountain1 weight = 10}
+	{tree = TREE_trop_palm_mexicanwashi weight = 10}
+	{tree = TREE_trop_palm_royal1 weight = 10}
+	]
+}
+
+// Temp Brushes
+
+ForestBrush Temperate1 {
+	trees = [
+		{tree = TRE_OAK weight = 2}
+		{tree = TRE_OAK2 weight = 2}
+		{tree = TRE_MAPLE_01 weight = 1}
+		{tree = TRE_MAPLE_02 weight = 1}
+		{tree = TRE_OAK_DEAD weight = 1}
+		{tree = TRE_FIR weight = 4}
+	]
+}
+
+
+ForestBrush Temperate2 {
+	trees = [
+		{tree = TRE_OAK weight = 2}
+		{tree = TRE_OAK2 weight = 2}
+		{tree = TRE_MAPLE_01 weight = 1}
+		{tree = TRE_MAPLE_02 weight = 1}
+		{tree = TRE_OAK_DEAD weight = 1}
+		{tree = TRE_BIRCH weight = 2}
+		{tree = TRE_BIRCH_DEAD weight = 1}
+	]
+}
+
+
+ForestBrush Temperate3 {
+	trees = [
+		{tree = TRE_OAK weight = 3}
+		{tree = TRE_OAK2 weight = 3}
+		{tree = TRE_MAPLE_01 weight = 2}
+		{tree = TRE_MAPLE_02 weight = 2}
+		{tree = TRE_OAK_DEAD weight = 1}
+		{tree = TRE_BIRCH weight = 1}
+		{tree = TRE_FIR weight = 5}
+	]
+}
+
+ForestBrush Loew_Temperate4_15 {
+	trees = [
+	{tree = TREE_temp_basswood1 weight  = 5}
+	{tree = TREE_temp_camphor1 weight  = 1}
+	{tree = TREE_temp_apricot1 weight  = 1}
+	{tree = TREE_temp_aspen1 weight  = 3}
+	{tree = TREE_temp_birch1 weight  = 3}
+	]
+}
+
+ForestBrush Loew_Temperate5_15 {
+	trees = [
+	{tree = TREE_temp_camellia1  weight = 3}
+	{tree = TREE_temp_catalpa1  weight = 3}
+	{tree = TREE_temp_cedar_eastern1 weight = 3}
+	{tree = TREE_temp_cherry_chinese1 weight = 4}
+	{tree = TREE_temp_cypress_lawson1 weight = 2}
+	]
+}
+
+ForestBrush Loew_Temperate6_15 {
+	trees = [
+	{tree = TREE_temp_daphne1 weight = 3}
+	{tree = TREE_temp_oak_common1 weight = 5}
+	{tree = TREE_temp_oak_english1 weight = 3}
+	]
+}
+
+ForestBrush Loew_Temperate7_15 {
+	trees = [
+	{tree = TREE_temp_pine_austrian1 weight  = 3}
+	{tree = TREE_temp_walnut_american1 weight  = 5}
+	{tree = TREE_temp_sweet_gum1 weight  = 3}
+	]
+}
+
+ForestBrush Loew_Temperate_Random_15 {
+	trees = [
+	{tree = TREE_temp_pine_austrian1 weight  = 1}
+	{tree = TREE_temp_walnut_american1 weight  = 1}
+	{tree = TREE_temp_sweet_gum1 weight  = 1}
+	{tree = TREE_temp_daphne1 weight = 1}
+	{tree = TREE_temp_oak_common1 weight = 1}
+	{tree = TREE_temp_oak_english1 weight = 1}
+	{tree = TREE_temp_camellia1  weight = 1}
+	{tree = TREE_temp_catalpa1  weight = 1}
+	{tree = TREE_temp_cedar_eastern1 weight = 1}
+	{tree = TREE_temp_cherry_chinese1 weight = 1}
+	{tree = TREE_temp_cypress_lawson1 weight = 1}
+	{tree = TREE_temp_basswood1 weight  = 1}
+	{tree = TREE_temp_camphor1 weight  = 1}
+	{tree = TREE_temp_apricot1 weight  = 1}
+	{tree = TREE_temp_aspen1 weight  = 1}
+	{tree = TREE_temp_birch1 weight  = 1}
+	]
+}
+
+ForestBrush Loew_Arctic1_15 {
+	trees = [
+	{tree = TREE_arct_aspen1_winter weight  = 1}
+	{tree = TREE_arctic_aspen02_winter weight  = 2}
+	{tree = TREE_arctic_aspen03_winter weight  = 1}
+	]
+}
+
+ForestBrush Loew_Arctic2_15 {
+	trees = [
+	{tree = TREE_arctic_sapling01_Winter weight  = 1}
+	{tree = TREE_arctic_sapling02_Winter weight  = 1}
+	]
+}
+
+ForestBrush Loew_Arctic3_15 {
+	trees = [
+	{tree = TREE_arct_fir1 weight = 1}
+	{tree = TREE_arct_fir2 weight = 2}
+	{tree = TREE_arct_fir3 weight = 1}
+	]
+}
+
+ForestBrush Loew_Arctic_Random_15 {
+	trees = [
+	{tree = TREE_arct_fir1 weight = 1}
+	{tree = TREE_arct_fir2 weight = 1}
+	{tree = TREE_arct_fir3 weight = 1}
+	{tree = TREE_arctic_sapling01_Winter weight  = 1}
+	{tree = TREE_arctic_sapling02_Winter weight  = 1}
+	{tree = TREE_arct_aspen1_winter weight  = 1}
+	{tree = TREE_arctic_aspen02_winter weight  = 1}
+	{tree = TREE_arctic_aspen03_winter weight  = 1}
+	]
+}
+
+ForestBrush Loew_Carbon1_15 {
+	trees = [
+	{tree = wood_space_carbon_01 weight = 1}
+	{tree = wood_space_carbon_02 weight = 1}
+	{tree = wood_space_carbon_03 weight = 1}
+	]
+}
+
+ForestBrush Loew_Carbon2_15 {
+	trees = [
+	{tree = wood_space_carbon_04 weight = 1}
+	{tree = wood_space_carbon_05 weight = 1}
+	{tree = wood_space_carbon_06 weight = 1}
+	]
+}
+
+ForestBrush Loew_Carbon3_15 {
+	trees = [
+	{tree = wood_space_carbon_07 weight = 1}
+	{tree = wood_space_carbon_08 weight = 1}
+	{tree = wood_space_carbon_09 weight = 1}
+	]
+}
+
+ForestBrush Loew_Carbon4_15 {
+	trees = [
+	{tree = wood_space_carbon_10 weight = 1}
+	{tree = wood_space_carbon_11 weight = 1}
+	{tree = wood_space_carbon_12 weight = 1}
+	]
+}
+
+ForestBrush Loew_Carbon_Random_15 {
+	trees = [
+	{tree = wood_space_carbon_10 weight = 1}
+	{tree = wood_space_carbon_11 weight = 1}
+	{tree = wood_space_carbon_12 weight = 1}
+	{tree = wood_space_carbon_07 weight = 1}
+	{tree = wood_space_carbon_08 weight = 1}
+	{tree = wood_space_carbon_09 weight = 1}
+	{tree = wood_space_carbon_04 weight = 1}
+	{tree = wood_space_carbon_05 weight = 1}
+	{tree = wood_space_carbon_06 weight = 1}
+	{tree = wood_space_carbon_01 weight = 1}
+	{tree = wood_space_carbon_02 weight = 1}
+	{tree = wood_space_carbon_03 weight = 1}
+	]
+}
+
+// Arid Brushes
+
+ForestBrush Arid1 {
+	trees = [
+		{tree = TRE_PALM weight = 9}
+		{tree = TRE_PALMETTO weight = 5}
+	]
+}
+
+ForestBrush Arid2 {
+	trees = [
+		{tree = TRE_PALM weight = 10}
+		{tree = TRE_CYPRESS weight = 4}
+		{tree = TRE_BAOBAB weight = 1}
+	]
+
+}
+
+ForestBrush Tundra1 {
+	trees = [
+	{tree = TREE_arct_fir1 weight = 3}
+	{tree = TREE_arct_fir2 weight = 3}
+	{tree = TREE_arct_fir3 weight = 3}
+	{tree = TREE_arctic_sapling01_Winter weight  = 2}
+	{tree = TREE_arctic_sapling02_Winter weight  = 2}
+	{tree = TREE_arct_aspen1_winter weight  = 1}
+	{tree = TREE_arctic_aspen02_winter weight  = 1}
+	{tree = TREE_arctic_aspen03_winter weight  = 1}
+	]
+}
+
+ForestBrush Loew_Arid3_15 {
+	trees = [
+	{tree = TREE_arid_palm_date1 weight  = 4}
+	{tree = TREE_arid_palm_yellow1 weight  = 4}
+	]
+}
+
+ForestBrush Loew_Arid4_15 {
+	trees = [
+	{tree = TREE_arid_pillarwood1 weight  = 4}
+	{tree = TREE_arid_acacia1 weight  = 4}
+	{tree = TREE_arid_buffalo_thorn1 weight  = 4}
+	]
+}
+
+ForestBrush Loew_Arid5_15 {
+	trees = [
+	{tree = TREE_arid_bush_canary1 weight  = 1}
+	{tree = TREE_arid_draceana1 weight  = 2}
+	{tree = TREE_arid_date_desert1 weight  = 3}
+	{tree = TREE_arid_cordia1 weight  = 2}
+	]
+}
+
+ForestBrush Loew_Arid6_15 {
+	trees = [
+	{tree = TREE_arid_cactus_hairbrush1 weight  = 1}
+	{tree = TREE_arid_naivasha_thorn1 weight  = 3}
+	{tree = TREE_arid_stinging_nettle1 weight  = 3}
+	{tree = TREE_arid_umbrella1 weight  = 4}
+	]
+}
+
+ForestBrush Loew_Arid7_15 {
+	trees = [
+	{tree = TREE_arid_boabab1 weight = 2}
+	{tree = TREE_arid_bush_canary1 weight = 3}
+	{tree = TREE_arid_stinging_nettle1 weight  = 3}
+	{tree = TREE_arid_umbrella1 weight  = 4}
+	]
+}
+
+ForestBrush Loew_Arid_Random_15 {
+	trees = [
+	{tree = TREE_arid_boabab1 weight = 1}
+	{tree = TREE_arid_stinging_nettle1 weight  = 1}
+	{tree = TREE_arid_cactus_hairbrush1 weight  = 1}
+	{tree = TREE_arid_naivasha_thorn1 weight  = 1}
+	{tree = TREE_arid_umbrella1 weight  = 1}
+	{tree = TREE_arid_bush_canary1 weight  = 1}
+	{tree = TREE_arid_draceana1 weight  = 1}
+	{tree = TREE_arid_date_desert1 weight  = 1}
+	{tree = TREE_arid_cordia1 weight  = 1}
+	{tree = TREE_arid_pillarwood1 weight  = 1}
+	{tree = TREE_arid_acacia1 weight  = 1}
+	{tree = TREE_arid_buffalo_thorn1 weight  = 1}
+	{tree = TREE_arid_palm_date1 weight  = 1}
+	{tree = TREE_arid_palm_yellow1 weight  = 4}
+	]
+}
+
+// Special 
+
+ForestBrush TotallyRandom {
+	trees = [
+		{tree = TRE_PALM weight = 1}
+		{tree = TRE_PALM_DARK weight = 1}
+		{tree = TRE_PALMETTO weight = 1}
+		{tree = TRE_FERNTROP1 weight = 1}
+		{tree = TRE_FERNTROP2 weight = 1}
+		{tree = TRE_BIRCH weight = 1}
+		{tree = TRE_CYPRESS weight = 1}
+		{tree = TRE_OAK weight = 1}
+		{tree = TRE_FIR weight = 1}
+	]
+}
+
+
+//Here are the sets of brushes that are available for each climate.
+//Note!  The FIRST BRUSH IN THE LIST is considered the 'default brush'
+//for that climate, and is used when auto-placing resources, so try to
+//be reasonable, yo.
+ClimateForest Tropical {
+	brushes = [Tropic1 Tropic2 Tropic3 Tropic4 Loew_Temperate4_15 Loew_Temperate5_15 Loew_Temperate6_15 Loew_Temperate7_15 Loew_Temperate_Random_15 Loew_Tropic6_15 Loew_Tropic7_15 Loew_Tropic8_15 Loew_Tropic9_15 Loew_Tropic10_15 Loew_Tropic11_15 Loew_Tropic_Random_15 Loew_Arid3_15 Loew_Arid4_15 Loew_Arid5_15 Loew_Arid6_15 Loew_Arid7_15 Loew_Arid_Random_15 Loew_Arctic1_15 Loew_Arctic2_15 Loew_Arctic3_15 Loew_Arctic_Random_15 Loew_Carbon1_15 Loew_Carbon2_15 Loew_Carbon3_15 Loew_Carbon4_15 Loew_Carbon_Random_15 TotallyRandom]
+}
+
+ClimateForest Temperate {
+	brushes = [Temperate1 Temperate2 Temperate3 Loew_Temperate4_15 Loew_Temperate5_15 Loew_Temperate6_15 Loew_Temperate7_15 Loew_Temperate_Random_15 Loew_Tropic6_15 Loew_Tropic7_15 Loew_Tropic8_15 Loew_Tropic9_15 Loew_Tropic10_15 Loew_Tropic11_15 Loew_Tropic_Random_15 Loew_Arid3_15 Loew_Arid4_15 Loew_Arid5_15 Loew_Arid6_15 Loew_Arid7_15 Loew_Arid_Random_15 Loew_Arctic1_15 Loew_Arctic2_15 Loew_Arctic3_15 Loew_Arctic_Random_15 Loew_Carbon1_15 Loew_Carbon2_15 Loew_Carbon3_15 Loew_Carbon4_15 Loew_Carbon_Random_15 TotallyRandom]
+}
+
+ClimateForest Arid {
+	brushes = [Arid1 Arid2 Loew_Temperate4_15 Loew_Temperate5_15 Loew_Temperate6_15 Loew_Temperate7_15 Loew_Temperate_Random_15 Loew_Tropic6_15 Loew_Tropic7_15 Loew_Tropic8_15 Loew_Tropic9_15 Loew_Tropic10_15 Loew_Tropic11_15 Loew_Tropic_Random_15 Loew_Arid3_15 Loew_Arid4_15 Loew_Arid5_15 Loew_Arid6_15 Loew_Arid7_15 Loew_Arid_Random_15 Loew_Arctic1_15 Loew_Arctic2_15 Loew_Arctic3_15 Loew_Arctic_Random_15 Loew_Carbon1_15 Loew_Carbon2_15 Loew_Carbon3_15 Loew_Carbon4_15 Loew_Carbon_Random_15 TotallyRandom]
+}
+
+ClimateForest Tundra {
+	brushes = [Tundra1 Temperate2 Temperate3 Loew_Temperate4_15 Loew_Temperate5_15 Loew_Temperate6_15 Loew_Temperate7_15 Loew_Temperate_Random_15 Loew_Tropic6_15 Loew_Tropic7_15 Loew_Tropic8_15 Loew_Tropic9_15 Loew_Tropic10_15 Loew_Tropic11_15 Loew_Tropic_Random_15 Loew_Arid3_15 Loew_Arid4_15 Loew_Arid5_15 Loew_Arid6_15 Loew_Arid7_15 Loew_Arid_Random_15 Loew_Arctic1_15 Loew_Arctic2_15 Loew_Arctic3_15 Loew_Arctic_Random_15 Loew_Carbon1_15 Loew_Carbon2_15 Loew_Carbon3_15 Loew_Carbon4_15 Loew_Carbon_Random_15 TotallyRandom]
+}
+
+
+//Forest generation paramteres for random map generation.
+//
+// "coverage" is roughly what fraction of terrain will be forested.
+// "density" is the number of trees per square tile in a forested region.
+// "scale" is the correlation length.  In general, the odds of a tile being forested is influenced by whether other nearby
+// 	tiles are forested; Tiles more the "scale" distance away will have no affect.
+// "roughness" is a measure of the variation within a block of size "scale".  If roughness is zero, all tiles within the 
+// 	block will either be forested or unforested; If roughness is 1, tiles are more or less randomly forested.
+// "brush" is the name of the ForestBrush used to randomly select trees to place in the forested region.
+//
+// These variables are paramterized by climate (Arid, temperate, or tropical) and forestation level (light, medium, or heavy)
+//
+
+// No forests; climate irrelevant
+ForestGen ForestGenNone {
+	coverage = 0
+}	
+
+// Temperate light
+ForestGen ForestGenTemperateLight {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.25
+	roughness = 0.4
+	brush = Temperate1
+}
+
+// Temperate medium
+ForestGen ForestGenTemperateMedium {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.3
+	roughness = 0.4
+	brush = Temperate1
+}
+
+// Temperate heavy
+ForestGen ForestGenTemperateHeavy {
+	density = 1.6
+	scale = 10.0
+	//coverage = 0.35
+	coverage = 0.32
+	roughness = 0.4
+	brush = Temperate2
+}
+
+// Tropical medium
+ForestGen ForestGenTropicalLight {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.25
+	roughness = 0.4
+	brush = Tropic1
+}
+
+// Tropical light
+ForestGen ForestGenTropicalMedium {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.3
+	roughness = 0.4
+	brush = Tropic1
+}
+
+// Tropical heavy
+ForestGen ForestGenTropicalHeavy {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.32
+	roughness = 0.4
+	brush = Tropic2
+}
+
+// Arid light
+ForestGen ForestGenAridLight {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.25
+	roughness = 0.4
+	brush = Arid1
+}
+
+// Arid medium
+ForestGen ForestGenAridMedium {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.3
+	roughness = 0.4
+	brush = Arid1
+}
+
+// Arid Heavy
+ForestGen ForestGenAridHeavy {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.32
+	roughness = 0.4
+	brush = Arid2
+}
+
+// Tundra light
+ForestGen ForestGenTundraLight {
+	density = 1.6
+	scale = 10.01
+	coverage = 0.25
+	roughness = 0.4
+	brush = Tundra1
+}
+
+// Tundra medium
+ForestGen ForestGenTundraMedium {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.3
+	roughness = 0.4
+	brush = Tundra1
+}
+
+// Tundra heavy
+ForestGen ForestGenTundraHeavy {
+	density = 1.6
+	scale = 10.0
+	coverage = 0.32
+	roughness = 0.4
+	brush = Tundra1
+}
+
+//
+// ClimateForestGen objects are the list of ForestGen objects for a specific climate, ordered by forestation level
+//
+ClimateForestGen Temperate {
+	forestGen = [ForestGenTemperateLight ForestGenTemperateMedium ForestGenTemperateHeavy]
+}
+
+ClimateForestGen Tropical {
+	forestGen = [ForestGenTropicalLight ForestGenTropicalMedium ForestGenTropicalHeavy]
+}
+
+ClimateForestGen Arid {
+	forestGen = [ForestGenAridLight ForestGenAridMedium ForestGenAridHeavy]
+}
+
+ClimateForestGen Tundra {
+	forestGen = [ForestGenTundraLight ForestGenTundraMedium ForestGenTundraHeavy]
+}

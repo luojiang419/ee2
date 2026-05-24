@@ -1,0 +1,178 @@
+//
+// Animals come in 3 varieties: domesticated, wild, and predator.
+//
+// Domesticated animals never attack and never wander far from 
+// their stationary herd center.
+//
+// Wild animals reproduce on their own in herds and don't attack unless attacked
+//
+// Predators aggressively attack anyone who comes near and never reproduce 
+//
+
+
+//
+// Domesticated animals
+//
+Animal Cow
+{
+	// When it's dead (food resource), it turns into:
+	DeadUnitType = DeadAnimalCow
+	
+	// is it a predator, a wild animal, or a domesticated one?
+	AnimalType = Domesticated
+	
+	// Roughly how far this will wander from its (or its herds) original
+	// placement point.  They don't migrate.  They'll flee temporarily
+	// when fired upon, but they always come back to within this radius
+	// of their home point.
+	WanderRadius = 3
+	
+	// Every approximately m_TimeBetweenWandering seconds, they'll get a
+	// new move order.
+	TimeBetweenWandering = 10
+}
+
+Animal Cow2
+{
+	DeadUnitType = DeadAnimalCow2
+	AnimalType = Domesticated
+	WanderRadius = 3
+	TimeBetweenWandering = 10
+}
+
+Animal Llama
+{
+	DeadUnitType = DeadAnimalLlama
+	AnimalType = Domesticated
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal Goat
+{
+	DeadUnitType = DeadAnimalGoat
+	AnimalType = Domesticated
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal TundraRabbit
+{
+	DeadUnitType = DeadAnimalTundraRabbit
+	AnimalType = Domesticated
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 4 max = 12 }
+	ReproPeriod = 60
+}
+
+//
+// Predators
+//
+Animal Vulture
+{
+	DeadUnitType = DeadAnimalVulture
+	AnimalType = Predator
+	WanderRadius = 5
+	TimeBetweenWandering = 7
+}
+
+Animal Hawk
+{
+	DeadUnitType = DeadAnimalHawk
+	AnimalType = Predator
+	WanderRadius = 5
+	TimeBetweenWandering = 7
+}
+
+Animal Wolf
+{
+	DeadUnitType = DeadAnimalWolf
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal WhiteWolf
+{
+	DeadUnitType = DeadAnimalWhiteWolf
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal Tiger
+{
+	DeadUnitType = DeadAnimalTiger
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+Animal TundraBear
+{
+	DeadUnitType = DeadAnimalTundraBear
+	AnimalType = Predator
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+}
+
+//
+// Wild animals
+//
+Animal Deer
+{
+	DeadUnitType = DeadAnimalDeer
+	
+	AnimalType = Wild
+	
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	
+	// If it's a Wild animal, all the 'herd' stuff should be nonzero.
+	
+	// At creation time, a max herd size is also calculated and stored
+	// with the herd, and they'll never exceed this.
+	MaxHerdSize =  { min = 5 max = 10 }
+	
+	// If there are 2X animals in the herd, a new one will be created
+	// every ReproPeriod/X seconds, up to MaxHerdSize.
+	ReproPeriod = 360
+}
+
+Animal Camel
+{
+	DeadUnitType = DeadAnimalCamel
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+
+	// At creation time, a max herd size is also calculated and stored
+	// with the herd, and they'll never exceed this.
+	MaxHerdSize =  { min = 5 max = 10 }
+	
+	// If there are 2X animals in the herd, a new one will be created
+	// every ReproPeriod/X seconds, up to MaxHerdSize.
+	ReproPeriod = 360
+}
+
+Animal Elephant
+{
+	DeadUnitType = DeadAnimalElephant
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize =  { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+
+Animal Boar
+{
+	DeadUnitType = DeadAnimalBoar
+	AnimalType = Wild
+	WanderRadius = 4
+	TimeBetweenWandering = 6
+	MaxHerdSize = { min = 5 max = 10 }
+	ReproPeriod = 360
+}
+

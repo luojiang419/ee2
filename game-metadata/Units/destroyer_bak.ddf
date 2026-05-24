@@ -1,0 +1,225 @@
+//------------------------------------------------------------------------------------------------
+//	DESTROYER - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType Destroyer
+{
+	visualName = Destroyer_11
+	parent = NavalDeep
+	properties {
+		rps = Destroyer
+		SizeX = 2.25
+		SizeY = 0.65
+		mass = 1
+		VerboseTooltip = vtt_unit_Destroyer
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 5; angularRange = 360; reloadTime = 2; applyDamageTime = 0.5; damage = 5; missileName = "CannonBall"; turretControllerName = TankTurret}
+		LOS { range = 0 }
+		NavalMove {speed = 1.725; accel = 1; angSpeed = 60}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities DestroyerEpoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; angularRange = 360; reloadTime = 666; applyDamageTime = 0.5; missileName = "TankShell"; turretControllerName = TankTurret }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove DestroyerEpoch11Veteran
+{
+	unitType = Destroyer
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		Destroyer_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove DestroyerEpoch11Elite
+{
+	unitType = Destroyer
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		Destroyer_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities DestroyerEpoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; angularRange = 360; reloadTime = 666; applyDamageTime = 0.5; missileName = "AntiAirPro"; turretControllerName = sensordestroyerTurret; }
+	]
+}
+
+// Size Upgrade
+UpgradeSize DestroyerEpoch13Size
+{
+	unitType = Destroyer
+	SizeX = 2.25
+	SizeY = 0.6
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove DestroyerEpoch13Veteran
+{
+	unitType = Destroyer
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		Destroyer_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove DestroyerEpoch13Elite
+{
+	unitType = Destroyer
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		Destroyer_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities DestroyerEpoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; angularRange = 360; reloadTime = 666; applyDamageTime = 0.5; missileName = "GuidedMissile"; turretControllerName = XShipTurret; }
+	]
+}
+
+// Size Upgrade
+UpgradeSize DestroyerEpoch15Size
+{
+	unitType = Destroyer
+	SizeX = 2.2
+	SizeY = 0.5
+}
+
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove DestroyerEpoch15Veteran
+{
+	unitType = Destroyer
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		Destroyer_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove DestroyerEpoch15Elite
+{
+	unitType = Destroyer
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		Destroyer_Improve_Default
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	DESTROYER - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel Destroyer_11
+{
+	parent		= BaseShip
+	DefaultModel 	= ND11_destroyer.NIF
+
+	States = [
+		{ StateName = Idle }
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_boat_4 KeyTime = 0}]}
+		{ 	StateName = Death	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_tmp_boat_sink_01 KeyTime = 0}]}
+		{ StateName= Attack1		
+			TextKeys = [ 
+				{ Name = PLAY_SOUND Data = Tank_firing1 KeyTime=0.5 }  
+				] 
+		}	
+	]
+
+	ChildNames 	= [ FX_ExaustSmoke1 Muzzle_Battleship ExplSelectorBattleship11 TheBoatWake6 Destroyer_FlyingParts ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.91
+		zOffset = 0.62
+		scale = 1.66
+		angle = 47.37
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel Destroyer_13
+{
+	parent		= BaseShip
+	DefaultModel 	= nd13_sensordestroyer.nif
+
+	States = [
+		{ StateName = Idle }
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_boat_4 KeyTime = 0}]}
+		{ 	StateName = Death	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_tmp_boat_sink_01 KeyTime = 0}]}
+		{ StateName= Attack1		
+			TextKeys = [ { Name = PLAY_SOUND Data = fx_battle_rocket_launch KeyTime = 0.5 }
+			] 
+		}	
+	]
+
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorBattleship11 TheBoatWake6 SensorDestroyer_FlyingParts ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 3.26
+		zOffset = 0.80
+		scale = 1.66
+		angle = 47.37
+	}
+}
+
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel Destroyer_15
+{
+	parent		= BaseShip
+	DefaultModel 	= ND15_xship.NIF
+	States = [
+		{ StateName = Idle	}
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_boat_4 KeyTime = 0}]}
+		{ 	StateName = Death	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_tmp_boat_sink_01 KeyTime = 0}]}
+		{ StateName= Attack1		
+			TextKeys = [ { Name = PLAY_SOUND Data = Tank_firing1 KeyTime=0.5 } ]
+		}
+	]
+
+	ChildNames 	= [ ExplSelectorBattleship11 TheBoatWake6 XShip_FlyingParts ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 3.43
+		zOffset = -0.08
+		scale = 1.66
+		angle = 47.37
+	}
+}

@@ -1,0 +1,36 @@
+//////////////////////////////Miscelaneous Area Effects//////////////////////////////
+
+// Glow effect to stick on buildings that are being captured.
+DbAreaEffectInfo CaptureGlow
+{
+	effects = [
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			mask = SubjectToCapture
+
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = icon_capture_building_s
+			Tooltip = tt_unitact_captureBuilding
+			VTooltip = vtt_unitact_capturingBuilding
+		}
+	]
+}
+
+// Glow to stick on trade units when they're waiting their turn to trade.
+DbAreaEffectInfo TradeWaitGlow
+{
+	effects = [
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+
+			SuppressGlow = true
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_gTrade
+			Tooltip = tt_unitinfo_waitToTrade
+			VTooltip = vtt_unitinfo_waitToTrade
+		}
+	]
+}

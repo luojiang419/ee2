@@ -1,0 +1,234 @@
+//------------------------------------------------------------------------------------------------
+//	MARKET - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType Market
+{
+	parent = Building
+	properties {
+		SizeX = 2
+		SizeY = 2
+		FootprintSizeX = 3.5
+		FootprintSizeY = 3.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		UndertextureSizeX = 2
+		UndertextureSizeY = 2
+		mass = 1
+		displayName = tx_utn_market_name
+		DisplayNameScenEdit = tx_utn_market_sname
+		VerboseTooltip = vtt_unit_Market
+		requiredOpenSides = kBuildingOpenSides_NegY
+		RallyPlacementFlags = ( Market | Terrain | Allied | Neutral )
+	}
+	sounds {
+    	}
+	fullMapOverlay { sprite = spr_fullmap_market }
+	abilities = [
+		Produce {}
+		LOS { range = 0 }
+		Convertable {
+			convertTimeModifier = 100.0;  //
+			garrisonedUnitModifier = 0.1; // 10% increase in capture time
+			garrisonedUnitDamage = 1.0;	  // hitpoints subtracted from capturer per round per garrisoned unit
+			damageRate = 10.0;			  // hitpoints subtracted from capture target hitpoints per round
+			capture = 1;
+			resourcesTransferred = [
+				{
+					resource = Gold
+					percentTransferred = 0.1
+					NativeTribesAmountTransferredMin = 200.0
+					NativeTribesAmountTransferredMax = 300.0
+				}
+			]
+		}
+		GarrisonTrade
+		{
+			dontShowGarrisonButton = 1
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+// MarketUpgradeEpoch2 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// MarketUpgradeEpoch5 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+// MarketUpgradeEpoch8 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// MarketUpgradeEpoch11 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// MarketUpgradeEpoch14 is in upgrade_unittypes.csv
+
+//------------------------------------------------------------------------------------------------
+//	MARKET - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+UnitModel Market
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_MARKET2.NIF
+	ChildNames 		= [ LargeGlow UnderMarket ExplSelectorBuild_Small CityNameText ExplPartsWood ]
+	States 			= [
+		{	StateName = Idle	}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.24
+		zOffset = 1.51
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel Market_5
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_MARKET5.NIF
+	ChildNames 		= [ LargeGlow UnderMarket ExplSelectorBuild_Small ExplPartsBrick ]
+	States 			= [
+		{	StateName = Idle	}
+			]
+	UIRenderingParams {
+		xOffset = -1.32
+		yOffset = 0.05
+		zOffset = 1.81
+		scale = 1.15
+		angle = 42.63
+		rotationSpeed = 0.00
+		pitch = 40.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+UnitModel Market_8
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_MARKET8.NIF
+	ChildNames 		= [ LargeGlow UnderMarket ExplSelectorBuild_Small ExplPartsBrick ]
+	States 			= [
+		{	StateName = Idle	}
+		{	StateName = closeMarket AnimName = bld_market8_close.kf }
+		{	StateName = openMarket AnimName = bld_market8_open.kf }
+			] // end states
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.10
+		zOffset = 0.79
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 50.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel Market_11
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= bld_market11.NIF
+	ChildNames 		= [ LargeGlow UnderMarket ExplSelectorBuild_Small ExplPartsBrick ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = 0.53
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel Market_14
+{
+	Parent		= Market_11
+	DefaultModel 	= bld_market14.NIF
+	ChildNames 		= [ LargeGlow UnderMarket ExplSelectorBuild_Small ExplPartsConcrete ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.79
+		zOffset = 0.01
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel Market_15
+{
+	Parent		= Market_11
+	DefaultModel 	= Bld_market15.NIF
+	ChildNames 		= [ LargeGlow UnderMarket ExplSelectorBuild_Small ExplPartsConcrete ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.79
+		zOffset = 0.01
+		scale = 1.28
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+
+}

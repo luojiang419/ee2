@@ -1,0 +1,40 @@
+//------------------------------------------------------------------------------------------------
+//	LIGHT HERC HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightHercHero
+{
+	parent = LightMounted3
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	properties {
+		SizeX = 0.86
+		SizeY = 0.86
+	}
+	abilities = [
+		Hero { HeroClass = LightHerc; HeroForUnit = LightMounted3 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightHercHeroEp14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 1.5; packtime = 1.0; unpacktime = 1.0; missileName = "ProjectileRocketHerc" }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT HERC HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel LightHercHero
+{
+	Parent		= LightMounted3
+	ForceScale	= 0.092
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

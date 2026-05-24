@@ -1,0 +1,106 @@
+Objective Russian2_Objective1 {
+	name		= tx_r2_make_peace
+	description	= tx_r2_make_peace_desc
+	type		= Primary
+	startHidden	= 1
+	targetTerritories	= [ "territorySaxony" "territorySilesia" ]
+}
+
+Objective Russian2_Objective2 {
+	name		= tx_r2_earn_hero
+	description	= tx_r2_earn_hero_desc
+	type		= Primary
+	startHidden	= 0
+}
+
+Objective Russian2_Objective3 {
+	name		= tx_r2_protect_prussia
+	description	= tx_r2_protect_prussia_desc
+	type		= Secondary
+	startHidden	= 1
+	targetTerritories	= [ "territoryBerlin" ]
+}
+
+Objective Russian2_Objective4 {
+	name		= tx_r2_defend_alexander
+	description	= tx_r2_defend_alexander_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits	= [ "Alexander" ]
+}
+
+Objective Russian2_Objective5 {
+	name		= tx_r2_defend_territories
+	description	= tx_r2_defend_territories_desc
+	type		= Lose
+	startHidden	= 0
+	targetTerritories	= [ "territoryWarsaw" "territoryLodz" ]
+}
+
+Objective Russian2_Objective6 {
+	name		= tx_r2_protect_posen
+	description	= tx_r2_protect_posen_desc
+	type		= Secondary
+	startHidden	= 1
+	targetLocations	= [ { x = 48 y = 49 } { x = 79 y = 50 } ]
+}
+
+Scenario EE2X_Russian2 {
+	name = text_scen_r2_name
+	mapfilename = "EE2X_Russian2.scn"
+	briefing = text_scen_r2_desc
+	sprite = spr_rus2_camp_screenshot
+	thumbnail = spr_rus2_camp_thumb
+
+	reinforcementLocX = 120.0
+	reinforcementLocY = 44.0
+	numReinforcements = 1
+
+	reinforcementGroups = 
+[
+		{ members = 
+			[
+			{type = Resource amount = 500 resType = Gold}
+			{type = Resource amount = 500 resType = Food}
+			]
+		}
+		{ members = 
+			[
+			{type = Resource amount = 500 resType = Wood}
+			{type = Resource amount = 500 resType = Stone}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 6 unitType = HeavyInfantry1}
+			{type = Unit amount = 6 unitType = LightInfantry}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 2 unitType = HeavyArtillery}
+			{type = Unit amount = 4 unitType = LightArtillery1}
+			]
+		}
+]
+
+	victory = text_scen_r2_victory
+	loss = text_scen_r2_loss
+	
+	hints = text_scen_r2_hints
+	
+	historicalInfo = text_scen_r2_history
+	
+	description = text_scen_r2_desc
+	
+	date = text_scen_r2_date
+
+	objectives = [
+		Russian2_Objective1
+		Russian2_Objective2
+		Russian2_Objective3
+		Russian2_Objective4
+		Russian2_Objective5
+		Russian2_Objective6
+	]
+}

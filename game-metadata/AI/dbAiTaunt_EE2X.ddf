@@ -1,0 +1,183 @@
+////////////////////////////////////////
+// Fealty comments
+
+// for when they keep demanding your fealty
+DbAITauntDef RepeatedFealtyDemand
+{
+	records = [
+		{
+			tauntText = text_ai_fealty_repeat
+		}
+		
+		{
+			tauntText = text_ai_fealty_repeat2
+		}
+		
+		{
+			tauntText = text_ai_fealty_repeat3
+		}
+		
+	]
+}
+
+
+// for when you become a vassal
+DbAITauntDef SuccessfulFealtyDemand
+{
+	records = [
+		{
+			tauntText = text_ai_fealty_success
+		}
+		
+		{
+			tauntText = text_ai_fealty_success2
+		}
+		{
+			tauntText = text_ai_fealty_success3
+		}
+		
+	]
+}
+
+// when you reject their fealty demand
+DbAITauntDef UnsuccessfulFealtyDemand
+{
+	records = [
+		{
+			tauntText = text_ai_fealty_nosuccess
+		}
+		
+		{
+			tauntText = text_ai_fealty_nosuccess2
+		}
+		
+		{
+			tauntText = text_ai_fealty_nosuccess3
+		}
+	]
+}
+
+
+
+////////////////////////////////////////
+// native tribes diplomacy responses
+
+// reject proposal from unfamiliar player
+DbAITauntDef NT_Reject_Unfamiliar
+{
+	records = [
+		{
+			tauntText = text_ai_NT_reject_unfamiliar
+		}
+		{
+			tauntText = text_ai_NT_reject_unfamiliar2
+		}
+		{
+			tauntText = text_ai_NT_reject_unfamiliar3
+		}
+	]
+}
+
+// reject proposal because we have a better offer pending
+DbAITauntDef NT_Reject_BetterOffer
+{
+	records = [
+		{
+			tauntText = text_ai_NT_reject_betterOffer
+		}
+	]
+}
+
+// reject proposal because someone else assimilated us
+DbAITauntDef NT_Reject_Assimilated
+{
+	records = [
+		{
+			tauntText = text_ai_NT_reject_assimilated
+		}
+	]
+}
+
+// retract counterproposal because it timed out
+DbAITauntDef NT_Retract_TimeOut
+{
+	records = [
+		{
+			tauntText = text_ai_NT_retract_timeOut
+		}
+	]
+}
+
+// retract counterproposal because someone else assimilated us
+DbAITauntDef NT_Retract_Assimilated
+{
+	records = [
+		{
+			tauntText = text_ai_NT_retract_assimilated
+		}
+	]
+}
+
+// having previously rejected because unfamiliar, the player has now known
+// the tribe long enough for it to be familiar
+DbAITauntDef NT_NowFamiliar
+{
+	records = [
+		{
+			tauntText = text_ai_NT_nowFamiliar
+		}
+	]
+}
+
+// send a counterproposal
+DbAITauntDef NT_Counter
+{
+	records = [
+		{
+			tauntText = text_ai_NT_counter
+		}
+	]
+}
+
+// accept proposal -- assimilation occurs
+DbAITauntDef NT_Accept
+{
+	records = [
+		{
+			tauntText = text_ai_NT_accept
+			isNonHostile = true;
+		}
+	]
+}
+
+// tribe goes berserk (when city center captured/destroyed)
+DbAITauntDef NT_Berserk
+{
+	records = [
+		{
+			tauntText = text_ai_NT_berserk
+		}
+		{
+			tauntText = text_ai_NT_berserk2
+		}
+		{
+			tauntText = text_ai_NT_berserk3
+		}
+	]
+}
+
+// tribe unassimilates (when leader not present in tribe territory for too long)
+DbAITauntDef NT_Unassimilate
+{
+	records = [
+		{
+			tauntText = text_ai_NT_unassimilate
+		}
+		{
+			tauntText = text_ai_NT_unassimilate2
+		}
+		{
+			tauntText = text_ai_NT_unassimilate3
+		}
+	]
+}

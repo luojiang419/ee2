@@ -1,0 +1,297 @@
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT Russian (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitRussian1
+{
+	parent = HeavyInfantry1
+	properties {
+		DisplayName = tx_utn_UURussian1_name
+		DisplayNameScenEdit = tx_utn_UURussian1_sname
+		VerboseTooltip = vtt_unit_UURussian1
+		HitPoints = 0
+	}
+	sounds {
+	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+		ConvertAttack { convertTimeModifier = 1.0; range = 2.0; reloadTime = 8.0; applyDamageTime = 1.0; capture = 1 }
+		LOS { range = 0 }
+		Move {speed = 1.3; angSpeed = 720}
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitRussian1Veteran
+{
+	unitType = UniqueUnitRussian1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitRussian1Elite
+{
+	unitType = UniqueUnitRussian1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitRussian1
+{
+	Parent 		= BaseHuman
+	DefaultModel 	= civ1_varangianwarrior_russian.nif
+	ChildNames 	= [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = civ1_varangianwarrior_russian_idle01.kf
+                              AnimVariants = [ civ1_varangianwarrior_russian_idle02.kf ]
+                              AnimVariantsWeights = [0.4]
+                 }
+		{ 	StateName = Walk	AnimName = civ1_varangianwarrior_russian_walk.kf
+		}
+		{ 	StateName = CaptureAttack1	AnimName = civ1_varangianwarrior_russian_capture01.kf
+                              AnimVariants = [ civ1_varangianwarrior_russian_capture02.kf ]
+                              AnimVariantsWeights = [0.3]
+                 }
+                { 	StateName = Run	AnimName = civ1_varangianwarrior_russian_jog.kf
+		}
+
+		{ 	StateName = Attack1	AnimName = civ1_varangianwarrior_russian_attack01.kf	       
+			TextKeys =  [
+						{ Name = PLAY_SOUND Data = fx_sword_swing KeyTime = 1.0 }
+						]
+		 }
+		{ 	StateName = Death	AnimName = civ1_varangianwarrior_russian_death.kf	}
+		{	StateName = Flinch	AnimName = civ1_varangianwarrior_russian_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = civ1_varangianwarrior_russian_flying01.KF
+			AnimVariants = [ civ1_varangianwarrior_russian_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = civ1_varangianwarrior_russian_ground_death01.KF	}
+
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.02
+		zOffset = -6.43
+		scale = 2.69
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT Russian (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitRussian2
+{
+	parent = LightArtillery1
+	properties {
+		DisplayName = tx_utn_UURussian2_name
+		DisplayNameScenEdit = tx_utn_UURussian2_sname
+		VerboseTooltip = vtt_unit_UURussian2
+		HitPoints = 0
+		rps = LightArtillery
+		SizeX = 0.5
+		SizeY = 0.5
+		mass = 5
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.29; missileName = "CannonBall03"; minRangeMobile = 0.5; minRangeImmobile = 0.5; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		LOS { range = 0 }
+		VehicleMove {speed = 1.3; angSpeed = 180; followTerrainSlope = 1 }
+	]
+}
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitRussian2Veteran
+{
+	unitType = UniqueUnitRussian2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitRussian2Elite
+{
+	unitType = UniqueUnitRussian2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitRussian2
+{
+	Parent			= LightArtillery1_07
+	DefaultModel 	= civ10_licorne_russian.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = civ10_licorne_russian_idle01.kf   }
+		{ 	StateName = Walk	AnimName = civ10_licorne_russian_walk.kf
+				TextKeys = [	{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_wheeled_04 KeyTime = 0 }]}
+		{ 	StateName = Attack1	 AnimName = civ10_licorne_russian_attack01.kf
+				TextKeys = [
+								{ Name = PLAY_SOUND Data = Cannon_firing1 KeyTime = 0.29 }
+						]}
+
+		{ 	StateName = Death	AnimName = civ10_licorne_russian_death.kf  }
+			]
+	ChildNames 		= [ TheHealthBar SelectCircleMedium UnitShadow MediumGlow Muzzle_FieldGun ArtilleryTracks ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT Russian (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitRussian3
+{
+	parent = HeavyMounted
+	properties {
+		DisplayName = tx_utn_UURussian3_name
+		DisplayNameScenEdit = tx_utn_UURussian3_sname
+		VerboseTooltip = vtt_unit_UURussian3
+		HitPoints = 0
+		moveType = Mechanized
+		SizeX = 0.9
+		SizeY = 0.7
+		mass = 5
+		popCount = 2
+	}
+	sounds {
+
+	}
+	abilities [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell;areaDamageRadius = 1; turretControllerName = TankTurret }
+		VehicleMove {speed = 1.725; angSpeed = 50; followTerrainSlope = 1; mustMoveToTurn = 0}
+		LOS {range = 5}
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitRussian3Veteran
+{
+	unitType = UniqueUnitRussian3
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitRussian3Elite
+{
+	unitType = UniqueUnitRussian3
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitRussian4Veteran
+{
+	unitType = UniqueUnitRussian3
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitRussian4Elite
+{
+	unitType = UniqueUnitRussian3
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitRussian3
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= T72M.nif
+	ForceScale      = 0.117
+	States = [
+			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
+
+			{ StateName= Walk AnimName = lhm13_MainBattleTank_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+
+			{ StateName= Attack1	//@BUG DO NOT UNCOMMENTAnimName = lhm13_MainBattleTank_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_01 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks DustHeavyMonted]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}
+UnitModel UniqueUnitRussian4
+{
+	parent 		= BaseHeavyMountedArmored
+	DefaultModel 	= Amata.NIF
+	ForceScale      = 0.1
+	States = [
+			{ StateName= Idle AnimName = T99_A2_idle.KF 
+			TextKeys = [ 
+					     { Name = STOP_SOUND Data = fx_battle_tankfire_02 KeyTime = 0 }
+					   ]
+			}
+
+			{ StateName= Walk AnimName = T99_A2_walk.KF		
+				TextKeys = [
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_tank_02 }
+					   ] 
+				}
+			{ StateName= Attack1  AnimName = T99_A2_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_battle_tankfire_02 KeyTime = 0.2 }
+					   ] 
+				}
+
+			{ StateName= Death }//AnimName = lhm13_MainBattleTank_death.KF	}
+		]
+	ChildNames 	= [ FX_ExaustSmoke1 ExplSelectorTank01 MainBattleTank_FlyingParts 
+					Muzzle_FiringShell MainBattleTankShadow TankTracks Muzzle_T99a2somk Muzzle_Phl032 DustHeavyTank ]
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 1.85
+		zOffset = -0.05
+		scale = 1.92
+		angle = 37.89
+	}
+}

@@ -1,0 +1,122 @@
+//------------------------------------------------------------------------------------------------
+//	MEDIC - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType Medic
+{
+	parent = Human
+	properties {
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+		displayName = tx_utn_medic_name
+		moveType = kUnitMoveType_Foot
+		VerboseTooltip = vtt_unit_medic
+		// medics default to aggressive.  they really like to heal
+		stance = Aggressive
+	}
+	sounds = {
+	}
+
+	abilities = [
+		Move {speed = 1.3; angSpeed = 720; angAccel = 720}
+		LOS { range = 0 }
+		Heal {range = 0.2; healRate = 50; healType = HealedByMedic }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+// MedicUpgradeEpoch10 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// MedicUpgradeEpoch12 is in upgrade_unittypes.csv
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// MedicUpgradeEpoch14 is in upgrade_unittypes.csv
+
+//------------------------------------------------------------------------------------------------
+//	MEDIC - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel Medic
+{
+	Parent		= BaseHuman	
+	DefaultModel 	= lsf10_medic.nif
+	ChildNames = [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_medic_10_idle01.KF
+                              AnimVariants = [ sh_medic_12_idle02.KF sh_medic_12_idle04.KF ]
+                          AnimVariantsWeights = [ 0.05 0.05 ]
+                 }            
+		{	StateName = Idle1	AnimName = sh_medic_10_idle01.KF	}
+		{ 	StateName = Walk	AnimName = sh_medic_10_jog01.KF	}
+		{ 	StateName = Heal	AnimName = sh_medic_10_heal01.KF AnimSpeedScale = 0.5  }
+		{ 	StateName = Death	AnimName = sh_medic_10_death01.KF	}
+		{	StateName = Flinch	AnimName = sh_medic_10_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_medic_10_flying01.KF
+			AnimVariants = [ sh_medic_10_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_medic_10_ground_death01.KF	}
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+UnitModel Medic_12
+{
+	Parent		= BaseHuman
+        DefaultModel 	= lsf12_medic.nif
+	ChildNames = [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_medic_12_idle01.KF
+                          AnimVariants = [ sh_medic_12_idle02.KF sh_medic_12_idle03.KF sh_medic_12_idle04.KF ]
+                          AnimVariantsWeights = [ 0.05 0.05 0.05 ]
+                 }               	
+		{ 	StateName = Walk	AnimName = sh_medic_12_walk01.KF	}
+		{ 	StateName = Run	AnimName = sh_medic_12_jog01.KF	}
+		{ 	StateName = Heal	AnimName = sh_medic_12_heal01.KF AnimSpeedScale = 0.5  }
+		{ 	StateName = Death	AnimName = sh_medic_12_death01.KF	}
+		{	StateName = Flinch	AnimName = sh_medic_12_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_medic_12_flying01.KF
+			AnimVariants = [ sh_medic_12_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_medic_12_ground_death01.KF	}
+			]        
+}
+
+UnitModel Medic_12_Turkish
+{
+	Parent		= Medic_12
+	DefaultModel	= lsf12_medic_turkish.nif
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel Medic_14
+{
+	Parent		= BaseHuman
+        DefaultModel 	= lsf14_medic.nif
+	ChildNames = [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_medic_12_idle01.KF
+                          AnimVariants = [ sh_medic_12_idle02.KF sh_medic_12_idle03.KF sh_medic_12_idle04.KF ]
+                          AnimVariantsWeights = [ 0.05 0.05 0.05 ]
+                 }               	
+		{ 	StateName = Walk	AnimName = sh_medic_12_walk01.KF	}
+		{ 	StateName = Run	AnimName = sh_medic_12_jog01.KF	}
+		{ 	StateName = Heal	AnimName = sh_medic_12_heal01.KF AnimSpeedScale = 0.5  }
+		{ 	StateName = Death	AnimName = sh_medic_12_death01.KF	}
+		{	StateName = Flinch	AnimName = sh_medic_12_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_medic_12_flying01.KF
+			AnimVariants = [ sh_medic_12_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_medic_12_ground_death01.KF	}
+			]        
+}
+

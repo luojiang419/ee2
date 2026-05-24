@@ -1,0 +1,74 @@
+//"Defend against Zulu attack for time period"
+Objective EE2X_Rorkes_British_Objective1 {
+	name		= text_scen_ror_brit_pobj1
+	description	= text_scenario_r1_verbose1
+	type		= Primary
+	startHidden	= 0
+	
+}
+//"If Lt. Chard is Killed, then Lose"
+Objective EE2X_Rorkes_British_Objective2 {
+	name		= text_scen_ror_brit_lobj1
+	description	= text_scenario_r1_verbose10
+	type		= Lose
+	startHidden	= 0
+
+}
+//"If Lt. Bromhead is Killed, then Lose"
+Objective EE2X_Rorkes_British_Objective3 {
+	name		= text_scen_ror_brit_lobj2
+	description	= text_scenario_r1_verbose11
+	type		= Lose
+	startHidden	= 0
+
+}
+
+//"Survive for 30 Minutes"
+Objective EE2X_Rorkes_British_Objective4 {
+	name		= text_scen_ror_brit_lobj3
+	description	= text_scenario_r1_verbose12
+	type		= Lose
+	startHidden	= 0
+
+}
+
+//"Fort's Military buildings must survive"
+Objective EE2X_Rorkes_British_Objective5 {
+	name		= text_scen_ror_brit_lobj4
+	description	= text_scenario_r1_verbose13
+	type		= Lose
+	startHidden	= 0
+
+}
+
+Scenario EE2X_Rorkes_British {
+	name = text_scen_ror_brit_name
+	mapfilename = "EE2X_RorkesDrift.scn"
+	overrideScriptLib = "ScriptLibs_EE2X\\\\EE2X_Rorkes_British.dll"
+	overrideHumanPlayers = [1]
+	briefing = text_scen_ror_brit_desc
+	sprite = spr_rorB_camp_screenshot
+	thumbnail = spr_rorB_camp_thumb
+
+	victory = text_scen_ror_brit_victory
+	loss = text_scen_ror_brit_loss
+	
+	hints = text_scen_ror_brit_hints
+	
+	historicalInfo = text_scen_ror_brit_history
+	
+	description = text_scen_ror_brit_desc
+	
+	date = text_scen_ror_brit_date
+
+	objectives = [
+		EE2X_Rorkes_British_Objective1
+		EE2X_Rorkes_British_Objective2
+		EE2X_Rorkes_British_Objective3
+		EE2X_Rorkes_British_Objective4
+		EE2X_Rorkes_British_Objective5
+
+	]
+	// Turning points never load heroes from previous scenarios.
+	NoOldHeroes = true
+}

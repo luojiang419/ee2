@@ -1,0 +1,463 @@
+// NAME,ATTACKER,DEFENDERS,ADJUST
+//Heavy Tank vs Light Mounted,,,
+hm11_vs_lm10,HeavyMounted1UpgradeEpoch11,[LightMounted1UpgradeEpoch10],200
+//Heavy Tank vs Heavy Mounted,,,
+hm11_vs_hm10,HeavyMounted1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch10],150
+//Heavy Tank vs Light Infantry,,,
+hm10_vs_li9,HeavyMounted1UpgradeEpoch10,[LightInfantryUpgradeEpoch9],60
+hm11_vs_li11,HeavyMounted1UpgradeEpoch11,[LightInfantryUpgradeEpoch11],60
+hm12_vs_li11,HeavyMounted1UpgradeEpoch12,[LightInfantryUpgradeEpoch11],60
+hm13_vs_li13,HeavyMounted1UpgradeEpoch13,[LightInfantryUpgradeEpoch13],60
+hm15_vs_li15,HeavyMounted1UpgradeEpoch15,[LightInfantryUpgradeEpoch15],50
+//Heavy Tank vs Heavy Infantry,,,
+hm13_vs_hi14,HeavyMounted1UpgradeEpoch13,[HeavyInfantry2UpgradeEpoch14],150
+//Light Tank vs Light Tank,,,
+lm12_vs_lm11,LightMounted1UpgradeEpoch12,[LightMounted1UpgradeEpoch11],120
+//Light Tank vs Heavy Tank,,,
+lm11_vs_hm11,LightMounted1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch11],65
+lm11_vs_hm12,LightMounted1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch12],65
+lm12_vs_hm11,LightMounted1UpgradeEpoch12,[HeavyMounted1UpgradeEpoch11],70
+lm12_vs_hm12,LightMounted1UpgradeEpoch12,[HeavyMounted1UpgradeEpoch12],65
+//Heavy Mounted vs Light Infantry,,,
+hm2_vs_li1,HeavyMounted1UpgradeEpoch2,[LightInfantryUpgradeEpoch1],50
+hm4_vs_li3,HeavyMounted1UpgradeEpoch4,[LightInfantryUpgradeEpoch3],50
+hm6_vs_li5,HeavyMounted1UpgradeEpoch6,[LightInfantryUpgradeEpoch5],50
+hm6_vs_li7,HeavyMounted1UpgradeEpoch6,[LightInfantryUpgradeEpoch7],60
+hm8_vs_li7,HeavyMounted1UpgradeEpoch8,[LightInfantryUpgradeEpoch7],60
+hm10_vs_li11,HeavyMounted1UpgradeEpoch10,[LightInfantryUpgradeEpoch11],30
+//Heavy Mounted vs Heavy Mounted,,,
+//hm6_vs_hm8,HeavyMounted1UpgradeEpoch6,[HeavyMounted1UpgradeEpoch8],75
+//hm7_vs_hm9,HeavyMounted1UpgradeEpoch7,[HeavyMounted1UpgradeEpoch9],75
+//hm7_vs_hm11,HeavyMounted1UpgradeEpoch7,[HeavyMounted1UpgradeEpoch11],75
+//hm7_vs_hm13,HeavyMounted1UpgradeEpoch7,[HeavyMounted1UpgradeEpoch13],75
+//hm7_vs_hm15,HeavyMounted1UpgradeEpoch7,[HeavyMounted1UpgradeEpoch15],50
+//hm11_vs_hm13,HeavyMounted1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch13],75
+//hm11_vs_hm15,HeavyMounted1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch15],50
+//hm15_vs_hm9,HeavyMounted1UpgradeEpoch15,[HeavyMounted1UpgradeEpoch9],150
+//hm15_vs_hm13,HeavyMounted1UpgradeEpoch15,[HeavyMounted1UpgradeEpoch13],115
+//Heavy Heli vs Heavy Inf,,,
+hm2_vs_hi13,HeavyMounted2UpgradeEpoch13,[HeavyInfantry1UpgradeEpoch13],170
+hm2_vs_hi14,HeavyMounted2UpgradeEpoch13,[HeavyInfantry2UpgradeEpoch14],160
+//Light Heli vs Heavy Inf,,,
+lm2_vs_hi13,LightMounted2UpgradeEpoch13,[HeavyInfantry1UpgradeEpoch13],140
+lm2_vs_hi14,LightMounted2UpgradeEpoch13,[HeavyInfantry2UpgradeEpoch14],130
+//Light Infantry vs Heavy Infantry,,,
+li9_vs_hi8,LightInfantryUpgradeEpoch9,[HeavyInfantry2UpgradeEpoch8],50
+//Light Infantry vs Heavy Mounted,,,
+//li11_vs_hm10,LightInfantryUpgradeEpoch11,[HeavyMounted1UpgradeEpoch10],200
+//Light Infantry vs Light Mounted,,,
+li11_vs_lm10,LightInfantryUpgradeEpoch11,[LightMounted1UpgradeEpoch10],150
+//Light Infantry vs Light Infantry,,,
+li5_vs_li7,LightInfantryUpgradeEpoch5,[LightInfantryUpgradeEpoch7],50
+//Heavy Infantry vs Heavy Infantry,,,
+hi1_vs_hi9,HeavyInfantry1UpgradeEpoch1,HeavyInfantry1UpgradeEpoch9,50
+hi5_vs_hi11,HeavyInfantry1UpgradeEpoch5,HeavyInfantry1UpgradeEpoch11,50
+hi11_vs_hi5,HeavyInfantry1UpgradeEpoch11,HeavyInfantry1UpgradeEpoch5,200
+hi3_vs_hi7,HeavyInfantry1UpgradeEpoch3,HeavyInfantry1UpgradeEpoch7,25
+hi3_vs_hi9,HeavyInfantry1UpgradeEpoch3,HeavyInfantry1UpgradeEpoch9,25
+hi3_vs_hi11,HeavyInfantry1UpgradeEpoch3,HeavyInfantry1UpgradeEpoch11,25
+hi5_vs_hi7,HeavyInfantry1UpgradeEpoch5,HeavyInfantry1UpgradeEpoch7,50
+hi5_vs_hi9,HeavyInfantry1UpgradeEpoch5,HeavyInfantry1UpgradeEpoch9,50
+//Heavy Infantry vs Light Tank,,,
+hi13_vs_lm13,HeavyInfantry1UpgradeEpoch13,[LightMounted1UpgradeEpoch13],60
+hi14_vs_lm13,HeavyInfantry2UpgradeEpoch14,[LightMounted1UpgradeEpoch13],55
+hi15_vs_lm15,HeavyInfantry1UpgradeEpoch15,[LightMounted1UpgradeEpoch15],50
+//Heavy Infantry vs Light Mounted,,,
+hi1_vs_lm2,HeavyInfantry1UpgradeEpoch1,[LightMounted1UpgradeEpoch2],50
+hi3_vs_lm2,HeavyInfantry1UpgradeEpoch3,[LightMounted1UpgradeEpoch2],50
+hi5_vs_lm6,HeavyInfantry1UpgradeEpoch5,[LightMounted1UpgradeEpoch6],50
+//Heavy Infantry vs Heavy Mounted,,,
+hi1_vs_hm2,HeavyInfantry1UpgradeEpoch1,[HeavyMounted1UpgradeEpoch2],75
+hi3_vs_hm2,HeavyInfantry1UpgradeEpoch3,[HeavyMounted1UpgradeEpoch2],60
+hi3_vs_hm4,HeavyInfantry1UpgradeEpoch3,[HeavyMounted1UpgradeEpoch4],60
+hi11_vs_hm10,HeavyInfantry1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch10],150
+hi211_vs_hm10,HeavyInfantry2UpgradeEpoch11,[HeavyMounted1UpgradeEpoch10],150
+// Outpost vs Spy,,,
+o1_vs_s1,OutpostUpgradeEpoch1,[SpyUpgradeEpoch1],20
+o1_vs_s4,OutpostUpgradeEpoch1,[SpyUpgradeEpoch4],20
+o1_vs_s7,OutpostUpgradeEpoch1,[SpyUpgradeEpoch7],20
+o1_vs_s10,OutpostUpgradeEpoch1,[SpyUpgradeEpoch10],20
+o1_vs_s13,OutpostUpgradeEpoch1,[SpyUpgradeEpoch13],20
+o4_vs_s1,OutpostUpgradeEpoch4,[SpyUpgradeEpoch1],20
+o4_vs_s4,OutpostUpgradeEpoch4,[SpyUpgradeEpoch4],20
+o4_vs_s7,OutpostUpgradeEpoch4,[SpyUpgradeEpoch7],20
+o4_vs_s10,OutpostUpgradeEpoch4,[SpyUpgradeEpoch10],20
+o4_vs_s13,OutpostUpgradeEpoch4,[SpyUpgradeEpoch13],20
+o7_vs_s1,OutpostUpgradeEpoch7,[SpyUpgradeEpoch1],20
+o7_vs_s4,OutpostUpgradeEpoch7,[SpyUpgradeEpoch4],20
+o7_vs_s7,OutpostUpgradeEpoch7,[SpyUpgradeEpoch7],20
+o7_vs_s10,OutpostUpgradeEpoch7,[SpyUpgradeEpoch10],20
+o7_vs_s13,OutpostUpgradeEpoch7,[SpyUpgradeEpoch13],20
+o10_vs_s1,OutpostUpgradeEpoch10,[SpyUpgradeEpoch1],20
+o10_vs_s4,OutpostUpgradeEpoch10,[SpyUpgradeEpoch4],20
+o10_vs_s7,OutpostUpgradeEpoch10,[SpyUpgradeEpoch7],20
+o10_vs_s10,OutpostUpgradeEpoch10,[SpyUpgradeEpoch10],20
+o10_vs_s13,OutpostUpgradeEpoch10,[SpyUpgradeEpoch13],20
+o13_vs_s1,OutpostUpgradeEpoch13,[SpyUpgradeEpoch1],20
+o13_vs_s4,OutpostUpgradeEpoch13,[SpyUpgradeEpoch4],20
+o13_vs_s7,OutpostUpgradeEpoch13,[SpyUpgradeEpoch7],20
+o13_vs_s10,OutpostUpgradeEpoch13,[SpyUpgradeEpoch10],20
+o13_vs_s13,OutpostUpgradeEpoch13,[SpyUpgradeEpoch13],20
+// Fighter vs Satellite,,,
+f11_vs_satellite,FighterUpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+f12_vs_satellite,FighterUpgradeEpoch12,[NonCombatAir3UpgradeEpoch13],0
+// Air Defenses vs Satellite,,,
+aa10_vs_satellite,AirDefenseUpgradeEpoch10,[NonCombatAir3UpgradeEpoch13],0
+aa13_vs_satellite,AirDefenseUpgradeEpoch13,[NonCombatAir3UpgradeEpoch13],0
+aa15_vs_satellite,AirDefenseUpgradeEpoch15,[NonCombatAir3UpgradeEpoch13],0
+// Mobile AA vs Satellite,,,
+maa11_vs_satellite,LightArtillery2UpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+maa13_vs_satellite,LightArtillery2UpgradeEpoch13,[NonCombatAir3UpgradeEpoch13],0
+maa15_vs_satellite,LightArtillery2UpgradeEpoch15,[NonCombatAir3UpgradeEpoch13],0
+//Helicopters vs Satellite,,,
+heli1_13_vs_satellite,HeavyMounted2UpgradeEpoch13,[NonCombatAir3UpgradeEpoch13],0
+heli1_15_vs_satellite,HeavyMounted2UpgradeEpoch15,[NonCombatAir3UpgradeEpoch13],0
+heli2_13_vs_satellite,LightMounted2UpgradeEpoch13,[NonCombatAir3UpgradeEpoch13],0
+heli2_15_vs_satellite,LightMounted2UpgradeEpoch15,[NonCombatAir3UpgradeEpoch13],0
+//Ships vs Satellite,,,
+dest11_vs_satellite,DestroyerUpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+dest13_vs_satellite,DestroyerUpgradeEpoch13,[NonCombatAir3UpgradeEpoch13],0
+dest15_vs_satellite,DestroyerUpgradeEpoch15,[NonCombatAir3UpgradeEpoch13],0
+battle11_vs_satellite,BattleshipUpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+battle13_vs_satellite,BattleshipUpgradeEpoch13,[NonCombatAir3UpgradeEpoch13],0
+battle15_vs_satellite,BattleshipUpgradeEpoch15,[NonCombatAir3UpgradeEpoch13],0
+carrier11_vs_satellite,AircraftCarrierUpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+carrier14_vs_satellite,AircraftCarrierUpgradeEpoch14,[NonCombatAir3UpgradeEpoch13],0
+//Heavy Infantry 1 vs Satellite,,,
+hi1_1_vs_satellite,HeavyInfantry1UpgradeEpoch1,[NonCombatAir3UpgradeEpoch13],0
+hi1_3_vs_satellite,HeavyInfantry1UpgradeEpoch3,[NonCombatAir3UpgradeEpoch13],0
+hi1_5_vs_satellite,HeavyInfantry1UpgradeEpoch5,[NonCombatAir3UpgradeEpoch13],0
+hi1_7_vs_satellite,HeavyInfantry1UpgradeEpoch7,[NonCombatAir3UpgradeEpoch13],0
+hi1_9_vs_satellite,HeavyInfantry1UpgradeEpoch9,[NonCombatAir3UpgradeEpoch13],0
+hi1_11_vs_satellite,HeavyInfantry1UpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+hi1_13_vs_satellite,HeavyInfantry1UpgradeEpoch13,[NonCombatAir3UpgradeEpoch13],0
+hi1_15_vs_satellite,HeavyInfantry1UpgradeEpoch15,[NonCombatAir3UpgradeEpoch13],0
+AmericanUU2_vs_satellite,UU_American2UpgradeEpoch6,[NonCombatAir3UpgradeEpoch13],0
+BabylonianUU3_vs_satellite,UU_Babylonian3UpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+GermanUU1_vs_satellite,UU_German1UpgradeEpoch1,[NonCombatAir3UpgradeEpoch13],0
+GreekUU3_vs_satellite,UU_Greek3UpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+JapaneseUU1_vs_satellite,UU_Japanese1UpgradeEpoch1,[NonCombatAir3UpgradeEpoch13],0
+MayanUU1_vs_satellite,UU_Mayan1UpgradeEpoch1,[NonCombatAir3UpgradeEpoch13],0
+RomanUU1_vs_satellite,UU_Roman1UpgradeEpoch1,[NonCombatAir3UpgradeEpoch13],0
+RomanUU3_vs_satellite,UU_Roman3UpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+RussianUU1_vs_satellite,UU_Russian1UpgradeEpoch1,[NonCombatAir3UpgradeEpoch13],0
+TurkishUU2_vs_satellite,UU_Turkish2UpgradeEpoch6,[NonCombatAir3UpgradeEpoch13],0
+ZuluUU2_vs_satellite,UU_Zulu2UpgradeEpoch6,[NonCombatAir3UpgradeEpoch13],0
+//Heavy Infantry 2 vs Satellite,,,
+hi2_1_vs_satellite,HeavyInfantry2UpgradeEpoch1,[NonCombatAir3UpgradeEpoch13],0
+hi2_2_vs_satellite,HeavyInfantry2UpgradeEpoch2,[NonCombatAir3UpgradeEpoch13],0
+hi2_5_vs_satellite,HeavyInfantry2UpgradeEpoch5,[NonCombatAir3UpgradeEpoch13],0
+hi2_8_vs_satellite,HeavyInfantry2UpgradeEpoch8,[NonCombatAir3UpgradeEpoch13],0
+hi2_11_vs_satellite,HeavyInfantry2UpgradeEpoch11,[NonCombatAir3UpgradeEpoch13],0
+hi2_14_vs_satellite,HeavyInfantry2UpgradeEpoch14,[NonCombatAir3UpgradeEpoch13],0
+GreekUU1_vs_satellite,UU_Greek1UpgradeEpoch1,[NonCombatAir3UpgradeEpoch13],0
+RomanUU2_vs_satellite,UU_Roman2UpgradeEpoch6,[NonCombatAir3UpgradeEpoch13],0
+ZuluUU1_vs_satellite,UU_Zulu1UpgradeEpoch1,[NonCombatAir3UpgradeEpoch13],0
+//Air Defenses vs Balloon,,,
+aa10_vs_balloon,AirDefenseUpgradeEpoch10,[NonCombatAir1UpgradeEpoch11],0
+aa13_vs_balloon,AirDefenseUpgradeEpoch13,[NonCombatAir1UpgradeEpoch11],0
+aa15_vs_balloon,AirDefenseUpgradeEpoch15,[NonCombatAir1UpgradeEpoch11],0
+// Mobile AA vs Balloon,,,
+maa11_vs_balloon,LightArtillery2UpgradeEpoch11,[NonCombatAir1UpgradeEpoch11],0
+maa13_vs_balloon,LightArtillery2UpgradeEpoch13,[NonCombatAir1UpgradeEpoch11],0
+maa15_vs_balloon,LightArtillery2UpgradeEpoch15,[NonCombatAir1UpgradeEpoch11],0
+//Helicopters vs Balloon,,,
+heli1_13_vs_balloon,HeavyMounted2UpgradeEpoch13,[NonCombatAir1UpgradeEpoch11],0
+heli1_15_vs_balloon,HeavyMounted2UpgradeEpoch15,[NonCombatAir1UpgradeEpoch11],0
+heli2_13_vs_balloon,LightMounted2UpgradeEpoch13,[NonCombatAir1UpgradeEpoch11],0
+heli2_15_vs_balloon,LightMounted2UpgradeEpoch15,[NonCombatAir1UpgradeEpoch11],0
+//Ships vs Balloon,,,
+dest11_vs_Balloon,DestroyerUpgradeEpoch11,[NonCombatAir1UpgradeEpoch11],0
+dest13_vs_Balloon,DestroyerUpgradeEpoch13,[NonCombatAir1UpgradeEpoch11],0
+dest15_vs_Balloon,DestroyerUpgradeEpoch15,[NonCombatAir1UpgradeEpoch11],0
+battle11_vs_Balloon,BattleshipUpgradeEpoch11,[NonCombatAir1UpgradeEpoch11],0
+battle13_vs_Balloon,BattleshipUpgradeEpoch13,[NonCombatAir1UpgradeEpoch11],0
+battle15_vs_Balloon,BattleshipUpgradeEpoch15,[NonCombatAir1UpgradeEpoch11],0
+carrier11_vs_Balloon,AircraftCarrierUpgradeEpoch11,[NonCombatAir1UpgradeEpoch11],0
+carrier14_vs_Balloon,AircraftCarrierUpgradeEpoch14,[NonCombatAir1UpgradeEpoch11],0
+//Heavy Infantry 1 vs Balloon,,,
+hi1_1_vs_balloon,HeavyInfantry1UpgradeEpoch1,[NonCombatAir1UpgradeEpoch11],0
+hi1_3_vs_balloon,HeavyInfantry1UpgradeEpoch3,[NonCombatAir1UpgradeEpoch11],0
+hi1_5_vs_balloon,HeavyInfantry1UpgradeEpoch5,[NonCombatAir1UpgradeEpoch11],0
+hi1_7_vs_balloon,HeavyInfantry1UpgradeEpoch7,[NonCombatAir1UpgradeEpoch11],0
+hi1_9_vs_balloon,HeavyInfantry1UpgradeEpoch9,[NonCombatAir1UpgradeEpoch11],0
+hi1_11_vs_balloon,HeavyInfantry1UpgradeEpoch11,[NonCombatAir1UpgradeEpoch11],0
+hi1_13_vs_balloon,HeavyInfantry1UpgradeEpoch13,[NonCombatAir1UpgradeEpoch11],0
+hi1_15_vs_balloon,HeavyInfantry1UpgradeEpoch15,[NonCombatAir1UpgradeEpoch11],0
+AmericanUU2_vs_balloon,UU_American2UpgradeEpoch6,[NonCombatAir1UpgradeEpoch11],0
+BabylonianUU3_vs_balloon,UU_Babylonian3UpgradeEpoch11,[NonCombatAir1UpgradeEpoch11],0
+GermanUU1_vs_balloon,UU_German1UpgradeEpoch1,[NonCombatAir1UpgradeEpoch11],0
+GreekUU3_vs_balloon,UU_Greek3UpgradeEpoch11,[NonCombatAir1UpgradeEpoch11],0
+JapaneseUU1_vs_balloon,UU_Japanese1UpgradeEpoch1,[NonCombatAir1UpgradeEpoch11],0
+MayanUU1_vs_balloon,UU_Mayan1UpgradeEpoch1,[NonCombatAir1UpgradeEpoch11],0
+RomanUU1_vs_balloon,UU_Roman1UpgradeEpoch1,[NonCombatAir1UpgradeEpoch11],0
+RomanUU3_vs_balloon,UU_Roman3UpgradeEpoch11,[NonCombatAir1UpgradeEpoch11],0
+RussianUU1_vs_balloon,UU_Russian1UpgradeEpoch1,[NonCombatAir1UpgradeEpoch11],0
+TurkishUU2_vs_balloon,UU_Turkish2UpgradeEpoch6,[NonCombatAir1UpgradeEpoch11],0
+ZuluUU2_vs_balloon,UU_Zulu2UpgradeEpoch6,[NonCombatAir1UpgradeEpoch11],0
+//Heavy Infantry 2 vs Balloon,,,
+hi2_1_vs_balloon,HeavyInfantry2UpgradeEpoch1,[NonCombatAir1UpgradeEpoch11],0
+hi2_2_vs_balloon,HeavyInfantry2UpgradeEpoch2,[NonCombatAir1UpgradeEpoch11],0
+hi2_5_vs_balloon,HeavyInfantry2UpgradeEpoch5,[NonCombatAir1UpgradeEpoch11],0
+hi2_8_vs_balloon,HeavyInfantry2UpgradeEpoch8,[NonCombatAir1UpgradeEpoch11],0
+hi2_11_vs_balloon,HeavyInfantry2UpgradeEpoch11,[NonCombatAir1UpgradeEpoch11],0
+hi2_14_vs_balloon,HeavyInfantry2UpgradeEpoch14,[NonCombatAir1UpgradeEpoch11],0
+GreekUU1_vs_balloon,UU_Greek1UpgradeEpoch1,[NonCombatAir1UpgradeEpoch11],0
+RomanUU2_vs_balloon,UU_Roman2UpgradeEpoch6,[NonCombatAir1UpgradeEpoch11],0
+ZuluUU1_vs_balloon,UU_Zulu1UpgradeEpoch1,[NonCombatAir1UpgradeEpoch11],0
+//Light Artillery vs Inf,,,
+la_1_vs_light_infantry,LightArtillery1UpgradeEpoch1,[LightInfantryUpgradeEpoch1],80
+la_1_vs_heavy_infantry,LightArtillery1UpgradeEpoch1,[HeavyInfantry1UpgradeEpoch1],110
+la_1_vs_heavy_infantry2,LightArtillery1UpgradeEpoch1,[HeavyInfantry2UpgradeEpoch2],110
+la_3_vs_light_infantry_1,LightArtillery1UpgradeEpoch3,[LightInfantryUpgradeEpoch1],92
+la_3_vs_light_infantry_3,LightArtillery1UpgradeEpoch3,[LightInfantryUpgradeEpoch3],92
+la_5_vs_light_infantry_5,LightArtillery1UpgradeEpoch5,[LightInfantryUpgradeEpoch5],95
+la_5_vs_heavy_infantry,LightArtillery1UpgradeEpoch5,[HeavyInfantry2UpgradeEpoch5],95
+la_7_vs_light_infantryi_7,LightArtillery1UpgradeEpoch7,[LightInfantryUpgradeEpoch7],110
+la_11_vs_light_infantry_11,LightArtillery1UpgradeEpoch11,[LightInfantryUpgradeEpoch11],80
+la_11_vs_heavy_infantry_11,LightArtillery1UpgradeEpoch11,[HeavyInfantry1UpgradeEpoch11],80
+la_11_vs_heavy_infantry2_11,LightArtillery1UpgradeEpoch11,[HeavyInfantry2UpgradeEpoch11],60
+la_13_vs_light_infantry_13,LightArtillery1UpgradeEpoch13,[LightInfantryUpgradeEpoch13],50
+la_13_vs_heavy_infantry_13,LightArtillery1UpgradeEpoch13,[HeavyInfantry1UpgradeEpoch13],80
+la_15_vs_light_infantry_15,LightArtillery1UpgradeEpoch15,[LightInfantryUpgradeEpoch15],55
+la_15_vs_heavy_infantry_15,LightArtillery1UpgradeEpoch15,[HeavyInfantry1UpgradeEpoch15],75
+la_15_vs_heavy_infantry2_14,LightArtillery1UpgradeEpoch15,[HeavyInfantry2UpgradeEpoch14],80
+//Light Artillery Vs Heavy Tanks,,,
+la_9_vs_htank_11,LightArtillery1UpgradeEpoch9,[HeavyMounted1UpgradeEpoch11],150
+la_9_vs_htank_12,LightArtillery1UpgradeEpoch9,[HeavyMounted1UpgradeEpoch12],150
+la_9_vs_htank_13,LightArtillery1UpgradeEpoch9,[HeavyMounted1UpgradeEpoch13],150
+la_9_vs_htank_15,LightArtillery1UpgradeEpoch9,[HeavyMounted1UpgradeEpoch15],150
+la_11_vs_htank_11,LightArtillery1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch11],150
+la_11_vs_htank_12,LightArtillery1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch12],140
+la_11_vs_htank_13,LightArtillery1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch13],130
+la_13_vs_htank_11,LightArtillery1UpgradeEpoch13,[HeavyMounted1UpgradeEpoch11],300
+la_13_vs_htank_12,LightArtillery1UpgradeEpoch13,[HeavyMounted1UpgradeEpoch12],300
+la_13_vs_htank_13,LightArtillery1UpgradeEpoch13,[HeavyMounted1UpgradeEpoch13],300
+la_13_vs_htank_15,LightArtillery1UpgradeEpoch13,[HeavyMounted1UpgradeEpoch15],300
+la_15_vs_htank_11,LightArtillery1UpgradeEpoch15,[HeavyMounted1UpgradeEpoch11],140
+la_15_vs_htank_12,LightArtillery1UpgradeEpoch15,[HeavyMounted1UpgradeEpoch12],140
+la_15_vs_htank_13,LightArtillery1UpgradeEpoch15,[HeavyMounted1UpgradeEpoch13],130
+la_15_vs_htank_15,LightArtillery1UpgradeEpoch15,[HeavyMounted1UpgradeEpoch15],100
+//Light Artillery Vs Tanks,,,
+la_11_vs_tank_11,LightArtillery1UpgradeEpoch11,[LightMounted1UpgradeEpoch11],175
+la_11_vs_tank_12,LightArtillery1UpgradeEpoch11,[LightMounted1UpgradeEpoch12],160
+la_11_vs_tank_13,LightArtillery1UpgradeEpoch11,[LightMounted1UpgradeEpoch13],140
+la_11_vs_tank_15,LightArtillery1UpgradeEpoch11,[LightMounted1UpgradeEpoch15],125
+la_13_vs_tank_11,LightArtillery1UpgradeEpoch13,[LightMounted1UpgradeEpoch11],300
+la_13_vs_tank_12,LightArtillery1UpgradeEpoch13,[LightMounted1UpgradeEpoch12],300
+la_13_vs_tank_13,LightArtillery1UpgradeEpoch13,[LightMounted1UpgradeEpoch13],300
+la_13_vs_tank_15,LightArtillery1UpgradeEpoch13,[LightMounted1UpgradeEpoch15],300
+la_15_vs_tank_15,LightArtillery1UpgradeEpoch15,[LightMounted1UpgradeEpoch15],125
+//Light Artillery vs Heavy Mounted,,,
+la_7_vs_hm_6,LightArtillery1UpgradeEpoch7,[HeavyMounted1UpgradeEpoch6],150
+la_7_vs_hm_8,LightArtillery1UpgradeEpoch7,[HeavyMounted1UpgradeEpoch8],150
+la_9_vs_hm_6,LightArtillery1UpgradeEpoch9,[HeavyMounted1UpgradeEpoch6],150
+la_9_vs_hm_8,LightArtillery1UpgradeEpoch9,[HeavyMounted1UpgradeEpoch8],150
+la_11_vs_hm_10,LightArtillery1UpgradeEpoch11,[HeavyMounted1UpgradeEpoch10],125
+//Light Artillery vs Light Mounted,,,
+la_11_vs_lightmounted_10,LightArtillery1UpgradeEpoch11,[LightMounted1UpgradeEpoch10],120
+// Light Artillery vs Heavy Artillery,,,
+la_1_vs_HeavyArtillery2,LightArtillery1UpgradeEpoch1,[HeavyArtilleryUpgradeEpoch2],80
+la_5_vs_HeavyArtillery6,LightArtillery1UpgradeEpoch5,[HeavyArtilleryUpgradeEpoch6],90
+la_7_vs_HeavyArtillery8,LightArtillery1UpgradeEpoch7,[HeavyArtilleryUpgradeEpoch8],80
+la_9_vs_HeavyArtillery8,LightArtillery1UpgradeEpoch9,[HeavyArtilleryUpgradeEpoch8],80
+la_9_vs_HeavyArtillery10,LightArtillery1UpgradeEpoch9,[HeavyArtilleryUpgradeEpoch10],75
+la_13_vs_HeavyArtillery14,LightArtillery1UpgradeEpoch13,[HeavyArtilleryUpgradeEpoch14],80
+//Heavy Artillery vs Tanks,,,
+ha_14_vs_tank_13,HeavyArtilleryUpgradeEpoch14,[LightMounted1UpgradeEpoch13],125
+ha_14_vs_tank_15,HeavyArtilleryUpgradeEpoch14,[LightMounted1UpgradeEpoch15],125
+ha_14_vs_htank_13,HeavyArtilleryUpgradeEpoch14,[HeavyMounted1UpgradeEpoch13],125
+ha_14_vs_htank_15,HeavyArtilleryUpgradeEpoch14,[HeavyMounted1UpgradeEpoch15],125
+//Heavy Artillery vs Heavy Mounted,,,
+ha_6_vs_hm_6,HeavyArtilleryUpgradeEpoch6,[HeavyMounted1UpgradeEpoch6],125
+//ha_8_vs_hm_8,HeavyArtilleryUpgradeEpoch8,[HeavyMounted1UpgradeEpoch8],125
+//Heavy Artillery vs Infantry,,,
+ha_2_vs_HeavyInfantry1_1,HeavyArtilleryUpgradeEpoch2,[HeavyInfantry1UpgradeEpoch1],110
+ha_2_vs_HeavyInfantry2_2,HeavyArtilleryUpgradeEpoch2,[HeavyInfantry2UpgradeEpoch2],110
+ha_2_vs_LightInfantry_2,HeavyArtilleryUpgradeEpoch2,[LightInfantryUpgradeEpoch1],90
+ha_4_vs_LightInfantry_3,HeavyArtilleryUpgradeEpoch4,[LightInfantryUpgradeEpoch3],80
+ha_8_vs_LightInfantry_7,HeavyArtilleryUpgradeEpoch8,[LightInfantryUpgradeEpoch7],60
+ha_8_vs_LightInfantry_9,HeavyArtilleryUpgradeEpoch8,[LightInfantryUpgradeEpoch9],60
+ha_8_vs_LightInfantry_11,HeavyArtilleryUpgradeEpoch8,[LightInfantryUpgradeEpoch11],60
+ha_8_vs_HeavyMounted_6,HeavyArtilleryUpgradeEpoch8,[HeavyMounted1UpgradeEpoch6],80
+ha_8_vs_HeavyMounted_8,HeavyArtilleryUpgradeEpoch8,[HeavyMounted1UpgradeEpoch8],80
+ha_8_vs_HeavyMounted_10,HeavyArtilleryUpgradeEpoch8,[HeavyMounted1UpgradeEpoch10],80
+ha_10_vs_LightInfantry_9,HeavyArtilleryUpgradeEpoch10,[LightInfantryUpgradeEpoch9],90
+ha_12_vs_li_13,HeavyArtilleryUpgradeEpoch12,[LightInfantryUpgradeEpoch11],60
+ha_12_vs_li_15,HeavyArtilleryUpgradeEpoch12,[LightInfantryUpgradeEpoch13],60
+ha_12_vs_hi1_11,HeavyArtilleryUpgradeEpoch12,[HeavyInfantry1UpgradeEpoch11],50
+ha_12_vs_hi1_13,HeavyArtilleryUpgradeEpoch12,[HeavyInfantry1UpgradeEpoch13],60
+ha_12_vs_hi2_11,HeavyArtilleryUpgradeEpoch12,[HeavyInfantry2UpgradeEpoch11],60
+ha_14_vs_li_13,HeavyArtilleryUpgradeEpoch14,[LightInfantryUpgradeEpoch13],150
+ha_14_vs_li_15,HeavyArtilleryUpgradeEpoch14,[LightInfantryUpgradeEpoch15],80
+ha_14_vs_hi1_13,HeavyArtilleryUpgradeEpoch14,[HeavyInfantry1UpgradeEpoch13],140
+ha_14_vs_hi1_15,HeavyArtilleryUpgradeEpoch14,[HeavyInfantry1UpgradeEpoch15],80
+ha_14_vs_hi2_14,HeavyArtilleryUpgradeEpoch14,[HeavyInfantry2UpgradeEpoch14],130
+// Submarine Versus Destroyer,,,
+sub11_vs_destroyer11,DestroyerUpgradeEpoch11,[SubmarineUpgradeEpoch11],85
+
+ChineseUU2_vs_LightInfantry_7,UU_Chinese2UpgradeEpoch6,[LightInfantryUpgradeEpoch7],60
+ChineseUU2_vs_LightInfantry_9,UU_Chinese2UpgradeEpoch6,[LightInfantryUpgradeEpoch9],60
+ChineseUU2_vs_LightInfantry_11,UU_Chinese2UpgradeEpoch6,[LightInfantryUpgradeEpoch11],60
+ChineseUU2_vs_HeavyMounted_6,UU_Chinese2UpgradeEpoch6,[HeavyMounted1UpgradeEpoch6],80
+ChineseUU2_vs_HeavyMounted_8,UU_Chinese2UpgradeEpoch6,[HeavyMounted1UpgradeEpoch8],80
+ChineseUU2_vs_HeavyMounted_10,UU_Chinese2UpgradeEpoch6,[HeavyMounted1UpgradeEpoch10],80
+
+//Egyptian campaign - everyone vs EgyptFortress,,,
+li_1_vs_EgyptFortress,LightInfantryUpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+li_3_vs_EgyptFortress,LightInfantryUpgradeEpoch3,[EgyptFortressUpgradeEpoch4],0
+hi1_1_vs_EgyptFortress,HeavyInfantry1UpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+hi1_3_vs_EgyptFortress,HeavyInfantry1UpgradeEpoch3,[EgyptFortressUpgradeEpoch4],0
+hi2_1_vs_EgyptFortress,HeavyInfantry2UpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+hi2_2_vs_EgyptFortress,HeavyInfantry2UpgradeEpoch2,[EgyptFortressUpgradeEpoch4],0
+la_1_vs_EgyptFortress,LightArtillery1UpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+la_3_vs_EgyptFortress,LightArtillery1UpgradeEpoch3,[EgyptFortressUpgradeEpoch4],0
+ha_2_vs_EgyptFortress,HeavyArtilleryUpgradeEpoch2,[EgyptFortressUpgradeEpoch4],0
+ha_4_vs_EgyptFortress,HeavyArtilleryUpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+LightMounted_2_vs_EgyptFortress,LightMounted1UpgradeEpoch2,[EgyptFortressUpgradeEpoch4],0
+LightMounted_4_vs_EgyptFortress,LightMounted1UpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+HeavyMounted_2_vs_EgyptFortress,HeavyMounted1UpgradeEpoch2,[EgyptFortressUpgradeEpoch4],0
+HeavyMounted_4_vs_EgyptFortress,HeavyMounted1UpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+EgyptianUU1_vs_EgyptFortress,UU_Egyptian1UpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+Ram_1_vs_EgyptFortress,RamUpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+Ram_3_vs_EgyptFortress,RamUpgradeEpoch3,[EgyptFortressUpgradeEpoch4],0
+SeigeTower_1_vs_EgyptFortress,SeigeTowerUpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+SeigeTower_4_vs_EgyptFortress,SeigeTowerUpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+LeaderKemsa_vs_EgyptFortress,LeaderKemsa,[EgyptFortressUpgradeEpoch4],0
+EgyptCrocodile_vs_EgyptFortress,EgyptCrocodileUpgrade1,[EgyptFortressUpgradeEpoch4],100
+Scout_1_vs_EgyptFortress,ScoutUpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+Scout_4_vs_EgyptFortress,ScoutUpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+CitizenF_1_vs_EgyptFortress,CitizenFUpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+CitizenF_4_vs_EgyptFortress,CitizenFUpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+Citizen_1_vs_EgyptFortress,CitizenUpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+Citizen_4_vs_EgyptFortress,CitizenUpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+Outpost_1_vs_EgyptFortress,OutpostUpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+Outpost_4_vs_EgyptFortress,OutpostUpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+Outpost2_1_vs_EgyptFortress,Outpost2UpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+Outpost2_4_vs_EgyptFortress,Outpost2UpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+Fortress_1_vs_EgyptFortress,FortressUpgradeEpoch1,[EgyptFortressUpgradeEpoch4],0
+Fortress_4_vs_EgyptFortress,FortressUpgradeEpoch4,[EgyptFortressUpgradeEpoch4],0
+WallTower_2_vs_EgyptFortress,WallTowerUpgradeEpoch2,[EgyptFortressUpgradeEpoch4],0
+
+
+// CJ-10 Antiship Missile vs Naval +200%
+antiship_vs_naval_0,AntishipMisUpgradeEpoch14,[DestroyerUpgradeEpoch13],300
+antiship_vs_naval_1,AntishipMisUpgradeEpoch14,[DestroyerUpgradeEpoch14],300
+antiship_vs_naval_2,AntishipMisUpgradeEpoch14,[DestroyerUpgradeEpoch15],300
+antiship_vs_naval_3,AntishipMisUpgradeEpoch14,[BattleshipUpgradeEpoch13],300
+antiship_vs_naval_4,AntishipMisUpgradeEpoch14,[BattleshipUpgradeEpoch14],300
+antiship_vs_naval_5,AntishipMisUpgradeEpoch14,[BattleshipUpgradeEpoch15],300
+antiship_vs_naval_6,AntishipMisUpgradeEpoch14,[AircraftCarrierUpgradeEpoch13],300
+antiship_vs_naval_7,AntishipMisUpgradeEpoch14,[AircraftCarrierUpgradeEpoch14],300
+antiship_vs_naval_8,AntishipMisUpgradeEpoch14,[AircraftCarrierUpgradeEpoch15],300
+antiship_vs_naval_9,AntishipMisUpgradeEpoch14,[SubmarineUpgradeEpoch13],300
+antiship_vs_naval_10,AntishipMisUpgradeEpoch14,[SubmarineUpgradeEpoch15],300
+antiship_vs_naval_11,AntishipMisUpgradeEpoch14,[CruiserUpgradeEpoch13],300
+antiship_vs_naval_12,AntishipMisUpgradeEpoch14,[CruiserUpgradeEpoch14],300
+antiship_vs_naval_13,AntishipMisUpgradeEpoch14,[CruiserUpgradeEpoch15],300
+antiship_vs_naval_14,AntishipMisUpgradeEpoch14,[LandingShipUpgradeEpoch13],300
+antiship_vs_naval_15,AntishipMisUpgradeEpoch14,[LandingShipUpgradeEpoch15],300
+antiship_vs_naval_16,AntishipMisUpgradeEpoch14,[AashipUpgradeEpoch13],300
+antiship_vs_naval_17,AntishipMisUpgradeEpoch14,[AashipUpgradeEpoch14],300
+antiship_vs_naval_18,AntishipMisUpgradeEpoch14,[AashipUpgradeEpoch15],300
+antiship_vs_naval_19,AntishipMisUpgradeEpoch14,[ChinaCarrierUpgradeEpoch13],300
+antiship_vs_naval_20,AntishipMisUpgradeEpoch14,[ChinaCarrierUpgradeEpoch14],300
+antiship_vs_naval_21,AntishipMisUpgradeEpoch14,[ChinaCarrierUpgradeEpoch15],300
+antiship_vs_naval_22,AntishipMisUpgradeEpoch14,[Ch054AUpgradeEpoch13],300
+antiship_vs_naval_23,AntishipMisUpgradeEpoch14,[Ch052dUpgradeEpoch13],300
+antiship_vs_naval_24,AntishipMisUpgradeEpoch14,[Ch052dUpgradeEpoch15],300
+antiship_vs_naval_25,AntishipMisUpgradeEpoch14,[Ch055AUpgradeEpoch15],300
+antiship_vs_naval_26,AntishipMisUpgradeEpoch14,[DDG1001UpgradeEpoch13],300
+antiship_vs_naval_27,AntishipMisUpgradeEpoch14,[DDG1001UpgradeEpoch14],300
+antiship_vs_naval_28,AntishipMisUpgradeEpoch14,[DDG1001UpgradeEpoch15],300
+antiship_vs_naval_29,AntishipMisUpgradeEpoch14,[TiconderogaUpgradeEpoch13],300
+antiship_vs_naval_30,AntishipMisUpgradeEpoch14,[TiconderogaUpgradeEpoch14],300
+antiship_vs_naval_31,AntishipMisUpgradeEpoch14,[TiconderogaUpgradeEpoch15],300
+antiship_vs_naval_32,AntishipMisUpgradeEpoch14,[DDG123UpgradeEpoch13],300
+antiship_vs_naval_33,AntishipMisUpgradeEpoch14,[DDG123UpgradeEpoch14],300
+antiship_vs_naval_34,AntishipMisUpgradeEpoch14,[DDG123UpgradeEpoch15],300
+// CJ-10 Antiship Missile vs Land -50%
+antiship_vs_land_0,AntishipMisUpgradeEpoch14,[HeavyMounted1UpgradeEpoch13],50
+antiship_vs_land_1,AntishipMisUpgradeEpoch14,[HeavyMounted1UpgradeEpoch15],50
+antiship_vs_land_2,AntishipMisUpgradeEpoch14,[LightMounted1UpgradeEpoch13],50
+antiship_vs_land_3,AntishipMisUpgradeEpoch14,[LightMounted1UpgradeEpoch15],50
+antiship_vs_land_4,AntishipMisUpgradeEpoch14,[HeavyInfantry1UpgradeEpoch13],50
+antiship_vs_land_5,AntishipMisUpgradeEpoch14,[HeavyInfantry1UpgradeEpoch15],50
+antiship_vs_land_6,AntishipMisUpgradeEpoch14,[HeavyInfantry2UpgradeEpoch14],50
+antiship_vs_land_7,AntishipMisUpgradeEpoch14,[LightInfantryUpgradeEpoch13],50
+antiship_vs_land_8,AntishipMisUpgradeEpoch14,[LightInfantryUpgradeEpoch15],50
+antiship_vs_land_9,AntishipMisUpgradeEpoch14,[HeavyArtilleryUpgradeEpoch14],50
+antiship_vs_land_10,AntishipMisUpgradeEpoch14,[LightArtillery1UpgradeEpoch13],50
+antiship_vs_land_11,AntishipMisUpgradeEpoch14,[LightArtillery1UpgradeEpoch15],50
+// PLZ45 vs Buildings +500% (ADJUST=600)
+plz45_vs_building_0,Plz45UpgradeEpoch14,[CityCenterUpgradeEpoch13],600
+plz45_vs_building_1,Plz45UpgradeEpoch14,[CityCenterUpgradeEpoch15],600
+plz45_vs_building_2,Plz45UpgradeEpoch14,[FortressUpgradeEpoch14],600
+plz45_vs_building_3,Plz45UpgradeEpoch14,[FortressUpgradeEpoch15],600
+plz45_vs_building_4,Plz45UpgradeEpoch14,[OutpostUpgradeEpoch13],600
+plz45_vs_building_5,Plz45UpgradeEpoch14,[OutpostUpgradeEpoch14],600
+plz45_vs_building_6,Plz45UpgradeEpoch14,[OutpostUpgradeEpoch15],600
+plz45_vs_building_7,Plz45UpgradeEpoch14,[Outpost2UpgradeEpoch13],600
+plz45_vs_building_8,Plz45UpgradeEpoch14,[MyOutpostUpgradeEpoch13],600
+plz45_vs_building_9,Plz45UpgradeEpoch14,[MillUpgradeEpoch13],600
+plz45_vs_building_10,Plz45UpgradeEpoch14,[TempleUpgradeEpoch13],600
+plz45_vs_building_11,Plz45UpgradeEpoch14,[TempleUpgradeEpoch15],600
+plz45_vs_building_12,Plz45UpgradeEpoch14,[UniversityUpgradeEpoch13],600
+plz45_vs_building_13,Plz45UpgradeEpoch14,[UniversityUpgradeEpoch15],600
+plz45_vs_building_14,Plz45UpgradeEpoch14,[WarehouseUpgradeEpoch13],600
+// Hongjian10 vs armor (+350%) and vs buildings (-50%)
+hj10_vs_armor_HeavyMounted1UpgradeEpoch13,Hongjian10UpgradeEpoch14,[HeavyMounted1UpgradeEpoch13],450
+hj10_vs_armor_HeavyMounted2UpgradeEpoch13,Hongjian10UpgradeEpoch14,[HeavyMounted2UpgradeEpoch13],450
+hj10_vs_armor_China_T99AUpgradeEpoch13,Hongjian10UpgradeEpoch14,[China_T99AUpgradeEpoch13],450
+hj10_vs_bldg_CityCenterUpgradeEpoch13,Hongjian10UpgradeEpoch14,[CityCenterUpgradeEpoch13],50
+hj10_vs_bldg_CityCenterUpgradeEpoch15,Hongjian10UpgradeEpoch14,[CityCenterUpgradeEpoch15],50
+hj10_vs_bldg_FortressUpgradeEpoch13,Hongjian10UpgradeEpoch14,[FortressUpgradeEpoch13],50
+hj10_vs_bldg_FortressUpgradeEpoch15,Hongjian10UpgradeEpoch14,[FortressUpgradeEpoch15],50
+hj10_vs_bldg_OutpostUpgradeEpoch13,Hongjian10UpgradeEpoch14,[OutpostUpgradeEpoch13],50
+hj10_vs_bldg_Outpost2UpgradeEpoch13,Hongjian10UpgradeEpoch14,[Outpost2UpgradeEpoch13],50
+hj10_vs_bldg_MyOutpostUpgradeEpoch13,Hongjian10UpgradeEpoch14,[MyOutpostUpgradeEpoch13],50
+hj10_vs_bldg_WarehouseUpgradeEpoch13,Hongjian10UpgradeEpoch14,[WarehouseUpgradeEpoch13],50
+hj10_vs_bldg_UniversityUpgradeEpoch13,Hongjian10UpgradeEpoch14,[UniversityUpgradeEpoch13],50
+hj10_vs_bldg_UniversityUpgradeEpoch15,Hongjian10UpgradeEpoch14,[UniversityUpgradeEpoch15],50
+hj10_vs_bldg_MillUpgradeEpoch13,Hongjian10UpgradeEpoch14,[MillUpgradeEpoch13],50
+hj10_vs_bldg_TempleUpgradeEpoch13,Hongjian10UpgradeEpoch14,[TempleUpgradeEpoch13],50
+hj10_vs_bldg_TempleUpgradeEpoch15,Hongjian10UpgradeEpoch14,[TempleUpgradeEpoch15],50
+hj10_vs_bldg_DockUpgradeEpoch13,Hongjian10UpgradeEpoch14,[DockUpgradeEpoch13],50
+hj10_vs_bldg_AirportUpgradeEpoch13,Hongjian10UpgradeEpoch14,[AirportUpgradeEpoch13],50
+hj10_vs_bldg_BarracksUpgradeEpoch13,Hongjian10UpgradeEpoch14,[BarracksUpgradeEpoch13],50
+hj10_vs_bldg_WorkshopUpgradeEpoch13,Hongjian10UpgradeEpoch14,[WorkshopUpgradeEpoch13],50
+Ch052d14_vs_fighter,Ch052dUpgradeEpoch14,[FighterUpgradeEpoch14],150
+Ch052d14_vs_fighterbomber,Ch052dUpgradeEpoch14,[FighterBomberUpgradeEpoch14],150
+Ch052d14_vs_bomber,Ch052dUpgradeEpoch14,[BomberUpgradeEpoch14],150
+Ch052d14_vs_tu16kitai,Ch052dUpgradeEpoch14,[Tu16KitaiUpgradeEpoch14],150
+Ch052d14_vs_b1b,Ch052dUpgradeEpoch14,[B1bUpgradeEpoch14],150
+Ch052d14_vs_ho229,Ch052dUpgradeEpoch14,[ho229GerUpgradeEpoch14],150
+Ch052d14_vs_f16,Ch052dUpgradeEpoch14,[f16UpgradeEpoch14],150
+Ch052d14_vs_j16,Ch052dUpgradeEpoch14,[J16UpgradeEpoch14],150
+
+// === E14陆军克制关系调整 (调优方案第十五章) ===
+// 坦克/IFV vs ATGM（弱化，ATGM射程优势）
+hm13_vs_la13,HeavyMounted1UpgradeEpoch13,[LightArtillery1UpgradeEpoch13],60
+hm13_vs_la15,HeavyMounted1UpgradeEpoch13,[LightArtillery1UpgradeEpoch15],60
+lm13_vs_la13,LightMounted1UpgradeEpoch13,[LightArtillery1UpgradeEpoch13],50
+// IFV vs 步兵（强化，30mm链炮碾压）
+lm13_vs_li13,LightMounted1UpgradeEpoch13,[LightInfantryUpgradeEpoch13],150
+lm13_vs_hi13,LightMounted1UpgradeEpoch13,[HeavyInfantry1UpgradeEpoch13],150
+lm13_vs_hi14,LightMounted1UpgradeEpoch13,[HeavyInfantry2UpgradeEpoch14],140
+// 重型武直反坦克/反装甲
+hm2_13_vs_hm13,HeavyMounted2UpgradeEpoch13,[HeavyMounted1UpgradeEpoch13],200
+hm2_13_vs_hm15,HeavyMounted2UpgradeEpoch13,[HeavyMounted1UpgradeEpoch15],180
+hm2_13_vs_lm13,HeavyMounted2UpgradeEpoch13,[LightMounted1UpgradeEpoch13],180
+// 轻型武直反坦克/反装甲
+lm2_13_vs_hm13,LightMounted2UpgradeEpoch13,[HeavyMounted1UpgradeEpoch13],160
+lm2_13_vs_lm13,LightMounted2UpgradeEpoch13,[LightMounted1UpgradeEpoch13],160
+// 步兵 vs 武直（MANPADS有限反击）
+li13_vs_hm2_13,LightInfantryUpgradeEpoch13,[HeavyMounted2UpgradeEpoch13],80
+li13_vs_lm2_13,LightInfantryUpgradeEpoch13,[LightMounted2UpgradeEpoch13],90
+// 轻步兵 vs ATGM（近身突破最小射程死角）
+li13_vs_la13,LightInfantryUpgradeEpoch13,[LightArtillery1UpgradeEpoch13],150
+// 野战防空车 vs 武直（专业机动防空）
+maa13_vs_hm2_13,LightArtillery2UpgradeEpoch13,[HeavyMounted2UpgradeEpoch13],250
+maa13_vs_lm2_13,LightArtillery2UpgradeEpoch13,[LightMounted2UpgradeEpoch13],250
+maa15_vs_hm2_15,LightArtillery2UpgradeEpoch15,[HeavyMounted2UpgradeEpoch15],250
+maa15_vs_lm2_15,LightArtillery2UpgradeEpoch15,[LightMounted2UpgradeEpoch15],250

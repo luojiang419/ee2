@@ -1,0 +1,4260 @@
+/////////////////////////////////China start /////////////////////////////////
+//////////////////////////
+UnitType b24kitai
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_b24kitai_name
+		verboseTooltip = vtt_unit_b24kitai
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 40; CruisingHeight = 8.2; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 20000; range = 1.5; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "ChinaAtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 10; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 13 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_b24
+}
+
+
+UnitModel b24kitai
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= b24kitai.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BuildingShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+}
+/////////////////////////
+///
+//////////////////////////
+UnitType j2f
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1569
+		displayName = tx_utn_j2f_name
+		verboseTooltip = vtt_unit_j2f
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 1500; range = 14; reloadTime = 0.5; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 20 }
+	LOS { range = 15 }
+	AreaEffect {
+			effects = [ 
+				SuperVision
+			]
+		}
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_j2f
+}
+
+
+UnitModel j2f
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= j2f.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+//------------------------------------------------------------------------------------------------
+//伊尔10攻击机 - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType IL10
+{
+	parent = Aircraft
+	properties {
+		rps = Animal //CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		popCount = 2
+verboseTooltip = vtt_unit_IL10
+displayName = tx_utn_IL10_name
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 120; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_IL10
+}
+
+
+UnitModel IL10
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= IL10.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 TheAmmoBar fighterShadow_02 Interceptor_FlyingParts Beam_Tracer01 Muzzle_Rifleman expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+
+//------------------------------------------------------------------------------------------------
+//LN401轰炸机 - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LN401
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2000
+		displayName = tx_utn_LN401_name
+		verboseTooltip = vtt_unit_LN401
+		popCount = 2
+	}
+	sounds = {
+	         sndSelection = ["v_Fighter_13_sel01"]
+		     sndCmdMove = ["v_Fighter_13_com01" "v_Fighter_13_com02"]
+			 sndCmdAttack = ["v_Fighter_13_com01" "v_Fighter_13_com02" "v_Fighter_11_spe01"]
+			 sndDeath = ["fix_plane_deathh3" "fix_plane_deathh2" "fix_plane_deathh1"]
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 40; CruisingHeight = 7.5; ElevChangeRate = 0.5}
+		Attack { damage = 600; range = 6; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 12;areaDamageRadius = 4.51; areaDamageFriendlyRatio = 0.5;throwUnits = true }
+	LOS { range = 6 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_LN401
+}
+
+UnitModel LN401
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= LN401.nif
+	ForceScale = 0.21
+	ChildNames 	= [ VaporTrail5 VaporTrail6 TheAmmoBar fighterBomberShadow_02 Interceptor_FlyingParts Beam_Tracer01 Muzzle_Rifleman expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = af12_interceptor_idle.KF	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = af12_interceptor_walk.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = af12_interceptor_attack.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = af12_interceptor_takeoff.kf	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = af12_interceptor_death.KF	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.01
+		zOffset = -1.54
+		scale = 1.79
+		angle = 18.95
+	}
+}
+/////////////////////////////////China end /////////////////////////////////
+
+/////////////////////////////////American Start ///////////////////////////////////////////
+UnitType F6F
+{
+	parent = Aircraft
+	properties {
+		rps = Animal //CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+		popCount = 2
+verboseTooltip = vtt_unit_F6F
+displayName = tx_utn_F6F_name
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 68; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 120; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 12 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+//icon = icon_unit_F6F
+}
+
+
+UnitModel F6F
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= F6F.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 TheAmmoBar fighterShadow_02 Interceptor_FlyingParts Beam_Tracer01 Muzzle_Rifleman expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+UnitType b25mitchell
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2400
+displayName = tx_utn_b25mitchell_name
+verboseTooltip = vtt_unit_b25mitchell
+		popCount = 3
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 900; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_b25mitchell
+}
+
+
+UnitModel b25mitchell
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= b25mitchell.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType b24
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1000
+		displayName = tx_utn_b24_name
+verboseTooltip = vtt_unit_b24
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 20000; range = 2; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 9; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_b24
+}
+
+
+UnitModel b24
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= b24.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BuildingShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType b29
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_b29_name
+verboseTooltip = vtt_unit_b29
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 43; CruisingHeight = 8.0; ElevChangeRate = 0.3; OnGroundScale = 0.8}
+		Attack { damage = 20000; range = 2; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "ChinaAtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 10; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_b29
+}
+
+
+UnitModel b29
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= b29.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType Catalina3
+{
+	parent = Aircraft  
+      properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0		
+		popCount =  2          
+		verboseTooltip = vtt_unit_Catalina3
+		HitPoints = 1400
+displayName = tx_utn_Catalina3_name
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 75; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 1500; range = 12; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 10 }
+	       
+		LOS { range = 13 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Catalina3
+}
+
+
+UnitModel Catalina3
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Catalina3.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 TheAmmoBar TwinEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.5 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType p40usa
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1440
+		displayName = tx_utn_p40usa_name
+verboseTooltip = vtt_unit_p40usa
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_p40usa
+}
+
+
+UnitModel p40usa
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= p40usa.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType p36hawk
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1440
+		displayName = tx_utn_p36hawk_name
+verboseTooltip = vtt_unit_p36hawk
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_p36hawk
+}
+
+
+UnitModel p36hawk
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= p36hawk.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType B10
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2466
+		displayName = tx_utn_B10_name
+verboseTooltip = vtt_unit_B10
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 900; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_B10
+}
+
+
+UnitModel B10
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= B10.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType P59Airacomet
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1600
+		displayName = tx_utn_P59Airacomet_name
+verboseTooltip = vtt_unit_P59Airacomet
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.5; angSpeed = 58; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 110; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 60; missileName = "OutpostBullet"; }
+	LOS { range = 15 }
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_P59Airacomet
+}
+
+
+UnitModel P59Airacomet
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= P59Airacomet.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2 TheAmmoBar JetFighter_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType p26
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1415
+		displayName = tx_utn_p26_name
+verboseTooltip = vtt_unit_p26
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_p26
+}
+
+
+UnitModel p26
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= p26.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType P38
+{
+	parent = Aircraft
+	properties {
+		rps = CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+displayName = tx_utn_P38_name
+		HitPoints = 1470
+		verboseTooltip = vtt_unit_P38
+popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 43; CruisingHeight = 8.0; ElevChangeRate = 1.0; OnGroundScale = 0.8}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+
+		LOS { range = 13 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_P38
+}
+
+UnitModel P38
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= P38.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BuildingShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType corsair
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1450
+		displayName = tx_utn_corsair_name
+verboseTooltip = vtt_unit_corsair
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13}
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_corsair
+}
+
+
+UnitModel corsair
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= corsair.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType sb2c
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+	displayName = tx_utn_sb2c_name
+		verboseTooltip = vtt_unit_sb2c
+		popCount = 2
+	HitPoints = 2000
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 65; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; damage = 600; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;
+				areaDamageRadius = 2.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 9 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_sb2c
+}
+
+UnitModel sb2c
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= sb2c.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 TheAmmoBar fighterBomberShadow_02 DiveBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = afb12_divebomber_idle.KF	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = afb12_divebomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = afb12_divebomber_attack.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = afb12_divebomber_death.KF	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+//////////////////////////////////American end//////////////////////////////////////////
+
+/////////////////////////////////Japanese Start ///////////////////////////////////////////
+///////////////////////////////////////
+//  日本自杀式神风战斗机
+//////////////////////////////////////
+UnitType Crzero_o1
+{
+	parent = FighterBomber
+	properties {
+		DisplayName = tx_utn_Craze0_name
+		VerboseTooltip = vtt_unit_Craze0
+		HitPoints = 2
+		rps = CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		popCount = 1
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 88; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 1500; range = 17.2; reloadTime = 1; angularRange = 60; applyDamageTime = 0; attackOnTheMove = 1;ordnance = 1; missileName = Suicideattack;areaDamageRadius = 5.0; areaDamageFriendlyRatio = 1.0;throwUnits = true}
+		LOS { range = 15 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes = [ NotSelectable ]
+		//GoesOnAirMissions
+	//]
+icon = icon_unit_UUJapanese3
+}
+
+UnitModel Crzero_o1
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= A6M.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 Beam_Tracer01 Muzzle_Rifleman] //zeroShadow 
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = HIDE_VISUAL Data = MainModel}{ Name = PLAY_SOUND Data = fx_air_down KeyTime = 0}
+               				    ]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+UnitType Ki10
+{
+	parent = Aircraft
+	properties {
+		rps = CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1370
+		displayName = tx_utn_Ki10_name
+verboseTooltip = vtt_unit_Ki10
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 88; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 110; range = 10; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 10 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Ki10
+}
+UnitModel Ki10
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Ki10.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType G4M3
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+displayName = tx_utn_G4M3_name
+verboseTooltip = vtt_unit_G4M3
+		popCount = 4
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 20000; range = 2; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 9; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_G4M3
+}
+
+
+UnitModel G4M3
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= G4M3.nif
+	ForceScale = 0.23
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType KateB5N
+{
+	parent = Aircraft  
+	
+      properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0		
+		popCount = 2           
+		displayName = tx_utn_KateB5N_name
+verboseTooltip = vtt_unit_KateB5N
+		HitPoints = 1480
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 1500; range = 10; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 20 }
+	       
+		LOS { range = 13 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_KateB5N
+}
+
+UnitModel KateB5N
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= KateB5N.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 TheAmmoBar fighterBomberShadow_02 DiveBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = afb12_divebomber_idle.KF	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = afb12_divebomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = afb12_divebomber_attack.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = afb12_divebomber_death.KF	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+
+UnitType NakajimaKikka
+{
+	parent = Aircraft
+	properties {
+		rps = Animal
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		displayName = tx_utn_NakajimaKikka_name
+verboseTooltip = vtt_unit_NakajimaKikka
+		popCount = 2
+HitPoints = 1500
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 65; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 110; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+		LOS { range = 10 }
+	]
+attributes [
+		GoesOnAirMissions
+	]
+	icon = icon_unit_NakajimaKikka
+}
+
+
+UnitModel NakajimaKikka
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= NakajimaKikka.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = ab13_jetenginebomber_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = ab13_jetenginebomber_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = ab13_jetenginebomber_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = TakeOff	AnimName = ab13_jetenginebomber_takeoff.kf
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = ab13_jetenginebomber_death.kf }
+			]
+	ChildNames 	= [VaporTrail5 VaporTrail6 EngineTrail1 EngineTrail2 TheAmmoBar BomberShadow3 JetEngineBomber_FlyingParts expl_heli_Tandrill ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 2.22
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+
+
+UnitType Ohka
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_Ohka_name
+verboseTooltip = vtt_unit_Ohka
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 55; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 15 }
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Ohka
+
+}
+
+
+UnitModel Ohka
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Ohka.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2 TheAmmoBar fighterShadow_03 JetFighter_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType e16a1
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+		displayName = tx_utn_e16a1_name
+		verboseTooltip = vtt_unit_e16a1
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 88; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_e16a1
+}
+
+
+UnitModel e16a1
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= e16a1.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType AichiD3A
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+	displayName = tx_utn_AichiD3A_name
+	verboseTooltip = vtt_unit_AichiD3A
+	HitPoints = 2000		
+		popCount = 2
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; damage = 600; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;
+				areaDamageRadius = 2.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 5}
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_AichiD3A
+}
+
+UnitModel AichiD3A
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= AichiD3A.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 TheAmmoBar fighterBomberShadow_02 DiveBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = afb12_divebomber_idle.KF	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = afb12_divebomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = afb12_divebomber_attack.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = afb12_divebomber_death.KF	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+/////////////////////////////////Japanese end ///////////////////////////////////////////
+
+/////////////////////////////////German Start ///////////////////////////////////////////
+UnitType Bff109e
+{
+	parent = Aircraft
+	properties {
+		rps = Animal //AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1080
+		displayName = tx_utn_Bff109Egipt_name
+verboseTooltip = vtt_unit_Bff109e
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 88; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 120; range = 10; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1;missileName = "OutpostBullet"; attackOnTheMove = 1; ordnance = 50 }
+	LOS { range = 11 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Bff109e
+}
+
+UnitModel Bff109e
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Bff109e.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+////////////////////////////////////
+//
+///////////////////////////////////
+UnitType ju87
+{
+	parent = Aircraft
+	properties {
+		rps = CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1540
+		displayName = tx_utn_ju87_name
+verboseTooltip = vtt_unit_ju87
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 110; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1;missileName = "OutpostBullet"; attackOnTheMove = 1; ordnance = 100 }
+	LOS { range = 13 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_ju87
+}
+
+UnitModel ju87
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= ju87.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 Beam_Tracer01 Muzzle_Rifleman BuildingShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+
+UnitType fi167
+{
+	parent = Aircraft  
+	
+      properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0		
+		popCount = 2        
+		displayName = tx_utn_fi167_name
+		verboseTooltip = vtt_unit_fi167
+		HitPoints = 1400	
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.1}
+		Attack { damage = 110; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1;missileName = "OutpostBullet"; attackOnTheMove = 1; ordnance = 50 }
+		LOS { range = 13 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_fi167
+}
+
+UnitModel fi167
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= fi167.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 TheAmmoBar BuildingShadow DiveBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = afb12_divebomber_idle.KF	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = afb12_divebomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = afb12_divebomber_attack.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = afb12_divebomber_death.KF	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType he177
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 3400
+		displayName = tx_utn_he177_name
+verboseTooltip = vtt_unit_he177
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+			AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 1500; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_he177
+}
+
+
+UnitModel he177
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= he177.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BuildingShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType He219Uhu
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 3400
+		displayName = tx_utn_He219Uhu_name
+verboseTooltip = vtt_unit_He219Uhu
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+			AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 1650; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 15 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_He219Uhu
+}
+
+
+UnitModel He219Uhu
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= He219Uhu.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType HE111
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 3400
+		displayName = tx_utn_HE111_name
+verboseTooltip = vtt_unit_HE111
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+			AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 1600; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 2.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_HE111
+}
+
+
+UnitModel HE111
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= HE111.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BuildingShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType ju52
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+	displayName = tx_utn_ju52_name
+verboseTooltip = vtt_unit_ju52	
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 43; CruisingHeight = 8.5; ElevChangeRate = 0.1; OnGroundScale = 0.8}
+		LOS { range = 10 }
+Garrison { 
+			garrisonType = AirTransport; 
+			numOfSlots = 45;
+		}
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_ju52
+}
+
+
+UnitModel ju52
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= ju52.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType Ju88
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 3400
+		displayName = tx_utn_Ju88_name
+verboseTooltip = vtt_unit_Ju88
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+			AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 1600; range = 5; reloadTime = 0.05; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Ju88
+}
+
+
+UnitModel Ju88
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Ju88.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType me110
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2480
+		displayName = tx_utn_me110_name
+verboseTooltip = vtt_unit_me110
+popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 850; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_me110
+}
+
+UnitModel me110
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= me110.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType me262
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_me262_name
+verboseTooltip = vtt_unit_me262
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 8.0; ElevChangeRate = 1.5}
+		Attack { damage = 110; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 14 }
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_me262
+}
+UnitModel me262
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= me262.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2 TheAmmoBar JetFighter_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+
+
+UnitType Ar196
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+		displayName = tx_utn_Ar196_name
+verboseTooltip = vtt_unit_Ar196
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 1500; range = 13; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 10 }
+		LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Ar196
+}
+
+
+UnitModel Ar196
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Ar196.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType Ho229
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		displayName = tx_utn_Ho229_name
+verboseTooltip = vtt_unit_Ho229
+		popCount = 4
+HitPoints = 1420
+	}
+	sounds = {
+	}
+	abilities = [
+			AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 20000; range = 1.5; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "ChinaAtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 10; areaDamageFriendlyRatio = 0.5;throwUnits = true}
+		LOS { range = 10 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Ho229
+}
+
+
+UnitModel Ho229
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Ho229.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = ab14_stealthbomber_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = ab14_stealthbomber_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = ab14_stealthbomber_attck.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = TakeOff	AnimName = ab14_stealthbomber_takeoff.kf
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = ab14_stealthbomber_death.kf }
+			]
+	ChildNames 	= [VaporTrail5 VaporTrail6 EngineTrail1 EngineTrail2 TheAmmoBar BomberShadow4 StealthBomber_FlyingParts expl_heli_Tandrill ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -1.05
+		zOffset = -1.12
+		scale = 2.43
+		angle = 18.95
+	}
+}
+
+UnitType do335
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_do335_name
+		verboseTooltip = vtt_unit_do335
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 40; CruisingHeight = 8.0; ElevChangeRate = 0.6}
+		Attack { damage = 115; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_do335
+}
+
+
+UnitModel do335
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= do335.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType He162
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_He162_name
+verboseTooltip = vtt_unit_He162
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 58; CruisingHeight = 8.6; ElevChangeRate = 1.0}
+		Attack { damage = 120; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 15 }
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_He162
+}
+
+
+UnitModel He162
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= He162.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2 TheAmmoBar JetFighter_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType FW189
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1530
+		displayName = tx_utn_FW189_name
+verboseTooltip = vtt_unit_FW189
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 100; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+		LOS { range = 14 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Bff109e
+}
+UnitModel FW189
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= BF109_Ger.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 TheAmmoBar fighterShadow_02 Interceptor_FlyingParts Beam_Tracer01 Muzzle_Rifleman expl_heli_Tandrill ]	
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+/////////////////////////////////German end ///////////////////////////////////////////
+
+/////////////////////////////////English Start ///////////////////////////////////////////
+UnitType hurricane
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1480
+		displayName = tx_utn_hurricane_name
+verboseTooltip = vtt_unit_hurricane
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 110; range = 10; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"}
+	LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_hurricane
+}
+
+UnitModel hurricane
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= hurricane.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType Beaufighter
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2400
+		displayName = tx_utn_Beaufighter_name
+verboseTooltip = vtt_unit_Beaufighter
+popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 65; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 800; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Beaufighter
+}
+
+UnitModel Beaufighter
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Beaufighter.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+}
+
+UnitType gladiator
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_gladiator_name
+		popCount = 2
+		verboseTooltip = vtt_unit_gladiator
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 45; CruisingHeight = 6.8; ElevChangeRate = 0.5}
+		Attack { damage = 100; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 12}
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_gladiator
+}
+
+
+UnitModel gladiator
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= gladiator.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType mosquito
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2450
+		displayName = tx_utn_mosquito_name
+		popCount = 3
+verboseTooltip = vtt_unit_mosquito
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 800; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_mosquito
+}
+
+
+UnitModel mosquito
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= mosquito.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType Wellington
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2400
+		displayName = tx_utn_Wellington_name
+verboseTooltip = vtt_unit_Wellington
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 800; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Wellington
+}
+
+
+UnitModel Wellington
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Wellington.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType whirlwind
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2400
+displayName = tx_utn_whirlwind_name
+verboseTooltip = vtt_unit_whirlwind
+		popCount = 4
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 800; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_whirlwind
+}
+
+
+UnitModel whirlwind
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= whirlwind.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType FaireySwordfish
+{
+	parent = Aircraft  
+	
+      properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0		
+		popCount = 2           
+		displayName = tx_utn_FaireySwordfish_name
+
+verboseTooltip = vtt_unit_FaireySwordfish
+		HitPoints = 1400	
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.1}
+		Attack { damage = 1500; range = 13; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 10 }
+	       
+		LOS { range = 13 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_FaireySwordfish
+}
+
+UnitModel FaireySwordfish
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= FaireySwordfish.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 TheAmmoBar fighterBomberShadow_02 DiveBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = afb12_divebomber_idle.KF	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = afb12_divebomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = afb12_divebomber_attack.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = afb12_divebomber_death.KF	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType Lancaster
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		popCount = 4
+displayName = tx_utn_Lancaster_name
+verboseTooltip = vtt_unit_Lancaster
+HitPoints = 1230
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 43; CruisingHeight = 9.0; ElevChangeRate = 0.3; OnGroundScale = 0.8}
+		Attack { damage = 10000; range = 2; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 9; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+attributes [
+		GoesOnAirMissions
+	]
+	icon = icon_unit_Lancaster
+}
+
+
+UnitModel Lancaster
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Lancaster.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+}
+UnitType Tempest
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+		displayName = tx_utn_Tempest_name
+verboseTooltip = vtt_unit_Tempest
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 48; CruisingHeight = 8.3; ElevChangeRate = 0.5}
+		Attack { damage = 100; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Tempest
+}
+
+
+UnitModel Tempest
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Tempest.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType b24UKRN
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_b24UKRN_name
+verboseTooltip = vtt_unit_b24
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 43; CruisingHeight = 8.0; ElevChangeRate = 0.3; OnGroundScale = 0.8}
+		Attack { damage = 20000; range = 2; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 9; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_b24
+}
+
+
+UnitModel b24UKRN
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= b24UKRN.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BuildingShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+/////////////////////////////////English end ///////////////////////////////////////////
+
+/////////////////////////////////Russian Start ///////////////////////////////////////////
+UnitType La7
+{
+	parent = Aircraft
+	properties {
+		rps = Animal //CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1000
+		popCount = 2
+verboseTooltip = vtt_unit_La7
+displayName = tx_utn_La7_name
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 68; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 120; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 12 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+//icon = icon_unit_La7
+}
+
+
+UnitModel La7
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= La7.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 TheAmmoBar fighterShadow_02 Interceptor_FlyingParts Beam_Tracer01 Muzzle_Rifleman expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+
+UnitType ilyushinil4
+{
+	parent = Aircraft
+	placementType = Unplaceable
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2460
+		displayName = tx_utn_ilyushinil4_name
+verboseTooltip = vtt_unit_ilyushinil4
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 800; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_ilyushinil4
+}
+
+
+UnitModel ilyushinil4
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= ilyushinil4.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType MiG3
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1490
+		displayName = tx_utn_MiG3_name
+		verboseTooltip = vtt_unit_MiG3
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 100; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_MiG3
+}
+
+
+UnitModel MiG3
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= MiG3.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType pe8
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_pe8_name
+verboseTooltip = vtt_unit_pe8
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 43; CruisingHeight = 8.0; ElevChangeRate = 0.3; OnGroundScale = 0.8}
+		Attack { damage = 20000; range = 2; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 9; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_pe8
+}
+
+
+UnitModel pe8
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= pe8.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BuildingShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType poliki16
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1460
+		displayName = tx_utn_poliki16_name
+verboseTooltip = vtt_unit_poliki16
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 68; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 100; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_poliki16
+}
+
+
+UnitModel poliki16
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= poliki16.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType TB3
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_TB3_name
+verboseTooltip = vtt_unit_TB3
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 43; CruisingHeight = 9.0; ElevChangeRate = 0.3; OnGroundScale = 0.8}
+		Attack { damage = 20000; range = 1.5; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "ChinaAtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 10; areaDamageFriendlyRatio = 0.5;throwUnits = true}
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_TB3
+}
+
+
+UnitModel TB3
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= TB3.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType tupolevsb
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints =2450
+displayName = tx_utn_tupolevsb_name
+verboseTooltip = vtt_unit_tupolevsb
+		popCount = 3
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 48; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 800; range = 5; reloadTime = 0.1; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_tupolevsb
+}
+
+
+UnitModel tupolevsb
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= tupolevsb.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType yak1
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1425
+		displayName = tx_utn_yak1_name
+verboseTooltip = vtt_unit_yak1
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 100; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_yak1
+}
+
+
+UnitModel yak1
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= yak1.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType Yak15
+{
+	parent = Aircraft
+	properties {
+		rps = CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1554
+		displayName = tx_utn_Yak15_name
+verboseTooltip = vtt_unit_Yak15
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 8.0; ElevChangeRate = 1.5}
+		Attack { damage = 100; range = 13; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 15 }
+	]
+attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Yak15
+}
+
+
+UnitModel Yak15
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= Yak15.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 VaporTrail3 VaporTrail4 EngineTrail1 EngineTrail2 TheAmmoBar JetFighter_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AF13_JetFighter_idle.kf	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = AF13_JetFighter_walk.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AF13_JetFighter_attack.kf		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_jet_03 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_rocket_launch KeyTime = 0}]}
+		{ 	StateName = Takeoff	AnimName = AF13_JetFighter_takeoff.kf		
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_jet_takeoff_03 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = AF13_JetFighter_death.kf	
+			TextKeys = [ 
+				{ Name = STOP_SOUND Data = fx_move_jet_03 KeyTime = 0}
+				]
+			}
+	]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.44
+		zOffset = -1.11
+		scale = 2.43
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType i15
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1430
+		displayName = tx_utn_i15_name
+verboseTooltip = vtt_unit_i15
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.1}
+		Attack { damage = 1500; range = 13; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 10 }
+	LOS { range = 10 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_i15
+}
+
+
+UnitModel i15
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= i15.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType lagg3
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1450
+		displayName = tx_utn_lagg3_name
+verboseTooltip = vtt_unit_lagg3
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 100; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_lagg3
+}
+
+
+UnitModel lagg3
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= lagg3.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType Li2
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1516
+		displayName = tx_utn_Li2_name
+verboseTooltip = vtt_unit_Li2
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 43; CruisingHeight = 8.0; ElevChangeRate = 0.2; OnGroundScale = 0.8}
+		Garrison { 
+			garrisonType = AirTransport; 
+			numOfSlots = 50;
+		}
+		LOS { range = 75 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Li2
+}
+
+
+UnitModel Li2
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Li2.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.5 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType iak6
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+		displayName = tx_utn_iak6_name
+verboseTooltip = vtt_unit_iak6
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 43; CruisingHeight = 8.0; ElevChangeRate = 0.2; OnGroundScale = 0.8}
+		Garrison { 
+			garrisonType = AirTransport; 
+			numOfSlots = 30;
+		}
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_iak6
+}
+
+
+UnitModel iak6
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= iak6.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.5 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+/////////////////////////////////Russian end ///////////////////////////////////////////
+
+/////////////////////////////////Roman Start ///////////////////////////////////////////
+UnitType MC200
+{
+	parent = Aircraft
+	properties {
+		rps = Animal //CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1000
+		popCount = 2
+verboseTooltip = vtt_unit_MC200
+displayName = tx_utn_MC200_name
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 58; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 120; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 12 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+//icon = icon_unit_F6F
+}
+
+
+UnitModel MC200
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= MC200.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 TheAmmoBar fighterShadow_02 Interceptor_FlyingParts Beam_Tracer01 Muzzle_Rifleman expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+UnitType MC202
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+		displayName = tx_utn_MC202_name
+verboseTooltip = vtt_unit_MC202
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_MC202
+}
+
+
+UnitModel MC202
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= MC202.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+
+
+
+
+UnitType sm84
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+		displayName = tx_utn_sm84_name
+verboseTooltip = vtt_unit_sm84
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+			Attack { damage = 20000; range = 1.5; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 9; areaDamageFriendlyRatio = 0.5;throwUnits = true}
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_sm84
+}
+
+
+UnitModel sm84
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= sm84.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+
+UnitType sovoia79
+{
+	parent = Aircraft  
+	
+      properties {
+		rps = Animal
+		SizeX = 1
+		SizeY = 1
+		mass = 0		
+		popCount = 2           
+		verboseTooltip = vtt_unit_sovoia79
+		HitPoints = 1400
+displayName = tx_utn_sovoia79_name
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+		LOS { range = 13 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_sovoia79
+}
+
+UnitModel sovoia79
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= sovoia79.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 TheAmmoBar TwinEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType Ro37bis
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1450
+		displayName = tx_utn_Ro37bis_name
+verboseTooltip = vtt_unit_Ro37bis
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 48; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 1500; range = 13; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 10 }
+	LOS { range = 10 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Ro37bis
+}
+
+
+UnitModel Ro37bis
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Ro37bis.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+/////////////////////////////////Roman end ///////////////////////////////////////////
+
+/////////////////////////////////French Start ///////////////////////////////////////////
+UnitType D520
+{
+	parent = Aircraft
+	properties {
+		rps = Animal //CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1000
+		popCount = 2
+verboseTooltip = vtt_unit_D520
+displayName = tx_utn_D520_name
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 68; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 120; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 12 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+//icon = icon_unit_F6F
+}
+UnitModel D520
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= D520.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 TheAmmoBar fighterShadow_02 Interceptor_FlyingParts Beam_Tracer01 Muzzle_Rifleman expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+}
+
+UnitType b24france
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_b24france_name
+verboseTooltip = vtt_unit_b24
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 20000; range = 2; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "ChinaAtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 10; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_b24
+}
+
+
+UnitModel b24france
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= b24france.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BuildingShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType amiot350
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1440
+		displayName = tx_utn_amiot350_name
+verboseTooltip = vtt_unit_amiot350
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 65; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 20000; range = 2; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 9; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_amiot350
+}
+
+
+UnitModel amiot350
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= amiot350.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitType ms406
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1490
+		displayName = tx_utn_ms406_name
+verboseTooltip = vtt_unit_ms406
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13}
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_ms406
+}
+
+
+UnitModel ms406
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= ms406.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+/////////////////////////////////French end ///////////////////////////////////////////
+
+//////////////////////////////////Greek start////////////////////////////////////////////////////
+UnitType FokkerTV
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1480
+		displayName = tx_utn_FokkerTV_name
+verboseTooltip = vtt_unit_FokkerTV
+		popCount = 4
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5.0; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+			Attack { damage = 20000; range = 1.5; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 9; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_FokkerTV
+}
+
+
+UnitModel FokkerTV
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= FokkerTV.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType J22
+{
+	parent = Aircraft
+	properties {
+		rps = CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1390
+		displayName = tx_utn_J22_name
+verboseTooltip = vtt_unit_J22
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+			AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 95; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 100; missileName = "OutpostBullet"; }
+	LOS { range = 10 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_J22
+}
+
+
+UnitModel J22
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= J22.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType saabb17
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+displayName = tx_utn_saabb17_name
+		verboseTooltip = vtt_unit_saabb17
+		popCount = 3
+HitPoints = 2460
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.7; ElevChangeRate = 0.3}
+		Attack { damage = 800; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;
+				areaDamageRadius = 2.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 9 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_saabb17
+}
+
+UnitModel saabb17
+{
+	Parent	= BaseAircraft
+	DefaultModel 	= saabb17.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 TheAmmoBar fighterBomberShadow_02 DiveBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = afb12_divebomber_idle.KF	
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = afb12_divebomber_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = afb12_divebomber_attack.KF	
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0}]}
+		{ 	StateName = Takeoff	
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+
+		{ 	StateName = Death	AnimName = afb12_divebomber_death.KF	
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType P23Karas
+{
+	parent = Aircraft
+	properties {
+		rps = CloseAirSupport
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1400
+		displayName = tx_utn_P23Karas_name
+verboseTooltip = vtt_unit_P23Karas
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+			AircraftMove {speed = 6.0; angSpeed = 48; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_P23Karas
+}
+
+
+UnitModel P23Karas
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= P23Karas.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType pzlp24
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1402
+		displayName = tx_utn_pzlp24_name
+verboseTooltip = vtt_unit_pzlp24
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 45; CruisingHeight = 7.0; ElevChangeRate = 0.1}
+		Attack { damage = 1500; range = 13; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "Torpedo"; attackOnTheMove = 1; ordnance = 10 }
+	LOS { range = 14 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_pzlp24
+}
+
+
+UnitModel pzlp24
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= pzlp24.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType PZL11
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1240
+		verboseTooltip = vtt_unit_PZL11
+displayName = tx_utn_PZL11_name
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+			AircraftMove {speed = 6; angSpeed = 38; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 10 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_PZL11
+}
+
+
+UnitModel PZL11
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= PZL11.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 zeroShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType PZL37
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2483
+		displayName = tx_utn_PZL37_name
+verboseTooltip = vtt_unit_PZL37
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed =5; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 800; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_PZL37
+}
+
+
+UnitModel PZL37
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= PZL37.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType Saab18
+{
+	parent = Aircraft
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 2444
+		displayName = tx_utn_Saab18_name
+verboseTooltip = vtt_unit_Saab18
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 5; angSpeed = 45; CruisingHeight = 8.0; ElevChangeRate = 0.3}
+		Attack { damage = 800; range = 5; reloadTime = 0.5; angularRange = 60; applyDamageTime = 0; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;
+				areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_Saab18
+}
+
+
+UnitModel Saab18
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= Saab18.nif
+	ChildNames 	= [ VaporTrail1 VaporTrail2 VaporTrail3 VaporTrail4 VaporTrail5 VaporTrail6 BomberShadow TheAmmoBar QuadEngineBomber_FlyingParts expl_heli_Tandrill ]
+	States 		= [
+		{	StateName = Idle	AnimName = AB12_quadengine_idle.KF
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ StateName= Walk AnimName = AB12_quadengine_walk.KF		
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_03 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = AB12_quadengine_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bomb_drop KeyTime = 0.0 }]}
+		{ 	StateName = TakeOff	AnimName = AB12_quadengine_takeoff.KF	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_03 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = AB12_quadengine_death.KF	}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.75
+		zOffset = 1.53
+		scale = 1.79
+		angle = 18.95
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType hurricaneGrece
+{
+	parent = Aircraft
+	properties {
+		rps = AirSuperiority
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		HitPoints = 1500
+		displayName = tx_utn_hurricaneGre_name
+verboseTooltip = vtt_unit_hurricane
+		popCount = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		AircraftMove {speed = 6; angSpeed = 48; CruisingHeight = 7.0; ElevChangeRate = 0.5}
+		Attack { damage = 90; range = 12; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.01; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50; missileName = "OutpostBullet"; }
+	LOS { range = 13 }
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+icon = icon_unit_hurricane
+}
+
+
+UnitModel hurricaneGrece
+{
+	Parent		= BaseAircraft
+	DefaultModel 	= hurricaneGrece.nif
+	ChildNames 	= [ VaporTrail5 VaporTrail6 BuildingShadow Beam_Tracer01 Muzzle_Rifleman]
+	States 		= [
+		{	StateName = Idle	AnimName = civ12_zero_japan_idle.kf
+				TextKeys = [{ Name = STOP_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Walk	AnimName = civ12_zero_japan_walk.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = civ12_zero_japan_attack.kf
+				TextKeys = [{ Name = START_SOUND Data = fx_move_plane_01 KeyTime = 0}
+               				    { Name = PLAY_SOUND Data = fx_grenade_pistoleer_fire KeyTime = 0}]}
+		{ 	StateName = Takeoff     AnimName = civ12_zero_japan_takeoff.kf
+               			TextKeys =    [{ Name = PLAY_SOUND Data = fx_move_plane_takeoff_01 KeyTime = 0}]}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf
+			TextKeys = [ 
+					{ Name = STOP_SOUND Data = fx_move_plane_04 KeyTime = 0}
+					]}
+			]
+DamageDecalsSetName = BuildingDamageDecals
+}
+/////////////////////////////////Greek end////////////////////////////

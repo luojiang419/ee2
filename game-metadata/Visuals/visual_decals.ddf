@@ -1,0 +1,834 @@
+//---------------------------------------------------------------------------
+// Decals to be placed under buildings and other units that need them.
+//---------------------------------------------------------------------------
+
+//	char*							StateName;
+//	// these arrays are the same size, they contain the epoch number and the corresponding sprite to use
+//	LSizedArray<int>				EpochNumberForSprites;
+//	LSizedArray<DBINDEX(DbSprite)>	RuralSpriteNames;		
+//	LSizedArray<DBINDEX(DbSprite)>	UrbanSpriteNames;		
+//	float							FadeOutTime;	// time to fade out
+//	float							WorldSize;
+
+Decal UnderAirport
+{
+	DefaultState = Idle
+	States	= [
+	          {
+			StateName = Idle  
+			RuralSpriteNames = [ under_airport_3_r under_airport_3_r under_airport_3_r] 
+			UrbanSpriteNames = [ under_airport_3_u under_airport_3_u under_airport_3_u]
+
+		  }
+		  {
+			StateName = Death  
+//			RuralSpriteNames = [ under_airport_3_r_d under_airport_3_r_d under_airport_3_r_d] 
+//			UrbanSpriteNames = [ under_airport_3_u_d under_airport_3_u_d under_airport_3_u_d]
+			RuralSpriteNames = [ under_airport_3_r under_airport_3_r under_airport_3_r] 
+			UrbanSpriteNames = [ under_airport_3_u under_airport_3_u under_airport_3_u]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+		}
+		  ]
+}
+
+Decal	UnderFarm
+{
+	DefaultState = Idle
+	States	= [ 
+		{ 
+			StateName = Idle  		
+			RuralSpriteNames = [ under_farm under_farm under_farm ]
+			UrbanSpriteNames = [ under_farm under_farm under_farm ]
+		}
+		{ 
+			StateName = Death 
+			RuralSpriteNames = [ under_farm under_farm under_farm ]
+			UrbanSpriteNames = [ under_farm under_farm under_farm ]
+			FadeOutTime		= 6 
+			StartFadeDelay	= 1
+		}
+		  ]
+}
+
+//Plaza Overlay 
+Decal UnderPlaza1
+{
+	DefaultState = Idle
+	States	= [ 
+		{ 
+			StateName = Idle  		
+			RuralSpriteNames = [ under_plaza_small_1 under_plaza_small_2 under_plaza_small_3 ] 
+			UrbanSpriteNames = [ under_plaza_small_1 under_plaza_small_2 under_plaza_small_3 ]
+		}
+		{ 
+			StateName = Death 
+			RuralSpriteNames = [ under_plaza_small_1 under_plaza_small_2 under_plaza_small_3 ] 
+			UrbanSpriteNames = [ under_plaza_small_1 under_plaza_small_2 under_plaza_small_3 ]
+			FadeOutTime	 = 10 
+			StartFadeDelay	 = 10
+		}
+		  ]
+
+}
+Decal UnderPlaza2
+{
+	DefaultState = Idle
+	States	= [ 
+		{ 
+			StateName = Idle  		
+			RuralSpriteNames = [ under_plaza_medium_1 under_plaza_medium_2 under_plaza_medium_3 ] 
+			UrbanSpriteNames = [ under_plaza_medium_1 under_plaza_medium_2 under_plaza_medium_3 ]
+		}
+		{ 
+			StateName = Death 
+			RuralSpriteNames = [ under_plaza_medium_1 under_plaza_medium_2 under_plaza_medium_3 ] 
+			UrbanSpriteNames = [ under_plaza_medium_1 under_plaza_medium_2 under_plaza_medium_3 ]
+			FadeOutTime	 = 10 
+			StartFadeDelay	 = 10
+
+		}
+		  ]
+
+}
+Decal UnderPlaza3
+{
+	DefaultState = Idle
+	States	= [ 
+		{ 
+			StateName = Idle  		
+			RuralSpriteNames = [ under_plaza_large_1 under_plaza_large_2 under_plaza_large_3 ] 
+			UrbanSpriteNames = [ under_plaza_large_1 under_plaza_large_2 under_plaza_large_3 ]
+		}
+		{ 
+			StateName = Death 
+			RuralSpriteNames = [ under_plaza_large_1 under_plaza_large_2 under_plaza_large_3 ] 
+			UrbanSpriteNames = [ under_plaza_large_1 under_plaza_large_2 under_plaza_large_3 ]
+			FadeOutTime	 = 10 
+			StartFadeDelay	 = 10
+		}
+		  ]
+
+}
+
+Decal UnderBarracks
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_barracks_1_r under_barracks_2_r under_barracks_3_u] 
+			UrbanSpriteNames = [ under_barracks_1_u under_barracks_2_u under_barracks_3_u]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_barracks_1_r_d under_barracks_2_r_d under_barracks_3_u_d] 
+			UrbanSpriteNames = [ under_barracks_1_u_d under_barracks_2_u_d under_barracks_3_u_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderCityCenter
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_citycenter_1_r under_citycenter_2_r under_citycenter_3_u] 
+			UrbanSpriteNames = [ under_citycenter_1_u under_citycenter_2_u under_citycenter_3_u]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_citycenter_1_r_d under_citycenter_2_r_d under_citycenter_3_u_d] 
+			UrbanSpriteNames = [ under_citycenter_1_u_d under_citycenter_2_u_d under_citycenter_3_u_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+
+
+Decal UnderFortress
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_fortress_1_r under_fortress_2_r under_fortress_3_u] 
+			UrbanSpriteNames = [ under_fortress_1_u under_fortress_2_u under_fortress_3_u]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_fortress_1_r_d under_fortress_2_r_d under_fortress_3_u_d] 
+			UrbanSpriteNames = [ under_fortress_1_u_d under_fortress_2_u_d under_fortress_3_u_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderHouse
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_house_1_r under_house_2_r under_house_3_u] 
+			UrbanSpriteNames = [ under_house_1_u under_house_2_u under_house_3_u]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_house_1_r_d under_house_2_r_d under_house_3_u_d] 
+			UrbanSpriteNames = [ under_house_1_u_d under_house_2_u_d under_house_3_u_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderMarket
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_market_1_r under_market_2_r under_market_3_u] 
+			UrbanSpriteNames = [ under_market_1_u under_market_2_u under_market_3_u]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_market_1_r_d under_market_2_r_d under_market_3_u_d] 
+			UrbanSpriteNames = [ under_market_1_u_d under_market_2_u_d under_market_3_u_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderMill
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_mill_1_r under_mill_2_r under_mill_3_u] 
+			UrbanSpriteNames = [ under_mill_1_u under_mill_2_u under_mill_3_u]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_mill_1_r_d under_mill_2_r_d under_mill_3_u_d] 
+			UrbanSpriteNames = [ under_mill_1_u_d under_mill_2_u_d under_mill_3_u_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderStable
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_stable_1_r under_stable_2_r under_stable_3_r] 
+			UrbanSpriteNames = [ under_stable_1_r under_stable_2_r under_stable_3_r]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_stable_1_r_d under_stable_2_r_d under_stable_3_r_d] 
+			UrbanSpriteNames = [ under_stable_1_r_d under_stable_2_r_d under_stable_3_r_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderTemple
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_temple_1_r under_temple_2_r under_temple_3_u] 
+			UrbanSpriteNames = [ under_temple_1_u under_temple_2_u under_temple_3_u]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_temple_1_r_d under_temple_2_r_d under_temple_3_u_d] 
+			UrbanSpriteNames = [ under_temple_1_u_d under_temple_2_u_d under_temple_3_u_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderUniversity
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_university_1_r under_university_2_r under_university_3_u] 
+			UrbanSpriteNames = [ under_university_1_u under_university_2_u under_university_3_u]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_university_1_r_d under_university_2_r_d under_university_3_u_d] 
+			UrbanSpriteNames = [ under_university_1_u_d under_university_2_u_d under_university_3_u_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderVersailles
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_versailles under_versailles under_versailles ]
+			UrbanSpriteNames = [ under_versailles under_versailles under_versailles ]
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_versailles_d under_versailles_d under_versailles_d ]
+			UrbanSpriteNames = [ under_versailles_d under_versailles_d under_versailles_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+	          }
+	]
+}
+
+Decal UnderWhiteHouse
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_whitehouse under_whitehouse under_whitehouse ]
+			UrbanSpriteNames = [ under_whitehouse under_whitehouse under_whitehouse ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_whitehouse_d under_whitehouse_d under_whitehouse_d ] 
+			UrbanSpriteNames = [ under_whitehouse_d under_whitehouse_d under_whitehouse_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderNotreDame
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_notredame under_notredame under_notredame ]
+			UrbanSpriteNames = [ under_notredame under_notredame under_notredame ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_notredame_d under_notredame_d under_notredame_d ]
+			UrbanSpriteNames = [ under_notredame_d under_notredame_d under_notredame_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderMarienburgCastle
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_marienburg under_marienburg under_marienburg ]
+			UrbanSpriteNames = [ under_marienburg under_marienburg under_marienburg ]
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_marienburg_d under_marienburg_d under_marienburg_d ] 
+			UrbanSpriteNames = [ under_marienburg_d under_marienburg_d under_marienburg_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+	          }
+	]
+}
+
+Decal UnderWarehouse
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_warehouse_1_r under_warehouse_2_r under_warehouse_3_u] 
+			UrbanSpriteNames = [ under_warehouse_1_u under_warehouse_2_u under_warehouse_3_u]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_warehouse_1_r_d under_warehouse_2_r_d under_warehouse_3_u_d] 
+			UrbanSpriteNames = [ under_warehouse_1_u_d under_warehouse_2_u_d under_warehouse_3_u_d]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderWestern_01
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_parthenon under_parthenon under_parthenon ] 
+			UrbanSpriteNames = [ under_parthenon under_parthenon under_parthenon ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_parthenon_d under_parthenon_d under_parthenon_d ]
+			UrbanSpriteNames = [ under_parthenon_d under_parthenon_d under_parthenon_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderWestern_06
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_brandenburggate under_brandenburggate under_brandenburggate ] 
+			UrbanSpriteNames = [ under_brandenburggate under_brandenburggate under_brandenburggate ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_brandenburggate_d under_brandenburggate_d under_brandenburggate_d ]
+			UrbanSpriteNames = [ under_brandenburggate_d under_brandenburggate_d under_brandenburggate_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderWestern_11
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_pentagon under_pentagon under_pentagon ] 
+			UrbanSpriteNames = [ under_pentagon under_pentagon under_pentagon ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_pentagon_d under_pentagon_d under_pentagon_d ]
+			UrbanSpriteNames = [ under_pentagon_d under_pentagon_d under_pentagon_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderMiddleEast_01
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_sphinx under_sphinx under_sphinx ] 
+			UrbanSpriteNames = [ under_sphinx under_sphinx under_sphinx ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_sphinx_d under_sphinx_d under_sphinx_d ]
+			UrbanSpriteNames = [ under_sphinx_d under_sphinx_d under_sphinx_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderMiddleEast_06
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_selimye_mosque under_selimye_mosque under_selimye_mosque ] 
+			UrbanSpriteNames = [ under_selimye_mosque under_selimye_mosque under_selimye_mosque ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_selimye_mosque_d under_selimye_mosque_d under_selimye_mosque_d ]
+			UrbanSpriteNames = [ under_selimye_mosque_d under_selimye_mosque_d under_selimye_mosque_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderMiddleEast_11
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_desalinization_plant under_desalinization_plant under_desalinization_plant ] 
+			UrbanSpriteNames = [ under_desalinization_plant under_desalinization_plant under_desalinization_plant ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_desalinization_plant_d under_desalinization_plant_d under_desalinization_plant_d ]
+			UrbanSpriteNames = [ under_desalinization_plant_d under_desalinization_plant_d under_desalinization_plant_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderFarEast_01
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_tower_moon_and_stars under_tower_moon_and_stars under_tower_moon_and_stars ] 
+			UrbanSpriteNames = [ under_tower_moon_and_stars under_tower_moon_and_stars under_tower_moon_and_stars ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_tower_moon_and_stars_d under_tower_moon_and_stars_d under_tower_moon_and_stars_d ]
+			UrbanSpriteNames = [ under_tower_moon_and_stars_d under_tower_moon_and_stars_d under_tower_moon_and_stars_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderFarEast_06
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_forbidden_palace under_forbidden_palace under_forbidden_palace ] 
+			UrbanSpriteNames = [ under_forbidden_palace under_forbidden_palace under_forbidden_palace ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_forbidden_palace_d under_forbidden_palace_d under_forbidden_palace_d ]
+			UrbanSpriteNames = [ under_forbidden_palace_d under_forbidden_palace_d under_forbidden_palace_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderFarEast_11
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_robotics_factory under_robotics_factory under_robotics_factory ] 
+			UrbanSpriteNames = [ under_robotics_factory under_robotics_factory under_robotics_factory ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_robotics_factory_d under_robotics_factory_d under_robotics_factory_d ]
+			UrbanSpriteNames = [ under_robotics_factory_d under_robotics_factory_d under_robotics_factory_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderMesoAmerican_01
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_temple_great_jaguar under_temple_great_jaguar under_temple_great_jaguar ] 
+			UrbanSpriteNames = [ under_temple_great_jaguar under_temple_great_jaguar under_temple_great_jaguar ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_temple_great_jaguar_d under_temple_great_jaguar_d under_temple_great_jaguar_d ]
+			UrbanSpriteNames = [ under_temple_great_jaguar_d under_temple_great_jaguar_d under_temple_great_jaguar_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderMesoAmerican_06
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_pyramid_tenochtitlan under_pyramid_tenochtitlan under_pyramid_tenochtitlan ] 
+			UrbanSpriteNames = [ under_pyramid_tenochtitlan under_pyramid_tenochtitlan under_pyramid_tenochtitlan ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_pyramid_tenochtitlan_d under_pyramid_tenochtitlan_d under_pyramid_tenochtitlan_d ]
+			UrbanSpriteNames = [ under_pyramid_tenochtitlan_d under_pyramid_tenochtitlan_d under_pyramid_tenochtitlan_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderWonderMesoAmerican_11
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_solar_power_station under_solar_power_station under_solar_power_station ] 
+			UrbanSpriteNames = [ under_solar_power_station under_solar_power_station under_solar_power_station ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_solar_power_station_d under_solar_power_station_d under_solar_power_station_d ]
+			UrbanSpriteNames = [ under_solar_power_station_d under_solar_power_station_d under_solar_power_station_d ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderOakTree
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_tree_oak under_tree_oak under_tree_oak ] 
+			UrbanSpriteNames = [ under_tree_oak under_tree_oak under_tree_oak ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_tree_oak under_tree_oak under_tree_oak ]
+			UrbanSpriteNames = [ under_tree_oak under_tree_oak under_tree_oak ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderAppleTree
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_tree_apple under_tree_apple under_tree_apple ] 
+			UrbanSpriteNames = [ under_tree_apple under_tree_apple under_tree_apple ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_tree_apple under_tree_apple under_tree_apple ]
+			UrbanSpriteNames = [ under_tree_apple under_tree_apple under_tree_apple ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderOrangeTree
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_tree_orange under_tree_orange under_tree_orange ] 
+			UrbanSpriteNames = [ under_tree_orange under_tree_orange under_tree_orange ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_tree_orange under_tree_orange under_tree_orange ]
+			UrbanSpriteNames = [ under_tree_orange under_tree_orange under_tree_orange ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderBananaTree
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_tree_banana under_tree_banana under_tree_banana ] 
+			UrbanSpriteNames = [ under_tree_banana under_tree_banana under_tree_banana ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_tree_banana under_tree_banana under_tree_banana ]
+			UrbanSpriteNames = [ under_tree_banana under_tree_banana under_tree_banana ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderMangoTree
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_tree_mango under_tree_mango under_tree_mango ] 
+			UrbanSpriteNames = [ under_tree_mango under_tree_mango under_tree_mango ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_tree_mango under_tree_mango under_tree_mango ]
+			UrbanSpriteNames = [ under_tree_mango under_tree_mango under_tree_mango ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderDateTree
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_tree_date under_tree_date under_tree_date ] 
+			UrbanSpriteNames = [ under_tree_date under_tree_date under_tree_date ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_tree_date under_tree_date under_tree_date ]
+			UrbanSpriteNames = [ under_tree_date under_tree_date under_tree_date ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderPomegranateTree
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_tree_pomegranate under_tree_pomegranate under_tree_pomegranate ] 
+			UrbanSpriteNames = [ under_tree_pomegranate under_tree_pomegranate under_tree_pomegranate ]
+
+		  }
+		  { StateName = Death  
+			RuralSpriteNames = [ under_tree_pomegranate under_tree_pomegranate under_tree_pomegranate ]
+			UrbanSpriteNames = [ under_tree_pomegranate under_tree_pomegranate under_tree_pomegranate ]
+			FadeOutTime = 10 
+   			StartFadeDelay = 10
+
+	          }
+	]
+}
+
+Decal UnderGold
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_gold under_gold under_gold ] 
+			UrbanSpriteNames = [ under_gold under_gold under_gold ]
+
+		  }
+	]
+	Scale = 0.75
+}
+
+Decal UnderAluminum
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_aluminum under_aluminum under_aluminum ] 
+			UrbanSpriteNames = [ under_aluminum under_aluminum under_aluminum ]
+
+		  }
+	]
+	Scale = 0.75
+}
+
+Decal UnderIron
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_iron under_iron under_iron ] 
+			UrbanSpriteNames = [ under_iron under_iron under_iron ]
+
+		  }
+	]
+	Scale = 0.75
+}
+
+Decal UnderSaltpeter
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_saltpeter under_saltpeter under_saltpeter ] 
+			UrbanSpriteNames = [ under_saltpeter under_saltpeter under_saltpeter ]
+
+		  }
+	]
+	Scale = 0.75
+}
+
+Decal UnderStone
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_stone under_stone under_stone ] 
+			UrbanSpriteNames = [ under_stone under_stone under_stone ]
+
+		  }
+	]
+	Scale = 0.75
+}
+
+Decal UnderTin
+{
+	DefaultState = Idle
+	States	= [
+	          { StateName = Idle  
+			RuralSpriteNames = [ under_tin under_tin under_tin ] 
+			UrbanSpriteNames = [ under_tin under_tin under_tin ]
+
+		  }
+	]
+	Scale = 0.75
+}
+
+//---------------------------------------------------------------------------
+//	HUMAN
+//---------------------------------------------------------------------------
+Decal	HumanCorpse
+{
+	DefaultState = Idle
+	States	= [ 
+		{ 
+			StateName = Death 
+			RuralSpriteNames = [ under_rotting_corpse under_rotting_corpse under_rotting_corpse ]
+			UrbanSpriteNames = [ under_rotting_corpse under_rotting_corpse under_rotting_corpse ]
+			FadeOutTime	= 10 
+			StartFadeDelay	= 10
+		}
+		  ]
+
+}

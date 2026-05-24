@@ -1,0 +1,104 @@
+﻿// Scenario Info
+text_scen_m2_name,"""一个新的家园"""
+text_scen_m2_hints,""" >小心的看顾巴利迪·海特利·尼亚马跟达克塔利·邦德·尼亚马，如果他们死去，你将会在这个任务中失败。\n\n > 小心的看顾畜群，攻击可能来自任何地方。\n\n > 你可以捕鱼来获取食物。\n\n > 越多次要目标完成，你在下一个任务中就会有越多的增援可以选择。"""
+text_scen_m2_history,"""自从伯科尼吉部落无端的攻击被停止后已经数个月过去了，情势只有变得更糟。在这个季节中只了一点点雨，很确定的这个夏季一定会有一个旱灾出现。达克塔利·邦德·尼亚马酋长举行了一个会议来讨论他在这个春季的计划。"""
+tx_fe_prog_EE2X_Maasai2,"""酋长指示他的儿子，巴利迪·海特利·尼亚马，从他们被战争摧残的家园带领畜群前往维多利亚湖。这将会是一段漫长而危险的旅程，但却是马赛唯一可以生存的方法。 """
+text_scen_m2_date,"""2038年，春季"""
+
+// Objectives --OLD (as of Sep 06)
+// text_scen_m2_pobj1,"""Escort the herd to Eldoret"""
+// text_scen_m2_pobj1_description,"""Lead the herd to Eldoret, stopping at the water for the herd to rest. The herd will follow your shepherds."""
+// text_scen_m2_pobj2,"""Defend the Kwafi"""
+// text_scen_m2_pobj2_description,"""Defend the Kwafi city of Kisumu from the Burkeneji."""
+// text_scen_m2_pobj3,"""Capture all Burkeneji territories"""
+// text_scen_m2_pobj3_description,"""Drive the Burkeneji out of all nearby lands, to end their attacks on us!"""
+// text_scen_m2_dobj1,"""Protect Baridi Hatari Nyama"""
+// text_scen_m2_dobj1_description,"""You will lose if Baridi Hatari Nyama dies."""
+// text_scen_m2_dobj2,"""Protect Chief Daktari Bonde Nyama"""
+// text_scen_m2_dobj2_description,"""You will lose if Daktari Bonde Nyama dies."""
+// text_scen_m2_dobj3,"""Protect the Herd"""
+// text_scen_m2_dobj3_description,"""You will lose if more than half of the herd or all of the herders are killed."""
+// text_scen_m2_dobj4,"""Protect the Kwafi city center"""
+// text_scen_m2_dobj4_description,"""You will lose if the Kwafi city center is destroyed."""
+// text_scen_m2_sobj1,"""Protect the entire Herd"""
+// text_scen_m2_sobj1_description,"""If the entire herd completes the journey safely, the people will be very pleased."""
+// text_scen_m2_sobj2,"""Protect the Kwafi City"""
+// text_scen_m2_sobj2_description,"""If you prevent the Burkeneji from destroying any Kwafi building, the Kwafi will be very pleased."""
+
+  //PRIMARY
+tx_m2_obj_BringCowsHome,"""护送畜群到艾多雷特"""
+tx_m2_obj_BringCowsHome_desc,"""带领畜群到艾多雷特，畜群将会跟随你的牧羊犬。有敌意的敌人可能仍在这个区域，所以侦察前方来保护这些家畜。\n\n如果全部的畜群安全的完成了旅程，人民将会非常的喜悦。.\n\N如果你让一半以上的畜群或是全部的牧羊犬被杀害，你将会失败。"""
+
+tx_m2_obj_DefendKwafi,"""照料卡瓦非"""
+tx_m2_obj_DefendKwafi_desc,"""我们自古以来的盟友，卡瓦非，已经受到了时代变迁跟战争的磨难。他们正在挨饿，同时也需要帮助他们防卫自己。\n\n >定期的送给卡瓦非食物来防止饥荒。 （使用外交面版来贡献卡瓦非食物，每一百个食物会提供卡瓦非超过45秒的生命。）\n\n > 防御卡瓦非免于攻击。"""
+tx_m2_obj_DefendKwafi_new,""" 防御卡瓦非"""
+tx_m2_obj_DefendKwafi_desc_new,"""我们自古以来的盟友，卡瓦非，已经受到了时代变迁跟战争的磨难。他们需要帮助来防卫自己。 \n\n >  防御卡瓦非。"""
+
+tx_m2_obj_DestroyBurk,"""摧毁所有的伯科尼吉市中心"""
+tx_m2_obj_DestroyBurk_desc,"""伯科尼吉持续的攻击并危害所有人！ \n\n >驱逐伯科尼吉离开所有靠近的领地，结束他们的攻击！"""
+
+tx_m2_obj_multi_kwaf_burk,"""我们自古以来的盟友，卡瓦非，已经受到了时代变迁跟战争的磨难。他们正在挨饿，同时也需要帮助他们防卫伯科尼吉的攻击。\n\n >摧毁所有伯科尼吉市的市中心。\n\n >保卫卡瓦非免受到攻击。（如果卡瓦非的人民死亡，你将会失败）\n\n >定期的送给卡瓦非食物来防止饥荒。 （使用外交面版来贡献卡瓦非食物，每一百个食物会提供卡瓦非超过45秒的生命。）"""
+tx_m2_obj_multi_kwaf_burk_title,"""防御卡瓦非，摧毁伯科尼吉"""
+
+
+
+	//SECONDARY
+tx_m2_obj_DestroyPirates,"""摧毁生态海盗"""
+tx_m2_obj_DestroyPirates_desc,"""卡瓦非试图捕鱼来当作食物，但是那些生态恐怖主义的海盗攻击了他们的船只。如果这些海盗被驱离，那么卡瓦非就有能力捕获足够的渔量来喂饱自己。\n\n消灭所有肯尼亚海域上的海盗。"""
+tx_m2_DestroyPirates_done,"""你已经驱离了生态恐怖主义的海盗！卡瓦非现在可以喂饱自己了！"""
+
+	//LOSE
+text_scen_m2_dobj1,"""保护巴利迪·海特利·尼亚马"""
+text_scen_m2_dobj1_description,""" > 如果巴利迪·海特利·尼亚马死亡，你将会失败。"""
+text_scen_m2_dobj2,"""保护酋长达克塔利·邦德·尼亚马"""
+text_scen_m2_dobj2_description,""" > 如果达克塔利·邦德·尼亚马死亡，你将会失败。"""
+text_scen_m2_dobj3,"""保卫畜群"""
+text_scen_m2_dobj3_description,""" >如果你让一半以上的畜群或是全部的牧羊犬被杀害，你将会失败。"""
+text_scen_m2_dobj4,"""保卫卡瓦非市中心"""
+text_scen_m2_dobj4_description,""" >如果卡瓦非市中心被摧毁，你将会失败。"""
+tx_m2_obj_lose_citz,"""照顾好卡瓦非的人民"""
+tx_m2_obj_lose_citz_desc,""" >不管是因为饿死或是敌人的攻击，只要卡瓦非的人民死亡，你就会失败。"""
+
+text_scen_m2_sobj1,"""保卫整个畜群"""
+text_scen_m2_sobj1_description,""" >如果畜群安全的完成了旅程，人民将会非常的高兴。"""
+text_scen_m2_sobj2,"""保卫卡瓦非城市"""
+text_scen_m2_sobj2_description,""" >如果你能防止伯科尼吉破坏任何的卡瓦非建筑，卡瓦非将会非常的高兴。"""
+
+// Mission text
+tx_m2_name_shepherd,"""牧羊犬"""
+tx_m2_name_shepherd_p,"""牧羊犬们"""
+tx_m2_name_shepherd_vtt,"""牧羊犬看顾畜群。"""
+tx_m2_name_pirates,"""海盗"""
+
+text_m2_cows_rest,"""畜群需要一个短暂的时间来休息。"""
+text_m2_cows_ready,"""畜群已经准备好再次的移动。"""
+text_m2_kwafi_need_help,"""我们的间谍发现伯科尼吉正计划攻击我们的城市，请赶快求救！"""
+text_counter_attack,"""我们已经挫败了他们的攻击，我们必须摧毁他们的城市。"""
+text_m2_cow_reward,"""畜群终于到达，带来了重要的补给。人民非常高兴整个畜群平安的抵达，并且捐赠了个人的资源到国库之中。"""
+tx_m2_cow_arrived,"""畜群终于到达，带来了重要的补给。"""
+
+tx_m2_kwafi_save_us,"""保护即将被伯科尼吉攻击的卡瓦非。你果你能保全卡瓦非的建筑免受到伯科尼吉的摧毁，卡瓦非将会非常的高兴。"""
+tx_m2_kwafi_starved,"""请给我们食物！我们的人民正在挨饿！"""
+text_m2_kwafi_reward,"""卡瓦非非常高兴没有任何的建筑被摧毁，贡献了资源给你来酬谢你的帮助。"""
+text_m2_kwafi_destroy,"""一个卡瓦非的建筑即将失去，我们将无法从他们那边获得报酬。"""
+text_m2_kwafi_loan,"""卡瓦非是一个和平的种族，但希望能帮助我们对抗伯科尼吉。他们已经给我们两百万，来改建他们的火炮工厂。"""
+txt_m2_lease,"""工厂的租约即将过期"""
+// tx_m2_go_fishing_long,""""""
+tx_m2_kwafi_citizens,"""卡瓦非人民：%COUNT%"""
+tx_m2_kwafi_food_timer,"""下一个卡瓦非的人民饿死"""
+
+
+// Narration
+// Intro
+text_m2_cin_intro,"""一个旱灾侵袭了马赛的土地。连同着之前战争所带来的麻烦，人民开始变得饥饿，同时家畜的健康也受到了威胁。部落的长老们决定要迁移畜群，将这些动物前移到靠近维多利亚湖的附近以确保牠们的生存。"""
+// Text for lose cinematic for hero death for all scenarios in Maasai1.utf8
+//text_maasai_cin_lose_hero,"""With the death of Baridi Hatari Nyama the Maasai were quickly subjugated.""" 
+// Text for lose cinematic for chief death for first 3 scenarios in Maasai1.utf8
+//text_maasai_cin_lose_chief,"""Without the chief's wise leadership the Maasai were driven from their lands."""
+// Text for lose cinematic "Lose 50% of herd"
+text_m2_cin_herd_death,"""超过一半的畜群朝着维多利亚湖前进，没有牠们马赛将无法存活。 """
+// Text for lose cinematic "Kwafi city destroyed"
+text_m2_cin_kwafi,"""没有了卡瓦非的帮助，马赛将无法存活。"""
+// Text for win cinematic
+text_m2_cin_win,"""马赛找到了一个新的家园，并且与一定会帮助他们的卡瓦非建立了同盟的关系。"""
+

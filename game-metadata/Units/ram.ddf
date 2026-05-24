@@ -1,0 +1,172 @@
+//------------------------------------------------------------------------------------------------
+//	RAM - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType Ram
+{
+	parent = HeavyMounted
+	properties {
+		SizeX = 1.0
+		SizeY = 1.0
+		mass = 1
+		moveType = Wheeled
+		rps = Ram
+		HitPoints = 0
+		VerboseTooltip = vtt_unit_Ram
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 0; reloadTime = 666.0; applyDamageTime = 0.0; damage = 0 }
+		LOS { range = 0 }
+		Move {speed = 0.7; angSpeed = 180}
+		Garrisonable { garrisonTypes = [ NavalTransport Fortress ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities RamEpoch3Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.8 }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove RamEpoch3Veteran
+{
+	unitType = Ram
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		Ram_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove RamEpoch3Elite
+{
+	unitType = Ram
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		Ram_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities RamEpoch5Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.2 }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove RamEpoch5Veteran
+{
+	unitType = Ram
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		Ram_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove RamEpoch5Elite
+{
+	unitType = Ram
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		Ram_Improve_Default
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	RAM - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+UnitModel Ram_03
+{
+	ScaleType 	= kScaleUnit
+	DefaultModel 	= lsf3_ram.nif
+	DefaultState 	= Idle
+	States = [
+			{ StateName=Idle AnimName = lsf3_ram_idle01.kf
+			  AnimVariants = [ lsf3_ram_idle02.kf ] AnimVariantsWeights = [ 0.3 ]
+				}
+			{ StateName = UnpackedIdle  AnimName = lsf3_ram_unpackidle01.kf }
+			{ StateName=Walk AnimName = lsf3_ram_walk.kf
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = siegetower_moving1 KeyTime = 0}]
+				}
+			{ StateName = UnpackedWalk  AnimName = lsf3_ram_unpackwalk01.kf }
+			{ StateName=Attack1 AnimName = lsf3_ram_attack01.kf }
+			{ StateName= Death	AnimName = lsf3_ram_death01.kf } 
+			{ StateName = PackedDeath AnimName = lsf3_ram_packdeath01.kf }
+			{ StateName=Pack AnimName = lsf3_ram_pack.kf }
+			{ StateName= Unpack	AnimName = lsf3_ram_unpack.kf } 
+		]
+	ChildNames 		= [ TheHealthBar  SelectCircleMedium MediumGlow TankTracks 
+						TheSiegeUnitDamageEffect UnitShadow SinkArtillery
+						HemisphereLighting_Unit DynamicLighting_Unit
+					  ]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = 0.57
+		zOffset = -0.80
+		scale = 1.43
+		angle = 42.63
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel Ram_05
+{
+	Parent		= Ram_03
+	DefaultModel 	= LSF5_heavyram.NIF
+	DefaultState 	= Idle
+	States = [
+			{ StateName=Idle AnimName = LSF5_heavyram_idle01.kf
+			  AnimVariants = [ LSF5_heavyram_idle02.kf ] AnimVariantsWeights = [ 0.3 ]
+				}
+			{ StateName = UnpackedIdle  AnimName = LSF5_heavyram_unpackidlek01.kf }
+			{ StateName=Walk AnimName = LSF5_heavyram_walk.kf
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = siegetower_moving1 KeyTime = 0}]
+				}
+			{ StateName = UnpackedWalk  AnimName = LSF5_heavyram_unpackwalk01.kf }
+			{ StateName=Attack1 AnimName = LSF5_heavyram_attack.kf }
+			{ StateName= Death	AnimName = LSF5_heavyram_death.kf } 
+			{ StateName = PackedDeath AnimName = LSF5_heavyram_packdeath.kf }
+			{ StateName=Pack AnimName = LSF5_heavyram_pack.kf }
+			{ StateName= Unpack	AnimName = LSF5_heavyram_unpack.kf } 
+		]
+	UIRenderingParams {
+		xoffset = 0.01
+		yOffset = 2.08
+		zOffset = -0.26
+		scale = 1.28
+		angle = 42.63
+		rotationSpeed = 0.00
+		pitch = 20.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

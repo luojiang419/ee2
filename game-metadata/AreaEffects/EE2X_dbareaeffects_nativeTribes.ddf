@@ -1,0 +1,342 @@
+//////////////////////////////////////////////////////////
+//							//
+// EE2X_dbareaeffects_nativeTribes.ddf			//
+//							//
+// defines special powers/bonuses granted when you	//
+// assimilate a native tribe				//
+//							//
+//////////////////////////////////////////////////////////
+
+// fertility
+// +25% Pop cap at all player owned city centers
+DbAreaEffectInfo Fertility
+{
+	name = text_NTarea_fertility_name
+	desc = text_NTarea_fertility_desc
+	
+	bSkipKingOfTheHillUnit = true
+	
+	effects = [
+		EffectPopulation {
+			range = PopCap
+			player = SelfAndLiege
+			UnitType = CityCenter
+			scale = 1.25
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Global
+			mask = CityCenters
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_fertility
+			Tooltip = text_NTarea_fertility_name
+			VTooltip = text_NTarea_fertility_desc
+		}
+	]
+}
+
+// faith
+// 50% faster Regional Power recharge time
+DbAreaEffectInfo Faith
+{
+	name = text_NTarea_faith_name
+	desc = text_NTarea_faith_desc
+	effects = [
+		EffectRegionPowerRechargeRate {
+			range = SpaceTime
+			player = SelfAndLiege
+			scale = 1.5
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Global
+			mask = Empty	// @HACK don't want the icon on any units
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_faith
+			Tooltip = text_NTarea_faith_name
+			VTooltip = text_NTarea_faith_desc
+		}
+	]
+}
+
+// migration
+// Penalties for building in foreign/unclaimed territory is reduced 100%
+DbAreaEffectInfo Migration
+{
+	name = text_NTarea_migration_name
+	desc = text_NTarea_migration_desc
+	effects = [
+			
+		// the way the math for these works is 1.0 plus, for each
+		// modifier, (the modifier - 1.0)
+		// by default, building in unclaimed territory has a modifier of 2.0
+		// (giving a total modifier of 1.0 + (2.0 - 1.0) = 2.0)
+		// and building in other-owned territory has a modifier of 3.0
+		// (giving a total modifier of 1.0 + (3.0 - 1.0) = 3.0)
+			
+		// unclaimed territory modifier
+		EffectTerritoryConstructionTime {
+			range = UnclaimedTerritory
+			mask = BuildSlowInNonOwnedTerritories // city centers are excluded (in code) for this effect type
+			player = SelfAndLiege
+			
+			// base + default mod + power mod   = total mod
+			// 1.0  + (2.0 - 1.0) + (0.0 - 1.0) = 1.0
+			scale = 0.0
+		}
+
+		// claimed territory modifier
+		EffectTerritoryConstructionTime {
+			range = OtherClaimedTerritoryIncludeDisputed
+			mask = BuildSlowInNonOwnedTerritories // city centers are excluded (in code) for this effect type
+			player = SelfAndLiege
+			
+			// base + default mod + pwer mod    = total mod
+			// 1.0  + (2.0 - 1.0) + (0.0 - 1.0) = 1.0
+			scale = 0.0
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Global
+			mask = Empty	// @HACK don't want the icon on any units
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_migration
+			Tooltip = text_NTarea_migration_name
+			VTooltip = text_NTarea_migration_desc
+		}
+	]
+}
+
+// herbal medicine
+// Units heal 100% faster when garrisoned
+DbAreaEffectInfo Herbs
+{
+	name = text_NTarea_herbs_name
+	desc = text_NTarea_herbs_desc
+	effects = [
+		EffectHealRate {
+			range = Global
+			mask = HealingBuildings
+			player = SelfAndLiege
+			scale = 2.0
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Global
+			mask = HealingBuildings
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_herbs
+			Tooltip = text_NTarea_herbs_name
+			VTooltip = text_NTarea_herbs_desc
+		}
+	]
+}
+
+// traders
+// Trade times reduced by 50%
+DbAreaEffectInfo Traders
+{
+	name = text_NTarea_traders_name
+	desc = text_NTarea_traders_desc
+	effects = [
+		EffectTradeTime {
+			range = Global
+			mask = TT_TradeUnit
+			player = SelfAndLiege
+			scale = 0.5
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Global
+			mask = TT_TradeUnit
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_traders
+			Tooltip = text_NTarea_traders_name
+			VTooltip = text_NTarea_traders_desc
+		}
+	]
+}
+
+// adobe construction
+// Walls can be built for free and Tower upgrade times are reduced 50%
+DbAreaEffectInfo Adobe
+{
+	name = text_NTarea_adobe_name
+	desc = text_NTarea_adobe_desc
+	effects = [
+		// wall build cost
+		EffectConstructionCost {
+			range = SpaceTime
+			player = SelfAndLiege
+  			affected = WallConstructionTargets
+			scale = 0.0
+		}
+		
+		// tower upgrade time
+		EffectTowerUpgradeTime {
+			range = Global
+			mask = WallConnector
+			player = SelfAndLiege
+			scale = 0.5
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Global
+			mask = WallFoundations
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_adobe
+			Tooltip = text_NTarea_adobe_name
+			VTooltip = text_NTarea_adobe_desc
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = WallsNoFoundations
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_adobe
+			Tooltip = text_NTarea_adobe_name
+			VTooltip = text_NTarea_adobe_desc
+		}
+	]
+}
+
+// determination
+// Technologies are researched 25% faster
+DbAreaEffectInfo Determination
+{
+	name = text_NTarea_determination_name
+	desc = text_NTarea_determination_desc
+	effects = [
+		EffectTechDiscoveryTime {
+			range = SpaceTime
+			player = SelfAndLiege
+			scale = 0.75
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Global
+			mask = UniversitiesAndTemples
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_determination
+			Tooltip = text_NTarea_determination_name
+			VTooltip = text_NTarea_determination_desc
+		}
+	]
+}
+
+// warrior spirit
+// All infantry units are produced 25% faster
+DbAreaEffectInfo WarriorSpirit
+{
+	name = text_NTarea_warriorSpirit_name
+	desc = text_NTarea_warriorSpirit_desc
+	effects = [
+		EffectProductionTime {
+			range = Global
+			mask = Barracks
+			player = SelfAndLiege
+			affected = LightAndHeavyInfantry
+			scale = 0.75
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Global
+			mask = Barracks
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_warriorSpirit
+			Tooltip = text_NTarea_warriorSpirit_name
+			VTooltip = text_NTarea_warriorSpirit_desc
+		}
+	]
+}
+
+// scouts
+// All mobile units have 50% better LOS
+DbAreaEffectInfo Scouts
+{
+	name = text_NTarea_scouts_name
+	desc = text_NTarea_scouts_desc
+	effects = [
+		EffectLOS {
+			range = Global
+			mask = MobileUnits
+			player = SelfAndLiege
+			scale = 1.50
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Global
+			mask = MobileUnits
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_scouts
+			Tooltip = text_NTarea_scouts_name
+			VTooltip = text_NTarea_scouts_desc
+		}
+	]
+}
+
+// community
+// Resource dropoff bonus from houses is doubled
+DbAreaEffectInfo Community
+{
+	name = text_NTarea_community_name
+	desc = text_NTarea_community_desc
+	effects = [
+		EffectTerritoryResourceDropoff {
+			range = SpaceTime
+			player = SelfAndLiege
+			scale = 2.0
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = SelfClaimedTerritory
+			mask = Houses
+			player = SelfAndLiege
+			SuppressGlow = 1
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_tribepower_community
+			Tooltip = text_NTarea_community_name
+			VTooltip = text_NTarea_community_desc
+		}
+	]
+}

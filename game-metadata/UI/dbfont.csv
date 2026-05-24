@@ -1,0 +1,19 @@
+//NAME,FONTNAME,ASIAN,SIZE,S.C.SIZE,FLAGS,FONT SIZE,W_INITSET,W_MINTXSIZE,W_MAXTXSIZE,A_INITSET,A_MINTXSIZE,A_MAXTXSIZE
+
+// no outline versions,,,,,,,,,,,,
+fnt_pal_huge,["Palatino Linotype","Times New Roman"],["AR Mingti2 Light B5"],[18 24 30 34 34 40],[16 20 24 28 28 34],(SmallCaps | AntiAlias | Kern),Huge,Alnum,ts256x256,ts1024x512,None,ts256x256,ts1024x1024
+fnt_pal_huge_bold,["Palatino Linotype","Times New Roman"],["AR Mingti2 Light B5"],[18 24 30 34 34 40],[16 20 24 28 28 34],(SmallCaps | Bold | AntiAlias | Kern),Huge,Alnum,ts256x256,ts1024x512,None,ts256x256,ts1024x1024
+fnt_pal_large,["Palatino Linotype","Times New Roman"],["AR Mingti2 Light B5"],[16 21 23 26 26 32],[12 15 17 20 20 24],(SmallCaps | AntiAlias | Kern),Large,ASCII,ts256x128,ts512x512,None,ts256x128,ts1024x512
+fnt_pal_large_bold,["Palatino Linotype","Times New Roman"],["AR Mingti2 Light B5"],[16 21 23 26 26 32],[12 15 17 20 20 24],(SmallCaps | Bold | AntiAlias | Kern),Large,ASCII,ts256x128,ts512x512,None,ts256x128,ts1024x512
+fnt_pal_med,["Palatino Linotype","Times New Roman"],["AR Mingti2 Light B5"],[10 13 14 16 16 18],[0 0 0 0 0],(AntiAlias | Kern),Medium,Alnum,ts128x128,ts512x256,None,ts128x128,ts512x512
+fnt_pal_med_bold,["Palatino Linotype","Times New Roman"],["AR Mingti2 Light B5"],[11 14 15 15 16 17],[0 0 0 0 0],(Bold | AntiAlias | Kern),Medium,Alnum,ts128x128,ts512x256,None,ts128x128,ts512x512
+fnt_pal_med_sc,["Palatino Linotype","Times New Roman"],["AR Mingti2 Light B5"],[11 14 15 15 16 17],[11 14 16 18 18 21],(SmallCaps | AntiAlias | Kern),Medium,Alnum,ts128x128,ts512x256,None,ts128x128,ts512x512
+fnt_pal_small,["Arial"],["AR Mingti2 Light B5"],[9 12 13 14 15 16],[0 0 0 0 0],(Kern| AntiAlias),Small,ASCII,ts128x64,ts256x256,None,ts128x64,ts512x256
+fnt_pal_small_bold,["Arial"],["AR Mingti2 Light B5"],[9 12 13 14 15 16],[0 0 0 0 0],(Bold | Kern | AntiAlias),Small,ASCII,ts128x64,ts256x256,None,ts128x64,ts512x256
+fnt_pal_tiny,["Arial"],["AR Mingti2 Light B5"],[9 11 11 14 14 17],[0 0 0],(Kern),Tiny,ASCII,ts64x64,ts256x128,None,ts64x64,ts256x256
+fnt_pal_tiny_bold,["Arial"],["AR Mingti2 Light B5"],[9 11 11 14 14 17],[0 0 0],(Bold | Kern),Tiny,ASCII,ts64x64,ts256x128,None,ts64x64,ts256x256
+
+// outline versions,,,,,,,,,,,,
+fnt_pal_large_outline,["Palatino Linotype","Times New Roman"],["AR Mingti2 Light B5"],[16 21 23 26 26 32],[0 0 0 0 0],(Outline | AntiAlias | Kern),Large,Alnum,ts256x128,ts512x512,None,ts256x128,ts1024x512
+fnt_pal_large_bold_outline,["Palatino Linotype","Times New Roman"],["AR Mingti2 Light B5"],[16 21 23 26 26 32],[0 0 0 0 0],(Outline | Bold | AntiAlias | Kern),Large,Alnum,ts256x128,ts512x512,None,ts256x128,ts1024x512
+fnt_pal_small_outline,["Arial"],["AR Mingti2 Light B5"],[10 13 14 15 16 17],[0 0 0 0 0],(Outline | Kern),Small,ASCII,ts128x64,ts256x256,None,ts128x64,ts512x256

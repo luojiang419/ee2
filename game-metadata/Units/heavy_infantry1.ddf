@@ -1,0 +1,988 @@
+//------------------------------------------------------------------------------------------------
+//	HEAVY INFANTRY 1 - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType HeavyInfantry1
+{
+	parent = Human
+	properties {
+		rps = LightInfantry
+		SizeX = 0.2
+		SizeY = 0.2
+		mass = 1
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 0.2; reloadTime = 1.5; applyDamageTime = 0.5; damage = 0 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 0.2; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 0 }
+		Move {speed = 1.3; angSpeed = 720}
+	]
+	attributes = [
+		CanJoinHeroArmy
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1Epoch1Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual HeavyInfantry1Epoch1VeteranVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_01v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch1Veteran
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch1VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual HeavyInfantry1Epoch1EliteVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_01e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch1Elite
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch1EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1Epoch3Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual HeavyInfantry1Epoch3VeteranVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_03v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch3Veteran
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch3VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual HeavyInfantry1Epoch3EliteVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_03e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch3Elite
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch3EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1Epoch5Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual HeavyInfantry1Epoch5VeteranVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_05v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch5Veteran
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch5VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual HeavyInfantry1Epoch5EliteVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_05e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch5Elite
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch5EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1Epoch7Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.2; missileName = "MusketBullet"; WeaponType = LightProjectile; packTime = 2.0; unpackTime = 2.0 }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual HeavyInfantry1Epoch7VeteranVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_07v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch7Veteran
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch7VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual HeavyInfantry1Epoch7EliteVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_07e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch7Elite
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch7EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1Epoch9Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.2; missileName = "MusketBullet"; WeaponType = LightProjectile }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual HeavyInfantry1Epoch9VeteranVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_09v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch9Veteran
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch9VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual HeavyInfantry1Epoch9EliteVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_09e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch9Elite
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		HeavyInfantry1Epoch9EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1Epoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 1.0; unpackTime = 1.0 }
+	]
+}
+// Veteran visual change
+UpgradeVisual HeavyInfantry1Epoch11VeteranVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_11v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch11Veteran
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		//HeavyInfantry1Epoch11VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual HeavyInfantry1Epoch11EliteVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_11e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch11Elite
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		//HeavyInfantry1Epoch11EliteVis
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1Epoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = LightProjectile }
+	]
+}
+// Veteran visual change
+UpgradeVisual HeavyInfantry1Epoch13VeteranVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_13v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch13Veteran
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		//HeavyInfantry1Epoch13VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual HeavyInfantry1Epoch13EliteVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_13e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch13Elite
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default
+		//HeavyInfantry1Epoch13EliteVis
+	]
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1Epoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.3; WeaponType = LightProjectile; packTime = 1.0; unpackTime = 1.0 }
+	]
+}
+
+// Veteran visual change
+UpgradeVisual HeavyInfantry1Epoch15VeteranVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_15v
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch15Veteran
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default,
+		//HeavyInfantry1Epoch15VeteranVis
+	]
+}
+
+// Elite visual change
+UpgradeVisual HeavyInfantry1Epoch15EliteVis
+{
+	unitType = HeavyInfantry1
+	newVisual = HeavyInfantry1_15e
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyInfantry1Epoch15Elite
+{
+	unitType = HeavyInfantry1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyInfantry_Improve_Default,
+		//HeavyInfantry1Epoch15EliteVis
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HEAVY INFANTRY 1 - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+UnitModel	HeavyInfantry1_01
+{
+	Parent 		= BaseHuman
+	DefaultModel 	= lhi1_maceman.nif
+	ChildNames 		= [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_maceman_idle01.KF	
+                              AnimVariants = [ sh_maceman_idle02.KF 
+						sh_maceman_idle03.KF
+                                                 sh_maceman_season01.KF ]
+                              AnimVariantsWeights = [0.1 0.1 0.1]
+                 }                            
+		{ 	StateName = Walk	AnimName = sh_maceman_walk01.KF	}
+		{ 	StateName = CaptureAttack1	AnimName = sh_maceman_capture.KF
+					AnimVariants = [ sh_maceman_capture_02.KF ]
+                              AnimVariantsWeights = [0.3]
+                 }                            
+
+		{ 	StateName = Run	AnimName = sh_maceman_jog01.KF	
+		}
+		{ 	StateName = Attack1	AnimName = sh_maceman_attack01.KF
+			TextKeys =  [
+						{ Name = PLAY_SOUND Data = fx_mace_swing KeyTime = 0.5 }
+						]
+		}
+		{ 	StateName = Death	AnimName = sh_maceman_death01.KF}
+		{	StateName = Flinch	AnimName = sh_maceman_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_maceman_flying01.kf
+			AnimVariants = [ sh_maceman_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_maceman_ground_death01.kf }
+
+			]
+}
+
+// veteran version
+UnitModel HeavyInfantry1_01v
+{
+	Parent		= HeavyInfantry1_01
+	States 		= [
+		{	StateName = Idle	AnimName = sh_maceman_v_idle01.KF	
+                              AnimVariants = [ sh_maceman_idle01.KF sh_maceman_idle02.KF 
+												sh_maceman_idle03.KF sh_maceman_season01.KF ]
+                              AnimVariantsWeights = [ 0.1 0.1 0.1 0.1]
+                 }                            
+			]
+}
+
+// elite version
+UnitModel HeavyInfantry1_01e
+{
+	Parent		= HeavyInfantry1_01v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_maceman_e_attack01.KF
+			TextKeys =  [
+						{ Name = PLAY_SOUND Data = fx_mace_swing KeyTime = 0.5 }
+						]
+		}
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+UnitModel	HeavyInfantry1_03
+{
+	Parent 		= BaseHuman
+	DefaultModel 	= LHI3_swordsman.nif
+	ChildNames 	= [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_sword_idle01.KF
+                              AnimVariants = [ sh_sword_idle04.KF 
+						sh_sword_idle03.KF 
+                                                 sh_sword_idle02.KF
+                                                  sh_sword_season01.KF]
+                              AnimVariantsWeights = [0.1 0.1 0.1 0.1]
+                 }
+		{ 	StateName = Walk	AnimName = sh_sword_walk01.KF  }
+                { 	StateName = CaptureAttack1	AnimName = sh_sword_capture01.KF
+                              AnimVariants = [ sh_sword_capture02.KF ]
+                              AnimVariantsWeights = [0.3]
+                 }                            
+		{ 	StateName = Run	        AnimName = sh_sword_jog01.KF   }
+		{ 	StateName = Attack1	AnimName = sh_sword_attack02.KF	
+                              AnimVariants = [ sh_sword_attack03.KF ]
+                              AnimVariantsWeights = [0.4]         
+			TextKeys =  [
+						{ Name = PLAY_SOUND Data = fx_sword_swing KeyTime = 1.0 }
+						]
+		 }
+		{ 	StateName = Death	AnimName = sh_sword_death01.KF	}
+		{	StateName = Flinch	AnimName = sh_sword_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_sword_flying01.kf
+			AnimVariants = [ sh_sword_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_sword_ground_death01.kf }
+
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.32
+		zOffset = -6.13
+		scale = 2.43
+	}
+}
+
+// veteran version
+UnitModel HeavyInfantry1_03v
+{
+	Parent		= HeavyInfantry1_03
+	States 		= [
+		{	StateName = Idle	AnimName = sh_sword_v_idle01.KF
+                              AnimVariants = [ sh_sword_idle01.KF sh_sword_idle04.KF 
+												sh_sword_idle03.KF sh_sword_idle02.KF sh_sword_season01.KF]
+                              AnimVariantsWeights = [ 0.05 0.1 0.1 0.1 0.1]
+                 }
+			]
+}
+
+// elite version
+UnitModel HeavyInfantry1_03e
+{
+	Parent		= HeavyInfantry1_03v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_sword_e_attack01.KF	
+			TextKeys =  [
+						{ Name = PLAY_SOUND Data = fx_sword_swing KeyTime = 1.0 }
+						]
+		 }
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel	HeavyInfantry1_05
+{
+	Parent 		= BaseHuman
+	DefaultModel 	= LHI5_manatarms.nif
+	ChildNames 	= [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_sword_idle01.KF
+                              AnimVariants = [ sh_sword_idle03.KF 
+						sh_sword_idle02.KF 
+                                                 sh_sword_idle04.KF
+                                                  sh_sword_season01.KF]
+                              AnimVariantsWeights = [0.1 0.1 0.1 0.1]
+                 }
+		{ 	StateName = Walk	AnimName = sh_sword_walk01.KF
+		}
+                { 	StateName = CaptureAttack1	AnimName = sh_sword_capture01.KF
+                              AnimVariants = [ sh_sword_capture02.KF ]
+                              AnimVariantsWeights = [0.3]
+                 } 
+		{ 	StateName = Run	AnimName = sh_sword_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_sword_attack01.KF
+                              AnimVariants = [ sh_sword_attack03.KF ]
+                              AnimVariantsWeights = [0.4] 
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_sword_swing KeyTime = 0.40 }
+							] }
+
+		{ 	StateName = Death	AnimName = sh_sword_death01.KF	}
+		{	StateName = Flinch	AnimName = sh_sword_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_sword_flying01.kf
+			AnimVariants = [ sh_sword_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_sword_ground_death01.kf }
+
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.47
+		zOffset = -6.11
+		scale = 2.43
+	}
+}
+
+// veteran version
+UnitModel HeavyInfantry1_05v
+{
+	Parent		= HeavyInfantry1_05
+	States 		= [
+		{	StateName = Idle	AnimName = sh_sword_v_idle01.KF
+                              AnimVariants = [ sh_sword_idle01.KF sh_sword_idle03.KF 
+												sh_sword_idle02.KF sh_sword_idle04.KF sh_sword_season01.KF]
+                              AnimVariantsWeights = [ 0.05 0.1 0.1 0.1 0.1]
+                 }
+			]
+}
+
+// elite version
+UnitModel HeavyInfantry1_05e
+{
+	Parent		= HeavyInfantry1_05v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_sword_e_attack02.KF
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_sword_swing KeyTime = 0.40 }
+							] }
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+//BaseModel FX_FiringBullet
+//{
+//	ModelFileName 	= fx_musket_muzzle.NIF
+//	TagPoint 	= tag_muzzle_1
+//	DeletionMode	= ePLAYONCE
+//}
+
+UnitModel	HeavyInfantry1_07
+{
+	Parent		= BaseHuman
+	DefaultModel 	= LHI7_musketeer.nif
+	ChildNames 	= [ UnitShadow Muzzle_Musketeer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_musketeer_idle01.KF
+                              AnimVariants = [ sh_musketeer_idle02.KF 
+						sh_musketeer_season01.kf ]
+                              AnimVariantsWeights = [0.3 0.1 ]
+                 }                            
+        {      StateName = UnpackedIdle  AnimName = sh_musketeer_unpackidle01.KF   }
+        { 	StateName = Walk	AnimName = sh_musketeer_walk01.KF   }
+        { 	StateName = CaptureAttack1	AnimName = sh_musketeer_capture01.KF
+                              AnimVariants = [ sh_musketeer_capture02.KF ]
+                              AnimVariantsWeights = [0.3]
+                 }             
+        { 	StateName = Run	        AnimName = sh_musketeer_jog01.KF    }
+		{ 	StateName = Attack1	AnimName = sh_musketeer_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Pack	AnimName = sh_musketeer_pack.KF  }
+		{ 	StateName = Unpack	AnimName = sh_musketeer_unpack.KF  }
+		{ 	StateName = Death	           AnimName = sh_musketeer_unpackdeath01.KF  }
+                                {              StateName = PackedDeath  AnimName = sh_musketeer_death01.KF  } 
+		{	StateName = BeingConverted AnimName = sh_musketeer_conversion01.KF }
+		{	StateName = Flinch	AnimName = sh_musketeer_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_musketeer_flying01.kf
+			AnimVariants = [ sh_musketeer_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_musketeer_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.24
+		zOffset = -5.06
+		scale = 2.43
+	}
+}
+
+
+// veteran version
+UnitModel HeavyInfantry1_07v
+{
+	Parent		= HeavyInfantry1_07
+	States 		= [
+		{	StateName = Idle	AnimName = sh_musketeer_v_idle01.KF
+                              AnimVariants = [ sh_musketeer_idle01.KF sh_musketeer_idle02.KF 
+						sh_musketeer_season01.kf ]
+                              AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+                 }                            
+			]
+}
+
+// elite version
+UnitModel HeavyInfantry1_07e
+{
+	Parent		= HeavyInfantry1_07v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_musketeer_e_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Pack	AnimName = sh_musketeer_e_pack01.KF  }
+		{ 	StateName = Unpack	AnimName = sh_musketeer_e_unpack01.KF  }
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+UnitModel	HeavyInfantry1_09
+{
+	Parent		= BaseHuman
+	DefaultModel 	= LHI9_regular.nif
+	ChildNames 	= [ UnitShadow Muzzle_Musketeer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_regular_idle01.KF	  }
+		{ 	StateName = Walk	AnimName = sh_regular_walk01.KF }
+		{ 	StateName = CaptureAttack1	AnimName = sh_regular_capture.kf
+					AnimVariants = [ sh_regular_capture_02.kf ]
+                              AnimVariantsWeights = [0.3]
+                 }                            
+		{ 	StateName = Run	AnimName = sh_regular_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_regular_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Death	AnimName = sh_regular_death01.KF  }
+		{	StateName = Flinch	AnimName = sh_regular_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_regular_flying01.kf
+			AnimVariants = [ sh_regular_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_regular_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.16
+		zOffset = -6.82
+		scale = 3.33
+	}
+}
+
+// veteran version
+UnitModel HeavyInfantry1_09v
+{
+	Parent		= HeavyInfantry1_09
+	States 		= [
+		{	StateName = Idle	AnimName = sh_regular_v_idle01.KF
+                              AnimVariants = [ sh_regular_idle01.KF ]
+                              AnimVariantsWeights = [ 0.1 ]
+                 }                            
+			]
+}
+
+// elite version
+UnitModel HeavyInfantry1_09e
+{
+	Parent		= HeavyInfantry1_09v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_regular_e_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_musket_fire KeyTime = 0.16 }
+					] }
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel	HeavyInfantry1_11
+{
+	Parent		= BaseHuman
+	DefaultModel 	= lhi11_rifleman.nif
+	ChildNames 	= [ UnitShadow Beam_Tracer01 Muzzle_Rifleman ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_rifleman_idle01.KF	  
+                              AnimVariants = [ sh_rifleman_idle02.KF 
+						sh_rifleman_idle03.KF
+                                                 sh_rifleman_season01.KF ]
+                              AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+                 }
+		{              StateName = UnpackedIdle  AnimName = sh_rifleman_unpackidle01.KF   }
+                                { 	StateName = Walk	AnimName = sh_rifleman_walk01.KF
+		}
+		{ 	StateName = Run	AnimName = sh_rifleman_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_rifleman_attack02.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_rifle_fire KeyTime = 0.16 }
+					] }
+		// The capture related standing & shooting
+		{ 	StateName = CaptureAttack1	AnimName = sh_rifleman_capture_bomb01.KF }
+		// The capture specific animations
+		{ 	StateName = CaptureAttack2	AnimName = sh_rifleman_capture01.KF
+										AnimVariants = [ sh_rifleman_capture02.KF ]
+										AnimVariantsWeights = [ 1.0	] }
+		{ 	StateName = Pack	AnimName = sh_rifleman_pack02.KF  }
+		{ 	StateName = Unpack	AnimName = sh_rifleman_unpack02.KF  }
+        { 	StateName = Death	           AnimName = sh_rifleman_unpackdeath01.KF  }  
+        {   StateName = PackedDeath  AnimName = sh_rifleman_death02.KF   }
+		{	StateName = Flinch	AnimName = sh_rifleman_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_rifleman_flying01.kf
+			AnimVariants = [ sh_rifleman_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_rifleman_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.13
+		zOffset = -6.12
+		scale = 2.43
+	}
+}
+
+// veteran version
+UnitModel HeavyInfantry1_11v
+{
+	Parent		= HeavyInfantry1_11
+	States 		= [
+		{	StateName = Idle	AnimName = sh_rifleman_v_idle01.KF	  
+                              AnimVariants = [ sh_rifleman_idle01.KF sh_rifleman_idle02.KF 
+												sh_rifleman_idle03.KF sh_rifleman_season01.KF ]
+                              AnimVariantsWeights = [ 0.1 0.1 0.1 0.1 ]
+                 }
+			]
+}
+
+// elite version
+UnitModel HeavyInfantry1_11e
+{
+	Parent		= HeavyInfantry1_11v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_rifleman_e_attack02.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_rifle_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Pack	AnimName = sh_rifleman_e_pack02.KF  }
+		{ 	StateName = Unpack	AnimName = sh_rifleman_e_unpack02.KF  }
+        { 	StateName = Death	AnimName = sh_rifleman_e_unpackdeath01.KF  }  
+		{   StateName = UnpackedIdle  AnimName = sh_rifleman_e_unpackidle01.KF   }
+			]
+}
+
+UnitModel	HeavyInfantry1_11_Turkish
+{
+	Parent		= HeavyInfantry1_11
+	DefaultModel 	= lhi11_rifleman_turkish.nif
+}
+
+UnitModel HeavyInfantry1_11v_Turkish
+{
+	Parent		= HeavyInfantry1_11_Turkish
+	States 		= [
+		{	StateName = Idle	AnimName = sh_rifleman_v_idle01.KF	  
+                              AnimVariants = [ sh_rifleman_idle01.KF sh_rifleman_idle02.KF 
+												sh_rifleman_idle03.KF sh_rifleman_season01.KF ]
+                              AnimVariantsWeights = [ 0.1 0.1 0.1 0.1 ]
+                 }
+			]
+}
+
+UnitModel HeavyInfantry1_11e_Turkish
+{
+	Parent		= HeavyInfantry1_11v_Turkish
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_rifleman_e_attack02.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_rifle_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Pack	AnimName = sh_rifleman_e_pack02.KF  }
+		{ 	StateName = Unpack	AnimName = sh_rifleman_e_unpack02.KF  }
+        { 	StateName = Death	AnimName = sh_rifleman_e_unpackdeath01.KF  }  
+		{   StateName = UnpackedIdle  AnimName = sh_rifleman_e_unpackidle01.KF   }
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel	HeavyInfantry1_13
+{
+	Parent		= BaseHuman
+    DefaultModel 	= lhi13_assaultrifleman.nif
+	ChildNames 	= [ UnitShadow Beam_Tracer01 Muzzle_Rifleman ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_assaultrifleman_idle01.KF
+                              AnimVariants = [ sh_assaultrifleman_idle02.KF 
+												sh_assaultrifleman_idle03.KF
+												sh_assaultrifleman_season01.KF ]
+                              AnimVariantsWeights = [ 0.1 0.1 0.1 ]
+        }
+		{ 	StateName = Walk	AnimName = sh_assaultrifleman_walk01.KF
+		}
+		{ 	StateName = Run	AnimName = sh_assaultrifleman_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_assaultrifleman_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_battle_assrifle_fire KeyTime = 0.16 }
+					] }
+        { 	StateName = CaptureAttack1	AnimName = sh_assaultrifleman_capture01.kf
+                              AnimVariants = [ sh_assaultrifleman_capture02.kf ]
+                              AnimVariantsWeights = [0.3]
+                 }
+		{ 	StateName = Death	AnimName = sh_assaultrifleman_death01.KF  }
+		{	StateName = Flinch	AnimName = sh_assaultrifleman_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_assaultrifleman_flying01.KF
+			AnimVariants = [ sh_assaultrifleman_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_assaultrifleman_ground_death01.KF	}
+
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.36
+		zOffset = -6.98
+		scale = 2.43
+	}
+}
+
+// veteran version
+UnitModel HeavyInfantry1_13v
+{
+	Parent		= HeavyInfantry1_13
+	States 		= [
+		{	StateName = Idle	AnimName = sh_assaultrifleman_v_idle01.KF
+                              AnimVariants = [ sh_assaultrifleman_idle01.KF
+												sh_assaultrifleman_idle02.KF 
+												sh_assaultrifleman_idle03.KF
+												sh_assaultrifleman_season01.KF ]
+                              AnimVariantsWeights = [ 0.05 0.1 0.1 0.1 ]
+        }
+			]
+}
+
+// elite version
+UnitModel HeavyInfantry1_13e
+{
+	Parent		= HeavyInfantry1_13v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_assaultrifleman_e_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_battle_assrifle_fire KeyTime = 0.16 }
+					] }
+			]
+}
+
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel	HeavyInfantry1_15
+
+{
+	Parent		= BaseHuman
+	DefaultModel 	= lhi15_ObjectiveForceWarrior.nif
+	ChildNames 	= [ UnitShadow Muzzle_Minigunner Beam_Tracer01 ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_ObjectiveForceWarrior_idle01.KF	 
+                              AnimVariants = [ sh_ObjectiveForceWarrior_idle03.KF sh_ObjectiveForceWarrior_idle02.KF ]
+                              AnimVariantsWeights = [ 0.2 0.1 ]
+                 }
+		{ 	StateName = Walk	AnimName = sh_ObjectiveForceWarrior_walk01.KF
+		}
+		{ 	StateName = CaptureAttack1	AnimName = sh_ObjectiveForceWarrior_capture01.kf
+                              AnimVariants = [ sh_ObjectiveForceWarrior_capture02.kf ]
+                              AnimVariantsWeights = [0.3]
+                 }
+                { 	StateName = Run	AnimName = sh_ObjectiveForceWarrior_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = sh_ObjectiveForceWarrior_attack01.KF 
+                        TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_battle_objforce_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Pack	AnimName = sh_ObjectiveForceWarrior_pack01.KF     }
+		{ 	StateName = Unpack	AnimName = sh_ObjectiveForceWarrior_unpack01.KF   }
+                { 	StateName = Death	AnimName = sh_ObjectiveForceWarrior_death01.KF    }
+		{	StateName = Flinch	AnimName = sh_ObjectiveForceWarrior_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_ObjectiveForceWarrior_flying01.KF
+			AnimVariants = [ sh_ObjectiveForceWarrior_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_ObjectiveForceWarrior_ground_death01.KF	}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.13
+		zOffset = -5.77
+		scale = 2.43
+	}
+}
+
+// veteran version
+UnitModel HeavyInfantry1_15v
+{
+	Parent		= HeavyInfantry1_15
+	States 		= [
+		{	StateName = Idle	AnimName = sh_ObjectiveForceWarrior_v_idle01.kf
+        }
+			]
+}
+
+// elite version
+UnitModel HeavyInfantry1_15e
+{
+	Parent		= HeavyInfantry1_15v
+	States 		= [
+		{ 	StateName = Attack1	AnimName = sh_ObjectiveForceWarrior_e_attack01.kf 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_battle_objforce_fire KeyTime = 0.16 }
+		}
+		{	StateName = Pack	AnimName = sh_ObjectiveForceWarrior_e_pack01.kf
+		}
+		{	StateName = Unpack	AnimName = sh_ObjectiveForceWarrior_e_unpack01.kf
+		}
+			]
+}

@@ -1659,18 +1659,44 @@ async function downloadReleasePackageMultipart(url, targetPath, totalBytes, trac
     })
   }
   appendUpdaterLog(logFilePath, `[download-multipart] parts=${parts.length} totalBytes=${totalBytes}`)
-  const settled = await Promise.allSettled(
-    parts.map((part) =>
-      downloadReleasePackagePartWithRetry(
-        url,
-        part.start,
-        part.end,
-        part.path,
-        tracker,
-        logFilePath,
-      )
+
+  // 启动超时保护：10秒内没有任何分段开始接收数据则降级为单线程
+  const partPromises = parts.map((part) =>
+    downloadReleasePackagePartWithRetry(
+      url,
+      part.start,
+      part.end,
+      part.path,
+      tracker,
+      logFilePath,
     )
   )
+
+  const startupResult = await new Promise((resolve) => {
+    const startupTimer = setTimeout(() => resolve('timeout'), 10000)
+    const progressCheck = setInterval(() => {
+      if (tracker.downloadedBytes > 0) {
+        clearInterval(progressCheck)
+        clearTimeout(startupTimer)
+        resolve('started')
+      }
+    }, 200)
+    Promise.allSettled(partPromises).then(() => {
+      clearInterval(progressCheck)
+      clearTimeout(startupTimer)
+      resolve('settled')
+    })
+  })
+
+  if (startupResult === 'timeout') {
+    for (const part of parts) {
+      try { await fse.remove(part.path) } catch {}
+    }
+    appendUpdaterLog(logFilePath, `[download-multipart] startup timeout after 10s, no progress`)
+    throw createRangeDownloadError('多线程分片下载10秒未开始', 'startup-timeout')
+  }
+
+  const settled = await Promise.allSettled(partPromises)
   const firstFailure = settled.find((item) => item.status === 'rejected')
   if (firstFailure && firstFailure.status === 'rejected') {
     for (const part of parts) {

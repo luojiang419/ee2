@@ -1,0 +1,622 @@
+//---------------------------------------------------------------------------
+// Definitions for "UI" visual effects.  This includes things like health
+// bars and selection circles.
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+// HEALTH BARS
+//---------------------------------------------------------------------------
+HealthBar 		TheHealthBar 
+{
+	verticalOffset = 0.25;
+
+	StartingLevel = 1.0;
+
+	colorLow = [255,0,0,255]
+	colorMed = [255,255,0,255]
+	colorHigh = [0,255,0,255]
+
+	// MSG_HITPOINT
+	UpdateMsg = "HitPointChange";
+	FlashMsg = "HealthBar_HealFlash";
+
+	FlashWhenHealing = true;
+	FlashTexture = health_heal_flash.tga;
+	FlashDuration = 1;
+	FlashAlphaMax = 1;
+	FlashAlphaMid = 0.5;
+	FlashAlphaRate = 1.5;
+}
+
+HealthBar 		ThePowerBar 
+{
+	verticalOffset = 0.19;
+
+	StartingLevel = 0.001;
+
+	colorLow = [0,0,255,255]
+	colorMed = [0,0,255,255]
+	colorHigh = [0,0,255,255]
+
+	// MSG_POWERRESERVE
+	UpdateMsg = "PowerReserveChange";
+}
+
+HealthBar 		TheAmmoBar 
+{
+	verticalOffset = 0.19;
+
+	StartingLevel = 1.0;
+
+	colorLow = [0,0,255,255]
+	colorMed = [0,0,255,255]
+	colorHigh = [0,0,255,255]
+
+	// MSG_POWERRESERVE
+	UpdateMsg = "AmmoReserveChange";
+}
+
+
+HealthBar 		TheResistanceBar 
+{
+	verticalOffset = 0.13;
+	StartingLevel = 1.0;
+	
+	colorLow = [150,16,16,255]
+	colorMed = [200,32,32,255]
+	colorHigh = [255,32,32,255]
+
+	// MSG_RESISTANCE
+	UpdateMsg = "ResistanceChange";
+}
+
+//---------------------------------------------------------------------------
+// SELECTION CIRCLES
+//---------------------------------------------------------------------------
+SelectCircle		SelectCircleSmall
+{ 
+	TextureFilename = selection_small.tga
+	TextureScale	= 1.75
+	TextureScaleWidth = 1.0
+	RadiusMode		= UnitRadius
+}
+SelectCircle		SelectCircleMedium
+{ 
+	TextureFilename = selection_medium.tga
+	TextureScale	= 1
+	TextureScaleWidth = 1.0
+	RadiusMode		= UnitRadius
+}
+SelectCircle		SelectCircleBigRound
+{ 
+	TextureFilename = selection_big.tga
+	TextureScale	= 1
+	TextureScaleWidth = 1.0
+	RadiusMode		= UnitRadius
+}
+SelectCircle		SelectCircleBig
+{ 
+	TextureFilename = selection_square_big.tga
+	TextureScale	= 1
+	TextureScaleWidth = 1.0
+	RadiusMode		= UnitRadius
+}
+
+SelectCircle		SelectCircleWaterUnitSmall
+{ 
+	TextureFilename = selection_small.tga
+	TextureScale	= 1
+	TextureScaleWidth = 0.5
+	RadiusMode		= UnitRadius
+}
+
+SelectCircle		SelectCircleWaterUnit
+{ 
+	TextureFilename = selection_medium.tga
+	TextureScale	= 1
+	TextureScaleWidth = 0.5
+	RadiusMode		= UnitRadius
+}
+
+SelectCircle		SelectCircleWaterUnitBig
+{ 
+	TextureFilename = selection_big.tga
+	TextureScale	= 1
+	TextureScaleWidth = 0.5
+	RadiusMode		= UnitRadius
+}
+
+SelectCircle		SelectCircleSubmarine
+{
+	TextureFilename = selection_medium.tga
+	TextureScale	= 1
+	TextureScaleWidth = 0.5
+	RadiusMode		= UnitRadius
+}
+
+SelectCircle		SelectCircleAircraft
+{ 
+	TextureFilename = selection_medium.tga
+	TextureScale	= 1
+	TextureScaleWidth = 1.0
+	UseGeometry 	= 1
+	RadiusMode		= UnitRadius
+}
+
+SelectCircle		SelectCircleHelicopter
+{ 
+	TextureFilename = selection_big.tga
+	TextureScale	= 0.7
+	TextureScaleWidth = 1.0
+	UseGeometry 	= 1
+	RadiusMode		= UnitRadius
+}
+
+SelectCircle		AreaEffectCircle
+{
+	TextureFilename		= ui_empty.tga
+	TextureScale	= 1
+	TextureScaleWidth = 1.0
+	RadiusMode		= EffectArea
+}
+
+SelectCircle		SelectCircleTank
+{ 
+	TextureFilename = selection_small.tga
+	TextureScale	= 1.25
+	TextureScaleWidth = 1.0
+	RadiusMode		= UnitRadius
+}
+
+SelectCircle		SelectCircleMounted
+{ 
+	TextureFilename = selection_small.tga
+	TextureScale	= 1.25
+	TextureScaleWidth = 1.0
+	RadiusMode		= UnitRadius
+}
+
+SelectCircle		SelectCircleScout
+{ 
+	TextureFilename = selection_small.tga
+	TextureScale	= 1.25
+	TextureScaleWidth = 1.0
+	RadiusMode		= UnitRadius
+}
+
+//--------------------------------------------------------------------------
+//	Glows (for units/buildings affected by special powers)
+//--------------------------------------------------------------------------
+GlowEffect SmallGlow
+{
+	GoodGlowName = glow_good.tga
+	GoodGlowScale = 0.5
+
+	BadGlowName = glow_bad.tga
+	BadGlowScale = 0.5
+
+	MixedGlowName = glow_both.tga
+	MixedGlowScale = 0.5
+	
+	NeutralGlowName = glow_neutral.tga
+	NeutralGlowScale = 0.5
+	
+	KingGlowName = glow_king.tga
+	KingGlowScale = 0.4
+
+	HeroArmyGlowName = glow_HeroArmy.tga
+	HeroArmyGlowScale = 0.25
+
+	HeroArmyLeaderGlowName = glow_HeroArmyLeader.tga
+	HeroArmyLeaderGlowScale = 0.25
+
+	SupremeLeaderGlowName = glow_supremeleader.tga
+	SupremeLeaderGlowScale = 0.25
+
+	PulseMaxMult = 1.15
+	PulseMinMult = 0.95
+
+	PulseMaxAlpha = 150
+	PulseMinAlpha = 75
+}
+
+GlowEffect MediumGlow
+{
+	GoodGlowName = glow_good.tga
+	GoodGlowScale = 1.0
+
+	BadGlowName = glow_bad.tga
+	BadGlowScale = 1.0
+
+	MixedGlowName = glow_both.tga
+	MixedGlowScale = 1.0
+	
+	NeutralGlowName = glow_neutral.tga
+	NeutralGlowScale = 1.0
+	
+	KingGlowName = glow_king.tga
+	KingGlowScale = 1.0
+
+	HeroArmyGlowName = glow_HeroArmy.tga
+	HeroArmyGlowScale = 0.5
+
+	HeroArmyLeaderGlowName = glow_HeroArmyLeader.tga
+	HeroArmyLeaderGlowScale = 0.5
+
+	SupremeLeaderGlowName = glow_supremeleader.tga
+	SupremeLeaderGlowScale = 0.5
+
+	PulseMaxMult = 1.15
+	PulseMinMult = 0.95
+
+	PulseMaxAlpha = 150
+	PulseMinAlpha = 75
+}
+
+// A slightly larger medium glow
+GlowEffect MediumGlow2
+{
+	GoodGlowName = glow_good.tga
+	GoodGlowScale = 2.0
+
+	BadGlowName = glow_bad.tga
+	BadGlowScale = 2.0
+
+	MixedGlowName = glow_both.tga
+	MixedGlowScale = 2.0
+	
+	NeutralGlowName = glow_neutral.tga
+	NeutralGlowScale = 2.0
+	
+	KingGlowName = glow_king.tga
+	KingGlowScale = 2.0
+
+	HeroArmyGlowName = glow_HeroArmy.tga
+	HeroArmyGlowScale = 1.0
+
+	HeroArmyLeaderGlowName = glow_HeroArmyLeader.tga
+	HeroArmyLeaderGlowScale = 1.0
+
+	SupremeLeaderGlowName = glow_supremeleader.tga
+	SupremeLeaderGlowScale = 1.0
+
+	PulseMaxMult = 1.15
+	PulseMinMult = 0.95
+
+	PulseMaxAlpha = 150
+	PulseMinAlpha = 75
+}
+
+GlowEffect LargeGlow
+{
+	GoodGlowName = glow_good.tga
+	GoodGlowScale = 3.0
+
+	BadGlowName = glow_bad.tga
+	BadGlowScale = 3.0
+
+	MixedGlowName = glow_both.tga
+	MixedGlowScale = 3.0
+	
+	NeutralGlowName = glow_neutral.tga
+	NeutralGlowScale = 3.0
+	
+	KingGlowName = glow_king.tga
+	KingGlowScale = 3.0
+
+	HeroArmyGlowName = glow_HeroArmy.tga
+	HeroArmyGlowScale = 1.5
+
+	HeroArmyLeaderGlowName = glow_HeroArmyLeader.tga
+	HeroArmyLeaderGlowScale = 1.5
+
+	SupremeLeaderGlowName = glow_supremeleader.tga
+	SupremeLeaderGlowScale = 1.5
+
+	PulseMaxMult = 1.15
+	PulseMinMult = 0.95
+
+	PulseMaxAlpha = 150
+	PulseMinAlpha = 75
+}
+
+GlowEffect HugeGlow
+{
+	GoodGlowName = glow_good.tga
+	GoodGlowScale = 5.0
+
+	BadGlowName = glow_bad.tga
+	BadGlowScale = 5.0
+
+	MixedGlowName = glow_both.tga
+	MixedGlowScale = 5.0
+	
+	NeutralGlowName = glow_neutral.tga
+	NeutralGlowScale = 5.0
+	
+	KingGlowName = glow_king.tga
+	KingGlowScale = 5.0
+
+	HeroArmyGlowName = glow_HeroArmy.tga
+	HeroArmyGlowScale = 2.5
+
+	HeroArmyLeaderGlowName = glow_HeroArmyLeader.tga
+	HeroArmyLeaderGlowScale = 2.5
+
+	SupremeLeaderGlowName = glow_supremeleader.tga
+	SupremeLeaderGlowScale = 2.5
+
+	PulseMaxMult = 1.15
+	PulseMinMult = 0.95
+
+	PulseMaxAlpha = 150
+	PulseMinAlpha = 75
+}
+
+GlowEffect GlowAirUnit
+{
+	UseGeometry = true
+
+	GoodGlowName = glow_good.tga
+	GoodGlowScale = 10.0
+
+	BadGlowName = glow_bad.tga
+	BadGlowScale = 10.0
+
+	MixedGlowName = glow_both.tga
+	MixedGlowScale = 10.0
+	
+	NeutralGlowName = glow_neutral.tga
+	NeutralGlowScale = 10.0
+	
+	KingGlowName = glow_king.tga
+	KingGlowScale = 10.0
+
+	HeroArmyGlowName = glow_HeroArmy.tga
+	HeroArmyGlowScale = 5.0
+
+	HeroArmyLeaderGlowName = glow_HeroArmyLeader.tga
+	HeroArmyLeaderGlowScale = 5.0
+
+	SupremeLeaderGlowName = glow_supremeleader.tga
+	SupremeLeaderGlowScale = 5.0
+
+	PulseMaxMult = 1.15
+	PulseMinMult = 0.95
+
+	PulseMaxAlpha = 150
+	PulseMinAlpha = 100
+}
+
+GlowEffect TestGlow
+{
+	GoodGlowName = glow_test_1.tga
+	GoodGlowScale = 3.0
+
+	BadGlowName = glow_test_1.tga
+	BadGlowScale = 3.0
+
+	MixedGlowName = glow_test_1.tga
+	MixedGlowScale = 3.0
+	
+	NeutralGlowName = glow_test_1.tga
+	NeutralGlowScale = 3.0
+	
+	KingGlowName = glow_test_1.tga
+	KingGlowScale = 3.0
+
+	HeroArmyGlowName = glow_test_1.tga
+	HeroArmyGlowScale = 3.0
+
+	HeroArmyLeaderGlowName = glow_test_1.tga
+	HeroArmyLeaderGlowScale = 3.0
+
+	SupremeLeaderGlowName = glow_test_1.tga
+	SupremeLeaderGlowScale = 3.0
+
+	PulseMaxMult = 1.15
+	PulseMinMult = 0.95
+
+	PulseMaxAlpha = 150
+	PulseMinAlpha = 75
+}
+
+
+Glow3D TheGlow3D
+{
+	TextureName = "glow_withPlayerColor.tga"
+	
+	NumSlices = 1
+	
+	RadiusFrac = 1.2
+	HeightFrac = 1.8
+	
+	PulseMinIntensity = 0.9
+	PulseMaxIntensity = 1.3
+	PulseMinAlpha = 0.4
+	PulseMaxAlpha = 0.6
+}
+
+
+//--------------------------------------------------------------------------
+//	Miscelaneous UI
+//--------------------------------------------------------------------------
+// Visual for showing the destinations of units when they are ordered to move.
+DestinationIndicator TheDestinationIndicator
+{
+	ClickIndicator = fx_destination_indicator_click.tga
+	ClickColor = [255 255 100 255]
+	ClickIndicatorScale = 0.15
+	UnitIndicator = fx_destination_indicator.tga
+	UnitColor = [0 255 0 255]
+	TimeDur = 0.2
+	TimeFade = 0.2
+	OrientIndicator = fx_destination_indicator_orient.tga
+	OrientIndicatorScale = 1
+}
+
+// Visual for showing the trade path for trading units.
+TradePath TheTradePath
+{
+}
+
+ThickLine TheThickLineCoordinator
+{
+}
+
+RallyFlag 	TheRallyPointFlag
+{
+	FlagModel	= RallyPole.nif
+	BaseFlagTexture	= fx_flag_logo_02.tga
+	DarkFlagTexture = fx_RallFlag_01.tga
+}
+
+RallyFlag	ScenEditStartingPosFlag
+{
+	FlagModel	= RallyPole.nif
+	BaseFlagTexture	= fx_RallFlag_logo_01.tga
+	DarkFlagTexture = fx_RallFlag_01.tga
+}
+
+RallyFlag	GarrisonFlag
+{
+	FlagModel	= RallyPole.nif
+	BaseFlagTexture	= fx_RallFlag_logo_01.tga
+	DarkFlagTexture = fx_RallFlag_01.tga
+}
+
+RallyFlag	GarrisonShip
+{
+	FlagModel	= GarrisonPole.nif
+	physicalWidth = 5
+	physicalHeight = 2.5
+	BaseFlagTexture	= fx_GarrisonFlag_logo_01.tga
+	DarkFlagTexture = fx_GarrisonFlag_01.tga
+}
+
+
+////////////////////////////
+// @EE2X flag for hero army
+RallyFlag 	TheHeroArmyFlag
+{
+	FlagModel		= fx_hero_flagpole.nif
+	BaseFlagTexture		= fx_hero_flag01.tga
+	//DarkFlagTexture 	= fx_RallFlag_01.tga
+	//TagPoint		= tag_flag_hero
+	FlagTag1		= "tag_hero_flag_1"
+	FlagTag2		= "tag_hero_flag_02"
+	physicalHeight		= 3.2
+	VerticalFlag		= 1
+	GravityMult		= 0.6
+	WindMult		= 0.3
+	SpringTensionMult	= 2.5
+	SpringDampingMult	= 3.0
+	DragCoefficientMult	= 2.5
+	Scale			= 1.5
+	StartHidden		= 1
+	FaceCameraRotateZ	= 1
+	UseTopOfParent		= 1
+	Offset			= [ 0.0, 0.0, 0.5 ]
+	RotateOffsetWithParent	= 0
+}
+
+
+// @EE2X flags for flag system
+// NOTE: don't rename these!
+RallyFlag	Flag_Naval
+{
+	FlagModel	= fx_bonus_flagpole.nif
+	BaseFlagTexture	= fx_flag_naval.tga
+	DarkFlagTexture = fx_flag_naval_pc.tga
+}
+RallyFlag	Flag_Air
+{
+	FlagModel	= fx_bonus_flagpole.nif
+	BaseFlagTexture	= fx_flag_air.tga
+	DarkFlagTexture = fx_flag_air_pc.tga
+}
+RallyFlag	Flag_Infantry
+{
+	FlagModel	= fx_bonus_flagpole.nif
+	BaseFlagTexture	= fx_flag_infantry.tga
+	DarkFlagTexture = fx_flag_infantry_pc.tga
+}
+RallyFlag	Flag_Mobile
+{
+	FlagModel	= fx_bonus_flagpole.nif
+	BaseFlagTexture	= fx_flag_mobile.tga
+	DarkFlagTexture = fx_flag_mobile_pc.tga
+}
+RallyFlag	Flag_Machine
+{
+	FlagModel	= fx_bonus_flagpole.nif
+	BaseFlagTexture	= fx_flag_machine.tga
+	DarkFlagTexture = fx_flag_machine_pc.tga
+}
+RallyFlag	Flag_Cultural
+{
+	FlagModel	= fx_bonus_flagpole.nif
+	BaseFlagTexture	= fx_flag_cultural.tga
+	DarkFlagTexture = fx_flag_cultural_pc.tga
+}
+RallyFlag	Flag_Religious
+{
+	FlagModel	= fx_bonus_flagpole.nif
+	BaseFlagTexture	= fx_flag_religious.tga
+	DarkFlagTexture = fx_flag_religious_pc.tga
+}
+RallyFlag	Flag_Financial
+{
+	FlagModel	= fx_bonus_flagpole.nif
+	BaseFlagTexture	= fx_flag_financial.tga
+	DarkFlagTexture = fx_flag_financial_pc.tga
+}
+
+
+
+
+BaseModel 	ThePatrolPointMarker
+{
+	ModelFileName = RallyPole.nif
+}
+
+// normal rally point visual
+RallyPoint	TheRallyFlag
+{ 
+	FlagVisualScaleType 	= kScaleBuilding  
+	FlagVisual 		= TheRallyPointFlag
+}
+
+// air-mission rally point visuals (@HACK should all start with "TheAirmissionFlag"...)
+RallyPoint	TheAirmissionFlag
+{ 
+	FlagVisualScaleType 	= kScaleBuilding  
+	FlagVisual 		= TheRallyPointFlag
+}
+RallyPoint	TheAirmissionFlag_Mobile
+{
+	FlagVisualScaleType 	= kScaleBuilding  
+	FlagVisual 		= TheRallyPointFlag
+	MobileParent		= 1
+}
+
+// Visual for the patrol path.
+PatrolPath		ThePatrolPath 
+{
+	WaypointVisualScaleType = kScaleBuilding
+	WaypointVisual 		= ThePatrolPointMarker
+}
+
+// visuals for queued order paths
+QueuedOrdersPath	TheQueuedOrdersPath
+{
+	WaypointVisualScaleType	= kScaleBuilding
+	//DefaultTargetVisual 	= ThePatrolPointMarker
+	AttackTargetVisual 	= TheRallyPointFlag
+}
+
+Text3DDef CityNameText
+{
+	WidgetDef = "game_3DText"
+	UseParentForOffset = true;
+}

@@ -1,0 +1,229 @@
+//------------------------------------------------------------------------------------------------
+//	EPOCH 7 UPGRADES 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	MAIN BRANCH
+//------------------------------------------------
+UpgradeSet AdvanceEpoch7 {
+	upgrades = [
+		UpgradeEpoch {epoch = 7;}
+	]
+}
+UpgradeObsoleteTech ObsoleteRam {
+	tech = Ram
+}
+UpgradeObsoleteTech ObsoleteSeigeTower {
+	tech = SiegeTower
+}
+UpgradeObsoleteTech ObsoleteAlchemy {
+	tech = Alchemy
+}
+
+UpgradeObsoleteTech ObsoleteVikingship {
+	tech = Vikingship
+}
+UpgradeObsoleteTech ObsoleteLodia {
+	tech = Lodia
+}
+UpgradeObsoleteTech ObsoleteKobukson {
+	tech = Kobukson
+}
+
+UpgradeUndo UndoMilitary1_3 {
+	techNode = Military1_3
+}
+
+UpgradeUndo UndoImperial1_3 {
+	techNode = Imperial1_3
+}
+
+UpgradeUndo UndoImperial2_3 {
+	techNode = Imperial2_3
+}
+
+UpgradeUndo UndoMilitary3_3 {
+	techNode = Military3_3
+}
+
+UpgradeUndo UndoMilitary3_4 {
+	techNode = Military3_4
+}
+
+UpgradeUndo UndoEconomic3_3 {
+	techNode = Economic3_3
+}
+
+UpgradeUndo UndoMilitary4_4 {
+	techNode = Military4_4
+}
+
+// Main7
+UpgradeRefSet MainEpoch7 {
+	upgrades = [
+		AdvanceEpoch7 
+		LightInfantryUpgradeEpoch7
+		HeavyInfantry1UpgradeEpoch7
+		LightArtillery1UpgradeEpoch7
+		DockUpgradeEpoch7
+		BarracksUpgradeEpoch7
+		PalisadeUpgradeEpoch7
+		PalisadeConnectorUpgradeEpoch7
+		PalisadeFragmentUpgradeEpoch7
+		PalisadeGateUpgradeEpoch7
+		WarehouseUpgradeEpoch7
+		MyOutpostUpgradeEpoch7
+		CitizenUpgradeEpoch7
+		ScoutUpgradeEpoch7
+		UniversityUpgradeEpoch7
+		OutpostUpgradeEpoch7
+		Outpost2UpgradeEpoch7
+		TempleUpgradeEpoch7
+		HouseUpgradeEpoch7
+		CityCenterUpgradeEpoch7
+		PriestUpgradeEpoch7
+		SpyUpgradeEpoch7
+		SiegeshipUpgradeEpoch7
+		ResSaltpeterUpgradeEpoch07
+		// new unit
+		AIResource1UpgradeEpoch7
+		AIResourceUpgradeEpoch7
+		TavernUpgradeEpoch7
+		MiddleEastBoatUpgradeEpoch7
+		MesoAmerBoatUpgradeEpoch7
+		AfricanBoatUpgradeEpoch7
+		WesternBoat1UpgradeEpoch7
+		WesternBoat2UpgradeEpoch7
+		guichuanUpgradeEpoch7
+		JapanBoat2UpgradeEpoch7
+		JapanBoat1UpgradeEpoch7
+		ZhengHeUpgradeEpoch7
+		MaChuanUpgradeEpoch7
+		dapaoUpgradeEpoch7
+		MyEngineer2UpgradeEpoch7
+		// LEADERS
+		LeaderEconomicUpgradeEpoch7
+		LeaderMilitaryUpgradeEpoch7
+		LeaderImperialUpgradeEpoch7
+		KingRegicideUpgradeEpoch7
+		// OBSOLETE UNITS
+		ObsoleteRam
+		ObsoleteSeigeTower
+		ObsoleteVikingship
+        ObsoleteLodia
+        ObsoleteKobukson 
+		ObsoleteAlchemy 
+		// UNDO UPGRADES
+		UndoMilitary1_3
+		UndoImperial1_3
+		UndoImperial2_3
+		UndoMilitary3_3
+		UndoEconomic3_3
+		UndoMilitary3_4
+		UndoMilitary4_4
+		
+		// EE2X HERO UPGRADES
+		LightInfantryHeroUpgradeEp7
+		HeavyInfantry1HeroUpgradeEp7
+		LightArtillery1HeroUpgradeEp7
+	]
+}
+
+//------------------------------------------------
+//	MILITARY BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet MilitaryEpoch7Slot1 {
+	upgrades = [
+		MilitaryTechUpgrade_E7_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet MilitaryEpoch7Slot2 {
+	upgrades = [
+		MilitaryTechUpgrade_E7_Slot2a
+		MilitaryTechUpgrade_E7_Slot2b
+	]
+}
+
+// Slot 3
+UpgradeRefSet MilitaryEpoch7Slot3 {
+	upgrades = [
+		MilitaryTechUpgrade_E7_Slot3a
+		MilitaryTechUpgrade_E7_Slot3b
+	]
+} 
+
+// Slot 4
+UpgradeRefSet MilitaryEpoch7Slot4 {
+	upgrades = [
+		MilitaryTechUpgrade_E7_Slot4a
+	]
+}
+
+//------------------------------------------------
+//	ECONOMIC BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet EconomicEpoch7Slot1 {
+	upgrades = [
+		EconomicTechUpgrade_E7_Slot1a
+		EconomicTechUpgrade_E7_Slot1b
+	]
+}
+
+// Slot 2
+UpgradeRefSet EconomicEpoch7Slot2 {
+	upgrades = [
+		EconomicTechUpgrade_E7_Slot2a
+		EconomicTechUpgrade_E7_Slot2b
+	]
+}
+
+// Slot 3
+UpgradeRefSet EconomicEpoch7Slot3 {
+	upgrades = [
+		EconomicTechUpgrade_E7_Slot3a
+		EconomicTechUpgrade_E7_Slot3b
+	]
+}
+
+// Slot 4
+UpgradeRefSet EconomicEpoch7Slot4 {
+	upgrades = [
+		EconomicTechUpgrade_E7_Slot4a
+		EconomicTechUpgrade_E7_Slot4b
+	]
+}
+
+//------------------------------------------------
+//	IMPERIAL BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet ImperialEpoch7Slot1 {
+	upgrades = [
+		ImperialTechUpgrade_E7_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet ImperialEpoch7Slot2 {
+	upgrades = [
+		ImperialTechUpgrade_E7_Slot2a
+		ImperialTechUpgrade_E7_Slot2b
+	]
+}
+
+// Slot 3
+UpgradeRefSet ImperialEpoch7Slot3 {
+	upgrades = [
+		ImperialTechUpgrade_E7_Slot3a
+	]
+}
+
+// Slot 4
+UpgradeRefSet ImperialEpoch7Slot4 {
+	upgrades = [
+		ImperialTechUpgrade_E7_Slot4a
+	]
+}

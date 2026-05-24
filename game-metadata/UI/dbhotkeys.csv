@@ -1,0 +1,1176 @@
+// dbhotkeys.csv - EE2 HOTKEY MAPPING TABLE
+//
+// DISPLAY NAME - hotkey name used for remapping
+// KEYMAP - the keymap this hotkey belongs to (entry in dbkeymap.csv)
+// EVENT NAME - named event handler to invoke (must be defined in code)
+// EVENT ARG - optional argument for the named event
+// KEY - default key binding for the event (see below for syntax)
+// REPEAT - should this event trigger on key repeat? (especially useful for camera keys)
+// ALLOW REMAP? - should we allow remapping for this hotkey?
+//
+// key bindings may be remapped by a user
+// remapped keys are in hotkeys_remap.csv in the user's settings directory
+//
+// also note there are developer-only hotkeys
+// these are in run/db/ui/dbhotkeys_debug.csv
+//
+// you may also add custom key bindings
+// by creating a file of the same syntax called myhotkeys.csv in your run directory
+//
+// KEY BINDING SYNTAX
+// (in quotes):  <modifiers><keyname>
+//
+// <keyname> should be one of:
+//    F1  F2  F3  F4  F5  F6  F7  F8  F9  F10  F11  F12
+//    PAUSE  ESCAPE  SYSREQ  SCROLLLOCK
+//    _1  _2  _3  _4  _5  _6  _7  _8  _9  _0    (numeric  digits)
+//    A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
+//    GRAVE  MINUS  EQUALS  BACKSPACE
+//    TAB  LBRACKET  RBRACKET  BACKSLASH
+//    CAPSLOCK  SEMICOLON  APOSTROPHE  ENTER  LWIN  RWIN
+//    SPACE  COMMA  PERIOD  SLASH
+//    INSERT  DELETE  HOME  END  PGUP  PGDN
+//    LEFT  UP  DOWN  RIGHT,,,,,,,,
+//    NUMLOCK  PADDIV  PADMUL  PADMINUS  PADPLUS  PADENTER  PADDEL,,,,,,,,
+//    PAD0  PAD1  PAD2  PAD3  PAD4  PAD5  PAD6  PAD7  PAD8  PAD9,,,,,,,,
+//,,,,,,,,
+// <modifiers> should be zero or more of the following:,,,,,,,,
+//    ctrl+         hold either control key down while pressing the key,,,,,,,,
+//    shift+        hold either shift key down while pressing the key,,,,,,,,
+//    alt+          hold either alt key down while pressing the key,,,,,,,,
+//    debug+     keyboard in 'debug' mode (non-release builds only the GRAVE (tilde) key toggles the keyboard in 'debug' mode),,,,,,,,
+/////////////////////////////////////////////////////////////////////////////////////////////////////,,,,,,,,
+
+// NAME,DISPLAY NAME,KEYMAP,EVENT NAME,EVENT ARG,KEY (Advanced),KEY (Simple),REPEAT,ALLOW REMAP?
+
+// -------------------------------------------------------,,,,,,,,
+// Shell keys are used by the overall game shell,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_shell_EE2_ScreenShot,tx_key_EE2_ScreenShot,Shell,EE2_ScreenShot,,"""SYSREQ""","""SYSREQ""",0,1
+key_shell_EE2_ScreenShot_BMP,tx_key_EE2_ScreenShot_BMP,Shell,EE2_ScreenShot,BMP,"""ctrl+SYSREQ""","""ctrl+SYSREQ""",0,1
+
+// user music control,,,,,,,,
+key_shell_UserMusicToggle,tx_key_UserMusicToggle,Shell,UserMusic_TogglePanel,,"""Ctrl+Shift+Alt+F12""","""Ctrl+Shift+Alt+F12""",0,0
+
+// quit to main screen,,,,,,,,
+key_shell_QuitToMainScreen,tx_key_QuitToMainScreen,Shell,QuitToMainScreen,"""prompt""","""Ctrl+Alt+Q""","""Ctrl+Alt+Q""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Stats keys are used on the postgame stats screen,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_stats_EE2_ScreenShot,tx_key_EE2_ScreenShot,Stats,EE2_ScreenShot,,"""SYSREQ""","""SYSREQ""",0,1
+key_stats_EE2_ScreenShot_BMP,tx_key_EE2_ScreenShot_BMP,Stats,EE2_ScreenShot,BMP,"""ctrl+SYSREQ""","""ctrl+SYSREQ""",0,1
+
+// user music control,,,,,,,,
+key_stats_UserMusicToggle,tx_key_UserMusicToggle,Stats,UserMusic_TogglePanel,,"""Ctrl+Shift+Alt+F12""","""Ctrl+Shift+Alt+F12""",0,0
+
+// quit to main screen,,,,,,,,
+key_stats_QuitToMainScreen,tx_key_QuitToMainScreen,Stats,QuitToMainScreen,"""prompt""","""Ctrl+Alt+Q""","""Ctrl+Alt+Q""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Camera keys are used by the main camera controller(s),,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_camera_Up,tx_key_camera_Up,Camera,CamCtrl,Up,"""UP""","""UP""",1,1
+key_camera_UpFast,tx_key_camera_UpFast,Camera,CamCtrl,UpFast,"""shift+UP""","""shift+UP""",1,1
+key_camera_Up_alt,tx_key_camera_Up_alt,Camera,CamCtrl,Up,"""PAD8""","""PAD8""",1,1
+key_camera_UpFast_alt,tx_key_camera_UpFast_alt,Camera,CamCtrl,UpFast,"""shift+PAD8""","""shift+PAD8""",1,1
+
+key_camera_Down,tx_key_camera_Down,Camera,CamCtrl,Down,"""DOWN""","""DOWN""",1,1
+key_camera_DownFast,tx_key_camera_DownFast,Camera,CamCtrl,DownFast,"""shift+DOWN""","""shift+DOWN""",1,1
+key_camera_Down_alt,tx_key_camera_Down_alt,Camera,CamCtrl,Down,"""PAD2""","""PAD2""",1,1
+key_camera_DownFast_alt,tx_key_camera_DownFast_alt,Camera,CamCtrl,DownFast,"""shift+PAD2""","""shift+PAD2""",1,1
+
+key_camera_Left,tx_key_camera_Left,Camera,CamCtrl,Left,"""LEFT""","""LEFT""",1,1
+key_camera_LeftFast,tx_key_camera_LeftFast,Camera,CamCtrl,LeftFast,"""shift+LEFT""","""shift+LEFT""",1,1
+key_camera_Left_alt,tx_key_camera_Left_alt,Camera,CamCtrl,Left,"""PAD4""","""PAD4""",1,1
+key_camera_LeftFast_alt,tx_key_camera_LeftFast_alt,Camera,CamCtrl,LeftFast,"""shift+PAD4""","""shift+PAD4""",1,1
+key_camera_RotLeft,tx_key_camera_RotLeft,Camera,CamCtrl,RotLeft,"""ctrl+LEFT""","""ctrl+LEFT""",1,1
+key_camera_RotLeftFast,tx_key_camera_RotLeftFast,Camera,CamCtrl,RotLeftFast,"""ctrl+shift+LEFT""","""ctrl+shift+LEFT""",1,1
+key_camera_RotLeft_alt,tx_key_camera_RotLeft_alt,Camera,CamCtrl,RotLeft,"""ctrl+PAD4""","""ctrl+PAD4""",1,1
+key_camera_RotLeftFast_alt,tx_key_camera_RotLeftFast_alt,Camera,CamCtrl,RotLeftFast,"""ctrl+shift+PAD4""","""ctrl+shift+PAD4""",1,1
+
+key_camera_Right,tx_key_camera_Right,Camera,CamCtrl,Right,"""RIGHT""","""RIGHT""",1,1
+key_camera_RightFast,tx_key_camera_RightFast,Camera,CamCtrl,RightFast,"""shift+RIGHT""","""shift+RIGHT""",1,1
+key_camera_Right_alt,tx_key_camera_Right_alt,Camera,CamCtrl,Right,"""PAD6""","""PAD6""",1,1
+key_camera_RightFast_alt,tx_key_camera_RightFast_alt,Camera,CamCtrl,RightFast,"""shift+PAD6""","""shift+PAD6""",1,1
+key_camera_RotRight,tx_key_camera_RotRight,Camera,CamCtrl,RotRight,"""ctrl+RIGHT""","""ctrl+RIGHT""",1,1
+key_camera_RotRightFast,tx_key_camera_RotRightFast,Camera,CamCtrl,RotRightFast,"""ctrl+shift+RIGHT""","""ctrl+shift+RIGHT""",1,1
+key_camera_RotRight_alt,tx_key_camera_RotRight_alt,Camera,CamCtrl,RotRight,"""ctrl+PAD6""","""ctrl+PAD6""",1,1
+key_camera_RotRightFast_alt,tx_key_camera_RotRightFast_alt,Camera,CamCtrl,RotRightFast,"""ctrl+shift+PAD6""","""ctrl+shift+PAD6""",1,1
+
+key_camera_ZoomIn,tx_key_camera_ZoomIn,Camera,CamCtrl,ZoomIn,"""PAD3""","""PAD3""",1,1
+key_camera_ZoomInFast,tx_key_camera_ZoomInFast,Camera,CamCtrl,ZoomInFast,"""shift+PAD3""","""shift+PAD3""",1,1
+key_camera_ZoomIn_alt,tx_key_camera_ZoomIn_alt,Camera,CamCtrl,ZoomIn,"""PADPLUS""","""PADPLUS""",1,1
+key_camera_ZoomInFast_alt,tx_key_camera_ZoomInFast_alt,Camera,CamCtrl,ZoomInFast,"""shift+PADPLUS""","""shift+PADPLUS""",1,1
+key_camera_ZoomOut,tx_key_camera_ZoomOut,Camera,CamCtrl,ZoomOut,"""PAD9""","""PAD9""",1,1
+key_camera_ZoomOutFast,tx_key_camera_ZoomOutFast,Camera,CamCtrl,ZoomOutFast,"""shift+PAD9""","""shift+PAD9""",1,1
+key_camera_ZoomOut_alt,tx_key_camera_ZoomOut_alt,Camera,CamCtrl,ZoomOut,"""PADMINUS""","""PADMINUS""",1,1
+key_camera_ZoomOutFast_alt,tx_key_camera_ZoomOutFast_alt,Camera,CamCtrl,ZoomOutFast,"""shift+PADMINUS""","""shift+PADMINUS""",1,1
+
+key_camera_StockZoomOut,tx_key_camera_StockZoomOut,Camera,CamCtrl,StockZoomOut,"""PGUP""","""PGUP""",0,1
+key_camera_StockZoomIn,tx_key_camera_StockZoomIn,Camera,CamCtrl,StockZoomIn,"""PGDN""","""PGDN""",0,1
+key_camera_StockZoomCycle,tx_key_camera_StockZoomCycle,Camera,CamCtrl,StockZoomCycle,"""alt+Z""","""alt+Z""",0,1
+
+key_camera_Reset,tx_key_camera_Reset,Camera,CamCtrl,Reset,"""HOME""","""HOME""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Editor keys are used by the scenario editor,,,,,,,,
+// most of these are bound to menu actions,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+// file menu,,,,,,,,
+key_editor_FileNew,tx_key_editor_FileNew,Editor,ScenEdit_FileNew,,"""Ctrl+N""",,0,1
+key_editor_FileOpen,tx_key_editor_FileOpen,Editor,ScenEdit_FileOpen,,"""Ctrl+O""",,0,1
+key_editor_FileSave,tx_key_editor_FileSave,Editor,ScenEdit_FileSave,,"""Ctrl+S""",,0,1
+key_editor_FileSaveAs,tx_key_editor_FileSaveAs,Editor,ScenEdit_FileSaveAs,,"""Ctrl+Shift+S""",,0,1
+key_editor_FileExit,tx_key_editor_FileExit,Editor,ScenEdit_FileExit,,"""Ctrl+Q""",,0,1
+
+// edit menu,,,,,,,,
+key_editor_EditUndo,tx_key_editor_EditUndo,Editor,ScenEdit_EditUndo,,"""Ctrl+Z""",,0,1
+key_editor_EditRedo,tx_key_editor_EditRedo,Editor,ScenEdit_EditRedo,,"""Ctrl+Y""",,0,1
+key_editor_EditDelete,tx_key_editor_EditDelete,Editor,ScenEdit_EditDelete,,"""Delete""",,0,1
+key_editor_EditCreateGroup,tx_key_editor_EditCreateGroup,Editor,ScenEdit_EditCreateGroup,,"""Ctrl+G""",,0,1
+
+// tools menu,,,,,,,,
+key_editor_ToolsTerrain,tx_key_editor_ToolsTerrain,Editor,ScenEdit_ToolsToggle,"""se_terrain""","""ctrl+T""",,0,1
+key_editor_ToolsForest,tx_key_editor_ToolsForest,Editor,ScenEdit_ToolsToggle,"""se_forest""","""alt+F""",,0,1
+key_editor_ToolsObjects,tx_key_editor_ToolsObjects,Editor,ScenEdit_ToolsToggle,"""se_objects""","""ctrl+Shift+Z""",,0,1
+key_editor_ToolsAreas,tx_key_editor_ToolsAreas,Editor,ScenEdit_ToolsToggle,"""se_areas""","""ctrl+A""",,0,1
+
+// view menu,,,,,,,,
+key_editor_ViewCenterCamera,tx_key_editor_ViewCenterCamera,Editor,ScenEdit_ViewCenterCamera,,"""PAD7""",,0,1
+key_editor_GotoXY,tx_key_editor_GotoXY,Editor,ExecScenEditGotoXY,,"""ctrl+shift+g""",,0,1
+key_editor_ShowAreas,tx_key_editor_ShowAreas,Editor,ShowAreasToggle,,"""ctrl+alt+a""",,0,1
+
+// misc. keys (not bound to menu items),,,,,,,,
+key_editor_UpgradeUnitSelection,tx_key_editor_UpgradeUnitSel,Editor,ScenEdit_UpgradeUnitSelection,,"""Ctrl+U""",,0,1
+key_editor_ToggleCityBoundaries,tx_key_editor_ToggleCityBound,Editor,ToggleCityBoundaries,,"""ctrl+B""",,0,1
+
+// user music control,,,,,,,,
+key_editor_UserMusicToggle,tx_key_UserMusicToggle,Editor,UserMusic_TogglePanel,,"""Ctrl+Shift+Alt+F12""","""Ctrl+Shift+Alt+F12""",0,0
+
+// quit to main screen,,,,,,,,
+key_editor_QuitToMainScreen,tx_key_QuitToMainScreen,Editor,QuitToMainScreen,"""prompt""","""Ctrl+Alt+Q""","""Ctrl+Alt+Q""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Cinematic keys are the only keys enabled during,,,,,,,,
+// playback of cutscenes,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_cine_SkipPlayback,tx_key_cine_SkipPlayback,Cinematic,SkipPlayback,,"""ESCAPE""","""ESCAPE""",0,1
+key_cine_SkipPlayback_alt,tx_key_cine_SkipPlayback_alt,Cinematic,SkipPlayback,,"""ENTER""","""ENTER""",0,1
+
+key_cine_EE2_ScreenShot,tx_key_EE2_ScreenShot,Cinematic,EE2_ScreenShot,"""""","""SYSREQ""","""SYSREQ""",0,1
+key_cine_EE2_ScreenShot_BMP,tx_key_EE2_ScreenShot_BMP,Cinematic,EE2_ScreenShot,"""BMP""","""ctrl+SYSREQ""","""ctrl+SYSREQ""",0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Playback keys are the only keys enabled during,,,,,,,,
+// playback of recorded games,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+key_playback_ToggleCameraMode,tx_key_playback_ToggleCamMode,Playback,TogglePlaybackCameraMode,,"""C""",,0,1
+key_playback_ToggleFastForward,tx_key_playback_ToggleFFWD,Playback,ToggleFastForward,,"""F""",,0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Fullmap keys are used while the fullmap is open,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+// open scenario objective dialog box,,,,,,,,
+key_fullmap_OpenScenObjDialog,tx_key_OpenScenObjDialog,Fullmap,ScenObjDialog_OpenWithPreviousText,,"""alt+shift+O""",,0,1
+
+key_fullmap_CloseFullmap,tx_key_fullmap_CloseFullmap,Fullmap,CloseFullmap,,"""TAB""","""TAB""",0,1
+key_fullmap_CloseFullmap_alt,tx_key_fullmap_CloseFullmap_alt,Fullmap,CloseFullmap,,"""ESCAPE""","""ESCAPE""",0,1
+
+key_fullmap_PausePanelToggle,tx_key_PausePanelToggle,Fullmap,PausePanelOpenClose,,"""PAUSE""","""PAUSE""",0,1
+key_fullmap_GamePauseResume,tx_key_GamePauseResume,Fullmap,GamePauseResume,,"""shift+PAUSE""","""shift+PAUSE""",0,1
+
+key_fullmap_SaveGame,tx_key_SaveGame,Fullmap,GameSaveGame,,"""ctrl+alt+S""","""ctrl+alt+S""",0,1
+
+key_fullmap_ChangeTab_Forward,tx_key_fullmap_ChangeTab_Next,Fullmap,ChangeFullmapTab,"""Forward""","""PGDN""",,0,1
+key_fullmap_ChangeTab_Backward,tx_key_fullmap_ChangeTab_Prev,Fullmap,ChangeFullmapTab,"""Backward""","""PGUP""",,0,1
+
+key_fullmap_EE2_ScreenShot,tx_key_EE2_ScreenShot,Fullmap,EE2_ScreenShot,"""""","""SYSREQ""","""SYSREQ""",0,1
+key_fullmap_EE2_ScreenShot_BMP,tx_key_EE2_ScreenShot_BMP,Fullmap,EE2_ScreenShot,"""BMP""","""ctrl+SYSREQ""","""ctrl+SYSREQ""",0,1
+
+// chat messages,,,,,,,,
+key_fullmap_ChatOpen,tx_key_ChatOpen,Fullmap,ChatOpen,,"""ENTER""","""ENTER""",0,1
+key_fullmap_ChatClearMsgs,tx_key_ChatClearMessages,Fullmap,ChatClearMessages,,"""ctrl+ENTER""",,0,1
+key_fullmap_ChatShowHideMsgs,tx_key_ChatShowHideMessages,Fullmap,ChatShowHideMessages,,"""shift+ENTER""",,0,1
+key_fullmap_ChatToggleHistory,tx_key_ChatToggleHistory,Fullmap,ChatToggleHistory,,"""h""","""h""",0,1
+
+// user music control,,,,,,,,
+key_fullmap_UserMusicToggle,tx_key_UserMusicToggle,Fullmap,UserMusic_TogglePanel,,"""Ctrl+Shift+Alt+F12""","""Ctrl+Shift+Alt+F12""",0,0
+
+// quit to main screen,,,,,,,,
+key_fullmap_QuitToMainScreen,tx_key_QuitToMainScreen,Fullmap,QuitToMainScreen,"""prompt""","""Ctrl+Alt+Q""","""Ctrl+Alt+Q""",0,1
+
+// PIP actions,,,,,,,,
+key_fullmap_pip_SelectOrSet_1,tx_key_pip_SelectOrSet_1,Fullmap,ViewBookmark_SelectOrSet,"""1""","""F1""",,0,1
+key_fullmap_pip_SelectOrSet_2,tx_key_pip_SelectOrSet_2,Fullmap,ViewBookmark_SelectOrSet,"""2""","""F2""",,0,1
+key_fullmap_pip_SelectOrSet_3,tx_key_pip_SelectOrSet_3,Fullmap,ViewBookmark_SelectOrSet,"""3""","""F3""",,0,1
+key_fullmap_pip_SelectOrSet_4,tx_key_pip_SelectOrSet_4,Fullmap,ViewBookmark_SelectOrSet,"""4""","""F4""",,0,1
+key_fullmap_pip_SelectOrSet_5,tx_key_pip_SelectOrSet_5,Fullmap,ViewBookmark_SelectOrSet,"""5""","""F5""",,0,1
+key_fullmap_pip_SelectOrSet_6,tx_key_pip_SelectOrSet_6,Fullmap,ViewBookmark_SelectOrSet,"""6""","""F6""",,0,1
+key_fullmap_pip_Set_1,tx_key_pip_Set_1,Fullmap,ViewBookmark_Set,"""1""","""ctrl+F1""",,0,1
+key_fullmap_pip_Set_2,tx_key_pip_Set_2,Fullmap,ViewBookmark_Set,"""2""","""Ctrl+F2""",,0,1
+key_fullmap_pip_Set_3,tx_key_pip_Set_3,Fullmap,ViewBookmark_Set,"""3""","""ctrl+F3""",,0,1
+key_fullmap_pip_Set_4,tx_key_pip_Set_4,Fullmap,ViewBookmark_Set,"""4""","""ctrl+F4""",,0,1
+key_fullmap_pip_Set_5,tx_key_pip_Set_5,Fullmap,ViewBookmark_Set,"""5""","""ctrl+F5""",,0,1
+key_fullmap_pip_Set_6,tx_key_pip_Set_6,Fullmap,ViewBookmark_Set,"""6""","""ctrl+F6""",,0,1
+key_fullmap_pip_ToggleCycle,tx_key_pip_ToggleCycle,Fullmap,ViewBookmark_ToggleCycle,,"""F7""",,0,1
+
+
+// -----------------------------------------------------------------------------,,,,,,,,
+// FullmapOptions keys are used while the options pane of the fullmap is open,,,,,,,,
+// -----------------------------------------------------------------------------,,,,,,,,
+
+key_fullmapOpt_ToggleUnits,tx_key_fullmapOpt_ToggleUnits,FullmapOptions,Fullmap_ToggleUnits,,"""U""",,0,1
+key_fullmapOpt_ToggleBuildings,tx_key_fullmapOpt_ToggleBldgs,FullmapOptions,Fullmap_ToggleBuildings,,"""B""",,0,1
+key_fullmapOpt_ToggleResources,tx_key_fullmapOpt_ToggleRes,FullmapOptions,Fullmap_ToggleResources,,"""R""",,0,1
+key_fullmapOpt_ToggleRoads,tx_key_fullmapOpt_ToggleRoads,FullmapOptions,Fullmap_ToggleRoads,,"""T""",,0,1
+key_fullmapOpt_ToggleAmb,tx_key_fullmapOpt_ToggleAmb,FullmapOptions,Fullmap_ToggleWorldObjects,,"""O""",,0,1
+key_fullmapOpt_ToggleBattles,tx_key_fullmapOpt_ToggleBattles,FullmapOptions,Fullmap_ToggleBattles,,"""X""",,0,1
+key_fullmapOpt_ToggleTerr,tx_key_fullmapOpt_ToggleTerr,FullmapOptions,Fullmap_ToggleTerritories,,"""P""",,0,1
+
+
+// -----------------------------------------------------------------------------,,,,,,,,
+// FullmapObjectives keys are used while the scenario objectives pane of the fullmap is open,,,,,,,,
+// -----------------------------------------------------------------------------,,,,,,,,
+
+key_fullmapObj_ScenInfoToggle,tx_key_fullmapObj_ScenInfo,FullmapObjectives,ScenInfoToggle,,"""ctrl+I""",,0,1
+key_fullmapObj_CloseFullmap,tx_key_fullmapObj_CloseFullmap,FullmapObjectives,CloseFullmap,,"""alt+O""",,0,1
+
+
+// -----------------------------------------------------------------,,,,,,,,
+// CitizenManager keys are used while the citizen manager is open,,,,,,,,
+// -----------------------------------------------------------------,,,,,,,,
+
+// assign one citizen to task pool,,,,,,,,
+key_citman_Assign_Wood_1,tx_key_citman_Assign_Wood_1,CitizenManager,UICitizenManager_Assign,"""task=Wood num=1""","""shift+W""",,0,1
+key_citman_Assign_Food_1,tx_key_citman_Assign_Food_1,CitizenManager,UICitizenManager_Assign,"""task=Food num=1""","""shift+F""",,0,1
+key_citman_Assign_Stone_1,tx_key_citman_Assign_Stone_1,CitizenManager,UICitizenManager_Assign,"""task=Stone num=1""","""shift+S""",,0,1
+key_citman_Assign_Gold_1,tx_key_citman_Assign_Gold_1,CitizenManager,UICitizenManager_Assign,"""task=Gold num=1""","""shift+G""",,0,1
+key_citman_Assign_Special1_1,tx_key_citman_Assign_Spec1_1,CitizenManager,UICitizenManager_Assign,"""task=Special1 num=1""","""shift+Z""",,0,1
+key_citman_Assign_Special2_1,tx_key_citman_Assign_Spec2_1,CitizenManager,UICitizenManager_Assign,"""task=Special2 num=1""","""shift+X""",,0,1
+key_citman_Assign_Tech_1,tx_key_citman_Assign_Tech_1,CitizenManager,UICitizenManager_Assign,"""task=TechPoints num=1""","""shift+T""",,0,1
+key_citman_Assign_BR_1,tx_key_citman_Assign_BR_1,CitizenManager,UICitizenManager_Assign,"""task=BuildRepair num=1""","""shift+B""",,0,1
+
+// assign all grabbed to task pool,,,,,,,,
+key_citman_Assign_Wood_all,tx_key_citman_Assign_Wood_all,CitizenManager,UICitizenManager_Assign,"""task=Wood num=all""","""alt+shift+W""",,0,1
+key_citman_Assign_Food_all,tx_key_citman_Assign_Food_all,CitizenManager,UICitizenManager_Assign,"""task=Food num=all""","""alt+shift+F""",,0,1
+key_citman_Assign_Stone_all,tx_key_citman_Assign_Stone_all,CitizenManager,UICitizenManager_Assign,"""task=Stone num=all""","""alt+shift+S""",,0,1
+key_citman_Assign_Gold_all,tx_key_citman_Assign_Gold_all,CitizenManager,UICitizenManager_Assign,"""task=Gold num=all""","""alt+shift+G""",,0,1
+key_citman_Assign_Special1_all,tx_key_citman_Assign_Spec1_all,CitizenManager,UICitizenManager_Assign,"""task=Special1 num=all""","""alt+shift+Z""",,0,1
+key_citman_Assign_Special2_all,tx_key_citman_Assign_Spec2_all,CitizenManager,UICitizenManager_Assign,"""task=Special2 num=all""","""alt+shift+X""",,0,1
+key_citman_Assign_Tech_all,tx_key_citman_Assign_Tech_all,CitizenManager,UICitizenManager_Assign,"""task=TechPoints num=all""","""alt+shift+T""",,0,1
+key_citman_Assign_BR_all,tx_key_citman_Assign_BR_all,CitizenManager,UICitizenManager_Assign,"""task=BuildRepair num=all""","""alt+shift+B""",,0,1
+
+// pick up one citizen from task pool,,,,,,,,
+key_citman_PickUp_Wood_1,tx_key_citman_PickUp_Wood_1,CitizenManager,UICitizenManager_PickUp,"""task=Wood num=1""","""W""",,0,1
+key_citman_PickUp_Food_1,tx_key_citman_PickUp_Food_1,CitizenManager,UICitizenManager_PickUp,"""task=Food num=1""","""F""",,0,1
+key_citman_PickUp_Stone_1,tx_key_citman_PickUp_Stone_1,CitizenManager,UICitizenManager_PickUp,"""task=Stone num=1""","""S""",,0,1
+key_citman_PickUp_Gold_1,tx_key_citman_PickUp_Gold_1,CitizenManager,UICitizenManager_PickUp,"""task=Gold num=1""","""G""",,0,1
+key_citman_PickUp_Special1_1,tx_key_citman_PickUp_Spec1_1,CitizenManager,UICitizenManager_PickUp,"""task=Special1 num=1""","""Z""",,0,1
+key_citman_PickUp_Special2_1,tx_key_citman_PickUp_Spec2_1,CitizenManager,UICitizenManager_PickUp,"""task=Special2 num=1""","""X""",,0,1
+key_citman_PickUp_Tech_1,tx_key_citman_PickUp_Tech_1,CitizenManager,UICitizenManager_PickUp,"""task=TechPoints num=1""","""T""",,0,1
+key_citman_PickUp_BR_1,tx_key_citman_PickUp_BR_1,CitizenManager,UICitizenManager_PickUp,"""task=BuildRepair num=1""","""B""",,0,1
+
+// pick up 5 citizens from task pool,,,,,,,,
+key_citman_PickUp_Wood_5,tx_key_citman_PickUp_Wood_5,CitizenManager,UICitizenManager_PickUp,"""task=Wood num=5""","""ctrl+W""",,0,1
+key_citman_PickUp_Food_5,tx_key_citman_PickUp_Food_5,CitizenManager,UICitizenManager_PickUp,"""task=Food num=5""","""ctrl+F""",,0,1
+key_citman_PickUp_Stone_5,tx_key_citman_PickUp_Stone_5,CitizenManager,UICitizenManager_PickUp,"""task=Stone num=5""","""ctrl+S""",,0,1
+key_citman_PickUp_Gold_5,tx_key_citman_PickUp_Gold_5,CitizenManager,UICitizenManager_PickUp,"""task=Gold num=5""","""ctrl+G""",,0,1
+key_citman_PickUp_Special1_5,tx_key_citman_PickUp_Spec1_5,CitizenManager,UICitizenManager_PickUp,"""task=Special1 num=5""","""ctrl+Z""",,0,1
+key_citman_PickUp_Special2_5,tx_key_citman_PickUp_Spec2_5,CitizenManager,UICitizenManager_PickUp,"""task=Special2 num=5""","""ctrl+X""",,0,1
+key_citman_PickUp_Tech_5,tx_key_citman_PickUp_Tech_5,CitizenManager,UICitizenManager_PickUp,"""task=TechPoints num=5""","""ctrl+T""",,0,1
+key_citman_PickUp_BR_5,tx_key_citman_PickUp_BR_5,CitizenManager,UICitizenManager_PickUp,"""task=BuildRepair num=5""","""ctrl+B""",,0,1
+
+// pick up all citizens from task pool,,,,,,,,
+key_citman_PickUp_Wood_all,tx_key_citman_PickUp_Wood_all,CitizenManager,UICitizenManager_PickUp,"""task=Wood num=all""","""alt+W""",,0,1
+key_citman_PickUp_Food_all,tx_key_citman_PickUp_Food_all,CitizenManager,UICitizenManager_PickUp,"""task=Food num=all""","""alt+F""",,0,1
+key_citman_PickUp_Stone_all,tx_key_citman_PickUp_Stone_all,CitizenManager,UICitizenManager_PickUp,"""task=Stone num=all""","""alt+S""",,0,1
+key_citman_PickUp_Gold_all,tx_key_citman_PickUp_Gold_all,CitizenManager,UICitizenManager_PickUp,"""task=Gold num=all""","""alt+G""",,0,1
+key_citman_PickUp_Special1_all,tx_key_citman_PickUp_Spec1_all,CitizenManager,UICitizenManager_PickUp,"""task=Special1 num=all""","""alt+Z""",,0,1
+key_citman_PickUp_Special2_all,tx_key_citman_PickUp_Spec2_all,CitizenManager,UICitizenManager_PickUp,"""task=Special2 num=all""","""alt+X""",,0,1
+key_citman_PickUp_Tech_all,tx_key_citman_PickUp_Tech_all,CitizenManager,UICitizenManager_PickUp,"""task=TechPoints num=all""","""alt+T""",,0,1
+key_citman_PickUp_BR_all,tx_key_citman_PickUp_BR_all,CitizenManager,UICitizenManager_PickUp,"""task=BuildRepair num=all""","""alt+B""",,0,1
+
+// build buttons,,,,,,,,
+key_citman_BuildFarm,tx_key_build_Farm,CitizenManager,UICitizenManager_PlaceUnit,"""Farm""","""J""",,0,1
+key_citman_BuildOilRig,tx_key_build_OilRig,CitizenManager,UICitizenManager_PlaceUnit,"""OilRig""","""O""",,0,1
+key_citman_BuildUraniumMine,tx_key_build_UraniumMine,CitizenManager,UICitizenManager_PlaceUnit,"""UraniumMine""","""U""",,0,1
+
+key_citman_CloseFullmap,tx_key_citman_CloseFullmap,CitizenManager,CloseFullmap,,"""alt+shift+M""",,0,1
+
+
+// -----------------------------------------------------------------------,,,,,,,,
+// Warplans keys are used while the warplans pane of the fullmap is open,,,,,,,,
+// -----------------------------------------------------------------------,,,,,,,,
+
+key_warplans_DeleteElements,tx_key_warplans_DeleteElements,Warplans,UIWarplans_DeleteSelectedElements,,"""DELETE""","""DELETE""",0,1
+
+key_warplans_Create,tx_key_warplans_Create,Warplans,UIWarplans_Create,,"""Ctrl+N""",,0,1
+key_warplans_Send,tx_key_warplans_Send,Warplans,UIWarplans_Send,,"""Ctrl+S""",,0,1
+key_warplans_SendAllies,tx_key_warplans_SendAllies,Warplans,UIWarplans_Send,"""Allies""","""Ctrl+Shift+S""",,0,1
+key_warplans_Delete,tx_key_warplans_Delete,Warplans,UIWarplans_Delete,,"""Ctrl+DELETE""",,0,1
+key_warplans_Copy,tx_key_warplans_Copy,Warplans,UIWarplans_Copy,,"""Ctrl+C""",,0,1
+key_warplans_Accept,tx_key_warplans_Accept,Warplans,UIWarplans_Accept,,"""Ctrl+A""",,0,1
+key_warplans_Reject,tx_key_warplans_Reject,Warplans,UIWarplans_Reject,,"""Ctrl+R""",,0,1
+
+key_warplans_ToolSelect,tx_key_warplans_ToolSelect,Warplans,UIWarplans_SelectTool,"""Select""","""Z""",,0,1
+key_warplans_ToolPath,tx_key_warplans_ToolPath,Warplans,UIWarplans_SelectTool,"""Path""","""X""",,0,1
+key_warplans_ToolArea,tx_key_warplans_ToolArea,Warplans,UIWarplans_SelectTool,"""Area""","""C""",,0,1
+key_warplans_ToolTarget,tx_key_warplans_ToolTarget,Warplans,UIWarplans_SelectTool,"""Target""","""V""",,0,1
+key_warplans_ToolLabel,tx_key_warplans_ToolLabel,Warplans,UIWarplans_SelectTool,"""Label""","""B""",,0,1
+
+key_warplans_PickColor_1,tx_key_warplans_PickColor_1,Warplans,UIWarplans_PickPlayerColor,"""1""","""Alt+_1""",,0,1
+key_warplans_PickColor_2,tx_key_warplans_PickColor_2,Warplans,UIWarplans_PickPlayerColor,"""2""","""Alt+_2""",,0,1
+key_warplans_PickColor_3,tx_key_warplans_PickColor_3,Warplans,UIWarplans_PickPlayerColor,"""3""","""Alt+_3""",,0,1
+key_warplans_PickColor_4,tx_key_warplans_PickColor_4,Warplans,UIWarplans_PickPlayerColor,"""4""","""Alt+_4""",,0,1
+key_warplans_PickColor_5,tx_key_warplans_PickColor_5,Warplans,UIWarplans_PickPlayerColor,"""5""","""Alt+_5""",,0,1
+key_warplans_PickColor_6,tx_key_warplans_PickColor_6,Warplans,UIWarplans_PickPlayerColor,"""6""","""Alt+_6""",,0,1
+key_warplans_PickColor_7,tx_key_warplans_PickColor_7,Warplans,UIWarplans_PickPlayerColor,"""7""","""Alt+_7""",,0,1
+key_warplans_PickColor_8,tx_key_warplans_PickColor_8,Warplans,UIWarplans_PickPlayerColor,"""8""","""Alt+_8""",,0,1
+key_warplans_PickColor_9,tx_key_warplans_PickColor_9,Warplans,UIWarplans_PickPlayerColor,"""9""","""Alt+_9""",,0,1
+key_warplans_PickColor_10,tx_key_warplans_PickColor_10,Warplans,UIWarplans_PickPlayerColor,"""10""","""Alt+_0""",,0,1
+
+key_warplans_ViewFrom_1,tx_key_warplans_ViewFrom_1,Warplans,UIWarplans_ViewPlansFromPlayer,"""1""","""Ctrl+_1""",,0,1
+key_warplans_ViewFrom_2,tx_key_warplans_ViewFrom_2,Warplans,UIWarplans_ViewPlansFromPlayer,"""2""","""Ctrl+_2""",,0,1
+key_warplans_ViewFrom_3,tx_key_warplans_ViewFrom_3,Warplans,UIWarplans_ViewPlansFromPlayer,"""3""","""Ctrl+_3""",,0,1
+key_warplans_ViewFrom_4,tx_key_warplans_ViewFrom_4,Warplans,UIWarplans_ViewPlansFromPlayer,"""4""","""Ctrl+_4""",,0,1
+key_warplans_ViewFrom_5,tx_key_warplans_ViewFrom_5,Warplans,UIWarplans_ViewPlansFromPlayer,"""5""","""Ctrl+_5""",,0,1
+key_warplans_ViewFrom_6,tx_key_warplans_ViewFrom_6,Warplans,UIWarplans_ViewPlansFromPlayer,"""6""","""Ctrl+_6""",,0,1
+key_warplans_ViewFrom_7,tx_key_warplans_ViewFrom_7,Warplans,UIWarplans_ViewPlansFromPlayer,"""7""","""Ctrl+_7""",,0,1
+key_warplans_ViewFrom_8,tx_key_warplans_ViewFrom_8,Warplans,UIWarplans_ViewPlansFromPlayer,"""8""","""Ctrl+_8""",,0,1
+key_warplans_ViewFrom_9,tx_key_warplans_ViewFrom_9,Warplans,UIWarplans_ViewPlansFromPlayer,"""9""","""Ctrl+_9""",,0,1
+key_warplans_ViewFrom_10,tx_key_warplans_ViewFrom_10,Warplans,UIWarplans_ViewPlansFromPlayer,"""10""","""Ctrl+_0""",,0,1
+
+key_warplans_CloseFullmap,tx_key_warplans_CloseFullmap,Warplans,CloseFullmap,,"""alt+shift+P""",,0,1
+
+key_warplans_CGroup_1,tx_key_warplans_CGroup_1,Warplans,UIWarplans_SelectControlGroup,"""1""","""_1""",,0,1
+key_warplans_CGroup_2,tx_key_warplans_CGroup_2,Warplans,UIWarplans_SelectControlGroup,"""2""","""_2""",,0,1
+key_warplans_CGroup_3,tx_key_warplans_CGroup_3,Warplans,UIWarplans_SelectControlGroup,"""3""","""_3""",,0,1
+key_warplans_CGroup_4,tx_key_warplans_CGroup_4,Warplans,UIWarplans_SelectControlGroup,"""4""","""_4""",,0,1
+key_warplans_CGroup_5,tx_key_warplans_CGroup_5,Warplans,UIWarplans_SelectControlGroup,"""5""","""_5""",,0,1
+key_warplans_CGroup_6,tx_key_warplans_CGroup_6,Warplans,UIWarplans_SelectControlGroup,"""6""","""_6""",,0,1
+key_warplans_CGroup_7,tx_key_warplans_CGroup_7,Warplans,UIWarplans_SelectControlGroup,"""7""","""_7""",,0,1
+key_warplans_CGroup_8,tx_key_warplans_CGroup_8,Warplans,UIWarplans_SelectControlGroup,"""8""","""_8""",,0,1
+key_warplans_CGroup_9,tx_key_warplans_CGroup_9,Warplans,UIWarplans_SelectControlGroup,"""9""","""_9""",,0,1
+key_warplans_CGroup_0,tx_key_warplans_CGroup_0,Warplans,UIWarplans_SelectControlGroup,"""0""","""_0""",,0,1
+
+key_warplans_CGroupAdd_1,tx_key_warplans_CGroupAdd_1,Warplans,UIWarplans_AddControlGroupToSelection,"""1""","""Shift+_1""",,0,1
+key_warplans_CGroupAdd_2,tx_key_warplans_CGroupAdd_2,Warplans,UIWarplans_AddControlGroupToSelection,"""2""","""Shift+_2""",,0,1
+key_warplans_CGroupAdd_3,tx_key_warplans_CGroupAdd_3,Warplans,UIWarplans_AddControlGroupToSelection,"""3""","""Shift+_3""",,0,1
+key_warplans_CGroupAdd_4,tx_key_warplans_CGroupAdd_4,Warplans,UIWarplans_AddControlGroupToSelection,"""4""","""Shift+_4""",,0,1
+key_warplans_CGroupAdd_5,tx_key_warplans_CGroupAdd_5,Warplans,UIWarplans_AddControlGroupToSelection,"""5""","""Shift+_5""",,0,1
+key_warplans_CGroupAdd_6,tx_key_warplans_CGroupAdd_6,Warplans,UIWarplans_AddControlGroupToSelection,"""6""","""Shift+_6""",,0,1
+key_warplans_CGroupAdd_7,tx_key_warplans_CGroupAdd_7,Warplans,UIWarplans_AddControlGroupToSelection,"""7""","""Shift+_7""",,0,1
+key_warplans_CGroupAdd_8,tx_key_warplans_CGroupAdd_8,Warplans,UIWarplans_AddControlGroupToSelection,"""8""","""Shift+_8""",,0,1
+key_warplans_CGroupAdd_9,tx_key_warplans_CGroupAdd_9,Warplans,UIWarplans_AddControlGroupToSelection,"""9""","""Shift+_9""",,0,1
+key_warplans_CGroupAdd_0,tx_key_warplans_CGroupAdd_0,Warplans,UIWarplans_AddControlGroupToSelection,"""0""","""Shift+_0""",,0,1
+
+// -----------------------------------------------------------------------,,,,,,,,
+// PanelPause keys are used in pause panel,,,,,,,,
+// -----------------------------------------------------------------------,,,,,,,,
+
+key_pausePanel_SaveGame,tx_key_pausePanel_SaveGame,PanelPause,PausePanelSaveGame,,"""S""",,0,1
+key_pausePanel_LoadGame,tx_key_pausePanel_LoadGame,PanelPause,PausePanelLoadGame,,"""L""",,0,1
+key_pausePanel_GameSettings,tx_key_pausePanel_GameSettings,PanelPause,PausePanelGameSettings,,"""G""",,0,1
+key_pausePanel_ResignGame,tx_key_pausePanel_ResignGame,PanelPause,PausePanelResignGame,,"""R""",,0,1
+key_pausePanel_ExitGame,tx_key_pausePanel_ExitGame,PanelPause,PausePanelExitGame,,"""X""",,0,1
+key_pausePanel_RestartGame,tx_key_pausePanel_RestartGame,PanelPause,PausePanelRestartGame,,"""E""",,0,1
+
+
+// -----------------------------------------------------------------------,,,,,,,,
+// Diplomacy keys are used in diplomacy screen,,,,,,,,
+// -----------------------------------------------------------------------,,,,,,,,
+
+key_diplo_SelectPlayer_1,tx_key_diplo_SelectPlayer_1,Diplomacy,UIDiplomacy_SelectPlayer,"""1""","""_1""",,0,1
+key_diplo_SelectPlayer_2,tx_key_diplo_SelectPlayer_2,Diplomacy,UIDiplomacy_SelectPlayer,"""2""","""_2""",,0,1
+key_diplo_SelectPlayer_3,tx_key_diplo_SelectPlayer_3,Diplomacy,UIDiplomacy_SelectPlayer,"""3""","""_3""",,0,1
+key_diplo_SelectPlayer_4,tx_key_diplo_SelectPlayer_4,Diplomacy,UIDiplomacy_SelectPlayer,"""4""","""_4""",,0,1
+key_diplo_SelectPlayer_5,tx_key_diplo_SelectPlayer_5,Diplomacy,UIDiplomacy_SelectPlayer,"""5""","""_5""",,0,1
+key_diplo_SelectPlayer_6,tx_key_diplo_SelectPlayer_6,Diplomacy,UIDiplomacy_SelectPlayer,"""6""","""_6""",,0,1
+key_diplo_SelectPlayer_7,tx_key_diplo_SelectPlayer_7,Diplomacy,UIDiplomacy_SelectPlayer,"""7""","""_7""",,0,1
+key_diplo_SelectPlayer_8,tx_key_diplo_SelectPlayer_8,Diplomacy,UIDiplomacy_SelectPlayer,"""8""","""_8""",,0,1
+key_diplo_SelectPlayer_9,tx_key_diplo_SelectPlayer_9,Diplomacy,UIDiplomacy_SelectPlayer,"""9""","""_9""",,0,1
+key_diplo_SelectPlayer_10,tx_key_diplo_SelectPlayer_10,Diplomacy,UIDiplomacy_SelectPlayer,"""10""","""_0""",,0,1
+key_diplo_Clear,tx_key_diplo_Clear,Diplomacy,UIDiplomacy_Clear,,"""C""",,0,1
+key_diplo_Send,tx_key_diplo_Send,Diplomacy,UIDiplomacy_Send,,"""ENTER""",,0,1
+
+key_diplo_DeclareAlly,tx_key_diplo_DeclareAlly,Diplomacy,UIDiplomacy_DeclareAlly,,"""A""",,0,1
+key_diplo_DeclareNeutral,tx_key_diplo_DeclareNeutral,Diplomacy,UIDiplomacy_DeclareNeutral,,"""N""",,0,1
+key_diplo_DeclareEnemy,tx_key_diplo_DeclareEnemy,Diplomacy,UIDiplomacy_DeclareEnemy,,"""E""",,0,1
+
+// increase tribute of given resource by 100,,,,,,,,
+key_diplo_IncTribute_Food_100,tx_key_diplo_IncTrib_Food_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=food amount=100""","""F""",,0,1
+key_diplo_IncTribute_Wood_100,tx_key_diplo_IncTrib_Wood_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=wood amount=100""","""W""",,0,1
+key_diplo_IncTribute_Stone_100,tx_key_diplo_IncTrib_Stone_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=stone amount=100""","""S""",,0,1
+key_diplo_IncTribute_Gold_100,tx_key_diplo_IncTrib_Gold_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=gold amount=100""","""G""",,0,1
+key_diplo_IncTribute_Spec1_100,tx_key_diplo_IncTrib_Spec1_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=special1 amount=100""","""Z""",,0,1
+key_diplo_IncTribute_Spec2_100,tx_key_diplo_IncTrib_Spec2_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=special2 amount=100""","""X""",,0,1
+// increase tribute of given resource by 500,,,,,,,,
+key_diplo_IncTribute_Food_500,tx_key_diplo_IncTrib_Food_500,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=food amount=500""","""shift+F""",,0,1
+key_diplo_IncTribute_Wood_500,tx_key_diplo_IncTrib_Wood_500,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=wood amount=500""","""shift+W""",,0,1
+key_diplo_IncTribute_Stone_500,tx_key_diplo_IncTrib_Stone_500,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=stone amount=500""","""shift+S""",,0,1
+key_diplo_IncTribute_Gold_500,tx_key_diplo_IncTrib_Gold_500,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=gold amount=500""","""shift+G""",,0,1
+key_diplo_IncTribute_Spec1_500,tx_key_diplo_IncTrib_Spec1_500,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=special1 amount=500""","""shift+Z""",,0,1
+key_diplo_IncTribute_Spec2_500,tx_key_diplo_IncTrib_Spec2_500,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=special2 amount=500""","""shift+X""",,0,1
+// decrease tribute of given resource by 100,,,,,,,,
+key_diplo_DecTribute_Food_100,tx_key_diplo_DecTrib_Food_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=food amount=-100""","""ctrl+F""",,0,1
+key_diplo_DecTribute_Wood_100,tx_key_diplo_DecTrib_Wood_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=wood amount=-100""","""ctrl+W""",,0,1
+key_diplo_DecTribute_Stone_100,tx_key_diplo_DecTrib_Stone_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=stone amount=-100""","""ctrl+S""",,0,1
+key_diplo_DecTribute_Gold_100,tx_key_diplo_DecTrib_Gold_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=gold amount=-100""","""ctrl+G""",,0,1
+key_diplo_DecTribute_Spec1_100,tx_key_diplo_DecTrib_Spec1_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=special1 amount=-100""","""ctrl+Z""",,0,1
+key_diplo_DecTribute_Spec2_100,tx_key_diplo_DecTrib_Spec2_100,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=special2 amount=-100""","""ctrl+X""",,0,1
+// clear tribute of given resource,,,,,,,,
+key_diplo_ClearTribute_Food,tx_key_diplo_ClearTrib_Food,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=food amount=clear""","""alt+F""",,0,1
+key_diplo_ClearTribute_Wood,tx_key_diplo_ClearTrib_Wood,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=wood amount=clear""","""alt+W""",,0,1
+key_diplo_ClearTribute_Stone,tx_key_diplo_ClearTrib_Stone,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=stone amount=clear""","""alt+S""",,0,1
+key_diplo_ClearTribute_Gold,tx_key_diplo_ClearTrib_Gold,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=gold amount=clear""","""alt+G""",,0,1
+key_diplo_ClearTribute_Spec1,tx_key_diplo_ClearTrib_Spec1,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=special1 amount=clear""","""alt+Z""",,0,1
+key_diplo_ClearTribute_Spec2,tx_key_diplo_ClearTrib_Spec2,Diplomacy,UIDiplomacy_ChangeTributeAmount,"""res=special2 amount=clear""","""alt+X""",,0,1
+
+
+// -------------------------------------------------------,,,,,,,,
+// Encyclopedia keys are used in the EEE,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+// exit encyclopedia,,,,,,,,
+key_EEE_exit,tx_key_EEE_exit,Encyclopedia,EEE_Toggle,,"""F12""","""F12""",0,1
+key_EEE_exit_alt,tx_key_EEE_exit_alt,Encyclopedia,EEE_Toggle,,"""ESCAPE""","""ESCAPE""",0,1
+// home page,,,,,,,,
+key_EEE_HomePage,tx_key_EEE_HomePage,Encyclopedia,EEE_LinkToPage,,"""HOME""",,0,1
+// travel through cached pages,,,,,,,,
+key_EEE_PageAction_Back,tx_key_EEE_PageAction_Back,Encyclopedia,EEE_PageAction,"""back""","""LEFT""",,0,1
+key_EEE_PageAction_Forward,tx_key_EEE_PageAction_Forward,Encyclopedia,EEE_PageAction,"""forward""","""RIGHT""",,0,1
+
+// -------------------------------------------------------,,,,,,,,
+// Game keys are used in-game,,,,,,,,
+// -------------------------------------------------------,,,,,,,,
+
+// General and panel open/close,,,,,,,,
+key_game_PausePanelToggle,tx_key_PausePanelToggle,Game,PausePanelOpenClose,,"""PAUSE""","""PAUSE""",0,1
+key_game_GamePauseResume,tx_key_GamePauseResume,Game,GamePauseResume,,"""shift+PAUSE""","""shift+PAUSE""",0,1
+key_game_PausePanelToggle_alt,tx_key_PausePanelToggle_alt,Game,PausePanelOpenClose,,"""ESCAPE""","""ESCAPE""",0,1
+key_game_EE2_ScreenShot,tx_key_EE2_ScreenShot,Game,EE2_ScreenShot,"""""","""SYSREQ""","""SYSREQ""",0,1
+key_game_EE2_ScreenShot_BMP,tx_key_EE2_ScreenShot_BMP,Game,EE2_ScreenShot,"""BMP""","""ctrl+SYSREQ""","""ctrl+SYSREQ""",0,1
+
+// user music control,,,,,,,,
+key_game_UserMusicToggle,tx_key_UserMusicToggle,Game,UserMusic_TogglePanel,,"""Ctrl+Shift+Alt+F12""","""Ctrl+Shift+Alt+F12""",0,0
+
+// quit to main screen,,,,,,,,
+key_game_QuitToMainScreen,tx_key_QuitToMainScreen,Game,QuitToMainScreen,"""prompt""","""Ctrl+Alt+Q""","""Ctrl+Alt+Q""",0,1
+
+// save game,,,,,,,,
+key_game_SaveGame,tx_key_SaveGame,Game,GameSaveGame,,"""ctrl+alt+S""","""ctrl+alt+S""",0,1
+
+// diplomacy,,,,,,,,
+key_game_OpenDiplomacyScreen,tx_key_game_OpenDiplomacyScreen,Game,ToggleDiplomacyScreen,,"""alt+shift+D""","""alt+shift+D""",0,1
+
+// open fullmap,,,,,,,,
+key_game_LaunchFullmap,tx_key_game_LaunchFullmap,Game,LaunchFullmap,,"""TAB""","""TAB""",0,1
+
+// Open Warplans,,,,,,,,
+key_game_WarPlans,tx_key_game_WarPlans,Game,LaunchFullmap,"""Warplans""","""alt+shift+P""","""alt+shift+P""",0,1
+key_game_WarPlans_Create,tx_key_game_WarPlans_Create,Game,LaunchFullmap,"""WarplansCreate""","""ctrl+alt+shift+P""",,0,1
+
+// Open Citizen Manager,,,,,,,,
+key_game_CitizenManager,tx_key_game_CitizenManager,Game,LaunchFullmap,"""CitizenManager""","""alt+shift+M""","""alt+shift+M""",0,1
+
+// Open Fullmap Scenario Objectives,,,,,,,,
+key_game_FullmapObjectives,tx_key_game_FullmapObjectives,Game,LaunchFullmap,"""Objectives""","""alt+O""","""alt+O""",0,1
+
+// open scenario objective dialog box,,,,,,,,
+key_game_OpenScenObjDialog,tx_key_OpenScenObjDialog,Game,ScenObjDialog_OpenWithPreviousText,,"""alt+shift+O""",,0,1
+
+// EEE,,,,,,,,
+key_game_LaunchEEE,tx_key_game_LaunchEEE,Game,EEE_Toggle,,"""F12""","""F12""",0,1
+
+// chat messages,,,,,,,,
+key_game_ChatOpen,tx_key_ChatOpen,Game,ChatOpen,,"""ENTER""","""ENTER""",0,1
+key_game_ChatClearMessages,tx_key_ChatClearMessages,Game,ChatClearMessages,,"""ctrl+ENTER""",,0,1
+key_game_ChatShowHideMessages,tx_key_ChatShowHideMessages,Game,ChatShowHideMessages,,"""shift+ENTER""",,0,1
+key_game_ChatToggleHistory,tx_key_ChatToggleHistory,Game,ChatToggleHistory,,"""h""","""h""",0,1
+
+// PIP actions,,,,,,,,
+key_game_pip_SelectOrSet_1,tx_key_pip_SelectOrSet_1,Game,ViewBookmark_SelectOrSet,"""1""","""F1""",,0,1
+key_game_pip_SelectOrSet_2,tx_key_pip_SelectOrSet_2,Game,ViewBookmark_SelectOrSet,"""2""","""F2""",,0,1
+key_game_pip_SelectOrSet_3,tx_key_pip_SelectOrSet_3,Game,ViewBookmark_SelectOrSet,"""3""","""F3""",,0,1
+key_game_pip_SelectOrSet_4,tx_key_pip_SelectOrSet_4,Game,ViewBookmark_SelectOrSet,"""4""","""F4""",,0,1
+key_game_pip_SelectOrSet_5,tx_key_pip_SelectOrSet_5,Game,ViewBookmark_SelectOrSet,"""5""","""F5""",,0,1
+key_game_pip_SelectOrSet_6,tx_key_pip_SelectOrSet_6,Game,ViewBookmark_SelectOrSet,"""6""","""F6""",,0,1
+key_game_pip_Set_1,tx_key_pip_Set_1,Game,ViewBookmark_Set,"""1""","""ctrl+F1""",,0,1
+key_game_pip_Set_2,tx_key_pip_Set_2,Game,ViewBookmark_Set,"""2""","""Ctrl+F2""",,0,1
+key_game_pip_Set_3,tx_key_pip_Set_3,Game,ViewBookmark_Set,"""3""","""ctrl+F3""",,0,1
+key_game_pip_Set_4,tx_key_pip_Set_4,Game,ViewBookmark_Set,"""4""","""ctrl+F4""",,0,1
+key_game_pip_Set_5,tx_key_pip_Set_5,Game,ViewBookmark_Set,"""5""","""ctrl+F5""",,0,1
+key_game_pip_Set_6,tx_key_pip_Set_6,Game,ViewBookmark_Set,"""6""","""ctrl+F6""",,0,1
+key_game_pip_ToggleCycle,tx_key_pip_ToggleCycle,Game,ViewBookmark_ToggleCycle,,"""F7""",,0,1
+key_game_pip_CopyPIPToMain,tx_key_pip_CopyPIPToMain,Game,PIP_CopyPIPToMain,,"""F8""",,0,1
+key_game_pip_Swap,tx_key_pip_Swap,Game,PIP_Swap,,"""F9""",,0,1
+key_game_pip_CopyMainToPIP,tx_key_pip_CopyMainToPIP,Game,PIP_CopyMainToPIP,,"""F10""",,0,1
+
+// Ctrl groups,,,,,,,,
+key_game_ctrlGrp_CopySelToGrp_1,tx_key_ctrlGrp_CopySelToGrp_1,Game,CtrlGroups_CopySelectionToGroup,"""1""","""ctrl+_1""","""ctrl+_1""",0,1
+key_game_ctrlGrp_CopySelToGrp_2,tx_key_ctrlGrp_CopySelToGrp_2,Game,CtrlGroups_CopySelectionToGroup,"""2""","""ctrl+_2""","""ctrl+_2""",0,1
+key_game_ctrlGrp_CopySelToGrp_3,tx_key_ctrlGrp_CopySelToGrp_3,Game,CtrlGroups_CopySelectionToGroup,"""3""","""ctrl+_3""","""ctrl+_3""",0,1
+key_game_ctrlGrp_CopySelToGrp_4,tx_key_ctrlGrp_CopySelToGrp_4,Game,CtrlGroups_CopySelectionToGroup,"""4""","""ctrl+_4""","""ctrl+_4""",0,1
+key_game_ctrlGrp_CopySelToGrp_5,tx_key_ctrlGrp_CopySelToGrp_5,Game,CtrlGroups_CopySelectionToGroup,"""5""","""ctrl+_5""","""ctrl+_5""",0,1
+key_game_ctrlGrp_CopySelToGrp_6,tx_key_ctrlGrp_CopySelToGrp_6,Game,CtrlGroups_CopySelectionToGroup,"""6""","""ctrl+_6""","""ctrl+_6""",0,1
+key_game_ctrlGrp_CopySelToGrp_7,tx_key_ctrlGrp_CopySelToGrp_7,Game,CtrlGroups_CopySelectionToGroup,"""7""","""ctrl+_7""","""ctrl+_7""",0,1
+key_game_ctrlGrp_CopySelToGrp_8,tx_key_ctrlGrp_CopySelToGrp_8,Game,CtrlGroups_CopySelectionToGroup,"""8""","""ctrl+_8""","""ctrl+_8""",0,1
+key_game_ctrlGrp_CopySelToGrp_9,tx_key_ctrlGrp_CopySelToGrp_9,Game,CtrlGroups_CopySelectionToGroup,"""9""","""ctrl+_9""","""ctrl+_9""",0,1
+key_game_ctrlGrp_CopySelToGrp_0,tx_key_ctrlGrp_CopySelToGrp_0,Game,CtrlGroups_CopySelectionToGroup,"""0""","""ctrl+_0""","""ctrl+_0""",0,1
+key_game_ctrlGrp_AddGrpToSel_1,tx_key_ctrlGrp_AddGrpToSel_1,Game,CtrlGroups_AddGroupToSelection,"""1""","""shift+_1""","""shift+_1""",0,1
+key_game_ctrlGrp_AddGrpToSel_2,tx_key_ctrlGrp_AddGrpToSel_2,Game,CtrlGroups_AddGroupToSelection,"""2""","""shift+_2""","""shift+_2""",0,1
+key_game_ctrlGrp_AddGrpToSel_3,tx_key_ctrlGrp_AddGrpToSel_3,Game,CtrlGroups_AddGroupToSelection,"""3""","""shift+_3""","""shift+_3""",0,1
+key_game_ctrlGrp_AddGrpToSel_4,tx_key_ctrlGrp_AddGrpToSel_4,Game,CtrlGroups_AddGroupToSelection,"""4""","""shift+_4""","""shift+_4""",0,1
+key_game_ctrlGrp_AddGrpToSel_5,tx_key_ctrlGrp_AddGrpToSel_5,Game,CtrlGroups_AddGroupToSelection,"""5""","""shift+_5""","""shift+_5""",0,1
+key_game_ctrlGrp_AddGrpToSel_6,tx_key_ctrlGrp_AddGrpToSel_6,Game,CtrlGroups_AddGroupToSelection,"""6""","""shift+_6""","""shift+_6""",0,1
+key_game_ctrlGrp_AddGrpToSel_7,tx_key_ctrlGrp_AddGrpToSel_7,Game,CtrlGroups_AddGroupToSelection,"""7""","""shift+_7""","""shift+_7""",0,1
+key_game_ctrlGrp_AddGrpToSel_8,tx_key_ctrlGrp_AddGrpToSel_8,Game,CtrlGroups_AddGroupToSelection,"""8""","""shift+_8""","""shift+_8""",0,1
+key_game_ctrlGrp_AddGrpToSel_9,tx_key_ctrlGrp_AddGrpToSel_9,Game,CtrlGroups_AddGroupToSelection,"""9""","""shift+_9""","""shift+_9""",0,1
+key_game_ctrlGrp_AddGrpToSel_0,tx_key_ctrlGrp_AddGrpToSel_0,Game,CtrlGroups_AddGroupToSelection,"""0""","""shift+_0""","""shift+_0""",0,1
+key_game_ctrlGrp_SelGrp_1,tx_key_ctrlGrp_SelectGrp_1,Game,CtrlGroups_SelectGroup,"""1""","""_1""","""_1""",0,1
+key_game_ctrlGrp_SelGrp_2,tx_key_ctrlGrp_SelectGrp_2,Game,CtrlGroups_SelectGroup,"""2""","""_2""","""_2""",0,1
+key_game_ctrlGrp_SelGrp_3,tx_key_ctrlGrp_SelectGrp_3,Game,CtrlGroups_SelectGroup,"""3""","""_3""","""_3""",0,1
+key_game_ctrlGrp_SelGrp_4,tx_key_ctrlGrp_SelectGrp_4,Game,CtrlGroups_SelectGroup,"""4""","""_4""","""_4""",0,1
+key_game_ctrlGrp_SelGrp_5,tx_key_ctrlGrp_SelectGrp_5,Game,CtrlGroups_SelectGroup,"""5""","""_5""","""_5""",0,1
+key_game_ctrlGrp_SelGrp_6,tx_key_ctrlGrp_SelectGrp_6,Game,CtrlGroups_SelectGroup,"""6""","""_6""","""_6""",0,1
+key_game_ctrlGrp_SelGrp_7,tx_key_ctrlGrp_SelectGrp_7,Game,CtrlGroups_SelectGroup,"""7""","""_7""","""_7""",0,1
+key_game_ctrlGrp_SelGrp_8,tx_key_ctrlGrp_SelectGrp_8,Game,CtrlGroups_SelectGroup,"""8""","""_8""","""_8""",0,1
+key_game_ctrlGrp_SelGrp_9,tx_key_ctrlGrp_SelectGrp_9,Game,CtrlGroups_SelectGroup,"""9""","""_9""","""_9""",0,1
+key_game_ctrlGrp_SelGrp_0,tx_key_ctrlGrp_SelectGrp_0,Game,CtrlGroups_SelectGroup,"""0""","""_0""","""_0""",0,1
+key_game_ctrlGrp_SelBldInGrp_1,tx_key_ctrlGrp_SelectBldInGrp_1,Game,CtrlGroups_SelectBuildingsInGroup,"""1""","""alt+_1""","""alt+_1""",0,1
+key_game_ctrlGrp_SelBldInGrp_2,tx_key_ctrlGrp_SelectBldInGrp_2,Game,CtrlGroups_SelectBuildingsInGroup,"""2""","""alt+_2""","""alt+_2""",0,1
+key_game_ctrlGrp_SelBldInGrp_3,tx_key_ctrlGrp_SelectBldInGrp_3,Game,CtrlGroups_SelectBuildingsInGroup,"""3""","""alt+_3""","""alt+_3""",0,1
+key_game_ctrlGrp_SelBldInGrp_4,tx_key_ctrlGrp_SelectBldInGrp_4,Game,CtrlGroups_SelectBuildingsInGroup,"""4""","""alt+_4""","""alt+_4""",0,1
+key_game_ctrlGrp_SelBldInGrp_5,tx_key_ctrlGrp_SelectBldInGrp_5,Game,CtrlGroups_SelectBuildingsInGroup,"""5""","""alt+_5""","""alt+_5""",0,1
+key_game_ctrlGrp_SelBldInGrp_6,tx_key_ctrlGrp_SelectBldInGrp_6,Game,CtrlGroups_SelectBuildingsInGroup,"""6""","""alt+_6""","""alt+_6""",0,1
+key_game_ctrlGrp_SelBldInGrp_7,tx_key_ctrlGrp_SelectBldInGrp_7,Game,CtrlGroups_SelectBuildingsInGroup,"""7""","""alt+_7""","""alt+_7""",0,1
+key_game_ctrlGrp_SelBldInGrp_8,tx_key_ctrlGrp_SelectBldInGrp_8,Game,CtrlGroups_SelectBuildingsInGroup,"""8""","""alt+_8""","""alt+_8""",0,1
+key_game_ctrlGrp_SelBldInGrp_9,tx_key_ctrlGrp_SelectBldInGrp_9,Game,CtrlGroups_SelectBuildingsInGroup,"""9""","""alt+_9""","""alt+_9""",0,1
+key_game_ctrlGrp_SelBldInGrp_0,tx_key_ctrlGrp_SelectBldInGrp_0,Game,CtrlGroups_SelectBuildingsInGroup,"""0""","""alt+_0""","""alt+_0""",0,1
+
+// Record/playback,,,,,,,,
+// these abilities have been cut.,,,,,,,,
+//key_ToggleRecording,,Game,ToggleRecording,,"""alt+shift+GRAVE""","""alt+shift+GRAVE""",0,1
+//key_MakeNamedBookmark,,Game,MakeNamedBookmark,,"""ctrl+GRAVE""","""ctrl+GRAVE""",0,1
+
+// Voicechat,,,,,,,,
+//key_ToggleVoiceChat,tx_ket_VoiceChat_toggle,Game,VoiceChat_ToggleInput,,"""ctrl+GRAVE""","""ctrl+GRAVE""",0,1
+//key_ToggleVoiceChat_fullmap,tx_ket_VoiceChat_toggle,Fullmap,VoiceChat_ToggleInput,,"""ctrl+GRAVE""","""ctrl+GRAVE""",0,1
+
+// Regional power,,,,,,,,
+key_game_RegionPower,tx_key_game_RegionPower,Game,UIRegionPower_ActivatePower,,"""alt+PADMUL""",,0,1
+
+
+//////////////////////////////////////////////////,,,,,,,,
+// selection hotkeys,,,,,,,,
+
+// remove selected units,,,,,,,,
+key_game_RemoveSelectedUnits,tx_key_game_RemoveSelectedUnits,Game,RemoveSelectedUnit,,"""DELETE""","""DELETE""",0,1
+
+// cycle unit types in selection,,,,,,,,
+key_game_SelectUnitType_Next,tx_key_game_SelectUnitType_Next,Game,UISelectUnitType,"""next""","""RBRACKET""",,0,1
+key_game_SelectUnitType_Prev,tx_key_game_SelectUnitType_Prev,Game,UISelectUnitType,"""prev""","""LBRACKET""",,0,1
+
+// deselect currently selected unit type,,,,,,,,
+key_game_DeselectCurrentType,tx_key_game_DeselectCurrentType,Game,UnitInfoDeselectUnitsOfSelection,,"""ctrl+BACKSPACE""",,0,1
+
+// Idle citizens,,,,,,,,
+key_game_selIdleCit_cycle,tx_key_game_selIdleCit_cycle,Game,CycleSelectAndCenterUnits,"""UTA=IdleCitSelect idle""","""COMMA""","""COMMA""",0,1
+key_game_selIdleCit_cycleAdd,tx_key_game_selIdleCit_cycleAdd,Game,CycleSelectAndCenterUnits,"""UTA=IdleCitSelect idle add""","""shift+COMMA""",,0,1
+key_game_selIdleCit_screen,tx_key_game_selIdleCit_screen,Game,SelectUnits,"""UTA=IdleCitSelect idle screen""","""ctrl+COMMA""",,0,1
+key_game_selIdleCit_all,tx_key_game_selIdleCit_all,Game,SelectUnits,"""UTA=IdleCitSelect idle world""","""alt+COMMA""",,0,1
+
+// Idle military units,,,,,,,,
+key_game_selIdleMil_cycle,tx_key_game_selIdleMil_cycle,Game,CycleSelectAndCenterUnits,"""UTA=IdleMilSelect EX-UTA=IdleMilSelectEx idle name=msg_ig_sel_militaryUnits""","""PERIOD""","""PERIOD""",0,1
+key_game_selIdleMil_cycleAdd,tx_key_game_selIdleMil_cycleAdd,Game,CycleSelectAndCenterUnits,"""UTA=IdleMilSelect EX-UTA=IdleMilSelectEx idle add name=msg_ig_sel_militaryUnits""","""shift+PERIOD""",,0,1
+key_game_selIdleMil_screen,tx_key_game_selIdleMil_screen,Game,SelectUnits,"""UTA=IdleMilSelect EX-UTA=IdleMilSelectEx idle screen name=msg_ig_sel_militaryUnits""","""ctrl+PERIOD""",,0,1
+key_game_selIdleMil_all,tx_key_game_selIdleMil_all,Game,SelectUnits,"""UTA=IdleMilSelect EX-UTA=IdleMilSelectEx idle world name=msg_ig_sel_militaryUnits""","""alt+PERIOD""",,0,1
+
+// buildings,,,,,,,,
+key_game_selCityCenter_cycle,tx_key_game_selCityCenter_cycle,Game,CycleSelectAndCenterUnits,"""UTA=CityCenters""","""alt+H""","""alt+H""",0,1
+key_game_selBarracks_cycle,tx_key_game_selBarracks_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Barracks""","""alt+B""","""alt+B""",0,1
+key_game_selStable_cycle,tx_key_game_selStable_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Stables""","""alt+S""","""alt+S""",0,1
+key_game_selMill_cycle,tx_key_game_selMill_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Mills""","""alt+M""","""alt+M""",0,1
+key_game_selFortress_cycle,tx_key_game_selFortress_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Fortress""","""alt+F""","""alt+F""",0,1
+key_game_selDock_cycle,tx_key_game_selDock_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Docks""","""alt+D""","""alt+D""",0,1
+key_game_selAirport_cycle,tx_key_game_selAirport_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Airports""","""alt+A""","""alt+A""",0,1
+key_game_selTemple_cycle,tx_key_game_selTemple_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Temples""","""alt+T""","""alt+T""",0,1
+key_game_selUniversity_cycle,tx_key_game_selUniversity_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Universities""","""alt+U""","""alt+U""",0,1
+key_game_selMarket_cycle,tx_key_game_selMarket_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Markets""","""alt+E""","""alt+E""",0,1
+key_game_selWarehouse_cycle,tx_key_game_selWarehouse_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Warehouses""","""alt+W""","""alt+W""",0,1
+key_game_selLeader_cycle,tx_key_game_selLeader_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Leaders format=msg_ig_sel_leader_none""","""alt+shift+L""","""alt+shift+L""",0,1
+key_game_selMissSilo_cycle,tx_key_game_selMissSilo_cycle,Game,CycleSelectAndCenterUnits,"""UTA=MissileSilos""","""ctrl+shift+N""","""ctrl+shift+N""",0,1
+key_game_selHercFacil_cycle,tx_key_game_selHercFacil_cycle,Game,CycleSelectAndCenterUnits,"""UTA=HercFacilities""","""ctrl+shift+S""","""ctrl+shift+S""",0,1
+key_game_selHangar_cycle,tx_key_game_selHangar_cycle,Game,CycleSelectAndCenterUnits,"""UTA=Hangars""","""ctrl+shift+A""","""ctrl+shift+A""",0,1
+
+// planes,,,,,,,,
+key_game_selFighter_all,tx_key_game_selFighter_all,Game,SelectUnits,"""UTA=Fighters world""","""alt+shift+I""","""alt+shift+I""",0,1
+key_game_selFightBomb_all,tx_key_game_selFightBomb_all,Game,SelectUnits,"""UTA=FighterBombers world""","""alt+shift+Y""","""alt+shift+Y""",0,1
+key_game_selBomber_all,tx_key_game_selBomber_all,Game,SelectUnits,"""UTA=Bombers world""","""alt+shift+B""","""alt+shift+B""",0,1
+key_game_selPlanes_all,tx_key_game_selPlanes_all,Game,SelectUnits,"""UTA=AllPlanes world""","""alt+shift+E""","""alt+shift+E""",0,1
+
+
+// Flares,,,,,,,,
+key_game_flare_place,tx_key_game_flare_place,Game,UI_StartMouseActionFlare,,"""alt+y""",,0,1
+key_game_flare_cycle_Main,tx_key_game_flare_cycle_Main,Game,UI_CycleCameraToNextFlare,"""main""","""SPACE""","""SPACE""",0,1
+key_game_flare_cycle_PIP,tx_key_game_flare_cycle_PIP,Game,UI_CycleCameraToNextFlare,"""pip""","""shift+SPACE""","""shift+SPACE""",0,1
+
+
+// Techtree,,,,,,,,
+key_game_TT_toggle,tx_key_game_TT_toggle,Game,UI_ToggleTechTree,,"""F11""","""F11""",0,1
+key_game_TT_advanceEpoch,tx_key_game_TT_advanceEpoch,Game,UIAdvanceEpoch,,"""alt+Up""","""alt+Up""",0,1
+key_game_TT_Mil1,tx_key_game_TT_Mil1,Game,TTResearch,M1,"""alt+F1""",,0,1
+key_game_TT_Mil2,tx_key_game_TT_Mil2,Game,TTResearch,M2,"""alt+F2""",,0,1
+key_game_TT_Mil3,tx_key_game_TT_Mil3,Game,TTResearch,M3,"""alt+F3""",,0,1
+key_game_TT_Mil4,tx_key_game_TT_Mil4,Game,TTResearch,M4,"""alt+F4""",,0,1
+key_game_TT_Eco1,tx_key_game_TT_Eco1,Game,TTResearch,E1,"""alt+F5""",,0,1
+key_game_TT_Eco2,tx_key_game_TT_Eco2,Game,TTResearch,E2,"""alt+F6""",,0,1
+key_game_TT_Eco3,tx_key_game_TT_Eco3,Game,TTResearch,E3,"""alt+F7""",,0,1
+key_game_TT_Eco4,tx_key_game_TT_Eco4,Game,TTResearch,E4,"""alt+F8""",,0,1
+key_game_TT_Imp1,tx_key_game_TT_Imp1,Game,TTResearch,I1,"""alt+F9""",,0,1
+key_game_TT_Imp2,tx_key_game_TT_Imp2,Game,TTResearch,I2,"""alt+F10""",,0,1
+key_game_TT_Imp3,tx_key_game_TT_Imp3,Game,TTResearch,I3,"""alt+F11""",,0,1
+key_game_TT_Imp4,tx_key_game_TT_Imp4,Game,TTResearch,I4,"""alt+F12""",,0,1
+
+// Game speed,,,,,,,,
+key_game_GameSpeedDec,tx_key_game_GameSpeedDec,Game,GameSpeedMul,"""0.9""","""MINUS""","""MINUS""",0,1
+key_game_GameSpeedInc,tx_key_game_GameSpeedInc,Game,GameSpeedMul,"""1.11111""","""EQUALS""","""EQUALS""",0,1
+key_game_GameSpeedDefault,tx_key_game_GameSpeedDefault,Game,GameSpeedDefault,,"""BACKSPACE""","""BACKSPACE""",0,1
+
+// game clock and calendar,,,,,,,,
+key_game_ToggleClock,tx_key_game_ToggleClock,Game,UIWGameClock_ToggleClock,,"""shift+BACKSLASH""","""shift+BACKSLASH""",0,1
+key_game_ToggleCalendar,tx_key_game_ToggleCalendar,Game,ToggleCalendar,,"""ctrl+BACKSLASH""","""ctrl+BACKSLASH""",0,1
+
+// Listen up/Go Go Go,,,,,,,,
+key_game_CommandQueueStart,tx_key_game_CommandQueueStart,Game,CommandQueueListenUpGoGoGo,,"""ctrl+APOSTROPHE""","""ctrl+APOSTROPHE""",0,1
+key_game_CommandQueueCancel,tx_key_game_CommandQueueCancel,Game,CommandQueueCancel,,"""alt+APOSTROPHE""","""alt+APOSTROPHE""",0,1
+
+// activate active leader power,,,,,,,,
+key_game_specialPower,tx_key_game_specialPower,Game,UIUnitCommand_SpecialPower,,"""SEMICOLON""",,0,1
+
+// Display crown panel,,,,,,,,
+key_game_ToggleCrowns,tx_key_game_ToggleCrowns,Game,UI_ToggleCrowns,,"""alt+shift+C""","""alt+shift+C""",0,1
+
+// Display version string and frame rate,,,,,,,,
+key_game_ToggleVersionDisplay,tx_key_game_Version,Game,ToggleVersionDisplay,,"""ctrl+shift+alt+v""",,0,1
+key_game_ToggleFrameRateDisplay,tx_key_game_FrameRate,Game,ToggleFrameRateDisplay,,"""ctrl+shift+alt+f""",,0,1
+
+// Minimap,,,,,,,,
+key_game_MM_ToggleTerritories,tx_key_game_MM_ToggleTerr,Game,Minimap_ToggleTerritories,,"""alt+shift+t""",,0,1
+key_game_MM_ToggleWarplans,tx_key_game_MM_ToggleWarplans,Game,Minimap_ToggleWarplans,,"""alt+shift+w""",,0,1
+
+
+//-------------------------------------------------------------,,,,,,,,
+// Mobile unit commands,,,,,,,,
+
+key_mobile_Move,tx_key_mobile_Move,UnitCommandMobile,UIUnitCommand_Move,,"""shift+M""",,0,1
+key_mobile_Explore,tx_key_mobile_Explore,UnitCommandMobile,UIUnitCommand_Explore,,"""x""",,0,1
+key_mobile_Attack,tx_key_mobile_Attack,UnitCommandMobile,UIUnitCommand_Attack,,"""shift+A""",,0,1
+key_mobile_AttackMove,tx_key_mobile_AttackMove,UnitCommandMobile,UIUnitCommand_AttackMove,,"""shift+E""",,0,1
+key_mobile_AttackGroup,tx_key_mobile_AttackGroup,UnitCommandMobile,UIUnitCommand_AttackGroup,,"""shift+L""",,0,1
+key_mobile_AttackType,tx_key_mobile_AttackType,UnitCommandMobile,UIUnitCommand_AttackType,,"""shift+U""",,0,1
+key_mobile_AttackGround,tx_key_mobile_AttackGround,UnitCommandMobile,UIUnitCommand_AttackGround,,"""alt+g""",,0,1
+key_mobile_Stance,tx_key_mobile_Stance,UnitCommandMobile,UIUnitCommand_Stance,Flyout,"""q""",,0,1
+key_mobile_Formation,tx_key_mobile_Formation,UnitCommandMobile,UIUnitCommand_Formation,Flyout,"""y""",,0,1
+key_mobile_Garrison,tx_key_mobile_Garrison,UnitCommandMobile,UIUnitCommand_Garrison,,"""g""",,0,1
+key_mobile_Ungarrison,tx_key_mobile_Ungarrison,UnitCommandMobile,UIUnitCommand_Ungarrison,,"""u""",,0,1
+key_mobile_CaptureBuilding,tx_key_mobile_CaptureBuilding,UnitCommandMobile,UIUnitCommand_CaptureBuilding,,"""z""",,0,1
+key_mobile_Patrol,tx_key_mobile_Patrol,UnitCommandMobile,UIUnitCommand_Patrol,,"""i""",,0,1
+key_mobile_Stop,tx_key_mobile_Stop,UnitCommandMobile,UIUnitCommand_Stop,,"""SLASH""",,0,1
+key_mobile_researchImprovement,tx_key_mobile_Improve,UnitCommandMobile,UI_StartResearch,"""Improve""","""alt+v""",,0,1
+key_mobile_ForceUnpack,tx_key_mobile_ForceUnpack,UnitCommandMobile,UIUnitCommand_ForceUnpack,,"""ctrl+p""",,0,1
+key_mobile_CancelForceUnpack,tx_key_mobile_CancelForceUnpack,UnitCommandMobile,UIUnitCommand_CancelForceUnpack,,"""p""",,0,1
+key_mobile_Guard,tx_key_mobile_Guard,UnitCommandMobile,UIUnitCommand_Guard,,"""alt+SLASH""",,0,1
+key_mobile_SearchDestroy,tx_key_mobile_SearchDestroy,UnitCommandMobile,UIUnitCommand_SearchDestroy,,"""alt+Z""",,0,1
+
+// Priests,,,,,,,,
+key_mobile_priest_convert,tx_key_mobile_priest_convert,UnitCommandMobile,UIUnitCommand_ConvertUnit,,"""alt+c""",,0,1
+key_mobile_priest_bless,tx_key_mobile_priest_bless,UnitCommandMobile,UIUnitCommand_SpecialPower,Bless,"""alt+l""",,0,1
+
+// Spies,,,,,,,,
+key_mobile_spy_sabotage,tx_key_mobile_spy_sabotage,UnitCommandMobile,UIUnitCommand_SpecialPower,"""SabotageBuilding ImprovedSabotageBuilding""","""alt+i""",,0,1
+key_mobile_spy_toxicSpill,tx_key_mobile_spy_toxicSpill,UnitCommandMobile,UIUnitCommand_SpecialPower,"""ToxicSpill ImprovedToxicSpill""","""alt+j""",,0,1
+key_mobile_spy_toxicCleanup,tx_key_mobile_spy_toxicCleanup,UnitCommandMobile,UIUnitCommand_SpecialPower,ToxicCleanup,"""alt+p""",,0,1
+key_mobile_spy_gatherIntel,tx_key_mobile_spy_gatherIntel,UnitCommandMobile,UIUnitCommand_SpecialPower,GatherIntelligence,"""alt+n""",,0,1
+key_mobile_spy_extraction,tx_key_mobile_spy_extraction,UnitCommandMobile,UIUnitCommand_SpecialPower,Extraction,"""alt+x""",,0,1
+key_mobile_spy_restore,tx_key_mobile_spy_restore,UnitCommandMobile,UIUnitCommand_SpecialPower,RestoreBuilding,"""alt+r""",,0,1
+
+// EMP,,,,,,,,
+key_mobile_HERC_EMP,tx_key_mobile_HERC_EMP,UnitCommandMobile,UIUnitCommand_SpecialPower,HERC_EMP_blast,"""ctrl+E""",,0,1
+
+// ICBM,,,,,,,,
+key_mobile_NukeGround,tx_key_mobile_NukeGround,UnitCommandMobile,UIUnitCommand_NukeGround,,"""L""",,0,1
+
+// Trade units,,,,,,,,
+key_mobile_Trade,tx_key_mobile_Trade,UnitCommandMobile,UIUnitCommand_Trade,,"""shift+T""",,0,1
+
+// gathering units,,,,,,,,
+key_mobile_Gather,tx_key_mobile_Gather,UnitCommandMobile,UIUnitCommand_Gather,,"""shift+G""",,0,1
+
+// Citizens,,,,,,,,
+key_citizen_BuildRepair,tx_key_citizen_BuildRepair,UnitCommand_Citizen,UIUnitCommand_BuildRepair,,"""shift+B""",,0,1
+key_citizen_build_CityCenter,tx_key_build_CityCenter,UnitCommand_Citizen,UI_StartProduction,"""unit1=CityCenter num=1""","""c""",,0,1
+key_citizen_build_Barracks,tx_key_build_Barracks,UnitCommand_Citizen,UI_StartProduction,"""unit1=Barracks num=1""","""b""",,0,1
+key_citizen_build_Stable,tx_key_build_Stable,UnitCommand_Citizen,UI_StartProduction,"""unit1=Stable num=1""","""s""",,0,1
+key_citizen_build_Mill,tx_key_build_Mill,UnitCommand_Citizen,UI_StartProduction,"""unit1=Mill num=1""","""m""",,0,1
+key_citizen_build_Fortress,tx_key_build_Fortress,UnitCommand_Citizen,UI_StartProduction,"""unit1=Fortress num=1""","""f""",,0,1
+key_citizen_build_Outpost,tx_key_build_Outpost,UnitCommand_Citizen,UI_StartProduction,"""unit1=Outpost num=1""","""o""",,0,1
+key_citizen_build_Palisade,tx_key_build_Palisade,UnitCommand_Citizen,UI_StartProduction,"""unit1=Palisade num=1""","""p""",,0,1
+key_citizen_build_Wall,tx_key_build_Wall,UnitCommand_Citizen,UI_StartProduction,"""unit1=Wall num=1""","""w""",,0,1
+key_citizen_build_Dock,tx_key_build_Dock,UnitCommand_Citizen,UI_StartProduction,"""unit1=Dock num=1""","""d""",,0,1
+key_citizen_build_CoastalDef,tx_key_build_CoastalDefense,UnitCommand_Citizen,UI_StartProduction,"""unit1=CoastalDefense num=1""","""n""",,0,1
+key_citizen_build_Airport,tx_key_build_Airport,UnitCommand_Citizen,UI_StartProduction,"""unit1=Airport num=1""","""a""",,0,1
+key_citizen_build_AirDefense,tx_key_build_AirDefense,UnitCommand_Citizen,UI_StartProduction,"""unit1=AirDefense num=1""","""k""",,0,1
+key_citizen_build_Temple,tx_key_build_Temple,UnitCommand_Citizen,UI_StartProduction,"""unit1=Temple num=1""","""t""",,0,1
+key_citizen_build_University,tx_key_build_University,UnitCommand_Citizen,UI_StartProduction,"""unit1=University num=1""","""u""",,0,1
+key_citizen_build_Market,tx_key_build_Market,UnitCommand_Citizen,UI_StartProduction,"""unit1=Market num=1""","""e""",,0,1
+key_citizen_build_House,tx_key_build_House,UnitCommand_Citizen,UI_StartProduction,"""unit1=House num=1""","""h""",,0,1
+key_citizen_build_Farm,tx_key_build_Farm,UnitCommand_Citizen,UI_StartProduction,"""unit1=Farm num=1""","""j""",,0,1
+key_citizen_build_Road,tx_key_build_Road,UnitCommand_Citizen,UI_StartProduction,"""unit1=Road num=1""","""r""",,0,1
+key_citizen_build_Bridge,tx_key_build_Bridge,UnitCommand_Citizen,UI_StartProduction,"""unit1=Bridge num=1""","""ctrl+r""",,0,1
+key_citizen_build_Warehouse,tx_key_build_Warehouse,UnitCommand_Citizen,UI_StartProduction,"""unit1=Warehouse num=1""","""v""",,0,1
+key_citizen_build_Missile_Silo,tx_key_build_Missile_Silo,UnitCommand_Citizen,UI_StartProduction,"""unit1=Missile_Silo num=1""","""ctrl+n""",,0,1
+key_citizen_build_HercFacility,tx_key_build_HercFacility,UnitCommand_Citizen,UI_StartProduction,"""unit1=HercFacility num=1""","""ctrl+s""",,0,1
+key_citizen_build_Airport2,tx_key_build_Airport2,UnitCommand_Citizen,UI_StartProduction,"""unit1=Airport2 num=1""","""ctrl+a""",,0,1
+key_citizen_build_OilRig,tx_key_build_OilRig,UnitCommand_Citizen,UI_StartProduction,"""unit1=OilRig num=1""","""ctrl+o""",,0,1
+key_citizen_build_UraniumMine,tx_key_build_UraniumMine,UnitCommand_Citizen,UI_StartProduction,"""unit1=UraniumMine num=1""","""ctrl+u""",,0,1
+key_citizen_build_Wonder1,tx_key_build_Wonder1,UnitCommand_Citizen,UI_StartProduction,"""unit1=WonderWestern_01 unit2=WonderMiddleEast_01 unit3=WonderFarEast_01 unit4=WonderMesoAmerican_01 num=1""","""ctrl+d""",,0,1
+key_citizen_build_Wonder6,tx_key_build_Wonder6,UnitCommand_Citizen,UI_StartProduction,"""unit1=WonderWestern_06 unit2=WonderMiddleEast_06 unit3=WonderFarEast_06 unit4=WonderMesoAmerican_06 num=1""","""ctrl+f""",,0,1
+//key_citizen_build_Wonder11,tx_key_build_Wonder11,UnitCommand_Citizen,UI_StartProduction,"""unit1=WonderWestern_11 unit2=WonderMiddleEast_11 unit3=WonderFarEast_11 unit4=WonderMesoAmerican_11 num=1""","""ctrl+g""",,0,1
+key_citizen_build_MyOutpost,tx_key_build_Wonder11,UnitCommand_Citizen,UI_StartProduction,"""unit1=MyOutpost num=1""","""shift+o""",,0,1
+key_citizen_menu_back,tx_key_citizen_menu_back,UnitCommand_Citizen,UIUnitButtons_SetMenu,"""0""","""q""",,0,1
+key_citizen_menu_civilian,tx_key_citizen_menu_civilian,UnitCommand_Citizen,UIUnitButtons_SetMenu,"""1""","""ctrl+C""",,0,1
+key_citizen_menu_military,tx_key_citizen_menu_military,UnitCommand_Citizen,UIUnitButtons_SetMenu,"""2""","""ctrl+M""",,0,1
+
+
+// Stance commands,,,,,,,,
+key_stance_aggressive,tx_key_stance_aggressive,UnitCommandStance,UIUnitCommand_Stance,Aggressive,"""a""",,0,1
+key_stance_defensive,tx_key_stance_defensive,UnitCommandStance,UIUnitCommand_Stance,Defensive,"""d""",,0,1
+key_stance_holdPosition,tx_key_stance_holdPosition,UnitCommandStance,UIUnitCommand_Stance,HoldPosition,"""h""",,0,1
+key_stance_cautious,tx_key_stance_cautious,UnitCommandStance,UIUnitCommand_Stance,Cautious,"""c""",,0,1
+key_stance_holdFire,tx_key_stance_holdFire,UnitCommandStance,UIUnitCommand_Stance,HoldFire,"""f""",,0,1
+
+// Formation commands,,,,,,,,
+// Land,,,,,,,,
+key_formation_land_phalanx,tx_key_formation_land_phalanx,UnitCommandFormationLand,UIUnitCommand_Formation,phalanx,"""p""",,0,1
+key_formation_land_wedge,tx_key_formation_land_wedge,UnitCommandFormationLand,UIUnitCommand_Formation,wedge,"""w""",,0,1
+key_formation_land_stagLine,tx_key_formation_land_stagLine,UnitCommandFormationLand,UIUnitCommand_Formation,StaggeredLine,"""l""",,0,1
+key_formation_land_dblLine,tx_key_formation_land_dblLine,UnitCommandFormationLand,UIUnitCommand_Formation,DoubleLine,"""d""",,0,1
+// Air,,,,,,,,
+key_formation_air_flyingv,tx_key_formation_air_flyingv,UnitCommandFormationAir,UIUnitCommand_Formation,flyingv,"""v""",,0,1
+key_formation_air_spear,tx_key_formation_air_spear,UnitCommandFormationAir,UIUnitCommand_Formation,spear,"""s""",,0,1
+key_formation_air_pyramid,tx_key_formation_air_pyramid,UnitCommandFormationAir,UIUnitCommand_Formation,pyramid,"""p""",,0,1
+// Naval,,,,,,,,
+key_formation_sea_line,tx_key_formation_sea_line,UnitCommandFormationSea,UIUnitCommand_Formation,line,"""l""",,0,1
+key_formation_sea_crescent,tx_key_formation_sea_crescent,UnitCommandFormationSea,UIUnitCommand_Formation,crescent,"""c""",,0,1
+key_formation_sea_convoy,tx_key_formation_sea_convoy,UnitCommandFormationSea,UIUnitCommand_Formation,convoy,"""o""",,0,1
+
+//-------------------------------------------------------------,,,,,,,,
+// Immobile unit commands,,,,,,,,
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// territory hot keys - used when a territory is selected,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_territory_rename,tx_key_territory_rename,Territory,RenameTerritory,,"""ctrl+r""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// general hot keys,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_immobile_cancProd_all,tx_key_cancelProd_all,UnitCommandImmobile,UI_CancelAllProduction,,"""X""",,0,1
+key_immobile_SetRally,tx_key_immobile_SetRally,UnitCommandImmobile,UIUnitCommand_SetRally,,"""r""",,0,1
+key_immobile_Ungarrison,tx_key_immobile_Ungarrison,UnitCommandImmobile,UIUnitCommand_Ungarrison,,"""u""",,0,1
+key_immobile_ToggleBuildQueue,tx_key_immobile_BuildQueue,UnitCommandImmobile,UIUnitCommand_ToggleBuildQueue,,"""o""",,0,1
+
+// **** unit type specific hot keys ***,,,,,,,,
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// city center,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_CCenter_produce_Citizen_1,tx_key_produce_Citizen_1,UnitCommand_CityCenter,UI_StartProduction,"""unit1=Engineer unit2=Citizen num=1""","""c""",,0,1
+key_CCenter_produce_Citizen_5,tx_key_produce_Citizen_5,UnitCommand_CityCenter,UI_StartProduction,"""unit1=Engineer unit2=Citizen num=5""","""shift+c""",,0,1
+key_CCenter_cancProd_Citizen_1,tx_key_cancelProd_Citizen_1,UnitCommand_CityCenter,UI_CancelProduction,"""unit1=Engineer unit2=Citizen num=1""","""ctrl+c""",,0,1
+
+key_CCenter_produce_Scout_1,tx_key_produce_Scout_1,UnitCommand_CityCenter,UI_StartProduction,"""unit1=Scout num=1""","""s""",,0,1
+key_CCenter_produce_Scout_5,tx_key_produce_Scout_5,UnitCommand_CityCenter,UI_StartProduction,"""unit1=Scout num=5""","""shift+s""",,0,1
+key_CCenter_cancProd_Scout_1,tx_key_cancelProd_Scout_1,UnitCommand_CityCenter,UI_CancelProduction,"""unit1=Scout num=1""","""ctrl+s""",,0,1
+
+key_CCenter_SignalEmergency,tx_key_immobile_SignalEmergency,UnitCommand_CityCenter,UIUnitCommand_SignalEmergency,,"""e""",,0,1
+key_CCenter_SignalAllClear,tx_key_immobile_SignalAllClear,UnitCommand_CityCenter,UIUnitCommand_SignalAllClear,,"""a""",,0,1
+key_CCenter_NameCity,tx_key_cityCenter_NameCity,UnitCommand_CityCenter,UIUnitCommand_NameCity,,"""ctrl+R""",,0,1
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// barracks,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_barracks_produce_LtInf_1,tx_key_produce_LightInf_1,UnitCommand_Barracks,UI_StartProduction,"""unit1=LightInfantry num=1""","""q""",,0,1
+key_barracks_produce_LtInf_5,tx_key_produce_LightInf_5,UnitCommand_Barracks,UI_StartProduction,"""unit1=LightInfantry num=5""","""shift+q""",,0,1
+key_barracks_cancProd_LtInf_1,tx_key_cancelProd_LightInf_1,UnitCommand_Barracks,UI_CancelProduction,"""unit1=LightInfantry num=1""","""ctrl+q""",,0,1
+
+key_barracks_produce_HvyInf1_1,tx_key_produce_HeavyInf1_1,UnitCommand_Barracks,UI_StartProduction,"""unit1=HeavyInfantry1 num=1""","""w""",,0,1
+key_barracks_produce_HvyInf1_5,tx_key_produce_HeavyInf1_5,UnitCommand_Barracks,UI_StartProduction,"""unit1=HeavyInfantry1 num=5""","""shift+w""",,0,1
+key_barracks_cancProd_HvyInf1_1,tx_key_cancelProd_HeavyInf1_1,UnitCommand_Barracks,UI_CancelProduction,"""unit1=HeavyInfantry1 num=1""","""ctrl+w""",,0,1
+
+key_barracks_produce_HvyInf2_1,tx_key_produce_HeavyInf2_1,UnitCommand_Barracks,UI_StartProduction,"""unit1=HeavyInfantry2 num=1""","""e""",,0,1
+key_barracks_produce_HvyInf2_5,tx_key_produce_HeavyInf2_5,UnitCommand_Barracks,UI_StartProduction,"""unit1=HeavyInfantry2 num=5""","""shift+e""",,0,1
+key_barracks_cancProd_HvyInf2_1,tx_key_cancelProd_HeavyInf2_1,UnitCommand_Barracks,UI_CancelProduction,"""unit1=HeavyInfantry2 num=1""","""ctrl+e""",,0,1
+
+key_barracks_produce_Unique_1,tx_key_produce_Unique_1,UnitCommand_Barracks,UI_StartProduction,"""unit1=UniqueUnitAmerican1 unit2=UniqueUnitAmerican2 unit3=UniqueUnitAztec1 unit4=UniqueUnitChinese1 unit5=UniqueUnitEgyptian1 unit6=UniqueUnitGerman1 unit7=UniqueUnitGreek1 unit8=UniqueUnitGreek3 unit9=UniqueUnitInca1 unit10=UniqueUnitInca2 unit11=UniqueUnitJapanese1 unit12=UniqueUnitKorean1 unit13=UniqueUnitKorean3 unit14=UniqueUnitMayan1 unit15=UniqueUnitRoman1 unit16=UniqueUnitRoman2 unit17=UniqueUnitRoman3 unit18=UniqueUnitTurkish1 unit19=UniqueUnitTurkish2 unit20=UniqueUnitTurkish3 unit21=UniqueUnitbabylonian1 unit22=UniqueUnitBabylonian3 unit23=UniqueUnitMaasai1 unit24=UniqueUnitZulu1 unit25=UniqueUnitRussian1 unit26=UniqueUnitZulu2 unit27=UniqueUnitZulu3 num=1""","""z""",,0,1
+key_barracks_produce_Unique_5,tx_key_produce_Unique_5,UnitCommand_Barracks,UI_StartProduction,"""unit1=UniqueUnitAmerican1 unit2=UniqueUnitAmerican2 unit3=UniqueUnitAztec1 unit4=UniqueUnitChinese1 unit5=UniqueUnitEgyptian1 unit6=UniqueUnitGerman1 unit7=UniqueUnitGreek1 unit8=UniqueUnitGreek3 unit9=UniqueUnitInca1 unit10=UniqueUnitInca2 unit11=UniqueUnitJapanese1 unit12=UniqueUnitKorean1 unit13=UniqueUnitKorean3 unit14=UniqueUnitMayan1 unit15=UniqueUnitRoman1 unit16=UniqueUnitRoman2 unit17=UniqueUnitRoman3 unit18=UniqueUnitTurkish1 unit19=UniqueUnitTurkish2 unit20=UniqueUnitTurkish3 unit21=UniqueUnitbabylonian1 unit22=UniqueUnitBabylonian3 unit23=UniqueUnitMaasai1 unit24=UniqueUnitZulu1 unit25=UniqueUnitRussian1 unit26=UniqueUnitZulu2 unit27=UniqueUnitZulu3 num=5""","""shift+z""",,0,1
+key_barracks_cancProd_Unique_1,tx_key_cancelProd_Unique_1,UnitCommand_Barracks,UI_CancelProduction,"""unit1=UniqueUnitAmerican1 unit2=UniqueUnitAmerican2 unit3=UniqueUnitAztec1 unit4=UniqueUnitChinese1 unit5=UniqueUnitEgyptian1 unit6=UniqueUnitGerman1 unit7=UniqueUnitGreek1 unit8=UniqueUnitGreek3 unit9=UniqueUnitInca1 unit10=UniqueUnitInca2 unit11=UniqueUnitJapanese1 unit12=UniqueUnitKorean1 unit13=UniqueUnitKorean3 unit14=UniqueUnitMayan1 unit15=UniqueUnitRoman1 unit16=UniqueUnitRoman2 unit17=UniqueUnitRoman3 unit18=UniqueUnitTurkish1 unit19=UniqueUnitTurkish2 unit20=UniqueUnitTurkish3 unit21=UniqueUnitbabylonian1 unit22=UniqueUnitBabylonian3 unit23=UniqueUnitMaasai1 unit24=UniqueUnitZulu1 unit25=UniqueUnitRussian1 unit26=UniqueUnitZulu2 unit27=UniqueUnitZulu3 num=1""","""ctrl+z""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// stable,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_stable_produce_LtMnt_1,tx_key_produce_LightMnt_1,UnitCommand_Stable,UI_StartProduction,"""unit1=Tank unit2=LightMounted1 num=1""","""a""",,0,1
+key_stable_produce_LtMnt_5,tx_key_produce_LightMnt_5,UnitCommand_Stable,UI_StartProduction,"""unit1=Tank unit2=LightMounted1 num=5""","""shift+a""",,0,1
+key_stable_cancProd_LtMnt_1,tx_key_cancelProd_LightMnt_1,UnitCommand_Stable,UI_CancelProduction,"""unit1=Tank unit2=LightMounted1 num=1""","""ctrl+a""",,0,1
+
+key_stable_produce_HvyMnt_1,tx_key_produce_HeavyMnt_1,UnitCommand_Stable,UI_StartProduction,"""unit1=HeavyTank unit2=HeavyMounted1 num=1""","""g""",,0,1
+key_stable_produce_HvyMnt_5,tx_key_produce_HeavyMnt_5,UnitCommand_Stable,UI_StartProduction,"""unit1=HeavyTank unit2=HeavyMounted1 num=5""","""shift+g""",,0,1
+key_stable_cancProd_HvyMnt_1,tx_key_cancelProd_HeavyMnt_1,UnitCommand_Stable,UI_CancelProduction,"""unit1=HeavyTank unit2=HeavyMounted1 num=1""","""ctrl+g""",,0,1
+
+//key_stable_produce_LtHERC_1,tx_key_produce_LightHERC_1,UnitCommand_Stable,UI_StartProduction,"""unit1=LightMounted3 unit2=HercElecWarfare num=1""","""f""",,0,1
+//key_stable_produce_LtHERC_5,tx_key_produce_LightHERC_5,UnitCommand_Stable,UI_StartProduction,"""unit1=LightMounted3 unit2=HercElecWarfare num=5""","""shift+f""",,0,1
+//key_stable_cancProd_LtHERC_1,tx_key_cancelProd_LightHERC_1,UnitCommand_Stable,UI_CancelProduction,"""unit1=LightMounted3 unit2=HercElecWarfare num=1""","""ctrl+f""",,0,1
+
+//key_stable_produce_HvyHERC_1,tx_key_produce_HeavyHERC_1,UnitCommand_Stable,UI_StartProduction,"""unit1=HeavyMounted3_14 num=1""","""j""",,0,1
+//key_stable_produce_HvyHERC_5,tx_key_produce_HeavyHERC_5,UnitCommand_Stable,UI_StartProduction,"""unit1=HeavyMounted3_14 num=5""","""shift+j""",,0,1
+//key_stable_cancProd_HvyHERC_1,tx_key_cancelProd_HeavyHERC_1,UnitCommand_Stable,UI_CancelProduction,"""unit1=HeavyMounted3_14 num=1""","""ctrl+j""",,0,1
+
+key_stable_produce_Unique_1,tx_key_produce_Unique_1,UnitCommand_Stable,UI_StartProduction,"""unit1=UniqueUnitAmerican3 unit2=UniqueUnitAztec2 unit3=UniqueUnitEnglish2 unit4=UniqueUnitChinese3 unit5=UniqueUnitEgyptian2 unit6=UniqueUnitEgyptian3 unit7=UniqueUnitGerman2 unit8=UniqueUnitGerman3 unit9=UniqueUnitGreek2 unit10=UniqueUnitBabylonian2 unit11=UniqueUnitFrench2 unit12=UniqueUnitRussian3 num=1""","""z""",,0,1
+key_stable_produce_Unique_5,tx_key_produce_Unique_5,UnitCommand_Stable,UI_StartProduction,"""unit1=UniqueUnitAmerican3 unit2=UniqueUnitAztec2 unit3=UniqueUnitEnglish2 unit4=UniqueUnitChinese3 unit5=UniqueUnitEgyptian2 unit6=UniqueUnitEgyptian3 unit7=UniqueUnitGerman2 unit8=UniqueUnitGerman3 unit9=UniqueUnitGreek2 unit10=UniqueUnitBabylonian2 unit11=UniqueUnitFrench2 unit12=UniqueUnitRussian3 num=5""","""shift+z""",,0,1
+key_stable_cancProd_Unique_1,tx_key_cancelProd_Unique_1,UnitCommand_Stable,UI_CancelProduction,"""unit1=UniqueUnitAmerican3 unit2=UniqueUnitAztec2 unit3=UniqueUnitEnglish2 unit4=UniqueUnitChinese3 unit5=UniqueUnitEgyptian2 unit6=UniqueUnitEgyptian3 unit7=UniqueUnitGerman2 unit8=UniqueUnitGerman3 unit9=UniqueUnitGreek2 unit10=UniqueUnitBabylonian2 unit11=UniqueUnitFrench2 unit12=UniqueUnitRussian3 num=1""","""ctrl+z""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// mill,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_mill_produce_LtArt1_1,tx_key_produce_LightArt1_1,UnitCommand_Mill,UI_StartProduction,"""unit1=LightArtillery1 num=1""","""l""",,0,1
+key_mill_produce_LtArt1_5,tx_key_produce_LightArt1_5,UnitCommand_Mill,UI_StartProduction,"""unit1=LightArtillery1 num=5""","""shift+l""",,0,1
+key_mill_cancProd_LtArt1_1,tx_key_cancelProd_LightArt1_1,UnitCommand_Mill,UI_CancelProduction,"""unit1=LightArtillery1 num=1""","""ctrl+l""",,0,1
+
+key_mill_produce_LtArt2_1,tx_key_produce_LightArt2_1,UnitCommand_Mill,UI_StartProduction,"""unit1=LightArtillery2 num=1""","""i""",,0,1
+key_mill_produce_LtArt2_5,tx_key_produce_LightArt2_5,UnitCommand_Mill,UI_StartProduction,"""unit1=LightArtillery2 num=5""","""shift+i""",,0,1
+key_mill_cancProd_LtArt2_1,tx_key_cancelProd_LightArt2_1,UnitCommand_Mill,UI_CancelProduction,"""unit1=LightArtillery2 num=1""","""ctrl+i""",,0,1
+
+key_mill_produce_HvyArt_1,tx_key_produce_HeavyArt_1,UnitCommand_Mill,UI_StartProduction,"""unit1=HeavyArtillery num=1""","""y""",,0,1
+key_mill_produce_HvyArt_5,tx_key_produce_HeavyArt_5,UnitCommand_Mill,UI_StartProduction,"""unit1=HeavyArtillery num=5""","""shift+y""",,0,1
+key_mill_cancProd_HvyArt_1,tx_key_cancelProd_HeavyArt_1,UnitCommand_Mill,UI_CancelProduction,"""unit1=HeavyArtillery num=1""","""ctrl+y""",,0,1
+
+key_mill_produce_Ram_1,tx_key_produce_Ram_1,UnitCommand_Mill,UI_StartProduction,"""unit1=Ram num=1""","""a""",,0,1
+key_mill_produce_Ram_5,tx_key_produce_Ram_5,UnitCommand_Mill,UI_StartProduction,"""unit1=Ram num=5""","""shift+a""",,0,1
+key_mill_cancProd_Ram_1,tx_key_cancelProd_Ram_1,UnitCommand_Mill,UI_CancelProduction,"""unit1=Ram num=1""","""ctrl+a""",,0,1
+
+key_mill_produce_SiegeTower_1,tx_key_produce_SiegeTower_1,UnitCommand_Mill,UI_StartProduction,"""unit1=SiegeTower num=1""","""s""",,0,1
+key_mill_produce_SiegeTower_5,tx_key_produce_SiegeTower_5,UnitCommand_Mill,UI_StartProduction,"""unit1=SiegeTower num=5""","""shift+s""",,0,1
+key_mill_cancProd_SiegeTower_1,tx_key_cancelProd_SiegeTower_1,UnitCommand_Mill,UI_CancelProduction,"""unit1=SiegeTower num=1""","""ctrl+s""",,0,1
+
+key_mill_produce_HercRepair_1,tx_key_produce_HercRepair_1,UnitCommand_Mill,UI_StartProduction,"""unit1=HercRepair num=1""","""g""",,0,1
+key_mill_produce_HercRepair_5,tx_key_produce_HercRepair_5,UnitCommand_Mill,UI_StartProduction,"""unit1=HercRepair num=5""","""shift+g""",,0,1
+key_mill_cancProd_HercRepair_1,tx_key_cancelProd_HercRepair_1,UnitCommand_Mill,UI_CancelProduction,"""unit1=HercRepair num=1""","""ctrl+g""",,0,1
+
+key_mill_produce_Unique_1,tx_key_produce_Unique_1,UnitCommand_Mill,UI_StartProduction,"""unit1=UniqueUnitChinese2 unit2=UniqueUnitInca3 unit3=UniqueUnitKorean2 unit4=UniqueUnitMayan2 unit5=UniqueUnitMayan3 unit6=UniqueUnitFrench1 unit7=UniqueUnitRussian2, num=1""","""z""",,0,1
+key_mill_produce_Unique_5,tx_key_produce_Unique_5,UnitCommand_Mill,UI_StartProduction,"""unit1=UniqueUnitChinese2 unit2=UniqueUnitInca3 unit3=UniqueUnitKorean2 unit4=UniqueUnitMayan2 unit5=UniqueUnitMayan3 unit6=UniqueUnitFrench1 unit7=UniqueUnitRussian2,num=5""","""shift+z""",,0,1
+key_mill_cancProd_Unique_1,tx_key_cancelProd_Unique_1,UnitCommand_Mill,UI_CancelProduction,"""unit1=UniqueUnitChinese2 unit2=UniqueUnitInca3 unit3=UniqueUnitKorean2 unit4=UniqueUnitMayan2 unit5=UniqueUnitMayan3 unit6=UniqueUnitFrench1 unit7=UniqueUnitRussian2,num=1""","""ctrl+z""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// fortress,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_fortress_SignalEmergency,tx_key_immobile_SignalEmergency,UnitCommand_Fortress,UIUnitCommand_SignalEmergency,,"""e""",,0,1
+key_fortress_SignalAllClear,tx_key_immobile_SignalAllClear,UnitCommand_Fortress,UIUnitCommand_SignalAllClear,,"""a""",,0,1
+key_fortress_Attack,tx_key_immobile_Attack,UnitCommand_Fortress,UIUnitCommand_Attack,,"""shift+A""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// dock,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_dock_produce_Galley_1,tx_key_produce_Galley_1,UnitCommand_Dock,UI_StartProduction,"""unit1=WarGalley unit2=Galleon num=1""","""g""",,0,1
+key_dock_produce_Galley_5,tx_key_produce_Galley_5,UnitCommand_Dock,UI_StartProduction,"""unit1=WarGalley unit2=Galleon num=5""","""shift+g""",,0,1
+key_dock_cancProd_Galley_1,tx_key_cancelProd_Galley_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=WarGalley unit2=Galleon num=1""","""ctrl+g""",,0,1
+
+key_dock_produce_FishingShip_1,tx_key_produce_FishingShip_1,UnitCommand_Dock,UI_StartProduction,"""unit1=FishingShip num=1""","""c""",,0,1
+key_dock_produce_FishingShip_5,tx_key_produce_FishingShip_5,UnitCommand_Dock,UI_StartProduction,"""unit1=FishingShip num=5""","""shift+c""",,0,1
+key_dock_cancProd_FishingShip_1,tx_key_cancelProd_FishingShip_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=FishingShip num=1""","""ctrl+c""",,0,1
+
+key_dock_produce_MerchShip_1,tx_key_produce_MerchShip_1,UnitCommand_Dock,UI_StartProduction,"""unit1=MerchantShip num=1""","""m""",,0,1
+key_dock_produce_MerchShip_5,tx_key_produce_MerchShip_5,UnitCommand_Dock,UI_StartProduction,"""unit1=MerchantShip num=5""","""shift+m""",,0,1
+key_dock_cancProd_MerchShip_1,tx_key_cancelProd_MerchShip_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=MerchantShip num=1""","""ctrl+m""",,0,1
+
+key_dock_produce_CargoShip_1,tx_key_produce_CargoShip_1,UnitCommand_Dock,UI_StartProduction,"""unit1=CargoShip num=1""","""t""",,0,1
+key_dock_produce_CargoShip_5,tx_key_produce_CargoShip_5,UnitCommand_Dock,UI_StartProduction,"""unit1=CargoShip num=5""","""shift+t""",,0,1
+key_dock_cancProd_CargoShip_1,tx_key_cancelProd_CargoShip_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=CargoShip num=1""","""ctrl+t""",,0,1
+
+key_dock_produce_FightSail_1,tx_key_produce_FightSail_1,UnitCommand_Dock,UI_StartProduction,"""unit1=FightingSail num=1""","""w""",,0,1
+key_dock_produce_FightSail_5,tx_key_produce_FightSail_5,UnitCommand_Dock,UI_StartProduction,"""unit1=FightingSail num=5""","""shift+w""",,0,1
+key_dock_cancProd_FightSail_1,tx_key_cancelProd_FightSail_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=FightingSail num=1""","""ctrl+w""",,0,1
+
+key_dock_produce_Frigate_1,tx_key_produce_Frigate_1,UnitCommand_Dock,UI_StartProduction,"""unit1=Frigate num=1""","""f""",,0,1
+key_dock_produce_Frigate_5,tx_key_produce_Frigate_5,UnitCommand_Dock,UI_StartProduction,"""unit1=Frigate num=5""","""shift+f""",,0,1
+key_dock_cancProd_Frigate_1,tx_key_cancelProd_Frigate_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=Frigate num=1""","""ctrl+f""",,0,1
+
+key_dock_produce_AircraftC_1,tx_key_produce_AircraftC_1,UnitCommand_Dock,UI_StartProduction,"""unit1=AircraftCarrier num=1""","""a""",,0,1
+key_dock_produce_AircraftC_5,tx_key_produce_AircraftC_5,UnitCommand_Dock,UI_StartProduction,"""unit1=AircraftCarrier num=5""","""shift+a""",,0,1
+key_dock_cancProd_AircraftC_1,tx_key_cancelProd_AircraftC_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=AircraftCarrier num=1""","""ctrl+a""",,0,1
+
+key_dock_produce_Submarine_1,tx_key_produce_Submarine_1,UnitCommand_Dock,UI_StartProduction,"""unit1=Submarine num=1""","""s""",,0,1
+key_dock_produce_Submarine_5,tx_key_produce_Submarine_5,UnitCommand_Dock,UI_StartProduction,"""unit1=Submarine num=5""","""shift+s""",,0,1
+//key_dock_produce_Submarine_5,tx_key_produce_Submarine_5,UnitCommand_Dock,UI_StartProduction,"""unit1=Russkirov num=1""","""shift+s""",,0,1
+key_dock_cancProd_Submarine_1,tx_key_cancelProd_Submarine_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=Submarine num=1""","""ctrl+s""",,0,1
+
+key_dock_produce_Destroyer_1,tx_key_produce_Destroyer_1,UnitCommand_Dock,UI_StartProduction,"""unit1=Destroyer num=1""","""d""",,0,1
+//key_dock_produce_Destroyer_5,tx_key_produce_Destroyer_5,UnitCommand_Dock,UI_StartProduction,"""unit1=Destroyer num=5""","""shift+d""",,0,1
+key_dock_produce_Destroyer_5,tx_key_produce_Destroyer_5,UnitCommand_Dock,UI_StartProduction,"""unit1=Destroyer055 num=1""","""shift+r""",,0,1
+key_dock_cancProd_Destroyer_1,tx_key_cancelProd_Destroyer_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=Destroyer num=1""","""ctrl+d""",,0,1
+
+key_dock_produce_Battleship_1,tx_key_produce_Battleship_1,UnitCommand_Dock,UI_StartProduction,"""unit1=Battleship num=1""","""b""",,0,1
+//key_dock_produce_Battleship_5,tx_key_produce_Battleship_5,UnitCommand_Dock,UI_StartProduction,"""unit1=Battleship num=5""","""shift+b""",,0,1
+key_dock_produce_Battleship_5,tx_key_produce_Battleship_5,UnitCommand_Dock,UI_StartProduction,"""unit1=TiconderogaCruiser15 num=1""","""shift+b""",,0,1
+key_dock_cancProd_Battleship_1,tx_key_cancelProd_Battleship_1,UnitCommand_Dock,UI_CancelProduction,"""unit1=Battleship num=1""","""ctrl+b""",,0,1
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// airport,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_airport_produce_ObsBall_1,tx_key_produce_ObsBalloon_1,UnitCommand_Airport,UI_StartProduction,"""unit1=ObservationBalloon num=1""","""o""",,0,1
+key_airport_produce_ObsBall_5,tx_key_produce_ObsBalloon_5,UnitCommand_Airport,UI_StartProduction,"""unit1=ObservationBalloon num=5""","""shift+o""",,0,1
+key_airport_cancProd_ObsBall_1,tx_key_cancelProd_ObsBalloon_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=ObservationBalloon num=1""","""ctrl+o""",,0,1
+
+key_airport_produce_Fighter_1,tx_key_produce_Fighter_1,UnitCommand_Airport,UI_StartProduction,"""unit1=Fighter num=1""","""f""",,0,1
+key_airport_produce_Fighter_5,tx_key_produce_Fighter_5,UnitCommand_Airport,UI_StartProduction,"""unit1=Fighter num=5""","""shift+f""",,0,1
+key_airport_cancProd_Fighter_1,tx_key_cancelProd_Fighter_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=Fighter num=1""","""ctrl+f""",,0,1
+
+key_airport_produce_FBomb_1,tx_key_produce_FightBomb_1,UnitCommand_Airport,UI_StartProduction,"""unit1=FighterBomber num=1""","""t""",,0,1
+//key_airport_produce_FBomb_5,tx_key_produce_FightBomb_5,UnitCommand_Airport,UI_StartProduction,"""unit1=FighterBomber num=5""","""shift+t""",,0,1
+key_airport_produce_FBomb_5,tx_key_produce_FightBomb_5,UnitCommand_Airport,UI_StartProduction,"""unit1=JH7B num=1""","""shift+t""",,0,1
+key_airport_cancProd_FBomb_1,tx_key_cancelProd_FightBomb_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=FighterBomber num=1""","""ctrl+t""",,0,1
+
+
+key_airport_produce_Bomber_1,tx_key_produce_Bomber_1,UnitCommand_Airport,UI_StartProduction,"""unit1=Bomber num=1""","""b""",,0,1
+//key_airport_produce_Bomber_5,tx_key_produce_Bomber_5,UnitCommand_Airport,UI_StartProduction,"""unit1=Bomber num=5""","""shift+b""",,0,1
+key_airport_produce_Bomber_5,tx_key_produce_Bomber_5,UnitCommand_Airport,UI_StartProduction,"""unit1=J11D num=1""","""shift+b""",,0,1
+key_airport_cancProd_Bomber_1,tx_key_cancelProd_Bomber_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=Bomber num=1""","""ctrl+b""",,0,1
+
+key_airport_produce_LtMnt2_1,tx_key_produce_LightMnt2_1,UnitCommand_Airport,UI_StartProduction,"""unit1=LightMounted2 num=1""","""k""",,0,1
+key_airport_produce_LtMnt2_5,tx_key_produce_LightMnt2_5,UnitCommand_Airport,UI_StartProduction,"""unit1=LightMounted2 num=5""","""shift+k""",,0,1
+key_airport_cancProd_LtMnt2_1,tx_key_cancelProd_LightMnt2_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=LightMounted2 num=1""","""ctrl+k""",,0,1
+
+key_airport_produce_HvyMnt2_1,tx_key_produce_HeavyMnt2_1,UnitCommand_Airport,UI_StartProduction,"""unit1=HeavyMounted2 num=1""","""l""",,0,1
+key_airport_produce_HvyMnt2_5,tx_key_produce_HeavyMnt2_5,UnitCommand_Airport,UI_StartProduction,"""unit1=HeavyMounted2 num=5""","""shift+l""",,0,1
+key_airport_cancProd_HvyMnt2_1,tx_key_cancelProd_HeavyMnt2_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=HeavyMounted2 num=1""","""ctrl+l""",,0,1
+
+key_airport_produce_Sat_1,tx_key_produce_Satellite_1,UnitCommand_Airport,UI_StartProduction,"""unit1=Satellite num=1""","""s""",,0,1
+key_airport_produce_Sat_5,tx_key_produce_Satellite_5,UnitCommand_Airport,UI_StartProduction,"""unit1=Satellite num=5""","""shift+s""",,0,1
+key_airport_cancProd_Sat_1,tx_key_cancelProd_Satellite_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=Satellite num=1""","""ctrl+s""",,0,1
+
+key_airport_produce_TransHel_1,tx_key_produce_TransHeli_1,UnitCommand_Airport,UI_StartProduction,"""unit1=TransportHelicopter num=1""","""d""",,0,1
+key_airport_produce_TransHel_5,tx_key_produce_TransHeli_5,UnitCommand_Airport,UI_StartProduction,"""unit1=TransportHelicopter num=5""","""shift+d""",,0,1
+key_airport_cancProd_TransHel_1,tx_key_cancelProd_TransHeli_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=TransportHelicopter num=1""","""ctrl+d""",,0,1
+
+key_airport_produce_PTPlane_1,tx_key_produce_PTPlane_1,UnitCommand_Airport,UI_StartProduction,"""unit1=NonCombatAir2 num=1""","""p""",,0,1
+key_airport_produce_PTPlane_5,tx_key_produce_PTPlane_5,UnitCommand_Airport,UI_StartProduction,"""unit1=NonCombatAir2 num=5""","""shift+p""",,0,1
+key_airport_cancProd_PTPlane_1,tx_key_cancelProd_PTPlane_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=NonCombatAir2 num=1""","""ctrl+p""",,0,1
+
+key_airport_produce_NukeBomb_1,tx_key_produce_NukeBomber_1,UnitCommand_Airport,UI_StartProduction,"""unit1=NuclearBomber num=1""","""n""",,0,1
+key_airport_produce_NukeBomb_5,tx_key_produce_NukeBomber_5,UnitCommand_Airport,UI_StartProduction,"""unit1=NuclearBomber num=5""","""shift+n""",,0,1
+key_airport_cancProd_NukeBomb_1,tx_key_cancelProd_NukeBomber_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=NuclearBomber num=1""","""ctrl+n""",,0,1
+
+key_airport_produce_Unique_1,tx_key_produce_Unique_1,UnitCommand_Airport,UI_StartProduction,"""unit1=UniqueUnitJapanese3 unit2=UniqueUnitMaasai3 unit3=UniqueUnitFrench3 num=1""","""z""",,0,1
+key_airport_produce_Unique_5,tx_key_produce_Unique_5,UnitCommand_Airport,UI_StartProduction,"""unit1=UniqueUnitJapanese3 unit2=UniqueUnitMaasai3 unit3=UniqueUnitFrench3 num=5""","""shift+z""",,0,1
+key_airport_cancProd_Unique_1,tx_key_cancelProd_Unique_1,UnitCommand_Airport,UI_CancelProduction,"""unit1=UniqueUnitJapanese3 unit2=UniqueUnitMaasai3 unit3=UniqueUnitFrench3 num=1""","""ctrl+z""",,0,1
+
+key_airport_AirMissionSet,tx_key_airport_AirMissionSet,UnitCommand_Airport,UIUnitCommand_AirMissionSet,,"""r""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// hangar,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_hangar_produce_ObsBall_1,tx_key_produce_ObsBalloon_1,UnitCommand_Airport2,UI_StartProduction,"""unit1=ObservationBalloon num=1""","""b""",,0,1
+key_hangar_produce_ObsBall_5,tx_key_produce_ObsBalloon_5,UnitCommand_Airport2,UI_StartProduction,"""unit1=ObservationBalloon num=5""","""shift+b""",,0,1
+key_hangar_cancProd_ObsBall_1,tx_key_cancelProd_ObsBalloon_1,UnitCommand_Airport2,UI_CancelProduction,"""unit1=ObservationBalloon num=1""","""ctrl+b""",,0,1
+
+key_hangar_produce_Sat_1,tx_key_produce_Satellite_1,UnitCommand_Airport2,UI_StartProduction,"""unit1=Satellite num=1""","""s""",,0,1
+key_hangar_produce_Sat_5,tx_key_produce_Satellite_5,UnitCommand_Airport2,UI_StartProduction,"""unit1=Satellite num=5""","""shift+s""",,0,1
+key_hangar_cancProd_Sat_1,tx_key_cancelProd_Satellite_1,UnitCommand_Airport2,UI_CancelProduction,"""unit1=Satellite num=1""","""ctrl+s""",,0,1
+
+key_hangar_produce_LtMnt2_1,tx_key_produce_LightMnt2_1,UnitCommand_Airport2,UI_StartProduction,"""unit1=LightMounted2 num=1""","""k""",,0,1
+key_hangar_produce_LtMnt2_5,tx_key_produce_LightMnt2_5,UnitCommand_Airport2,UI_StartProduction,"""unit1=LightMounted2 num=5""","""shift+k""",,0,1
+key_hangar_cancProd_LtMnt2_1,tx_key_cancelProd_LightMnt2_1,UnitCommand_Airport2,UI_CancelProduction,"""unit1=LightMounted2 num=1""","""ctrl+k""",,0,1
+
+key_hangar_produce_HvyMnt2_1,tx_key_produce_HeavyMnt2_1,UnitCommand_Airport2,UI_StartProduction,"""unit1=HeavyMounted2 num=1""","""l""",,0,1
+key_hangar_produce_HvyMnt2_5,tx_key_produce_HeavyMnt2_5,UnitCommand_Airport2,UI_StartProduction,"""unit1=HeavyMounted2 num=5""","""shift+l""",,0,1
+key_hangar_cancProd_HvyMnt2_1,tx_key_cancelProd_HeavyMnt2_1,UnitCommand_Airport2,UI_CancelProduction,"""unit1=HeavyMounted2 num=1""","""ctrl+l""",,0,1
+
+key_hangar_produce_TransHel_1,tx_key_produce_TransHeli_1,UnitCommand_Airport2,UI_StartProduction,"""unit1=TransportHelicopter num=1""","""d""",,0,1
+key_hangar_produce_TransHel_5,tx_key_produce_TransHeli_5,UnitCommand_Airport2,UI_StartProduction,"""unit1=TransportHelicopter num=5""","""shift+d""",,0,1
+key_hangar_cancProd_TransHel_1,tx_key_cancelProd_TransHeli_1,UnitCommand_Airport2,UI_CancelProduction,"""unit1=TransportHelicopter num=1""","""ctrl+d""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// temple,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_temple_produce_Priest_1,tx_key_produce_Priest_1,UnitCommand_Temple,UI_StartProduction,"""unit1=Priest num=1""","""p""",,0,1
+key_temple_produce_Priest_5,tx_key_produce_Priest_5,UnitCommand_Temple,UI_StartProduction,"""unit1=Priest num=5""","""shift+p""",,0,1
+key_temple_cancProd_Priest_1,tx_key_cancelProd_Priest_1,UnitCommand_Temple,UI_CancelProduction,"""unit1=Priest num=1""","""ctrl+p""",,0,1
+
+key_temple_produce_Unique_1,tx_key_produce_Unique_1,UnitCommand_Temple,UI_StartProduction,"""unit1=UniqueUnitEnglish1 unit2=UniqueUnitMaasai2 num=1""","""z""",,0,1
+key_temple_produce_Unique_5,tx_key_produce_Unique_5,UnitCommand_Temple,UI_StartProduction,"""unit1=UniqueUnitEnglish1 unit2=UniqueUnitMaasai2 num=5""","""shift+z""",,0,1
+key_temple_cancProd_Unique_1,tx_key_cancelProd_Unique_1,UnitCommand_Temple,UI_CancelProduction,"""unit1=UniqueUnitEnglish1 unit2=UniqueUnitMaasai2 num=1""","""ctrl+z""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// university,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_univ_produce_Spy_1,tx_key_produce_Spy_1,UnitCommand_University,UI_StartProduction,"""unit1=Spy num=1""","""s""",,0,1
+key_univ_produce_Spy_5,tx_key_produce_Spy_5,UnitCommand_University,UI_StartProduction,"""unit1=Spy num=5""","""shift+s""",,0,1
+key_univ_cancProd_Spy_1,tx_key_cancelProd_Spy_1,UnitCommand_University,UI_CancelProduction,"""unit1=Spy num=1""","""ctrl+s""",,0,1
+
+key_univ_produce_Medic_1,tx_key_produce_Medic_1,UnitCommand_University,UI_StartProduction,"""unit1=Medic num=1""","""m""",,0,1
+key_univ_produce_Medic_5,tx_key_produce_Medic_5,UnitCommand_University,UI_StartProduction,"""unit1=Medic num=5""","""shift+m""",,0,1
+key_univ_cancProd_Medic_1,tx_key_cancelProd_Medic_1,UnitCommand_University,UI_CancelProduction,"""unit1=Medic num=1""","""ctrl+m""",,0,1
+
+key_univ_produce_Unique_1,tx_key_produce_Unique_1,UnitCommand_University,UI_StartProduction,"""unit1=UniqueUnitAztec3 unit2=UniqueUnitEnglish3 unit3=UniqueUnitJapanese2 num=1""","""z""",,0,1
+key_univ_produce_Unique_5,tx_key_produce_Unique_5,UnitCommand_University,UI_StartProduction,"""unit1=UniqueUnitAztec3 unit2=UniqueUnitEnglish3 unit3=UniqueUnitJapanese2 num=5""","""shift+z""",,0,1
+key_univ_cancProd_Unique_1,tx_key_cancelProd_Unique_1,UnitCommand_University,UI_CancelProduction,"""unit1=UniqueUnitAztec3 unit2=UniqueUnitEnglish3 unit3=UniqueUnitJapanese2 num=1""","""ctrl+z""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+//Market keys,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+// buy/sell hotkeys,,,,,,,,
+key_market_Buy_Food_100,tx_key_market_Buy_Food_100,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Food amount=100""","""f""",,0,1
+key_market_Buy_Food_500,tx_key_market_Buy_Food_500,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Food amount=500""","""shift+f""",,0,1
+key_market_Sell_Food_100,tx_key_market_Sell_Food_100,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Food amount=100""","""ctrl+f""",,0,1
+key_market_Sell_Food_500,tx_key_market_Sell_Food_500,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Food amount=500""","""ctrl+shift+f""",,0,1
+key_market_Buy_Wood_100,tx_key_market_Buy_Wood_100,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Wood amount=100""","""w""",,0,1
+key_market_Buy_Wood_500,tx_key_market_Buy_Wood_500,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Wood amount=500""","""shift+w""",,0,1
+key_market_Sell_Wood_100,tx_key_market_Sell_Wood_100,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Wood amount=100""","""ctrl+w""",,0,1
+key_market_Sell_Wood_500,tx_key_market_Sell_Wood_500,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Wood amount=500""","""ctrl+shift+w""",,0,1
+key_market_Buy_Stone_100,tx_key_market_Buy_Stone_100,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Stone amount=100""","""s""",,0,1
+key_market_Buy_Stone_500,tx_key_market_Buy_Stone_500,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Stone amount=500""","""shift+s""",,0,1
+key_market_Sell_Stone_100,tx_key_market_Sell_Stone_100,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Stone amount=100""","""ctrl+s""",,0,1
+key_market_Sell_Stone_500,tx_key_market_Sell_Stone_500,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Stone amount=500""","""ctrl+shift+s""",,0,1
+key_market_Buy_Special1_100,tx_key_market_Buy_Special1_100,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Special1 amount=100""","""z""",,0,1
+key_market_Buy_Special1_500,tx_key_market_Buy_Special1_500,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Special1 amount=500""","""shift+z""",,0,1
+key_market_Sell_Special1_100,tx_key_market_Sell_Special1_100,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Special1 amount=100""","""ctrl+z""",,0,1
+key_market_Sell_Special1_500,tx_key_market_Sell_Special1_500,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Special1 amount=500""","""ctrl+shift+z""",,0,1
+key_market_Buy_Special2_100,tx_key_market_Buy_Special2_100,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Special2 amount=100""","""y""",,0,1
+key_market_Buy_Special2_500,tx_key_market_Buy_Special2_500,UnitCommand_Market,UIUnitCommand_PurchaseResource,"""res=Special2 amount=500""","""shift+y""",,0,1
+key_market_Sell_Special2_100,tx_key_market_Sell_Special2_100,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Special2 amount=100""","""ctrl+y""",,0,1
+key_market_Sell_Special2_500,tx_key_market_Sell_Special2_500,UnitCommand_Market,UIUnitCommand_SellResource,"""res=Special2 amount=500""","""ctrl+shift+y""",,0,1
+
+// trade cart production,,,,,,,,
+key_market_produce_TradeCart_1,tx_key_produce_TradeCart_1,UnitCommand_Market,UI_StartProduction,"""unit1=TradeCart num=1""","""c""",,0,1
+key_market_produce_TradeCart_5,tx_key_produce_TradeCart_5,UnitCommand_Market,UI_StartProduction,"""unit1=TradeCart num=5""","""shift+c""",,0,1
+key_market_cancProd_TradeCart_1,tx_key_cancelProd_TradeCart_1,UnitCommand_Market,UI_CancelProduction,"""unit1=TradeCart num=1""","""ctrl+c""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// wall connector,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_wallConn_TowerUpgrade,tx_key_wallConn_TowerUpgrade,UnitCommand_Wall_Connector,UIUnitCommand_TowerUpgrade,,"""t""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// wall tower,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_wallTower_Attack,tx_key_immobile_Attack,UnitCommand_Wall_Tower,UIUnitCommand_Attack,,"""shift+A""",,0,1
+key_wallTower_SignalEmergency,tx_key_immobile_SignalEmergency,UnitCommand_Wall_Tower,UIUnitCommand_SignalEmergency,,"""e""",,0,1
+key_wallTower_SignalAllClear,tx_key_immobile_SignalAllClear,UnitCommand_Wall_Tower,UIUnitCommand_SignalAllClear,,"""a""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// outpost,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_outpost_Attack,tx_key_immobile_Attack,UnitCommand_Outpost,UIUnitCommand_Attack,,"""shift+A""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// coastal defense,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_coastalDef_Attack,tx_key_immobile_Attack,UnitCommand_CoastalDefense,UIUnitCommand_Attack,,"""shift+A""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// house,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_house_Attack,tx_key_immobile_Attack,UnitCommand_House,UIUnitCommand_Attack,,"""shift+A""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// missile silo,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_missileSilo_produce_ICBM,tx_key_produce_ICBM,UnitCommand_Missile_Silo,UI_StartProduction,"""unit1=ICBM num=1""","""b""",,0,1
+key_missileSilo_cancProd_ICBM,tx_key_cancelProd_ICBM,UnitCommand_Missile_Silo,UI_CancelProduction,"""unit1=ICBM num=1""","""ctrl+b""",,0,1
+
+key_missileSilo_NukeGround,tx_key_immobile_NukeGround,UnitCommand_Missile_Silo,UIUnitCommand_NukeGround,,"""l""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// HERC facility,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_hercF_produce_LtMnt3_1,tx_key_produce_LightMnt3_1,UnitCommand_HercFacility,UI_StartProduction,"""unit1=LightMounted3 num=1""","""f""",,0,1
+key_hercF_produce_LtMnt3_5,tx_key_produce_LightMnt3_5,UnitCommand_HercFacility,UI_StartProduction,"""unit1=LightMounted3 num=5""","""shift+f""",,0,1
+key_hercF_cancProd_LtMnt3_1,tx_key_cancelProd_LightMnt3_1,UnitCommand_HercFacility,UI_CancelProduction,"""unit1=LightMounted3 num=1""","""ctrl+f""",,0,1
+
+key_hercF_produce_HvyMnt3_1,tx_key_produce_HeavyMnt3_1,UnitCommand_HercFacility,UI_StartProduction,"""unit1=HeavyMounted3 num=1""","""g""",,0,1
+key_hercF_produce_HvyMnt3_5,tx_key_produce_HeavyMnt3_5,UnitCommand_HercFacility,UI_StartProduction,"""unit1=HeavyMounted3 num=5""","""shift+g""",,0,1
+key_hercF_cancProd_HvyMnt3_1,tx_key_cancelProd_HeavyMnt3_1,UnitCommand_HercFacility,UI_CancelProduction,"""unit1=HeavyMounted3 num=1""","""ctrl+g""",,0,1
+
+key_hercF_produce_HercElecW_1,tx_key_produce_HercElecWar_1,UnitCommand_HercFacility,UI_StartProduction,"""unit1=HercElecWarfare num=1""","""h""",,0,1
+key_hercF_produce_HercElecW_5,tx_key_produce_HercElecWar_5,UnitCommand_HercFacility,UI_StartProduction,"""unit1=HercElecWarfare num=5""","""shift+h""",,0,1
+key_hercF_cancProd_HercElecW_1,tx_key_cancelProd_HercElecWar_1,UnitCommand_HercFacility,UI_CancelProduction,"""unit1=HercElecWarfare num=1""","""ctrl+h""",,0,1
+
+key_hercF_produce_HercRepair_1,tx_key_produce_HercRepair_1,UnitCommand_HercFacility,UI_StartProduction,"""unit1=HercRepair num=1""","""j""",,0,1
+key_hercF_produce_HercRepair_5,tx_key_produce_HercRepair_5,UnitCommand_HercFacility,UI_StartProduction,"""unit1=HercRepair num=5""","""shift+j""",,0,1
+key_hercF_cancProd_HercRepair_1,tx_key_cancelProd_HercRepair_1,UnitCommand_HercFacility,UI_CancelProduction,"""unit1=HercRepair num=1""","""ctrl+j""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// Palisade segment,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_palisade_MakeGate,tx_key_immobile_MakeGate,UnitCommand_Palisade,UIUnitCommand_MakeGate,,"""g""",,0,1
+
+
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+// Wall segment,,,,,,,,
+//-------------------------------------------------------------------------------------------------------------------,,,,,,,,
+
+key_wall_MakeGate,tx_key_immobile_MakeGate,UnitCommand_Wall,UIUnitCommand_MakeGate,,"""g""",,0,1
+

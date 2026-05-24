@@ -1,0 +1,36 @@
+//Name,Seasonal Texture,Alpha Mask texture,Tint fraction (1.0 = use tint; 0.0 = ignore tint)
+# DbSeasonalTextureSets_ = Temperate,,,
+Grass_Temperate,Grass_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Beach_Temperate,Beach_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+GrassRocky_Temperate,GrassRocky_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+MountainTop_Temperate,MountainTop_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+OceanFloor_Temperate,OceanFloor_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+OceanFloor2_Temperate,OceanFloor2_Temperate,terr_mask.tga,0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+OceanFloor3_Temperate,OceanFloor3_Temperate,terr_mask.tga,0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+GrassPatchy_Temperate,GrassPatchy_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+GrassDark_Temperate,GrassDark_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Cliff01_Temperate,Cliff01_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Mountain01_Temperate,Mountain01_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+MountainGrass_Temperate,MountainGrass_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+GroundCover_Temperate,GroundCover_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Riverbank_Temperate,Riverbank_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+RiverbankGrassy_Temperate,RiverbankGrassy_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+RiverbankPatchy_Temperate,RiverbankPatchy_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+ForestRoots_Temperate,ForestRoots_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+SparseGrass01_Temperate,SparseGrass01_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+SparseGrass02_Temperate,SparseGrass02_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+SparseGrass03_Temperate,SparseGrass03_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+FloodMeadow_Temperate,FloodMeadow_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+HillMeadow_Temperate,HillMeadow_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderstoryThicket_Temperate,UnderstoryThicket_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+CoastalGrass01_Temperate,CoastalGrass01_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+CoastalGrass02_Temperate,CoastalGrass02_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Saltgrass_Temperate,Saltgrass_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+ShallowWater_Temperate,ShallowWater_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Coastal_Temperate,Coastal_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Worn_Path_1,Worn_Path_1,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+MidEpochsPath_1,MidEpochsPath_1,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+EndEpochsPath_1,EndEpochsPath_1,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderBuilding_1_Temperate,UnderBuilding_1_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderBuilding_2_Temperate,UnderBuilding_2_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderBuilding_3_Temperate,UnderBuilding_3_Temperate,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
