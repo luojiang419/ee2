@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-24 (Ch055A以Ch055为基准全面重平衡)
+> 最后更新: 2026-05-24 (Ch055A DDF升级能力同步CSV)
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -71,6 +71,8 @@
 | 072 | EE2X_db-051-Ch055A射程调整为Ch055加20%-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 071修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 | 073 | EE2X_db-052-Ch055A以Ch055为基准重平衡-pre.zip | pre | Ch055A(中国海军055A) E11-E15全时代 | upgrade_unittypes.csv | 以Ch055为基准全面重平衡: HP×2.0/DAMAGE×1.3/RELOAD同步Ch055/LOS×1.5/造价×3.5, 实现2.5艘Ch055兑1艘Ch055A(损2艘+半血) | — | 2026-05-24 |
 | 074 | EE2X_db-052-Ch055A以Ch055为基准重平衡-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 073修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 075 | EE2X_db-053-Ch055A-DDF升级能力同步CSV-pre.zip | pre | Ch055A DDF UpgradeAbilities + CSV UPGRADEREFS | upgrade_unittypes.csv, Yuanhang_Tao_13naval_units.ddf | DDF 4个升级块damage/range/reload同步CSV值 + 新增Ch055Epoch14Attack块 + CSV E14引用改为Ch055Epoch14Attack | — | 2026-05-24 |
+| 076 | EE2X_db-053-Ch055A-DDF升级能力同步CSV-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 075修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
