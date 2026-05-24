@@ -598,10 +598,16 @@ def _apply_scope(
         raise PatcherError("latest.json 与 release-manifest.json 的包哈希不一致。")
     package_path = staging_dir / manifest.packageFileName
 
+    _emit(progress, log_file, f"{scope}:准备", "正在等待旧进程退出...", 2.0)
     if not _kill_launcher(launcher_exe, log_file):
         raise PatcherError(f"启动器旧进程未在超时内退出: {launcher_exe}")
-    _emit(progress, log_file, f"{scope}:下载", f"下载 {manifest.packageFileName}", 20.0)
-    _download_file(package.packageUrl, package_path, progress=None, log_file=log_file)
+    _emit(progress, log_file, f"{scope}:下载", f"下载 {manifest.packageFileName}", 10.0)
+    if progress:
+        def _dl_progress(_stage: str, _detail: str, pct: float) -> None:
+            _emit(progress, log_file, f"{scope}:下载", f"{manifest.packageFileName} ({pct:.0f}%)", 10.0 + pct * 0.25)
+        _download_file(package.packageUrl, package_path, progress=_dl_progress, log_file=log_file)
+    else:
+        _download_file(package.packageUrl, package_path, progress=None, log_file=log_file)
     if sha256_file(package_path) != package.packageSha256:
         raise PatcherError("下载包 SHA-256 校验失败。")
 
@@ -738,8 +744,10 @@ def run_patcher(
         log_file = runtime_dir / LAST_UPDATER_LOG_NAME
     try:
         _append_log(log_file, f"[启动] root={game_root} launcherDir={launcher_dir} launcherExe={launcher_exe} scope={scope} server={server_base} channel={channel}")
+        _emit(progress, log_file, "检查", "正在获取最新版本信息...", 2.0)
         latest = _latest_release_from_dict(_fetch_json(_latest_url(server_base, channel)))
         latest_version = latest.version
+        _emit(progress, log_file, "检查", f"最新版本: {latest_version}", 5.0)
         active_summary = ApplySummary(version=latest.version, scope=scope)
 
         requested_scopes = [scope]
