@@ -185,7 +185,7 @@ UnitType Ch054A
 	}
 	abilities = [
             Attack { damage = 800; range = 25; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; } //turretControllerName = sensordestroyerTurret;
-            NavalMove {speed = 0.6; accel = 1; angSpeed = 40}
+            NavalMove {speed = 20; accel = 1; angSpeed = 40}
 		LOS { range = 24 }
 		AreaEffect {
 		effects = [ 
@@ -2437,7 +2437,7 @@ UnitType Type22350
 	}
 	abilities = [
         Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
-        NavalMove {speed = 0.6; accel = 1; angSpeed = 40}
+        NavalMove {speed = 20; accel = 1; angSpeed = 40}
 		LOS { range = 25}
 		AreaEffect {
 		effects = [ 
@@ -5083,7 +5083,7 @@ UnitType FregattenFFG
 	}
 	abilities = [
         Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "AmericanRocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
-        NavalMove {speed = 0.6; accel = 1; angSpeed = 40}
+        NavalMove {speed = 20; accel = 1; angSpeed = 40}
 		LOS { range = 18 }
 		AreaEffect {
 		effects = [ 
