@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-24 驱逐舰HP射程攻击三国同步调整
+> 最后更新: 2026-05-24 PC3反潜机攻击HP调整
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -125,6 +125,8 @@
 | 026 | EE2X_db-026-E14步兵反坦克迫击炮狙击手-pre.zip | pre | ATSoldiers/HeavyInfantry2/Sniper/CsCommgril | upgrade_unittypes.csv, Yuanhang_720_units.ddf, dbtechtreenode.csv | 反坦克兵去石头/迫击炮射程20/狙击手视野18/女特种兵速度15 | — | 2026-05-21 |
 | 027 | EE2X_db-027-Mill工厂4类单位差异化-pre.zip | pre | Mill工厂4类单位(SPG/MLRS/AA短程/AA远程)中美俄E14 | upgrade_unittypes.csv, dbtechtreenode.csv, *lujun.ddf×3, Yuanhang_*.ddf×3 | 射程/伤害/装填/速度/部署/成本百分比差异化调整 | — | 2026-05-21 |
 | 048 | EE2X_db-048-launcher-changelog-pre.zip | pre | 启动器强制更新后跳过更新日志弹窗 | renderer.js | checkUpdateAndRender在source='after-update'时跳过showReleaseChangelog，直接markChangelogShown | — | 2026-05-24 |
+| 111 | EE2X_db-111-PC3反潜机攻击HP调整-pre.zip | pre | PC3(伊尔38反潜机) E11/E13 | upgrade_unittypes.csv | HP 2000→1500(E11)/2500→1500(E13), DAMAGE 700→8000(E11)/900→8000(E13) | — | 2026-05-24 |
+| 111 | EE2X_db-111-PC3反潜机攻击HP调整-runtime.zip | runtime | PC3(伊尔38反潜机) E11/E13 | EE2X_db.zip 完整 | 111修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 旧格式全量快照（历史遗留）
 
