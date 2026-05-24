@@ -84,15 +84,15 @@
 | 085 | EE2X_db-059-J15对齐ChinaPlane属性-pre.zip | pre | J15/J15_Naval(福建号航母舰载机) | Chinese_army.ddf, dbtechtreenode.csv | J15和J15_Naval DDF属性对齐ChinaPlane E14(HP1900/speed8.0/DMG808/RANGE14/ordnance28/LOS15); 科技树造价对齐(5,0,60,0,50,0,0,0,50,60,0); J35A不动 | — | 2026-05-24 |
 | 086 | EE2X_db-060-J15对齐ChinaPlane属性-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 085修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 | 087 | EE2X_db-061-E14防空四单位资源调整-pre.zip | pre | LightArtillery2/AntiAir_HQ61/PAC3/BUKM1_2 E14 | upgrade_unittypes.csv | 刺针取消铀改石油400; 红旗61取消铀改石油400; 爱国者3油250+铀250; 山毛榉取消铀改石油400 | — | 2026-05-24 |
-| 088 | EE2X_db-061-E14防空四单位资源调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 087修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 088 | EE2X_db-061-E14防空四单位资源调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 087修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 089 | EE2X_db-062-刺针石油450-pre.zip | pre | LightArtillery2 E14 | upgrade_unittypes.csv | 刺针石油从400调为450 | — | 2026-05-24 |
-| 090 | EE2X_db-062-刺针石油450-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 089修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 090 | EE2X_db-062-刺针石油450-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 089修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 091 | EE2X_db-063-刺针E13石油450-pre.zip | pre | LightArtillery2 E13 | upgrade_unittypes.csv | 刺针E13取消铀改石油450 | — | 2026-05-24 |
-| 092 | EE2X_db-063-刺针E13石油450-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 091修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 092 | EE2X_db-063-刺针E13石油450-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 091修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 093 | EE2X_db-064-E13三国中程防空石油化-pre.zip | pre | AntiAir_HQ61/PAC3/BUKM1_2 E13 | upgrade_unittypes.csv | HQ61 E13铀改石油400; PAC3 E13铀改石油250+铀250; BUKM1_2 E13铀改石油400 | — | 2026-05-24 |
-| 094 | EE2X_db-064-E13三国中程防空石油化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 093修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 094 | EE2X_db-064-E13三国中程防空石油化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 093修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 095 | EE2X_db-065-E14中远程防空射速速度部署-pre.zip | pre | E14中远程8防空单位 | upgrade_unittypes.csv, Chinese/American/Russian_army_lujun.ddf, Yuanhang_720_units.ddf | 中程: pack=1.0s, 射速+50%, 速度+30%; 远程: pack=1.5s, 射速+50%, 速度+30% | — | 2026-05-24 |
-| 096 | EE2X_db-065-E14中远程防空射速速度部署-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 095修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 096 | EE2X_db-065-E14中远程防空射速速度部署-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 095修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 095 | EE2X_db-095-狙击手视野18-pre.zip | pre | Sniper(狙击手) E11-E15 | upgrade_unittypes.csv | E11 LOS 12→18; E13 LOS 13→18 | — | 2026-05-24 |
 | 096 | EE2X_db-096-狙击手视野18-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 095修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
