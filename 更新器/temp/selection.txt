@@ -1,1 +1,2 @@
-地球帝国二代远航版启动器/Core/resources/app/renderer/renderer.js
+UnofficialVersionConfig.txt
+Unofficial Patch Files/MinorVersion-data
