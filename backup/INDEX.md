@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-24 狙击手老兵/精英视野射程分离(Vet16/16, Elite18/18)
+> 最后更新: 2026-05-24 回退狙击手修改(导致游戏崩溃)
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -95,8 +95,8 @@
 | 096 | EE2X_db-065-E14中远程防空射速速度部署-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 095修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 095 | EE2X_db-095-狙击手视野18-pre.zip | pre | Sniper(狙击手) E11-E15 | upgrade_unittypes.csv | E11 LOS 12→18; E13 LOS 13→18 | 已废弃 | 2026-05-24 |
 | 096 | EE2X_db-096-狙击手视野18-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 095修改应用后的完整游戏ZIP | 已废弃 | 2026-05-24 |
-| 097 | EE2X_db-097-狙击手老兵精英视野射程-pre.zip | pre | Sniper(狙击手) E11/E13老兵/精英 | upgrade_unittypes.csv, Yuanhang_720_units.ddf, dbtechtreenode.csv | 退役基础视野→老兵(16/16)+精英(18/18); DDF新增4个UpgradeAbilities+CSV4行+科技树4节点 | — | 2026-05-24 |
-| 098 | EE2X_db-098-狙击手老兵精英视野射程-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 097修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 097 | EE2X_db-097-狙击手老兵精英视野射程-pre.zip | pre | Sniper(狙击手) E11/E13老兵/精英 | upgrade_unittypes.csv, Yuanhang_720_units.ddf, dbtechtreenode.csv | 退役基础视野→老兵(16/16)+精英(18/18) | 已废弃 | 2026-05-24 |
+| 098 | EE2X_db-098-狙击手老兵精英视野射程-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 097修改应用后的完整游戏ZIP | 崩溃 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
