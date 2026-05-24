@@ -2568,7 +2568,11 @@ async function init(){
     updatePrimaryUpdateButton(status)
     setStartButtonBlocked(false, '启动游戏')
     if (status.shouldShowChangelog) {
-      showReleaseChangelog(status)
+      if (source === 'after-update') {
+        try { await window.ee2x.markChangelogShown(status.latestVersion) } catch {}
+      } else {
+        showReleaseChangelog(status)
+      }
     }
     return status
   }
