@@ -744,7 +744,7 @@ UpgradePowers Ch055TechTreeUpgradeEpoch14
 UpgradeAbilities Ch055Epoch11Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1042; range = 22; angularRange = 360;  reloadTime = 3.0; applyDamageTime = 0.1;  missileName = "TankShell"; turretControllerName = TankTurret; areaDamageRadius = 2; throwUnits = true }
+		Attack { damage = 1447; range = 22; angularRange = 360;  reloadTime = 3.0; applyDamageTime = 0.1;  missileName = "TankShell"; turretControllerName = TankTurret; areaDamageRadius = 2; throwUnits = true }
             NavalMove {speed = 1.5; accel = 1; angSpeed = 60}
 	]
 }
@@ -755,7 +755,7 @@ UpgradeAbilities Ch055Epoch11Attack
 UpgradeAbilities Ch055Epoch12Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1250; range = 24; angularRange = 360;  reloadTime = 3.0; applyDamageTime = 0.1;  missileName = "TankShell"; turretControllerName = FklsaTurret; areaDamageRadius = 2; throwUnits = true }
+		Attack { damage = 1736; range = 24; angularRange = 360;  reloadTime = 3.0; applyDamageTime = 0.1;  missileName = "TankShell"; turretControllerName = FklsaTurret; areaDamageRadius = 2; throwUnits = true }
             NavalMove {speed = 1.6; accel = 1; angSpeed = 60}
 	]
 }
@@ -766,7 +766,7 @@ UpgradeAbilities Ch055Epoch12Attack
 UpgradeAbilities Ch055Epoch13Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1500; range = 26; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;throwUnits = true } //turretControllerName = sensordestroyerTurret;
+		Attack { damage = 2083; range = 26; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;throwUnits = true } //turretControllerName = sensordestroyerTurret;
         NavalMove {speed = 1.7; accel = 1; angSpeed = 60}
 	]
 }
@@ -777,7 +777,7 @@ UpgradeAbilities Ch055Epoch13Attack
 UpgradeAbilities Ch055Epoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1800; range = 29; angularRange = 360; reloadTime = 1.9; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;throwUnits = true }
+		Attack { damage = 2500; range = 29; angularRange = 360; reloadTime = 1.9; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;throwUnits = true }
 	        NavalMove {speed = 1.7; accel = 1; angSpeed = 60}
 	]
 }
@@ -788,7 +788,7 @@ UpgradeAbilities Ch055Epoch14Attack
 UpgradeAbilities Ch055Epoch15Attack
 {
 	upgradedAbilities = [
-		 Attack { damage = 2160; range = 31; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.1; missileName = "paodan15"; turretControllerName = FklsaTurret; ignoreBlocking = 1; areaDamageRadius = 2;throwUnits = true }
+		 Attack { damage = 3000; range = 31; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.1; missileName = "paodan15"; turretControllerName = FklsaTurret; ignoreBlocking = 1; areaDamageRadius = 2;throwUnits = true }
             NavalMove {speed = 1.7; accel = 1; angSpeed = 60}
 	]
 }
