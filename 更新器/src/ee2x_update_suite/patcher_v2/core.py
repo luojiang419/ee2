@@ -74,6 +74,91 @@ def _latest_url(server_base: str, channel: str) -> str:
     return f"{server_base.rstrip('/')}/updates/{channel}/latest.json"
 
 
+def _history_api_url(server_base: str, channel: str) -> str:
+    return f"{server_base.rstrip('/')}/api/update/v1/channels/{channel}/history"
+
+
+def _parse_version(v: str) -> tuple[int, ...]:
+    """将版本字符串解析为整数元组，如 '1.0.10' → (1, 0, 10)。"""
+    try:
+        return tuple(int(part) for part in str(v).strip().split("."))
+    except (ValueError, AttributeError):
+        return ()
+
+
+def _build_version_chain(
+    current_state: dict,
+    history: list[dict],
+    latest_version: str,
+    scope: str,
+    force: bool = False,
+) -> list[dict]:
+    """确定需要链式应用的历史版本列表（按 publishedAt 升序）。
+
+    返回的每个条目来自 history API，至少包含 releaseId, version, publishedAt。
+    force=True 或当前版本为空时返回全部历史版本。
+    """
+    scope_state = _scope_state(current_state, scope)
+    current_version = scope_state.get("version", "")
+
+    if not history:
+        return []
+
+    # 按发布时间升序排列
+    sorted_history = sorted(history, key=lambda entry: str(entry.get("publishedAt", "")))
+
+    if force or not current_version:
+        return sorted_history
+
+    # 找到当前版本在历史列表中的位置，返回之后的所有版本
+    current_index = -1
+    for i, entry in enumerate(sorted_history):
+        if str(entry.get("version", "")) == current_version:
+            current_index = i
+            break
+
+    if current_index < 0:
+        # 当前版本不在历史列表中（可能被删除）→ 安全起见应用全部
+        _append_log(None, f"[chain] 当前版本 {current_version} 不在历史列表中，将应用全部历史版本")
+        return sorted_history
+
+    # 返回当前版本之后的所有版本（不含当前版本自身）
+    chain = sorted_history[current_index + 1:]
+    # 确保最新版本在末尾
+    if chain and str(chain[-1].get("version", "")) != latest_version:
+        _append_log(None, f"[chain] 版本链末尾 {chain[-1].get('version')} != latest {latest_version}")
+    return chain
+
+
+def _release_package_for_version(
+    server_base: str,
+    channel: str,
+    release_id: str,
+    scope: str,
+) -> ReleasePackage | None:
+    """为历史版本构造 ReleasePackage。
+
+    通过 URL 模式拼接 manifestUrl，从 manifest 获取 packageFileName 和
+    packageSha256 后构造完整 packageUrl。
+    """
+    server = server_base.rstrip("/")
+    manifest_url = f"{server}/updates/{channel}/releases/{release_id}/{scope}/release-manifest.json"
+    try:
+        manifest_payload = _fetch_json(manifest_url)
+    except Exception:
+        return None
+    package_file_name = str(manifest_payload.get("packageFileName", "") or "")
+    package_sha256 = str(manifest_payload.get("packageSha256", "") or "")
+    if not package_file_name or not package_sha256:
+        return None
+    return ReleasePackage(
+        manifestUrl=manifest_url,
+        packageUrl=f"{server}/updates/{channel}/releases/{release_id}/{scope}/{package_file_name}",
+        packageSha256=package_sha256,
+        packageSize=int(manifest_payload.get("packageSize", 0) or 0),
+    )
+
+
 def _fetch_json(url: str, timeout: int = 15) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": "EE2X-Patcher/3.0"})
     with urllib.request.urlopen(req, timeout=timeout) as response:
@@ -580,6 +665,7 @@ def _apply_scope(
     launcher_exe: Path,
     progress: ProgressCallback | None,
     log_file: Path | None,
+    kill_launcher: bool = True,
 ) -> ApplySummary:
     summary = ApplySummary(version=latest.version, scope=scope)
     current_state = _load_state(state_path)
@@ -598,9 +684,10 @@ def _apply_scope(
         raise PatcherError("latest.json 与 release-manifest.json 的包哈希不一致。")
     package_path = staging_dir / manifest.packageFileName
 
-    _emit(progress, log_file, f"{scope}:准备", "正在等待旧进程退出...", 2.0)
-    if not _kill_launcher(launcher_exe, log_file):
-        raise PatcherError(f"启动器旧进程未在超时内退出: {launcher_exe}")
+    if kill_launcher:
+        _emit(progress, log_file, f"{scope}:准备", "正在等待旧进程退出...", 2.0)
+        if not _kill_launcher(launcher_exe, log_file):
+            raise PatcherError(f"启动器旧进程未在超时内退出: {launcher_exe}")
     _emit(progress, log_file, f"{scope}:下载", f"下载 {manifest.packageFileName}", 10.0)
     if progress:
         def _dl_progress(_stage: str, _detail: str, pct: float) -> None:
@@ -755,8 +842,19 @@ def run_patcher(
             requested_scopes = [PACKAGE_SCOPE_LAUNCHER, PACKAGE_SCOPE_GAME]
 
         current_state = _load_state(state_path)
+
+        # 获取历史版本列表
+        _emit(progress, log_file, "检查", "正在获取版本历史...", 6.0)
+        history: list[dict] = []
+        try:
+            history_payload = _fetch_json(_history_api_url(server_base, channel))
+            history = history_payload.get("history", []) if isinstance(history_payload, dict) else []
+        except Exception as exc:
+            _append_log(log_file, f"[chain] 获取历史版本失败，降级为单版本模式: {exc}")
+
+        launcher_killed = False
         for current_scope in requested_scopes:
-            action, package = _scope_needs_update(current_state, latest, current_scope, force=force)
+            action, latest_package = _scope_needs_update(current_state, latest, current_scope, force=force)
             if action == "missing":
                 active_summary.skippedScopes.append(current_scope)
                 active_summary.notes.append(f"{current_scope} 包未在 latest.json 中宣告，跳过。")
@@ -767,24 +865,86 @@ def run_patcher(
                 active_summary.notes.append(f"{current_scope} 包已是最新版本，跳过。")
                 _append_log(log_file, f"[{current_scope}] already up to date")
                 continue
-            assert package is not None
-            _append_log(log_file, f"[{current_scope}] apply start")
-            manifest_preview = _manifest_from_dict(_fetch_json(package.manifestUrl))
-            scope_summary = _apply_scope(
-                game_root=game_root,
-                launcher_dir=launcher_dir,
-                state_path=state_path,
-                history_path=history_path,
-                latest=latest,
-                package=package,
-                scope=current_scope,
-                launcher_exe=launcher_exe,
-                progress=progress,
-                log_file=log_file,
-            )
-            active_summary.executedScopes.append(current_scope)
-            active_summary.scopeSummaries[current_scope] = scope_summary.to_dict()
-            _merge_summary(active_summary, scope_summary)
+
+            assert latest_package is not None
+
+            # 构建版本链
+            chain = _build_version_chain(current_state, history, latest.version, current_scope, force=force)
+            if not chain:
+                # 降级：直接应用 latest
+                chain = [{
+                    "releaseId": "",
+                    "version": latest.version,
+                    "publishedAt": latest.publishedAt,
+                    "notes": latest.releaseNotes,
+                    "required": latest.required,
+                }]
+                _append_log(log_file, f"[chain] {current_scope} 版本链为空，降级为直接应用 latest v{latest.version}")
+
+            _append_log(log_file, f"[chain] {current_scope} 版本链({len(chain)}个): {' → '.join(str(e.get('version','?')) for e in chain)}")
+            _emit(progress, log_file, f"{current_scope}:链", f"共 {len(chain)} 个版本待应用", 8.0)
+
+            total_versions = len(chain)
+            chain_base_pct = 8.0
+            chain_range = 72.0
+
+            for idx, entry in enumerate(chain, start=1):
+                entry_version = str(entry.get("version", ""))
+                entry_release_id = str(entry.get("releaseId", ""))
+
+                if entry_version == latest.version:
+                    version_package = latest_package
+                else:
+                    version_package = _release_package_for_version(server_base, channel, entry_release_id, current_scope)
+
+                if version_package is None:
+                    _append_log(log_file, f"[chain] {current_scope} v{entry_version} releaseId={entry_release_id} 无法获取包信息，跳过")
+                    continue
+
+                version_latest = LatestRelease(
+                    schemaVersion=latest.schemaVersion,
+                    channel=latest.channel,
+                    version=entry_version,
+                    releaseNotes=str(entry.get("notes", "")),
+                    publishedAt=str(entry.get("publishedAt", "")),
+                    required=bool(entry.get("required", True)),
+                )
+
+                # 构造缩放进度回调
+                seg_start = chain_base_pct + (idx - 1) / total_versions * chain_range
+                seg_end = chain_base_pct + idx / total_versions * chain_range
+
+                def _make_chain_progress(_s: str, _idx: int, _total: int, _seg_start: float, _seg_end: float):
+                    def _chain_progress(stage: str, detail: str, pct: float) -> None:
+                        if progress is None:
+                            return
+                        scaled = _seg_start + pct / 100.0 * (_seg_end - _seg_start)
+                        progress(f"{_s} ({_idx}/{_total}) {stage}", detail, scaled)
+                    return _chain_progress
+
+                scope_kill = not launcher_killed
+                if scope_kill:
+                    launcher_killed = True
+
+                _append_log(log_file, f"[chain] {current_scope} 开始应用 v{entry_version} ({idx}/{total_versions})")
+                scope_summary = _apply_scope(
+                    game_root=game_root,
+                    launcher_dir=launcher_dir,
+                    state_path=state_path,
+                    history_path=history_path,
+                    latest=version_latest,
+                    package=version_package,
+                    scope=current_scope,
+                    launcher_exe=launcher_exe,
+                    progress=_make_chain_progress(current_scope, idx, total_versions, seg_start, seg_end),
+                    log_file=log_file,
+                    kill_launcher=scope_kill,
+                )
+                active_summary.executedScopes.append(current_scope)
+                active_summary.scopeSummaries[f"{current_scope}-v{entry_version}"] = scope_summary.to_dict()
+                _merge_summary(active_summary, scope_summary)
+                _append_log(log_file, f"[chain] {current_scope} v{entry_version} 应用完成")
+
             current_state = _load_state(state_path)
 
         if not active_summary.executedScopes:
