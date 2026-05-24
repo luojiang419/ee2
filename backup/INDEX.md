@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-24 舰载机E12-E15平滑重平衡(中美俄三国专属DDF升级)
+> 最后更新: 2026-05-24 E14防空四单位资源调整(刺针/红旗61/爱国者3/山毛榉石油化)
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -83,6 +83,8 @@
 | 084 | EE2X_db-058-舰载机E12-E15平滑重平衡-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 083修改应用后的完整游戏ZIP — 已修复：初版ZIP因Python打包丢失EE2X_db/前缀导致崩溃，已用Compress-Archive重新打包修复 | 待测试 | 2026-05-24 已修复重打包 |
 | 085 | EE2X_db-059-J15对齐ChinaPlane属性-pre.zip | pre | J15/J15_Naval(福建号航母舰载机) | Chinese_army.ddf, dbtechtreenode.csv | J15和J15_Naval DDF属性对齐ChinaPlane E14(HP1900/speed8.0/DMG808/RANGE14/ordnance28/LOS15); 科技树造价对齐(5,0,60,0,50,0,0,0,50,60,0); J35A不动 | — | 2026-05-24 |
 | 086 | EE2X_db-060-J15对齐ChinaPlane属性-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 085修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 087 | EE2X_db-061-E14防空四单位资源调整-pre.zip | pre | LightArtillery2/AntiAir_HQ61/PAC3/BUKM1_2 E14 | upgrade_unittypes.csv | 刺针取消铀改石油400; 红旗61取消铀改石油400; 爱国者3油250+铀250; 山毛榉取消铀改石油400 | — | 2026-05-24 |
+| 088 | EE2X_db-061-E14防空四单位资源调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 087修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
