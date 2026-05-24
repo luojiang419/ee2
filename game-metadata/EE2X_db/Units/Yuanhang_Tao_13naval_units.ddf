@@ -185,7 +185,7 @@ UnitType Ch054A
 	}
 	abilities = [
             Attack { damage = 800; range = 25; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; } //turretControllerName = sensordestroyerTurret;
-            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
+            NavalMove {speed = 19; accel = 1; angSpeed = 40}
 		LOS { range = 24 }
 		AreaEffect {
 		effects = [ 
@@ -2437,7 +2437,7 @@ UnitType Type22350
 	}
 	abilities = [
         Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
-        NavalMove {speed = 1.6; accel = 1; angSpeed = 40}
+        NavalMove {speed = 19; accel = 1; angSpeed = 40}
 		LOS { range = 25}
 		AreaEffect {
 		effects = [ 
@@ -3293,7 +3293,7 @@ UnitType AsagiriDestroyer
 	}
 	abilities = [
             Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 3.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
-           NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
+           NavalMove {speed = 19; accel = 1; angSpeed = 40}
 		LOS { range = 24 }
 		Produce {}
 		AreaEffect {
@@ -5083,7 +5083,7 @@ UnitType FregattenFFG
 	}
 	abilities = [
         Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "AmericanRocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
-        NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
+        NavalMove {speed = 19; accel = 1; angSpeed = 40}
 		LOS { range = 18 }
 		AreaEffect {
 		effects = [ 
@@ -5816,7 +5816,7 @@ UnitType BadenWurttemberg
 	}
 	abilities = [
             Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
-            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
+            NavalMove {speed = 19; accel = 1; angSpeed = 40}
 		LOS { range = 26 }
 		AreaEffect {
 		effects = [ 
@@ -5990,7 +5990,7 @@ UnitType FregattenF124
 	}
 	abilities = [
             Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
-            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
+            NavalMove {speed = 19; accel = 1; angSpeed = 40}
 		LOS { range = 26 }
 		AreaEffect {
 			effects = [ 
@@ -6574,7 +6574,7 @@ UnitType Fregatten_Formidable
 	}
 	abilities = [
             Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
-           NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
+           NavalMove {speed = 19; accel = 1; angSpeed = 40}
 		LOS { range = 24 }
 		AreaEffect {
 		effects = [ 
@@ -8059,7 +8059,7 @@ UnitType FregattenType26
 	}
 	abilities = [
             Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
-           NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
+           NavalMove {speed = 19; accel = 1; angSpeed = 40}
 		LOS { range = 26 }
 		AreaEffect {
 		effects = [ 
