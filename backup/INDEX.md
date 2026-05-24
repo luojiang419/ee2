@@ -91,6 +91,8 @@
 | 092 | EE2X_db-063-刺针E13石油450-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 091修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 | 093 | EE2X_db-064-E13三国中程防空石油化-pre.zip | pre | AntiAir_HQ61/PAC3/BUKM1_2 E13 | upgrade_unittypes.csv | HQ61 E13铀改石油400; PAC3 E13铀改石油250+铀250; BUKM1_2 E13铀改石油400 | — | 2026-05-24 |
 | 094 | EE2X_db-064-E13三国中程防空石油化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 093修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 095 | EE2X_db-065-E14中远程防空射速速度部署-pre.zip | pre | E14中远程8防空单位 | upgrade_unittypes.csv, Chinese/American/Russian_army_lujun.ddf, Yuanhang_720_units.ddf | 中程: pack=1.0s, 射速+50%, 速度+30%; 远程: pack=1.5s, 射速+50%, 速度+30% | — | 2026-05-24 |
+| 096 | EE2X_db-065-E14中远程防空射速速度部署-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 095修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 | 095 | EE2X_db-095-狙击手视野18-pre.zip | pre | Sniper(狙击手) E11-E15 | upgrade_unittypes.csv | E11 LOS 12→18; E13 LOS 13→18 | — | 2026-05-24 |
 | 096 | EE2X_db-096-狙击手视野18-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 095修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
 

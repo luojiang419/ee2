@@ -1,4 +1,4 @@
-UnitType ZSL92
+﻿UnitType ZSL92
 {
 	parent = Mounted
 	properties {
@@ -28,7 +28,7 @@ UnitType ZSL92
 	}
 	abilities = [
 		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.01; missileName = "fkjqAmmo"; turretControllerName = TankTurret;  }
-		VehicleMove {speed = 1.7; angSpeed = 75;followTerrainSlope = 1;mustMoveToTurn = 0} 
+		VehicleMove {speed = 1.6; angSpeed = 70;followTerrainSlope = 1;mustMoveToTurn = 0} 
 		LOS { range = 17 }
 	Garrison { 
 			garrisonType = Tower; 
@@ -94,7 +94,7 @@ UpgradeAbilities ZSL92Epoch14Attack
 {
 	upgradedAbilities = [
 		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.1; turretControllerName = TankTurret; missileName = "fkjqAmmo" }
-		VehicleMove {speed = 2.0; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+		VehicleMove {speed = 2.1; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
 	]
 }
 UnitModel ZSL92_11
@@ -235,7 +235,7 @@ UnitType T99A
 	properties {
 		rps = HeavyMounted
 		moveType = Mechanized
-		SizeX = 1.5
+		SizeX = 1.0
 		SizeY = 1.0
 		mass = 2
 		popCount = 2
@@ -332,7 +332,7 @@ UpgradeAbilities T99AEpoch13Move
 UpgradeAbilities T99AEpoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; turretControllerName = TankTurret; areaDamageRadius = 2.0; throwUnits = true }
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; turretControllerName = TankTurret; areaDamageRadius = 2.5; throwUnits = true }
 	]
 }
 
@@ -340,7 +340,7 @@ UpgradeAbilities T99AEpoch14Attack
 UpgradeAbilities T99AEpoch14Move
 {
 	upgradedAbilities = [
-		VehicleMove {speed = 1.7; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+		VehicleMove {speed = 1.8; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
 	]
 }
 UnitModel T99A_11
@@ -518,13 +518,13 @@ UnitType China_T99A
 	properties {
 		rps = HeavyMounted
 		moveType = Mechanized
-		SizeX = 1.5
-		SizeY = 1.2
+		SizeX = 1.0
+		SizeY = 0.8
 		mass = 2
 		popCount = 2
 		displayName = tx_utn_China_T99A_name
         verboseTooltip = vtt_unit_China_T99A
-		HitPoints = 13250
+		HitPoints = 5300
 	}
 	sounds = {
 		sndSelection = ["v_tank_select_chn01" 
@@ -546,8 +546,8 @@ UnitType China_T99A
 		sndDeath =  ["v_tank_death_chn01"]
 	}
 	abilities = [
-      Attack { range = 16; reloadTime = 3.0; applyDamageTime = 0.5; damage = 1050; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2;throwUnits = true }
-	  VehicleMove {speed = 1.45; angSpeed = 55;followTerrainSlope = 1;mustMoveToTurn = 0}
+      Attack { range = 16; reloadTime = 3.0; applyDamageTime = 0.5; damage = 420; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2;throwUnits = true }
+	  VehicleMove {speed = 1.75; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }	
 	]
@@ -584,7 +584,7 @@ UnitModel China_T99A_11
 {
 	ScaleType 	= kScaleVehicle
 	DefaultModel 	= MarkIV_china.nif
-	ForceScale      = 0.135
+	ForceScale      = 0.09
 	DefaultState 	= Idle
 	States = [
 			{ StateName= Idle AnimName = lla13_preshumvee_idle.KF	
@@ -606,7 +606,7 @@ UnitModel China_T99A_12
 {
 	parent 		= BaseHeavyMountedArmored
 	DefaultModel 	= M4A3_China.NIF
-	ForceScale      = 0.135
+	ForceScale      = 0.09
 	States = [
 			{ StateName= Idle AnimName = T99_A2_idle.KF 
 			TextKeys = [ 
@@ -641,7 +641,7 @@ UnitModel China_T99A_13
 {
 	parent 		= BaseHeavyMountedArmored
 	DefaultModel 	= JaguarTank.NIF
-	ForceScale      = 0.165
+	ForceScale      = 0.11
 	States = [
 			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
 
@@ -673,7 +673,7 @@ UnitModel China_T99A_14
 	parent 		= BaseHeavyMountedArmored
 	//DefaultModel 	= China_T99A.NIF
 	DefaultModel 	= ZTZ99A2.NIF
-	ForceScale      = 0.173
+	ForceScale      = 0.115
 	States = [
 			{ StateName= Idle AnimName = T99_A2_idle.KF 
 			TextKeys = [ 
@@ -709,7 +709,7 @@ UnitModel China_T99A_15
 {
 	parent 		= BaseHeavyMountedArmored
 	DefaultModel 	= OverLord.NIF
-	ForceScale      = 0.195
+	ForceScale      = 0.13
 	States = [
 			{ StateName= Idle AnimName = T99_A2_idle.KF 
 			TextKeys = [ 
@@ -779,10 +779,10 @@ UnitType AntiAir_HQ9
 				//RocketLaunchingTBMFix1
 			]
 		}
-		Attack { damage = 1250; range = 30; reloadTime = 1.33; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 3.0; unpackTime =3.0;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
+		Attack { damage = 1500; range = 35; reloadTime = 0.75; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 1.5; unpackTime = 1.5;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
-		LOS { range = 27 }
-		VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1}
+		LOS { range = 35 }
+		VehicleMove {speed = 2.34; angSpeed = 50; followTerrainSlope = 1}
 			]
 attributes = [
 		HealedByHERC 		
@@ -884,7 +884,7 @@ UnitType radacache
 				 SuperVision,ship_Awacs
 			]
 		}
-		Attack { damage = 0; range = 80; reloadTime = 3; angularRange = 360; applyDamageTime = 0.25; missileName = "FastRocket5"; ignoreBlocking = 1;packTime = 4.0; unpackTime = 4.0; throwUnits = true }
+		Attack { damage = 0; range = 150; reloadTime = 3; angularRange = 360; applyDamageTime = 0.25; missileName = "FastRocket5"; ignoreBlocking = 1;packTime = 4.0; unpackTime = 4.0; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 		LOS { range = 80 }
 		VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1}
@@ -971,10 +971,10 @@ UnitType AntiAir_HQ61
 				//RocketLaunchingTBMFix1
 			]
 		}
-		Attack { damage = 1000; range = 25; reloadTime = 2; angularRange = 360;  missileName = "AntiAirH61x"; ignoreBlocking = 1; areaDamageRadius = 2; areaDamageFriendlyRatio = 0.5; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 1.5; minRangeImmobile = 1.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
+		Attack { damage = 800; range = 25; reloadTime = 2; angularRange = 360;  missileName = "AntiAirH61x"; ignoreBlocking = 1; areaDamageRadius = 2; areaDamageFriendlyRatio = 0.5; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 1.5; minRangeImmobile = 1.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 		LOS { range = 25 }
-		VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1}
+		VehicleMove {speed = 2.34; angSpeed = 50; followTerrainSlope = 1}
 			]
 attributes = [
 		HealedByHERC 		
@@ -998,7 +998,7 @@ UpgradeAbilities HQ61Epoch11Attack
 UpgradeAbilities HQ61Epoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1000; range = 25; reloadTime = 1; angularRange = 360;  missileName = "AntiAirH61x"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 1.5; minRangeImmobile = 1.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360;  missileName = "AntiAirH61x"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 1.5; minRangeImmobile = 1.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
 	]
 }
 //------------------------------------------------
@@ -1008,7 +1008,7 @@ UpgradeAbilities HQ61Epoch14Attack
 UpgradeAbilities HQ61Epoch15Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1000; range = 25; reloadTime = 1; angularRange = 360;  missileName = "pl12"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 1.5; minRangeImmobile = 1.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
+		Attack { damage = 800; range = 25; reloadTime = 2; angularRange = 360;  missileName = "pl12"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 1.5; minRangeImmobile = 1.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
 	]
 }
 UnitModel AntiAir_HQ61_11
@@ -1204,7 +1204,7 @@ UnitType AntiAir_Fkl03
 		//SpecialPower { 
 		//	effects = [ Deadly_Miss ]
 		//}
-		VehicleMove {speed = 1.7; angSpeed = 80;followTerrainSlope = 1}
+		VehicleMove {speed = 2.1; angSpeed = 80;followTerrainSlope = 1}
 			]
 attributes = [
 		HealedByHERC 		
@@ -1281,10 +1281,10 @@ UnitType Hongjian10
 		popCount = 2
 		displayName = tx_utn_Hongjian10_name
 		VerboseTooltip = vtt_unit_Hongjian10
-		HitPoints = 1850
+		HitPoints = 3700
 	}
 	sounds = {
-		sndSelection = ["v_tank_select_chn01"
+		sndSelection = ["v_tank_select_chn01" 
 				"v_tank_select_chn02"
 				"v_tank_select_chn04"
 		]
@@ -1527,7 +1527,7 @@ UnitType Plz45
 		popCount = 3
 		DisplayName = tx_utn_Plz45_pname
 		VerboseTooltip = vtt_unit_Plz45_155mm
-		HitPoints = 500
+		HitPoints = 2000
 	}
 	sounds = {
 		sndSelection = ["v_artillery_select_chn" 
@@ -1548,10 +1548,10 @@ UnitType Plz45
 		sndDeath =  ["v_cmon_unit_death_chn"]
 	}
 	abilities = [
-	    Attack { damage = 1050; range = 34; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 6; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	    Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5; throwUnits = true }
         Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
 		LOS { range = 20 }
-		VehicleMove {speed = 0.5; angSpeed = 50; followTerrainSlope = 1 ; mustMoveToTurn = 0}
+		VehicleMove {speed = 0.8; angSpeed = 50; followTerrainSlope = 1 ; mustMoveToTurn = 0}
 	]
 	Attributes = [ 
 		HealedByMedic
@@ -1565,7 +1565,7 @@ UnitType Plz45
 UpgradeAbilities Plz45Epoch11Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 525; range = 29; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB"; ignoreBlocking = 1;minRangeMobile = 13; minRangeImmobile = 13;  areaDamageRadius = 6; areaDamageFriendlyRatio = 0.5;packTime = 1.5; unpackTime = 1.0; throwUnits = true }
+		Attack { damage = 350; range = 16; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB"; ignoreBlocking = 1;minRangeMobile = 13; minRangeImmobile = 13;  areaDamageRadius = 2.5; areaDamageFriendlyRatio = 0.5;packTime = 1.5; unpackTime = 1.0; throwUnits = true }
 	]
 }
 //------------------------------------------------
@@ -1575,7 +1575,7 @@ UpgradeAbilities Plz45Epoch11Attack
 UpgradeAbilities Plz45Epoch12Attack
 {
 	upgradedAbilities = [
-		Attack { range = 29; reloadTime = 10;  applyDamageTime = 0.5; damage = 450; missileName = "TankShellB";ignoreBlocking = 1; minRangeMobile = 14; minRangeImmobile = 14; areaDamageRadius = 6}
+		Attack { range = 16; reloadTime = 10;  applyDamageTime = 0.5; damage = 300; missileName = "TankShellB";ignoreBlocking = 1; minRangeMobile = 14; minRangeImmobile = 14; areaDamageRadius = 2.5}
 	]
 }
 //------------------------------------------------
@@ -1585,7 +1585,7 @@ UpgradeAbilities Plz45Epoch12Attack
 UpgradeAbilities Plz45Epoch13Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1050; range = 34; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 15; minRangeImmobile = 15; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 6; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 15; minRangeImmobile = 15; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
 //------------------------------------------------
@@ -1595,7 +1595,7 @@ UpgradeAbilities Plz45Epoch13Attack
 UpgradeAbilities Plz45Epoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1050; range = 34; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 16; minRangeImmobile = 16; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 6; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 16; minRangeImmobile = 16; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
 //------------------------------------------------
@@ -1605,7 +1605,7 @@ UpgradeAbilities Plz45Epoch14Attack
 UpgradeAbilities Plz45Epoch15Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 1050; range = 34; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 17; minRangeImmobile = 17; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 6; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 17; minRangeImmobile = 17; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
 UnitModel Plz45_11
@@ -1840,10 +1840,10 @@ UnitType DF17
 				RocketLaunchingTBMFix1
 			]
 		}
-		Attack { damage = 8000; range = 120; reloadTime = 12; angularRange = 360; applyDamageTime = 0.1; missileName = "DF17Missiles"; ignoreBlocking = 1; areaDamageRadius = 8; minRangeMobile = 30; minRangeImmobile = 30; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; throwUnits = true}
+		Attack { damage = 5000; range = 110; reloadTime = 15; angularRange = 360; applyDamageTime = 0.1; missileName = "DF17Missiles"; ignoreBlocking = 1; areaDamageRadius = 5; minRangeMobile = 30; minRangeImmobile = 30; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; throwUnits = true}
         Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
 		LOS { range = 13 }
-		VehicleMove {speed = 1.2; angSpeed = 60; followTerrainSlope = 1}
+		VehicleMove {speed = 1.7; angSpeed = 60; followTerrainSlope = 1}
 	]
 		attributes = [
 			HealedByHERC 		
@@ -1897,4 +1897,21 @@ UnitModel DF17
 		angle = 45.00
 	}
 	ChildNames 		= [  TheHealthBar SelectCircleMedium  TankTracks DustHeavyMonted  ExplSelectorTank01 TradeCart11_FlyingParts Muzzle_Silo LargeGlow  NetFireLauncherShadow  ] 
+}
+
+//------------------------------------------------
+//	EPOCH 14 — China_T99A MBT
+//------------------------------------------------
+UpgradeAbilities China_T99AEpoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; turretControllerName = TankTurret; areaDamageRadius = 2.5; throwUnits = true }
+	]
+}
+
+UpgradeAbilities China_T99AEpoch14Move
+{
+	upgradedAbilities = [
+		VehicleMove {speed = 1.8; angSpeed = 70; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
 }

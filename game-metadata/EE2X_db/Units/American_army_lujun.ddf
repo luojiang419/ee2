@@ -1,4 +1,4 @@
-////////////////////////////////////
+﻿////////////////////////////////////
 //
 ///////////////////////////////////
 UnitType Stryker
@@ -778,10 +778,10 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 "v_HeavyMounted1_12_com01" ]
 	}
 	abilities = [
-		Attack { range = 22; reloadTime = 2.0; applyDamageTime = 0.1; damage = 1150;packTime = 3.5;unpackTime = 3.5; missileName = "THAAD_daodan"; ignoreBlocking = 1;  areaDamageRadius = 1;  throwUnits = true }
-            VehicleMove {speed = 1.8; angSpeed = 720; followTerrainSlope = 1 }
+		Attack { range = 35; reloadTime = 0.75; applyDamageTime = 0.1; damage = 1500;packTime = 1.5;unpackTime = 1.5; missileName = "THAAD_daodan"; ignoreBlocking = 1;  areaDamageRadius = 1;  throwUnits = true }
+            VehicleMove {speed = 2.34; angSpeed = 720; followTerrainSlope = 1 }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
-		LOS { range = 26 }
+		LOS { range = 35 }
 			]
 attributes = [
 		HealedByHERC 		
@@ -856,8 +856,8 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 "v_HeavyMounted1_12_com01" ]
 	}
 	abilities = [
-			Attack { range = 25; reloadTime = 2.0; applyDamageTime = 0.1; damage = 1000;packTime = 3.5;unpackTime = 3.5; missileName = "THAAD_daodan"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; areaDamageRadius = 2;  throwUnits = true }
-            VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1 }
+			Attack { range = 25; reloadTime = 2.0; applyDamageTime = 0.1; damage = 1000;packTime = 1.0;unpackTime = 1.0; missileName = "THAAD_daodan"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; areaDamageRadius = 2;  throwUnits = true }
+            VehicleMove {speed = 2.34; angSpeed = 50; followTerrainSlope = 1 }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
 		LOS { range = 25 }
 	]
@@ -870,7 +870,7 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 UpgradeAbilities PAC3Epoch14Attack
 {
 	upgradedAbilities = [
-		Attack { range = 25; reloadTime = 2.0; applyDamageTime = 0.3; damage = 1000;packTime = 3.5;unpackTime = 3.5; missileName = "THAAD_daodan"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; areaDamageRadius = 2;  throwUnits = true }
+		Attack { range = 0; reloadTime = 666; applyDamageTime = 0.3; damage = 0; packTime = 3.5; unpackTime = 3.5; missileName = "THAAD_daodan"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; areaDamageRadius = 2; throwUnits = true }
 	]
 }
 UnitModel PAC3_11
