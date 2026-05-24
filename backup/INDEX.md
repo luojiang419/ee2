@@ -111,6 +111,7 @@
 | 110 | EE2X_db-107-驱逐舰HP射程攻击调整-pre.zip | pre | Ch052d/DDG123/Type22350/Ch055/Ticonderoga/Kirov E14 | Yuanhang_Tao_13naval_units.ddf | 052D级HP→16000/055级HP→26000,Type22350全属性补强 | — | 2026-05-24 |
 | 111 | EE2X_db-109-驱逐舰CSV升级修正-pre.zip | pre | Ch052d/DDG123/Type22350/Ch055/Ticonderoga/Kirov E14 CSV | upgrade_unittypes.csv | 根因修复：DDF值被CSV覆盖，同时修正CSV中HP/DAMAGE/RANGE | — | 2026-05-24 |
 | 112 | EE2X_db-110-驱逐舰CSV升级修正-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 109修改应用后的完整游戏ZIP（含DDF+CSV双重修正） | 待测试 | 2026-05-24 |
+| 113 | EE2X_db-113-手动补更至v1.0.14-runtime.zip | runtime | 服务器补更(v1.0.10→1.0.14) | EE2X_db.zip 完整 | 手动下载并应用服务器1.0.12(海军)+1.0.13(UP1.6)+1.0.14(PC3反潜机)三包，同步到工作数据库 | 待测试 | 2026-05-24 |
 
 ## 更新器/启动器备份
 
