@@ -810,7 +810,7 @@ UnitType Ru_S400
 		sndDeath =  ["CWCruSA11_MA_cru_01"]
 	}
 	abilities = [
-		Attack { damage = 1500; range = 35; reloadTime = 0.75; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 1.5; unpackTime = 1.5;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
+		Attack { damage = 1500; range = 35; reloadTime = 3.0; angularRange = 360; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; areaDamageFriendlyRatio = 1.0; packTime = 1.5; unpackTime = 1.5;minRangeMobile = 1; minRangeImmobile = 1; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 		LOS { range = 35 }
 		VehicleMove {speed = 2.6; angSpeed = 50; followTerrainSlope = 1}
