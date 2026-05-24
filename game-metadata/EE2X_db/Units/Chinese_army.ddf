@@ -557,7 +557,7 @@ icon = icon_unit_J16
 UpgradeAbilities J1613Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 5.2; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		AircraftMove {speed = 7.5; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 1.0}
 		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
 	]
 }
@@ -687,7 +687,7 @@ UnitType J15
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 2000
+		HitPoints = 1900
 		displayName = tx_utn_J15_name
         verboseTooltip = vtt_unit_J15
 		popCount = 1
@@ -716,10 +716,10 @@ UnitType J15
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 9.0; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 850; range = 15; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0; }
-	LOS { range = 17 }
-	SpecialPower { 		
+		AircraftMove {speed = 8.0; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 808; range = 14; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 28;areaDamageRadius = 1.0; }
+	LOS { range = 15 }
+	SpecialPower {
 			effects = [ Air_anti_missle ]
 		}
 	]
@@ -770,7 +770,7 @@ UnitType J15_Naval
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 2200
+		HitPoints = 1900
 		displayName = tx_utn_J15_name
         verboseTooltip = vtt_unit_J15
 		popCount = 1
@@ -799,10 +799,10 @@ UnitType J15_Naval
 		]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
-	LOS { range = 17 }
-	SpecialPower { 		
+		AircraftMove {speed = 8.0; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		Attack { damage = 808; range = 14; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 28;areaDamageRadius = 1.0;}
+	LOS { range = 15 }
+	SpecialPower {
 			effects = [ Air_anti_missle ]
 		}
 	]
