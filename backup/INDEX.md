@@ -80,7 +80,7 @@
 | 081 | EE2X_db-056-Ch055A-E14基准25递增-pre.zip | pre | Ch055A E11-E15 全属性+全成本 | upgrade_unittypes.csv, Yuanhang_Tao_13naval_units.ddf | 以其他开发者E14为基准，属性25%递增+成本30%递增，DDF同步，新增Ch055Epoch14Attack块 | — | 2026-05-24 |
 | 082 | EE2X_db-056-Ch055A-E14基准25递增-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 081修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 083 | EE2X_db-057-舰载机E12-E15平滑重平衡-pre.zip | pre | NavalF18/ChinaPlane/RussianPlane E12-E15全时代 | upgrade_unittypes.csv, aircraftCarrier_plane.ddf | E14升级前为基准，每时代±20%平滑递增(HP/DAMAGE/RANGE/RELOAD/成本); 去掉Fighter_Improve_Reset和J161XAttack; E14引用专属DDF升级; 新增NavalF18Epoch14Attack/RussianPlaneEpoch14Attack | — | 2026-05-24 |
-| 084 | EE2X_db-058-舰载机E12-E15平滑重平衡-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 083修改应用后的完整游戏ZIP | 待测试 | 2026-05-24 |
+| 084 | EE2X_db-058-舰载机E12-E15平滑重平衡-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 083修改应用后的完整游戏ZIP — 已修复：初版ZIP因Python打包丢失EE2X_db/前缀导致崩溃，已用Compress-Archive重新打包修复 | 待测试 | 2026-05-24 已修复重打包 |
 
 ## 更新器/启动器备份
 
