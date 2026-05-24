@@ -1016,6 +1016,24 @@ UpgradeAbilities SniperEpoch11Attack
 	]
 }
 
+// Veteran Attack Upgrade
+UpgradeAbilities SniperEpoch11VeteranAttack
+{
+	upgradedAbilities = [
+		Attack { damage = 150; range = 16; reloadTime = 12; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 4.0; unpackTime = 2.0; }
+		LOS { range = 16 }
+	]
+}
+
+// Elite Attack Upgrade
+UpgradeAbilities SniperEpoch11EliteAttack
+{
+	upgradedAbilities = [
+		Attack { damage = 150; range = 18; reloadTime = 12; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 4.0; unpackTime = 2.0; }
+		LOS { range = 18 }
+	]
+}
+
 // Veteran Upgrade
 UpgradeUnitTypeImprove SniperEpoch11Veteran
 {
@@ -1045,6 +1063,24 @@ UpgradeAbilities SniperEpoch13Attack
 	upgradedAbilities = [
 		Attack { damage = 200; range = 18; reloadTime = 10; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 4.0; unpackTime = 2.0; }
 		//Move {speed = 0.7; angSpeed = 180}
+	]
+}
+
+// Veteran Attack Upgrade
+UpgradeAbilities SniperEpoch13VeteranAttack
+{
+	upgradedAbilities = [
+		Attack { damage = 200; range = 16; reloadTime = 10; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 4.0; unpackTime = 2.0; }
+		LOS { range = 16 }
+	]
+}
+
+// Elite Attack Upgrade
+UpgradeAbilities SniperEpoch13EliteAttack
+{
+	upgradedAbilities = [
+		Attack { damage = 200; range = 18; reloadTime = 10; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 4.0; unpackTime = 2.0; }
+		LOS { range = 18 }
 	]
 }
 
