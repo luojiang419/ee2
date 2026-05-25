@@ -292,6 +292,33 @@ UnitType Paratrooper_AA
 	]
 	icon = icon_Paratrooper_Vehicle
 }
+UnitType Paratrooper_AAMissile
+{
+    visualName = NonCombatAir2_boat
+    parent = NavalShallow
+    properties {
+        SizeX = 1
+        SizeY = 1
+        mass = 0
+        VerboseTooltip = vtt_unit_Paratrooper_Mounter
+        displayName = tx_utn_Paratrooper_AAMissile_name
+        HitPoints = 3000
+        popCount = 5
+    }
+    sounds = {
+    }
+    abilities = [
+        NavalMove {speed = 2.0; accel = 1.0; angSpeed = 130;}
+        LOS { range = 1 }
+        GarrisonParatrooper {
+            garrisonType = NavalTransport;
+            numOfSlots = 30;
+            initialContents = [ { typeName="LightArtillery2" count=3} ];
+            dontShowGarrisonButton = 1;
+        }
+    ]
+    icon = icon_Paratrooper_Vehicle
+}
 UnitType Paratrooper_T72
 {
     visualName = NonCombatAir2_boat

@@ -1022,8 +1022,8 @@ UpgradeAbilities JH7A13Attack
 UpgradeAbilities JH7A14Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 7.0; angSpeed = 80; CruisingHeight = 8.5; ElevChangeRate = 1.0}
-		Attack { damage = 1800; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius = 1.3;}
+		AircraftMove {speed = 6.0; angSpeed = 80; CruisingHeight = 8.5; ElevChangeRate = 1.0}
+		Attack { damage = 1800; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;areaDamageRadius = 1.0;}
 	]
 }
 //------------------------------------------------
@@ -1031,16 +1031,16 @@ UpgradeAbilities JH7A14Attack
 UpgradeAbilities A10_14Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 5.0; angSpeed = 50; CruisingHeight = 9.0; ElevChangeRate = 1.0}
-		Attack { damage = 600; range = 12; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 70;areaDamageRadius = 1.3;}
+		AircraftMove {speed = 4.3; angSpeed = 50; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		Attack { damage = 600; range = 12; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;areaDamageRadius = 1.0;}
 	]
 }
 // Su-25 Frogfoot专用升级 (ordnance=60)
 UpgradeAbilities Su25_14Attack
 {
 	upgradedAbilities = [
-		AircraftMove {speed = 5.5; angSpeed = 55; CruisingHeight = 8.5; ElevChangeRate = 1.0}
-		Attack { damage = 550; range = 12; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 60;areaDamageRadius = 1.3; areaDamageFriendlyRatio = 0.3;throwUnits = true}
+		AircraftMove {speed = 4.7; angSpeed = 55; CruisingHeight = 8.5; ElevChangeRate = 1.0}
+		Attack { damage = 550; range = 12; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.3;throwUnits = true}
 	]
 }
 //	EPOCH 15
