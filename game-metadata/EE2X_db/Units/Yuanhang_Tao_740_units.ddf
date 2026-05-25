@@ -5,7 +5,7 @@ UnitType PC3
 {
 	parent = Aircraft
 	properties {
-		rps = HeavyArtillery
+		rps = Bomber
 		SizeX = 1
 		SizeY = 1
 		mass = 0
