@@ -593,6 +593,11 @@ button {
   padding: 8px 0;
 }
 
+.startup-update-log {
+  min-height: 220px;
+  max-height: 320px;
+}
+
 .log-line {
   grid-template-columns: 110px 1fr 70px;
 }

@@ -55,6 +55,7 @@ const APP_DESIGN_WIDTH = 1600;
 const APP_DESIGN_HEIGHT = 960;
 type OnboardingStep = "pickGameDir" | "auth" | null;
 type AuthMode = "login" | "register";
+type StartupUpdateState = "checking" | "updating" | "error" | null;
 
 const emptyNetwork: NetworkSnapshot = {
   connected: false,
@@ -130,6 +131,8 @@ export default function App() {
   const [updateEvents, setUpdateEvents] = useState<UpdateStatusEvent[]>([]);
   const [updateRunning, setUpdateRunning] = useState(false);
   const [updateResult, setUpdateResult] = useState<UpdateRunResult | null>(null);
+  const [startupUpdateState, setStartupUpdateState] = useState<StartupUpdateState>(null);
+  const [startupUpdateError, setStartupUpdateError] = useState("");
   const [onboardingStep, setOnboardingStep] = useState<OnboardingStep>(null);
   const [authMode, setAuthMode] = useState<AuthMode>("login");
   const [autostartEnabled, setAutostartEnabled] = useState(false);
@@ -150,7 +153,7 @@ export default function App() {
     );
   });
 
-  const autoUpdateCheckedRef = useRef(false);
+  const startupUpdateCheckedRef = useRef(false);
   const wsRef = useRef<WebSocket | null>(null);
   const speedRef = useRef<{ tx: number | null; rx: number | null; at: number }>({
     tx: null,
@@ -175,6 +178,10 @@ export default function App() {
       return "auth";
     }
     return null;
+  }
+
+  function hasPendingUpdate(info: UpdateCheckResult | null) {
+    return Boolean(info && (info.hasGameUpdate || info.hasLauncherUpdate));
   }
 
   async function refreshBootstrap() {
@@ -294,6 +301,10 @@ export default function App() {
         setAuthMode("login");
       }
       setOnboardingStep(nextOnboardingStep);
+      if (onboardingStep === "pickGameDir") {
+        startupUpdateCheckedRef.current = false;
+        await enforceStartupUpdate(next);
+      }
     } catch (error) {
       setErrorMessage(String(error));
     } finally {
@@ -387,7 +398,7 @@ export default function App() {
 
   async function handleRunUpdate(force: boolean) {
     if (updateRunning) {
-      return;
+      return null;
     }
     setUpdateEvents([]);
     setUpdateResult(null);
@@ -414,18 +425,59 @@ export default function App() {
           }
         }, 1800);
       }
+      return result;
     } catch (error) {
       setErrorMessage(String(error));
+      return null;
     } finally {
       setBusyMessage("");
       setUpdateRunning(false);
     }
   }
 
+  async function enforceStartupUpdate(payload?: BootstrapState) {
+    const currentBoot = payload ?? boot;
+    if (!currentBoot?.gamePath.valid || startupUpdateCheckedRef.current) {
+      return true;
+    }
+
+    startupUpdateCheckedRef.current = true;
+    setStartupUpdateError("");
+    setStartupUpdateState("checking");
+
+    const info = await refreshUpdateInfo(false);
+    if (!info) {
+      startupUpdateCheckedRef.current = false;
+      setStartupUpdateError("启动时检查更新失败，请重试。");
+      setStartupUpdateState("error");
+      return false;
+    }
+
+    if (!hasPendingUpdate(info)) {
+      setStartupUpdateState(null);
+      return true;
+    }
+
+    setStartupUpdateState("updating");
+    const result = await handleRunUpdate(false);
+    if (!result?.ok) {
+      startupUpdateCheckedRef.current = false;
+      setStartupUpdateError("更新同步失败，请重试。");
+      setStartupUpdateState("error");
+      return false;
+    }
+
+    return false;
+  }
+
   useEffect(() => {
     void (async () => {
       try {
         const payload = await refreshBootstrap();
+        const startupUpdatePassed = await enforceStartupUpdate(payload);
+        if (!startupUpdatePassed) {
+          return;
+        }
         await refreshPlayers();
         if (payload.user) {
           try {
@@ -443,7 +495,6 @@ export default function App() {
             setErrorMessage(String(error));
           }
         }
-        await refreshUpdateInfo(false);
       } catch (error) {
         setErrorMessage(String(error));
       }
@@ -503,16 +554,6 @@ export default function App() {
       console.error("ws init failed", error);
     }
   }, [boot?.gamePath.valid, config]);
-
-  useEffect(() => {
-    if (!boot || autoUpdateCheckedRef.current || updateRunning) {
-      return;
-    }
-    autoUpdateCheckedRef.current = true;
-    if (boot.gamePath.valid && updateInfo && (updateInfo.hasGameUpdate || updateInfo.hasLauncherUpdate)) {
-      void handleRunUpdate(false);
-    }
-  }, [boot, updateInfo, updateRunning]);
 
   const resolvedVersion =
     updateInfo?.currentLauncherVersion || boot?.launcherVersion || "v1.0.0";
@@ -1195,6 +1236,49 @@ export default function App() {
               关闭
             </button>
           ) : null}
+        </div>
+      )}
+
+      {startupUpdateState && (
+        <div className="overlay">
+          <div className="modal glass onboarding-modal">
+            <div className="modal-title">同步启动器与游戏版本</div>
+            <div className="modal-body onboarding-body">
+              <div className="onboarding-copy">
+                启动时检测到需要校验或同步版本。为避免玩家版本不统一，当前必须先完成更新后才能继续使用软件。
+              </div>
+              {startupUpdateState === "checking" ? (
+                <div className="profile-note">正在检查更新，请稍候...</div>
+              ) : null}
+              {startupUpdateState === "updating" ? (
+                <div className="log-panel glass-lite startup-update-log">
+                  {updateEvents.length === 0 ? (
+                    <div className="board-empty">正在准备更新任务...</div>
+                  ) : (
+                    updateEvents.map((event, index) => (
+                      <div className="log-line" key={`startup-${event.stage}-${index}`}>
+                        <span className="log-stage">{event.stage}</span>
+                        <span className="log-message">{event.message}</span>
+                        <span className="log-progress">{Math.round(event.progress)}%</span>
+                      </div>
+                    ))
+                  )}
+                </div>
+              ) : null}
+              {startupUpdateState === "error" ? (
+                <div className="profile-note">
+                  {startupUpdateError || "无法完成启动时版本同步，请重试。"}
+                </div>
+              ) : null}
+            </div>
+            {startupUpdateState === "error" ? (
+              <div className="modal-actions">
+                <button className="mini-action primary-glow" onClick={() => void enforceStartupUpdate()} type="button">
+                  重试同步
+                </button>
+              </div>
+            ) : null}
+          </div>
         </div>
       )}
 
