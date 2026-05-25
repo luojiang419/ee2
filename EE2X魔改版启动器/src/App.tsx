@@ -553,13 +553,14 @@ export default function App() {
   }, []);
 
   const backgroundBlur = Math.max(0, Math.min(24, config?.backgroundBlur ?? 0));
+  const isHome = activePage === "home";
   const viewportStyle = {
     "--ui-scale": String(uiScale),
     "--background-blur": `${backgroundBlur}px`
   } as CSSProperties;
 
   return (
-    <div className="app-viewport" style={viewportStyle}>
+    <div className={`app-viewport ${isHome ? "home-mode" : ""}`} style={viewportStyle}>
       {backgroundImageSrc || backgroundVideoSrc ? (
         <div className="background-media">
           {backgroundImageSrc ? (
