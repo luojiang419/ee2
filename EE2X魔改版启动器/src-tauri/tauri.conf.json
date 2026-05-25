@@ -23,7 +23,15 @@
       }
     ],
     "security": {
-      "csp": null
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$APPDATA/backgrounds/**",
+          "$APPLOCALDATA/backgrounds/**",
+          "$APPCONFIG/backgrounds/**"
+        ]
+      }
     }
   },
   "bundle": {
