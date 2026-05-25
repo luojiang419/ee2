@@ -249,7 +249,8 @@ button {
   display: grid;
   grid-template-columns: 360px minmax(0, 1fr);
   gap: 18px;
-  min-height: calc(100vh - 116px);
+  height: calc(100vh - 116px);
+  min-height: 0;
   margin-top: 18px;
 }
 
@@ -268,6 +269,7 @@ button {
   justify-content: space-between;
   gap: 18px;
   margin-bottom: 16px;
+  flex: 0 0 auto;
 }
 
 .board-table,
@@ -363,24 +365,33 @@ button {
 .content-shell {
   min-width: 0;
   min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .home-layout,
 .page-card {
-  min-height: 100%;
+  min-height: 0;
 }
 
 .home-stage,
 .page-card {
   border-radius: 22px;
   padding: 24px;
-  min-height: 100%;
+  min-height: 0;
+}
+
+.page-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .settings-page {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 190px);
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 .state-cluster,
@@ -568,9 +579,11 @@ button {
 }
 
 .settings-scroll {
+  flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
   padding-right: 6px;
+  padding-bottom: 10px;
   margin-right: -6px;
 }
 
