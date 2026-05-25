@@ -314,13 +314,11 @@ def _query_launcher_processes_by_path(launcher_exe: Path) -> list[dict] | None:
             check=False,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            text=True,
-            encoding="utf-8",
             timeout=8,
         )
         if completed.returncode != 0:
             return None
-        output = (completed.stdout or "").strip()
+        output = (completed.stdout or b"").decode("utf-8", errors="replace").strip()
         if not output:
             return []
         payload = json.loads(output)
@@ -352,11 +350,9 @@ def _launcher_processes_alive_by_name(executable_name: str) -> bool:
             check=False,
             stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
-            text=True,
-            encoding="utf-8",
             timeout=5,
         )
-        output = (completed.stdout or "").strip()
+        output = (completed.stdout or b"").decode("utf-8", errors="replace").strip()
         if not output:
             return False
         if "No tasks are running" in output or "没有运行的任务" in output:

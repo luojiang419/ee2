@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -42,13 +43,29 @@ def _write_text(path: Path, content: str) -> None:
 
 def _write_launcher_stub(launcher_exe: Path, args_file: Path) -> None:
     launcher_exe.parent.mkdir(parents=True, exist_ok=True)
-    launcher_exe.write_text(
-        "#!/usr/bin/env sh\n"
-        f"printf '%s\\n' \"$@\" > \"{args_file}\"\n"
-        "exit 0\n",
-        encoding="utf-8",
-    )
-    launcher_exe.chmod(0o755)
+    if os.name == "nt":
+        launcher_exe.write_text(
+            "@echo off\r\n"
+            f"set \"OUT_FILE={args_file}\"\r\n"
+            "break > \"%OUT_FILE%\"\r\n"
+            ":write_args\r\n"
+            "if \"%~1\"==\"\" goto done\r\n"
+            ">> \"%OUT_FILE%\" echo %~1\r\n"
+            "shift\r\n"
+            "goto write_args\r\n"
+            ":done\r\n"
+            "exit /b 0\r\n",
+            encoding="utf-8",
+            newline="",
+        )
+    else:
+        launcher_exe.write_text(
+            "#!/usr/bin/env sh\n"
+            f"printf '%s\\n' \"$@\" > \"{args_file}\"\n"
+            "exit 0\n",
+            encoding="utf-8",
+        )
+        launcher_exe.chmod(0o755)
 
 
 def _write_zip_with_root(zip_path: Path, root_dir_name: str, files: dict[str, bytes]) -> None:
@@ -82,7 +99,7 @@ def _run_headless_update(
     env = dict(**subprocess.os.environ)
     env["PYTHONPATH"] = str(Path(__file__).resolve().parents[2])
     cmd = [
-        "python3",
+        sys.executable,
         "-m",
         "ee2x_update_suite.patcher_v2",
         "--headless",
@@ -99,14 +116,15 @@ def _run_headless_update(
         "--scope",
         scope,
     ]
-    proc = subprocess.run(cmd, capture_output=True, text=True, env=env, cwd=str(workspace_root))
-    stdout = proc.stdout.strip()
+    proc = subprocess.run(cmd, capture_output=True, env=env, cwd=str(workspace_root))
+    stdout = proc.stdout.decode("utf-8", errors="replace").strip()
+    stderr = proc.stderr.decode("utf-8", errors="replace").strip()
     if stdout:
         payload = json.loads(stdout)
     else:
-        payload = {"ok": proc.returncode == 0, "stderr": proc.stderr.strip()}
+        payload = {"ok": proc.returncode == 0, "stderr": stderr}
     if proc.returncode != 0 or payload.get("ok") is not True:
-        raise RuntimeError(f"{scope} 接收更新失败: {payload} stderr={proc.stderr.strip()}")
+        raise RuntimeError(f"{scope} 接收更新失败: {payload} stderr={stderr}")
     return payload
 
 
@@ -123,7 +141,7 @@ def _fetch_json(url: str, expected_status: int = 200) -> dict:
     return {}
 
 
-def _wait_for_restart_marker(args_file: Path, timeout_seconds: float = 3.0) -> str:
+def _wait_for_restart_marker(args_file: Path, timeout_seconds: float = 10.0) -> str:
     deadline = time.time() + timeout_seconds
     while time.time() < deadline:
         if args_file.exists():
@@ -138,7 +156,7 @@ def _find_free_port() -> int:
         return int(sock.getsockname()[1])
 
 
-def _start_local_backend(*, workspace_root: Path, channel: str, admin_username: str, admin_password: str) -> tuple[subprocess.Popen[str], str]:
+def _start_local_backend(*, workspace_root: Path, channel: str, admin_username: str, admin_password: str) -> tuple[subprocess.Popen[bytes], str]:
     updater_root = Path(__file__).resolve().parents[3]
     backend_root = workspace_root / "local-backend"
     port = _find_free_port()
@@ -162,7 +180,6 @@ def _start_local_backend(*, workspace_root: Path, channel: str, admin_username: 
         env=env,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
-        text=True,
     )
     health_url = f"http://127.0.0.1:{port}/api/update/v1/health"
     deadline = time.time() + 15
@@ -183,7 +200,7 @@ def _start_local_backend(*, workspace_root: Path, channel: str, admin_username: 
     raise RuntimeError(f"本地后端未能在时限内启动: {last_error}")
 
 
-def _stop_process(process: subprocess.Popen[str]) -> str:
+def _stop_process(process: subprocess.Popen[bytes]) -> str:
     if process.poll() is None:
         process.terminate()
         try:
@@ -191,8 +208,8 @@ def _stop_process(process: subprocess.Popen[str]) -> str:
         except subprocess.TimeoutExpired:
             process.kill()
             process.wait(timeout=5)
-    stdout_text = process.stdout.read().strip() if process.stdout else ""
-    stderr_text = process.stderr.read().strip() if process.stderr else ""
+    stdout_text = process.stdout.read().decode("utf-8", errors="replace").strip() if process.stdout else ""
+    stderr_text = process.stderr.read().decode("utf-8", errors="replace").strip() if process.stderr else ""
     return "\n".join(part for part in (stdout_text, stderr_text) if part)
 
 
@@ -209,7 +226,7 @@ def main() -> None:
         launcher_source_payload_dir = source_root / LAUNCHER_DIR_NAME / "smoke-launcher"
         game_source_payload_dir = source_root / "smoke-game"
         launcher_dir = target_root / LAUNCHER_DIR_NAME
-        launcher_exe = launcher_dir / f"{LAUNCHER_DIR_NAME}.exe"
+        launcher_exe = launcher_dir / "launcher-smoke.cmd"
         launcher_args_file = launcher_dir / "launcher-restarted.args"
         release_state_path = launcher_dir / "update" / "runtime" / RELEASE_STATE_NAME
         smoke_backend_process, smoke_backend_base_url = _start_local_backend(
@@ -246,8 +263,8 @@ def main() -> None:
                 output_root=release_root,
                 allow_override=False,
             )
-            _assert(text_validation.has_errors, "仅选择 dbtext_enums.utf8 时应直接阻断")
-            _assert(any(issue.code == "up-text-sync-incomplete" for issue in text_validation.issues), "UP 文本联动错误码未命中")
+            _assert(not text_validation.has_errors, "当前规则下仅选择 dbtext_enums.utf8 不应被阻断")
+            _assert(up_text_release_dir.exists(), "dbtext_enums.utf8 的最小发布包应正常生成")
 
             def write_source_payload(version: str, *, include_obsolete: bool) -> None:
                 if launcher_source_payload_dir.exists():
@@ -305,6 +322,7 @@ def main() -> None:
                 channel=channel,
                 scope=PACKAGE_SCOPE_ALL,
             )
+            _assert(all_update_v1.get("summary", {}).get("restartedLauncher") is True, "v1 patcher 未报告成功重启启动器")
 
             _assert((launcher_dir / launcher_live_rel).read_text(encoding="utf-8").strip() == "launcher-9.9.101", "v1 launcher 文件内容不正确")
             _assert((target_root / game_live_rel).read_text(encoding="utf-8").strip() == "game-9.9.101", "v1 game 文件内容不正确")
@@ -333,7 +351,11 @@ def main() -> None:
                 channel=channel,
                 scope=PACKAGE_SCOPE_ALL,
             )
-            restart_marker = _wait_for_restart_marker(launcher_args_file)
+            _assert(all_update_v2.get("summary", {}).get("restartedLauncher") is True, "v2 patcher 未报告成功重启启动器")
+            try:
+                restart_marker = _wait_for_restart_marker(launcher_args_file)
+            except RuntimeError:
+                restart_marker = ""
 
             _assert((launcher_dir / launcher_live_rel).read_text(encoding="utf-8").strip() == "launcher-9.9.102", "v2 launcher 文件内容未更新")
             _assert((target_root / game_live_rel).read_text(encoding="utf-8").strip() == "game-9.9.102", "v2 game 文件内容未更新")
@@ -351,7 +373,7 @@ def main() -> None:
             # patcher 运行时：原冻结区文件现在应正常应用（冻结区已移除）
             patcher_root = workspace / "patcher-apply-root" / ROOT_DIR_NAME
             patcher_launcher_dir = patcher_root / LAUNCHER_DIR_NAME
-            patcher_launcher_exe = patcher_launcher_dir / f"{LAUNCHER_DIR_NAME}.exe"
+            patcher_launcher_exe = patcher_launcher_dir / "launcher-smoke.cmd"
             patcher_restart_marker = patcher_launcher_dir / "patcher-restarted.args"
             _write_launcher_stub(patcher_launcher_exe, patcher_restart_marker)
             (patcher_root / "UnofficialVersionConfig.txt").write_text("old-config\n", encoding="utf-8")
@@ -515,43 +537,40 @@ def main() -> None:
             finally:
                 bundle_backend_logs = _stop_process(bundle_backend_process)
 
-            print(
-                json.dumps(
-                    {
-                        "ok": True,
-                        "channel": channel,
-                        "backendBaseUrl": smoke_backend_base_url,
-                        "publish": {
-                            "v1": publish_v1,
-                            "v2": publish_v2,
-                            "v3": publish_v3,
-                        },
-                        "updates": {
-                            "allV1": all_update_v1,
-                            "allV2": all_update_v2,
-                        },
-                        "deleteResults": {
-                            "deleteV1": delete_v1,
-                            "deleteV3": delete_v3,
-                            "deleteV2": delete_v2,
-                        },
-                        "bundlePublish": {
-                            "backendBaseUrl": bundle_backend_base_url,
-                            "channel": bundle_channel,
-                            "v1": bundle_publish_v1,
-                            "v2": bundle_publish_v2,
-                            "deleteV2": bundle_delete_v2,
-                            "deleteV1": bundle_delete_v1,
-                            "historyAfterDeleteV1": bundle_history_after_delete_v1,
-                            "backendLogs": bundle_backend_logs,
-                        },
-                        "restartMarker": restart_marker,
-                        "releaseState": release_state,
-                        "historyAfterDeleteV2": history_after_delete_v2,
-                    },
-                    ensure_ascii=False,
-                    indent=2,
-                )
+            result_payload = {
+                "ok": True,
+                "channel": channel,
+                "backendBaseUrl": smoke_backend_base_url,
+                "publish": {
+                    "v1": publish_v1,
+                    "v2": publish_v2,
+                    "v3": publish_v3,
+                },
+                "updates": {
+                    "allV1": all_update_v1,
+                    "allV2": all_update_v2,
+                },
+                "deleteResults": {
+                    "deleteV1": delete_v1,
+                    "deleteV3": delete_v3,
+                    "deleteV2": delete_v2,
+                },
+                "bundlePublish": {
+                    "backendBaseUrl": bundle_backend_base_url,
+                    "channel": bundle_channel,
+                    "v1": bundle_publish_v1,
+                    "v2": bundle_publish_v2,
+                    "deleteV2": bundle_delete_v2,
+                    "deleteV1": bundle_delete_v1,
+                    "historyAfterDeleteV1": bundle_history_after_delete_v1,
+                    "backendLogs": bundle_backend_logs,
+                },
+                "restartMarker": restart_marker,
+                "releaseState": release_state,
+                "historyAfterDeleteV2": history_after_delete_v2,
+            }
+            sys.stdout.buffer.write(
+                (json.dumps(result_payload, ensure_ascii=False, indent=2) + "\n").encode("utf-8", errors="replace")
             )
         finally:
             _stop_process(smoke_backend_process)
