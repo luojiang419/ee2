@@ -362,6 +362,7 @@ button {
 
 .content-shell {
   min-width: 0;
+  min-height: 0;
 }
 
 .home-layout,
@@ -374,6 +375,12 @@ button {
   border-radius: 22px;
   padding: 24px;
   min-height: 100%;
+}
+
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 190px);
 }
 
 .state-cluster,
@@ -560,6 +567,13 @@ button {
   gap: 14px;
 }
 
+.settings-scroll {
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-right: -6px;
+}
+
 .field-card {
   display: flex;
   flex-direction: column;
@@ -719,6 +733,15 @@ button {
 
 .drawer-item.full {
   grid-column: 1 / -1;
+}
+
+.profile-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: #b5cae6;
+  background: rgba(8, 13, 20, 0.52);
+  border: 1px solid rgba(136, 188, 255, 0.12);
 }
 
 .drawer-actions {

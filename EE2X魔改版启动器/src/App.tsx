@@ -110,6 +110,7 @@ export default function App() {
   const [config, setConfig] = useState<AppConfig | null>(null);
   const [session, setSession] = useState<UserSession | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [profileLoading, setProfileLoading] = useState(false);
   const [players, setPlayers] = useState<OnlinePlayer[]>([]);
   const [network, setNetwork] = useState<NetworkSnapshot>(emptyNetwork);
   const [txSpeed, setTxSpeed] = useState(0);
@@ -149,14 +150,35 @@ export default function App() {
   }
 
   async function refreshProfile() {
+    setProfileLoading(true);
     try {
       const nextProfile = await getProfile();
       setProfile(nextProfile);
       return nextProfile;
     } catch (error) {
-      setProfile(null);
       throw error;
+    } finally {
+      setProfileLoading(false);
     }
+  }
+
+  function isAuthInvalidError(error: unknown) {
+    return String(error).startsWith("AUTH_INVALID:");
+  }
+
+  async function clearInvalidSession() {
+    try {
+      await authLogout();
+    } catch {
+      // ignore remote/logout transport failure; local session still needs clearing
+    }
+    setErrorMessage("登录状态已失效，请重新登录。");
+    setProfile(null);
+    setSession(null);
+    setProfileOpen(false);
+    setNetwork(emptyNetwork);
+    setTxSpeed(0);
+    setRxSpeed(0);
   }
 
   async function refreshPlayers() {
@@ -353,10 +375,17 @@ export default function App() {
         if (payload.user) {
           try {
             await refreshProfile();
+          } catch (error) {
+            if (isAuthInvalidError(error)) {
+              await clearInvalidSession();
+              return;
+            }
+            setErrorMessage(String(error));
+          }
+          try {
             await ensureNetwork();
-          } catch {
-            await authLogout();
-            setSession(null);
+          } catch (error) {
+            setErrorMessage(String(error));
           }
         }
         await refreshUpdateInfo(false);
@@ -483,6 +512,17 @@ export default function App() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [profileOpen]);
+
+  useEffect(() => {
+    if (!profileOpen || !session || profile) {
+      return;
+    }
+    void refreshProfile().catch(async (error) => {
+      if (isAuthInvalidError(error)) {
+        await clearInvalidSession();
+      }
+    });
+  }, [profile, profileOpen, session]);
 
   return (
     <div className="app-shell">
@@ -616,11 +656,7 @@ export default function App() {
                         <div>
                           <div className="summary-title">联机状态</div>
                           <div className="summary-value">
-                            {session
-                              ? network.connected
-                                ? "TUN已连接"
-                                : "TUN连接中"
-                              : "登录后可联机"}
+                            {session ? network.status : "登录后可联机"}
                           </div>
                         </div>
                       </div>
@@ -660,10 +696,10 @@ export default function App() {
                         <div className="summary-block compact-status">
                           <span className={`dot ${network.connected ? "online" : "offline"}`} />
                           <div>
-                            <div className="summary-title">联机状态</div>
-                            <div className="summary-value">{session ? "未连接" : "登录后可联机"}</div>
-                          </div>
+                          <div className="summary-title">联机状态</div>
+                          <div className="summary-value">{session ? network.status : "登录后可联机"}</div>
                         </div>
+                      </div>
                         <button
                           className="stack-action"
                           onClick={() => {
@@ -820,7 +856,7 @@ export default function App() {
           ) : null}
 
           {activePage === "settings" ? (
-            <section className="page-card glass">
+            <section className="page-card glass settings-page">
               <div className="page-header">
                 <div>
                   <div className="section-title">游戏设置</div>
@@ -836,170 +872,172 @@ export default function App() {
                 </div>
               </div>
               {config ? (
-                <div className="settings-grid">
-                  <label className="field-card glass-lite">
-                    <span>游戏路径</span>
-                    <div className="field-inline">
-                      <input readOnly value={config.gameDir} />
-                      <button className="mini-action" onClick={() => void handlePickGameDirectory()} type="button">
-                        浏览
-                      </button>
-                    </div>
-                  </label>
-                  <label className="field-card glass-lite">
-                    <span>启动程序</span>
-                    <input readOnly value={config.gameExe || "EE2X.exe"} />
-                  </label>
-                  <label className="field-card glass-lite">
-                    <span>分辨率</span>
-                    <select
-                      value={config.preferredResolution}
-                      onChange={(event) =>
-                        setConfig((current) =>
-                          current ? { ...current, preferredResolution: event.target.value } : current
-                        )
-                      }
-                    >
-                      {RESOLUTION_OPTIONS.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                  <label className="field-card glass-lite">
-                    <span>背景类型</span>
-                    <select
-                      value={config.backgroundType}
-                      onChange={(event) =>
-                        setConfig((current) =>
-                          current
-                            ? {
-                                ...current,
-                                backgroundType: event.target.value as AppConfig["backgroundType"]
-                              }
-                            : current
-                        )
-                      }
-                    >
-                      <option value="default">默认背景</option>
-                      <option value="image">背景图片</option>
-                      <option value="video">背景视频</option>
-                    </select>
-                  </label>
-                  <div className="field-card glass-lite background-preview-card">
-                    <div className="background-preview-header">
-                      <span>背景预览</span>
-                      <button className="text-button" onClick={handleResetBackground} type="button">
-                        恢复默认背景
-                      </button>
-                    </div>
-                    <div className="background-preview-shell">
-                      {config.backgroundType === "image" && backgroundImageSrc ? (
-                        <img alt="背景图片预览" className="background-preview-media" src={backgroundImageSrc} />
-                      ) : null}
-                      {config.backgroundType === "video" && backgroundVideoSrc ? (
-                        <video
-                          autoPlay
-                          className="background-preview-media"
-                          loop
-                          muted
-                          playsInline
-                          src={backgroundVideoSrc}
-                        />
-                      ) : null}
-                      {config.backgroundType === "default" ||
-                      (!backgroundImageSrc && !backgroundVideoSrc) ? (
-                        <div className="background-preview-empty">当前使用默认科技背景</div>
-                      ) : null}
-                    </div>
-                  </div>
-                  {config.backgroundType === "image" ? (
+                <div className="settings-scroll">
+                  <div className="settings-grid">
                     <label className="field-card glass-lite">
-                      <span>背景图片</span>
+                      <span>游戏路径</span>
                       <div className="field-inline">
-                        <input readOnly value={config.backgroundImagePath} />
-                        <button
-                          className="mini-action"
-                          onClick={() => void handlePickBackground("image")}
-                          type="button"
-                        >
+                        <input readOnly value={config.gameDir} />
+                        <button className="mini-action" onClick={() => void handlePickGameDirectory()} type="button">
                           浏览
                         </button>
                       </div>
                     </label>
-                  ) : null}
-                  {config.backgroundType === "video" ? (
                     <label className="field-card glass-lite">
-                      <span>背景视频</span>
-                      <div className="field-inline">
-                        <input readOnly value={config.backgroundVideoPath} />
-                        <button
-                          className="mini-action"
-                          onClick={() => void handlePickBackground("video")}
-                          type="button"
-                        >
-                          浏览
+                      <span>启动程序</span>
+                      <input readOnly value={config.gameExe || "EE2X.exe"} />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>分辨率</span>
+                      <select
+                        value={config.preferredResolution}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, preferredResolution: event.target.value } : current
+                          )
+                        }
+                      >
+                        {RESOLUTION_OPTIONS.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>背景类型</span>
+                      <select
+                        value={config.backgroundType}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current
+                              ? {
+                                  ...current,
+                                  backgroundType: event.target.value as AppConfig["backgroundType"]
+                                }
+                              : current
+                          )
+                        }
+                      >
+                        <option value="default">默认背景</option>
+                        <option value="image">背景图片</option>
+                        <option value="video">背景视频</option>
+                      </select>
+                    </label>
+                    <div className="field-card glass-lite background-preview-card">
+                      <div className="background-preview-header">
+                        <span>背景预览</span>
+                        <button className="text-button" onClick={handleResetBackground} type="button">
+                          恢复默认背景
                         </button>
                       </div>
+                      <div className="background-preview-shell">
+                        {config.backgroundType === "image" && backgroundImageSrc ? (
+                          <img alt="背景图片预览" className="background-preview-media" src={backgroundImageSrc} />
+                        ) : null}
+                        {config.backgroundType === "video" && backgroundVideoSrc ? (
+                          <video
+                            autoPlay
+                            className="background-preview-media"
+                            loop
+                            muted
+                            playsInline
+                            src={backgroundVideoSrc}
+                          />
+                        ) : null}
+                        {config.backgroundType === "default" ||
+                        (!backgroundImageSrc && !backgroundVideoSrc) ? (
+                          <div className="background-preview-empty">当前使用默认科技背景</div>
+                        ) : null}
+                      </div>
+                    </div>
+                    {config.backgroundType === "image" ? (
+                      <label className="field-card glass-lite">
+                        <span>背景图片</span>
+                        <div className="field-inline">
+                          <input readOnly value={config.backgroundImagePath} />
+                          <button
+                            className="mini-action"
+                            onClick={() => void handlePickBackground("image")}
+                            type="button"
+                          >
+                            浏览
+                          </button>
+                        </div>
+                      </label>
+                    ) : null}
+                    {config.backgroundType === "video" ? (
+                      <label className="field-card glass-lite">
+                        <span>背景视频</span>
+                        <div className="field-inline">
+                          <input readOnly value={config.backgroundVideoPath} />
+                          <button
+                            className="mini-action"
+                            onClick={() => void handlePickBackground("video")}
+                            type="button"
+                          >
+                            浏览
+                          </button>
+                        </div>
+                      </label>
+                    ) : null}
+                    <label className="field-card glass-lite">
+                      <span>更新频道</span>
+                      <input
+                        value={config.updateChannel}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, updateChannel: event.target.value } : current
+                          )
+                        }
+                      />
                     </label>
-                  ) : null}
-                  <label className="field-card glass-lite">
-                    <span>更新频道</span>
-                    <input
-                      value={config.updateChannel}
-                      onChange={(event) =>
-                        setConfig((current) =>
-                          current ? { ...current, updateChannel: event.target.value } : current
-                        )
-                      }
-                    />
-                  </label>
-                  <label className="field-card glass-lite">
-                    <span>关闭行为</span>
-                    <select
-                      value={config.closeAction}
-                      onChange={(event) =>
-                        setConfig((current) =>
-                          current ? { ...current, closeAction: event.target.value } : current
-                        )
-                      }
-                    >
-                      <option value="exit">退出程序</option>
-                      <option value="minimize">最小化</option>
-                    </select>
-                  </label>
-                  <label className="field-card glass-lite">
-                    <span>组网服务器</span>
-                    <input
-                      value={config.networkServer}
-                      onChange={(event) =>
-                        setConfig((current) =>
-                          current ? { ...current, networkServer: event.target.value } : current
-                        )
-                      }
-                    />
-                  </label>
-                  <label className="field-card glass-lite">
-                    <span>自动联机</span>
-                    <select
-                      value={config.autoConnect ? "on" : "off"}
-                      onChange={(event) =>
-                        setConfig((current) =>
-                          current
-                            ? { ...current, autoConnect: event.target.value === "on" }
-                            : current
-                        )
-                      }
-                    >
-                      <option value="on">开</option>
-                      <option value="off">关</option>
-                    </select>
-                  </label>
-                  <div className="settings-tools">
-                    <button className="mini-action" onClick={() => void openConfigDirectory()} type="button">
-                      打开配置目录
-                    </button>
+                    <label className="field-card glass-lite">
+                      <span>关闭行为</span>
+                      <select
+                        value={config.closeAction}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, closeAction: event.target.value } : current
+                          )
+                        }
+                      >
+                        <option value="exit">退出程序</option>
+                        <option value="minimize">最小化</option>
+                      </select>
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>组网服务器</span>
+                      <input
+                        value={config.networkServer}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, networkServer: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>自动联机</span>
+                      <select
+                        value={config.autoConnect ? "on" : "off"}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current
+                              ? { ...current, autoConnect: event.target.value === "on" }
+                              : current
+                          )
+                        }
+                      >
+                        <option value="on">开</option>
+                        <option value="off">关</option>
+                      </select>
+                    </label>
+                    <div className="settings-tools">
+                      <button className="mini-action" onClick={() => void openConfigDirectory()} type="button">
+                        打开配置目录
+                      </button>
+                    </div>
                   </div>
                 </div>
               ) : null}
@@ -1129,6 +1167,10 @@ export default function App() {
                 </strong>
               </div>
             </div>
+            {profileLoading ? (
+              <div className="profile-note">正在加载个人资料...</div>
+            ) : null}
+            {profile?.notice ? <div className="profile-note">{profile.notice}</div> : null}
             <div className="drawer-actions">
               <button
                 className="mini-action mini-secondary"

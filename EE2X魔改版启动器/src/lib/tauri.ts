@@ -188,7 +188,9 @@ function buildMockProfile(session: UserSession): UserProfile {
     signature: "浏览器预览用户",
     combatPower: 96,
     rankTier: "14",
-    rankWins: 188
+    rankWins: 188,
+    partial: false,
+    notice: ""
   };
 }
 
@@ -543,7 +545,7 @@ export async function networkStatus() {
   if (!session) {
     return {
       connected: false,
-      status: "登录后可联机",
+      status: "未登录",
       mode: "TUN",
       virtualIp: "",
       adapterName: "",
@@ -557,7 +559,7 @@ export async function networkStatus() {
   if (!state.connected) {
     return {
       connected: false,
-      status: "未连接",
+      status: "未启动",
       mode: "TUN",
       virtualIp: "",
       adapterName: state.adapterName,

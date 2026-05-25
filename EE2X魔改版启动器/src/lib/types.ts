@@ -55,6 +55,8 @@ export interface UserProfile {
   combatPower: number;
   rankTier: string;
   rankWins: number;
+  partial: boolean;
+  notice: string;
 }
 
 export interface OnlinePlayer {

@@ -6,6 +6,7 @@ use serde_json::{json, Value};
 use sha2::{Digest, Sha256};
 use std::{
     collections::HashMap,
+    fmt,
     fs,
     io::{Read, Write},
     path::{Path, PathBuf},
@@ -29,6 +30,7 @@ const RELEASE_STATE_FILE: &str = "update/runtime/release-state.json";
 const BACKGROUND_DIR: &str = "backgrounds";
 const VNT_DIR: &str = "runtime/vnt";
 const VNT_CONFIG_FILE: &str = "runtime/vnt/vnt-tun.yaml";
+const VNT_LAUNCH_STATE_FILE: &str = "runtime/vnt/launch-state.json";
 const APP_DATA_DIR_OVERRIDE_ENV: &str = "EE2X_LAUNCHER_APPDATA_DIR_OVERRIDE";
 const INSTALL_DIR_OVERRIDE_ENV: &str = "EE2X_LAUNCHER_INSTALL_DIR_OVERRIDE";
 const MATCHMAKING_URL: &str = "http://115.231.35.105:4002/matchmaking";
@@ -36,6 +38,7 @@ const DEFAULT_USER_SERVER: &str = "http://115.231.35.105:3001";
 const DEFAULT_UPDATE_SERVER: &str = "http://115.231.35.105:3010";
 const DEFAULT_UPDATE_WS: &str = "ws://115.231.35.105:3010/api/update/v1/channels/stable/ws";
 const DEFAULT_NETWORK_SERVER: &str = "81.71.49.16:1666";
+const AUTH_INVALID_PREFIX: &str = "AUTH_INVALID:";
 const GAME_MARKERS: &[&str] = &[
     "UnofficialVersionConfig.txt",
     "zips_ee2x",
@@ -50,6 +53,24 @@ struct PendingRestartState {
 
 struct PendingRestart {
     script_path: PathBuf,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(default, rename_all = "camelCase")]
+struct VntLaunchState {
+    status: String,
+    detail: String,
+    updated_at: String,
+}
+
+impl Default for VntLaunchState {
+    fn default() -> Self {
+        Self {
+            status: "未启动".into(),
+            detail: String::new(),
+            updated_at: String::new(),
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -156,6 +177,8 @@ struct UserProfile {
     combat_power: i64,
     rank_tier: String,
     rank_wins: i64,
+    partial: bool,
+    notice: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -288,7 +311,18 @@ struct LoginUser {
 #[derive(Debug, Deserialize)]
 struct ProfileResponse {
     success: bool,
+    message: Option<String>,
     user: Option<LegacyProfile>,
+}
+
+#[derive(Debug, Deserialize)]
+struct RuntimeSummaryResponse {
+    success: bool,
+    #[serde(default)]
+    total_seconds: i64,
+    #[serde(default)]
+    total_starts: i64,
+    message: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -319,6 +353,47 @@ struct LegacyProfile {
     #[serde(default)]
     rank_wins: i64,
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum JsonRequestErrorKind {
+    AuthInvalid,
+    Transport,
+    Http,
+    Decode,
+}
+
+#[derive(Debug)]
+struct JsonRequestError {
+    kind: JsonRequestErrorKind,
+    label: String,
+    detail: String,
+}
+
+impl JsonRequestError {
+    fn new(kind: JsonRequestErrorKind, label: impl Into<String>, detail: impl Into<String>) -> Self {
+        Self {
+            kind,
+            label: label.into(),
+            detail: detail.into(),
+        }
+    }
+
+    fn is_auth_invalid(&self) -> bool {
+        self.kind == JsonRequestErrorKind::AuthInvalid
+    }
+}
+
+impl fmt::Display for JsonRequestError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        if self.is_auth_invalid() {
+            write!(f, "{AUTH_INVALID_PREFIX} {}: {}", self.label, self.detail)
+        } else {
+            write!(f, "{}: {}", self.label, self.detail)
+        }
+    }
+}
+
+impl std::error::Error for JsonRequestError {}
 
 pub fn run() {
     tauri::Builder::default()
@@ -405,6 +480,14 @@ fn vnt_config_path<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf> {
     Ok(path)
 }
 
+fn vnt_launch_state_path<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf> {
+    let path = app_data_dir(app)?.join(VNT_LAUNCH_STATE_FILE);
+    if let Some(parent) = path.parent() {
+        fs::create_dir_all(parent)?;
+    }
+    Ok(path)
+}
+
 fn update_temp_dir<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf> {
     let dir = app_data_dir(app)?.join("update").join("staging");
     fs::create_dir_all(&dir)?;
@@ -435,6 +518,148 @@ fn write_json<T: Serialize>(path: &Path, value: &T) -> Result<()> {
     Ok(())
 }
 
+fn response_preview(bytes: &[u8]) -> String {
+    let text = String::from_utf8_lossy(bytes);
+    let compact = text
+        .replace('\r', " ")
+        .replace('\n', " ")
+        .split_whitespace()
+        .collect::<Vec<_>>()
+        .join(" ");
+    compact.chars().take(240).collect()
+}
+
+fn response_content_type(response: &reqwest::Response) -> String {
+    response
+        .headers()
+        .get(reqwest::header::CONTENT_TYPE)
+        .and_then(|value| value.to_str().ok())
+        .unwrap_or_default()
+        .to_string()
+}
+
+fn message_indicates_auth_invalid(message: &str) -> bool {
+    let lower = message.to_ascii_lowercase();
+    lower.contains("unauthorized")
+        || lower.contains("forbidden")
+        || lower.contains("token expired")
+        || lower.contains("invalid token")
+        || message.contains("未授权")
+        || message.contains("认证失效")
+        || message.contains("登录已过期")
+        || message.contains("账号信息已失效")
+        || message.contains("请重新登录")
+}
+
+async fn send_json_request<T: DeserializeOwned>(
+    label: &str,
+    request: reqwest::RequestBuilder,
+) -> Result<T, JsonRequestError> {
+    let response = request
+        .send()
+        .await
+        .map_err(|error| JsonRequestError::new(JsonRequestErrorKind::Transport, label, error.to_string()))?;
+    let status = response.status();
+    let content_type = response_content_type(&response);
+    let bytes = response
+        .bytes()
+        .await
+        .map_err(|error| JsonRequestError::new(JsonRequestErrorKind::Transport, label, error.to_string()))?;
+    let preview = response_preview(bytes.as_ref());
+
+    if !status.is_success() {
+        let detail = format!(
+            "HTTP {} content-type={} body={}",
+            status.as_u16(),
+            if content_type.is_empty() { "<empty>" } else { &content_type },
+            preview
+        );
+        let kind = if status.as_u16() == 401 || status.as_u16() == 403 {
+            JsonRequestErrorKind::AuthInvalid
+        } else {
+            JsonRequestErrorKind::Http
+        };
+        return Err(JsonRequestError::new(kind, label, detail));
+    }
+
+    if !content_type.to_ascii_lowercase().contains("json") {
+        return Err(JsonRequestError::new(
+            JsonRequestErrorKind::Decode,
+            label,
+            format!(
+                "error decoding response body (status={} content-type={} body={})",
+                status.as_u16(),
+                if content_type.is_empty() { "<empty>" } else { &content_type },
+                preview
+            ),
+        ));
+    }
+
+    serde_json::from_slice::<T>(bytes.as_ref()).map_err(|error| {
+        JsonRequestError::new(
+            JsonRequestErrorKind::Decode,
+            label,
+            format!(
+                "error decoding response body (status={} content-type={} body={} detail={})",
+                status.as_u16(),
+                content_type,
+                preview,
+                error
+            ),
+        )
+    })
+}
+
+fn fallback_user_profile(session: &UserSession) -> UserProfile {
+    UserProfile {
+        id: 0,
+        username: session.username.clone(),
+        avatar: session.avatar.clone(),
+        register_time: String::new(),
+        last_login: session.login_time.clone(),
+        is_online: true,
+        last_seen: String::new(),
+        total_runtime_seconds: 0,
+        ip: String::new(),
+        signature: String::new(),
+        combat_power: 0,
+        rank_tier: "-".into(),
+        rank_wins: 0,
+        partial: true,
+        notice: String::new(),
+    }
+}
+
+fn merge_legacy_profile(target: &mut UserProfile, profile: LegacyProfile) {
+    target.id = profile.id;
+    target.username = if profile.username.trim().is_empty() {
+        target.username.clone()
+    } else {
+        profile.username
+    };
+    if !profile.avatar.trim().is_empty() {
+        target.avatar = profile.avatar;
+    }
+    target.register_time = profile.register_time;
+    target.last_login = if profile.last_login.trim().is_empty() {
+        target.last_login.clone()
+    } else {
+        profile.last_login
+    };
+    target.is_online = profile.is_online;
+    target.last_seen = profile.last_seen;
+    target.total_runtime_seconds = profile.total_runtime_seconds;
+    target.ip = profile.ip;
+    target.signature = profile.signature;
+    target.combat_power = profile.combat_power;
+    target.rank_tier = if profile.rank_tier.trim().is_empty() {
+        "-".into()
+    } else {
+        profile.rank_tier
+    };
+    target.rank_wins = profile.rank_wins;
+}
+
 fn load_config<R: Runtime>(app: &AppHandle<R>) -> Result<AppConfig> {
     let path = config_path(app)?;
     if !path.exists() {
@@ -456,7 +681,13 @@ fn load_user<R: Runtime>(app: &AppHandle<R>) -> Result<Option<UserSession>> {
     if !path.exists() {
         return Ok(None);
     }
-    Ok(Some(read_json::<UserSession>(&path)?))
+    match read_json::<UserSession>(&path) {
+        Ok(user) => Ok(Some(user)),
+        Err(_) => {
+            let _ = fs::remove_file(&path);
+            Ok(None)
+        }
+    }
 }
 
 fn save_user<R: Runtime>(app: &AppHandle<R>, user: &UserSession) -> Result<()> {
@@ -485,6 +716,37 @@ fn load_release_state<R: Runtime>(app: &AppHandle<R>) -> Result<ReleaseState> {
 fn save_release_state<R: Runtime>(app: &AppHandle<R>, state: &ReleaseState) -> Result<()> {
     let path = release_state_path(app)?;
     write_json(&path, state)
+}
+
+fn load_vnt_launch_state<R: Runtime>(app: &AppHandle<R>) -> Result<VntLaunchState> {
+    let path = vnt_launch_state_path(app)?;
+    if !path.exists() {
+        let state = VntLaunchState::default();
+        write_json(&path, &state)?;
+        return Ok(state);
+    }
+    match read_json::<VntLaunchState>(&path) {
+        Ok(state) => Ok(state),
+        Err(_) => {
+            let state = VntLaunchState::default();
+            write_json(&path, &state)?;
+            Ok(state)
+        }
+    }
+}
+
+fn save_vnt_launch_state<R: Runtime>(
+    app: &AppHandle<R>,
+    status: &str,
+    detail: impl Into<String>,
+) -> Result<()> {
+    let path = vnt_launch_state_path(app)?;
+    let state = VntLaunchState {
+        status: status.into(),
+        detail: detail.into(),
+        updated_at: Utc::now().to_rfc3339(),
+    };
+    write_json(&path, &state)
 }
 
 fn normalize_path(input: &str) -> String {
@@ -596,6 +858,30 @@ fn device_id<R: Runtime>(app: &AppHandle<R>) -> Result<String> {
     let id = format!("{:x}", digest.finalize());
     fs::write(path, &id)?;
     Ok(id)
+}
+
+fn fallback_network_name() -> String {
+    let base = std::env::var("COMPUTERNAME").unwrap_or_else(|_| "EE2X".into());
+    sanitize_network_name(&base)
+}
+
+fn sanitize_network_name(raw: &str) -> String {
+    let mut result = String::new();
+    for ch in raw.chars() {
+        let is_cjk = ('\u{4e00}'..='\u{9fa5}').contains(&ch);
+        if ch.is_ascii_alphanumeric() || ch == '_' || ch == '-' || is_cjk {
+            result.push(ch);
+        }
+        if result.chars().count() >= 32 {
+            break;
+        }
+    }
+    if result.is_empty() {
+        let suffix = (Utc::now().timestamp().unsigned_abs() % 10_000) as u16;
+        format!("Player{suffix}")
+    } else {
+        result
+    }
 }
 
 fn copy_if_missing_or_changed(src: &Path, dst: &Path) -> Result<()> {
@@ -719,12 +1005,66 @@ fn run_hidden_command(binary: &str, args: &[&str], cwd: Option<&Path>) -> Result
     Ok(String::from_utf8_lossy(&output.stdout).trim().to_string())
 }
 
+fn run_hidden_command_with_status(binary: &str, args: &[&str], cwd: Option<&Path>) -> Result<(bool, String, String)> {
+    let mut command = Command::new(binary);
+    command.args(args);
+    if let Some(dir) = cwd {
+        command.current_dir(dir);
+    }
+    #[cfg(windows)]
+    {
+        command.creation_flags(CREATE_NO_WINDOW);
+    }
+    let output = command.output()?;
+    Ok((
+        output.status.success(),
+        String::from_utf8_lossy(&output.stdout).trim().to_string(),
+        String::from_utf8_lossy(&output.stderr).trim().to_string(),
+    ))
+}
+
+fn powershell_quote(value: &str) -> String {
+    value.replace('\'', "''")
+}
+
 fn powershell_json(script: &str) -> Result<Option<Value>> {
     let stdout = run_hidden_command("powershell.exe", &["-NoProfile", "-Command", script], None)?;
     if stdout.trim().is_empty() {
         return Ok(None);
     }
     Ok(Some(serde_json::from_str(&stdout)?))
+}
+
+fn launch_vnt_elevated(vnt_exe: &Path, config_path: &Path, cwd: &Path) -> Result<()> {
+    let script = format!(
+        "$ErrorActionPreference='Stop'; Start-Process -FilePath '{}' -ArgumentList @('-f','{}') -WorkingDirectory '{}' -WindowStyle Hidden -Verb RunAs | Out-Null",
+        powershell_quote(&vnt_exe.to_string_lossy()),
+        powershell_quote(&config_path.to_string_lossy()),
+        powershell_quote(&cwd.to_string_lossy()),
+    );
+    let (ok, _stdout, stderr) =
+        run_hidden_command_with_status("powershell.exe", &["-NoProfile", "-Command", &script], None)?;
+    if ok {
+        return Ok(());
+    }
+    let lower = stderr.to_ascii_lowercase();
+    if lower.contains("canceled") || stderr.contains("已被用户取消") {
+        return Err(anyhow!("管理员授权被取消，VNT 未启动。"));
+    }
+    Err(anyhow!(if stderr.is_empty() {
+        "VNT 提权启动失败。".into()
+    } else {
+        format!("VNT 提权启动失败：{stderr}")
+    }))
+}
+
+fn clear_vnt_runtime_markers<R: Runtime>(app: &AppHandle<R>) -> Result<()> {
+    let runtime_dir = vnt_runtime_dir(app)?;
+    let port_path = runtime_dir.join("env").join("command-port");
+    if port_path.exists() {
+        let _ = fs::remove_file(&port_path);
+    }
+    Ok(())
 }
 
 fn adapter_statistics() -> Result<(String, u64, u64)> {
@@ -750,7 +1090,7 @@ async fn network_status_internal<R: Runtime>(app: &AppHandle<R>) -> Result<Netwo
     if user.is_none() {
         return Ok(NetworkSnapshot {
             connected: false,
-            status: "登录后可联机".into(),
+            status: "未登录".into(),
             mode: "TUN".into(),
             virtual_ip: String::new(),
             adapter_name: String::new(),
@@ -761,6 +1101,7 @@ async fn network_status_internal<R: Runtime>(app: &AppHandle<R>) -> Result<Netwo
         });
     }
 
+    let launch_state = load_vnt_launch_state(app).unwrap_or_default();
     let info = send_udp_command(app, "info").await?;
     let chart = send_udp_command(app, "chart_a").await?;
 
@@ -772,9 +1113,9 @@ async fn network_status_internal<R: Runtime>(app: &AppHandle<R>) -> Result<Netwo
         return Ok(NetworkSnapshot {
             connected: !virtual_ip.is_empty() && virtual_ip != "0.0.0.0",
             status: if !virtual_ip.is_empty() && virtual_ip != "0.0.0.0" {
-                "TUN已连接".into()
+                "已连接".into()
             } else {
-                "TUN连接中".into()
+                "启动中".into()
             },
             mode: "TUN".into(),
             virtual_ip,
@@ -796,9 +1137,11 @@ async fn network_status_internal<R: Runtime>(app: &AppHandle<R>) -> Result<Netwo
     Ok(NetworkSnapshot {
         connected: false,
         status: if process_exists_by_name("vnt-cli.exe") {
-            "TUN连接中".into()
+            "启动中".into()
+        } else if launch_state.status == "启动失败" {
+            "启动失败".into()
         } else {
-            "未连接".into()
+            "未启动".into()
         },
         mode: "TUN".into(),
         virtual_ip: String::new(),
@@ -810,16 +1153,50 @@ async fn network_status_internal<R: Runtime>(app: &AppHandle<R>) -> Result<Netwo
     })
 }
 
+async fn wait_for_network_ready<R: Runtime>(app: &AppHandle<R>, timeout_seconds: u64) -> Result<NetworkSnapshot> {
+    let command_port = vnt_runtime_dir(app)?.join("env").join("command-port");
+    let deadline = tokio::time::Instant::now() + Duration::from_secs(timeout_seconds.max(3));
+    let mut saw_process = false;
+
+    loop {
+        let snapshot = network_status_internal(app).await?;
+        if snapshot.connected {
+            return Ok(snapshot);
+        }
+        if process_exists_by_name("vnt-cli.exe") {
+            saw_process = true;
+        }
+        if tokio::time::Instant::now() >= deadline {
+            break;
+        }
+        tokio::time::sleep(Duration::from_secs(1)).await;
+    }
+
+    if !saw_process && !process_exists_by_name("vnt-cli.exe") {
+        return Err(anyhow!("VNT 启动失败：管理员进程未成功拉起。"));
+    }
+    if !command_port.exists() {
+        return Err(anyhow!("VNT 启动失败：未生成 command-port。"));
+    }
+    Err(anyhow!("VNT 启动超时：未获取到 virtual_ip。"))
+}
+
 fn write_vnt_config<R: Runtime>(
     app: &AppHandle<R>,
     config: &AppConfig,
     session: &UserSession,
 ) -> Result<PathBuf> {
     let path = vnt_config_path(app)?;
+    let preferred_name = if session.username.trim().is_empty() {
+        fallback_network_name()
+    } else {
+        session.username.clone()
+    };
+    let device_name = sanitize_network_name(&preferred_name);
     let body = format!(
         "tap: false\nserver_address: {}\ntoken: game-net\nname: {}\ndevice_id: {}\nuse_channel: relay\n",
         config.network_server,
-        session.username,
+        device_name,
         device_id(app)?
     );
     fs::write(&path, body)?;
@@ -936,13 +1313,12 @@ async fn auth_login(
         "password": password,
         "computer_name": std::env::var("COMPUTERNAME").unwrap_or_default()
     });
-    let response = http_client()
-        .post(url)
-        .json(&payload)
-        .send()
-        .await
-        .map_err(|e| e.to_string())?;
-    let body: LoginResponse = response.json().await.map_err(|e| e.to_string())?;
+    let body: LoginResponse = send_json_request(
+        "登录请求",
+        http_client().post(url).json(&payload),
+    )
+    .await
+    .map_err(|e| e.to_string())?;
     if !body.success {
         return Err(body.message.unwrap_or_else(|| "登录失败".into()));
     }
@@ -976,13 +1352,12 @@ async fn auth_register(
         "password": password,
         "computer_name": std::env::var("COMPUTERNAME").unwrap_or_default()
     });
-    let response = http_client()
-        .post(url)
-        .json(&payload)
-        .send()
-        .await
-        .map_err(|e| e.to_string())?;
-    let body: LoginResponse = response.json().await.map_err(|e| e.to_string())?;
+    let body: LoginResponse = send_json_request(
+        "注册请求",
+        http_client().post(url).json(&payload),
+    )
+    .await
+    .map_err(|e| e.to_string())?;
     if !body.success {
         return Err(body.message.unwrap_or_else(|| "注册失败".into()));
     }
@@ -1018,45 +1393,92 @@ async fn auth_logout(app: AppHandle) -> Result<bool, String> {
     Ok(true)
 }
 
+async fn fetch_runtime_summary_for_session(
+    config: &AppConfig,
+    session: &UserSession,
+) -> Result<RuntimeSummaryResponse, JsonRequestError> {
+    let url = format!(
+        "{}/api/user/runtime/summary",
+        config.user_server_url.trim_end_matches('/')
+    );
+    send_json_request(
+        "运行时统计",
+        http_client()
+            .get(url)
+            .header("Authorization", format!("Bearer {}", session.token)),
+    )
+    .await
+}
+
 #[tauri::command]
 async fn get_profile(app: AppHandle) -> Result<UserProfile, String> {
     let session = load_user(&app)
         .map_err(|e| e.to_string())?
         .ok_or_else(|| "当前未登录".to_string())?;
     let config = load_config(&app).map_err(|e| e.to_string())?;
-    let url = format!(
-        "{}/api/user/profile?username={}&token={}",
-        config.user_server_url.trim_end_matches('/'),
-        session.username,
-        session.token
-    );
-    let response = http_client()
-        .get(url)
-        .send()
-        .await
-        .map_err(|e| e.to_string())?;
-    let body: ProfileResponse = response.json().await.map_err(|e| e.to_string())?;
-    if !body.success {
-        return Err("账号信息已失效，请重新登录".into());
+    let mut profile = fallback_user_profile(&session);
+    let mut notices = Vec::new();
+    let profile_url = reqwest::Url::parse_with_params(
+        &format!(
+            "{}/api/user/profile",
+            config.user_server_url.trim_end_matches('/')
+        ),
+        [
+            ("username", session.username.as_str()),
+            ("token", session.token.as_str()),
+        ],
+    )
+    .map_err(|e| e.to_string())?;
+    match send_json_request::<ProfileResponse>("个人资料", http_client().get(profile_url)).await {
+        Ok(body) if body.success => {
+            if let Some(user) = body.user {
+                merge_legacy_profile(&mut profile, user);
+                profile.partial = false;
+            } else {
+                notices.push("个人资料暂未加载：资料响应缺少用户信息。".into());
+            }
+        }
+        Ok(body) => {
+            let message = body
+                .message
+                .unwrap_or_else(|| "资料接口未返回成功状态".into());
+            if message_indicates_auth_invalid(&message) {
+                return Err(format!("{AUTH_INVALID_PREFIX} {message}"));
+            }
+            notices.push(format!("个人资料暂未加载：{message}"));
+        }
+        Err(error) => {
+            if error.is_auth_invalid() {
+                return Err(error.to_string());
+            }
+            notices.push(format!("个人资料暂未加载：{error}"));
+        }
     }
-    let user = body
-        .user
-        .ok_or_else(|| "资料响应缺少用户信息".to_string())?;
-    Ok(UserProfile {
-        id: user.id,
-        username: user.username,
-        avatar: user.avatar,
-        register_time: user.register_time,
-        last_login: user.last_login,
-        is_online: user.is_online,
-        last_seen: user.last_seen,
-        total_runtime_seconds: user.total_runtime_seconds,
-        ip: user.ip,
-        signature: user.signature,
-        combat_power: user.combat_power,
-        rank_tier: user.rank_tier,
-        rank_wins: user.rank_wins,
-    })
+
+    if profile.total_runtime_seconds <= 0 {
+        match fetch_runtime_summary_for_session(&config, &session).await {
+            Ok(summary) if summary.success => {
+                profile.total_runtime_seconds = summary.total_seconds;
+            }
+            Ok(summary) => {
+                if let Some(message) = summary.message.filter(|message| !message.trim().is_empty()) {
+                    notices.push(format!("运行时统计不可用：{message}"));
+                } else {
+                    let _ = summary.total_starts;
+                }
+            }
+            Err(error) => {
+                if error.is_auth_invalid() {
+                    return Err(error.to_string());
+                }
+                notices.push(format!("运行时统计不可用：{error}"));
+            }
+        }
+    }
+
+    profile.partial = !notices.is_empty();
+    profile.notice = notices.join(" ");
+    Ok(profile)
 }
 
 #[tauri::command]
@@ -1066,12 +1488,7 @@ async fn fetch_online_players(app: AppHandle) -> Result<Vec<OnlinePlayer>, Strin
         "{}/api/user/online/list",
         config.user_server_url.trim_end_matches('/')
     );
-    let players: Vec<Value> = http_client()
-        .get(url)
-        .send()
-        .await
-        .map_err(|e| e.to_string())?
-        .json()
+    let players: Vec<Value> = send_json_request("在线玩家列表", http_client().get(url))
         .await
         .map_err(|e| e.to_string())?;
     let mut result = players
@@ -1137,17 +1554,27 @@ async fn ensure_network(app: AppHandle) -> Result<NetworkSnapshot, String> {
         .parent()
         .map(Path::to_path_buf)
         .ok_or_else(|| "无法解析 VNT 运行目录".to_string())?;
-    spawn_hidden_process(
-        &vnt_exe,
-        &["-f", vnt_cfg.to_string_lossy().as_ref()],
-        Some(&cwd),
-    )
-    .map_err(|e| e.to_string())?;
+    let _ = stop_network(app.clone()).await;
+    clear_vnt_runtime_markers(&app).map_err(|e| e.to_string())?;
+    save_vnt_launch_state(&app, "启动中", "正在以管理员权限启动 VNT。")
+        .map_err(|e| e.to_string())?;
+    launch_vnt_elevated(&vnt_exe, &vnt_cfg, &cwd).map_err(|e| {
+        let message = e.to_string();
+        let _ = save_vnt_launch_state(&app, "启动失败", &message);
+        message
+    })?;
 
-    tokio::time::sleep(Duration::from_secs(2)).await;
-    network_status_internal(&app)
-        .await
-        .map_err(|e| e.to_string())
+    match wait_for_network_ready(&app, 30).await {
+        Ok(snapshot) => {
+            let _ = save_vnt_launch_state(&app, "已连接", "");
+            Ok(snapshot)
+        }
+        Err(error) => {
+            let message = error.to_string();
+            let _ = save_vnt_launch_state(&app, "启动失败", &message);
+            Err(message)
+        }
+    }
 }
 
 #[tauri::command]
@@ -1155,6 +1582,8 @@ async fn stop_network(app: AppHandle) -> Result<bool, String> {
     let vnt_exe = ensure_vnt_runtime(&app).map_err(|e| e.to_string())?;
     let _ = spawn_hidden_process(&vnt_exe, &["--stop"], vnt_exe.parent());
     let _ = run_hidden_command("taskkill", &["/F", "/IM", "vnt-cli.exe"], None);
+    let _ = clear_vnt_runtime_markers(&app);
+    let _ = save_vnt_launch_state(&app, "未启动", "");
     Ok(true)
 }
 
@@ -1188,39 +1617,36 @@ async fn report_online(app: AppHandle, virtual_ip: String) -> Result<bool, Strin
 }
 
 async fn fetch_latest(config: &AppConfig) -> Result<LatestRelease> {
-    Ok(http_client()
-        .get(format!(
+    send_json_request(
+        "获取最新版本",
+        http_client().get(format!(
             "{}/api/update/v1/channels/{}/latest",
             config.update_server_http.trim_end_matches('/'),
             config.update_channel
-        ))
-        .send()
-        .await?
-        .json::<LatestRelease>()
-        .await?)
+        )),
+    )
+    .await
+    .map_err(|e| anyhow!(e.to_string()))
 }
 
 async fn fetch_history(config: &AppConfig) -> Result<Vec<HistoryRelease>> {
-    let payload = http_client()
-        .get(format!(
+    let payload: HistoryPayload = send_json_request(
+        "获取版本历史",
+        http_client().get(format!(
             "{}/api/update/v1/channels/{}/history?limit=0",
             config.update_server_http.trim_end_matches('/'),
             config.update_channel
-        ))
-        .send()
-        .await?
-        .json::<HistoryPayload>()
-        .await?;
+        )),
+    )
+    .await
+    .map_err(|e| anyhow!(e.to_string()))?;
     Ok(payload.history)
 }
 
 async fn fetch_manifest(url: &str) -> Result<ReleaseManifest> {
-    Ok(http_client()
-        .get(url)
-        .send()
-        .await?
-        .json::<ReleaseManifest>()
-        .await?)
+    send_json_request("获取更新清单", http_client().get(url))
+        .await
+        .map_err(|e| anyhow!(e.to_string()))
 }
 
 fn build_chain(
@@ -1260,7 +1686,10 @@ async fn release_package_for_version(
     if response.status().is_client_error() {
         return Ok(None);
     }
-    let manifest = response.json::<ReleaseManifest>().await?;
+    let manifest: ReleaseManifest =
+        send_json_request("历史版本清单", http_client().get(&manifest_url))
+        .await
+        .map_err(|e| anyhow!(e.to_string()))?;
     let package_url = format!(
         "{server}/updates/{}/releases/{}/{scope}/{}",
         config.update_channel, release.release_id, manifest.package_file_name
