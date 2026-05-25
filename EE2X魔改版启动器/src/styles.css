@@ -6,9 +6,9 @@
   color-scheme: dark;
   background: #060b13;
   --panel-bg: rgba(9, 14, 21, 0.2);
-  --button-bg: linear-gradient(180deg, rgba(72, 75, 81, 0.96), rgba(36, 39, 45, 0.96));
-  --button-bg-hover: linear-gradient(180deg, rgba(84, 88, 94, 0.98), rgba(44, 48, 55, 0.98));
-  --button-bg-secondary: linear-gradient(180deg, rgba(58, 61, 67, 0.96), rgba(28, 31, 36, 0.96));
+  --button-bg: linear-gradient(180deg, rgba(72, 75, 81, 0.5), rgba(36, 39, 45, 0.5));
+  --button-bg-hover: linear-gradient(180deg, rgba(84, 88, 94, 0.5), rgba(44, 48, 55, 0.5));
+  --button-bg-secondary: linear-gradient(180deg, rgba(58, 61, 67, 0.5), rgba(28, 31, 36, 0.5));
   --button-shadow: 0 10px 26px rgba(0, 0, 0, 0.34);
   --button-shadow-hover: 0 14px 30px rgba(0, 0, 0, 0.42);
 }
