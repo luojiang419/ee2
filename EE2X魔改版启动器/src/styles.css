@@ -47,15 +47,25 @@ button {
     linear-gradient(180deg, rgba(8, 12, 18, 0.94), rgba(6, 11, 19, 1));
 }
 
-.app-shell {
+.app-stage {
   position: relative;
+  width: calc(1600px * var(--ui-scale, 1));
+  height: calc(960px * var(--ui-scale, 1));
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.app-shell {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 1600px;
   height: 960px;
   padding: 18px;
   display: flex;
   flex-direction: column;
   transform: scale(var(--ui-scale, 1));
-  transform-origin: center center;
+  transform-origin: top left;
 }
 
 .background-media {

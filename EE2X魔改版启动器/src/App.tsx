@@ -579,6 +579,7 @@ export default function App() {
         </div>
       ) : null}
       <div className="background-layer" />
+      <div className="app-stage">
       <div className="app-shell">
       <header className="topbar glass">
         <div className="brand-block">
@@ -1262,6 +1263,7 @@ export default function App() {
           </div>
         </div>
       )}
+      </div>
       </div>
     </div>
   );
