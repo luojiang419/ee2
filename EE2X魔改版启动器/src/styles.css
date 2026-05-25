@@ -99,15 +99,15 @@ button {
 .glass-lite,
 .modal,
 .profile-drawer {
-  background: rgba(11, 17, 25, 0.96);
-  border: 1px solid rgba(136, 188, 255, 0.16);
+  background: rgba(9, 14, 21, 0.1);
+  border: 1px solid rgba(136, 188, 255, 0.12);
   box-shadow:
-    0 18px 44px rgba(0, 0, 0, 0.34),
+    0 14px 28px rgba(0, 0, 0, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 .glass-lite {
-  background: rgba(15, 24, 36, 0.98);
+  background: rgba(9, 14, 21, 0.1);
 }
 
 .topbar {
@@ -397,11 +397,19 @@ button {
   min-height: 0;
 }
 
+.home-layout {
+  flex: 1 1 auto;
+}
+
 .home-stage,
 .page-card {
   border-radius: 22px;
   padding: 24px;
   min-height: 0;
+}
+
+.home-stage {
+  flex: 1 1 auto;
 }
 
 .page-card {
@@ -427,10 +435,13 @@ button {
   grid-template-columns: minmax(0, 1fr) 372px;
   gap: 28px;
   align-items: stretch;
+  width: 100%;
 }
 
 .home-main-fill {
   min-height: 1px;
+  width: 100%;
+  height: 100%;
 }
 
 .picker-stage {
@@ -465,6 +476,8 @@ button {
   width: 372px;
   height: 100%;
   margin-left: auto;
+  justify-self: end;
+  align-self: end;
   align-items: flex-end;
   justify-content: flex-end;
   gap: 10px;
@@ -476,8 +489,8 @@ button {
   gap: 14px;
   padding: 16px 18px;
   border-radius: 16px;
-  border: 1px solid rgba(136, 188, 255, 0.18);
-  background: rgba(11, 17, 25, 0.5);
+  border: 1px solid rgba(136, 188, 255, 0.12);
+  background: rgba(9, 14, 21, 0.1);
 }
 
 .summary-block.compact-status {
@@ -588,7 +601,7 @@ button {
   margin-top: 16px;
   padding: 16px 18px;
   border-radius: 16px;
-  background: rgba(8, 13, 20, 0.45);
+  background: rgba(9, 14, 21, 0.1);
 }
 
 .note-line {
@@ -795,7 +808,7 @@ button {
   padding: 12px 14px;
   border-radius: 14px;
   color: #b5cae6;
-  background: rgba(8, 13, 20, 0.52);
+  background: rgba(9, 14, 21, 0.1);
   border: 1px solid rgba(136, 188, 255, 0.12);
 }
 
