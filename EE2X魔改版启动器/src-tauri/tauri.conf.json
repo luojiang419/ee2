@@ -1,11 +1,11 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "EE2X魔改版启动器",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "identifier": "com.ee2x.modlauncher",
   "build": {
     "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build",
+    "beforeBuildCommand": "npm run build:frontend",
     "devUrl": "http://localhost:1420",
     "frontendDist": "../dist"
   },
@@ -29,8 +29,13 @@
   "bundle": {
     "active": true,
     "targets": "nsis",
-    "icon": ["icons/EE2X.ico"],
-    "resources": ["resources/vnt/vnt-cli.exe", "resources/vnt/wintun.dll"],
+    "icon": [
+      "icons/EE2X.ico"
+    ],
+    "resources": [
+      "resources/vnt/vnt-cli.exe",
+      "resources/vnt/wintun.dll"
+    ],
     "windows": {
       "nsis": {
         "installMode": "both"
