@@ -1,7 +1,7 @@
 use anyhow::{anyhow, Result};
 use chrono::Utc;
 use futures_util::StreamExt;
-use serde::{de::DeserializeOwned, Deserialize, Serialize};
+use serde::{de::DeserializeOwned, Deserialize, Deserializer, Serialize};
 use serde_json::{json, Value};
 use sha2::{Digest, Sha256};
 use std::{
@@ -336,7 +336,7 @@ struct LegacyProfile {
     register_time: String,
     #[serde(default)]
     last_login: String,
-    #[serde(default)]
+    #[serde(default, deserialize_with = "deserialize_boolish")]
     is_online: bool,
     #[serde(default)]
     last_seen: String,
@@ -352,6 +352,22 @@ struct LegacyProfile {
     rank_tier: String,
     #[serde(default)]
     rank_wins: i64,
+}
+
+fn deserialize_boolish<'de, D>(deserializer: D) -> std::result::Result<bool, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    let value = Value::deserialize(deserializer)?;
+    Ok(match value {
+        Value::Bool(flag) => flag,
+        Value::Number(number) => number.as_i64().unwrap_or(0) != 0,
+        Value::String(text) => {
+            let lower = text.trim().to_ascii_lowercase();
+            matches!(lower.as_str(), "1" | "true" | "yes" | "on")
+        }
+        _ => false,
+    })
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
