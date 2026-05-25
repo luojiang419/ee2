@@ -1,2 +1,2 @@
-UnofficialVersionConfig.txt
-Unofficial Patch Files/MinorVersion-data
+地球帝国二代远航版启动器/Core/resources/app/main.js
+地球帝国二代远航版启动器/update/runtime/ee2x-patcher-cli.exe

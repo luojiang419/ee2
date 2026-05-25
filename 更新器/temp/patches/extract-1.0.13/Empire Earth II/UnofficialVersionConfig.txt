@@ -1,0 +1,176 @@
+DontRegisterProtocols=1
+ConfigFileSavedInVersion=161000
+AllowEE2euCertificateInstallation=0
+EnableMiddleMouseButtonActions=1
+SynapticsTouchpad2FingerScrollInverted=1
+EnableSynapticsTouchpad2FingerScroll=0
+UseWindowedMode=2
+MinimizeMaximizationHelperWindowOnStart=0
+EnableDarkLauncherTheme=1
+StartGameOnMultiplayerLobbyScreen=0
+DisallowChristmasExpansion=1
+DirectX9AntiAliasingPrtScnFix=1
+DirectX9EnableAnisotropicFilteringMode=16
+DirectX9EnableAntiAliasingMode=0
+EnablePowerSavingInMenuAndLobby=1
+DirectX9Remove100FPSLimit=1
+DirectX9DisableVsync=0
+DirectX9NoFireExplosionFix=0
+FixMissingTextOnIntelIrisOrArcUseCustomD3D9On12WorsePerformanceVersion=1
+EnableAntiEpilepticSeizuresFixesInDX9=0
+RenderOnSecondaryMonitorAdapterIndex=1
+RenderOnSecondaryMonitor=0
+ConstrainCursorHotkey=1
+ConstrainCursor=1
+SkipGameIntroVideos=1
+EnableDirectX9Support=1
+EnableFixForIntelHDGraphicsBugs=0
+ForceWindows8FIX=0
+DisableWindows8FIX=0
+EnableAutoMaximize=1
+AlwaysShowLauncherWindow=0
+AlwaysShowMaximizationHelperWindow=0
+DisableToastNotifications=1
+DontKillTaskManager=1
+DisableScreenResChecking=1
+DisableUpdateErrors=1
+DisableCDKeyChecking=0
+DisableFilesNumberChecking=1
+AllowStatistics=1
+DisableUP1.5Units=0
+DontDetectMaximumScreenRes=1
+DontReportCrashes=1
+DisableCompatibilityModeWarnings=0
+LargeAddressAwareEnabled=1
+EnableAdvancedCachePreloading=0
+StatisticsModName="Unregistered Mod"
+ScreenResolutionsGroup=0
+EnableAutomaticFontSizeForScreenResolutions=0
+DeveloperModName=[id]Unregistered Mod[/id]
+DeveloperModVersion=[id]161000[/id]
+
+///!INFORMATIONS!///
+///Configuration File: Unofficial Version 1.5 + Mod, created by: Dr.MonaLisa///
+Screen Resolutions Group:
+0 = Auto-detect (recommeneded)
+1 = Force: 4096x2304
+2 = Force: 3840x2160
+3 = Force: 3200x1800
+4 = Force: 2560x1440
+5 = Force: 2048x1152
+6 = Force: 1920x1080, 1600x900, 1360x768, 1280x720
+7 = Force: 3840x2400
+8 = Force: 2880x1800
+9 = Force: 2560x1600
+10 = Force: 2304x1440
+11 = Force: 2048x1280
+12 = Force: 1920x1200, 1680x1050, 1440x900, 1280x800, 1152x720
+13 = Force: 3200x2400
+14 = Force: 2560x1920
+15 = Force: 2048x1536
+16 = Force: 1856x1392
+17 = Force: 1600x1200, 1440x1080, 1400x1050
+18 = Force: 1280x1024, 1280x960, 1152x864, 1024x768, 800x600 (From EE2 ver. 1.2)
+19 = Force: 2560x1700, 2160x1440, 1440x960, 1280x854, 1152x768
+20 = Force: 2560x2048, 1800x1440, 1600x1024, 1600x768, 1280x768
+21 = Force: 1920x1080, 1280x1024, 1600x900, 1366x768, 1024x768, 800x600 (Universal, from EE2 ver. 1.4)
+99 = Custom screen resolution. You need to use the Configuration Utility (UnofficialVersionConfig.vbs) to set it up
+
+Skip Game Intro Videos:
+0 = Game Intro Videos are enabled (when you start the game).
+1 = Game intro videos are skipped, and the main game menu is shown instantly after launch.
+
+Enable DirectX 9 Support:
+0 = The game uses the default DirectX 8 version.
+1 = The game uses an experimental DirectX 9 version. Should have more FPS in game. It fixes bugs, where only Integrated GPU is detected by game (for example NVIDIA Optimus problems).
+Please install the required "DirectX End-User Runtime" SDKs before enabling DirectX 9: https://www.microsoft.com/en-US/download/details.aspx?id=35
+
+Enable Fix For Intel HD GRaphics Bugs:
+0 = The fix is disabled. Recommended if you don't use the Intel HD graphics card in game.
+1 = Fixes no fire/explosion effects bugs. Please use it only if you need it as it doesn't improve anything else.
+
+Force Windows 8 FIX:
+0 = Windows 8 FIX detects if you use your desktop's screen resolution in EE2, and if yes then exits.
+1 = Windows 8 FIX will kill explorer.exe, even if you use your desktop's screen resolution in EE2.
+
+Disable Windows 8 FIX:
+0 = Windows 8 FIX enabled, starts only if your Operation System is Windows 8 / 8.1 / 10 +
+1 = Windows 8 FIX disabled, won't start even if your Operation System is Windows 8 / 8.1 / 10 +
+
+Enable Auto-Maximize:
+0 = Auto-maximize is disabled, you should use ALT+TAB to maximize your game.
+1 = Enables Auto-maximize feature, (usually helps you to maximize game on Windows 8 / 8.1 / 10 +).
+WARNING: This option might cause the following bug:
+Sometimes "edge scrolling" in game doesn't work correctly. To fix it: simply minimize and maximize EE2 (ALT+TAB), without quitting.
+
+Always Show Launcher Window:
+0 = The game will start instantly, without the New Launcher window.
+1 = The New Laucher screen will appear, and you will be able to select if you want to play EE2 or EE2X.
+
+Always Show Maximization Helper Window:
+0 = The Maximization Helper window won't pop-up when you're playing EE2 (not recommended).
+1 = The Maximization Helper window will be shown, and you will be able to fix maximization problems with game using selected solution(s).
+
+Disable Toast Notifications:
+0 = The Windows 8 / 8.1 / 10+ Toast Notifications are enabled (information about updates, how long you've played the last game, new chat message, etc.).
+1 = Disables all Toast Notifications.
+
+Disable Screen Res Checking:
+0 = Screen resolution messages are enabled.
+1 = The launcher won't inform you about supported screen resolution.
+
+Disable Update Errors:
+0 = Messages about auto-update errors are enabled.
+1 = Disables messages about errors while checking for Unofficial Patch updates.
+
+Disable CDKey Checking:
+0 = CD-KEY checking is enabled (messages about incorrect CD-KEY before you start a multiplayer game).
+1 = Disables all warning messages about incorrect CD-KEY.
+
+Disable Files Number Checking:
+0 = Warnings about number of files in folders: "savegame_MP", "savegame_SP", "playback" are enabled.
+1 = Disables warnings when there are ~200+ files in aforementioned folders.
+
+Allow Statistics:
+0 = Disables anonymous usage statistics (except multiplayer games) which are sent directly to Dr.MonaLisa.
+1 = Allows the launcher to send anonymous usage statistics to Dr.MonaLisa, with informations about:
+  - Your desktop's screen resolution, maximum possible screen resolution, and the scren resolutions group used by EE2,
+  - Country where you play EE2 in, and the type of the started game (SinglePlayer or Multiplayer),
+  - Operation System (Windows) version, the current launcher version and the graphics card model.
+  
+Disable UP1.5 Units:
+0 = Unofficial Patch 1.5 units, buildings, models, sounds and camera settings are enabled in game.
+1 = Disables UP1.5 units, buildings, models, sounds and camera settings. It's not recommended to use this option.
+2 = The same option as "1", but with disabled message box warnings. Not recommended.
+3 = Disables UP1.5 units, buildings, models, sounds, but keeps the new camera settings.
+
+Don't Detect Maximum Screen Resolution:
+0 - The launcher detects for the maximum screen resolution supported by your monitor (not affecting on Windows 8/8.1).
+1 - The launcher detects for your desktop's screen resolution, instead of the maximum one.
+
+Dont Report Crashes:
+0 - After "Unhandled Exception" crash you'll see an information message, and the information about this crash will be sent to Dr.MonaLisa.
+1 - After "Unhandled Exception" you won't see any information about it, and the report won't be automatically sent to Dr.Mona.
+
+Disable Compatibility Mode Warnings:
+0 - You'll get warnings when you change the UP1.5 compatibility properties.
+1 - You won't get warnings, when the compatibility properties are changed.
+
+Large Address Aware Enabled:
+INFORMATION: Large Address Aware is an executable flag that tells Windows that a program can handle more than 2GiB of memory.
+0 - Large Address Aware is Disabled (default)
+1 - Large Address Aware is Enabled (use only if you have got 4GB+ of the RAM memory). This option might improve game performance and prevent "not enough memory" crashes.
+  
+Statistics ModName:
+A string with a name of your mod, showed on the statistics web-page. The default: "Official" means that this version doesn't use any mod. You can change it to your mod's name (for example: EE4 Mod, Realistic Mod), etc. You can also add some details about the version of your mod, for example: "EE4 Mod ver. 10.0".
+
+-------------------
+Developer Mod Name:
+A string with the name of your mod. It should be always the same, for example: "[id]My First Mod[/id]". Please don't add any additional information to it.
+
+Developer Mod Version:
+The current version of your mod. It must be a natural number, for example: "[id]1[/id]". Please don't use dots or commas. If you're often updating your mod, for example for version 11.47 you can set: 1147.
+
+//How it works?
+The launcher is checking for DeveloperModName in the configuration downloaded from a server. If defined version is greater than the current version set in DeveloperModVersion, then it shows a message box with information about available update. The information and download link of the new version of the mod can be set by Dr.MonaLisa. If you're a modder and you want to set an information about a new version of your mod - please contact Dr.MonaLisa by visiting easywinclan.forummotion.com or by e-mail: easywinclan(at)gmail.com.
+For more information, please read this topic http://easywinclan.forummotion.com/t1731-development-diary-ee2-1.5
