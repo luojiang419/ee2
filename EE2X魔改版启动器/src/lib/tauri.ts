@@ -1,5 +1,10 @@
 import { convertFileSrc, invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
+import {
+  disable as disableAutostart,
+  enable as enableAutostart,
+  isEnabled as isAutostartEnabled
+} from "@tauri-apps/plugin-autostart";
 import { open } from "@tauri-apps/plugin-dialog";
 import type {
   AppConfig,
@@ -13,13 +18,14 @@ import type {
   UserSession
 } from "./types";
 
-const isTauriRuntime =
+export const isTauriRuntime =
   typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
 
 const STORAGE_CONFIG = "ee2x.mock.config";
 const STORAGE_USER = "ee2x.mock.user";
 const STORAGE_RELEASE = "ee2x.mock.release";
 const STORAGE_NETWORK = "ee2x.mock.network";
+const STORAGE_AUTOSTART = "ee2x.mock.autostart";
 const MOCK_LATEST_VERSION = "v1.0.17";
 const MOCK_CHAIN = ["v1.0.15", "v1.0.16", "v1.0.17"];
 const updateListeners = new Set<(event: UpdateStatusEvent) => void>();
@@ -34,7 +40,7 @@ const defaultConfig: AppConfig = {
   backgroundVideoPath: "",
   backgroundBlur: 0,
   updateChannel: "stable",
-  closeAction: "exit",
+  closeAction: "minimize",
   networkServer: "81.71.49.16:1666",
   autoConnect: true,
   userServerUrl: "http://115.231.35.105:3001",
@@ -648,6 +654,26 @@ export async function openConfigDirectory() {
     return invoke("open_config_directory");
   }
   return true;
+}
+
+export async function getAutostartEnabled() {
+  if (isTauriRuntime) {
+    return isAutostartEnabled();
+  }
+  return loadStored<boolean>(STORAGE_AUTOSTART, false);
+}
+
+export async function setAutostartEnabled(enabled: boolean) {
+  if (isTauriRuntime) {
+    if (enabled) {
+      await enableAutostart();
+    } else {
+      await disableAutostart();
+    }
+    return isAutostartEnabled();
+  }
+  saveStored(STORAGE_AUTOSTART, enabled);
+  return enabled;
 }
 
 export async function listenUpdateStatus(

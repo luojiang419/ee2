@@ -765,6 +765,10 @@ button {
   width: min(560px, calc(100vw - 32px));
 }
 
+.onboarding-modal {
+  width: min(560px, calc(100vw - 32px));
+}
+
 .modal-title {
   font-size: 24px;
   font-weight: 700;
@@ -789,6 +793,25 @@ button {
   border: 1px solid rgba(159, 198, 255, 0.12);
   background: rgba(4, 8, 14, 0.74);
   color: #eef4ff;
+}
+
+.onboarding-body {
+  gap: 14px;
+}
+
+.onboarding-copy {
+  color: #dce8fb;
+  line-height: 1.65;
+}
+
+.onboarding-copy-subtle {
+  color: #a9bfdc;
+}
+
+.auth-mode-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .drawer-header {

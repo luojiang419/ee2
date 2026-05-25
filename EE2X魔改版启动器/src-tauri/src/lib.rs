@@ -14,7 +14,11 @@ use std::{
     sync::Mutex,
     time::{Duration, SystemTime, UNIX_EPOCH},
 };
-use tauri::{AppHandle, Emitter, Manager, Runtime, State};
+use tauri::{
+    menu::{MenuBuilder, MenuItemBuilder},
+    tray::{MouseButton, TrayIconBuilder, TrayIconEvent},
+    AppHandle, Emitter, Manager, Runtime, State,
+};
 use tokio::{net::UdpSocket, time::timeout};
 use walkdir::WalkDir;
 use zip::ZipArchive;
@@ -39,6 +43,9 @@ const DEFAULT_UPDATE_SERVER: &str = "http://115.231.35.105:3010";
 const DEFAULT_UPDATE_WS: &str = "ws://115.231.35.105:3010/api/update/v1/channels/stable/ws";
 const DEFAULT_NETWORK_SERVER: &str = "81.71.49.16:1666";
 const AUTH_INVALID_PREFIX: &str = "AUTH_INVALID:";
+const TRAY_ID: &str = "main-tray";
+const MENU_SHOW_MAIN_WINDOW: &str = "show-main-window";
+const MENU_EXIT_APP: &str = "exit-app";
 const GAME_MARKERS: &[&str] = &[
     "UnofficialVersionConfig.txt",
     "zips_ee2x",
@@ -106,7 +113,7 @@ impl Default for AppConfig {
             background_video_path: String::new(),
             background_blur: 0.0,
             update_channel: "stable".into(),
-            close_action: "exit".into(),
+            close_action: "minimize".into(),
             network_server: DEFAULT_NETWORK_SERVER.into(),
             auto_connect: true,
             user_server_url: DEFAULT_USER_SERVER.into(),
@@ -413,10 +420,80 @@ impl fmt::Display for JsonRequestError {
 
 impl std::error::Error for JsonRequestError {}
 
+fn show_main_window<R: Runtime>(app: &AppHandle<R>) {
+    if let Some(window) = app.get_webview_window("main") {
+        let _ = window.unminimize();
+        let _ = window.show();
+        let _ = window.set_focus();
+    }
+}
+
+fn close_action_is_minimize<R: Runtime>(app: &AppHandle<R>) -> bool {
+    load_config(app)
+        .map(|config| config.close_action == "minimize")
+        .unwrap_or(true)
+}
+
+fn create_tray<R: Runtime>(app: &AppHandle<R>) -> Result<()> {
+    let show_item = MenuItemBuilder::with_id(MENU_SHOW_MAIN_WINDOW, "显示主窗口").build(app)?;
+    let exit_item = MenuItemBuilder::with_id(MENU_EXIT_APP, "退出程序").build(app)?;
+    let menu = MenuBuilder::new(app)
+        .item(&show_item)
+        .item(&exit_item)
+        .build()?;
+
+    let mut tray = TrayIconBuilder::with_id(TRAY_ID)
+        .menu(&menu)
+        .tooltip("EE2X魔改版启动器")
+        .show_menu_on_left_click(false);
+
+    if let Some(icon) = app.default_window_icon().cloned() {
+        tray = tray.icon(icon);
+    }
+
+    tray.build(app)?;
+    Ok(())
+}
+
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
+        .setup(|app| {
+            app.handle().plugin(tauri_plugin_autostart::init(
+                tauri_plugin_autostart::MacosLauncher::LaunchAgent,
+                None::<Vec<&'static str>>,
+            ))?;
+            create_tray(&app.handle())?;
+            Ok(())
+        })
         .manage(PendingRestartState::default())
+        .on_menu_event(|app, event| match event.id().as_ref() {
+            MENU_SHOW_MAIN_WINDOW => show_main_window(app),
+            MENU_EXIT_APP => app.exit(0),
+            _ => {}
+        })
+        .on_tray_icon_event(|app, event| match event {
+            TrayIconEvent::Click {
+                button: MouseButton::Left,
+                ..
+            }
+            | TrayIconEvent::DoubleClick {
+                button: MouseButton::Left,
+                ..
+            } => show_main_window(app),
+            _ => {}
+        })
+        .on_window_event(|window, event| {
+            if window.label() != "main" {
+                return;
+            }
+            if let tauri::WindowEvent::CloseRequested { api, .. } = event {
+                if close_action_is_minimize(&window.app_handle()) {
+                    api.prevent_close();
+                    let _ = window.hide();
+                }
+            }
+        })
         .invoke_handler(tauri::generate_handler![
             bootstrap_state,
             save_config,

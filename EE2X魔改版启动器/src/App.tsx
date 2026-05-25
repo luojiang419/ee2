@@ -1,4 +1,5 @@
 import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react";
+import { getCurrentWindow } from "@tauri-apps/api/window";
 import {
   authLogin,
   authLogout,
@@ -8,7 +9,9 @@ import {
   ensureNetwork,
   fetchOnlinePlayers,
   finalizeUpdateRestart,
+  getAutostartEnabled,
   getProfile,
+  isTauriRuntime,
   listenUpdateStatus,
   networkStatus,
   openConfigDirectory,
@@ -20,6 +23,7 @@ import {
   restartSelf,
   runUpdate,
   saveConfig,
+  setAutostartEnabled as saveAutostartEnabled,
   setGameDirectory,
   startGame,
   stopNetwork
@@ -27,6 +31,7 @@ import {
 import type {
   AppConfig,
   BootstrapState,
+  CloseAction,
   NetworkSnapshot,
   OnlinePlayer,
   PageId,
@@ -48,6 +53,8 @@ const RESOLUTION_OPTIONS = [
 
 const APP_DESIGN_WIDTH = 1600;
 const APP_DESIGN_HEIGHT = 960;
+type OnboardingStep = "pickGameDir" | "auth" | null;
+type AuthMode = "login" | "register";
 
 const emptyNetwork: NetworkSnapshot = {
   connected: false,
@@ -123,8 +130,10 @@ export default function App() {
   const [updateEvents, setUpdateEvents] = useState<UpdateStatusEvent[]>([]);
   const [updateRunning, setUpdateRunning] = useState(false);
   const [updateResult, setUpdateResult] = useState<UpdateRunResult | null>(null);
-  const [loginOpen, setLoginOpen] = useState(false);
-  const [registerOpen, setRegisterOpen] = useState(false);
+  const [onboardingStep, setOnboardingStep] = useState<OnboardingStep>(null);
+  const [authMode, setAuthMode] = useState<AuthMode>("login");
+  const [autostartEnabled, setAutostartEnabled] = useState(false);
+  const [autostartReady, setAutostartReady] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [busyMessage, setBusyMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -149,16 +158,35 @@ export default function App() {
     at: 0
   });
   const reportRef = useRef(0);
+  const lastMinimizedRef = useRef(false);
 
   const boardPlayers = useMemo(() => {
     return [...players].sort((a, b) => b.combatPower - a.combatPower).slice(0, 8);
   }, [players]);
 
+  function resolveOnboardingStep(nextBoot: BootstrapState | null, nextSession: UserSession | null): OnboardingStep {
+    if (!nextBoot) {
+      return null;
+    }
+    if (!nextBoot.gamePath.valid) {
+      return "pickGameDir";
+    }
+    if (!nextSession) {
+      return "auth";
+    }
+    return null;
+  }
+
   async function refreshBootstrap() {
     const payload = await bootstrapState();
+    const nextOnboardingStep = resolveOnboardingStep(payload, payload.user);
     setBoot(payload);
     setConfig(payload.config);
     setSession(payload.user);
+    if (nextOnboardingStep === "auth") {
+      setAuthMode("login");
+    }
+    setOnboardingStep(nextOnboardingStep);
     return payload;
   }
 
@@ -192,6 +220,8 @@ export default function App() {
     setNetwork(emptyNetwork);
     setTxSpeed(0);
     setRxSpeed(0);
+    setAuthMode("login");
+    await refreshBootstrap();
   }
 
   async function refreshPlayers() {
@@ -257,8 +287,13 @@ export default function App() {
     try {
       setBusyMessage("正在校验游戏目录...");
       const next = await setGameDirectory(selected);
+      const nextOnboardingStep = resolveOnboardingStep(next, session);
       setBoot(next);
       setConfig(next.config);
+      if (nextOnboardingStep === "auth") {
+        setAuthMode("login");
+      }
+      setOnboardingStep(nextOnboardingStep);
     } catch (error) {
       setErrorMessage(String(error));
     } finally {
@@ -273,10 +308,16 @@ export default function App() {
     try {
       setBusyMessage("正在保存设置...");
       const saved = await saveConfig(config);
+      await saveAutostartEnabled(autostartEnabled);
       setConfig(saved);
       setErrorMessage("");
     } catch (error) {
       setErrorMessage(String(error));
+      try {
+        setAutostartEnabled(await getAutostartEnabled());
+      } catch {
+        // ignore autostart refresh failure after save failure
+      }
     } finally {
       setBusyMessage("");
     }
@@ -285,12 +326,12 @@ export default function App() {
   async function handleLogin() {
     try {
       setBusyMessage("正在登录...");
-      const user = await authLogin(loginForm.username, loginForm.password);
-      setSession(user);
-      setLoginOpen(false);
+      await authLogin(loginForm.username, loginForm.password);
       setLoginForm({ username: "", password: "" });
+      await refreshBootstrap();
       await refreshProfile();
       await ensureNetwork();
+      setOnboardingStep(null);
     } catch (error) {
       setErrorMessage(String(error));
     } finally {
@@ -301,12 +342,12 @@ export default function App() {
   async function handleRegister() {
     try {
       setBusyMessage("正在注册...");
-      const user = await authRegister(registerForm.username, registerForm.password);
-      setSession(user);
-      setRegisterOpen(false);
+      await authRegister(registerForm.username, registerForm.password);
       setRegisterForm({ username: "", password: "" });
+      await refreshBootstrap();
       await refreshProfile();
       await ensureNetwork();
+      setOnboardingStep(null);
     } catch (error) {
       setErrorMessage(String(error));
     } finally {
@@ -319,11 +360,12 @@ export default function App() {
       await stopNetwork();
       await authLogout();
       setProfile(null);
-      setSession(null);
       setProfileOpen(false);
       setNetwork(emptyNetwork);
       setTxSpeed(0);
       setRxSpeed(0);
+      setAuthMode("login");
+      await refreshBootstrap();
     } catch (error) {
       setErrorMessage(String(error));
     }
@@ -552,6 +594,56 @@ export default function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    void getAutostartEnabled()
+      .then((enabled) => {
+        setAutostartEnabled(enabled);
+      })
+      .catch((error) => {
+        console.error("get_autostart_enabled failed", error);
+      })
+      .finally(() => {
+        setAutostartReady(true);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (!isTauriRuntime || !config) {
+      return;
+    }
+    const currentWindow = getCurrentWindow();
+    let active = true;
+
+    const pollMinimizedState = async () => {
+      try {
+        const minimized = await currentWindow.isMinimized();
+        if (
+          active &&
+          config.closeAction === "minimize" &&
+          minimized &&
+          !lastMinimizedRef.current
+        ) {
+          await currentWindow.hide();
+        }
+        lastMinimizedRef.current = minimized;
+      } catch (error) {
+        if (active) {
+          console.error("is_minimized poll failed", error);
+        }
+      }
+    };
+
+    void pollMinimizedState();
+    const timer = window.setInterval(() => {
+      void pollMinimizedState();
+    }, 500);
+
+    return () => {
+      active = false;
+      window.clearInterval(timer);
+    };
+  }, [config]);
+
   const backgroundBlur = Math.max(0, Math.min(24, config?.backgroundBlur ?? 0));
   const isHome = activePage === "home";
   const viewportStyle = {
@@ -616,12 +708,22 @@ export default function App() {
             </button>
           ) : (
             <div className="auth-actions">
-              <button className="mini-action" onClick={() => setLoginOpen(true)} type="button">
+              <button
+                className="mini-action"
+                onClick={() => {
+                  setAuthMode("login");
+                  setOnboardingStep("auth");
+                }}
+                type="button"
+              >
                 登录
               </button>
               <button
                 className="mini-action mini-secondary"
-                onClick={() => setRegisterOpen(true)}
+                onClick={() => {
+                  setAuthMode("register");
+                  setOnboardingStep("auth");
+                }}
                 type="button"
               >
                 注册
@@ -684,79 +786,41 @@ export default function App() {
           {activePage === "home" ? (
             <>
               <div className="home-stage glass">
-                {boot?.gamePath.valid ? (
-                  <div className="state-cluster">
-                    <div className="home-main-fill" />
-                    <div className="action-stack">
-                      <div className="summary-block compact-status">
-                        <span className={`dot ${network.connected ? "online" : "offline"}`} />
-                        <div>
-                          <div className="summary-title">联机状态</div>
-                          <div className="summary-value">
-                            {session ? network.status : "登录后可联机"}
-                          </div>
+                <div className="state-cluster">
+                  <div className="home-main-fill" />
+                  <div className="action-stack">
+                    <div className="summary-block compact-status">
+                      <span className={`dot ${network.connected ? "online" : "offline"}`} />
+                      <div>
+                        <div className="summary-title">联机状态</div>
+                        <div className="summary-value">
+                          {session ? network.status : "登录后可联机"}
                         </div>
-                      </div>
-                      <button
-                        className="stack-action"
-                        onClick={() => {
-                          setActivePage("updates");
-                          void refreshUpdateInfo(false);
-                        }}
-                        type="button"
-                      >
-                        一键更新
-                      </button>
-                      <button className="stack-action" onClick={() => setActivePage("settings")} type="button">
-                        游戏设置
-                      </button>
-                      <button className="start-button" onClick={() => void handleStartGame()} type="button">
-                        开始游戏
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="picker-stage">
-                    <div className="picker-layout">
-                      <div className="picker-main">
-                        <div className="picker-copy">
-                          <div className="picker-title">首次使用需要选择 Empire Earth II 游戏根目录</div>
-                          <div className="picker-subtitle">
-                            需要检测到 EE2X.exe / EE2.exe 与 UnofficialVersionConfig.txt、zips_ee2x 等根目录标记。
-                          </div>
-                        </div>
-                        <button className="picker-button" onClick={() => void handlePickGameDirectory()} type="button">
-                          选择 Empire Earth II 游戏根目录
-                        </button>
-                      </div>
-                      <div className="action-stack">
-                        <div className="summary-block compact-status">
-                          <span className={`dot ${network.connected ? "online" : "offline"}`} />
-                          <div>
-                          <div className="summary-title">联机状态</div>
-                          <div className="summary-value">{session ? network.status : "登录后可联机"}</div>
-                        </div>
-                      </div>
-                        <button
-                          className="stack-action"
-                          onClick={() => {
-                            setActivePage("updates");
-                            void refreshUpdateInfo(false);
-                          }}
-                          type="button"
-                        >
-                          一键更新
-                        </button>
-                        <button className="stack-action" onClick={() => setActivePage("settings")} type="button">
-                          游戏设置
-                        </button>
-                        <button className="start-button disabled" disabled type="button">
-                          开始游戏
-                        </button>
                       </div>
                     </div>
+                    <button
+                      className="stack-action"
+                      onClick={() => {
+                        setActivePage("updates");
+                        void refreshUpdateInfo(false);
+                      }}
+                      type="button"
+                    >
+                      一键更新
+                    </button>
+                    <button className="stack-action" onClick={() => setActivePage("settings")} type="button">
+                      游戏设置
+                    </button>
+                    <button
+                      className={`start-button ${boot?.gamePath.valid ? "" : "disabled"}`}
+                      disabled={!boot?.gamePath.valid}
+                      onClick={() => void handleStartGame()}
+                      type="button"
+                    >
+                      开始游戏
+                    </button>
                   </div>
-                )}
+                </div>
               </div>
             </>
           ) : null}
@@ -1058,12 +1122,17 @@ export default function App() {
                         value={config.closeAction}
                         onChange={(event) =>
                           setConfig((current) =>
-                            current ? { ...current, closeAction: event.target.value } : current
+                            current
+                              ? {
+                                  ...current,
+                                  closeAction: event.target.value as CloseAction
+                                }
+                              : current
                           )
                         }
                       >
                         <option value="exit">退出程序</option>
-                        <option value="minimize">最小化</option>
+                        <option value="minimize">最小化到托盘</option>
                       </select>
                     </label>
                     <label className="field-card glass-lite">
@@ -1088,6 +1157,17 @@ export default function App() {
                               : current
                           )
                         }
+                      >
+                        <option value="on">开</option>
+                        <option value="off">关</option>
+                      </select>
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>开机自启</span>
+                      <select
+                        disabled={!autostartReady}
+                        value={autostartEnabled ? "on" : "off"}
+                        onChange={(event) => setAutostartEnabled(event.target.value === "on")}
                       >
                         <option value="on">开</option>
                         <option value="off">关</option>
@@ -1118,59 +1198,91 @@ export default function App() {
         </div>
       )}
 
-      {loginOpen && (
+      {onboardingStep === "pickGameDir" && (
         <div className="overlay">
-          <div className="modal glass">
-            <div className="modal-title">登录</div>
-            <div className="modal-body">
-              <input
-                placeholder="用户名"
-                value={loginForm.username}
-                onChange={(event) => setLoginForm((current) => ({ ...current, username: event.target.value }))}
-              />
-              <input
-                placeholder="密码"
-                type="password"
-                value={loginForm.password}
-                onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
-              />
+          <div className="modal glass onboarding-modal">
+            <div className="modal-title">选择魔改版游戏目录</div>
+            <div className="modal-body onboarding-body">
+              <div className="onboarding-copy">
+                首次使用必须先选择有效的 Empire Earth II 魔改版根目录。
+              </div>
+              <div className="onboarding-copy onboarding-copy-subtle">
+                目录中需要存在 EE2X.exe 或 EE2.exe，以及 UnofficialVersionConfig.txt、zips_ee2x 等根目录标记。
+              </div>
             </div>
             <div className="modal-actions">
-              <button className="mini-action mini-secondary" onClick={() => setLoginOpen(false)} type="button">
-                取消
-              </button>
-              <button className="mini-action primary-glow" onClick={() => void handleLogin()} type="button">
-                登录
+              <button className="mini-action primary-glow" onClick={() => void handlePickGameDirectory()} type="button">
+                选择魔改版游戏目录
               </button>
             </div>
           </div>
         </div>
       )}
 
-      {registerOpen && (
+      {onboardingStep === "auth" && (
         <div className="overlay">
-          <div className="modal glass">
-            <div className="modal-title">注册</div>
-            <div className="modal-body">
-              <input
-                placeholder="用户名"
-                value={registerForm.username}
-                onChange={(event) => setRegisterForm((current) => ({ ...current, username: event.target.value }))}
-              />
-              <input
-                placeholder="密码"
-                type="password"
-                value={registerForm.password}
-                onChange={(event) => setRegisterForm((current) => ({ ...current, password: event.target.value }))}
-              />
+          <div className="modal glass onboarding-modal">
+            <div className="modal-title">{authMode === "login" ? "登录账号" : "注册账号"}</div>
+            <div className="modal-body onboarding-body">
+              <div className="auth-mode-switch">
+                <button
+                  className={authMode === "login" ? "mini-action primary-glow" : "mini-action mini-secondary"}
+                  onClick={() => setAuthMode("login")}
+                  type="button"
+                >
+                  登录
+                </button>
+                <button
+                  className={authMode === "register" ? "mini-action primary-glow" : "mini-action mini-secondary"}
+                  onClick={() => setAuthMode("register")}
+                  type="button"
+                >
+                  注册
+                </button>
+              </div>
+              <div className="onboarding-copy onboarding-copy-subtle">
+                目录校验已通过，登录后即可正常使用启动器、联机网络与更新功能。
+              </div>
+              {authMode === "login" ? (
+                <>
+                  <input
+                    placeholder="用户名"
+                    value={loginForm.username}
+                    onChange={(event) => setLoginForm((current) => ({ ...current, username: event.target.value }))}
+                  />
+                  <input
+                    placeholder="密码"
+                    type="password"
+                    value={loginForm.password}
+                    onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
+                  />
+                </>
+              ) : (
+                <>
+                  <input
+                    placeholder="用户名"
+                    value={registerForm.username}
+                    onChange={(event) => setRegisterForm((current) => ({ ...current, username: event.target.value }))}
+                  />
+                  <input
+                    placeholder="密码"
+                    type="password"
+                    value={registerForm.password}
+                    onChange={(event) => setRegisterForm((current) => ({ ...current, password: event.target.value }))}
+                  />
+                </>
+              )}
             </div>
             <div className="modal-actions">
-              <button className="mini-action mini-secondary" onClick={() => setRegisterOpen(false)} type="button">
-                取消
-              </button>
-              <button className="mini-action primary-glow" onClick={() => void handleRegister()} type="button">
-                注册
-              </button>
+              {authMode === "login" ? (
+                <button className="mini-action primary-glow" onClick={() => void handleLogin()} type="button">
+                  登录并进入软件
+                </button>
+              ) : (
+                <button className="mini-action primary-glow" onClick={() => void handleRegister()} type="button">
+                  注册并进入软件
+                </button>
+              )}
             </div>
           </div>
         </div>

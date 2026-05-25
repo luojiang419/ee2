@@ -1,4 +1,5 @@
 export type PageId = "home" | "players" | "updates" | "settings";
+export type CloseAction = "exit" | "minimize";
 
 export interface AppConfig {
   gameExe: string;
@@ -10,7 +11,7 @@ export interface AppConfig {
   backgroundVideoPath: string;
   backgroundBlur: number;
   updateChannel: string;
-  closeAction: string;
+  closeAction: CloseAction;
   networkServer: string;
   autoConnect: boolean;
   userServerUrl: string;
