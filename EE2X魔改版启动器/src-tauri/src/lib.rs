@@ -83,6 +83,7 @@ struct AppConfig {
     background_type: String,
     background_image_path: String,
     background_video_path: String,
+    background_blur: f64,
     update_channel: String,
     close_action: String,
     network_server: String,
@@ -103,6 +104,7 @@ impl Default for AppConfig {
             background_type: "default".into(),
             background_image_path: String::new(),
             background_video_path: String::new(),
+            background_blur: 0.0,
             update_channel: "stable".into(),
             close_action: "exit".into(),
             network_server: DEFAULT_NETWORK_SERVER.into(),
@@ -1311,7 +1313,7 @@ fn start_game(app: AppHandle) -> Result<HashMap<String, Value>, String> {
 
 fn http_client() -> reqwest::Client {
     reqwest::Client::builder()
-        .user_agent("EE2X-Mod-Launcher/0.1.0")
+        .user_agent(concat!("EE2X-Mod-Launcher/", env!("CARGO_PKG_VERSION")))
         .build()
         .expect("http client")
 }

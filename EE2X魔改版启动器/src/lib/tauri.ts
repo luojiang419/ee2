@@ -32,6 +32,7 @@ const defaultConfig: AppConfig = {
   backgroundType: "default",
   backgroundImagePath: "",
   backgroundVideoPath: "",
+  backgroundBlur: 0,
   updateChannel: "stable",
   closeAction: "exit",
   networkServer: "81.71.49.16:1666",
@@ -96,6 +97,10 @@ function loadMockConfig() {
     backgroundVideoPath:
       typeof raw.backgroundVideoPath === "string" ? raw.backgroundVideoPath : ""
   };
+  config.backgroundBlur =
+    typeof raw.backgroundBlur === "number" && Number.isFinite(raw.backgroundBlur)
+      ? Math.max(0, Math.min(24, raw.backgroundBlur))
+      : 0;
   if (config.backgroundImagePath.startsWith("blob:")) {
     config.backgroundImagePath = "";
   }

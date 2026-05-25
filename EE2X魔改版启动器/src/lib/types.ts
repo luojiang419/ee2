@@ -8,6 +8,7 @@ export interface AppConfig {
   backgroundType: "default" | "image" | "video";
   backgroundImagePath: string;
   backgroundVideoPath: string;
+  backgroundBlur: number;
   updateChannel: string;
   closeAction: string;
   networkServer: string;

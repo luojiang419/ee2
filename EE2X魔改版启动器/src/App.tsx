@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react";
 import {
   authLogin,
   authLogout,
@@ -45,6 +45,9 @@ const RESOLUTION_OPTIONS = [
   "1600x900",
   "1920x1080"
 ];
+
+const APP_DESIGN_WIDTH = 1600;
+const APP_DESIGN_HEIGHT = 960;
 
 const emptyNetwork: NetworkSnapshot = {
   connected: false,
@@ -127,6 +130,16 @@ export default function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
   const [registerForm, setRegisterForm] = useState({ username: "", password: "" });
+  const [uiScale, setUiScale] = useState(() => {
+    if (typeof window === "undefined") {
+      return 1;
+    }
+    return Math.min(
+      1,
+      window.innerWidth / APP_DESIGN_WIDTH,
+      window.innerHeight / APP_DESIGN_HEIGHT
+    );
+  });
 
   const autoUpdateCheckedRef = useRef(false);
   const wsRef = useRef<WebSocket | null>(null);
@@ -460,7 +473,7 @@ export default function App() {
   }, [boot, updateInfo, updateRunning]);
 
   const resolvedVersion =
-    updateInfo?.currentLauncherVersion || boot?.launcherVersion || "v0.1.0";
+    updateInfo?.currentLauncherVersion || boot?.launcherVersion || "v1.0.0";
   const backgroundImageSrc =
     config?.backgroundType === "image"
       ? resolveBackgroundSource(config.backgroundImagePath)
@@ -524,8 +537,29 @@ export default function App() {
     });
   }, [profile, profileOpen, session]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setUiScale(
+        Math.min(
+          1,
+          window.innerWidth / APP_DESIGN_WIDTH,
+          window.innerHeight / APP_DESIGN_HEIGHT
+        )
+      );
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const backgroundBlur = Math.max(0, Math.min(24, config?.backgroundBlur ?? 0));
+  const viewportStyle = {
+    "--ui-scale": String(uiScale),
+    "--background-blur": `${backgroundBlur}px`
+  } as CSSProperties;
+
   return (
-    <div className="app-shell">
+    <div className="app-viewport" style={viewportStyle}>
       {backgroundImageSrc || backgroundVideoSrc ? (
         <div className="background-media">
           {backgroundImageSrc ? (
@@ -545,6 +579,7 @@ export default function App() {
         </div>
       ) : null}
       <div className="background-layer" />
+      <div className="app-shell">
       <header className="topbar glass">
         <div className="brand-block">
           <div className="brand-mark">EE2X</div>
@@ -924,6 +959,29 @@ export default function App() {
                         <option value="video">背景视频</option>
                       </select>
                     </label>
+                    <label className="field-card glass-lite">
+                      <span>{`背景模糊度 ${Math.round(config.backgroundBlur)}px`}</span>
+                      <div className="field-range">
+                        <input
+                          max={24}
+                          min={0}
+                          step={1}
+                          type="range"
+                          value={config.backgroundBlur}
+                          onChange={(event) =>
+                            setConfig((current) =>
+                              current
+                                ? {
+                                    ...current,
+                                    backgroundBlur: Number(event.target.value)
+                                  }
+                                : current
+                            )
+                          }
+                        />
+                        <strong>{Math.round(config.backgroundBlur)}px</strong>
+                      </div>
+                    </label>
                     <div className="field-card glass-lite background-preview-card">
                       <div className="background-preview-header">
                         <span>背景预览</span>
@@ -1204,6 +1262,7 @@ export default function App() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }
