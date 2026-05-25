@@ -666,10 +666,18 @@ button {
   padding: 22px;
 }
 
+.profile-modal {
+  width: min(560px, calc(100vw - 32px));
+}
+
 .modal-title {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 14px;
+}
+
+.profile-title {
+  margin-bottom: 4px;
 }
 
 .modal-body {
@@ -686,16 +694,6 @@ button {
   border: 1px solid rgba(159, 198, 255, 0.12);
   background: rgba(4, 8, 14, 0.74);
   color: #eef4ff;
-}
-
-.profile-drawer {
-  position: fixed;
-  top: 92px;
-  right: 18px;
-  z-index: 25;
-  width: 420px;
-  padding: 22px;
-  border-radius: 22px;
 }
 
 .drawer-header {
@@ -721,6 +719,13 @@ button {
 
 .drawer-item.full {
   grid-column: 1 / -1;
+}
+
+.drawer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
 }
 
 @media (max-width: 1440px) {

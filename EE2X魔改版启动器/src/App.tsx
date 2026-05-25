@@ -471,6 +471,19 @@ export default function App() {
     );
   }
 
+  useEffect(() => {
+    if (!profileOpen) {
+      return;
+    }
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setProfileOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [profileOpen]);
+
   return (
     <div className="app-shell">
       {backgroundImageSrc || backgroundVideoSrc ? (
@@ -1066,52 +1079,68 @@ export default function App() {
       )}
 
       {profileOpen && session && (
-        <div className="profile-drawer glass">
-          <div className="drawer-header">
-            <img
-              alt={session.username}
-              className="avatar large"
-              src={
-                getAvatarUrl(profile?.avatar || session.avatar) ||
-                `https://api.dicebear.com/7.x/shapes/svg?seed=${encodeURIComponent(session.username)}`
-              }
-            />
-            <div>
-              <div className="section-title">{profile?.username || session.username}</div>
-              <div className="section-subtitle">
-                等级 {profile?.rankTier || "-"} · 战力 {profile?.combatPower ?? 0}
+        <div className="overlay" onClick={() => setProfileOpen(false)}>
+          <div
+            className="modal profile-modal glass"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="drawer-header">
+              <img
+                alt={session.username}
+                className="avatar large"
+                src={
+                  getAvatarUrl(profile?.avatar || session.avatar) ||
+                  `https://api.dicebear.com/7.x/shapes/svg?seed=${encodeURIComponent(session.username)}`
+                }
+              />
+              <div>
+                <div className="modal-title profile-title">
+                  {profile?.username || session.username}
+                </div>
+                <div className="section-subtitle">
+                  等级 {profile?.rankTier || "-"} · 战力 {profile?.combatPower ?? 0}
+                </div>
               </div>
             </div>
-          </div>
-          <div className="drawer-grid">
-            <div className="glass-lite drawer-item">
-              <span>胜场</span>
-              <strong>{profile?.rankWins ?? 0}</strong>
+            <div className="drawer-grid">
+              <div className="glass-lite drawer-item">
+                <span>胜场</span>
+                <strong>{profile?.rankWins ?? 0}</strong>
+              </div>
+              <div className="glass-lite drawer-item">
+                <span>总在线时长</span>
+                <strong>
+                  {profile
+                    ? formatDurationFrom(
+                        new Date(clock - profile.totalRuntimeSeconds * 1000).toISOString(),
+                        clock
+                      )
+                    : "--:--:--"}
+                </strong>
+              </div>
+              <div className="glass-lite drawer-item full">
+                <span>个性签名</span>
+                <strong>{profile?.signature || "暂无个性签名"}</strong>
+              </div>
+              <div className="glass-lite drawer-item full">
+                <span>注册时间 / 上次登录</span>
+                <strong>
+                  {(profile?.registerTime || "-") + " / " + (profile?.lastLogin || "-")}
+                </strong>
+              </div>
             </div>
-            <div className="glass-lite drawer-item">
-              <span>总在线时长</span>
-              <strong>
-                {profile ? formatDurationFrom(new Date(clock - profile.totalRuntimeSeconds * 1000).toISOString(), clock) : "--:--:--"}
-              </strong>
+            <div className="drawer-actions">
+              <button
+                className="mini-action mini-secondary"
+                onClick={() => setProfileOpen(false)}
+                type="button"
+              >
+                关闭
+              </button>
+              <button className="mini-action" onClick={() => void handleLogout()} type="button">
+                退出登录
+              </button>
             </div>
-            <div className="glass-lite drawer-item full">
-              <span>个性签名</span>
-              <strong>{profile?.signature || "暂无个性签名"}</strong>
-            </div>
-            <div className="glass-lite drawer-item full">
-              <span>注册时间 / 上次登录</span>
-              <strong>
-                {(profile?.registerTime || "-") + " / " + (profile?.lastLogin || "-")}
-              </strong>
-            </div>
-          </div>
-          <div className="drawer-actions">
-            <button className="mini-action mini-secondary" onClick={() => setProfileOpen(false)} type="button">
-              关闭
-            </button>
-            <button className="mini-action" onClick={() => void handleLogout()} type="button">
-              退出登录
-            </button>
           </div>
         </div>
       )}
