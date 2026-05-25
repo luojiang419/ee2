@@ -17709,7 +17709,7 @@ UnitType Tavern
 		LOS { range = 8 }
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 6;
+			numOfSlots = 30;
 			gatherRate = 0.5;	
 			gatherType = Gold;
             rightClickToGarrison = 1;
