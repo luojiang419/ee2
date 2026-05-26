@@ -116,6 +116,8 @@
 | 115 | EE2X_db-114-PC3-RPS-Bomber-fix-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 114修改应用后的完整游戏ZIP | 待测试 | 2026-05-25 |
 | 116 | EE2X_db-116-炼油厂化学厂去除种子资源费-pre.zip | pre | Oilref/Chemistry 建筑造价 | dbtechtreenode.csv | Oilref的OIL造价200→0; Chemistry的URANIUM造价200→0 | — | 2026-05-26 |
 | 117 | EE2X_db-117-炼油厂化学厂去除种子资源费-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 116修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
+| 118 | EE2X_db-118-炼油厂化学厂调整为木500石500金500-pre.zip | pre | Oilref/Chemistry 建筑造价 | dbtechtreenode.csv | Oilref/Chemistry造价调整为WOOD=500/STONE=500/GOLD=500 | — | 2026-05-26 |
+| 119 | EE2X_db-119-炼油厂化学厂调整为木500石500金500-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 118修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 
 ## 更新器/启动器备份
 
