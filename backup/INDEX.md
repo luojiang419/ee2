@@ -147,7 +147,9 @@
 | 111 | EE2X_db-111-PC3反潜机攻击HP调整-pre.zip | pre | PC3(伊尔38反潜机) E11/E13 | upgrade_unittypes.csv | HP 2000→1500(E11)/2500→1500(E13), DAMAGE 700→8000(E11)/900→8000(E13) | — | 2026-05-24 |
 | 111 | EE2X_db-111-PC3反潜机攻击HP调整-runtime.zip | runtime | PC3(伊尔38反潜机) E11/E13 | EE2X_db.zip 完整 | 111修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 112 | EE2X_db-112-三舰防空统一E14-pre.zip | pre | Ch054A/Type22350/FregattenFFG E14 | Yuanhang_Tao_13naval_units.ddf, upgrade_unittypes.csv | 三舰E14统一HP=9000/Damage=2400/Range=55 | — | 2026-05-26 21:30 |
-| 112 | EE2X_db-112-三舰防空统一E14-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 112修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 21:30 |
+| 112 | EE2X_db-112-三舰防空统一E14-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 112修改应用后的完整游戏ZIP | 测试通过 | 2026-05-26 21:30 |
+| 131 | EE2X_db-131-铀石油资源点数量5000改800-pre.zip | pre | ResourceOil/ResourceUranium 资源点 | resources.ddf | 铀和石油资源点amount从5000改为800 | — | 2026-05-26 |
+| 131 | EE2X_db-131-铀石油资源点数量5000改800-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 131修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 
 ## 旧格式全量快照（历史遗留）
 
