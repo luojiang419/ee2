@@ -150,6 +150,8 @@
 | 112 | EE2X_db-112-三舰防空统一E14-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 112修改应用后的完整游戏ZIP | 测试通过 | 2026-05-26 21:30 |
 | 131 | EE2X_db-131-铀石油资源点数量5000改800-pre.zip | pre | ResourceOil/ResourceUranium 资源点 | resources.ddf | 铀和石油资源点amount从5000改为800 | — | 2026-05-26 |
 | 131 | EE2X_db-131-铀石油资源点数量5000改800-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 131修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
+| 132 | EE2X_db-132-石金木资源点数量调整-pre.zip | pre | ResourceStone/ResourceGold/ResourceWoody | resources.ddf | 石头1000→1500、黄金1000→1500、树木30000→5000 | — | 2026-05-26 |
+| 132 | EE2X_db-132-石金木资源点数量调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 132修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 
 ## 旧格式全量快照（历史遗留）
 

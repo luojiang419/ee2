@@ -1431,7 +1431,7 @@ UnitType ResourceGold
 		VerboseTooltip = vtt_unit_Gold
 	}
 	abilities [ 
-		Resource { type = kResourceType_Gold; amount = 1000; maxNumOfWorkers = 6}
+		Resource { type = kResourceType_Gold; amount = 1500; maxNumOfWorkers = 6}
 	]
 }
 
@@ -1472,7 +1472,7 @@ UnitType ResourceStone
 		VerboseTooltip = vtt_unit_Stone
 	}
 	abilities [ 
-		Resource { type = kResourceType_Stone; amount = 1000; maxNumOfWorkers = 6}
+		Resource { type = kResourceType_Stone; amount = 1500; maxNumOfWorkers = 6}
 	]
 }
 
@@ -1731,7 +1731,7 @@ UnitType ResourceWoody
 		 }
       abilities [
 		// change alwaysExhaustible to make tree exhaustible
-		Resource { type = kResourceType_Wood; alwaysExhaustible = 1; amount = 30000; maxNumOfWorkers = 6}
+		Resource { type = kResourceType_Wood; alwaysExhaustible = 1; amount = 5000; maxNumOfWorkers = 6}
 	]
 	
 }
