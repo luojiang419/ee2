@@ -137,6 +137,7 @@ export default function App() {
   const [onboardingStep, setOnboardingStep] = useState<OnboardingStep>(null);
   const [authMode, setAuthMode] = useState<AuthMode>("login");
   const [autostartEnabled, setAutostartEnabled] = useState(false);
+  const [autostartInitialEnabled, setAutostartInitialEnabled] = useState<boolean | null>(null);
   const [autostartReady, setAutostartReady] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [busyMessage, setBusyMessage] = useState("");
@@ -386,13 +387,22 @@ export default function App() {
     try {
       setBusyMessage("正在保存设置...");
       const saved = await saveConfig(config);
-      await saveAutostartEnabled(autostartEnabled);
+      if (
+        autostartReady &&
+        autostartInitialEnabled !== null &&
+        autostartEnabled !== autostartInitialEnabled
+      ) {
+        await saveAutostartEnabled(autostartEnabled);
+      }
       setConfig(saved);
+      setAutostartInitialEnabled(autostartEnabled);
       setErrorMessage("");
     } catch (error) {
       setErrorMessage(String(error));
       try {
-        setAutostartEnabled(await getAutostartEnabled());
+        const actualAutostart = await getAutostartEnabled();
+        setAutostartEnabled(actualAutostart);
+        setAutostartInitialEnabled(actualAutostart);
       } catch {
         // ignore autostart refresh failure after save failure
       }
@@ -797,6 +807,7 @@ export default function App() {
     void getAutostartEnabled()
       .then((enabled) => {
         setAutostartEnabled(enabled);
+        setAutostartInitialEnabled(enabled);
       })
       .catch((error) => {
         console.error("get_autostart_enabled failed", error);
