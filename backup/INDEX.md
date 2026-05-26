@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-26 三舰防空统一E14
+> 最后更新: 2026-05-26 三舰建造时间减60%
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -148,6 +148,8 @@
 | 111 | EE2X_db-111-PC3反潜机攻击HP调整-runtime.zip | runtime | PC3(伊尔38反潜机) E11/E13 | EE2X_db.zip 完整 | 111修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
 | 112 | EE2X_db-112-三舰防空统一E14-pre.zip | pre | Ch054A/Type22350/FregattenFFG E14 | Yuanhang_Tao_13naval_units.ddf, upgrade_unittypes.csv | 三舰E14统一HP=9000/Damage=2400/Range=55 | — | 2026-05-26 21:30 |
 | 112 | EE2X_db-112-三舰防空统一E14-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 112修改应用后的完整游戏ZIP | 测试通过 | 2026-05-26 21:30 |
+| 113 | EE2X_db-113-三舰建造时间减60-pre.zip | pre | Ch054A/Type22350/FregattenFFG E14 | upgrade_unittypes.csv | 三舰E14建造时间减60%: Ch054A 225→90, Type22350 240→96, FregattenFFG 210→84 | — | 2026-05-26 21:45 |
+| 113 | EE2X_db-113-三舰建造时间减60-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 113修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 21:45 |
 | 131 | EE2X_db-131-铀石油资源点数量5000改800-pre.zip | pre | ResourceOil/ResourceUranium 资源点 | resources.ddf | 铀和石油资源点amount从5000改为800 | — | 2026-05-26 |
 | 131 | EE2X_db-131-铀石油资源点数量5000改800-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 131修改应用后的完整游戏ZIP | 测试通过 | 2026-05-26 |
 | 132 | EE2X_db-132-石金木资源点数量调整-pre.zip | pre | ResourceStone/ResourceGold/ResourceWoody | resources.ddf | 石头1000→1500、黄金1000→1500、树木30000→5000 | — | 2026-05-26 |
