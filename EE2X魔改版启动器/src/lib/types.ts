@@ -49,6 +49,7 @@ export interface BootstrapState {
   gamePath: GamePathStatus;
   launcherVersion: string;
   installDir: string;
+  defaultBackgroundPath: string;
 }
 
 export interface UserProfile {

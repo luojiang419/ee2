@@ -31,6 +31,7 @@ const USER_FILE: &str = "user.json";
 const DEVICE_ID_FILE: &str = "device-id.txt";
 const RELEASE_STATE_FILE: &str = "update/runtime/release-state.json";
 const BACKGROUND_DIR: &str = "backgrounds";
+const DEFAULT_BACKGROUND_FILE: &str = "default-background.png";
 const VNT_DIR: &str = "runtime/vnt";
 const VNT_CONFIG_FILE: &str = "runtime/vnt/vnt-tun.yaml";
 const VNT_LAUNCH_STATE_FILE: &str = "runtime/vnt/launch-state.json";
@@ -173,6 +174,7 @@ struct BootstrapState {
     game_path: GamePathStatus,
     launcher_version: String,
     install_dir: String,
+    default_background_path: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -1037,17 +1039,33 @@ fn apply_preferred_window_resolution<R: Runtime>(
     Ok(())
 }
 
+fn ensure_default_background<R: Runtime>(app: &AppHandle<R>) -> Result<String> {
+    let img_dir = background_dir(app, "image")?;
+    let dst = img_dir.join(DEFAULT_BACKGROUND_FILE);
+    if !dst.exists() {
+        let src = resource_candidates(app, DEFAULT_BACKGROUND_FILE)
+            .into_iter()
+            .find(|candidate| candidate.exists());
+        if let Some(source) = src {
+            fs::copy(&source, &dst)?;
+        }
+    }
+    Ok(dst.to_string_lossy().to_string())
+}
+
 fn bootstrap_state_internal<R: Runtime>(app: &AppHandle<R>) -> Result<BootstrapState> {
     let config = load_config(app)?;
     apply_preferred_window_resolution(app, &config.preferred_resolution)?;
     let user = load_user(app)?;
     let state = load_release_state(app)?;
+    let default_background_path = ensure_default_background(app).unwrap_or_default();
     Ok(BootstrapState {
         game_path: validate_game_dir(&config.game_dir),
         launcher_version: launcher_version_from_state(&state),
         install_dir: install_dir()?.to_string_lossy().to_string(),
         config,
         user,
+        default_background_path,
     })
 }
 

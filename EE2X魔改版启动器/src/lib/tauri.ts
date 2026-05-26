@@ -192,7 +192,8 @@ function buildMockBootstrap(): BootstrapState {
     user: loadMockUser(),
     gamePath: validateMockGamePath(config.gameDir),
     launcherVersion: release.launcherVersion,
-    installDir: "浏览器预览模式"
+    installDir: "浏览器预览模式",
+    defaultBackgroundPath: ""
   };
 }
 

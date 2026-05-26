@@ -731,7 +731,9 @@ export default function App() {
   const backgroundImageSrc =
     config?.backgroundType === "image"
       ? resolveBackgroundSource(config.backgroundImagePath)
-      : "";
+      : config?.backgroundType === "default" && boot?.defaultBackgroundPath
+        ? resolveBackgroundSource(boot.defaultBackgroundPath)
+        : "";
   const backgroundVideoSrc =
     config?.backgroundType === "video"
       ? resolveBackgroundSource(config.backgroundVideoPath)
