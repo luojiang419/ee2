@@ -220,7 +220,7 @@ UpgradeAbilities FortressEpoch14Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = Fortress; 
-			numOfSlots = 30;
+			numOfSlots = 60;
 			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 14;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;

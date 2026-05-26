@@ -121,6 +121,33 @@ UnitType Paratrooper_Solider3
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
 	icon = icon_Paratrooper_Solider
 }
+UnitType Paratrooper_Mortar
+{
+    visualName = NonCombatAir2_boat
+    parent = NavalShallow
+    properties {
+        SizeX = 1
+        SizeY = 1
+        mass = 0
+        VerboseTooltip = vtt_unit_Paratrooper_Mounter
+        displayName = tx_utn_Paratrooper_Mortar_name
+        HitPoints = 3000
+        popCount = 5
+    }
+    sounds = {
+    }
+    abilities = [
+        NavalMove {speed = 2.0; accel = 1.0; angSpeed = 130;}
+        LOS { range = 1 }
+        GarrisonParatrooper {
+            garrisonType = NavalTransport;
+            numOfSlots = 45;
+            initialContents = [ { typeName="HeavyInfantry2" count=40} ];
+            dontShowGarrisonButton = 1;
+        }
+    ]
+    icon = icon_Paratrooper_Solider
+}
 
 UnitType Paratrooper_Solider4
 {
@@ -231,7 +258,7 @@ UnitType Paratrooper_Mounter3
 		GarrisonParatrooper { 
 			garrisonType = NavalTransport;	// well paratrooper plane is like air transport here
 			numOfSlots = 27; // NOTE:  leave extra space so that effects that boost paratrooper count will work
-			initialContents = [ { typeName="ZSL92" count=2} ];	// load up with these paratrooper 
+			initialContents = [ { typeName="ZSL92" count=4} ];	// load up with these paratrooper 
 			dontShowGarrisonButton = 1;	// don't show garrison button in ui unit info area
 		}
 	]
@@ -258,7 +285,7 @@ UnitType Paratrooper_Type62
 		GarrisonParatrooper { 
 			garrisonType = NavalTransport;	// well paratrooper plane is like air transport here
 			numOfSlots = 30; // NOTE:  leave extra space so that effects that boost paratrooper count will work
-			initialContents = [ { typeName="ZTQ15" count=2 } ];	// load up with these paratrooper 
+			initialContents = [ { typeName="ZTQ15" count=3 } ];	// load up with these paratrooper 
 			dontShowGarrisonButton = 1;	// don't show garrison button in ui unit info area
 		}
 	]
@@ -291,6 +318,33 @@ UnitType Paratrooper_AA
 		}
 	]
 	icon = icon_Paratrooper_Vehicle
+}
+UnitType Paratrooper_AAMissile
+{
+    visualName = NonCombatAir2_boat
+    parent = NavalShallow
+    properties {
+        SizeX = 1
+        SizeY = 1
+        mass = 0
+        VerboseTooltip = vtt_unit_Paratrooper_Mounter
+        displayName = tx_utn_Paratrooper_AAMissile_name
+        HitPoints = 3000
+        popCount = 5
+    }
+    sounds = {
+    }
+    abilities = [
+        NavalMove {speed = 2.0; accel = 1.0; angSpeed = 130;}
+        LOS { range = 1 }
+        GarrisonParatrooper {
+            garrisonType = NavalTransport;
+            numOfSlots = 30;
+            initialContents = [ { typeName="LightArtillery2" count=3} ];
+            dontShowGarrisonButton = 1;
+        }
+    ]
+    icon = icon_Paratrooper_Vehicle
 }
 UnitType Paratrooper_T72
 {
