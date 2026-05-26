@@ -1092,7 +1092,8 @@ export default function App() {
         </div>
       </header>
 
-      <main className="main-grid">
+      <main className={`main-grid ${isHome ? "main-grid-home" : "main-grid-page"}`}>
+        {isHome ? (
         <section className="player-board glass">
           <div className="board-header">
             <div>
@@ -1140,8 +1141,9 @@ export default function App() {
             </div>
           ) : null}
         </section>
+        ) : null}
 
-        <section className={`content-shell ${activePage === "home" ? "home-layout" : ""}`}>
+        <section className={`content-shell ${activePage === "home" ? "home-layout" : "page-layout"}`}>
           {activePage === "home" ? (
             <>
               <div className="home-stage glass">

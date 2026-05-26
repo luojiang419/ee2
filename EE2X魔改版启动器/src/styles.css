@@ -285,11 +285,18 @@ button {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
   gap: 18px;
   flex: 1 1 auto;
   min-height: 0;
   margin-top: 18px;
+}
+
+.main-grid-home {
+  grid-template-columns: 360px minmax(0, 1fr);
+}
+
+.main-grid-page {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .player-board {
@@ -432,6 +439,10 @@ button {
 }
 
 .home-layout {
+  flex: 1 1 auto;
+}
+
+.page-layout {
   flex: 1 1 auto;
 }
 
@@ -1023,7 +1034,7 @@ button {
 }
 
 @media (max-width: 1440px) {
-  .main-grid {
+  .main-grid-home {
     grid-template-columns: 320px minmax(0, 1fr);
   }
 
@@ -1045,6 +1056,155 @@ button {
     width: 344px;
     min-height: 124px;
   }
+}
+
+.app-viewport:not(.home-mode) .topbar {
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-size: 16px;
+}
+
+.app-viewport:not(.home-mode) .brand-block {
+  gap: 16px;
+}
+
+.app-viewport:not(.home-mode) .brand-mark {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  font-size: 19px;
+}
+
+.app-viewport:not(.home-mode) .brand-title {
+  font-size: 31px;
+}
+
+.app-viewport:not(.home-mode) .brand-subtitle,
+.app-viewport:not(.home-mode) .section-subtitle,
+.app-viewport:not(.home-mode) .summary-title {
+  font-size: 15.6px;
+}
+
+.app-viewport:not(.home-mode) .section-title,
+.app-viewport:not(.home-mode) .summary-value {
+  font-size: 23.4px;
+}
+
+.app-viewport:not(.home-mode) .topbar-right {
+  gap: 14px;
+}
+
+.app-viewport:not(.home-mode) .net-strip,
+.app-viewport:not(.home-mode) .version-pill,
+.app-viewport:not(.home-mode) .user-pill {
+  gap: 11px;
+  padding: 12px 16px;
+  border-radius: 14px;
+}
+
+.app-viewport:not(.home-mode) .version-pill {
+  min-width: 118px;
+}
+
+.app-viewport:not(.home-mode) .mini-action,
+.app-viewport:not(.home-mode) .text-button,
+.app-viewport:not(.home-mode) .path-button {
+  min-height: 48px;
+  padding: 11px 18px;
+  font-size: 16.9px;
+  border-radius: 14px;
+}
+
+.app-viewport:not(.home-mode) .page-card {
+  border-radius: 26px;
+  padding: 30px;
+}
+
+.app-viewport:not(.home-mode) .page-header {
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+.app-viewport:not(.home-mode) .players-table,
+.app-viewport:not(.home-mode) .log-panel {
+  border-radius: 20px;
+}
+
+.app-viewport:not(.home-mode) .players-head,
+.app-viewport:not(.home-mode) .players-row,
+.app-viewport:not(.home-mode) .log-line {
+  min-height: 54px;
+  gap: 12px;
+  padding: 0 18px;
+  font-size: 16.9px;
+}
+
+.app-viewport:not(.home-mode) .update-meta {
+  gap: 18px;
+}
+
+.app-viewport:not(.home-mode) .summary-block {
+  gap: 16px;
+  padding: 20px 22px;
+  border-radius: 18px;
+}
+
+.app-viewport:not(.home-mode) .update-actions-row {
+  margin: 20px 0;
+}
+
+.app-viewport:not(.home-mode) .log-panel {
+  min-height: 420px;
+}
+
+.app-viewport:not(.home-mode) .notes-panel {
+  margin-top: 20px;
+  padding: 20px 22px;
+  border-radius: 18px;
+}
+
+.app-viewport:not(.home-mode) .note-line,
+.app-viewport:not(.home-mode) .board-empty {
+  font-size: 16.9px;
+  line-height: 1.6;
+}
+
+.app-viewport:not(.home-mode) .settings-grid {
+  gap: 18px;
+}
+
+.app-viewport:not(.home-mode) .field-card {
+  gap: 12px;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.app-viewport:not(.home-mode) .field-card span {
+  font-size: 16.9px;
+}
+
+.app-viewport:not(.home-mode) .field-card input,
+.app-viewport:not(.home-mode) .field-card select {
+  min-height: 54px;
+  padding: 0 16px;
+  font-size: 16.9px;
+  border-radius: 14px;
+}
+
+.app-viewport:not(.home-mode) .background-preview-shell,
+.app-viewport:not(.home-mode) .background-preview-empty,
+.app-viewport:not(.home-mode) .background-preview-media {
+  min-height: 220px;
+  height: 220px;
+}
+
+.app-viewport:not(.home-mode) .status-bar {
+  left: 28px;
+  right: 28px;
+  bottom: 26px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  font-size: 17px;
 }
 
 .home-mode .topbar {
