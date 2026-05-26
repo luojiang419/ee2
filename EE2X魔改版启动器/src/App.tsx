@@ -1064,7 +1064,7 @@ export default function App() {
                       className="stack-action"
                       onClick={() => {
                         setActivePage("updates");
-                        void refreshUpdateInfo(false);
+                        void handleRunUpdate(true);
                       }}
                       type="button"
                     >

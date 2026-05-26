@@ -833,13 +833,22 @@ button {
   z-index: 30;
   display: grid;
   place-items: center;
-  background: rgba(0, 0, 0, 0.48);
+  padding: 20px;
+  background: rgba(2, 6, 12, 0.68);
+  backdrop-filter: blur(18px) saturate(0.82);
+  -webkit-backdrop-filter: blur(18px) saturate(0.82);
 }
 
 .modal {
   width: min(460px, calc(100vw - 32px));
   border-radius: 20px;
   padding: 22px;
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 15, 22, 0.82);
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .profile-modal {
