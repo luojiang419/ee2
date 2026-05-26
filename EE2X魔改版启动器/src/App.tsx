@@ -727,7 +727,7 @@ export default function App() {
   }, [boot?.gamePath.valid, config]);
 
   const resolvedVersion =
-    updateInfo?.currentLauncherVersion || boot?.launcherVersion || "v1.0.0";
+    updateInfo?.currentGameVersion || boot?.gameVersion || updateInfo?.currentLauncherVersion || boot?.launcherVersion || "v1.0.0";
   const backgroundImageSrc =
     config?.backgroundType === "image"
       ? resolveBackgroundSource(config.backgroundImagePath)
@@ -1456,7 +1456,7 @@ export default function App() {
                         </button>
                       </div>
                       <div className="background-preview-shell">
-                        {config.backgroundType === "image" && backgroundImageSrc ? (
+                        {(config.backgroundType === "image" || config.backgroundType === "default") && backgroundImageSrc ? (
                           <img alt="背景图片预览" className="background-preview-media" src={backgroundImageSrc} />
                         ) : null}
                         {config.backgroundType === "video" && backgroundVideoSrc ? (
@@ -1469,8 +1469,7 @@ export default function App() {
                             src={backgroundVideoSrc}
                           />
                         ) : null}
-                        {config.backgroundType === "default" ||
-                        (!backgroundImageSrc && !backgroundVideoSrc) ? (
+                        {!backgroundImageSrc && !backgroundVideoSrc ? (
                           <div className="background-preview-empty">当前使用默认科技背景</div>
                         ) : null}
                       </div>

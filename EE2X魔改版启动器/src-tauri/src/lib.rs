@@ -173,6 +173,7 @@ struct BootstrapState {
     user: Option<UserSession>,
     game_path: GamePathStatus,
     launcher_version: String,
+    game_version: String,
     install_dir: String,
     default_background_path: String,
 }
@@ -1062,9 +1063,11 @@ fn bootstrap_state_internal<R: Runtime>(app: &AppHandle<R>) -> Result<BootstrapS
     let user = load_user(app)?;
     let state = load_release_state(app)?;
     let default_background_path = ensure_default_background(app).unwrap_or_default();
+    let game_version = state.game.version.clone();
     Ok(BootstrapState {
         game_path: validate_game_dir(&config.game_dir),
         launcher_version: launcher_version_from_state(&state),
+        game_version,
         install_dir: install_dir()?.to_string_lossy().to_string(),
         config,
         user,
