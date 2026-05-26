@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-24 PC3反潜机攻击HP调整
+> 最后更新: 2026-05-26 炼油厂化学厂去除种子资源费
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -114,6 +114,8 @@
 | 113 | EE2X_db-113-手动补更至v1.0.14-runtime.zip | runtime | 服务器补更(v1.0.10→1.0.14) | EE2X_db.zip 完整 | 手动下载并应用服务器1.0.12(海军)+1.0.13(UP1.6)+1.0.14(PC3反潜机)三包，同步到工作数据库 | 待测试 | 2026-05-24 |
 | 114 | EE2X_db-114-PC3-rps-HeavyArtillery-to-Bomber-pre.zip | pre | PC3(伊尔38反潜机) RPS类型 | Yuanhang_Tao_740_units.ddf | PC3 rps=HeavyArtillery→Bomber，修复防空导弹和战斗机不攻击反潜机的问题 | — | 2026-05-25 |
 | 115 | EE2X_db-114-PC3-RPS-Bomber-fix-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 114修改应用后的完整游戏ZIP | 待测试 | 2026-05-25 |
+| 116 | EE2X_db-116-炼油厂化学厂去除种子资源费-pre.zip | pre | Oilref/Chemistry 建筑造价 | dbtechtreenode.csv | Oilref的OIL造价200→0; Chemistry的URANIUM造价200→0 | — | 2026-05-26 |
+| 117 | EE2X_db-117-炼油厂化学厂去除种子资源费-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 116修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 
 ## 更新器/启动器备份
 
