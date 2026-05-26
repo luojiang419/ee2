@@ -33,6 +33,7 @@ import type {
   NetworkSnapshot,
   OnlinePlayer,
   PageId,
+  RegisterPayload,
   UpdateCheckResult,
   UpdateRunResult,
   UpdateStatusEvent,
@@ -141,7 +142,7 @@ export default function App() {
   const [busyMessage, setBusyMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
-  const [registerForm, setRegisterForm] = useState({ username: "", password: "" });
+  const [registerForm, setRegisterForm] = useState({ username: "", password: "", avatar: "" });
   const [uiScale, setUiScale] = useState(() => {
     if (typeof window === "undefined") {
       return 1;
@@ -162,6 +163,7 @@ export default function App() {
   });
   const reportRef = useRef(0);
   const lastMinimizedRef = useRef(false);
+  const registerAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
   const boardPlayers = useMemo(() => {
     return [...players].sort((a, b) => b.combatPower - a.combatPower).slice(0, 8);
@@ -201,6 +203,26 @@ export default function App() {
 
   function hasPendingUpdate(info: UpdateCheckResult | null) {
     return Boolean(info && (info.hasGameUpdate || info.hasLauncherUpdate));
+  }
+
+  function resolveAuthTabClass(mode: AuthMode, current: AuthMode) {
+    return current === mode ? "auth-tab auth-tab-active" : "auth-tab auth-tab-inactive";
+  }
+
+  function resetRegisterForm() {
+    setRegisterForm({ username: "", password: "", avatar: "" });
+    if (registerAvatarInputRef.current) {
+      registerAvatarInputRef.current.value = "";
+    }
+  }
+
+  async function fileToDataUrl(file: File) {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(typeof reader.result === "string" ? reader.result : "");
+      reader.onerror = () => reject(reader.error ?? new Error("读取头像失败"));
+      reader.readAsDataURL(file);
+    });
   }
 
   async function refreshBootstrap() {
@@ -400,14 +422,32 @@ export default function App() {
     }
   }
 
+  async function handlePickRegisterAvatar(file: File | null) {
+    if (!file) {
+      setRegisterForm((current) => ({ ...current, avatar: "" }));
+      return;
+    }
+    try {
+      const avatar = await fileToDataUrl(file);
+      setRegisterForm((current) => ({ ...current, avatar }));
+    } catch (error) {
+      setErrorMessage(String(error));
+    }
+  }
+
   async function handleRegister() {
     try {
       setBusyMessage("正在注册...");
-      await authRegister(registerForm.username, registerForm.password);
+      const payload: RegisterPayload = {
+        username: registerForm.username,
+        password: registerForm.password,
+        avatar: registerForm.avatar
+      };
+      await authRegister(payload);
       if (config?.setupPendingAuth) {
         await saveSetupFlags(true, false);
       }
-      setRegisterForm({ username: "", password: "" });
+      resetRegisterForm();
       await refreshBootstrap();
       await refreshPlayers();
       await refreshProfile();
@@ -873,14 +913,14 @@ export default function App() {
                 <div className="wizard-auth-card glass-lite">
                   <div className="auth-mode-switch wizard-auth-switch">
                     <button
-                      className={authMode === "login" ? "mini-action primary-glow" : "mini-action mini-secondary"}
+                      className={resolveAuthTabClass("login", authMode)}
                       onClick={() => setAuthMode("login")}
                       type="button"
                     >
                       登录
                     </button>
                     <button
-                      className={authMode === "register" ? "mini-action primary-glow" : "mini-action mini-secondary"}
+                      className={resolveAuthTabClass("register", authMode)}
                       onClick={() => setAuthMode("register")}
                       type="button"
                     >
@@ -904,6 +944,35 @@ export default function App() {
                       </>
                     ) : (
                       <>
+                        <div className="register-avatar-block">
+                          <input
+                            ref={registerAvatarInputRef}
+                            accept="image/*"
+                            className="avatar-file-input"
+                            type="file"
+                            onChange={(event) =>
+                              void handlePickRegisterAvatar(event.target.files?.[0] ?? null)
+                            }
+                          />
+                          <div className="register-avatar-preview-shell">
+                            {registerForm.avatar ? (
+                              <img
+                                alt="注册头像预览"
+                                className="register-avatar-preview"
+                                src={registerForm.avatar}
+                              />
+                            ) : (
+                              <div className="register-avatar-empty">头像</div>
+                            )}
+                            <button
+                              className="mini-action mini-secondary register-avatar-button"
+                              onClick={() => registerAvatarInputRef.current?.click()}
+                              type="button"
+                            >
+                              选择头像
+                            </button>
+                          </div>
+                        </div>
                         <input
                           placeholder="用户名"
                           value={registerForm.username}
@@ -921,7 +990,7 @@ export default function App() {
                   <div className="wizard-actions-bottom">
                     {authMode === "login" ? (
                       <button className="mini-action primary-glow wizard-submit" onClick={() => void handleLogin()} type="button">
-                        登录并进入软件
+                        登录账号
                       </button>
                     ) : (
                       <button className="mini-action primary-glow wizard-submit" onClick={() => void handleRegister()} type="button">
@@ -1533,14 +1602,14 @@ export default function App() {
             <div className="modal-body onboarding-body">
               <div className="auth-mode-switch">
                 <button
-                  className={authMode === "login" ? "mini-action primary-glow" : "mini-action mini-secondary"}
+                  className={resolveAuthTabClass("login", authMode)}
                   onClick={() => setAuthMode("login")}
                   type="button"
                 >
                   登录
                 </button>
                 <button
-                  className={authMode === "register" ? "mini-action primary-glow" : "mini-action mini-secondary"}
+                  className={resolveAuthTabClass("register", authMode)}
                   onClick={() => setAuthMode("register")}
                   type="button"
                 >
@@ -1566,6 +1635,35 @@ export default function App() {
                 </>
               ) : (
                 <>
+                  <div className="register-avatar-block">
+                    <input
+                      ref={registerAvatarInputRef}
+                      accept="image/*"
+                      className="avatar-file-input"
+                      type="file"
+                      onChange={(event) =>
+                        void handlePickRegisterAvatar(event.target.files?.[0] ?? null)
+                      }
+                    />
+                    <div className="register-avatar-preview-shell">
+                      {registerForm.avatar ? (
+                        <img
+                          alt="注册头像预览"
+                          className="register-avatar-preview"
+                          src={registerForm.avatar}
+                        />
+                      ) : (
+                        <div className="register-avatar-empty">头像</div>
+                      )}
+                      <button
+                        className="mini-action mini-secondary register-avatar-button"
+                        onClick={() => registerAvatarInputRef.current?.click()}
+                        type="button"
+                      >
+                        选择头像
+                      </button>
+                    </div>
+                  </div>
                   <input
                     placeholder="用户名"
                     value={registerForm.username}
@@ -1583,7 +1681,7 @@ export default function App() {
             <div className="modal-actions">
               {authMode === "login" ? (
                 <button className="mini-action primary-glow" onClick={() => void handleLogin()} type="button">
-                  登录并进入软件
+                  登录账号
                 </button>
               ) : (
                 <button className="mini-action primary-glow" onClick={() => void handleRegister()} type="button">

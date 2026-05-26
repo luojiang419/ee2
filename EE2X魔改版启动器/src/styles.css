@@ -904,6 +904,66 @@ button {
   gap: 10px;
 }
 
+.auth-tab {
+  border: none;
+  min-height: 48px;
+  border-radius: 14px;
+  color: #eef4ff;
+  font-weight: 700;
+  transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.auth-tab-active {
+  background: linear-gradient(180deg, rgba(27, 65, 126, 0.96), rgba(16, 39, 82, 0.96));
+  box-shadow: 0 12px 28px rgba(9, 28, 66, 0.44);
+}
+
+.auth-tab-inactive {
+  background: linear-gradient(180deg, rgba(58, 61, 67, 0.86), rgba(28, 31, 36, 0.86));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+}
+
+.register-avatar-block {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-file-input {
+  display: none;
+}
+
+.register-avatar-preview-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.register-avatar-preview,
+.register-avatar-empty {
+  width: 92px;
+  height: 92px;
+  border-radius: 999px;
+  border: 2px solid rgba(88, 142, 220, 0.48);
+}
+
+.register-avatar-preview {
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.register-avatar-empty {
+  display: grid;
+  place-items: center;
+  color: #8fa9c8;
+  background: rgba(9, 14, 21, 0.42);
+  font-size: 14px;
+}
+
+.register-avatar-button {
+  min-width: 132px;
+}
+
 .drawer-header {
   display: flex;
   align-items: center;

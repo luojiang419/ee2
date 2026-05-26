@@ -11,6 +11,7 @@ import type {
   BootstrapState,
   NetworkSnapshot,
   OnlinePlayer,
+  RegisterPayload,
   UpdateCheckResult,
   UpdateRunResult,
   UpdateStatusEvent,
@@ -499,11 +500,15 @@ export async function authLogin(username: string, _password: string) {
   return user;
 }
 
-export async function authRegister(username: string, _password: string) {
+export async function authRegister(payload: RegisterPayload) {
   if (isTauriRuntime) {
-    return invoke<UserSession>("auth_register", { username, password: _password });
+    return invoke<UserSession>("auth_register", {
+      username: payload.username,
+      password: payload.password,
+      avatar: payload.avatar
+    });
   }
-  return authLogin(username, _password);
+  return authLogin(payload.username, payload.password);
 }
 
 export async function authLogout() {

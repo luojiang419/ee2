@@ -1523,6 +1523,7 @@ async fn auth_register(
     app: AppHandle,
     username: String,
     password: String,
+    avatar: String,
 ) -> Result<UserSession, String> {
     let config = load_config(&app).map_err(|e| e.to_string())?;
     let url = format!(
@@ -1532,6 +1533,7 @@ async fn auth_register(
     let payload = json!({
         "username": username,
         "password": password,
+        "avatar": avatar,
         "computer_name": std::env::var("COMPUTERNAME").unwrap_or_default()
     });
     let body: LoginResponse = send_json_request(
@@ -1549,7 +1551,11 @@ async fn auth_register(
     let token = body.token.ok_or_else(|| "注册响应缺少 token".to_string())?;
     let session = UserSession {
         username: user.username,
-        avatar: user.avatar,
+        avatar: if user.avatar.trim().is_empty() {
+            avatar
+        } else {
+            user.avatar
+        },
         token,
         login_time: Utc::now().to_rfc3339(),
     };

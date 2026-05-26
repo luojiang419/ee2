@@ -29,6 +29,12 @@ export interface UserSession {
   loginTime: string;
 }
 
+export interface RegisterPayload {
+  username: string;
+  password: string;
+  avatar: string;
+}
+
 export interface GamePathStatus {
   valid: boolean;
   gameDir: string;
