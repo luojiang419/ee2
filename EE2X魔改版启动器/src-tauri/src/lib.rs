@@ -17,7 +17,7 @@ use std::{
 use tauri::{
     menu::{MenuBuilder, MenuItemBuilder},
     tray::{MouseButton, TrayIconBuilder, TrayIconEvent},
-    AppHandle, Emitter, Manager, Runtime, State,
+    AppHandle, Emitter, LogicalSize, Manager, Runtime, State,
 };
 use tokio::{net::UdpSocket, time::timeout};
 use zip::ZipArchive;
@@ -779,6 +779,7 @@ fn load_config<R: Runtime>(app: &AppHandle<R>) -> Result<AppConfig> {
 fn save_config_file<R: Runtime>(app: &AppHandle<R>, config: &AppConfig) -> Result<AppConfig> {
     let path = config_path(app)?;
     write_json(&path, config)?;
+    apply_preferred_window_resolution(app, &config.preferred_resolution)?;
     Ok(config.clone())
 }
 
@@ -1012,8 +1013,37 @@ fn launcher_version_from_state(state: &ReleaseState) -> String {
     }
 }
 
+fn parse_resolution(value: &str) -> Option<(f64, f64)> {
+    let trimmed = value.trim();
+    let (width, height) = trimmed.split_once('x')?;
+    let width = width.trim().parse::<f64>().ok()?;
+    let height = height.trim().parse::<f64>().ok()?;
+    if width >= 1.0 && height >= 1.0 {
+        Some((width, height))
+    } else {
+        None
+    }
+}
+
+fn apply_preferred_window_resolution<R: Runtime>(
+    app: &AppHandle<R>,
+    preferred_resolution: &str,
+) -> Result<()> {
+    let Some((width, height)) = parse_resolution(preferred_resolution) else {
+        return Ok(());
+    };
+    if let Some(window) = app.get_webview_window("main") {
+        window
+            .set_size(LogicalSize::new(width, height))
+            .map_err(|error| anyhow!(error.to_string()))?;
+        let _ = window.center();
+    }
+    Ok(())
+}
+
 fn bootstrap_state_internal<R: Runtime>(app: &AppHandle<R>) -> Result<BootstrapState> {
     let config = load_config(app)?;
+    apply_preferred_window_resolution(app, &config.preferred_resolution)?;
     let user = load_user(app)?;
     let state = load_release_state(app)?;
     Ok(BootstrapState {
