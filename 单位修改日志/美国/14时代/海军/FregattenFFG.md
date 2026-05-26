@@ -322,3 +322,68 @@
 ### 修改依据
 - 需求: 三艘防空护卫舰RPS类型从Destroyer改回AntiAircraft
 - 理由: 防空护卫舰应使用防空类型以正确参与RPS克制体系
+
+
+---
+
+## 第12次修改 — 2026-05-26 21:30
+
+**关联快照**: 
+**修改类型**: 数值调整 — 三舰E14防空属性统一
+
+### 修改前数据 (E14)
+| 属性 | 值 | 来源文件 | 行号 |
+|:-----|:---|:--------|:-----|
+| HP | 9000 | upgrade_unittypes.csv | 1023 |
+| DAMAGE | 2250 | Yuanhang_Tao_13naval_units.ddf | 5144 (FregattenFFGEpoch14Attack) |
+| RANGE | 60 | Yuanhang_Tao_13naval_units.ddf | 5144 (FregattenFFGEpoch14Attack) |
+| RELOAD | 1.0 | Yuanhang_Tao_13naval_units.ddf | 5144 (FregattenFFGEpoch14Attack) |
+
+### 修改后数据 (E14)
+| 属性 | 值 | 来源文件 | 行号 |
+|:-----|:---|:--------|:-----|
+| HP | 9000 | upgrade_unittypes.csv | 1023 |
+| DAMAGE | 2400 | Yuanhang_Tao_13naval_units.ddf | 5144 (FregattenFFGEpoch14Attack) |
+| RANGE | 55 | Yuanhang_Tao_13naval_units.ddf | 5144 (FregattenFFGEpoch14Attack) |
+| RELOAD | 1.0 | Yuanhang_Tao_13naval_units.ddf | 5144 (FregattenFFGEpoch14Attack) |
+
+### 关联文件
+-  — FregattenFFGEpoch14Attack 块 (行5144)
+-  — FregattenFFGUpgradeEpoch14 行 (行1023)
+
+### 修改依据
+- 需求: 三艘防空护卫舰(Ch054A/Type22350/FregattenFFG) E14属性统一
+- 理由: 统一防空定位，三舰HP=9000/Damage=2400/Range=55/Reload=1.0
+- FregattenFFG: Damage 2250→2400(+6.7%), Range 60→55(-8.3%)
+
+---
+
+## 第12次修改 — 2026-05-26 21:30
+
+**关联快照**: 进度快照\103-新版启动器设置页新增960x540分辨率.md
+**修改类型**: 数值调整 — 三舰E14防空属性统一
+
+### 修改前数据 (E14)
+| 属性 | 值 | 来源文件 | 行号 |
+|:-----|:---|:--------|:-----|
+| HP | 9000 | upgrade_unittypes.csv | 1023 |
+| DAMAGE | 2250 | Yuanhang_Tao_13naval_units.ddf | 5144 |
+| RANGE | 60 | Yuanhang_Tao_13naval_units.ddf | 5144 |
+| RELOAD | 1.0 | Yuanhang_Tao_13naval_units.ddf | 5144 |
+
+### 修改后数据 (E14)
+| 属性 | 值 | 来源文件 | 行号 |
+|:-----|:---|:--------|:-----|
+| HP | 9000 | upgrade_unittypes.csv | 1023 |
+| DAMAGE | 2400 | Yuanhang_Tao_13naval_units.ddf | 5144 |
+| RANGE | 55 | Yuanhang_Tao_13naval_units.ddf | 5144 |
+| RELOAD | 1.0 | Yuanhang_Tao_13naval_units.ddf | 5144 |
+
+### 关联文件
+- EE2X_db/Units/Yuanhang_Tao_13naval_units.ddf — FregattenFFGEpoch14Attack 块 (行5144)
+- EE2X_db/TechTree/upgrade_unittypes.csv — FregattenFFGUpgradeEpoch14 行 (行1023)
+
+### 修改依据
+- 需求: 三艘防空护卫舰(Ch054A/Type22350/FregattenFFG) E14属性统一
+- 理由: 统一防空定位，三舰HP=9000/Damage=2400/Range=55/Reload=1.0
+- FregattenFFG: Damage 2250→2400(+6.7%), Range 60→55(-8.3%)

@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-26 三舰RPS类型改为防空
+> 最后更新: 2026-05-26 三舰防空统一E14
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -146,6 +146,8 @@
 | 048 | EE2X_db-048-launcher-changelog-pre.zip | pre | 启动器强制更新后跳过更新日志弹窗 | renderer.js | checkUpdateAndRender在source='after-update'时跳过showReleaseChangelog，直接markChangelogShown | — | 2026-05-24 |
 | 111 | EE2X_db-111-PC3反潜机攻击HP调整-pre.zip | pre | PC3(伊尔38反潜机) E11/E13 | upgrade_unittypes.csv | HP 2000→1500(E11)/2500→1500(E13), DAMAGE 700→8000(E11)/900→8000(E13) | — | 2026-05-24 |
 | 111 | EE2X_db-111-PC3反潜机攻击HP调整-runtime.zip | runtime | PC3(伊尔38反潜机) E11/E13 | EE2X_db.zip 完整 | 111修改应用后的完整游戏ZIP | 测试通过 | 2026-05-24 |
+| 112 | EE2X_db-112-三舰防空统一E14-pre.zip | pre | Ch054A/Type22350/FregattenFFG E14 | Yuanhang_Tao_13naval_units.ddf, upgrade_unittypes.csv | 三舰E14统一HP=9000/Damage=2400/Range=55 | — | 2026-05-26 21:30 |
+| 112 | EE2X_db-112-三舰防空统一E14-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 112修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 21:30 |
 
 ## 旧格式全量快照（历史遗留）
 
