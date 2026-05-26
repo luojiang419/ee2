@@ -43,6 +43,7 @@ import type {
 } from "./lib/types";
 
 const RESOLUTION_OPTIONS = [
+  "960x540",
   "1024x768",
   "1280x720",
   "1280x800",
