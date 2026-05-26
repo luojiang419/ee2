@@ -1999,7 +1999,7 @@ UnitType ResourceOil
 		VerboseTooltip = vtt_unit_UnknownResource
 	}
 	abilities [ 
-		Resource { type = kResourceType_Oil; amount = 2000; maxNumOfWorkers = 3}
+		Resource { type = kResourceType_Oil; alwaysExhaustible = 1; amount = 2000; maxNumOfWorkers = 3}
 	]
 }
 
@@ -2078,7 +2078,7 @@ UnitType ResourceUranium
 		VerboseTooltip = vtt_unit_UnknownResource
 	}
 	abilities [ 
-		Resource { type = kResourceType_Uranium; amount = 2000; maxNumOfWorkers = 3}
+		Resource { type = kResourceType_Uranium; alwaysExhaustible = 1; amount = 2000; maxNumOfWorkers = 3}
 	]
 }
 

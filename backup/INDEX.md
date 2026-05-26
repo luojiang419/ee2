@@ -119,7 +119,9 @@
 | 118 | EE2X_db-118-炼油厂化学厂调整为木500石500金500-pre.zip | pre | Oilref/Chemistry 建筑造价 | dbtechtreenode.csv | Oilref/Chemistry造价调整为WOOD=500/STONE=500/GOLD=500 | — | 2026-05-26 |
 | 119 | EE2X_db-119-炼油厂化学厂调整为木500石500金500-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 118修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 | 120 | EE2X_db-120-石油铀矿资源量2000-pre.zip | pre | ResourceOil/ResourceUranium 矿藏量 | resources.ddf | Oil/Uranium 地图矿藏 amount 1000→2000 | — | 2026-05-26 |
-| 121 | EE2X_db-121-石油铀矿资源量2000-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 120修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
+| 121 | EE2X_db-121-石油铀矿资源量2000-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 120修改应用后的完整游戏ZIP | 已废弃 | 2026-05-26 |
+| 122 | EE2X_db-122-石油铀矿改为有限资源-pre.zip | pre | ResourceOil/ResourceUranium 有限化 | resources.ddf | Oil/Uranium 添加 alwaysExhaustible=1 改为有限资源 | — | 2026-05-26 |
+| 123 | EE2X_db-123-石油铀矿改为有限资源-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 122修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 
 ## 更新器/启动器备份
 
