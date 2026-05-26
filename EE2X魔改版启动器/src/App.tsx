@@ -8,7 +8,6 @@ import {
   checkUpdates,
   ensureNetwork,
   fetchOnlinePlayers,
-  finalizeUpdateRestart,
   getAutostartEnabled,
   getProfile,
   isTauriRuntime,
@@ -20,7 +19,6 @@ import {
   pickGameDirectoryDialog,
   reportOnline,
   resolveBackgroundSource,
-  restartSelf,
   runUpdate,
   saveConfig,
   setAutostartEnabled as saveAutostartEnabled,
@@ -56,8 +54,7 @@ const APP_DESIGN_HEIGHT = 960;
 type OnboardingStep = "pickGameDir" | "auth" | null;
 type FirstRunWizardStep = "pickDir" | "update" | "auth" | null;
 type AuthMode = "login" | "register";
-type StartupUpdateState = "checking" | "updating" | "restarting" | "error" | null;
-type UpdateCompletionMode = "normal" | "firstRunWizard";
+type StartupUpdateState = "checking" | "updating" | "error" | null;
 
 const emptyNetwork: NetworkSnapshot = {
   connected: false,
@@ -480,59 +477,8 @@ export default function App() {
     }
   }
 
-  async function completeUpdateAndMaybeRestart(
-    result: UpdateRunResult,
-    mode: UpdateCompletionMode
-  ) {
-    if (!result.ok) {
-      return false;
-    }
-
-    const shouldShowRestarting =
-      mode === "firstRunWizard" || startupUpdateState !== null;
-    if (shouldShowRestarting) {
-      setStartupUpdateState("restarting");
-    }
-
-    if (result.restartRequired) {
-      window.setTimeout(async () => {
-        try {
-          await finalizeUpdateRestart();
-        } catch (error) {
-          setErrorMessage(String(error));
-          if (shouldShowRestarting) {
-            setStartupUpdateError("更新完成后重启失败，请重试。");
-            setStartupUpdateState("error");
-          }
-        }
-      }, 1800);
-      return false;
-    }
-
-    if (mode === "normal") {
-      window.setTimeout(async () => {
-        try {
-          await restartSelf();
-        } catch (error) {
-          setErrorMessage(String(error));
-          if (shouldShowRestarting) {
-            setStartupUpdateError("更新完成后重启失败，请重试。");
-            setStartupUpdateState("error");
-          }
-        }
-      }, 1800);
-      return false;
-    }
-
-    return true;
-  }
-
   async function handleRunUpdate(force: boolean) {
     const result = await executeUpdate(force, true);
-    if (!result?.ok) {
-      return result;
-    }
-    await completeUpdateAndMaybeRestart(result, "normal");
     return result;
   }
 
@@ -559,13 +505,6 @@ export default function App() {
       if (!result?.ok) {
         setStartupUpdateError("首次启动强制更新失败，请重试。");
         setStartupUpdateState("error");
-        return false;
-      }
-      const canContinue = await completeUpdateAndMaybeRestart(
-        result,
-        "firstRunWizard"
-      );
-      if (!canContinue) {
         return false;
       }
     }
@@ -609,8 +548,8 @@ export default function App() {
       return false;
     }
 
-    await completeUpdateAndMaybeRestart(result, "normal");
-    return false;
+    setStartupUpdateState(null);
+    return true;
   }
 
   useEffect(() => {
@@ -891,7 +830,7 @@ export default function App() {
               <>
                 <div className="wizard-title">同步到最新版本</div>
                 <div className="wizard-copy">
-                  为避免玩家版本不统一，首次启动必须先执行一次强制更新，确认启动器和游戏文件都与服务器最新版本保持一致。
+                  为避免玩家版本不统一，首次启动必须先执行一次强制更新，确认游戏文件与服务器最新版本保持一致。
                 </div>
               {startupUpdateState === "checking" ? (
                 <div className="profile-note">正在检查可用更新，请稍候...</div>
@@ -922,11 +861,6 @@ export default function App() {
                       </button>
                     </div>
                   </>
-                ) : null}
-                {startupUpdateState === "restarting" ? (
-                  <div className="profile-note">
-                    更新包已全部下载并应用，正在重启启动器完成最终同步...
-                  </div>
                 ) : null}
               </>
             ) : null}
@@ -1234,7 +1168,7 @@ export default function App() {
                 </div>
                 <div className="summary-block glass-lite">
                   <div>
-                    <div className="summary-title">版本链</div>
+                    <div className="summary-title">游戏版本链</div>
                     <div className="summary-value">
                       {updateInfo?.chainVersions.length ? updateInfo.chainVersions.join(" → ") : "已是最新"}
                     </div>
@@ -1256,7 +1190,7 @@ export default function App() {
                   onClick={() => void handleRunUpdate(false)}
                   type="button"
                 >
-                  自动更新当前版本链
+                  自动更新当前游戏版本链
                 </button>
               </div>
               <div className="log-panel glass-lite">
@@ -1531,10 +1465,10 @@ export default function App() {
       {startupUpdateState && !isFirstRunWizardActive && (
         <div className="overlay">
           <div className="modal glass onboarding-modal">
-            <div className="modal-title">同步启动器与游戏版本</div>
+            <div className="modal-title">同步游戏版本</div>
             <div className="modal-body onboarding-body">
               <div className="onboarding-copy">
-                启动时检测到需要校验或同步版本。为避免玩家版本不统一，当前必须先完成更新后才能继续使用软件。
+                启动时检测到需要校验或同步游戏版本。为避免玩家版本不统一，当前必须先完成更新后才能继续使用软件。
               </div>
               {startupUpdateState === "checking" ? (
                 <div className="profile-note">正在检查更新，请稍候...</div>
@@ -1557,11 +1491,6 @@ export default function App() {
               {startupUpdateState === "error" ? (
                 <div className="profile-note">
                   {startupUpdateError || "无法完成启动时版本同步，请重试。"}
-                </div>
-              ) : null}
-              {startupUpdateState === "restarting" ? (
-                <div className="profile-note">
-                  更新包已全部下载并应用，正在重启启动器完成最终同步...
                 </div>
               ) : null}
             </div>
@@ -1742,8 +1671,8 @@ export default function App() {
           <div className="modal glass">
             <div className="modal-title">更新完成</div>
             <div className="modal-body">
-              <div>当前版本已更新到 {updateResult.targetVersion}</div>
-              <div>共应用 {updateResult.appliedVersions.length} 个版本包</div>
+              <div>当前游戏版本已同步到 {updateResult.targetVersion}</div>
+              <div>共应用 {updateResult.appliedVersions.length} 个游戏版本包</div>
               <div>{updateResult.message}</div>
             </div>
             <div className="modal-actions">

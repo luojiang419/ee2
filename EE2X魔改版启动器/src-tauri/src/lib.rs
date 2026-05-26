@@ -12,7 +12,7 @@ use std::{
     path::{Path, PathBuf},
     process::{Child, Command, Stdio},
     sync::Mutex,
-    time::{Duration, SystemTime, UNIX_EPOCH},
+    time::Duration,
 };
 use tauri::{
     menu::{MenuBuilder, MenuItemBuilder},
@@ -20,7 +20,6 @@ use tauri::{
     AppHandle, Emitter, Manager, Runtime, State,
 };
 use tokio::{net::UdpSocket, time::timeout};
-use walkdir::WalkDir;
 use zip::ZipArchive;
 
 #[cfg(windows)]
@@ -1974,27 +1973,6 @@ fn extract_zip(archive_path: &Path, target_dir: &Path) -> Result<()> {
     Ok(())
 }
 
-fn copy_dir_recursive(from: &Path, to: &Path) -> Result<()> {
-    if to.exists() {
-        fs::remove_dir_all(to)?;
-    }
-    fs::create_dir_all(to)?;
-    for entry in WalkDir::new(from) {
-        let entry = entry?;
-        let relative = entry.path().strip_prefix(from)?;
-        let target = to.join(relative);
-        if entry.file_type().is_dir() {
-            fs::create_dir_all(&target)?;
-        } else {
-            if let Some(parent) = target.parent() {
-                fs::create_dir_all(parent)?;
-            }
-            fs::copy(entry.path(), &target)?;
-        }
-    }
-    Ok(())
-}
-
 fn apply_manifest_overlay(
     extracted_root: &Path,
     target_root: &Path,
@@ -2031,29 +2009,6 @@ fn apply_manifest_overlay(
     Ok(())
 }
 
-fn prepare_restart_script<R: Runtime>(app: &AppHandle<R>, stage_dir: &Path) -> Result<PathBuf> {
-    let current_exe = std::env::current_exe()?;
-    let install_root = install_dir()?;
-    let runtime = update_temp_dir(app)?;
-    let script_path = runtime.join("apply-launcher-update.ps1");
-    let target_exe = current_exe.to_string_lossy().replace('\'', "''");
-    let stage = stage_dir.to_string_lossy().replace('\'', "''");
-    let install = install_root.to_string_lossy().replace('\'', "''");
-    let pid = std::process::id();
-    let script = format!(
-        "$pid = {pid}\n\
-         $stage = '{stage}'\n\
-         $install = '{install}'\n\
-         $targetExe = '{target_exe}'\n\
-         while (Get-Process -Id $pid -ErrorAction SilentlyContinue) {{ Start-Sleep -Milliseconds 400 }}\n\
-         robocopy $stage $install /MIR /R:2 /W:1 /NFL /NDL /NJH /NJS /NP | Out-Null\n\
-         Start-Sleep -Milliseconds 300\n\
-         Start-Process $targetExe\n"
-    );
-    fs::write(&script_path, script)?;
-    Ok(script_path)
-}
-
 #[tauri::command]
 async fn check_updates(app: AppHandle, force: bool) -> Result<UpdateCheckResult, String> {
     check_updates_inner(app, force).await
@@ -2071,16 +2026,8 @@ async fn check_updates_inner<R: Runtime>(
 
     let current_launcher = launcher_version_from_state(&state);
     let current_game = state.game.version.clone();
-    let launcher_chain = build_chain(&history, &state.launcher.version, &latest.version, force);
     let game_chain = build_chain(&history, &state.game.version, &latest.version, force);
-    let chain_versions = if !game_chain.is_empty() {
-        game_chain.iter().map(|item| item.version.clone()).collect()
-    } else {
-        launcher_chain
-            .iter()
-            .map(|item| item.version.clone())
-            .collect()
-    };
+    let chain_versions = game_chain.iter().map(|item| item.version.clone()).collect();
     Ok(UpdateCheckResult {
         current_launcher_version: current_launcher,
         current_game_version: current_game,
@@ -2088,9 +2035,9 @@ async fn check_updates_inner<R: Runtime>(
         chain_versions,
         has_launcher_update: state.launcher.version != latest.version,
         has_game_update: state.game.version != latest.version,
-        can_update: game_path.valid || state.launcher.version != latest.version,
+        can_update: game_path.valid && state.game.version != latest.version,
         notes: if !game_path.valid {
-            vec!["当前游戏路径无效，自动更新只会处理启动器自身。".into()]
+            vec!["当前游戏路径无效，无法同步游戏文件版本。".into()]
         } else {
             Vec::new()
         },
@@ -2109,7 +2056,7 @@ async fn run_update(
 async fn run_update_inner<R: Runtime>(
     app: AppHandle<R>,
     force: bool,
-    state: &PendingRestartState,
+    _state: &PendingRestartState,
 ) -> Result<UpdateRunResult, String> {
     let config = load_config(&app).map_err(|e| e.to_string())?;
     let latest = fetch_latest(&config).await.map_err(|e| e.to_string())?;
@@ -2125,122 +2072,44 @@ async fn run_update_inner<R: Runtime>(
     emit_update(
         &app,
         "检查",
-        "正在获取版本链...",
+        "正在获取游戏版本链...",
         3.0,
         Some(latest.version.clone()),
     );
 
-    let launcher_chain = build_chain(
-        &history,
-        &release_state.launcher.version,
-        &latest.version,
-        force,
-    );
     let game_chain = build_chain(
         &history,
         &release_state.game.version,
         &latest.version,
         force,
     );
-    let mut union_chain = history.clone();
-    union_chain.retain(|item| {
-        launcher_chain
-            .iter()
-            .any(|entry| entry.version == item.version)
-            || game_chain.iter().any(|entry| entry.version == item.version)
-    });
-    union_chain.sort_by(|a, b| a.published_at.cmp(&b.published_at));
 
-    if union_chain.is_empty() {
+    if game_chain.is_empty() {
         return Ok(UpdateRunResult {
             ok: true,
             target_version: latest.version,
             applied_versions: Vec::new(),
             restart_required: false,
             launcher_stage_ready: false,
-            message: "已经是最新版本。".into(),
+            message: "游戏文件已经是最新版本。".into(),
             notes: Vec::new(),
         });
     }
 
     let temp_root = update_temp_dir(&app).map_err(|e| e.to_string())?;
-    let install_root = install_dir().map_err(|e| e.to_string())?;
-    let stage_root = temp_root.join(format!(
-        "launcher-stage-{}",
-        SystemTime::now()
-            .duration_since(UNIX_EPOCH)
-            .unwrap_or_default()
-            .as_secs()
-    ));
-    let mut launcher_stage_ready = false;
     let mut notes = Vec::new();
     let mut applied_versions = Vec::new();
+    let mut downloaded_packages = Vec::new();
 
-    for (index, release) in union_chain.iter().enumerate() {
-        let progress_base = 8.0 + (index as f32 * (82.0 / union_chain.len() as f32));
+    for (index, release) in game_chain.iter().enumerate() {
+        let progress_base = 8.0 + (index as f32 * (42.0 / game_chain.len() as f32));
         emit_update(
             &app,
             "版本链",
-            format!("开始应用 {}", release.version),
+            format!("准备下载 {}", release.version),
             progress_base,
             Some(release.version.clone()),
         );
-
-        if !launcher_stage_ready {
-            copy_dir_recursive(&install_root, &stage_root).map_err(|e| e.to_string())?;
-            launcher_stage_ready = true;
-        }
-
-        if let Some(launcher_package) = release_package_for_version(&config, release, "launcher")
-            .await
-            .map_err(|e| e.to_string())?
-        {
-            let manifest = fetch_manifest(&launcher_package.manifest_url)
-                .await
-                .map_err(|e| e.to_string())?;
-            if !manifest.files.is_empty() {
-                let package_path = temp_root.join(format!("launcher-{}.zip", release.version));
-                let extract_dir = temp_root.join(format!("launcher-{}", release.version));
-                emit_update(
-                    &app,
-                    "下载",
-                    format!("正在下载启动器更新 {}", release.version),
-                    progress_base + 8.0,
-                    Some(release.version.clone()),
-                );
-                download_file(
-                    &app,
-                    &launcher_package.package_url,
-                    &package_path,
-                    "下载",
-                    &release.version,
-                )
-                .await
-                .map_err(|e| e.to_string())?;
-                if sha256_file(&package_path).map_err(|e| e.to_string())?
-                    != launcher_package.package_sha256
-                {
-                    return Err(format!("启动器更新包 {} 校验失败", release.version));
-                }
-                emit_update(
-                    &app,
-                    "解压",
-                    format!("正在解压启动器更新 {}", release.version),
-                    progress_base + 14.0,
-                    Some(release.version.clone()),
-                );
-                extract_zip(&package_path, &extract_dir).map_err(|e| e.to_string())?;
-                let root = extract_dir.join(&manifest.root_dir_name);
-                apply_manifest_overlay(&root, &stage_root, &manifest).map_err(|e| e.to_string())?;
-                release_state.launcher = ScopeState {
-                    version: release.version.clone(),
-                    package_sha256: launcher_package.package_sha256.clone(),
-                    manifest_url: launcher_package.manifest_url.clone(),
-                    package_url: launcher_package.package_url.clone(),
-                    published_at: release.published_at.clone(),
-                };
-            }
-        }
 
         if let Some(root) = game_root.as_ref() {
             if let Some(game_package) = release_package_for_version(&config, release, "game")
@@ -2251,12 +2120,11 @@ async fn run_update_inner<R: Runtime>(
                     .await
                     .map_err(|e| e.to_string())?;
                 let package_path = temp_root.join(format!("game-{}.zip", release.version));
-                let extract_dir = temp_root.join(format!("game-{}", release.version));
                 emit_update(
                     &app,
                     "下载",
                     format!("正在下载游戏更新 {}", release.version),
-                    progress_base + 24.0,
+                    progress_base + 8.0,
                     Some(release.version.clone()),
                 );
                 download_file(
@@ -2273,23 +2141,13 @@ async fn run_update_inner<R: Runtime>(
                 {
                     return Err(format!("游戏更新包 {} 校验失败", release.version));
                 }
-                emit_update(
-                    &app,
-                    "应用",
-                    format!("正在应用游戏更新 {}", release.version),
-                    progress_base + 36.0,
-                    Some(release.version.clone()),
-                );
-                extract_zip(&package_path, &extract_dir).map_err(|e| e.to_string())?;
-                let target_root = extract_dir.join(&manifest.root_dir_name);
-                apply_manifest_overlay(&target_root, root, &manifest).map_err(|e| e.to_string())?;
-                release_state.game = ScopeState {
-                    version: release.version.clone(),
-                    package_sha256: game_package.package_sha256.clone(),
-                    manifest_url: game_package.manifest_url.clone(),
-                    package_url: game_package.package_url.clone(),
-                    published_at: release.published_at.clone(),
-                };
+                downloaded_packages.push((
+                    release.clone(),
+                    game_package,
+                    manifest,
+                    package_path,
+                    root.clone(),
+                ));
             }
         } else {
             notes.push(format!(
@@ -2297,29 +2155,39 @@ async fn run_update_inner<R: Runtime>(
                 release.version
             ));
         }
+    }
 
+    for (index, (release, game_package, manifest, package_path, root)) in
+        downloaded_packages.iter().enumerate()
+    {
+        let progress_base = 52.0 + (index as f32 * (42.0 / downloaded_packages.len() as f32));
+        let extract_dir = temp_root.join(format!("game-{}", release.version));
+        emit_update(
+            &app,
+            "应用",
+            format!("正在应用游戏更新 {}", release.version),
+            progress_base,
+            Some(release.version.clone()),
+        );
+        extract_zip(package_path, &extract_dir).map_err(|e| e.to_string())?;
+        let target_root = extract_dir.join(&manifest.root_dir_name);
+        apply_manifest_overlay(&target_root, root, manifest).map_err(|e| e.to_string())?;
+        release_state.game = ScopeState {
+            version: release.version.clone(),
+            package_sha256: game_package.package_sha256.clone(),
+            manifest_url: game_package.manifest_url.clone(),
+            package_url: game_package.package_url.clone(),
+            published_at: release.published_at.clone(),
+        };
         applied_versions.push(release.version.clone());
-        save_release_state(&app, &release_state).map_err(|e| e.to_string())?;
     }
 
-    let mut restart_required = false;
-    if release_state.launcher.version == latest.version {
-        let script_path = prepare_restart_script(&app, &stage_root).map_err(|e| e.to_string())?;
-        *state
-            .pending
-            .lock()
-            .map_err(|_| "pending restart state poisoned".to_string())? =
-            Some(PendingRestart { script_path });
-        restart_required = true;
-    }
-    if release_state.game.version == latest.version && !restart_required {
-        restart_required = true;
-    }
+    save_release_state(&app, &release_state).map_err(|e| e.to_string())?;
 
     emit_update(
         &app,
         "完成",
-        format!("更新完成，目标版本 {}", latest.version),
+        format!("游戏更新完成，目标版本 {}", latest.version),
         100.0,
         Some(latest.version.clone()),
     );
@@ -2328,9 +2196,9 @@ async fn run_update_inner<R: Runtime>(
         ok: true,
         target_version: latest.version,
         applied_versions,
-        restart_required,
-        launcher_stage_ready: restart_required,
-        message: "更新已完成，启动器将自动重启应用结果。".into(),
+        restart_required: false,
+        launcher_stage_ready: false,
+        message: "本次仅同步游戏文件，已生效，无需重启启动器。".into(),
         notes,
     })
 }
