@@ -5,6 +5,8 @@ export interface AppConfig {
   gameExe: string;
   gameExePath: string;
   gameDir: string;
+  setupCompleted: boolean;
+  setupPendingAuth: boolean;
   preferredResolution: string;
   backgroundType: "default" | "image" | "video";
   backgroundImagePath: string;

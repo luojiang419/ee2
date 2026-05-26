@@ -34,6 +34,8 @@ const defaultConfig: AppConfig = {
   gameExe: "EE2X.exe",
   gameExePath: "",
   gameDir: "",
+  setupCompleted: false,
+  setupPendingAuth: false,
   preferredResolution: "1280x800",
   backgroundType: "default",
   backgroundImagePath: "",
@@ -103,6 +105,12 @@ function loadMockConfig() {
     backgroundVideoPath:
       typeof raw.backgroundVideoPath === "string" ? raw.backgroundVideoPath : ""
   };
+  config.setupCompleted =
+    typeof raw.setupCompleted === "boolean"
+      ? raw.setupCompleted
+      : validateMockGamePath(config.gameDir).valid;
+  config.setupPendingAuth =
+    typeof raw.setupPendingAuth === "boolean" ? raw.setupPendingAuth : false;
   config.backgroundBlur =
     typeof raw.backgroundBlur === "number" && Number.isFinite(raw.backgroundBlur)
       ? Math.max(0, Math.min(24, raw.backgroundBlur))
@@ -163,13 +171,15 @@ function saveMockNetwork(network: MockNetworkState) {
 
 function validateMockGamePath(path: string) {
   const normalized = path.trim();
-  const valid = normalized.length > 0 && /empire earth ii/i.test(normalized);
+  const valid =
+    normalized.length > 0 &&
+    /(empire earth ii|ee2x|ee2)/i.test(normalized);
   return {
     valid,
     gameDir: valid ? normalized : "",
     gameExePath: valid ? `${normalized}\\EE2X.exe` : "",
     markers: valid ? ["UnofficialVersionConfig.txt", "zips_ee2x"] : [],
-    reason: valid ? "ok" : "missing-root-markers"
+    reason: valid ? "ok" : "search-exhausted"
   };
 }
 
@@ -458,7 +468,8 @@ export async function setGameDirectory(path: string) {
     ...loadMockConfig(),
     gameDir: status.gameDir,
     gameExePath: status.gameExePath,
-    gameExe: "EE2X.exe"
+    gameExe: "EE2X.exe",
+    setupPendingAuth: false
   };
   saveMockConfig(nextConfig);
   return buildMockBootstrap();

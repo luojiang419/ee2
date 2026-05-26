@@ -54,6 +54,7 @@ const RESOLUTION_OPTIONS = [
 const APP_DESIGN_WIDTH = 1600;
 const APP_DESIGN_HEIGHT = 960;
 type OnboardingStep = "pickGameDir" | "auth" | null;
+type FirstRunWizardStep = "pickDir" | "update" | "auth" | null;
 type AuthMode = "login" | "register";
 type StartupUpdateState = "checking" | "updating" | "error" | null;
 
@@ -131,6 +132,7 @@ export default function App() {
   const [updateEvents, setUpdateEvents] = useState<UpdateStatusEvent[]>([]);
   const [updateRunning, setUpdateRunning] = useState(false);
   const [updateResult, setUpdateResult] = useState<UpdateRunResult | null>(null);
+  const [firstRunWizardStep, setFirstRunWizardStep] = useState<FirstRunWizardStep>(null);
   const [startupUpdateState, setStartupUpdateState] = useState<StartupUpdateState>(null);
   const [startupUpdateError, setStartupUpdateError] = useState("");
   const [onboardingStep, setOnboardingStep] = useState<OnboardingStep>(null);
@@ -180,16 +182,40 @@ export default function App() {
     return null;
   }
 
+  function resolveFirstRunWizardStep(
+    nextBoot: BootstrapState | null,
+    nextSession: UserSession | null
+  ): FirstRunWizardStep {
+    if (!nextBoot) {
+      return null;
+    }
+    if (nextBoot.config.setupPendingAuth && !nextSession) {
+      return "auth";
+    }
+    if (nextBoot.config.setupCompleted) {
+      return null;
+    }
+    if (!nextBoot.gamePath.valid) {
+      return "pickDir";
+    }
+    return "update";
+  }
+
   function hasPendingUpdate(info: UpdateCheckResult | null) {
     return Boolean(info && (info.hasGameUpdate || info.hasLauncherUpdate));
   }
 
   async function refreshBootstrap() {
     const payload = await bootstrapState();
-    const nextOnboardingStep = resolveOnboardingStep(payload, payload.user);
+    const nextFirstRunWizardStep = resolveFirstRunWizardStep(payload, payload.user);
+    const nextOnboardingStep =
+      nextFirstRunWizardStep === null
+        ? resolveOnboardingStep(payload, payload.user)
+        : null;
     setBoot(payload);
     setConfig(payload.config);
     setSession(payload.user);
+    setFirstRunWizardStep(nextFirstRunWizardStep);
     if (nextOnboardingStep === "auth") {
       setAuthMode("login");
     }
@@ -251,6 +277,20 @@ export default function App() {
     }
   }
 
+  async function saveSetupFlags(setupCompleted: boolean, setupPendingAuth: boolean) {
+    if (!config) {
+      return null;
+    }
+    const saved = await saveConfig({
+      ...config,
+      setupCompleted,
+      setupPendingAuth
+    });
+    setConfig(saved);
+    setBoot((current) => (current ? { ...current, config: saved } : current));
+    return saved;
+  }
+
   async function pollNetwork() {
     try {
       const snapshot = await networkStatus();
@@ -294,14 +334,21 @@ export default function App() {
     try {
       setBusyMessage("正在校验游戏目录...");
       const next = await setGameDirectory(selected);
-      const nextOnboardingStep = resolveOnboardingStep(next, session);
+      const nextFirstRunWizardStep = resolveFirstRunWizardStep(next, session);
+      const nextOnboardingStep =
+        nextFirstRunWizardStep === null
+          ? resolveOnboardingStep(next, session)
+          : null;
       setBoot(next);
       setConfig(next.config);
+      setFirstRunWizardStep(nextFirstRunWizardStep);
       if (nextOnboardingStep === "auth") {
         setAuthMode("login");
       }
       setOnboardingStep(nextOnboardingStep);
-      if (onboardingStep === "pickGameDir") {
+      if (firstRunWizardStep === "pickDir") {
+        await runFirstRunWizardUpdate(next);
+      } else if (onboardingStep === "pickGameDir") {
         startupUpdateCheckedRef.current = false;
         await enforceStartupUpdate(next);
       }
@@ -338,10 +385,15 @@ export default function App() {
     try {
       setBusyMessage("正在登录...");
       await authLogin(loginForm.username, loginForm.password);
+      if (config?.setupPendingAuth) {
+        await saveSetupFlags(true, false);
+      }
       setLoginForm({ username: "", password: "" });
       await refreshBootstrap();
+      await refreshPlayers();
       await refreshProfile();
       await ensureNetwork();
+      setFirstRunWizardStep(null);
       setOnboardingStep(null);
     } catch (error) {
       setErrorMessage(String(error));
@@ -354,10 +406,15 @@ export default function App() {
     try {
       setBusyMessage("正在注册...");
       await authRegister(registerForm.username, registerForm.password);
+      if (config?.setupPendingAuth) {
+        await saveSetupFlags(true, false);
+      }
       setRegisterForm({ username: "", password: "" });
       await refreshBootstrap();
+      await refreshPlayers();
       await refreshProfile();
       await ensureNetwork();
+      setFirstRunWizardStep(null);
       setOnboardingStep(null);
     } catch (error) {
       setErrorMessage(String(error));
@@ -435,6 +492,40 @@ export default function App() {
     }
   }
 
+  async function runFirstRunWizardUpdate(payload?: BootstrapState) {
+    const currentBoot = payload ?? boot;
+    if (!currentBoot?.gamePath.valid) {
+      setFirstRunWizardStep("pickDir");
+      return false;
+    }
+
+    setFirstRunWizardStep("update");
+    setStartupUpdateError("");
+    setStartupUpdateState("checking");
+    const info = await refreshUpdateInfo(false);
+    if (!info) {
+      setStartupUpdateError("首次启动检查更新失败，请重试。");
+      setStartupUpdateState("error");
+      return false;
+    }
+
+    if (hasPendingUpdate(info)) {
+      setStartupUpdateState("updating");
+      const result = await handleRunUpdate(true);
+      if (!result?.ok) {
+        setStartupUpdateError("首次启动强制更新失败，请重试。");
+        setStartupUpdateState("error");
+        return false;
+      }
+    }
+
+    await saveSetupFlags(true, true);
+    setStartupUpdateState(null);
+    setFirstRunWizardStep("auth");
+    setAuthMode("login");
+    return true;
+  }
+
   async function enforceStartupUpdate(payload?: BootstrapState) {
     const currentBoot = payload ?? boot;
     if (!currentBoot?.gamePath.valid || startupUpdateCheckedRef.current) {
@@ -474,6 +565,14 @@ export default function App() {
     void (async () => {
       try {
         const payload = await refreshBootstrap();
+        const firstRunStep = resolveFirstRunWizardStep(payload, payload.user);
+        if (firstRunStep === "pickDir" || firstRunStep === "auth") {
+          return;
+        }
+        if (firstRunStep === "update") {
+          await runFirstRunWizardUpdate(payload);
+          return;
+        }
         const startupUpdatePassed = await enforceStartupUpdate(payload);
         if (!startupUpdatePassed) {
           return;
@@ -687,6 +786,7 @@ export default function App() {
 
   const backgroundBlur = Math.max(0, Math.min(24, config?.backgroundBlur ?? 0));
   const isHome = activePage === "home";
+  const isFirstRunWizardActive = firstRunWizardStep !== null;
   const viewportStyle = {
     "--ui-scale": String(uiScale),
     "--background-blur": `${backgroundBlur}px`
@@ -715,6 +815,136 @@ export default function App() {
       <div className="background-layer" />
       <div className="app-stage">
       <div className="app-shell">
+      {isFirstRunWizardActive ? (
+        <div className="wizard-shell">
+          <div className="wizard-panel glass">
+            <div className="wizard-eyebrow">安装后首次启动向导</div>
+            {firstRunWizardStep === "pickDir" ? (
+              <>
+                <div className="wizard-title">选择魔改版游戏目录</div>
+                <div className="wizard-copy">
+                  请先选择 Empire Earth II 魔改版游戏目录。你也可以直接选择它的上层目录，启动器会自动向下查找真正的游戏根目录。
+                </div>
+                <div className="wizard-copy wizard-copy-subtle">
+                  启动器会自动识别 EE2X.exe / EE2.exe，以及 UnofficialVersionConfig.txt、zips_ee2x、Unofficial Patch Files 等根目录标记。
+                </div>
+                <div className="wizard-actions-bottom">
+                  <button className="picker-button wizard-primary" onClick={() => void handlePickGameDirectory()} type="button">
+                    选择魔改版游戏目录
+                  </button>
+                </div>
+              </>
+            ) : null}
+            {firstRunWizardStep === "update" ? (
+              <>
+                <div className="wizard-title">同步到最新版本</div>
+                <div className="wizard-copy">
+                  为避免玩家版本不统一，首次启动必须先执行一次强制更新，确认启动器和游戏文件都与服务器最新版本保持一致。
+                </div>
+                {startupUpdateState === "checking" ? (
+                  <div className="profile-note">正在检查可用更新，请稍候...</div>
+                ) : null}
+                {startupUpdateState === "updating" ? (
+                  <div className="log-panel glass-lite startup-update-log">
+                    {updateEvents.length === 0 ? (
+                      <div className="board-empty">正在准备更新任务...</div>
+                    ) : (
+                      updateEvents.map((event, index) => (
+                        <div className="log-line" key={`first-run-${event.stage}-${index}`}>
+                          <span className="log-stage">{event.stage}</span>
+                          <span className="log-message">{event.message}</span>
+                          <span className="log-progress">{Math.round(event.progress)}%</span>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                ) : null}
+                {startupUpdateState === "error" ? (
+                  <>
+                    <div className="profile-note">
+                      {startupUpdateError || "首次启动强制更新失败，请重试。"}
+                    </div>
+                    <div className="wizard-actions-bottom">
+                      <button className="mini-action primary-glow" onClick={() => void runFirstRunWizardUpdate()} type="button">
+                        重试强制更新
+                      </button>
+                    </div>
+                  </>
+                ) : null}
+              </>
+            ) : null}
+            {firstRunWizardStep === "auth" ? (
+              <>
+                <div className="wizard-title">登录后进入启动器</div>
+                <div className="wizard-copy wizard-copy-subtle">
+                  游戏目录与版本同步已完成。请先登录或注册账号，完成后将自动进入正常启动器界面。
+                </div>
+                <div className="wizard-auth-card glass-lite">
+                  <div className="auth-mode-switch wizard-auth-switch">
+                    <button
+                      className={authMode === "login" ? "mini-action primary-glow" : "mini-action mini-secondary"}
+                      onClick={() => setAuthMode("login")}
+                      type="button"
+                    >
+                      登录
+                    </button>
+                    <button
+                      className={authMode === "register" ? "mini-action primary-glow" : "mini-action mini-secondary"}
+                      onClick={() => setAuthMode("register")}
+                      type="button"
+                    >
+                      注册
+                    </button>
+                  </div>
+                  <div className="modal-body wizard-auth-body">
+                    {authMode === "login" ? (
+                      <>
+                        <input
+                          placeholder="用户名"
+                          value={loginForm.username}
+                          onChange={(event) => setLoginForm((current) => ({ ...current, username: event.target.value }))}
+                        />
+                        <input
+                          placeholder="密码"
+                          type="password"
+                          value={loginForm.password}
+                          onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <input
+                          placeholder="用户名"
+                          value={registerForm.username}
+                          onChange={(event) => setRegisterForm((current) => ({ ...current, username: event.target.value }))}
+                        />
+                        <input
+                          placeholder="密码"
+                          type="password"
+                          value={registerForm.password}
+                          onChange={(event) => setRegisterForm((current) => ({ ...current, password: event.target.value }))}
+                        />
+                      </>
+                    )}
+                  </div>
+                  <div className="wizard-actions-bottom">
+                    {authMode === "login" ? (
+                      <button className="mini-action primary-glow wizard-submit" onClick={() => void handleLogin()} type="button">
+                        登录并进入软件
+                      </button>
+                    ) : (
+                      <button className="mini-action primary-glow wizard-submit" onClick={() => void handleRegister()} type="button">
+                        注册并进入软件
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </>
+            ) : null}
+          </div>
+        </div>
+      ) : (
+        <>
       <header className="topbar glass">
         <div className="brand-block">
           <div className="brand-mark">EE2X</div>
@@ -1226,6 +1456,8 @@ export default function App() {
           ) : null}
         </section>
       </main>
+      </>
+      )}
 
       {(busyMessage || errorMessage) && (
         <div className="status-bar glass">
@@ -1239,7 +1471,7 @@ export default function App() {
         </div>
       )}
 
-      {startupUpdateState && (
+      {startupUpdateState && !isFirstRunWizardActive && (
         <div className="overlay">
           <div className="modal glass onboarding-modal">
             <div className="modal-title">同步启动器与游戏版本</div>
@@ -1282,7 +1514,7 @@ export default function App() {
         </div>
       )}
 
-      {onboardingStep === "pickGameDir" && (
+      {onboardingStep === "pickGameDir" && !isFirstRunWizardActive && (
         <div className="overlay">
           <div className="modal glass onboarding-modal">
             <div className="modal-title">选择魔改版游戏目录</div>
@@ -1303,7 +1535,7 @@ export default function App() {
         </div>
       )}
 
-      {onboardingStep === "auth" && (
+      {onboardingStep === "auth" && !isFirstRunWizardActive && (
         <div className="overlay">
           <div className="modal glass onboarding-modal">
             <div className="modal-title">{authMode === "login" ? "登录账号" : "注册账号"}</div>

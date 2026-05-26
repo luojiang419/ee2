@@ -5,7 +5,7 @@ use serde::{de::DeserializeOwned, Deserialize, Deserializer, Serialize};
 use serde_json::{json, Value};
 use sha2::{Digest, Sha256};
 use std::{
-    collections::HashMap,
+    collections::{HashMap, VecDeque},
     fmt,
     fs,
     io::{Read, Write},
@@ -46,6 +46,8 @@ const AUTH_INVALID_PREFIX: &str = "AUTH_INVALID:";
 const TRAY_ID: &str = "main-tray";
 const MENU_SHOW_MAIN_WINDOW: &str = "show-main-window";
 const MENU_EXIT_APP: &str = "exit-app";
+const MAX_GAME_SEARCH_DEPTH: usize = 6;
+const MAX_GAME_SEARCH_DIRS: usize = 2000;
 const GAME_MARKERS: &[&str] = &[
     "UnofficialVersionConfig.txt",
     "zips_ee2x",
@@ -86,6 +88,8 @@ struct AppConfig {
     game_exe: String,
     game_exe_path: String,
     game_dir: String,
+    setup_completed: bool,
+    setup_pending_auth: bool,
     preferred_resolution: String,
     background_type: String,
     background_image_path: String,
@@ -107,6 +111,8 @@ impl Default for AppConfig {
             game_exe: "EE2X.exe".into(),
             game_exe_path: String::new(),
             game_dir: String::new(),
+            setup_completed: false,
+            setup_pending_auth: false,
             preferred_resolution: "1280x800".into(),
             background_type: "default".into(),
             background_image_path: String::new(),
@@ -762,7 +768,13 @@ fn load_config<R: Runtime>(app: &AppHandle<R>) -> Result<AppConfig> {
         write_json(&path, &config)?;
         return Ok(config);
     }
-    Ok(read_json(&path)?)
+    let mut config: AppConfig = read_json(&path)?;
+    if !config.setup_completed && validate_game_dir(&config.game_dir).valid {
+        config.setup_completed = true;
+        config.setup_pending_auth = false;
+        write_json(&path, &config)?;
+    }
+    Ok(config)
 }
 
 fn save_config_file<R: Runtime>(app: &AppHandle<R>, config: &AppConfig) -> Result<AppConfig> {
@@ -852,6 +864,60 @@ fn normalize_path(input: &str) -> String {
         .to_string()
 }
 
+#[derive(Clone)]
+struct GameRootCandidate {
+    game_dir: String,
+    game_exe_path: String,
+    markers: Vec<String>,
+    depth: usize,
+    exe_rank: usize,
+}
+
+fn build_game_root_candidate(dir: &Path, depth: usize) -> Option<GameRootCandidate> {
+    let markers = GAME_MARKERS
+        .iter()
+        .filter_map(|item| {
+            let target = dir.join(item);
+            if target.exists() {
+                Some((*item).to_string())
+            } else {
+                None
+            }
+        })
+        .collect::<Vec<_>>();
+
+    if markers.is_empty() {
+        return None;
+    }
+
+    let Some((exe_rank, game_exe_path)) = GAME_EXE_CANDIDATES
+        .iter()
+        .enumerate()
+        .map(|(index, name)| (index, dir.join(name)))
+        .find(|(_, candidate)| candidate.is_file())
+    else {
+        return None;
+    };
+
+    Some(GameRootCandidate {
+        game_dir: dir.to_string_lossy().to_string(),
+        game_exe_path: game_exe_path.to_string_lossy().to_string(),
+        markers,
+        depth,
+        exe_rank,
+    })
+}
+
+fn game_path_status_from_candidate(candidate: GameRootCandidate, reason: &str) -> GamePathStatus {
+    GamePathStatus {
+        valid: true,
+        game_dir: candidate.game_dir,
+        game_exe_path: candidate.game_exe_path,
+        markers: candidate.markers,
+        reason: reason.into(),
+    }
+}
+
 fn validate_game_dir(path: &str) -> GamePathStatus {
     let normalized = normalize_path(path);
     if normalized.is_empty() {
@@ -875,46 +941,68 @@ fn validate_game_dir(path: &str) -> GamePathStatus {
         };
     }
 
-    let markers = GAME_MARKERS
-        .iter()
-        .filter_map(|item| {
-            let target = dir.join(item);
-            if target.exists() {
-                Some((*item).to_string())
-            } else {
-                None
+    if let Some(candidate) = build_game_root_candidate(&dir, 0) {
+        return game_path_status_from_candidate(candidate, "ok");
+    }
+
+    let mut queue = VecDeque::new();
+    let mut visited_dirs = 0usize;
+    let mut candidates = Vec::new();
+
+    queue.push_back((dir.clone(), 0usize));
+
+    while let Some((current_dir, depth)) = queue.pop_front() {
+        if visited_dirs >= MAX_GAME_SEARCH_DIRS {
+            break;
+        }
+        visited_dirs += 1;
+
+        if depth > 0 {
+            if let Some(candidate) = build_game_root_candidate(&current_dir, depth) {
+                candidates.push(candidate);
+                continue;
             }
-        })
-        .collect::<Vec<_>>();
+        }
 
-    let game_exe_path = GAME_EXE_CANDIDATES
-        .iter()
-        .map(|name| dir.join(name))
-        .find(|candidate| candidate.is_file());
+        if depth >= MAX_GAME_SEARCH_DEPTH {
+            continue;
+        }
 
-    match (game_exe_path, markers.is_empty()) {
-        (Some(exe), false) => GamePathStatus {
-            valid: true,
-            game_dir: normalized,
-            game_exe_path: exe.to_string_lossy().to_string(),
-            markers,
-            reason: "ok".into(),
-        },
-        (None, _) => GamePathStatus {
+        let Ok(entries) = fs::read_dir(&current_dir) else {
+            continue;
+        };
+        for entry in entries.flatten() {
+            let path = entry.path();
+            if path.is_dir() {
+                queue.push_back((path, depth + 1));
+            }
+        }
+    }
+
+    if candidates.is_empty() {
+        return GamePathStatus {
             valid: false,
             game_dir: normalized,
             game_exe_path: String::new(),
-            markers,
-            reason: "missing-root-exe".into(),
-        },
-        (Some(exe), true) => GamePathStatus {
-            valid: false,
-            game_dir: normalized,
-            game_exe_path: exe.to_string_lossy().to_string(),
-            markers,
-            reason: "missing-root-markers".into(),
-        },
+            markers: Vec::new(),
+            reason: "search-exhausted".into(),
+        };
     }
+
+    candidates.sort_by(|a, b| {
+        a.depth
+            .cmp(&b.depth)
+            .then(a.exe_rank.cmp(&b.exe_rank))
+            .then(a.game_dir.len().cmp(&b.game_dir.len()))
+            .then(a.game_dir.cmp(&b.game_dir))
+    });
+
+    let reason = if candidates.len() > 1 {
+        "multiple-candidates-resolved"
+    } else {
+        "ok"
+    };
+    game_path_status_from_candidate(candidates.remove(0), reason)
 }
 
 fn launcher_version_from_state(state: &ReleaseState) -> String {
@@ -1329,10 +1417,10 @@ fn save_config(app: AppHandle, config: AppConfig) -> Result<AppConfig, String> {
 fn set_game_directory(app: AppHandle, path: String) -> Result<BootstrapState, String> {
     let status = validate_game_dir(&path);
     if !status.valid {
-        return Err(format!(
-            "未检测到完整的游戏根目录，校验失败：{}。需要存在 EE2X.exe / EE2.exe 和 UnofficialVersionConfig.txt、zips_ee2x 等标记。",
-            status.reason
-        ));
+        return Err(
+            "未在所选目录及其下级目录中找到有效魔改版游戏根目录。需要存在 EE2X.exe / EE2.exe 与 UnofficialVersionConfig.txt、zips_ee2x 等根目录标记。"
+                .into(),
+        );
     }
 
     let mut config = load_config(&app).map_err(|e| e.to_string())?;
