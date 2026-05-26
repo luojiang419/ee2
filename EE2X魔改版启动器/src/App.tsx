@@ -621,7 +621,7 @@ export default function App() {
     }
 
     setStartupUpdateState("updating");
-    const result = await executeUpdate(false, false);
+    const result = await executeUpdate(false, true);
     if (!result?.ok) {
       startupUpdateCheckedRef.current = false;
       setStartupUpdateError("更新同步失败，请重试。");
