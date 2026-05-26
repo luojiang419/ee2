@@ -1,0 +1,279 @@
+{
+  "ok": true,
+  "channel": "codex-http-smoke-1779687879",
+  "backendBaseUrl": "http://127.0.0.1:53613",
+  "publish": {
+    "v1": {
+      "ok": true,
+      "version": "9.9.101",
+      "releaseId": "9.9.101",
+      "latestUrl": "http://127.0.0.1:53613/updates/codex-http-smoke-1779687879/latest.json",
+      "launcherFileCount": 2,
+      "gameFileCount": 2,
+      "launcherDeletedCount": 0,
+      "gameDeletedCount": 0
+    },
+    "v2": {
+      "ok": true,
+      "version": "9.9.102",
+      "releaseId": "9.9.102",
+      "latestUrl": "http://127.0.0.1:53613/updates/codex-http-smoke-1779687879/latest.json",
+      "launcherFileCount": 1,
+      "gameFileCount": 1,
+      "launcherDeletedCount": 0,
+      "gameDeletedCount": 0
+    },
+    "v3": {
+      "ok": true,
+      "version": "9.9.103",
+      "releaseId": "9.9.103",
+      "latestUrl": "http://127.0.0.1:53613/updates/codex-http-smoke-1779687879/latest.json",
+      "launcherFileCount": 1,
+      "gameFileCount": 1,
+      "launcherDeletedCount": 0,
+      "gameDeletedCount": 0
+    }
+  },
+  "updates": {
+    "allV1": {
+      "ok": true,
+      "summary": {
+        "version": "9.9.101",
+        "scope": "all",
+        "updatedFiles": 4,
+        "skippedProtectedFiles": 0,
+        "skippedProtectedPaths": [],
+        "deletedFiles": 0,
+        "backedUpFiles": 0,
+        "rolledBack": false,
+        "restartedLauncher": true,
+        "restartMessage": "��������ͨ����������ȫ������",
+        "executedScopes": [
+          "launcher",
+          "game"
+        ],
+        "skippedScopes": [],
+        "scopeSummaries": {
+          "launcher-v9.9.101": {
+            "version": "9.9.101",
+            "scope": "launcher",
+            "updatedFiles": 2,
+            "skippedProtectedFiles": 0,
+            "skippedProtectedPaths": [],
+            "deletedFiles": 0,
+            "backedUpFiles": 0,
+            "rolledBack": false,
+            "restartedLauncher": false,
+            "restartMessage": "",
+            "executedScopes": [],
+            "skippedScopes": [],
+            "scopeSummaries": {},
+            "notes": []
+          },
+          "game-v9.9.101": {
+            "version": "9.9.101",
+            "scope": "game",
+            "updatedFiles": 2,
+            "skippedProtectedFiles": 0,
+            "skippedProtectedPaths": [],
+            "deletedFiles": 0,
+            "backedUpFiles": 0,
+            "rolledBack": false,
+            "restartedLauncher": false,
+            "restartMessage": "",
+            "executedScopes": [],
+            "skippedScopes": [],
+            "scopeSummaries": {},
+            "notes": []
+          }
+        },
+        "notes": [
+          "��������ͨ����������ȫ������"
+        ]
+      }
+    },
+    "allV2": {
+      "ok": true,
+      "summary": {
+        "version": "9.9.102",
+        "scope": "all",
+        "updatedFiles": 2,
+        "skippedProtectedFiles": 0,
+        "skippedProtectedPaths": [],
+        "deletedFiles": 0,
+        "backedUpFiles": 2,
+        "rolledBack": false,
+        "restartedLauncher": true,
+        "restartMessage": "��������ͨ����������ȫ������",
+        "executedScopes": [
+          "launcher",
+          "game"
+        ],
+        "skippedScopes": [],
+        "scopeSummaries": {
+          "launcher-v9.9.102": {
+            "version": "9.9.102",
+            "scope": "launcher",
+            "updatedFiles": 1,
+            "skippedProtectedFiles": 0,
+            "skippedProtectedPaths": [],
+            "deletedFiles": 0,
+            "backedUpFiles": 1,
+            "rolledBack": false,
+            "restartedLauncher": false,
+            "restartMessage": "",
+            "executedScopes": [],
+            "skippedScopes": [],
+            "scopeSummaries": {},
+            "notes": []
+          },
+          "game-v9.9.102": {
+            "version": "9.9.102",
+            "scope": "game",
+            "updatedFiles": 1,
+            "skippedProtectedFiles": 0,
+            "skippedProtectedPaths": [],
+            "deletedFiles": 0,
+            "backedUpFiles": 1,
+            "rolledBack": false,
+            "restartedLauncher": false,
+            "restartMessage": "",
+            "executedScopes": [],
+            "skippedScopes": [],
+            "scopeSummaries": {},
+            "notes": []
+          }
+        },
+        "notes": [
+          "��������ͨ����������ȫ������"
+        ]
+      }
+    }
+  },
+  "deleteResults": {
+    "deleteV1": {
+      "ok": true,
+      "channel": "codex-http-smoke-1779687879",
+      "deletedReleaseId": "9.9.101",
+      "deletedVersion": "9.9.101",
+      "deletedWasCurrent": false,
+      "currentReleaseId": "9.9.103",
+      "currentVersion": "9.9.103",
+      "latestUrl": "http://127.0.0.1:53613/updates/codex-http-smoke-1779687879/latest.json",
+      "channelHasReleases": true
+    },
+    "deleteV3": {
+      "ok": true,
+      "channel": "codex-http-smoke-1779687879",
+      "deletedReleaseId": "9.9.103",
+      "deletedVersion": "9.9.103",
+      "deletedWasCurrent": true,
+      "currentReleaseId": "9.9.102",
+      "currentVersion": "9.9.102",
+      "latestUrl": "http://127.0.0.1:53613/updates/codex-http-smoke-1779687879/latest.json",
+      "channelHasReleases": true
+    },
+    "deleteV2": {
+      "ok": true,
+      "channel": "codex-http-smoke-1779687879",
+      "deletedReleaseId": "9.9.102",
+      "deletedVersion": "9.9.102",
+      "deletedWasCurrent": true,
+      "currentReleaseId": "",
+      "currentVersion": "",
+      "latestUrl": "",
+      "channelHasReleases": false
+    }
+  },
+  "bundlePublish": {
+    "backendBaseUrl": "http://127.0.0.1:54069",
+    "channel": "codex-http-smoke-1779687879-bundle",
+    "v1": {
+      "ok": true,
+      "version": "8.8.201",
+      "releaseId": "8.8.201",
+      "latestUrl": "http://127.0.0.1:54069/updates/codex-http-smoke-1779687879-bundle/latest.json",
+      "launcherFileCount": 2,
+      "gameFileCount": 2,
+      "launcherDeletedCount": 0,
+      "gameDeletedCount": 0
+    },
+    "v2": {
+      "ok": true,
+      "version": "8.8.202",
+      "releaseId": "8.8.202",
+      "latestUrl": "http://127.0.0.1:54069/updates/codex-http-smoke-1779687879-bundle/latest.json",
+      "launcherFileCount": 1,
+      "gameFileCount": 1,
+      "launcherDeletedCount": 0,
+      "gameDeletedCount": 0
+    },
+    "deleteV2": {
+      "ok": true,
+      "channel": "codex-http-smoke-1779687879-bundle",
+      "deletedReleaseId": "8.8.202",
+      "deletedVersion": "8.8.202",
+      "deletedWasCurrent": true,
+      "currentReleaseId": "8.8.201",
+      "currentVersion": "8.8.201",
+      "latestUrl": "http://127.0.0.1:54069/updates/codex-http-smoke-1779687879-bundle/latest.json",
+      "channelHasReleases": true
+    },
+    "deleteV1": {
+      "ok": true,
+      "channel": "codex-http-smoke-1779687879-bundle",
+      "deletedReleaseId": "8.8.201",
+      "deletedVersion": "8.8.201",
+      "deletedWasCurrent": true,
+      "currentReleaseId": "",
+      "currentVersion": "",
+      "latestUrl": "",
+      "channelHasReleases": false
+    },
+    "historyAfterDeleteV1": {
+      "ok": true,
+      "channel": "codex-http-smoke-1779687879-bundle",
+      "currentReleaseId": "",
+      "currentVersion": "",
+      "historyTotalCount": 0,
+      "returnedCount": 0,
+      "history": []
+    },
+    "backendLogs": "INFO:     127.0.0.1:54703 - \"GET /api/update/v1/health HTTP/1.1\" 200 OK\r\nINFO:     127.0.0.1:54704 - \"POST /api/update/v1/releases/publish-bundle HTTP/1.1\" 200 OK\r\nINFO:     127.0.0.1:54705 - \"GET /api/update/v1/channels/codex-http-smoke-1779687879-bundle/latest HTTP/1.1\" 200 OK\r\nINFO:     127.0.0.1:54706 - \"POST /api/update/v1/releases/publish-bundle HTTP/1.1\" 200 OK\r\nINFO:     127.0.0.1:54707 - \"GET /api/update/v1/channels/codex-http-smoke-1779687879-bundle/latest HTTP/1.1\" 200 OK\r\nINFO:     127.0.0.1:54708 - \"GET /api/update/v1/channels/codex-http-smoke-1779687879-bundle/history?limit=10 HTTP/1.1\" 200 OK\r\nINFO:     127.0.0.1:54709 - \"DELETE /api/update/v1/channels/codex-http-smoke-1779687879-bundle/releases/8.8.202 HTTP/1.1\" 200 OK\r\nINFO:     127.0.0.1:54710 - \"GET /api/update/v1/channels/codex-http-smoke-1779687879-bundle/latest HTTP/1.1\" 200 OK\r\nINFO:     127.0.0.1:54711 - \"DELETE /api/update/v1/channels/codex-http-smoke-1779687879-bundle/releases/8.8.201 HTTP/1.1\" 200 OK\r\nINFO:     127.0.0.1:54712 - \"GET /api/update/v1/channels/codex-http-smoke-1779687879-bundle/history?limit=10 HTTP/1.1\" 200 OK\nINFO:     Started server process [1516]\r\nINFO:     Waiting for application startup.\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://127.0.0.1:54069 (Press CTRL+C to quit)"
+  },
+  "restartMarker": "",
+  "releaseState": {
+    "launcher": {
+      "version": "9.9.102",
+      "packageSha256": "048905eb7733fc9495646bdf136e07db79c6694201e9d868b9ec77e7892d065f",
+      "manifestUrl": "http://127.0.0.1:53613/updates/codex-http-smoke-1779687879/releases/9.9.102/launcher/release-manifest.json",
+      "packageUrl": "http://127.0.0.1:53613/updates/codex-http-smoke-1779687879/releases/9.9.102/launcher/EE2X-launcher-9.9.102.zip",
+      "publishedAt": "2026-05-25T05:44:43.423805+00:00",
+      "appliedAt": "2026-05-25T05:44:44.311316+00:00"
+    },
+    "game": {
+      "version": "9.9.102",
+      "packageSha256": "eb4580b0ec204f27a790e36f6259fb3af3405f718be42cee98fc26baba0035bd",
+      "manifestUrl": "http://127.0.0.1:53613/updates/codex-http-smoke-1779687879/releases/9.9.102/game/release-manifest.json",
+      "packageUrl": "http://127.0.0.1:53613/updates/codex-http-smoke-1779687879/releases/9.9.102/game/EE2X-game-9.9.102.zip",
+      "publishedAt": "2026-05-25T05:44:43.423805+00:00",
+      "appliedAt": "2026-05-25T05:44:44.360445+00:00"
+    },
+    "required": true,
+    "releaseNotes": "Smoke publish 9.9.102",
+    "pendingVersion": "",
+    "appliedAt": "2026-05-25T05:44:44.360445+00:00",
+    "version": "9.9.102",
+    "packageSha256": "eb4580b0ec204f27a790e36f6259fb3af3405f718be42cee98fc26baba0035bd",
+    "lastShownChangelogVersion": ""
+  },
+  "historyAfterDeleteV2": {
+    "ok": true,
+    "channel": "codex-http-smoke-1779687879",
+    "currentReleaseId": "",
+    "currentVersion": "",
+    "historyTotalCount": 0,
+    "returnedCount": 0,
+    "history": []
+  }
+}

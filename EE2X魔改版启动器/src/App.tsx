@@ -1,3 +1,4 @@
+import { LogicalSize } from "@tauri-apps/api/dpi";
 import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import {
@@ -210,6 +211,29 @@ export default function App() {
     return current === mode ? "auth-tab auth-tab-active" : "auth-tab auth-tab-inactive";
   }
 
+  function parsePreferredResolution(value: string) {
+    const [widthText, heightText] = value.split("x");
+    const width = Number(widthText);
+    const height = Number(heightText);
+    if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) {
+      return null;
+    }
+    return { width, height };
+  }
+
+  async function applyPreferredResolutionToWindow(value: string) {
+    if (!isTauriRuntime) {
+      return;
+    }
+    const parsed = parsePreferredResolution(value);
+    if (!parsed) {
+      return;
+    }
+    const currentWindow = getCurrentWindow();
+    await currentWindow.setSize(new LogicalSize(parsed.width, parsed.height));
+    await currentWindow.center();
+  }
+
   function resetRegisterForm() {
     setRegisterForm({ username: "", password: "", avatar: "" });
     if (registerAvatarInputRef.current) {
@@ -387,6 +411,7 @@ export default function App() {
     try {
       setBusyMessage("正在保存设置...");
       const saved = await saveConfig(config);
+      await applyPreferredResolutionToWindow(saved.preferredResolution);
       if (
         autostartReady &&
         autostartInitialEnabled !== null &&
