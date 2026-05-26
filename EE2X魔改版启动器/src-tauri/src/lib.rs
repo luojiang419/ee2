@@ -1005,12 +1005,8 @@ fn validate_game_dir(path: &str) -> GamePathStatus {
     game_path_status_from_candidate(candidates.remove(0), reason)
 }
 
-fn launcher_version_from_state(state: &ReleaseState) -> String {
-    if !state.launcher.version.is_empty() {
-        state.launcher.version.clone()
-    } else {
-        format!("v{}", env!("CARGO_PKG_VERSION"))
-    }
+fn launcher_version_from_state(_state: &ReleaseState) -> String {
+    format!("v{}", env!("CARGO_PKG_VERSION"))
 }
 
 fn parse_resolution(value: &str) -> Option<(f64, f64)> {

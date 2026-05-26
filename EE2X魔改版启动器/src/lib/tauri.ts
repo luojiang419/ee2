@@ -27,8 +27,8 @@ const STORAGE_USER = "ee2x.mock.user";
 const STORAGE_RELEASE = "ee2x.mock.release";
 const STORAGE_NETWORK = "ee2x.mock.network";
 const STORAGE_AUTOSTART = "ee2x.mock.autostart";
-const MOCK_LATEST_VERSION = "v1.0.17";
-const MOCK_CHAIN = ["v1.0.15", "v1.0.16", "v1.0.17"];
+const MOCK_LATEST_VERSION = "v1.0.12";
+const MOCK_CHAIN = ["v1.0.10", "v1.0.11", "v1.0.12"];
 const updateListeners = new Set<(event: UpdateStatusEvent) => void>();
 
 const defaultConfig: AppConfig = {
@@ -147,8 +147,8 @@ function saveMockUser(user: UserSession | null) {
 
 function loadMockRelease() {
   return loadStored<MockReleaseState>(STORAGE_RELEASE, {
-    launcherVersion: "v1.0.15",
-    gameVersion: "v1.0.15"
+    launcherVersion: "v1.0.12",
+    gameVersion: "v1.0.12"
   });
 }
 
