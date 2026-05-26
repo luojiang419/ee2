@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-26 炼油厂化学厂去除种子资源费
+> 最后更新: 2026-05-26 三舰RPS类型改为防空
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -128,6 +128,8 @@
 | 127 | EE2X_db-127-酒馆采石场进驻25人-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 126修改应用后的完整游戏ZIP | 已废弃 | 2026-05-26 |
 | 128 | EE2X_db-128-酒馆采石场采集速率0.8-pre.zip | pre | Tavern/Quarry 采集速率 | Yuanhang_720_units.ddf | Tavern/Quarry gatherRate 0.5→0.8 | — | 2026-05-26 |
 | 129 | EE2X_db-129-酒馆采石场采集速率0.8-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 128修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
+| 130 | EE2X_db-130-三舰RPS防空-pre.zip | pre | Ch054A/FregattenFFG/Type22350 RPS类型 | Yuanhang_Tao_13naval_units.ddf | 三舰 rps 从 Destroyer 改为 AntiAircraft | — | 2026-05-26 |
+| 130 | EE2X_db-130-三舰RPS防空-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 130修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 
 ## 更新器/启动器备份
 
