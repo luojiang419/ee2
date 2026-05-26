@@ -411,7 +411,12 @@ export default function App() {
     }
     try {
       setBusyMessage("正在保存设置...");
-      const saved = await saveConfig(config);
+      const toSave = { ...config };
+      if (!toSave.gameDir && boot?.gamePath.gameDir) {
+        toSave.gameDir = boot.gamePath.gameDir;
+        toSave.gameExePath = boot.gamePath.gameExePath;
+      }
+      const saved = await saveConfig(toSave);
       await applyPreferredResolutionToWindow(saved.preferredResolution);
       if (
         autostartReady &&
@@ -919,16 +924,16 @@ export default function App() {
             <div className="wizard-eyebrow">安装后首次启动向导</div>
             {firstRunWizardStep === "pickDir" ? (
               <>
-                <div className="wizard-title">选择魔改版游戏目录</div>
+                <div className="wizard-title">选择游戏根目录</div>
                 <div className="wizard-copy">
-                  请先选择 Empire Earth II 魔改版游戏目录。你也可以直接选择它的上层目录，启动器会自动向下查找真正的游戏根目录。
+                  请选择 Empire Earth II 游戏根目录（包含 EE2X.exe 的文件夹）。也可以选择上层目录，启动器会自动向下查找。
                 </div>
                 <div className="wizard-copy wizard-copy-subtle">
-                  启动器会自动识别 EE2X.exe / EE2.exe，以及 UnofficialVersionConfig.txt、zips_ee2x、Unofficial Patch Files 等根目录标记。
+                  根目录标记：EE2X.exe / EE2.exe / UnofficialVersionConfig.txt / zips_ee2x / Unofficial Patch Files
                 </div>
                 <div className="wizard-actions-bottom">
                   <button className="picker-button wizard-primary" onClick={() => void handlePickGameDirectory()} type="button">
-                    选择魔改版游戏目录
+                    选择游戏根目录
                   </button>
                 </div>
               </>
@@ -1378,7 +1383,7 @@ export default function App() {
                     <label className="field-card glass-lite">
                       <span>游戏路径</span>
                       <div className="field-inline">
-                        <input readOnly value={config.gameDir} />
+                        <input readOnly value={config.gameDir || boot?.gamePath.gameDir || ""} />
                         <button className="mini-action" onClick={() => void handlePickGameDirectory()} type="button">
                           浏览
                         </button>
@@ -1645,18 +1650,18 @@ export default function App() {
       {onboardingStep === "pickGameDir" && !isFirstRunWizardActive && (
         <div className="overlay">
           <div className="modal glass onboarding-modal">
-            <div className="modal-title">选择魔改版游戏目录</div>
+            <div className="modal-title">选择游戏根目录</div>
             <div className="modal-body onboarding-body">
               <div className="onboarding-copy">
-                首次使用必须先选择有效的 Empire Earth II 魔改版根目录。
+                请选择 Empire Earth II 游戏根目录（包含 EE2X.exe 的文件夹）。
               </div>
               <div className="onboarding-copy onboarding-copy-subtle">
-                目录中需要存在 EE2X.exe 或 EE2.exe，以及 UnofficialVersionConfig.txt、zips_ee2x 等根目录标记。
+                根目录标记：EE2X.exe / EE2.exe / UnofficialVersionConfig.txt / zips_ee2x / Unofficial Patch Files
               </div>
             </div>
             <div className="modal-actions">
               <button className="mini-action primary-glow" onClick={() => void handlePickGameDirectory()} type="button">
-                选择魔改版游戏目录
+                选择游戏根目录
               </button>
             </div>
           </div>

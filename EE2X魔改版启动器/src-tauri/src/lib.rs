@@ -774,12 +774,7 @@ fn load_config<R: Runtime>(app: &AppHandle<R>) -> Result<AppConfig> {
         write_json(&path, &config)?;
         return Ok(config);
     }
-    let mut config: AppConfig = read_json(&path)?;
-    if !config.setup_completed && validate_game_dir(&config.game_dir).valid {
-        config.setup_completed = true;
-        config.setup_pending_auth = false;
-        write_json(&path, &config)?;
-    }
+    let config: AppConfig = read_json(&path)?;
     Ok(config)
 }
 
@@ -1059,7 +1054,15 @@ fn ensure_default_background<R: Runtime>(app: &AppHandle<R>) -> Result<String> {
 }
 
 fn bootstrap_state_internal<R: Runtime>(app: &AppHandle<R>) -> Result<BootstrapState> {
-    let config = load_config(app)?;
+    let mut config = load_config(app)?;
+
+    // 旧版本迁移：已有有效游戏目录但未标记完成 → 自动完成
+    if !config.setup_completed && validate_game_dir(&config.game_dir).valid {
+        config.setup_completed = true;
+        config.setup_pending_auth = false;
+        save_config_file(app, &config)?;
+    }
+
     apply_preferred_window_resolution(app, &config.preferred_resolution)?;
     let user = load_user(app)?;
     let state = load_release_state(app)?;
@@ -1468,7 +1471,7 @@ fn set_game_directory(app: AppHandle, path: String) -> Result<BootstrapState, St
     let status = validate_game_dir(&path);
     if !status.valid {
         return Err(
-            "未在所选目录及其下级目录中找到有效魔改版游戏根目录。需要存在 EE2X.exe / EE2.exe 与 UnofficialVersionConfig.txt、zips_ee2x 等根目录标记。"
+            "未在所选目录及其下级目录中找到有效的游戏根目录。需要存在 EE2X.exe / EE2.exe 与 UnofficialVersionConfig.txt、zips_ee2x 等根目录标记。"
                 .into(),
         );
     }
@@ -1481,7 +1484,24 @@ fn set_game_directory(app: AppHandle, path: String) -> Result<BootstrapState, St
         .map(|name| name.to_string_lossy().to_string())
         .unwrap_or_else(|| "EE2X.exe".into());
     save_config_file(&app, &config).map_err(|e| e.to_string())?;
-    bootstrap_state_internal(&app).map_err(|e| e.to_string())
+
+    // 直接构建 BootstrapState，不触发 bootstrap_state_internal 中的迁移逻辑
+    // 因为此时处于首次运行向导流程中，setupCompleted 应由向导步骤控制
+    apply_preferred_window_resolution(&app, &config.preferred_resolution)
+        .map_err(|e| e.to_string())?;
+    let user = load_user(&app).map_err(|e| e.to_string())?;
+    let state = load_release_state(&app).map_err(|e| e.to_string())?;
+    let default_background_path = ensure_default_background(&app).unwrap_or_default();
+    let game_version = state.game.version.clone();
+    Ok(BootstrapState {
+        game_path: validate_game_dir(&config.game_dir),
+        launcher_version: launcher_version_from_state(&state),
+        game_version,
+        install_dir: install_dir().map_err(|e| e.to_string())?.to_string_lossy().to_string(),
+        config,
+        user,
+        default_background_path,
+    })
 }
 
 #[tauri::command]
