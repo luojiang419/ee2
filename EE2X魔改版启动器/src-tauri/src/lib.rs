@@ -859,11 +859,16 @@ fn save_vnt_launch_state<R: Runtime>(
 }
 
 fn normalize_path(input: &str) -> String {
-    input
+    let mut path = input
         .replace('/', "\\")
         .trim()
         .trim_matches('"')
-        .to_string()
+        .to_string();
+    // Remove trailing backslashes except for root paths like C:\
+    while path.len() > 3 && path.ends_with('\\') {
+        path.pop();
+    }
+    path
 }
 
 #[derive(Clone)]

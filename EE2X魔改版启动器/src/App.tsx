@@ -176,7 +176,9 @@ export default function App() {
     if (!nextBoot) {
       return null;
     }
-    if (!nextBoot.gamePath.valid) {
+    // gamePath.valid 为 false 时，额外检查 config 中是否已有 gameDir，
+    // 防止因路径格式差异（如尾斜杠）导致的假阴性重复弹出选目录
+    if (!nextBoot.gamePath.valid && !nextBoot.config.gameDir) {
       return "pickGameDir";
     }
     if (!nextSession) {
@@ -448,6 +450,7 @@ export default function App() {
   }
 
   async function handleLogin() {
+    let loginOk = false;
     try {
       setBusyMessage("正在登录...");
       await authLogin(loginForm.username, loginForm.password);
@@ -456,14 +459,17 @@ export default function App() {
       }
       setLoginForm({ username: "", password: "" });
       await refreshBootstrap();
+      loginOk = true;
       await refreshPlayers();
       await refreshProfile();
       await ensureNetwork();
-      setFirstRunWizardStep(null);
-      setOnboardingStep(null);
     } catch (error) {
       setErrorMessage(String(error));
     } finally {
+      if (loginOk) {
+        setFirstRunWizardStep(null);
+        setOnboardingStep(null);
+      }
       setBusyMessage("");
     }
   }
@@ -482,6 +488,7 @@ export default function App() {
   }
 
   async function handleRegister() {
+    let registerOk = false;
     try {
       setBusyMessage("正在注册...");
       const payload: RegisterPayload = {
@@ -495,14 +502,17 @@ export default function App() {
       }
       resetRegisterForm();
       await refreshBootstrap();
+      registerOk = true;
       await refreshPlayers();
       await refreshProfile();
       await ensureNetwork();
-      setFirstRunWizardStep(null);
-      setOnboardingStep(null);
     } catch (error) {
       setErrorMessage(String(error));
     } finally {
+      if (registerOk) {
+        setFirstRunWizardStep(null);
+        setOnboardingStep(null);
+      }
       setBusyMessage("");
     }
   }
