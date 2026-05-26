@@ -401,6 +401,11 @@ export default function App() {
     }
   }
 
+  function closeUpdateResultAndReturnHome() {
+    setUpdateResult(null);
+    setActivePage("home");
+  }
+
   async function handleLogin() {
     try {
       setBusyMessage("正在登录...");
@@ -738,6 +743,29 @@ export default function App() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [profileOpen]);
+
+  useEffect(() => {
+    if (!updateResult) {
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      closeUpdateResultAndReturnHome();
+    }, 3000);
+    return () => window.clearTimeout(timer);
+  }, [updateResult]);
+
+  useEffect(() => {
+    if (!updateResult) {
+      return;
+    }
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeUpdateResultAndReturnHome();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [updateResult]);
 
   useEffect(() => {
     if (!profileOpen || !session || profile) {
@@ -1772,10 +1800,13 @@ export default function App() {
               <div>当前游戏版本已同步到 {updateResult.targetVersion}</div>
               <div>共应用 {updateResult.appliedVersions.length} 个游戏版本包</div>
               <div>{updateResult.message}</div>
+              <div className="onboarding-copy onboarding-copy-subtle">
+                3 秒后自动返回软件首页，或按 `Esc` 立即返回。
+              </div>
             </div>
             <div className="modal-actions">
-              <button className="mini-action primary-glow" onClick={() => setUpdateResult(null)} type="button">
-                确认
+              <button className="mini-action primary-glow" onClick={closeUpdateResultAndReturnHome} type="button">
+                返回首页
               </button>
             </div>
           </div>
