@@ -198,7 +198,7 @@ UnitType Tree
 	}
 	abilities [
 		// change alwaysExhaustible to make tree exhaustible
-		Resource { type = kResourceType_Wood; alwaysExhaustible = 1; amount = 2577; maxNumOfWorkers = 3}
+		Resource { type = kResourceType_Wood; alwaysExhaustible = 1; amount = 5000; maxNumOfWorkers = 3}
 	]
 	fullMapOverlay { sprite = spr_fullmap_tree scale = 2.0 ignoreOrientation = 1 }
 }
@@ -1431,7 +1431,7 @@ UnitType ResourceGold
 		VerboseTooltip = vtt_unit_Gold
 	}
 	abilities [ 
-		Resource { type = kResourceType_Gold; amount = 1500; maxNumOfWorkers = 6}
+		Resource { type = kResourceType_Gold; alwaysExhaustible = 1; amount = 1500; maxNumOfWorkers = 6}
 	]
 }
 
@@ -1472,7 +1472,7 @@ UnitType ResourceStone
 		VerboseTooltip = vtt_unit_Stone
 	}
 	abilities [ 
-		Resource { type = kResourceType_Stone; amount = 1500; maxNumOfWorkers = 6}
+		Resource { type = kResourceType_Stone; alwaysExhaustible = 1; amount = 1500; maxNumOfWorkers = 6}
 	]
 }
 

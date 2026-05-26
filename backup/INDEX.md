@@ -152,6 +152,8 @@
 | 131 | EE2X_db-131-铀石油资源点数量5000改800-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 131修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 | 132 | EE2X_db-132-石金木资源点数量调整-pre.zip | pre | ResourceStone/ResourceGold/ResourceWoody | resources.ddf | 石头1000→1500、黄金1000→1500、树木30000→5000 | — | 2026-05-26 |
 | 132 | EE2X_db-132-石金木资源点数量调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 132修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
+| 133 | EE2X_db-133-修复树黄金石头资源点-pre.zip | pre | Tree/ResourceGold/ResourceStone | resources.ddf | Tree 2577→5000、Gold/Stone添加alwaysExhaustible=1 | — | 2026-05-26 |
+| 133 | EE2X_db-133-修复树黄金石头资源点-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 133修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 
 ## 旧格式全量快照（历史遗留）
 
