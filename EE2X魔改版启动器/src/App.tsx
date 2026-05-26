@@ -25,7 +25,6 @@ import {
   setAutostartEnabled as saveAutostartEnabled,
   setGameDirectory,
   startGame,
-  exitApp,
   stopNetwork
 } from "./lib/tauri";
 import type {
@@ -440,7 +439,7 @@ export default function App() {
 
   function closeUpdateResultAndExit() {
     setUpdateResult(null);
-    void exitApp();
+    setActivePage("home");
   }
 
   async function handleLogin() {
@@ -1851,12 +1850,12 @@ export default function App() {
               ) : null}
               <div>{updateResult.message}</div>
               <div className="onboarding-copy onboarding-copy-subtle">
-                5 秒后自动退出启动器，或按 Esc / 点击关闭按钮立即退出。
+                5 秒后自动返回软件首页，或按 Esc 立即返回。
               </div>
             </div>
             <div className="modal-actions">
               <button className="mini-action primary-glow" onClick={closeUpdateResultAndExit} type="button">
-                关闭退出
+                返回首页
               </button>
             </div>
           </div>
