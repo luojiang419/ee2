@@ -239,8 +239,8 @@ C130,text_Fighter_11_name,,13,0,,icon_unit_C130,0,1,3,Airport,C130,,70,450,0,0,5
 //Navalmine2,text_BMP1_name,,12,0,,icon_unit_navalmine,0,3,2,Submarine,Navalmine2,,0.5,0,0,0,25,0,0,0,25,0,0,,[],(None)
 
 //Balloon,text_ObservationBalloon_11_name,,8,0,,,0,2,3,University,Balloon,,60,0,250,0,500,0,0,0,0,0,5,,[],(None)
-Weelloader,text_LightMounted1_02_name,,13,0,,,0,2,0,Autofactory,Weelloader,,70,300,300,0,300,0,0,0,300,0,0,,[],(None)
-Harvester,text_LightMounted1_02_name,,13,0,,,0,2,1,Autofactory,Harvester,,70,250,250,0,250,0,0,0,250,0,0,,[],(None)
+Weelloader,text_LightMounted1_02_name,,13,0,,,0,2,0,Autofactory,Weelloader,,70,0,500,500,500,0,0,0,0,0,0,,[],(None)
+Harvester,text_LightMounted1_02_name,,13,0,,,0,2,1,Autofactory,Harvester,,70,0,500,500,500,0,0,0,0,0,0,,[],(None)
 Tractor,text_LightMounted1_02_name,,11,0,,,0,2,2,Autofactory,Tractor,TractorUpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 
 gruzovik,tx_utn_TradeCart_name,,11,0,,,0,3,1,Autofactory,gruzovik,gruzovikUpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)

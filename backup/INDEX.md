@@ -154,6 +154,8 @@
 | 132 | EE2X_db-132-石金木资源点数量调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 132修改应用后的完整游戏ZIP | 测试通过 | 2026-05-26 |
 | 133 | EE2X_db-133-修复树黄金石头资源点-pre.zip | pre | Tree/ResourceGold/ResourceStone | resources.ddf | Tree 2577→5000、Gold/Stone添加alwaysExhaustible=1 | — | 2026-05-26 |
 | 133 | EE2X_db-133-修复树黄金石头资源点-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 133修改应用后的完整游戏ZIP | 测试通过 | 2026-05-26 |
+| 134 | EE2X_db-134-挖掘机伐木机收割机成本调整-pre.zip | pre | Weelloader/Harvester/Tractor | dbtechtreenode.csv, upgrade_unittypes.csv | 三台机器成本统一为WOOD=500/STONE=500/GOLD=500 | — | 2026-05-26 |
+| 134 | EE2X_db-134-挖掘机伐木机收割机成本调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 134修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 
 ## 旧格式全量快照（历史遗留）
 
