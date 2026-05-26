@@ -913,6 +913,38 @@ button {
   color: #eef4ff;
 }
 
+.update-log {
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 10px;
+  background: rgba(4, 8, 16, 0.55);
+  padding: 12px 14px;
+}
+
+.update-log-title {
+  color: #8cb7e7;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.update-log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.update-log-list li {
+  color: #dce9fa;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(110, 160, 220, 0.08);
+}
+
 .onboarding-body {
   gap: 14px;
 }

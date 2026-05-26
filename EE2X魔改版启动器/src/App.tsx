@@ -25,6 +25,7 @@ import {
   setAutostartEnabled as saveAutostartEnabled,
   setGameDirectory,
   startGame,
+  exitApp,
   stopNetwork
 } from "./lib/tauri";
 import type {
@@ -437,9 +438,9 @@ export default function App() {
     }
   }
 
-  function closeUpdateResultAndReturnHome() {
+  function closeUpdateResultAndExit() {
     setUpdateResult(null);
-    setActivePage("home");
+    void exitApp();
   }
 
   async function handleLogin() {
@@ -787,8 +788,8 @@ export default function App() {
       return;
     }
     const timer = window.setTimeout(() => {
-      closeUpdateResultAndReturnHome();
-    }, 3000);
+      closeUpdateResultAndExit();
+    }, 5000);
     return () => window.clearTimeout(timer);
   }, [updateResult]);
 
@@ -798,7 +799,7 @@ export default function App() {
     }
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        closeUpdateResultAndReturnHome();
+        closeUpdateResultAndExit();
       }
     };
     window.addEventListener("keydown", onKeyDown);
@@ -1837,16 +1838,25 @@ export default function App() {
           <div className="modal glass">
             <div className="modal-title">更新完成</div>
             <div className="modal-body">
-              <div>当前游戏版本已同步到 {updateResult.targetVersion}</div>
-              <div>共应用 {updateResult.appliedVersions.length} 个游戏版本包</div>
+              <div>游戏版本已同步到 {updateResult.targetVersion}</div>
+              {updateResult.appliedVersions.length > 0 ? (
+                <div className="update-log">
+                  <div className="update-log-title">更新日志</div>
+                  <ul className="update-log-list">
+                    {updateResult.appliedVersions.map((v) => (
+                      <li key={v}>{v}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <div>{updateResult.message}</div>
               <div className="onboarding-copy onboarding-copy-subtle">
-                3 秒后自动返回软件首页，或按 `Esc` 立即返回。
+                5 秒后自动退出启动器，或按 Esc / 点击关闭按钮立即退出。
               </div>
             </div>
             <div className="modal-actions">
-              <button className="mini-action primary-glow" onClick={closeUpdateResultAndReturnHome} type="button">
-                返回首页
+              <button className="mini-action primary-glow" onClick={closeUpdateResultAndExit} type="button">
+                关闭退出
               </button>
             </div>
           </div>

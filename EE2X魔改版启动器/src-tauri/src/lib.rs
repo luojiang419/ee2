@@ -525,7 +525,8 @@ pub fn run() {
             finalize_update_restart,
             restart_self,
             open_matchmaking,
-            open_config_directory
+            open_config_directory,
+            exit_app
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
@@ -1523,6 +1524,11 @@ fn start_game(app: AppHandle) -> Result<HashMap<String, Value>, String> {
         .ok_or_else(|| "无法解析游戏目录".to_string())?;
     spawn_hidden_process(&exe_path, &[], Some(&cwd)).map_err(|e| e.to_string())?;
     Ok(HashMap::from([("ok".into(), Value::Bool(true))]))
+}
+
+#[tauri::command]
+fn exit_app(app: AppHandle) {
+    app.exit(0);
 }
 
 fn http_client() -> reqwest::Client {

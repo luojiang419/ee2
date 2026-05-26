@@ -706,3 +706,10 @@ export async function listenUpdateStatus(
     updateListeners.delete(cb);
   };
 }
+
+export async function exitApp() {
+  if (isTauriRuntime) {
+    return invoke("exit_app");
+  }
+  window.close();
+}
