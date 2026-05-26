@@ -125,7 +125,9 @@
 | 124 | EE2X_db-124-石油铀矿资源量5000-pre.zip | pre | ResourceOil/ResourceUranium 矿藏量 | resources.ddf | Oil/Uranium amount 2000→5000 | — | 2026-05-26 |
 | 125 | EE2X_db-125-石油铀矿资源量5000-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 124修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 | 126 | EE2X_db-126-酒馆采石场进驻25人-pre.zip | pre | Tavern/Quarry 进驻槽位 | Yuanhang_720_units.ddf | Tavern 30→25; Quarry 6→25 | — | 2026-05-26 |
-| 127 | EE2X_db-127-酒馆采石场进驻25人-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 126修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
+| 127 | EE2X_db-127-酒馆采石场进驻25人-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 126修改应用后的完整游戏ZIP | 已废弃 | 2026-05-26 |
+| 128 | EE2X_db-128-酒馆采石场采集速率0.8-pre.zip | pre | Tavern/Quarry 采集速率 | Yuanhang_720_units.ddf | Tavern/Quarry gatherRate 0.5→0.8 | — | 2026-05-26 |
+| 129 | EE2X_db-129-酒馆采石场采集速率0.8-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 128修改应用后的完整游戏ZIP | 待测试 | 2026-05-26 |
 
 ## 更新器/启动器备份
 

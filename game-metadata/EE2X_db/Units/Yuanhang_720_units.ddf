@@ -17710,7 +17710,7 @@ UnitType Tavern
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
 			numOfSlots = 25;
-			gatherRate = 0.5;	
+			gatherRate = 0.8;	
 			gatherType = Gold;
             rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -17951,7 +17951,7 @@ UnitType Quarry
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
 			numOfSlots = 25;
-			gatherRate = 0.5;	
+			gatherRate = 0.8;	
 			gatherType = Stone;
             rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
