@@ -464,6 +464,9 @@ fn create_tray<R: Runtime>(app: &AppHandle<R>) -> Result<()> {
 
 pub fn run() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| {
+            show_main_window(app);
+        }))
         .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
             app.handle().plugin(tauri_plugin_autostart::init(
