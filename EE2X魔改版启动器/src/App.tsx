@@ -56,7 +56,8 @@ const APP_DESIGN_HEIGHT = 960;
 type OnboardingStep = "pickGameDir" | "auth" | null;
 type FirstRunWizardStep = "pickDir" | "update" | "auth" | null;
 type AuthMode = "login" | "register";
-type StartupUpdateState = "checking" | "updating" | "error" | null;
+type StartupUpdateState = "checking" | "updating" | "restarting" | "error" | null;
+type UpdateCompletionMode = "normal" | "firstRunWizard";
 
 const emptyNetwork: NetworkSnapshot = {
   connected: false,
@@ -453,35 +454,22 @@ export default function App() {
     }
   }
 
-  async function handleRunUpdate(force: boolean) {
+  async function executeUpdate(force: boolean, showResultModal = true) {
     if (updateRunning) {
       return null;
     }
     setUpdateEvents([]);
-    setUpdateResult(null);
+    if (showResultModal) {
+      setUpdateResult(null);
+    }
     setUpdateRunning(true);
     setBusyMessage(force ? "正在执行强制更新..." : "正在检查并应用更新...");
     try {
       const result = await runUpdate(force);
-      setUpdateResult(result);
-      await refreshUpdateInfo(false);
-      if (result.restartRequired) {
-        setTimeout(async () => {
-          try {
-            await finalizeUpdateRestart();
-          } catch (error) {
-            setErrorMessage(String(error));
-          }
-        }, 1800);
-      } else if (result.ok) {
-        setTimeout(async () => {
-          try {
-            await restartSelf();
-          } catch (error) {
-            setErrorMessage(String(error));
-          }
-        }, 1800);
+      if (showResultModal) {
+        setUpdateResult(result);
       }
+      await refreshUpdateInfo(false);
       return result;
     } catch (error) {
       setErrorMessage(String(error));
@@ -490,6 +478,62 @@ export default function App() {
       setBusyMessage("");
       setUpdateRunning(false);
     }
+  }
+
+  async function completeUpdateAndMaybeRestart(
+    result: UpdateRunResult,
+    mode: UpdateCompletionMode
+  ) {
+    if (!result.ok) {
+      return false;
+    }
+
+    const shouldShowRestarting =
+      mode === "firstRunWizard" || startupUpdateState !== null;
+    if (shouldShowRestarting) {
+      setStartupUpdateState("restarting");
+    }
+
+    if (result.restartRequired) {
+      window.setTimeout(async () => {
+        try {
+          await finalizeUpdateRestart();
+        } catch (error) {
+          setErrorMessage(String(error));
+          if (shouldShowRestarting) {
+            setStartupUpdateError("更新完成后重启失败，请重试。");
+            setStartupUpdateState("error");
+          }
+        }
+      }, 1800);
+      return false;
+    }
+
+    if (mode === "normal") {
+      window.setTimeout(async () => {
+        try {
+          await restartSelf();
+        } catch (error) {
+          setErrorMessage(String(error));
+          if (shouldShowRestarting) {
+            setStartupUpdateError("更新完成后重启失败，请重试。");
+            setStartupUpdateState("error");
+          }
+        }
+      }, 1800);
+      return false;
+    }
+
+    return true;
+  }
+
+  async function handleRunUpdate(force: boolean) {
+    const result = await executeUpdate(force, true);
+    if (!result?.ok) {
+      return result;
+    }
+    await completeUpdateAndMaybeRestart(result, "normal");
+    return result;
   }
 
   async function runFirstRunWizardUpdate(payload?: BootstrapState) {
@@ -511,10 +555,17 @@ export default function App() {
 
     if (hasPendingUpdate(info)) {
       setStartupUpdateState("updating");
-      const result = await handleRunUpdate(true);
+      const result = await executeUpdate(true, false);
       if (!result?.ok) {
         setStartupUpdateError("首次启动强制更新失败，请重试。");
         setStartupUpdateState("error");
+        return false;
+      }
+      const canContinue = await completeUpdateAndMaybeRestart(
+        result,
+        "firstRunWizard"
+      );
+      if (!canContinue) {
         return false;
       }
     }
@@ -550,7 +601,7 @@ export default function App() {
     }
 
     setStartupUpdateState("updating");
-    const result = await handleRunUpdate(false);
+    const result = await executeUpdate(false, false);
     if (!result?.ok) {
       startupUpdateCheckedRef.current = false;
       setStartupUpdateError("更新同步失败，请重试。");
@@ -558,6 +609,7 @@ export default function App() {
       return false;
     }
 
+    await completeUpdateAndMaybeRestart(result, "normal");
     return false;
   }
 
@@ -841,11 +893,11 @@ export default function App() {
                 <div className="wizard-copy">
                   为避免玩家版本不统一，首次启动必须先执行一次强制更新，确认启动器和游戏文件都与服务器最新版本保持一致。
                 </div>
-                {startupUpdateState === "checking" ? (
-                  <div className="profile-note">正在检查可用更新，请稍候...</div>
-                ) : null}
-                {startupUpdateState === "updating" ? (
-                  <div className="log-panel glass-lite startup-update-log">
+              {startupUpdateState === "checking" ? (
+                <div className="profile-note">正在检查可用更新，请稍候...</div>
+              ) : null}
+              {startupUpdateState === "updating" ? (
+                <div className="log-panel glass-lite startup-update-log">
                     {updateEvents.length === 0 ? (
                       <div className="board-empty">正在准备更新任务...</div>
                     ) : (
@@ -870,6 +922,11 @@ export default function App() {
                       </button>
                     </div>
                   </>
+                ) : null}
+                {startupUpdateState === "restarting" ? (
+                  <div className="profile-note">
+                    更新包已全部下载并应用，正在重启启动器完成最终同步...
+                  </div>
                 ) : null}
               </>
             ) : null}
@@ -1500,6 +1557,11 @@ export default function App() {
               {startupUpdateState === "error" ? (
                 <div className="profile-note">
                   {startupUpdateError || "无法完成启动时版本同步，请重试。"}
+                </div>
+              ) : null}
+              {startupUpdateState === "restarting" ? (
+                <div className="profile-note">
+                  更新包已全部下载并应用，正在重启启动器完成最终同步...
                 </div>
               ) : null}
             </div>
