@@ -17709,7 +17709,7 @@ UnitType Tavern
 		LOS { range = 8 }
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 30;
+			numOfSlots = 25;
 			gatherRate = 0.5;	
 			gatherType = Gold;
             rightClickToGarrison = 1;
@@ -17950,7 +17950,7 @@ UnitType Quarry
 		LOS { range = 8 }
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
-			numOfSlots = 6;
+			numOfSlots = 25;
 			gatherRate = 0.5;	
 			gatherType = Stone;
             rightClickToGarrison = 1;
