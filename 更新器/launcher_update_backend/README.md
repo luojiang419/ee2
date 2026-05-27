@@ -2,6 +2,12 @@
 
 独立提供新版启动器安装包自更新能力，不与现有 `3010` 游戏更新后端共用数据或接口。
 
+当前保留策略：
+
+- 服务端**只保留最新一个**启动器安装包版本
+- 上传新版本成功后，会自动删除所有旧版本的历史记录与安装包文件
+- `/history` 现在用于查看当前保留版本状态，不再作为长期历史档案
+
 ## 默认部署
 
 - 目录：`/opt/ee2x/ee2x_lunch-update`
@@ -47,6 +53,12 @@ cp .env.example .env
 - 上传版本必须大于当前 latest
 - `updaterPackage` 必须是 `.nsis.zip`
 - `updaterSignature` 必须是 Tauri signer 生成的 `.sig`
+- 发布成功后，旧版本目录与数据库记录会被自动清理，只保留当前 latest
+
+返回给 Tauri 客户端的更新 JSON 中：
+
+- `signature` 字段会输出为 `.sig` 文件全文的 Base64 文本
+- `signatureUrl` 仍可直接下载原始 `.sig` 文件
 
 ## 一键部署
 

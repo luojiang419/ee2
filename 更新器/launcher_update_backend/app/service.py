@@ -163,6 +163,22 @@ def get_release(conn: sqlite3.Connection, version: str) -> dict[str, object] | N
     )
 
 
+def get_other_releases(
+    conn: sqlite3.Connection, *, keep_version: str
+) -> list[dict[str, object]]:
+    return _fetchall_dicts(
+        conn,
+        """
+        SELECT r.*, d.updater_download_count, d.setup_download_count, d.last_downloaded_at
+        FROM releases r
+        LEFT JOIN release_downloads d ON d.release_id = r.id
+        WHERE r.version <> ?
+        ORDER BY r.major DESC, r.minor DESC, r.patch DESC, r.id DESC
+        """,
+        (keep_version,),
+    )
+
+
 def build_update_payload(settings: Settings, release: dict[str, object]) -> dict[str, object]:
     version = str(release["version"])
     return {
@@ -170,7 +186,7 @@ def build_update_payload(settings: Settings, release: dict[str, object]) -> dict
         "notes": str(release["notes"]),
         "pub_date": str(release["published_at"]),
         "url": updater_package_url(settings, version),
-        "signature": str(release["signature"]),
+        "signature": normalize_signature_for_tauri(str(release["signature"])),
         "setupExeUrl": setup_exe_url(settings, version),
         "signatureUrl": updater_signature_url(settings, version),
         "sha256": str(release["updater_sha256"]),
@@ -187,7 +203,9 @@ def write_latest_json(settings: Settings, release: dict[str, object] | None) -> 
             latest_path.unlink()
         return None
     payload = build_update_payload(settings, release)
-    latest_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    temp_path = latest_path.with_suffix(".json.tmp")
+    temp_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    temp_path.replace(latest_path)
     return payload
 
 
@@ -287,6 +305,71 @@ def _validate_publish_paths(setup_path: Path, updater_path: Path, signature_text
         )
 
 
+def normalize_signature_for_tauri(signature_text: str) -> str:
+    raw = signature_text.strip()
+    try:
+        decoded = base64.b64decode(raw, validate=True).decode("utf-8").strip()
+        if "minisign signature" in decoded:
+            return raw
+    except Exception:
+        pass
+    return base64.b64encode(raw.encode("utf-8")).decode("ascii")
+
+
+def cleanup_old_releases(
+    settings: Settings,
+    conn: sqlite3.Connection,
+    *,
+    keep_version: str,
+) -> Path | None:
+    stale_releases = get_other_releases(conn, keep_version=keep_version)
+    if not stale_releases:
+        return None
+
+    snapshot_root = settings.tmp_dir / (
+        f"retain-latest-{keep_version.replace('.', '_')}-"
+        f"{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S%f')}"
+    )
+    snapshot_root.mkdir(parents=True, exist_ok=True)
+
+    try:
+        for release in stale_releases:
+            version = str(release["version"])
+            source_dir = release_dir(settings, version)
+            if source_dir.exists():
+                shutil.copytree(source_dir, snapshot_root / version)
+
+        for release in stale_releases:
+            version = str(release["version"])
+            source_dir = release_dir(settings, version)
+            if source_dir.exists():
+                shutil.rmtree(source_dir)
+
+        conn.executemany(
+            "DELETE FROM releases WHERE id = ?",
+            [(int(release["id"]),) for release in stale_releases],
+        )
+        return snapshot_root
+    except Exception:
+        for release in stale_releases:
+            version = str(release["version"])
+            source_dir = release_dir(settings, version)
+            backup_dir = snapshot_root / version
+            if not backup_dir.exists():
+                continue
+            if source_dir.exists():
+                shutil.rmtree(source_dir, ignore_errors=True)
+            shutil.copytree(backup_dir, source_dir)
+        shutil.rmtree(snapshot_root, ignore_errors=True)
+        raise
+
+
+def restore_latest_json_from_db(settings: Settings) -> None:
+    with db_session(settings.db_path) as conn:
+        latest = get_latest_release(conn)
+        write_latest_json(settings, latest)
+
+
 def publish_release(
     settings: Settings,
     *,
@@ -298,89 +381,110 @@ def publish_release(
 ) -> dict[str, object]:
     normalized_version, major, minor, patch = parse_semver(version)
     _validate_publish_paths(setup_path, updater_path, signature_text)
+    normalized_signature = normalize_signature_for_tauri(signature_text)
 
     setup_sha256 = sha256_file(setup_path)
     updater_sha256 = sha256_file(updater_path)
     setup_size = setup_path.stat().st_size
     updater_size = updater_path.stat().st_size
     published_at = utc_now_iso()
+    target_dir = release_dir(settings, normalized_version)
+    cleanup_snapshot_root: Path | None = None
+    created_target_dir = False
 
-    with db_session(settings.db_path) as conn:
-        existing = get_release(conn, normalized_version)
-        if existing:
-            raise HTTPException(
-                status_code=status.HTTP_409_CONFLICT,
-                detail=f"版本 {normalized_version} 已存在，禁止重复发布。",
-            )
-
-        latest = get_latest_release(conn)
-        if latest:
-            latest_key = (int(latest["major"]), int(latest["minor"]), int(latest["patch"]))
-            next_key = (major, minor, patch)
-            if next_key <= latest_key:
+    try:
+        with db_session(settings.db_path) as conn:
+            existing = get_release(conn, normalized_version)
+            if existing:
                 raise HTTPException(
                     status_code=status.HTTP_409_CONFLICT,
-                    detail=f"新版本 {normalized_version} 必须大于当前 latest {latest['version']}。",
+                    detail=f"版本 {normalized_version} 已存在，禁止重复发布。",
                 )
 
-        target_dir = release_dir(settings, normalized_version)
-        target_dir.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(setup_path, setup_exe_path(settings, normalized_version))
-        shutil.copy2(updater_path, updater_package_path(settings, normalized_version))
-        updater_signature_path(settings, normalized_version).write_text(
-            signature_text.strip(),
-            encoding="utf-8",
-        )
-        release_notes_path(settings, normalized_version).write_text(notes.strip(), encoding="utf-8")
+            latest = get_latest_release(conn)
+            if latest:
+                latest_key = (int(latest["major"]), int(latest["minor"]), int(latest["patch"]))
+                next_key = (major, minor, patch)
+                if next_key <= latest_key:
+                    raise HTTPException(
+                        status_code=status.HTTP_409_CONFLICT,
+                        detail=f"新版本 {normalized_version} 必须大于当前 latest {latest['version']}。",
+                    )
 
-        cursor = conn.execute(
-            """
-            INSERT INTO releases(
-                version, major, minor, patch, notes, target, arch,
-                updater_sha256, updater_size, setup_sha256, setup_size,
-                signature, published_at, created_at
-            )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-            (
-                normalized_version,
-                major,
-                minor,
-                patch,
-                notes.strip(),
-                SUPPORTED_TARGET,
-                SUPPORTED_ARCH,
-                updater_sha256,
-                int(updater_size),
-                setup_sha256,
-                int(setup_size),
+            target_dir.mkdir(parents=True, exist_ok=True)
+            created_target_dir = True
+            shutil.copy2(setup_path, setup_exe_path(settings, normalized_version))
+            shutil.copy2(updater_path, updater_package_path(settings, normalized_version))
+            updater_signature_path(settings, normalized_version).write_text(
                 signature_text.strip(),
-                published_at,
-                published_at,
-            ),
-        )
-        release_id = int(cursor.lastrowid)
-        conn.execute(
-            """
-            INSERT INTO release_downloads(release_id, updater_download_count, setup_download_count, last_downloaded_at)
-            VALUES (?, 0, 0, '')
-            """,
-            (release_id,),
-        )
+                encoding="utf-8",
+            )
+            release_notes_path(settings, normalized_version).write_text(notes.strip(), encoding="utf-8")
 
-        release = get_release(conn, normalized_version)
-        if not release:
-            raise RuntimeError("发布成功后无法回读版本记录。")
-        write_latest_json(settings, release)
+            cursor = conn.execute(
+                """
+                INSERT INTO releases(
+                    version, major, minor, patch, notes, target, arch,
+                    updater_sha256, updater_size, setup_sha256, setup_size,
+                    signature, published_at, created_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    normalized_version,
+                    major,
+                    minor,
+                    patch,
+                    notes.strip(),
+                    SUPPORTED_TARGET,
+                    SUPPORTED_ARCH,
+                    updater_sha256,
+                    int(updater_size),
+                    setup_sha256,
+                    int(setup_size),
+                    normalized_signature,
+                    published_at,
+                    published_at,
+                ),
+            )
+            release_id = int(cursor.lastrowid)
+            conn.execute(
+                """
+                INSERT INTO release_downloads(release_id, updater_download_count, setup_download_count, last_downloaded_at)
+                VALUES (?, 0, 0, '')
+                """,
+                (release_id,),
+            )
 
-    return {
-        "version": normalized_version,
-        "publishedAt": published_at,
-        "latestUrl": latest_json_url(settings),
-        "checkUrl": f"{settings.static_base_url}/api/launcher-update/v1/check/{SUPPORTED_TARGET}/{SUPPORTED_ARCH}/{normalized_version}",
-        "updaterPackageUrl": updater_package_url(settings, normalized_version),
-        "setupExeUrl": setup_exe_url(settings, normalized_version),
-    }
+            cleanup_snapshot_root = cleanup_old_releases(
+                settings,
+                conn,
+                keep_version=normalized_version,
+            )
+
+            release = get_release(conn, normalized_version)
+            if not release:
+                raise RuntimeError("发布成功后无法回读版本记录。")
+            write_latest_json(settings, release)
+
+        if cleanup_snapshot_root and cleanup_snapshot_root.exists():
+            shutil.rmtree(cleanup_snapshot_root, ignore_errors=True)
+
+        return {
+            "version": normalized_version,
+            "publishedAt": published_at,
+            "latestUrl": latest_json_url(settings),
+            "checkUrl": f"{settings.static_base_url}/api/launcher-update/v1/check/{SUPPORTED_TARGET}/{SUPPORTED_ARCH}/{normalized_version}",
+            "updaterPackageUrl": updater_package_url(settings, normalized_version),
+            "setupExeUrl": setup_exe_url(settings, normalized_version),
+        }
+    except Exception:
+        if created_target_dir and target_dir.exists():
+            shutil.rmtree(target_dir, ignore_errors=True)
+        if cleanup_snapshot_root and cleanup_snapshot_root.exists():
+            shutil.rmtree(cleanup_snapshot_root, ignore_errors=True)
+        restore_latest_json_from_db(settings)
+        raise
 
 
 def increment_download(conn: sqlite3.Connection, release_id: int, kind: str) -> None:

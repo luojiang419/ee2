@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-26 三舰建造时间减60%
+> 最后更新: 2026-05-27 3011后端单版本保留
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -158,6 +158,13 @@
 | 133 | EE2X_db-133-修复树黄金石头资源点-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 133修改应用后的完整游戏ZIP | 测试通过 | 2026-05-26 |
 | 134 | EE2X_db-134-挖掘机伐木机收割机成本调整-pre.zip | pre | Weelloader/Harvester/Tractor | dbtechtreenode.csv, upgrade_unittypes.csv | 三台机器成本统一为WOOD=500/STONE=500/GOLD=500 | — | 2026-05-26 |
 | 134 | EE2X_db-134-挖掘机伐木机收割机成本调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 134修改应用后的完整游戏ZIP | 测试通过 | 2026-05-26 |
+| 135 | EE2X_db-135-新版启动器安装包自更新-pre.zip | pre | 新版启动器安装包自更新 | package.json, package-lock.json, Cargo.toml, Cargo.lock, tauri.conf.json, default.json, lib.rs, tauri.ts, types.ts, App.tsx, styles.css | Tauri updater 插件接入、安装包独立更新后端和发布脚本开发前源码备份 | — | 2026-05-27 09:52 |
+| 136 | EE2X_db-136-启动器正式安装包发布前版本源-pre.zip | pre | 新版启动器正式安装包发布 | package.json, package-lock.json, tauri.conf.json, Cargo.toml | 正式构建并发布到 3011 前，对版本递增源文件做精准源码备份 | — | 2026-05-27 10:31 |
+| 137 | EE2X_db-137-移除启动器副标题并修正构建发布-pre.zip | pre | 启动器副标题与正式构建发布链 | App.tsx, build-release.mjs, publish-installer-update.mjs, package.json, package-lock.json, Cargo.toml, tauri.conf.json | 移除首页副标题字样，并补齐签名产物生成与 output 同步前源码备份 | — | 2026-05-27 11:44 |
+| 138 | EE2X_db-138-启动器强制更新与无更新不弹窗-pre.zip | pre | 启动器强制更新与启动无更新弹窗修正 | App.tsx, tauri.ts, types.ts, styles.css, lib.rs, package.json, package-lock.json, Cargo.toml, tauri.conf.json | 启动器更新改为强制升级，且无实际更新时不再弹完成窗，发布新安装包前源码备份 | — | 2026-05-27 12:30 |
+| 139 | EE2X_db-139-验证1.0.26升级1.0.27-pre.zip | pre | 启动器1.0.26升级1.0.27验证 | package.json, package-lock.json, Cargo.toml, tauri.conf.json, build-release.mjs, App.tsx, lib.rs | 构建并发布 1.0.27 前，对版本源和升级逻辑相关文件做精准源码备份 | — | 2026-05-27 13:06 |
+| 140 | EE2X_db-140-启动器强更下载后自动安装-pre.zip | pre | 启动器强制更新自动安装 | App.tsx, package.json, package-lock.json, Cargo.toml, tauri.conf.json | 强制更新模式下，下载完成后自动安装，无需依赖 WebView 按钮点击 | — | 2026-05-27 13:29 |
+| 141 | EE2X_db-141-3011后端单版本保留-pre.zip | pre | 3011启动器更新后端单版本保留 | launcher_update_backend/app/service.py, launcher_update_backend/README.md | 上传新版本成功后自动删除所有旧版本记录与安装包，只保留当前latest，实现单版本磁盘保留策略前源码备份 | — | 2026-05-27 14:17 |
 
 ## 旧格式全量快照（历史遗留）
 
