@@ -174,7 +174,7 @@ export async function testBattleApi(config: AppConfig): Promise<BattleApiTestRes
       shotPath: capture.shotPath
     };
   } catch (error) {
-    const current = await battleGetState().catch(() => ({
+    const current = await battleGetState().catch((): BattleRuntimeState => ({
       status: "idle",
       message: "",
       shotPath: "",

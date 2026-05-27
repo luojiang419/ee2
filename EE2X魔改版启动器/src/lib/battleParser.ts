@@ -199,7 +199,8 @@ function hasVisibleGameScore(row: BattleRow) {
 }
 
 export function classifyBattleRow(row: BattleRow) {
-  const values = ["game", "empire", "economy", "military", "total"].map((key) => {
+  const keys = ["game", "empire", "economy", "military", "total"] as const;
+  const values = keys.map((key) => {
     if (key === "game") return Number(normalizeGameScore(row[key]));
     const text = normalizeScoreText(row[key]);
     return text ? Number(text) : 0;
@@ -214,7 +215,8 @@ export function classifyBattleRow(row: BattleRow) {
 }
 
 function isSpectatorRow(row: BattleRow) {
-  const values = ["game", "empire", "economy", "military", "total"].map((key) => {
+  const keys = ["game", "empire", "economy", "military", "total"] as const;
+  const values = keys.map((key) => {
     if (key === "game") return Number(normalizeGameScore(row[key]));
     const text = normalizeScoreText(row[key]);
     return text ? Number(text) : 0;
