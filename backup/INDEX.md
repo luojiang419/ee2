@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-27 17:57
+> 最后更新: 2026-05-27 18:19
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -168,6 +168,7 @@
 | 142 | EE2X_db-142-新版启动器游戏结算端到端闭环-pre.zip | pre | 新版启动器游戏结算迁移闭环 | package.json, package-lock.json, Cargo.toml, Cargo.lock, default.json, lib.rs, App.tsx, tauri.ts, types.ts, styles.css | 新版启动器补齐快捷键截图、视觉识别、旧协议上传提交与 4002 战报跳转前源码备份 | — | 2026-05-27 15:04 |
 | 143 | EE2X_db-143-规则文档补充安装包发布流程-pre.zip | pre | 规则文档安装包发布流程补充 | 地球帝国游戏开发规则.md | 将“发布新版本安装包到服务器/发布安装包”映射到 3011 后端安装包发布工作流前源码备份 | — | 2026-05-27 15:20 |
 | 144 | EE2X_db-144-移除启动器游戏结算系统-pre.zip | pre | 新版启动器移除游戏结算系统 | EE2X魔改版启动器/package.json, package-lock.json, src-tauri/Cargo.toml, Cargo.lock, capabilities/default.json, gen/schemas/*.json, src-tauri/src/lib.rs, tauri.conf.json, src/App.tsx, src/lib/tauri.ts, src/lib/types.ts, src/styles.css, src/lib/battle.ts, src/lib/battleParser.ts | 将启动器回退到移植游戏结算系统前的稳定版本基线前源码备份 | — | 2026-05-27 17:57 |
+| 145 | EE2X_db-145-启动器1.0.29测试编译前源码-pre.zip | pre | 启动器1.0.29测试编译 | EE2X魔改版启动器/package.json, package-lock.json, src-tauri/tauri.conf.json, src-tauri/Cargo.toml, src/styles.css | 在在线玩家栏对齐修正基础上，执行 build:release 自动升版编译 1.0.29 前源码备份 | — | 2026-05-27 18:19 |
 
 ## 旧格式全量快照（历史遗留）
 
