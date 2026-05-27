@@ -12,9 +12,6 @@ import {
 } from "@tauri-apps/plugin-updater";
 import type {
   AppConfig,
-  BattleCapturePayload,
-  BattleRunResult,
-  BattleRuntimeState,
   BootstrapState,
   LauncherInstallerUpdateState,
   NetworkSnapshot,
@@ -40,9 +37,7 @@ const MOCK_CHAIN = ["v1.0.10", "v1.0.11", "v1.0.12"];
 const MOCK_INSTALLER_CURRENT_VERSION = "1.0.23";
 const MOCK_INSTALLER_LATEST_VERSION = "1.0.24";
 const updateListeners = new Set<(event: UpdateStatusEvent) => void>();
-const battleStateListeners = new Set<(state: BattleRuntimeState) => void>();
 let launcherInstallerUpdateState = createLauncherInstallerUpdateState();
-let battleRuntimeState = createBattleRuntimeState();
 let pendingLauncherInstallerUpdate: TauriInstallerUpdate | null = null;
 
 const defaultConfig: AppConfig = {
@@ -63,19 +58,7 @@ const defaultConfig: AppConfig = {
   userServerUrl: "http://115.231.35.105:3001",
   updateServerHttp: "http://115.231.35.105:3010",
   updateServerWs: "ws://115.231.35.105:3010/api/update/v1/channels/stable/ws",
-  matchmakingUrl: "http://115.231.35.105:4002/matchmaking",
-  battleHotkey: "",
-  battleApiUrl: "http://192.168.0.211:1234/v1/responses",
-  battleApiKey: "",
-  battleApiModel: "qwen3.5-9b-vlm",
-  battleSubmitUrl: "http://115.231.35.105:3001/api/battle/submit",
-  battleSubmitToken: "ee2x-battle-2026-secure-token",
-  battleReportUrl: "http://115.231.35.105:4002/battle-report",
-  battleSshHost: "115.231.35.105",
-  battleSshPort: 22,
-  battleSshUsername: "root",
-  battleSshPassword: "lhsgEMCF0380",
-  battleSshRemoteDir: "/opt/ee2x/ee2x_user-admin/data/game-csv"
+  matchmakingUrl: "http://115.231.35.105:4002/matchmaking"
 };
 
 interface MockReleaseState {
@@ -133,39 +116,10 @@ function createLauncherInstallerUpdateState(): LauncherInstallerUpdateState {
   };
 }
 
-function createBattleRuntimeState(): BattleRuntimeState {
-  return {
-    status: "idle",
-    message: "尚未执行游戏结算。",
-    shotPath: "",
-    csvPath: "",
-    submittedAt: "",
-    reportUrl: defaultConfig.battleReportUrl
-  };
-}
-
 function snapshotLauncherInstallerUpdateState(): LauncherInstallerUpdateState {
   return {
     ...launcherInstallerUpdateState
   };
-}
-
-function snapshotBattleRuntimeState(): BattleRuntimeState {
-  return {
-    ...battleRuntimeState
-  };
-}
-
-function publishBattleRuntimeState(state: BattleRuntimeState) {
-  battleRuntimeState = state;
-  battleStateListeners.forEach((listener) => {
-    try {
-      listener(state);
-    } catch {
-      // ignore listener failures
-    }
-  });
-  return state;
 }
 
 async function replacePendingLauncherInstallerUpdate(update: TauriInstallerUpdate | null) {
@@ -203,10 +157,6 @@ function loadMockConfig() {
     typeof raw.backgroundBlur === "number" && Number.isFinite(raw.backgroundBlur)
       ? Math.max(0, Math.min(24, raw.backgroundBlur))
       : 0;
-  config.battleSshPort =
-    typeof raw.battleSshPort === "number" && Number.isFinite(raw.battleSshPort)
-      ? raw.battleSshPort
-      : defaultConfig.battleSshPort;
   if (config.backgroundImagePath.startsWith("blob:")) {
     config.backgroundImagePath = "";
   }
@@ -989,90 +939,6 @@ export async function openConfigDirectory() {
   return true;
 }
 
-export async function battleGetState() {
-  if (isTauriRuntime) {
-    return publishBattleRuntimeState(await invoke<BattleRuntimeState>("battle_get_state"));
-  }
-  return snapshotBattleRuntimeState();
-}
-
-export async function battleUpdateState(state: BattleRuntimeState) {
-  if (isTauriRuntime) {
-    return publishBattleRuntimeState(
-      await invoke<BattleRuntimeState>("battle_update_state", { state })
-    );
-  }
-  return publishBattleRuntimeState(state);
-}
-
-export async function battleCaptureScreenshot() {
-  if (isTauriRuntime) {
-    const payload = await invoke<BattleCapturePayload>("battle_capture_screenshot");
-    publishBattleRuntimeState(await invoke<BattleRuntimeState>("battle_get_state"));
-    return payload;
-  }
-
-  const capture: BattleCapturePayload = {
-    shotPath: "mock://battle-shot.png",
-    imageBase64:
-      "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9pN96x0AAAAASUVORK5CYII="
-  };
-  publishBattleRuntimeState({
-    ...snapshotBattleRuntimeState(),
-    status: "running",
-    message: "已捕获截图，等待识别...",
-    shotPath: capture.shotPath
-  });
-  return capture;
-}
-
-export async function battleStoreAndSubmit(payload: {
-  shotPath: string;
-  csvContent: string;
-}) {
-  if (isTauriRuntime) {
-    const result = await invoke<BattleRunResult>("battle_store_and_submit", { payload });
-    publishBattleRuntimeState({
-      status: result.ok ? "success" : "error",
-      message: result.message,
-      shotPath: result.shotPath,
-      csvPath: result.csvPath,
-      submittedAt: result.submittedAt,
-      reportUrl: result.reportUrl
-    });
-    return result;
-  }
-
-  const state: BattleRuntimeState = {
-    status: "success",
-    message: "模拟提交成功。",
-    shotPath: payload.shotPath,
-    csvPath: "mock://battle.csv",
-    submittedAt: new Date().toISOString(),
-    reportUrl: defaultConfig.battleReportUrl
-  };
-  publishBattleRuntimeState(state);
-  return {
-    ok: true,
-    message: state.message,
-    shotPath: state.shotPath,
-    csvPath: state.csvPath,
-    submittedAt: state.submittedAt,
-    reportUrl: state.reportUrl,
-    duplicate: false,
-    matched: 0,
-    unmatched: 0
-  } satisfies BattleRunResult;
-}
-
-export async function battleOpenReport() {
-  if (isTauriRuntime) {
-    return invoke("open_battle_report");
-  }
-  window.open(defaultConfig.battleReportUrl, "_blank", "noopener,noreferrer");
-  return true;
-}
-
 export async function getAutostartEnabled() {
   if (isTauriRuntime) {
     return isAutostartEnabled();
@@ -1103,13 +969,6 @@ export async function listenUpdateStatus(
   updateListeners.add(cb);
   return () => {
     updateListeners.delete(cb);
-  };
-}
-
-export async function listenBattleState(cb: (state: BattleRuntimeState) => void) {
-  battleStateListeners.add(cb);
-  return () => {
-    battleStateListeners.delete(cb);
   };
 }
 

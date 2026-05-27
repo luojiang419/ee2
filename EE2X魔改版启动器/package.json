@@ -1,7 +1,7 @@
 {
   "name": "ee2x-mod-launcher",
   "private": true,
-  "version": "1.0.30",
+  "version": "1.0.28",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 1420",
@@ -17,7 +17,6 @@
     "@tauri-apps/api": "^2.0.0",
     "@tauri-apps/plugin-autostart": "^2.0.0",
     "@tauri-apps/plugin-dialog": "^2.0.0",
-    "@tauri-apps/plugin-global-shortcut": "^2.0.0",
     "@tauri-apps/plugin-updater": "^2.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
