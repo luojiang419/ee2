@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-27 20:32
+> 最后更新: 2026-05-27 20:40
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -170,6 +170,7 @@
 | 144 | EE2X_db-144-移除启动器游戏结算系统-pre.zip | pre | 新版启动器移除游戏结算系统 | EE2X魔改版启动器/package.json, package-lock.json, src-tauri/Cargo.toml, Cargo.lock, capabilities/default.json, gen/schemas/*.json, src-tauri/src/lib.rs, tauri.conf.json, src/App.tsx, src/lib/tauri.ts, src/lib/types.ts, src/styles.css, src/lib/battle.ts, src/lib/battleParser.ts | 将启动器回退到移植游戏结算系统前的稳定版本基线前源码备份 | — | 2026-05-27 17:57 |
 | 145 | EE2X_db-145-启动器1.0.29测试编译前源码-pre.zip | pre | 启动器1.0.29测试编译 | EE2X魔改版启动器/package.json, package-lock.json, src-tauri/tauri.conf.json, src-tauri/Cargo.toml, src/styles.css | 在在线玩家栏对齐修正基础上，执行 build:release 自动升版编译 1.0.29 前源码备份 | — | 2026-05-27 18:19 |
 | 146 | EE2X_db-146-首页在线玩家栏头像与宽度调整-pre.zip | pre | 首页在线玩家栏头像与宽度调整 | EE2X魔改版启动器/src/App.tsx, src/styles.css | 在960x540下将在线玩家栏加宽20px，并在玩家名称左侧显示小头像前源码备份 | — | 2026-05-27 20:32 |
+| 147 | EE2X_db-147-启动器1.0.30测试编译前版本源-pre.zip | pre | 启动器1.0.30测试编译 | EE2X魔改版启动器/package.json, package-lock.json, src-tauri/tauri.conf.json, src-tauri/Cargo.toml | 基于当前1.0.29稳定状态，再次执行 build:release 自动升版编译 1.0.30 前版本源备份 | — | 2026-05-27 20:40 |
 
 ## 旧格式全量快照（历史遗留）
 
