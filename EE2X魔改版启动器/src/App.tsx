@@ -230,6 +230,7 @@ export default function App() {
 
   const startupUpdateCheckedRef = useRef(false);
   const launcherInstallerBootstrapStartedRef = useRef(false);
+  const launcherInstallerAutoInstallRequestedRef = useRef(false);
   const wsRef = useRef<WebSocket | null>(null);
   const speedRef = useRef<{ tx: number | null; rx: number | null; at: number }>({
     tx: null,
@@ -1016,6 +1017,23 @@ export default function App() {
   useEffect(() => {
     setLauncherInstallerPromptDeferred(false);
   }, [launcherInstallerUpdate.availableVersion]);
+
+  useEffect(() => {
+    if (
+      launcherInstallerForceMode &&
+      launcherInstallerUpdate.status === "ready" &&
+      !launcherInstallerBusy &&
+      !launcherInstallerAutoInstallRequestedRef.current
+    ) {
+      launcherInstallerAutoInstallRequestedRef.current = true;
+      void handleInstallLauncherInstaller();
+      return;
+    }
+
+    if (launcherInstallerUpdate.status !== "ready") {
+      launcherInstallerAutoInstallRequestedRef.current = false;
+    }
+  }, [launcherInstallerForceMode, launcherInstallerUpdate.status, launcherInstallerBusy]);
 
   useEffect(() => {
     if (!updateResult) {

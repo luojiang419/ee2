@@ -1,6 +1,6 @@
 [package]
 name = "ee2x_mod_launcher"
-version = "1.0.26"
+version = "1.0.28"
 edition = "2021"
 
 [lib]
