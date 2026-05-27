@@ -8,23 +8,28 @@ const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 function run(command, args, extraEnv = {}) {
   const result = spawnSync(command, args, {
     cwd: projectRoot,
+    shell: process.platform === "win32",
     stdio: "inherit",
     env: {
       ...process.env,
       ...extraEnv
     }
   });
+  if (result.error) {
+    console.error(result.error);
+  }
   if (result.status !== 0) {
     process.exit(result.status ?? 1);
   }
 }
 
-function resolveSigningKeyPath() {
-  if (process.env.TAURI_SIGNING_PRIVATE_KEY || process.env.TAURI_SIGNING_PRIVATE_KEY_PATH) {
+function resolveSigningKeyContent() {
+  if (process.env.TAURI_SIGNING_PRIVATE_KEY) {
     return null;
   }
 
   const candidates = [
+    process.env.TAURI_SIGNING_PRIVATE_KEY_PATH,
     process.env.EE2X_TAURI_UPDATER_KEY_PATH,
     process.env.USERPROFILE
       ? path.join(process.env.USERPROFILE, ".tauri", "ee2x-updater.key")
@@ -34,23 +39,36 @@ function resolveSigningKeyPath() {
 
   for (const candidate of candidates) {
     if (candidate && fs.existsSync(candidate)) {
-      return candidate;
+      return {
+        keyPath: candidate,
+        keyContent: fs.readFileSync(candidate, "utf-8")
+      };
     }
   }
   throw new Error(
-    "未找到 Tauri updater 私钥。请设置 TAURI_SIGNING_PRIVATE_KEY / TAURI_SIGNING_PRIVATE_KEY_PATH，或将私钥放到 ~/.tauri/ee2x-updater.key。"
+    "未找到 Tauri updater 私钥。请设置 TAURI_SIGNING_PRIVATE_KEY，或将私钥放到 ~/.tauri/ee2x-updater.key。"
   );
 }
 
-const signingKeyPath = resolveSigningKeyPath();
+const signingKey = resolveSigningKeyContent();
 
-if (signingKeyPath) {
-  console.log(`使用本地 updater 私钥: ${signingKeyPath}`);
+if (signingKey) {
+  console.log(`使用本地 updater 私钥: ${signingKey.keyPath}`);
 }
 
 run(npmCommand, ["run", "bump:version"]);
-run(npmCommand, ["exec", "tauri", "build"], signingKeyPath ? {
-  TAURI_SIGNING_PRIVATE_KEY_PATH: signingKeyPath,
-  TAURI_SIGNING_PRIVATE_KEY_PASSWORD:
-    process.env.TAURI_SIGNING_PRIVATE_KEY_PASSWORD ?? ""
-} : {});
+run(
+  npmCommand,
+  ["exec", "tauri", "build"],
+  signingKey
+    ? {
+        TAURI_SIGNING_PRIVATE_KEY: signingKey.keyContent,
+        ...(process.env.TAURI_SIGNING_PRIVATE_KEY_PASSWORD
+          ? {
+              TAURI_SIGNING_PRIVATE_KEY_PASSWORD:
+                process.env.TAURI_SIGNING_PRIVATE_KEY_PASSWORD
+            }
+          : {})
+      }
+    : {}
+);
