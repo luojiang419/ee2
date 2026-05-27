@@ -1404,7 +1404,17 @@ export default function App() {
             </div>
             {boardPlayers.map((player) => (
               <div className="board-row" key={player.username}>
-                <span className="name-cell">{player.username}</span>
+                <span className="name-cell board-user">
+                  <img
+                    alt={player.username}
+                    className="avatar board-avatar"
+                    src={
+                      getAvatarUrl(player.avatar) ||
+                      `https://api.dicebear.com/7.x/shapes/svg?seed=${encodeURIComponent(player.username)}`
+                    }
+                  />
+                  <span className="board-user-name">{player.username}</span>
+                </span>
                 <span>{player.combatPower}</span>
                 <span>{player.rankTier || "-"}</span>
                 <span>{formatDurationFrom(player.lastLogin, clock)}</span>

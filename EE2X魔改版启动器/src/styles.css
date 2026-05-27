@@ -397,10 +397,23 @@ button {
   min-width: 0;
 }
 
+.board-user,
 .players-user {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.board-user-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.board-avatar {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
 }
 
 .board-footer,
@@ -1441,7 +1454,7 @@ button {
 }
 
 .home-mode .main-grid {
-  grid-template-columns: 520px minmax(0, 1fr);
+  grid-template-columns: 540px minmax(0, 1fr);
   gap: 24px;
   margin-top: 24px;
 }
@@ -1465,7 +1478,16 @@ button {
   min-height: 56px;
   gap: 12px;
   padding: 0 18px;
-  grid-template-columns: minmax(0, 1.8fr) 96px 96px 132px;
+  grid-template-columns: minmax(0, 2.05fr) 92px 92px 124px;
+}
+
+.home-mode .board-user {
+  gap: 12px;
+}
+
+.home-mode .board-avatar {
+  width: 34px;
+  height: 34px;
 }
 
 .home-mode .board-footer {
