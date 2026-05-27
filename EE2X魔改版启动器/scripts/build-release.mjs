@@ -100,6 +100,19 @@ function resolvePythonExe() {
   throw new Error("未找到可用的 Python 解释器，无法为 updater 包生成 .sig。");
 }
 
+function ensurePythonModule(pythonExe, moduleName, packageName = moduleName) {
+  const result = spawnSync(pythonExe, ["-c", `import ${moduleName}`], {
+    cwd: projectRoot,
+    shell: process.platform === "win32",
+    stdio: "ignore"
+  });
+  if (result.status === 0) {
+    return;
+  }
+  console.log(`正在为 ${pythonExe} 安装 ${packageName} ...`);
+  run(pythonExe, ["-m", "pip", "install", packageName]);
+}
+
 function artifactPaths(version) {
   const bundleDir = path.join(projectRoot, "src-tauri", "target", "release", "bundle", "nsis");
   return {
@@ -112,6 +125,7 @@ function artifactPaths(version) {
 
 function signUpdaterArtifact(version) {
   const pythonExe = resolvePythonExe();
+  ensurePythonModule(pythonExe, "minisign", "py-minisign");
   const { updaterZip, updaterSig } = artifactPaths(version);
   if (!fs.existsSync(updaterZip)) {
     throw new Error(`未找到 updater 包: ${updaterZip}`);

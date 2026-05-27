@@ -2121,7 +2121,7 @@ async fn check_updates_inner<R: Runtime>(
         current_game_version: current_game,
         latest_version: latest.version.clone(),
         chain_versions,
-        has_launcher_update: state.launcher.version != latest.version,
+        has_launcher_update: false,
         has_game_update: state.game.version != latest.version,
         can_update: game_path.valid && state.game.version != latest.version,
         notes: if !game_path.valid {
