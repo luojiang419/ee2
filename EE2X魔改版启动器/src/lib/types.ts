@@ -122,3 +122,25 @@ export interface UpdateStatusEvent {
   progress: number;
   version?: string;
 }
+
+export type LauncherInstallerUpdateStatus =
+  | "idle"
+  | "checking"
+  | "downloading"
+  | "ready"
+  | "installing"
+  | "done"
+  | "error";
+
+export interface LauncherInstallerUpdateState {
+  status: LauncherInstallerUpdateStatus;
+  currentVersion: string;
+  availableVersion: string;
+  notes: string;
+  pubDate: string;
+  progress: number;
+  downloadedBytes: number;
+  totalBytes: number | null;
+  message: string;
+  errorMessage: string;
+}

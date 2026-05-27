@@ -6,9 +6,14 @@ import {
   isEnabled as isAutostartEnabled
 } from "@tauri-apps/plugin-autostart";
 import { open } from "@tauri-apps/plugin-dialog";
+import {
+  check as checkInstallerUpdate,
+  type Update as TauriInstallerUpdate
+} from "@tauri-apps/plugin-updater";
 import type {
   AppConfig,
   BootstrapState,
+  LauncherInstallerUpdateState,
   NetworkSnapshot,
   OnlinePlayer,
   RegisterPayload,
@@ -29,7 +34,11 @@ const STORAGE_NETWORK = "ee2x.mock.network";
 const STORAGE_AUTOSTART = "ee2x.mock.autostart";
 const MOCK_LATEST_VERSION = "v1.0.12";
 const MOCK_CHAIN = ["v1.0.10", "v1.0.11", "v1.0.12"];
+const MOCK_INSTALLER_CURRENT_VERSION = "1.0.23";
+const MOCK_INSTALLER_LATEST_VERSION = "1.0.24";
 const updateListeners = new Set<(event: UpdateStatusEvent) => void>();
+let launcherInstallerUpdateState = createLauncherInstallerUpdateState();
+let pendingLauncherInstallerUpdate: TauriInstallerUpdate | null = null;
 
 const defaultConfig: AppConfig = {
   gameExe: "EE2X.exe",
@@ -90,6 +99,38 @@ function emitMockUpdate(event: UpdateStatusEvent) {
 
 function sleep(ms: number) {
   return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
+function createLauncherInstallerUpdateState(): LauncherInstallerUpdateState {
+  return {
+    status: "idle",
+    currentVersion: "",
+    availableVersion: "",
+    notes: "",
+    pubDate: "",
+    progress: 0,
+    downloadedBytes: 0,
+    totalBytes: null,
+    message: "尚未检查启动器安装包更新。",
+    errorMessage: ""
+  };
+}
+
+function snapshotLauncherInstallerUpdateState(): LauncherInstallerUpdateState {
+  return {
+    ...launcherInstallerUpdateState
+  };
+}
+
+async function replacePendingLauncherInstallerUpdate(update: TauriInstallerUpdate | null) {
+  if (pendingLauncherInstallerUpdate && pendingLauncherInstallerUpdate !== update) {
+    try {
+      await pendingLauncherInstallerUpdate.close();
+    } catch {
+      // ignore stale updater resource cleanup failure
+    }
+  }
+  pendingLauncherInstallerUpdate = update;
 }
 
 function loadMockConfig() {
@@ -365,6 +406,68 @@ async function mockRunUpdate(force: boolean): Promise<UpdateRunResult> {
     message: "浏览器预览模式不会自动重启，桌面端会在完成后自动重启。",
     notes: ["已模拟链式更新完成。"]
   };
+}
+
+async function mockCheckLauncherInstallerUpdate(): Promise<LauncherInstallerUpdateState> {
+  launcherInstallerUpdateState = {
+    status: "checking",
+    currentVersion: MOCK_INSTALLER_CURRENT_VERSION,
+    availableVersion: MOCK_INSTALLER_LATEST_VERSION,
+    notes: "浏览器预览模式下模拟启动器安装包自更新。",
+    pubDate: "2026-05-27T09:52:00.000Z",
+    progress: 0,
+    downloadedBytes: 0,
+    totalBytes: null,
+    message: `发现新的启动器安装包 ${MOCK_INSTALLER_LATEST_VERSION}。`,
+    errorMessage: ""
+  };
+  return snapshotLauncherInstallerUpdateState();
+}
+
+async function mockDownloadLauncherInstallerUpdate(): Promise<LauncherInstallerUpdateState> {
+  launcherInstallerUpdateState = {
+    ...launcherInstallerUpdateState,
+    status: "downloading",
+    totalBytes: 52_428_800,
+    message: `正在下载启动器安装包 ${MOCK_INSTALLER_LATEST_VERSION}...`,
+    errorMessage: ""
+  };
+
+  for (let index = 1; index <= 5; index += 1) {
+    await sleep(180);
+    const downloadedBytes = Math.round((launcherInstallerUpdateState.totalBytes ?? 0) * (index / 5));
+    launcherInstallerUpdateState = {
+      ...launcherInstallerUpdateState,
+      downloadedBytes,
+      progress: index * 20,
+      message: `正在下载启动器安装包 ${MOCK_INSTALLER_LATEST_VERSION} (${index * 20}%)`
+    };
+  }
+
+  launcherInstallerUpdateState = {
+    ...launcherInstallerUpdateState,
+    status: "ready",
+    progress: 100,
+    message: `启动器安装包 ${MOCK_INSTALLER_LATEST_VERSION} 已下载完成，等待安装。`
+  };
+  return snapshotLauncherInstallerUpdateState();
+}
+
+async function mockInstallLauncherInstallerUpdate(): Promise<LauncherInstallerUpdateState> {
+  launcherInstallerUpdateState = {
+    ...launcherInstallerUpdateState,
+    status: "installing",
+    message: `正在安装启动器 ${launcherInstallerUpdateState.availableVersion || MOCK_INSTALLER_LATEST_VERSION}...`,
+    errorMessage: ""
+  };
+  await sleep(300);
+  launcherInstallerUpdateState = {
+    ...launcherInstallerUpdateState,
+    status: "done",
+    currentVersion: launcherInstallerUpdateState.availableVersion || MOCK_INSTALLER_LATEST_VERSION,
+    message: "浏览器预览模式已模拟安装完成。"
+  };
+  return snapshotLauncherInstallerUpdateState();
 }
 
 export async function pickGameDirectoryDialog() {
@@ -643,6 +746,168 @@ export async function runUpdate(force: boolean) {
     return invoke<UpdateRunResult>("run_update", { force });
   }
   return mockRunUpdate(force);
+}
+
+export async function getLauncherInstallerUpdateState() {
+  return snapshotLauncherInstallerUpdateState();
+}
+
+export async function checkLauncherInstallerUpdate() {
+  if (!isTauriRuntime) {
+    return mockCheckLauncherInstallerUpdate();
+  }
+
+  launcherInstallerUpdateState = {
+    ...launcherInstallerUpdateState,
+    status: "checking",
+    progress: 0,
+    downloadedBytes: 0,
+    totalBytes: null,
+    message: "正在检查启动器安装包更新...",
+    errorMessage: ""
+  };
+
+  try {
+    const update = await checkInstallerUpdate({ timeout: 15_000 });
+    if (!update) {
+      await replacePendingLauncherInstallerUpdate(null);
+      launcherInstallerUpdateState = {
+        ...createLauncherInstallerUpdateState(),
+        currentVersion: launcherInstallerUpdateState.currentVersion,
+        message: "当前启动器安装包已是最新版本。"
+      };
+      return snapshotLauncherInstallerUpdateState();
+    }
+
+    await replacePendingLauncherInstallerUpdate(update);
+    launcherInstallerUpdateState = {
+      status: "checking",
+      currentVersion: update.currentVersion,
+      availableVersion: update.version,
+      notes: update.body ?? "",
+      pubDate: update.date ?? "",
+      progress: 0,
+      downloadedBytes: 0,
+      totalBytes: null,
+      message: `发现新的启动器安装包 ${update.version}。`,
+      errorMessage: ""
+    };
+    return snapshotLauncherInstallerUpdateState();
+  } catch (error) {
+    launcherInstallerUpdateState = {
+      ...launcherInstallerUpdateState,
+      status: "error",
+      message: "启动器安装包更新检查失败。",
+      errorMessage: String(error)
+    };
+    return snapshotLauncherInstallerUpdateState();
+  }
+}
+
+export async function downloadLauncherInstallerUpdate() {
+  if (!isTauriRuntime) {
+    return mockDownloadLauncherInstallerUpdate();
+  }
+  if (!pendingLauncherInstallerUpdate) {
+    throw new Error("当前没有可下载的启动器安装包更新。");
+  }
+
+  let downloadedBytes = 0;
+  launcherInstallerUpdateState = {
+    ...launcherInstallerUpdateState,
+    status: "downloading",
+    progress: 0,
+    downloadedBytes: 0,
+    totalBytes: null,
+    message: `正在下载启动器安装包 ${launcherInstallerUpdateState.availableVersion || pendingLauncherInstallerUpdate.version}...`,
+    errorMessage: ""
+  };
+
+  try {
+    await pendingLauncherInstallerUpdate.download((event) => {
+      switch (event.event) {
+        case "Started":
+          launcherInstallerUpdateState = {
+            ...launcherInstallerUpdateState,
+            totalBytes: event.data.contentLength ?? null,
+            message: `开始下载启动器安装包 ${pendingLauncherInstallerUpdate?.version || launcherInstallerUpdateState.availableVersion}...`
+          };
+          break;
+        case "Progress":
+          downloadedBytes += event.data.chunkLength;
+          launcherInstallerUpdateState = {
+            ...launcherInstallerUpdateState,
+            downloadedBytes,
+            progress: launcherInstallerUpdateState.totalBytes
+              ? Math.min(100, Math.round((downloadedBytes / launcherInstallerUpdateState.totalBytes) * 100))
+              : launcherInstallerUpdateState.progress,
+            message: `正在下载启动器安装包 ${pendingLauncherInstallerUpdate?.version || launcherInstallerUpdateState.availableVersion}...`
+          };
+          break;
+        case "Finished":
+          launcherInstallerUpdateState = {
+            ...launcherInstallerUpdateState,
+            progress: 100,
+            message: `启动器安装包 ${pendingLauncherInstallerUpdate?.version || launcherInstallerUpdateState.availableVersion} 下载完成。`
+          };
+          break;
+      }
+    }, { timeout: 120_000 });
+
+    launcherInstallerUpdateState = {
+      ...launcherInstallerUpdateState,
+      status: "ready",
+      progress: 100,
+      downloadedBytes,
+      message: `启动器安装包 ${pendingLauncherInstallerUpdate.version} 已下载完成，等待安装。`,
+      errorMessage: ""
+    };
+    return snapshotLauncherInstallerUpdateState();
+  } catch (error) {
+    launcherInstallerUpdateState = {
+      ...launcherInstallerUpdateState,
+      status: "error",
+      message: "启动器安装包下载失败。",
+      errorMessage: String(error)
+    };
+    return snapshotLauncherInstallerUpdateState();
+  }
+}
+
+export async function installLauncherInstallerUpdate() {
+  if (!isTauriRuntime) {
+    return mockInstallLauncherInstallerUpdate();
+  }
+  if (!pendingLauncherInstallerUpdate) {
+    throw new Error("当前没有已下载的启动器安装包更新。");
+  }
+
+  launcherInstallerUpdateState = {
+    ...launcherInstallerUpdateState,
+    status: "installing",
+    message: `正在安装启动器 ${pendingLauncherInstallerUpdate.version}...`,
+    errorMessage: ""
+  };
+
+  try {
+    await pendingLauncherInstallerUpdate.install();
+    launcherInstallerUpdateState = {
+      ...launcherInstallerUpdateState,
+      status: "done",
+      currentVersion: pendingLauncherInstallerUpdate.version,
+      message: `启动器 ${pendingLauncherInstallerUpdate.version} 安装完成，正在重启...`
+    };
+    await replacePendingLauncherInstallerUpdate(null);
+    return snapshotLauncherInstallerUpdateState();
+  } catch (error) {
+    launcherInstallerUpdateState = {
+      ...launcherInstallerUpdateState,
+      status: "error",
+      message: "启动器安装包安装失败。",
+      errorMessage: String(error)
+    };
+    return snapshotLauncherInstallerUpdateState();
+  }
 }
 
 export async function finalizeUpdateRestart() {

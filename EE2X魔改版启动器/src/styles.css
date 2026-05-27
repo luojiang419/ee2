@@ -608,12 +608,86 @@ button {
 
 .update-meta {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
 .update-actions-row {
   margin: 16px 0;
+}
+
+.launcher-update-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 16px 18px;
+  border-radius: 16px;
+}
+
+.launcher-update-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.launcher-update-message {
+  margin-top: 6px;
+  color: #dce9fa;
+  line-height: 1.6;
+}
+
+.launcher-update-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.launcher-update-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.launcher-update-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.launcher-update-item span {
+  color: #8cb7e7;
+  font-size: 12px;
+}
+
+.launcher-update-item strong {
+  color: #f2f7ff;
+  font-size: 14px;
+}
+
+.launcher-update-progress-shell {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.launcher-update-progress-bar {
+  height: 100%;
+  min-width: 4%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(111, 223, 166, 0.95), rgba(95, 172, 255, 0.95));
+}
+
+.launcher-update-extra,
+.launcher-update-notes {
+  color: #afc3dc;
+  line-height: 1.7;
 }
 
 .log-panel {
@@ -1173,6 +1247,34 @@ button {
 
 .app-viewport:not(.home-mode) .update-meta {
   gap: 21px;
+}
+
+.app-viewport:not(.home-mode) .launcher-update-panel {
+  gap: 21px;
+  margin-bottom: 23px;
+  padding: 23px 25px;
+  border-radius: 21px;
+}
+
+.app-viewport:not(.home-mode) .launcher-update-grid {
+  gap: 16px;
+}
+
+.app-viewport:not(.home-mode) .launcher-update-item {
+  gap: 10px;
+  padding: 18px 21px;
+  border-radius: 18px;
+}
+
+.app-viewport:not(.home-mode) .launcher-update-message,
+.app-viewport:not(.home-mode) .launcher-update-extra,
+.app-viewport:not(.home-mode) .launcher-update-notes {
+  font-size: 19.5px;
+}
+
+.app-viewport:not(.home-mode) .launcher-update-item span,
+.app-viewport:not(.home-mode) .launcher-update-item strong {
+  font-size: 19.5px;
 }
 
 .app-viewport:not(.home-mode) .summary-block {

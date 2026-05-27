@@ -36,6 +36,7 @@
   },
   "bundle": {
     "active": true,
+    "createUpdaterArtifacts": true,
     "targets": "nsis",
     "icon": [
       "icons/EE2X.ico"
@@ -47,9 +48,24 @@
     ],
     "windows": {
       "nsis": {
-        "installMode": "both",
+        "installMode": "currentUser",
         "languages": [
           "SimpChinese"
+        ]
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEMxMThCN0MxQkJCRDczNzcKUldSM2M3Mjd3YmNZd2YwMHhNd1hYeVZKcERnUXNSTWRuSGZobVA4OTg0RnBDL2p0RFAvRHoxdzkK",
+      "endpoints": [
+        "http://115.231.35.105:3011/api/launcher-update/v1/check/{{target}}/{{arch}}/{{current_version}}"
+      ],
+      "dangerousInsecureTransportProtocol": true,
+      "windows": {
+        "installMode": "passive",
+        "installerArgs": [
+          "/R"
         ]
       }
     }

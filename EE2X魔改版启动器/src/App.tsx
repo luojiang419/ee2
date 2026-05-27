@@ -6,11 +6,15 @@ import {
   authLogout,
   authRegister,
   bootstrapState,
+  checkLauncherInstallerUpdate,
   checkUpdates,
+  downloadLauncherInstallerUpdate,
   ensureNetwork,
   fetchOnlinePlayers,
   getAutostartEnabled,
+  getLauncherInstallerUpdateState,
   getProfile,
+  installLauncherInstallerUpdate,
   isTauriRuntime,
   listenUpdateStatus,
   networkStatus,
@@ -31,6 +35,7 @@ import type {
   AppConfig,
   BootstrapState,
   CloseAction,
+  LauncherInstallerUpdateState,
   NetworkSnapshot,
   OnlinePlayer,
   PageId,
@@ -96,6 +101,67 @@ function formatDurationFrom(startIso: string, now: number) {
   return `${hours}:${minutes}:${seconds}`;
 }
 
+function formatBytes(bytes: number | null) {
+  if (bytes == null || bytes <= 0) {
+    return "-";
+  }
+  if (bytes >= 1024 * 1024 * 1024) {
+    return `${(bytes / 1024 / 1024 / 1024).toFixed(2)} GB`;
+  }
+  if (bytes >= 1024 * 1024) {
+    return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
+  }
+  if (bytes >= 1024) {
+    return `${(bytes / 1024).toFixed(1)} KB`;
+  }
+  return `${bytes} B`;
+}
+
+function formatUpdateDate(value: string) {
+  if (!value) {
+    return "-";
+  }
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+  return date.toLocaleString("zh-CN", { hour12: false });
+}
+
+function createLauncherInstallerUpdateState(): LauncherInstallerUpdateState {
+  return {
+    status: "idle",
+    currentVersion: "",
+    availableVersion: "",
+    notes: "",
+    pubDate: "",
+    progress: 0,
+    downloadedBytes: 0,
+    totalBytes: null,
+    message: "尚未检查启动器安装包更新。",
+    errorMessage: ""
+  };
+}
+
+function resolveLauncherInstallerStatusLabel(update: LauncherInstallerUpdateState) {
+  switch (update.status) {
+    case "checking":
+      return "检查中";
+    case "downloading":
+      return `下载中 ${Math.round(update.progress)}%`;
+    case "ready":
+      return "已下载待安装";
+    case "installing":
+      return "安装中";
+    case "done":
+      return "安装完成";
+    case "error":
+      return "更新失败";
+    default:
+      return update.availableVersion ? "待处理" : "已是最新";
+  }
+}
+
 function computeWinRate(player: OnlinePlayer) {
   const total = player.wins + player.losses;
   if (total <= 0) {
@@ -133,6 +199,10 @@ export default function App() {
   const [updateEvents, setUpdateEvents] = useState<UpdateStatusEvent[]>([]);
   const [updateRunning, setUpdateRunning] = useState(false);
   const [updateResult, setUpdateResult] = useState<UpdateRunResult | null>(null);
+  const [launcherInstallerUpdate, setLauncherInstallerUpdate] =
+    useState<LauncherInstallerUpdateState>(createLauncherInstallerUpdateState);
+  const [launcherInstallerBusy, setLauncherInstallerBusy] = useState(false);
+  const [launcherInstallerPromptDeferred, setLauncherInstallerPromptDeferred] = useState(false);
   const [firstRunWizardStep, setFirstRunWizardStep] = useState<FirstRunWizardStep>(null);
   const [startupUpdateState, setStartupUpdateState] = useState<StartupUpdateState>(null);
   const [startupUpdateError, setStartupUpdateError] = useState("");
@@ -158,6 +228,7 @@ export default function App() {
   });
 
   const startupUpdateCheckedRef = useRef(false);
+  const launcherInstallerBootstrapStartedRef = useRef(false);
   const wsRef = useRef<WebSocket | null>(null);
   const speedRef = useRef<{ tx: number | null; rx: number | null; at: number }>({
     tx: null,
@@ -322,6 +393,88 @@ export default function App() {
     } catch (error) {
       console.error("check_updates failed", error);
       return null;
+    }
+  }
+
+  function hasLauncherInstallerPending(update: LauncherInstallerUpdateState) {
+    return Boolean(
+      update.availableVersion &&
+      (!update.currentVersion || update.availableVersion !== update.currentVersion)
+    );
+  }
+
+  async function runLauncherInstallerTask(task: Promise<LauncherInstallerUpdateState>) {
+    const pollTimer = window.setInterval(() => {
+      void getLauncherInstallerUpdateState()
+        .then((snapshot) => setLauncherInstallerUpdate(snapshot))
+        .catch(() => {
+          // ignore transient polling failures while task is still running
+        });
+    }, 150);
+
+    try {
+      const result = await task;
+      setLauncherInstallerUpdate(result);
+      return result;
+    } finally {
+      window.clearInterval(pollTimer);
+      try {
+        setLauncherInstallerUpdate(await getLauncherInstallerUpdateState());
+      } catch {
+        // ignore final snapshot failure; task result already captured
+      }
+    }
+  }
+
+  async function startLauncherInstallerBackgroundFlow() {
+    if (launcherInstallerBusy) {
+      return null;
+    }
+
+    setLauncherInstallerBusy(true);
+    setLauncherInstallerPromptDeferred(false);
+    try {
+      const checked = await runLauncherInstallerTask(checkLauncherInstallerUpdate());
+      if (!hasLauncherInstallerPending(checked)) {
+        return checked;
+      }
+      return await runLauncherInstallerTask(downloadLauncherInstallerUpdate());
+    } catch (error) {
+      setLauncherInstallerUpdate((current) => ({
+        ...current,
+        status: "error",
+        message: "启动器安装包更新流程失败。",
+        errorMessage: String(error)
+      }));
+      return null;
+    } finally {
+      setLauncherInstallerBusy(false);
+    }
+  }
+
+  async function handleCheckLauncherInstaller() {
+    await startLauncherInstallerBackgroundFlow();
+  }
+
+  async function handleInstallLauncherInstaller() {
+    if (launcherInstallerBusy) {
+      return;
+    }
+
+    setLauncherInstallerBusy(true);
+    setLauncherInstallerPromptDeferred(false);
+    try {
+      const result = await runLauncherInstallerTask(installLauncherInstallerUpdate());
+      setLauncherInstallerUpdate(result);
+    } catch (error) {
+      setLauncherInstallerUpdate((current) => ({
+        ...current,
+        status: "error",
+        message: "启动器安装包安装失败。",
+        errorMessage: String(error)
+      }));
+    } finally {
+      setLauncherInstallerBusy(false);
     }
   }
 
@@ -743,6 +896,20 @@ export default function App() {
 
   const resolvedVersion =
     updateInfo?.currentGameVersion || boot?.gameVersion || updateInfo?.currentLauncherVersion || boot?.launcherVersion || "v1.0.0";
+  const launcherInstallerCurrentVersion =
+    launcherInstallerUpdate.currentVersion || updateInfo?.currentLauncherVersion || boot?.launcherVersion || resolvedVersion;
+  const launcherInstallerLatestVersion =
+    launcherInstallerUpdate.availableVersion ||
+    (launcherInstallerUpdate.status === "idle" || launcherInstallerUpdate.status === "done"
+      ? launcherInstallerCurrentVersion
+      : "-");
+  const launcherInstallerShouldPrompt =
+    launcherInstallerUpdate.status === "ready" &&
+    !launcherInstallerPromptDeferred &&
+    !updateResult &&
+    !updateRunning &&
+    startupUpdateState !== "checking" &&
+    startupUpdateState !== "updating";
   const backgroundImageSrc =
     config?.backgroundType === "image"
       ? resolveBackgroundSource(config.backgroundImagePath)
@@ -796,6 +963,28 @@ export default function App() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [profileOpen]);
+
+  useEffect(() => {
+    if (launcherInstallerBootstrapStartedRef.current || !boot) {
+      return;
+    }
+    if (firstRunWizardStep === "pickDir" || firstRunWizardStep === "update") {
+      return;
+    }
+    if (startupUpdateState === "checking" || startupUpdateState === "updating" || startupUpdateState === "error") {
+      return;
+    }
+    if (updateRunning) {
+      return;
+    }
+
+    launcherInstallerBootstrapStartedRef.current = true;
+    void startLauncherInstallerBackgroundFlow();
+  }, [boot, firstRunWizardStep, startupUpdateState, updateRunning]);
+
+  useEffect(() => {
+    setLauncherInstallerPromptDeferred(false);
+  }, [launcherInstallerUpdate.availableVersion]);
 
   useEffect(() => {
     if (!updateResult) {
@@ -1295,7 +1484,7 @@ export default function App() {
               <div className="page-header">
                 <div>
                   <div className="section-title">更新中心</div>
-                  <div className="section-subtitle">启动即检查，收到推送后自动执行链式更新</div>
+                  <div className="section-subtitle">游戏版本链与启动器安装包分离更新</div>
                 </div>
                 <div className="page-actions">
                   <button className="mini-action" onClick={() => void refreshUpdateInfo(false)} type="button">
@@ -1310,13 +1499,13 @@ export default function App() {
                 <div className="summary-block glass-lite">
                   <div>
                     <div className="summary-title">当前启动器版本</div>
-                    <div className="summary-value">{updateInfo?.currentLauncherVersion || resolvedVersion}</div>
+                    <div className="summary-value">{launcherInstallerCurrentVersion}</div>
                   </div>
                 </div>
                 <div className="summary-block glass-lite">
                   <div>
-                    <div className="summary-title">最新版本</div>
-                    <div className="summary-value">{updateInfo?.latestVersion || "-"}</div>
+                    <div className="summary-title">安装包目标版本</div>
+                    <div className="summary-value">{launcherInstallerLatestVersion || "-"}</div>
                   </div>
                 </div>
                 <div className="summary-block glass-lite">
@@ -1327,6 +1516,79 @@ export default function App() {
                     </div>
                   </div>
                 </div>
+                <div className="summary-block glass-lite">
+                  <div>
+                    <div className="summary-title">安装包状态</div>
+                    <div className="summary-value">{resolveLauncherInstallerStatusLabel(launcherInstallerUpdate)}</div>
+                  </div>
+                </div>
+              </div>
+              <div className="launcher-update-panel glass-lite">
+                <div className="launcher-update-head">
+                  <div>
+                    <div className="summary-title">启动器安装包自更新</div>
+                    <div className="launcher-update-message">{launcherInstallerUpdate.message}</div>
+                  </div>
+                  <div className="launcher-update-actions">
+                    <button
+                      className="mini-action"
+                      disabled={launcherInstallerBusy || launcherInstallerUpdate.status === "installing"}
+                      onClick={() => void handleCheckLauncherInstaller()}
+                      type="button"
+                    >
+                      重新检查并下载
+                    </button>
+                    <button
+                      className="mini-action primary-glow"
+                      disabled={launcherInstallerBusy || launcherInstallerUpdate.status !== "ready"}
+                      onClick={() => void handleInstallLauncherInstaller()}
+                      type="button"
+                    >
+                      立即安装已下载更新
+                    </button>
+                  </div>
+                </div>
+                <div className="launcher-update-grid">
+                  <div className="launcher-update-item">
+                    <span>当前版本</span>
+                    <strong>{launcherInstallerCurrentVersion}</strong>
+                  </div>
+                  <div className="launcher-update-item">
+                    <span>可用版本</span>
+                    <strong>{launcherInstallerUpdate.availableVersion || "无"}</strong>
+                  </div>
+                  <div className="launcher-update-item">
+                    <span>发布时间</span>
+                    <strong>{formatUpdateDate(launcherInstallerUpdate.pubDate)}</strong>
+                  </div>
+                  <div className="launcher-update-item">
+                    <span>下载进度</span>
+                    <strong>
+                      {launcherInstallerUpdate.status === "downloading" || launcherInstallerUpdate.status === "ready"
+                        ? `${Math.round(launcherInstallerUpdate.progress)}%`
+                        : "-"}
+                    </strong>
+                  </div>
+                </div>
+                {(launcherInstallerUpdate.status === "downloading" || launcherInstallerUpdate.status === "ready") && (
+                  <div className="launcher-update-progress-shell">
+                    <div
+                      className="launcher-update-progress-bar"
+                      style={{ width: `${Math.max(4, launcherInstallerUpdate.progress)}%` }}
+                    />
+                  </div>
+                )}
+                {launcherInstallerUpdate.totalBytes ? (
+                  <div className="launcher-update-extra">
+                    已下载 {formatBytes(launcherInstallerUpdate.downloadedBytes)} / {formatBytes(launcherInstallerUpdate.totalBytes)}
+                  </div>
+                ) : null}
+                {launcherInstallerUpdate.notes ? (
+                  <div className="launcher-update-notes">{launcherInstallerUpdate.notes}</div>
+                ) : null}
+                {launcherInstallerUpdate.errorMessage ? (
+                  <div className="note-line">{launcherInstallerUpdate.errorMessage}</div>
+                ) : null}
               </div>
               <div className="update-actions-row">
                 <button
@@ -1841,6 +2103,44 @@ export default function App() {
               </button>
               <button className="mini-action" onClick={() => void handleLogout()} type="button">
                 退出登录
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {launcherInstallerShouldPrompt && (
+        <div className="overlay">
+          <div className="modal glass">
+            <div className="modal-title">启动器更新已下载完成</div>
+            <div className="modal-body">
+              <div>检测到新的启动器安装包版本 {launcherInstallerUpdate.availableVersion}。</div>
+              <div>{launcherInstallerUpdate.message}</div>
+              {launcherInstallerUpdate.notes ? (
+                <div className="update-log">
+                  <div className="update-log-title">更新说明</div>
+                  <div className="launcher-update-notes">{launcherInstallerUpdate.notes}</div>
+                </div>
+              ) : null}
+              <div className="onboarding-copy onboarding-copy-subtle">
+                点击“立即更新”后将自动运行安装包并完成无人值守安装，无需再点下一步。
+              </div>
+            </div>
+            <div className="modal-actions">
+              <button
+                className="mini-action mini-secondary"
+                onClick={() => setLauncherInstallerPromptDeferred(true)}
+                type="button"
+              >
+                稍后更新
+              </button>
+              <button
+                className="mini-action primary-glow"
+                disabled={launcherInstallerBusy}
+                onClick={() => void handleInstallLauncherInstaller()}
+                type="button"
+              >
+                立即更新
               </button>
             </div>
           </div>
