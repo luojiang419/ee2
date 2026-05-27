@@ -1,4 +1,5 @@
 use anyhow::{anyhow, Result};
+use base64::{engine::general_purpose::STANDARD as BASE64, Engine as _};
 use chrono::Utc;
 use futures_util::StreamExt;
 use serde::{de::DeserializeOwned, Deserialize, Deserializer, Serialize};
@@ -38,10 +39,19 @@ const VNT_LAUNCH_STATE_FILE: &str = "runtime/vnt/launch-state.json";
 const APP_DATA_DIR_OVERRIDE_ENV: &str = "EE2X_LAUNCHER_APPDATA_DIR_OVERRIDE";
 const INSTALL_DIR_OVERRIDE_ENV: &str = "EE2X_LAUNCHER_INSTALL_DIR_OVERRIDE";
 const MATCHMAKING_URL: &str = "http://115.231.35.105:4002/matchmaking";
+const BATTLE_REPORT_URL: &str = "http://115.231.35.105:4002/battle-report";
 const DEFAULT_USER_SERVER: &str = "http://115.231.35.105:3001";
 const DEFAULT_UPDATE_SERVER: &str = "http://115.231.35.105:3010";
 const DEFAULT_UPDATE_WS: &str = "ws://115.231.35.105:3010/api/update/v1/channels/stable/ws";
 const DEFAULT_NETWORK_SERVER: &str = "81.71.49.16:1666";
+const DEFAULT_BATTLE_API_URL: &str = "http://192.168.0.211:1234/v1/responses";
+const DEFAULT_BATTLE_API_MODEL: &str = "qwen3.5-9b-vlm";
+const DEFAULT_BATTLE_SUBMIT_URL: &str = "http://115.231.35.105:3001/api/battle/submit";
+const DEFAULT_BATTLE_SUBMIT_TOKEN: &str = "ee2x-battle-2026-secure-token";
+const DEFAULT_BATTLE_SSH_HOST: &str = "115.231.35.105";
+const DEFAULT_BATTLE_SSH_USERNAME: &str = "root";
+const DEFAULT_BATTLE_SSH_PASSWORD: &str = "lhsgEMCF0380";
+const DEFAULT_BATTLE_SSH_REMOTE_DIR: &str = "/opt/ee2x/ee2x_user-admin/data/game-csv";
 const AUTH_INVALID_PREFIX: &str = "AUTH_INVALID:";
 const TRAY_ID: &str = "main-tray";
 const MENU_SHOW_MAIN_WINDOW: &str = "show-main-window";
@@ -103,6 +113,18 @@ struct AppConfig {
     update_server_http: String,
     update_server_ws: String,
     matchmaking_url: String,
+    battle_hotkey: String,
+    battle_api_url: String,
+    battle_api_key: String,
+    battle_api_model: String,
+    battle_submit_url: String,
+    battle_submit_token: String,
+    battle_report_url: String,
+    battle_ssh_host: String,
+    battle_ssh_port: u16,
+    battle_ssh_username: String,
+    battle_ssh_password: String,
+    battle_ssh_remote_dir: String,
 }
 
 impl Default for AppConfig {
@@ -126,6 +148,18 @@ impl Default for AppConfig {
             update_server_http: DEFAULT_UPDATE_SERVER.into(),
             update_server_ws: DEFAULT_UPDATE_WS.into(),
             matchmaking_url: MATCHMAKING_URL.into(),
+            battle_hotkey: String::new(),
+            battle_api_url: DEFAULT_BATTLE_API_URL.into(),
+            battle_api_key: String::new(),
+            battle_api_model: DEFAULT_BATTLE_API_MODEL.into(),
+            battle_submit_url: DEFAULT_BATTLE_SUBMIT_URL.into(),
+            battle_submit_token: DEFAULT_BATTLE_SUBMIT_TOKEN.into(),
+            battle_report_url: BATTLE_REPORT_URL.into(),
+            battle_ssh_host: DEFAULT_BATTLE_SSH_HOST.into(),
+            battle_ssh_port: 22,
+            battle_ssh_username: DEFAULT_BATTLE_SSH_USERNAME.into(),
+            battle_ssh_password: DEFAULT_BATTLE_SSH_PASSWORD.into(),
+            battle_ssh_remote_dir: DEFAULT_BATTLE_SSH_REMOTE_DIR.into(),
         }
     }
 }
@@ -154,6 +188,58 @@ struct ScopeState {
 struct ReleaseState {
     launcher: ScopeState,
     game: ScopeState,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(default, rename_all = "camelCase")]
+struct BattleRuntimeState {
+    status: String,
+    message: String,
+    shot_path: String,
+    csv_path: String,
+    submitted_at: String,
+    report_url: String,
+}
+
+impl Default for BattleRuntimeState {
+    fn default() -> Self {
+        Self {
+            status: "idle".into(),
+            message: "尚未执行游戏结算。".into(),
+            shot_path: String::new(),
+            csv_path: String::new(),
+            submitted_at: String::new(),
+            report_url: BATTLE_REPORT_URL.into(),
+        }
+    }
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct BattleCapturePayload {
+    shot_path: String,
+    image_base64: String,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+struct BattleSubmitPayload {
+    shot_path: String,
+    csv_content: String,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct BattleRunResult {
+    ok: bool,
+    message: String,
+    shot_path: String,
+    csv_path: String,
+    submitted_at: String,
+    report_url: String,
+    duplicate: bool,
+    matched: i64,
+    unmatched: i64,
 }
 
 #[derive(Debug, Serialize, Clone)]
@@ -475,6 +561,9 @@ pub fn run() {
                 tauri_plugin_autostart::MacosLauncher::LaunchAgent,
                 None::<Vec<&'static str>>,
             ))?;
+            #[cfg(any(target_os = "windows", target_os = "linux", target_os = "macos"))]
+            app.handle()
+                .plugin(tauri_plugin_global_shortcut::Builder::new().build())?;
             create_tray(&app.handle())?;
             Ok(())
         })
@@ -526,7 +615,12 @@ pub fn run() {
             finalize_update_restart,
             restart_self,
             open_matchmaking,
+            open_battle_report,
             open_config_directory,
+            battle_get_state,
+            battle_update_state,
+            battle_capture_screenshot,
+            battle_store_and_submit,
             exit_app
         ])
         .run(tauri::generate_context!())
@@ -600,6 +694,32 @@ fn update_temp_dir<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf> {
     let dir = app_data_dir(app)?.join("update").join("staging");
     fs::create_dir_all(&dir)?;
     Ok(dir)
+}
+
+fn battle_root_dir<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf> {
+    let dir = app_data_dir(app)?.join("battle");
+    fs::create_dir_all(&dir)?;
+    Ok(dir)
+}
+
+fn battle_shots_dir<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf> {
+    let dir = battle_root_dir(app)?.join("shots");
+    fs::create_dir_all(&dir)?;
+    Ok(dir)
+}
+
+fn battle_csv_dir<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf> {
+    let dir = battle_root_dir(app)?.join("csv");
+    fs::create_dir_all(&dir)?;
+    Ok(dir)
+}
+
+fn battle_runtime_state_path<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf> {
+    let path = battle_root_dir(app)?.join("runtime").join("recent.json");
+    if let Some(parent) = path.parent() {
+        fs::create_dir_all(parent)?;
+    }
+    Ok(path)
 }
 
 fn background_dir<R: Runtime>(app: &AppHandle<R>, kind: &str) -> Result<PathBuf> {
@@ -857,6 +977,32 @@ fn save_vnt_launch_state<R: Runtime>(
         updated_at: Utc::now().to_rfc3339(),
     };
     write_json(&path, &state)
+}
+
+fn load_battle_runtime_state<R: Runtime>(app: &AppHandle<R>) -> Result<BattleRuntimeState> {
+    let path = battle_runtime_state_path(app)?;
+    if !path.exists() {
+        let state = BattleRuntimeState::default();
+        write_json(&path, &state)?;
+        return Ok(state);
+    }
+    match read_json::<BattleRuntimeState>(&path) {
+        Ok(state) => Ok(state),
+        Err(_) => {
+            let state = BattleRuntimeState::default();
+            write_json(&path, &state)?;
+            Ok(state)
+        }
+    }
+}
+
+fn save_battle_runtime_state<R: Runtime>(
+    app: &AppHandle<R>,
+    state: &BattleRuntimeState,
+) -> Result<BattleRuntimeState> {
+    let path = battle_runtime_state_path(app)?;
+    write_json(&path, state)?;
+    Ok(state.clone())
 }
 
 fn normalize_path(input: &str) -> String {
@@ -1275,6 +1421,107 @@ fn powershell_json(script: &str) -> Result<Option<Value>> {
         return Ok(None);
     }
     Ok(Some(serde_json::from_str(&stdout)?))
+}
+
+fn battle_timestamp_slug() -> String {
+    Utc::now().format("%Y-%m-%d-%H-%M-%S").to_string()
+}
+
+fn build_battle_csv_name(shot_path: &str) -> String {
+    let shot = Path::new(shot_path);
+    if let Some(stem) = shot.file_stem().and_then(|value| value.to_str()) {
+        return format!("{stem}-ocr.csv");
+    }
+    format!("ee2x-{}-ocr.csv", battle_timestamp_slug())
+}
+
+fn capture_primary_screen_png(output_path: &Path) -> Result<()> {
+    let output = output_path.to_string_lossy().to_string();
+    let script = format!(
+        "$ErrorActionPreference='Stop'; Add-Type -AssemblyName System.Windows.Forms; Add-Type -AssemblyName System.Drawing; $bounds=[System.Windows.Forms.Screen]::PrimaryScreen.Bounds; $bitmap=New-Object System.Drawing.Bitmap $bounds.Width,$bounds.Height; $graphics=[System.Drawing.Graphics]::FromImage($bitmap); $graphics.CopyFromScreen($bounds.X,$bounds.Y,0,0,$bounds.Size); $bitmap.Save('{}',[System.Drawing.Imaging.ImageFormat]::Png); $graphics.Dispose(); $bitmap.Dispose();",
+        powershell_quote(&output)
+    );
+    let (ok, _stdout, stderr) = run_hidden_command_with_status(
+        "powershell.exe",
+        &["-NoProfile", "-STA", "-Command", &script],
+        None,
+    )?;
+    if !ok {
+        return Err(anyhow!(if stderr.is_empty() {
+            "屏幕截图失败。".into()
+        } else {
+            format!("屏幕截图失败：{stderr}")
+        }));
+    }
+    Ok(())
+}
+
+fn upload_battle_csv(config: &AppConfig, local_csv_path: &Path, remote_file_name: &str) -> Result<()> {
+    let askpass_path = std::env::temp_dir().join(format!(
+        "ee2x-battle-askpass-{}.cmd",
+        Utc::now().timestamp_millis()
+    ));
+    let remote_path = format!(
+        "{}/{}",
+        config.battle_ssh_remote_dir.trim_end_matches('/'),
+        remote_file_name
+    );
+    fs::write(
+        &askpass_path,
+        format!("@echo off\r\necho {}\r\n", config.battle_ssh_password),
+    )?;
+
+    let script = format!(
+        "$env:SSH_ASKPASS='{}'; $env:SSH_ASKPASS_REQUIRE='force'; $env:DISPLAY='ee2x'; $env:HOME=$env:TEMP; & 'C:\\Windows\\System32\\OpenSSH\\scp.exe' -q -P {} -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL '{}' '{}@{}:{}'; exit $LASTEXITCODE",
+        powershell_quote(&askpass_path.to_string_lossy()),
+        config.battle_ssh_port,
+        powershell_quote(&local_csv_path.to_string_lossy()),
+        powershell_quote(&config.battle_ssh_username),
+        powershell_quote(&config.battle_ssh_host),
+        powershell_quote(&remote_path),
+    );
+
+    let result = run_hidden_command_with_status(
+        "powershell.exe",
+        &["-NoProfile", "-Command", &script],
+        None,
+    );
+    let _ = fs::remove_file(&askpass_path);
+
+    let (ok, stdout, stderr) = result?;
+    if ok {
+        return Ok(());
+    }
+
+    Err(anyhow!(if !stderr.is_empty() {
+        format!("CSV 上传失败：{stderr}")
+    } else if !stdout.is_empty() {
+        format!("CSV 上传失败：{stdout}")
+    } else {
+        "CSV 上传失败。".into()
+    }))
+}
+
+async fn submit_battle_csv(config: &AppConfig, remote_file_name: &str) -> Result<Value> {
+    let mut request = http_client()
+        .post(&config.battle_submit_url)
+        .json(&json!({ "csvFile": remote_file_name }));
+    if !config.battle_submit_token.trim().is_empty() {
+        request = request.bearer_auth(config.battle_submit_token.trim());
+    }
+    let response = request.send().await?;
+    let status = response.status();
+    let text = response.text().await?;
+    let value = serde_json::from_str::<Value>(&text)
+        .unwrap_or_else(|_| json!({ "success": false, "message": text }));
+    if !status.is_success() {
+        let message = value
+            .get("message")
+            .and_then(Value::as_str)
+            .unwrap_or("战报提交失败。");
+        return Err(anyhow!("{} (HTTP {})", message, status.as_u16()));
+    }
+    Ok(value)
 }
 
 fn launch_vnt_elevated(vnt_exe: &Path, config_path: &Path, cwd: &Path) -> Result<()> {
@@ -2333,6 +2580,139 @@ fn restart_self(app: AppHandle) -> Result<bool, String> {
         .ok_or_else(|| "无法解析当前启动器目录".to_string())?;
     spawn_hidden_process(&exe, &[], Some(&cwd)).map_err(|e| e.to_string())?;
     app.exit(0);
+    Ok(true)
+}
+
+#[tauri::command]
+fn battle_get_state(app: AppHandle) -> Result<BattleRuntimeState, String> {
+    load_battle_runtime_state(&app).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+fn battle_update_state(
+    app: AppHandle,
+    state: BattleRuntimeState,
+) -> Result<BattleRuntimeState, String> {
+    save_battle_runtime_state(&app, &state).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+fn battle_capture_screenshot(app: AppHandle) -> Result<BattleCapturePayload, String> {
+    let shot_dir = battle_shots_dir(&app).map_err(|e| e.to_string())?;
+    let shot_name = format!("ee2x-{}.png", battle_timestamp_slug());
+    let shot_path = shot_dir.join(shot_name);
+    capture_primary_screen_png(&shot_path).map_err(|e| e.to_string())?;
+
+    let bytes = fs::read(&shot_path).map_err(|e| e.to_string())?;
+    let state = BattleRuntimeState {
+        status: "running".into(),
+        message: "已捕获截图，等待识别与提交。".into(),
+        shot_path: shot_path.to_string_lossy().to_string(),
+        csv_path: String::new(),
+        submitted_at: String::new(),
+        report_url: load_config(&app)
+            .map(|config| config.battle_report_url)
+            .unwrap_or_else(|_| BATTLE_REPORT_URL.into()),
+    };
+    let _ = save_battle_runtime_state(&app, &state);
+
+    Ok(BattleCapturePayload {
+        shot_path: shot_path.to_string_lossy().to_string(),
+        image_base64: BASE64.encode(bytes),
+    })
+}
+
+#[tauri::command]
+async fn battle_store_and_submit(
+    app: AppHandle,
+    payload: BattleSubmitPayload,
+) -> Result<BattleRunResult, String> {
+    let config = load_config(&app).map_err(|e| e.to_string())?;
+    let csv_dir = battle_csv_dir(&app).map_err(|e| e.to_string())?;
+    let csv_name = build_battle_csv_name(&payload.shot_path);
+    let csv_path = csv_dir.join(&csv_name);
+    let submitted_at = Utc::now().to_rfc3339();
+
+    let outcome: BattleRunResult = match (|| -> Result<()> {
+        fs::write(&csv_path, &payload.csv_content)?;
+        upload_battle_csv(&config, &csv_path, &csv_name)?;
+        Ok(())
+    })() {
+        Ok(()) => match submit_battle_csv(&config, &csv_name).await {
+            Ok(response) => {
+                let ok = response
+                    .get("success")
+                    .and_then(Value::as_bool)
+                    .unwrap_or(false);
+                let message = response
+                    .get("message")
+                    .and_then(Value::as_str)
+                    .unwrap_or(if ok { "战报提交成功。" } else { "战报提交失败。" })
+                    .to_string();
+                BattleRunResult {
+                    ok,
+                    message,
+                    shot_path: payload.shot_path.clone(),
+                    csv_path: csv_path.to_string_lossy().to_string(),
+                    submitted_at: submitted_at.clone(),
+                    report_url: config.battle_report_url.clone(),
+                    duplicate: response
+                        .get("duplicate")
+                        .and_then(Value::as_bool)
+                        .unwrap_or(false),
+                    matched: response.get("matched").and_then(Value::as_i64).unwrap_or(0),
+                    unmatched: response
+                        .get("unmatched")
+                        .and_then(Value::as_i64)
+                        .unwrap_or(0),
+                }
+            }
+            Err(error) => BattleRunResult {
+                ok: false,
+                message: error.to_string(),
+                shot_path: payload.shot_path.clone(),
+                csv_path: csv_path.to_string_lossy().to_string(),
+                submitted_at: String::new(),
+                report_url: config.battle_report_url.clone(),
+                duplicate: false,
+                matched: 0,
+                unmatched: 0,
+            },
+        },
+        Err(error) => BattleRunResult {
+            ok: false,
+            message: error.to_string(),
+            shot_path: payload.shot_path.clone(),
+            csv_path: csv_path.to_string_lossy().to_string(),
+            submitted_at: String::new(),
+            report_url: config.battle_report_url.clone(),
+            duplicate: false,
+            matched: 0,
+            unmatched: 0,
+        },
+    };
+
+    let state = BattleRuntimeState {
+        status: if outcome.ok { "success" } else { "error" }.into(),
+        message: outcome.message.clone(),
+        shot_path: outcome.shot_path.clone(),
+        csv_path: outcome.csv_path.clone(),
+        submitted_at: if outcome.ok {
+            outcome.submitted_at.clone()
+        } else {
+            String::new()
+        },
+        report_url: outcome.report_url.clone(),
+    };
+    let _ = save_battle_runtime_state(&app, &state);
+    Ok(outcome)
+}
+
+#[tauri::command]
+fn open_battle_report(app: AppHandle) -> Result<bool, String> {
+    let config = load_config(&app).map_err(|e| e.to_string())?;
+    let url = config.battle_report_url;
+    run_hidden_command("cmd.exe", &["/C", "start", "", &url], None).map_err(|e| e.to_string())?;
     Ok(true)
 }
 

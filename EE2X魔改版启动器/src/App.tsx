@@ -2,8 +2,15 @@ import { LogicalSize } from "@tauri-apps/api/dpi";
 import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import {
+  isRegistered as isGlobalShortcutRegistered,
+  register as registerGlobalShortcut,
+  unregister as unregisterGlobalShortcut
+} from "@tauri-apps/plugin-global-shortcut";
+import {
   authLogin,
   authLogout,
+  battleGetState,
+  battleOpenReport,
   authRegister,
   bootstrapState,
   checkLauncherInstallerUpdate,
@@ -16,6 +23,7 @@ import {
   getProfile,
   installLauncherInstallerUpdate,
   isTauriRuntime,
+  listenBattleState,
   listenUpdateStatus,
   networkStatus,
   openConfigDirectory,
@@ -33,6 +41,7 @@ import {
 } from "./lib/tauri";
 import type {
   AppConfig,
+  BattleRuntimeState,
   BootstrapState,
   CloseAction,
   LauncherInstallerUpdateState,
@@ -46,6 +55,7 @@ import type {
   UserProfile,
   UserSession
 } from "./lib/types";
+import { runBattleSettlementFlow, testBattleApi } from "./lib/battle";
 
 const RESOLUTION_OPTIONS = [
   "960x540",
@@ -143,6 +153,17 @@ function createLauncherInstallerUpdateState(): LauncherInstallerUpdateState {
   };
 }
 
+function createBattleRuntimeState(): BattleRuntimeState {
+  return {
+    status: "idle",
+    message: "尚未执行游戏结算。",
+    shotPath: "",
+    csvPath: "",
+    submittedAt: "",
+    reportUrl: "http://115.231.35.105:4002/battle-report"
+  };
+}
+
 function resolveLauncherInstallerStatusLabel(update: LauncherInstallerUpdateState) {
   switch (update.status) {
     case "checking":
@@ -201,6 +222,7 @@ export default function App() {
   const [updateResult, setUpdateResult] = useState<UpdateRunResult | null>(null);
   const [launcherInstallerUpdate, setLauncherInstallerUpdate] =
     useState<LauncherInstallerUpdateState>(createLauncherInstallerUpdateState);
+  const [battleState, setBattleState] = useState<BattleRuntimeState>(createBattleRuntimeState);
   const [launcherInstallerBusy, setLauncherInstallerBusy] = useState(false);
   const [launcherInstallerForceMode, setLauncherInstallerForceMode] = useState(false);
   const [launcherInstallerPromptDeferred, setLauncherInstallerPromptDeferred] = useState(false);
@@ -231,6 +253,8 @@ export default function App() {
   const startupUpdateCheckedRef = useRef(false);
   const launcherInstallerBootstrapStartedRef = useRef(false);
   const launcherInstallerAutoInstallRequestedRef = useRef(false);
+  const battleHotkeyRef = useRef("");
+  const battleFlowRunningRef = useRef(false);
   const wsRef = useRef<WebSocket | null>(null);
   const speedRef = useRef<{ tx: number | null; rx: number | null; at: number }>({
     tx: null,
@@ -501,6 +525,77 @@ export default function App() {
     }
     setLauncherInstallerForceMode(false);
     return true;
+  }
+
+  function showTimedBusyMessage(message: string, duration = 5000) {
+    setBusyMessage(message);
+    window.setTimeout(() => {
+      setBusyMessage((current) => (current === message ? "" : current));
+    }, duration);
+  }
+
+  async function refreshBattleRuntimeState() {
+    const state = await battleGetState();
+    setBattleState(state);
+    return state;
+  }
+
+  async function handleBattleTestApi() {
+    if (!config || battleFlowRunningRef.current) {
+      return;
+    }
+    battleFlowRunningRef.current = true;
+    setErrorMessage("");
+    setBusyMessage("正在测试游戏结算识别接口...");
+    try {
+      const result = await testBattleApi(config);
+      if (!result.ok) {
+        setErrorMessage(result.error || "结算识别接口测试失败。");
+        return;
+      }
+      showTimedBusyMessage(`结算识别接口响应：${result.text || "OK"}`);
+      await refreshBattleRuntimeState();
+    } catch (error) {
+      setErrorMessage(String(error));
+    } finally {
+      battleFlowRunningRef.current = false;
+    }
+  }
+
+  async function triggerBattleSettlement(mode: "manual" | "hotkey") {
+    if (!config || battleFlowRunningRef.current) {
+      if (battleFlowRunningRef.current) {
+        setErrorMessage("已有游戏结算任务正在执行，请稍候。");
+      }
+      return;
+    }
+
+    battleFlowRunningRef.current = true;
+    setErrorMessage("");
+    setBusyMessage("正在识别并提交游戏结算...");
+    try {
+      const result = await runBattleSettlementFlow(config);
+      const latestState = await refreshBattleRuntimeState();
+      if (!result.ok) {
+        setErrorMessage(result.message || latestState.message || "游戏结算提交失败。");
+        return;
+      }
+      showTimedBusyMessage(result.message || "游戏结算已提交，正在打开历史战报页。");
+      await battleOpenReport();
+    } catch (error) {
+      await refreshBattleRuntimeState();
+      setErrorMessage(String(error));
+    } finally {
+      battleFlowRunningRef.current = false;
+    }
+  }
+
+  async function handleOpenBattleReport() {
+    try {
+      await battleOpenReport();
+    } catch (error) {
+      setErrorMessage(String(error));
+    }
   }
 
   async function saveSetupFlags(setupCompleted: boolean, setupPendingAuth: boolean) {
@@ -846,6 +941,7 @@ export default function App() {
         if (!launcherInstallerPassed) {
           return;
         }
+        await refreshBattleRuntimeState();
         await refreshPlayers();
         if (payload.user) {
           try {
@@ -877,10 +973,16 @@ export default function App() {
     }, 1000);
 
     let unlisten: (() => void) | undefined;
+    let unlistenBattleState: (() => void) | undefined;
     void listenUpdateStatus((payload) => {
       setUpdateEvents((current) => [...current.slice(-59), payload]);
     }).then((dispose) => {
       unlisten = dispose;
+    });
+    void listenBattleState((state) => {
+      setBattleState(state);
+    }).then((dispose) => {
+      unlistenBattleState = dispose;
     });
 
     return () => {
@@ -891,11 +993,59 @@ export default function App() {
       if (unlisten) {
         unlisten();
       }
+      if (unlistenBattleState) {
+        unlistenBattleState();
+      }
       window.clearInterval(clockTimer);
       window.clearInterval(playersTimer);
       window.clearInterval(networkTimer);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isTauriRuntime) {
+      return;
+    }
+
+    const nextHotkey = boot?.config.battleHotkey.trim() || "";
+    const previousHotkey = battleHotkeyRef.current;
+
+    void (async () => {
+      try {
+        if (previousHotkey && previousHotkey !== nextHotkey) {
+          const wasRegistered = await isGlobalShortcutRegistered(previousHotkey);
+          if (wasRegistered) {
+            await unregisterGlobalShortcut(previousHotkey);
+          }
+        }
+
+        if (!nextHotkey) {
+          battleHotkeyRef.current = "";
+          return;
+        }
+
+        const alreadyRegistered = await isGlobalShortcutRegistered(nextHotkey);
+        if (!alreadyRegistered) {
+          await registerGlobalShortcut(nextHotkey, (event) => {
+            if (event.state === "Pressed") {
+              void triggerBattleSettlement("hotkey");
+            }
+          });
+        }
+        battleHotkeyRef.current = nextHotkey;
+      } catch (error) {
+        setErrorMessage(`游戏结算快捷键注册失败：${String(error)}`);
+      }
+    })();
+
+    return () => {
+      const hotkeyToRemove = battleHotkeyRef.current;
+      if (!hotkeyToRemove) {
+        return;
+      }
+      void unregisterGlobalShortcut(hotkeyToRemove).catch(() => undefined);
+    };
+  }, [boot?.config.battleHotkey]);
 
   useEffect(() => {
     if (!config) {
@@ -1450,6 +1600,13 @@ export default function App() {
                         </div>
                       </div>
                     </div>
+                    <div className="summary-block compact-status">
+                      <span className={`dot ${battleState.status === "success" ? "online" : battleState.status === "error" ? "offline" : "idle"}`} />
+                      <div>
+                        <div className="summary-title">游戏结算</div>
+                        <div className="summary-value">{battleState.message}</div>
+                      </div>
+                    </div>
                     <button
                       className="stack-action"
                       onClick={() => {
@@ -1462,6 +1619,9 @@ export default function App() {
                     </button>
                     <button className="stack-action" onClick={() => setActivePage("settings")} type="button">
                       游戏设置
+                    </button>
+                    <button className="stack-action" onClick={() => void handleOpenBattleReport()} type="button">
+                      历史战报
                     </button>
                     <button
                       className={`start-button ${boot?.gamePath.valid ? "" : "disabled"}`}
@@ -1896,6 +2056,163 @@ export default function App() {
                         <option value="on">开</option>
                         <option value="off">关</option>
                       </select>
+                    </label>
+                    <div className="field-card glass-lite settings-wide">
+                      <span>游戏结算状态</span>
+                      <div className="note-line">{battleState.message}</div>
+                      {battleState.csvPath ? (
+                        <div className="note-line">{`最近 CSV: ${battleState.csvPath}`}</div>
+                      ) : null}
+                      <div className="settings-tools">
+                        <button className="mini-action" onClick={() => void handleBattleTestApi()} type="button">
+                          测试识别接口
+                        </button>
+                        <button className="mini-action" onClick={() => void triggerBattleSettlement("manual")} type="button">
+                          手动触发结算
+                        </button>
+                        <button className="mini-action mini-secondary" onClick={() => void handleOpenBattleReport()} type="button">
+                          查看历史战报
+                        </button>
+                      </div>
+                    </div>
+                    <label className="field-card glass-lite">
+                      <span>结算快捷键</span>
+                      <input
+                        placeholder="例如 CommandOrControl+Shift+S"
+                        value={config.battleHotkey}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleHotkey: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>结算识别 API</span>
+                      <input
+                        value={config.battleApiUrl}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleApiUrl: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>结算识别 Key</span>
+                      <input
+                        type="password"
+                        value={config.battleApiKey}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleApiKey: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>结算识别模型</span>
+                      <input
+                        value={config.battleApiModel}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleApiModel: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>结算提交接口</span>
+                      <input
+                        value={config.battleSubmitUrl}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleSubmitUrl: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>结算提交 Token</span>
+                      <input
+                        type="password"
+                        value={config.battleSubmitToken}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleSubmitToken: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>战报页面地址</span>
+                      <input
+                        value={config.battleReportUrl}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleReportUrl: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>SFTP 主机</span>
+                      <input
+                        value={config.battleSshHost}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleSshHost: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>SFTP 端口</span>
+                      <input
+                        type="number"
+                        value={config.battleSshPort}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current
+                              ? { ...current, battleSshPort: Number(event.target.value || 0) }
+                              : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>SFTP 用户名</span>
+                      <input
+                        value={config.battleSshUsername}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleSshUsername: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite">
+                      <span>SFTP 密码</span>
+                      <input
+                        type="password"
+                        value={config.battleSshPassword}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleSshPassword: event.target.value } : current
+                          )
+                        }
+                      />
+                    </label>
+                    <label className="field-card glass-lite settings-wide">
+                      <span>SFTP 远端目录</span>
+                      <input
+                        value={config.battleSshRemoteDir}
+                        onChange={(event) =>
+                          setConfig((current) =>
+                            current ? { ...current, battleSshRemoteDir: event.target.value } : current
+                          )
+                        }
+                      />
                     </label>
                     <div className="settings-tools">
                       <button className="mini-action" onClick={() => void openConfigDirectory()} type="button">

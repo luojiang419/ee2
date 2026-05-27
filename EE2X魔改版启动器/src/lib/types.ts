@@ -20,6 +20,18 @@ export interface AppConfig {
   updateServerHttp: string;
   updateServerWs: string;
   matchmakingUrl: string;
+  battleHotkey: string;
+  battleApiUrl: string;
+  battleApiKey: string;
+  battleApiModel: string;
+  battleSubmitUrl: string;
+  battleSubmitToken: string;
+  battleReportUrl: string;
+  battleSshHost: string;
+  battleSshPort: number;
+  battleSshUsername: string;
+  battleSshPassword: string;
+  battleSshRemoteDir: string;
 }
 
 export interface UserSession {
@@ -143,4 +155,32 @@ export interface LauncherInstallerUpdateState {
   totalBytes: number | null;
   message: string;
   errorMessage: string;
+}
+
+export type BattleRuntimeStatus = "idle" | "running" | "success" | "error";
+
+export interface BattleRuntimeState {
+  status: BattleRuntimeStatus;
+  message: string;
+  shotPath: string;
+  csvPath: string;
+  submittedAt: string;
+  reportUrl: string;
+}
+
+export interface BattleCapturePayload {
+  shotPath: string;
+  imageBase64: string;
+}
+
+export interface BattleRunResult {
+  ok: boolean;
+  message: string;
+  shotPath: string;
+  csvPath: string;
+  submittedAt: string;
+  reportUrl: string;
+  duplicate: boolean;
+  matched: number;
+  unmatched: number;
 }
