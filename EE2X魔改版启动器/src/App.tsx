@@ -1281,7 +1281,6 @@ export default function App() {
           <div className="brand-mark">EE2X</div>
           <div>
             <div className="brand-title">EE2X魔改版启动器</div>
-            <div className="brand-subtitle">TUN 联机 / 历史链式更新 / 独立安装</div>
           </div>
         </div>
         <div className="topbar-right">
