@@ -503,12 +503,17 @@ export default function App() {
     return true;
   }
 
-  async function saveSetupFlags(setupCompleted: boolean, setupPendingAuth: boolean) {
-    if (!config) {
+  async function saveSetupFlags(
+    setupCompleted: boolean,
+    setupPendingAuth: boolean,
+    baseConfig?: AppConfig | null
+  ) {
+    const sourceConfig = baseConfig ?? boot?.config ?? config;
+    if (!sourceConfig) {
       return null;
     }
     const saved = await saveConfig({
-      ...config,
+      ...sourceConfig,
       setupCompleted,
       setupPendingAuth
     });
@@ -633,7 +638,7 @@ export default function App() {
       setBusyMessage("正在登录...");
       await authLogin(loginForm.username, loginForm.password);
       if (config?.setupPendingAuth) {
-        await saveSetupFlags(true, false);
+        await saveSetupFlags(true, false, config);
       }
       setLoginForm({ username: "", password: "" });
       await refreshBootstrap();
@@ -676,7 +681,7 @@ export default function App() {
       };
       await authRegister(payload);
       if (config?.setupPendingAuth) {
-        await saveSetupFlags(true, false);
+        await saveSetupFlags(true, false, config);
       }
       resetRegisterForm();
       await refreshBootstrap();
@@ -783,7 +788,7 @@ export default function App() {
       }
     }
 
-    await saveSetupFlags(true, true);
+    await saveSetupFlags(true, true, currentBoot.config);
     setStartupUpdateState(null);
     setFirstRunWizardStep("auth");
     setAuthMode("login");
