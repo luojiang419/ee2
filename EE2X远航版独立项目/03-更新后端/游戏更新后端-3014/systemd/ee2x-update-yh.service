@@ -1,0 +1,15 @@
+[Unit]
+Description=EE2X Update YH Backend
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ee2/ee2x-new-update/game-backend
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/ee2/ee2x-new-update/game-backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 3014
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target

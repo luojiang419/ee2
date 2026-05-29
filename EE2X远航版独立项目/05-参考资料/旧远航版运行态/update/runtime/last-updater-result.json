@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "scope": "game",
+  "version": "1.0.17",
+  "base": "http://115.231.35.105:3010",
+  "channel": "stable",
+  "summary": {
+    "version": "1.0.17",
+    "scope": "game",
+    "updatedFiles": 0,
+    "deletedFiles": 0,
+    "backedUpFiles": 0,
+    "skippedFrozenFiles": 0,
+    "skippedFrozenPaths": []
+  },
+  "logPath": "G:\\ee2\\Empire Earth II\\地球帝国二代远航版启动器\\update\\runtime\\last-updater-log.txt",
+  "resultPath": "G:\\ee2\\Empire Earth II\\地球帝国二代远航版启动器\\update\\runtime\\last-updater-result.json"
+}
