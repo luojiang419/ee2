@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-30 17:00
+> 最后更新: 2026-05-30 17:30
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -176,6 +176,8 @@
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 | 151 | EE2X_db-151-E14飞机速度档位全面调整-pre.zip | pre | E14全飞机速度重分配 | Chinese_army.ddf, American_army.ddf, Russian_army.ddf, bomber.ddf, fighter_bomber.ddf, Yuanhang_720_units.ddf | E14全飞机按11档速度梯队重分配:T1 9.5/T2 9.0/T3 9.0/T4 8.5/T5 8.0/T7 6.5/T9 5.5-6.5/T10 5.0 | — | 2026-05-30 17:00 |
 | 152 | EE2X_db-152-E14飞机速度档位全面调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 151修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 17:00 |
+| 153 | EE2X_db-153-E14岸舰导弹HP攻击射程调整-pre.zip | pre | CoastalDefense E14 | upgrade_unittypes.csv | HP 11000→60000, DMG 850→1800, RANGE 23→25 | — | 2026-05-30 17:30 |
+| 154 | EE2X_db-154-E14岸舰导弹三属性调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 153修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 17:30 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 
