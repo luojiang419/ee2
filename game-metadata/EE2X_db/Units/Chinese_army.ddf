@@ -1023,7 +1023,7 @@ UpgradeAbilities JH7A14Attack
 {
 	upgradedAbilities = [
 		AircraftMove {speed = 6.0; angSpeed = 80; CruisingHeight = 8.5; ElevChangeRate = 1.0}
-		Attack { damage = 1800; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;areaDamageRadius = 1.0;}
+		Attack { damage = 1800; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;areaDamageRadius = 0.3;}
 	]
 }
 //------------------------------------------------

@@ -955,7 +955,7 @@ verboseTooltip = vtt_unit_su25
 	abilities = [
 		AircraftMove {speed = 5.5; angSpeed = 55; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 550; range = 12; reloadTime = 0.2; angularRange = 60; applyDamageTime = 0; missileName = "GroundRocketHerc"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 60;
-				areaDamageRadius = 1.3; areaDamageFriendlyRatio = 0.3;throwUnits = true }
+				areaDamageRadius = 0.39; areaDamageFriendlyRatio = 0.3;throwUnits = true }
 		LOS { range 16 }
 			SpecialPower { 		
 			effects = [ Air_anti_missle ]
