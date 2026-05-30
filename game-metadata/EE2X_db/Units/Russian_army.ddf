@@ -209,7 +209,7 @@ UnitType Su34
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-	AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+	AircraftMove {speed = 8.0; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 1000; range = 20; reloadTime = 1; angularRange = 60; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;
 				areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 		LOS { range 17 }
@@ -584,7 +584,7 @@ UnitType Mig29Naval
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 8; angSpeed = 78; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 8.5; angSpeed = 78; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 900; range = 11; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
 	LOS { range = 11 }
 	SpecialPower { 		
@@ -665,7 +665,7 @@ sounds = {
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 9.0; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 855; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 12;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 		LOS { range = 17 }
 		SpecialPower { 		
@@ -1211,7 +1211,7 @@ verboseTooltip = vtt_unit_su37
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
 	abilities = [
-		AircraftMove {speed = 8.5; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 8.0; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 855; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 	LOS { range = 17}
 	SpecialPower { 		
@@ -1420,7 +1420,7 @@ UnitType PAKDA
 		sndDeath =  []
 	}
 	abilities = [
-		AircraftMove {speed = 7.0; angSpeed = 35; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
+		AircraftMove {speed = 5.5; angSpeed = 35; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
 		Attack { damage = 35000; range = 60; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
 				
 		LOS { range = 28 }
@@ -1493,7 +1493,7 @@ HitPoints = 1900
 		sndDeath =  []
 	}
 	abilities = [
-		AircraftMove {speed = 7.5; angSpeed = 60; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		AircraftMove {speed = 6.5; angSpeed = 60; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
 		Attack { damage = 10000; range = 50; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 2;areaDamageRadius =5.0; }
 		LOS { range = 29 }
 	]

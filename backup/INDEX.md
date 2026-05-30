@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-30 16:00
+> 最后更新: 2026-05-30 17:00
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -172,6 +172,10 @@
 | 146 | EE2X_db-146-首页在线玩家栏头像与宽度调整-pre.zip | pre | 首页在线玩家栏头像与宽度调整 | EE2X魔改版启动器/src/App.tsx, src/styles.css | 在960x540下将在线玩家栏加宽20px，并在玩家名称左侧显示小头像前源码备份 | — | 2026-05-27 20:32 |
 | 147 | EE2X_db-147-启动器1.0.30测试编译前版本源-pre.zip | pre | 启动器1.0.30测试编译 | EE2X魔改版启动器/package.json, package-lock.json, src-tauri/tauri.conf.json, src-tauri/Cargo.toml | 基于当前1.0.29稳定状态，再次执行 build:release 自动升版编译 1.0.30 前版本源备份 | — | 2026-05-27 20:40 |
 | 148 | EE2X_db-148-远航版启动器1.0.32编译前源码-pre.zip | pre | 远航版启动器1.0.32正式编译 | EE2X远航版启动器/src/App.tsx, package.json, package-lock.json, src-tauri/tauri.conf.json, src-tauri/Cargo.toml | 修复首次引导选目录后登录再次弹目录后，执行 build:release 正式升版编译 1.0.32 前源码备份 | — | 2026-05-28 20:23 |
+| 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
+| 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
+| 151 | EE2X_db-151-E14飞机速度档位全面调整-pre.zip | pre | E14全飞机速度重分配 | Chinese_army.ddf, American_army.ddf, Russian_army.ddf, bomber.ddf, fighter_bomber.ddf, Yuanhang_720_units.ddf | E14全飞机按11档速度梯队重分配:T1 9.5/T2 9.0/T3 9.0/T4 8.5/T5 8.0/T7 6.5/T9 5.5-6.5/T10 5.0 | — | 2026-05-30 17:00 |
+| 152 | EE2X_db-152-E14飞机速度档位全面调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 151修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 17:00 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 

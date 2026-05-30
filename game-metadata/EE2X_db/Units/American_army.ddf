@@ -84,7 +84,7 @@ UnitType F35
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 7.5; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 9.0; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
             Attack { damage = 900; range = 18; reloadTime =1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 		LOS { range = 26 }
 		AreaEffect {
@@ -435,7 +435,7 @@ UnitType f15
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 9; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 8.5; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 950; range = 18; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; }
 	LOS { range = 20 }
 	SpecialPower { 		
@@ -1187,7 +1187,7 @@ UnitType B2
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 6; angSpeed = 30; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
+		AircraftMove {speed = 7.5; angSpeed = 30; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
 		Attack { damage = 35000; range = 55; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0.3; missileName = "Tu95Missile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 2;areaDamageRadius =10; areaDamageFriendlyRatio = 1.0;}
 		LOS { range = 30 }
 		AreaEffect {

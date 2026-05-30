@@ -13,7 +13,7 @@ UnitType FighterBomber
 		popCount = 2
 	}
 	abilities = [
-		AircraftMove {speed = 5.75; angSpeed = 40; CruisingHeight = 10.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 6.5; angSpeed = 40; CruisingHeight = 10.0; ElevChangeRate = 0.5}
 		Attack { range = 0; reloadTime = 1; applyDamageTime = 0; damage = 0; missileName = "bomb02 "; attackOnTheMove = 1;
 				areaDamageRadius = 1; areaDamageFriendlyRatio = 0.5 }
 		LOS { range = 0 }

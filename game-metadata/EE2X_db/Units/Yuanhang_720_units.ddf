@@ -90,7 +90,7 @@ UnitType E3
 	sounds = {
 	}
 	abilities = [
-		AircraftMove {speed = 4.5; angSpeed = 18; CruisingHeight = 12.2; }
+		AircraftMove {speed = 5.0; angSpeed = 18; CruisingHeight = 12.2; }
             Attack { range = 0; reloadTime = 0; applyDamageTime = 0; damage = 0; missileName = "Arrow" }
             AreaEffect {
 			effects = [ 
