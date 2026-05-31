@@ -1327,7 +1327,7 @@ UpgradeAbilities Hongjian10Epoch13Move
 UpgradeAbilities Hongjian10Epoch14Move
 {
 	upgradedAbilities = [
-		VehicleMove {speed = 1.8; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+		VehicleMove {speed = 2.2; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
 	]
 }
 
