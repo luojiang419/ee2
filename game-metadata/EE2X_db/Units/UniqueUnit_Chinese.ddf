@@ -230,7 +230,7 @@ UnitType UniqueUnitChinese3
 	}
 	abilities [
 		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 1 }
-		VehicleMove {speed = 1.7; angSpeed = 50; followTerrainSlope = 1; mustMoveToTurn = 0}
+		VehicleMove {speed = 2.2; angSpeed = 50; followTerrainSlope = 1; mustMoveToTurn = 0}
 		LOS {range = 5}
 		AreaEffect {effects = [ Taran_Tanks ]}
 	]
@@ -288,7 +288,7 @@ UnitModel UniqueUnitChinese3
 {
 	parent 		= HeavyMounted1_12
 	DefaultModel 	= T99A.NIF //Type96.nif
-	ForceScale      = 0.09
+	ForceScale      = 0.072
 	States = [
 			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
 

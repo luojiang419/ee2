@@ -206,7 +206,7 @@ UnitType Am_M1A1
 	}
 	abilities = [
       Attack { range = 16; reloadTime = 3.0; applyDamageTime = 0.5; damage = 400; missileName = fkjqAmmo; turretControllerName = TankTurret;areaDamageRadius = 2; }
-	  VehicleMove {speed = 1.4; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
+	  VehicleMove {speed = 1.8; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [ Taran_Tanks ]		}	
 	Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }	
@@ -306,7 +306,7 @@ UnitModel Am_M1A1_14
 {
 	parent 		= BaseHeavyMountedArmored
 	DefaultModel 	= M1A1Abrams.NIF
-	ForceScale      = 0.105
+	ForceScale      = 0.084
 	States = [
 			{ StateName= Idle AnimName = T99_A2_idle.KF 
 			TextKeys = [ 

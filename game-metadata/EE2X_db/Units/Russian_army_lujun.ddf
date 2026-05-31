@@ -199,7 +199,7 @@ UnitType t80u
 	}
 	abilities = [
 		Attack { range = 14; reloadTime = 3.0; applyDamageTime = 0.5; damage = 320; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2 }
-		VehicleMove {speed = 1.85; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
+		VehicleMove {speed = 2.4; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 15 }
 		AreaEffect {			effects = [ Taran_Tanks ]		}	
 		Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
@@ -297,7 +297,7 @@ UnitModel t80u_14
 {
 	parent 		= BaseHeavyMountedArmored
 	DefaultModel 	= T80.NIF
-	ForceScale      = 0.117
+	ForceScale      = 0.094
 	States = [
 			{ StateName= Idle AnimName = lhm13_MainBattleTank_idle.KF  }
 
