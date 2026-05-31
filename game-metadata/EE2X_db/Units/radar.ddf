@@ -204,8 +204,8 @@ UpgradeAbilities AMissileDefenseEpoch13Attack
 UpgradeAbilities AMissileDefenseEpoch14Attack
 {
 	upgradedAbilities = [
-	Attack { damage = 2000; range = 30; reloadTime = 3; angularRange = 360; missileName = "SA5Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5;  }
-	
+	Attack { damage = 1000; range = 30; reloadTime = 0.75; angularRange = 360; missileName = "SA5Missile"; ignoreBlocking = 1; turretControllerName = TankTurret; areaDamageRadius = 1.5;  }
+
 	]
 }
 //------------------------------------------------
