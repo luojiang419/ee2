@@ -492,7 +492,7 @@ UnitModel T90M_14
 {
 	parent 		= BaseHeavyMountedArmored
 	DefaultModel 	= T90A.NIF
-	ForceScale      = 0.115
+	ForceScale      = 0.173
 	States = [
 			{ StateName= Idle AnimName = T99_A2_idle.KF 
 			TextKeys = [ 

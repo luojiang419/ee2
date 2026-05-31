@@ -501,7 +501,7 @@ UnitModel American_M1A2_14
 {
 	parent 		= BaseHeavyMountedArmored
 	DefaultModel 	= M1A2Sepv3.NIF
-	ForceScale      = 0.105
+	ForceScale      = 0.158
 	States = [
 			{ StateName= Idle AnimName = T99_A2_idle.KF 
 			TextKeys = [ 

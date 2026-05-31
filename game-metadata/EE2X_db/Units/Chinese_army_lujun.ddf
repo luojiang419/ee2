@@ -673,7 +673,7 @@ UnitModel China_T99A_14
 	parent 		= BaseHeavyMountedArmored
 	//DefaultModel 	= China_T99A.NIF
 	DefaultModel 	= ZTZ99A2.NIF
-	ForceScale      = 0.115
+	ForceScale      = 0.173
 	States = [
 			{ StateName= Idle AnimName = T99_A2_idle.KF 
 			TextKeys = [ 
