@@ -1592,7 +1592,7 @@ UnitType Medcar
 	sounds = {
 	}
 	abilities = [
-        Heal {range = 6.0; healRate = 30; HealRadius = 3.0; healType = HealedByMedic }	
+        Heal {range = 6.0; healRate = 400; HealRadius = 3.0; healType = HealedByMedic }	
 		VehicleMove {speed = 2.0; angSpeed = 40; followTerrainSlope = 1; mustMoveToTurn = 0}
 		LOS { range = 11 }
         Garrison { 
@@ -1696,7 +1696,7 @@ UnitType SisterMona
 	abilities = [
 		Move {speed = 1.725; angSpeed = 720; angAccel = 720}
 		LOS { range = 5 }
-		Heal {range = 0.2; healRate = 5; healType = HealedByMedic }
+		Heal {range = 0.2; healRate = 50; healType = HealedByMedic }
 	]
 }
 
