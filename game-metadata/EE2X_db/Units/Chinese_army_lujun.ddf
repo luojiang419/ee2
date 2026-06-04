@@ -886,7 +886,7 @@ UnitType radacache
 		}
 		Attack { damage = 0; range = 150; reloadTime = 3; angularRange = 360; applyDamageTime = 0.25; missileName = "FastRocket5"; ignoreBlocking = 1;packTime = 4.0; unpackTime = 4.0; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
-		LOS { range = 55 }
+		LOS { range = 60 }
 		VehicleMove {speed = 1.8; angSpeed = 50; followTerrainSlope = 1}
 			]
 attributes = [
