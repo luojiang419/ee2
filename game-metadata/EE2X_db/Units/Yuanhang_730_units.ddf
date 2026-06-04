@@ -1890,7 +1890,7 @@ UnitType PHL_03
 		sndDeath =  ["v_cmon_unit_death_chn"]
 	}
 	abilities = [
-		Attack {range = 23; reloadTime = 0.5; damage = 100; angularRange = 360; packTime = 2.0;unpackTime = 2.0; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 10; minRangeImmobile = 10; areaDamageRadius = 2.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		Attack {range = 25; reloadTime = 0.5; damage = 100; angularRange = 360; packTime = 2.0;unpackTime = 2.0; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 10; minRangeImmobile = 10; areaDamageRadius = 2.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 		VehicleMove {speed = 0.8; angSpeed = 80; followTerrainSlope = 1 }
 		LOS { range = 16 }
 		Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
