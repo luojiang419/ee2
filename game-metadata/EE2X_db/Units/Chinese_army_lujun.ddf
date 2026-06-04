@@ -881,7 +881,7 @@ UnitType radacache
 	abilities = [
 		 AreaEffect {
 				effects = [ 
-						 SuperVision
+						 Radar_Awacs,Radar,AntiMissileMember,SuperVision
 				]
 			}
 		Attack { damage = 0; range = 150; reloadTime = 3; angularRange = 360; applyDamageTime = 0.25; missileName = "FastRocket5"; ignoreBlocking = 1;packTime = 4.0; unpackTime = 4.0; throwUnits = true }
