@@ -879,11 +879,6 @@ UnitType radacache
 		sndDeath =  ["v_cmon_unit_death_chn"]
 	}
 	abilities = [
-
-
-
-
-
 		Attack { damage = 0; range = 150; reloadTime = 3; angularRange = 360; applyDamageTime = 0.25; missileName = "FastRocket5"; ignoreBlocking = 1;packTime = 4.0; unpackTime = 4.0; throwUnits = true }
             Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
 		LOS { range = 60 }
