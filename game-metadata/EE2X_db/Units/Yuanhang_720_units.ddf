@@ -13572,8 +13572,8 @@ UnitType Ka28Kitai
 	}
 	abilities = [
 		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
-		Attack { range = 20; reloadTime = 3.0; applyDamageTime = 0.5; damage = 800; missileName = "Torpedo";attackOnTheMove = 1 }
-		LOS { range = 20 }
+		Attack { range = 25; reloadTime = 3.0; applyDamageTime = 0.5; damage = 1500; missileName = "Torpedo";attackOnTheMove = 1 }
+		LOS { range = 25 }
 	]
 icon = icon_unit_Ka28Kitai
 }
