@@ -19417,7 +19417,7 @@ UnitType Harvester
 				otherRange = 0.5;
 				dropoffRange = 0.5;
 				carryLimit = 300;
-				woodRate = 7.0;		
+				woodRate = 14.0;		
 		}
 		Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
 		LOS { range = 11 }
