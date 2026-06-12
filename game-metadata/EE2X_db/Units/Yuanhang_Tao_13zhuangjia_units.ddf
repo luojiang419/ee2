@@ -2011,10 +2011,6 @@ UnitType BM30
 		sndDeath =  ["CWCruSA11_MA_cru_01"]
 	}
 	abilities = [
-	PowerReserve { timeToRecharge = 60 }
-	SpecialPower { 		
-			effects = [ Change_Range ]
-		}
 		Attack {range = 28; reloadTime = 0.35; damage = 128; angularRange = 360; packTime = 1.5;unpackTime = 1.5; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 		VehicleMove {speed = 1.2; angSpeed = 70; followTerrainSlope = 1 }
 		LOS { range = 16 }
@@ -3655,10 +3651,6 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 
 	}
 	abilities = [
-	PowerReserve { timeToRecharge = 60 }
-	SpecialPower { 		
-			effects = [ Change_Range ]
-		}
 		Attack {range = 27; reloadTime = 0.5; damage = 150; angularRange = 360; packTime = 2.0;unpackTime = 2.0; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; turretControllerName = MobileRocketLauncherTurret; minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 		VehicleMove {speed = 0.8; angSpeed = 70; followTerrainSlope = 1 }
 		LOS { range = 16 }
