@@ -1741,7 +1741,7 @@ UnitType moskva_Heliport
 		SizeX = 5
 		SizeY = 1.0
 		mass = 1		
-		popCount = 5            
+		popCount = 4            
 		DisplayName = tx_utn_moskva_name		
 		VerboseTooltip = vtt_unit_moskva
 		HitPoints = 20000  
@@ -1751,7 +1751,7 @@ UnitType moskva_Heliport
 		HealedByHERC 
 			]
       abilities = [
-		NavalMove {speed = 1.8; accel = 1; angSpeed = 60}	
+		NavalMove {speed = 1.7; accel = 1; angSpeed = 40}	
 		Attack { damage = 600; range = 24; angularRange = 360; reloadTime = 2; applyDamageTime = 0.5; missileName = "A054Rocket";  areaDamageRadius = 1; }
         Produce { 
 		}
