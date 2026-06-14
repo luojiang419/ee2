@@ -1255,7 +1255,7 @@ DbAreaEffectInfo GoldBonus
 			mask = TavernUnits
 			player = Self
 			affected = [Gold]			
-			scale = 1.3
+			scale = 2.0
 		}    
             
 	]
