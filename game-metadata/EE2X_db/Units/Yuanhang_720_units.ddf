@@ -18527,7 +18527,12 @@ UnitType Vineyard
     	}
 	fullMapOverlay { sprite = spr_fullmap_house }
 	abilities = [
-		LOS { range = 6 }		     
+        AreaEffect {
+            effects = [
+                VineBonus
+            ]
+        }
+		LOS { range = 15 }		     
 	]
 	icon = icon_unit_vineyard
 }
@@ -18815,7 +18820,12 @@ UnitType Winery
     	}
 	fullMapOverlay { sprite = spr_fullmap_house }
 	abilities = [
-		LOS { range = 6 }
+        AreaEffect {
+            effects = [
+                StoneBonus
+            ]
+        }
+		LOS { range = 15 }
 	]
 	icon = icon_unit_winery
 }
