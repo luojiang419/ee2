@@ -18003,7 +18003,7 @@ UnitType Minegold
     	}
 	fullMapOverlay { sprite = spr_fullmap_house }
 	abilities = [
-		LOS { range = 15 }
+		LOS { range = 13 }
 	      AreaEffect {
 			effects = [
 				GoldBonus
@@ -18527,12 +18527,7 @@ UnitType Vineyard
     	}
 	fullMapOverlay { sprite = spr_fullmap_house }
 	abilities = [
-        }
-            ]
-                VineyardBonus1
-            effects = [
-        AreaEffect {
-		LOS { range = 15 }		     
+		LOS { range = 6 }		     
 	]
 	icon = icon_unit_vineyard
 }
@@ -18820,12 +18815,7 @@ UnitType Winery
     	}
 	fullMapOverlay { sprite = spr_fullmap_house }
 	abilities = [
-        }
-            ]
-                WineryBonus3
-            effects = [
-        AreaEffect {
-		LOS { range = 15 }
+		LOS { range = 6 }
 	]
 	icon = icon_unit_winery
 }
