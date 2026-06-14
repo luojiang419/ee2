@@ -17951,7 +17951,7 @@ UnitType Quarry
         Garrison { 
 			garrisonType = UniWarehouseOilDerrickCityCenter; 
 			numOfSlots = 25;
-			gatherRate = 0.8;	
+			gatherRate = 1.6;	
 			gatherType = Stone;
             rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
