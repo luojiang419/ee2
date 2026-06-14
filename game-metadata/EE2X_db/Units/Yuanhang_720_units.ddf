@@ -18523,14 +18523,6 @@ UnitType Vineyard
         HitPoints = 3000
             
 	}
-          Garrison {
-              garrisonType = UniWarehouseOilDerrickCityCenter;
-              numOfSlots = 25;
-              gatherRate = 1.6;
-              gatherType = Food;
-              rightClickToGarrison = 1;
-              GarrisonFlagModelName = "GarrisonFlag"
-          }
 	sounds {            
     	}
 	fullMapOverlay { sprite = spr_fullmap_house }
@@ -18810,14 +18802,6 @@ UnitType Winery
 		FootprintSizeX = 3.0
 		FootprintSizeY = 3.0
 		OffsetX = 0.75
-          Garrison {
-              garrisonType = UniWarehouseOilDerrickCityCenter;
-              numOfSlots = 25;
-              gatherRate = 1.6;
-              gatherType = Gold;
-              rightClickToGarrison = 1;
-              GarrisonFlagModelName = "GarrisonFlag"
-          }
 		OffsetY = 0.75
             UndertextureSizeX = 2.5
 		UndertextureSizeY = 2.5		
