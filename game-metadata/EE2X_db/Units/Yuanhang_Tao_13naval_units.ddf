@@ -1983,6 +1983,17 @@ UnitModel kirov_15
 ////////////////////////////////////
 //基洛夫级巡洋舰
 ///////////////////////////////////
+//------------------------------------------------
+//	EPOCH 14 - VLS (055A同款)
+//------------------------------------------------
+UpgradeAbilities kirovEpoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 3000; range = 48; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; }
+	        NavalMove {speed = 1.7; accel = 1; angSpeed = 60}
+	]
+}
+
 UnitType Russkirov
 {
 	parent = NavalDeep
@@ -2410,6 +2421,17 @@ UnitModel Cruiser1164_15
 	}
 
 }
+//------------------------------------------------
+//	EPOCH 14 - VLS (055A同款)
+//------------------------------------------------
+UpgradeAbilities Cruiser1164Epoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 3000; range = 48; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; }
+	        NavalMove {speed = 1.7; accel = 1; angSpeed = 60}
+	]
+}
+
 UnitType Type22350
 {
 	parent = NavalDeep
