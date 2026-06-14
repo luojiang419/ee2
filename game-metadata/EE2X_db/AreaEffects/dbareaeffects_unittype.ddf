@@ -3281,7 +3281,7 @@ DbAreaEffectInfo VineBonus
 			mask = TavernUnits
 			player = Self
 			affected = [Food]
-			scale = 4.0
+			scale = 2.0
 		}
 	]
 }
@@ -3296,7 +3296,7 @@ DbAreaEffectInfo StoneBonus
 			mask = TavernUnits
 			player = Self
 			affected = [Stone]
-			scale = 4.0
+			scale = 2.0
 		}
 	]
 }
