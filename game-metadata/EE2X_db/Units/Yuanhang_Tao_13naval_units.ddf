@@ -234,7 +234,7 @@ hitpoints = 15000
 
 		Garrison{
 
-			numOfSlots = 200;
+			numOfSlots = 250;
 
 			healPoints = 200;		// Each unit type garrison heals this many points per second
 
@@ -3525,6 +3525,12 @@ UnitType moskva_Heliport
 			GarrisonFlagModelName = "GarrisonShip"
 
 		}
+        Garrison {
+            numOfSlots = 350;
+            garrisonType = NavalTransport;
+            rightClickToGarrison = true
+            GarrisonFlagModelName = "GarrisonShip"
+        }
 
 		LOS { range = 26 }            
 

@@ -4677,7 +4677,7 @@ displayName = tx_utn_sanantonio_name
 		LOS { range = 10 }
 		Attack { damage = 600; range = 22; reloadTime = 2; applyDamageTime = 0.5; missileName = "A054Rocket"; }
 			Garrison{
-			numOfSlots = 200;
+			numOfSlots = 300;
 			healPoints = 200;		// Each unit type garrison heals this many points per second
 			garrisonType = NavalTransport; 
 			GarrisonFlagModelName = "GarrisonShip"
