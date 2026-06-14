@@ -1452,7 +1452,7 @@ Military11_4,text_Military11_4_name,,11,3,Military,icon_tech_e11_military4,3,3,2
 
 // ------------------------- EPOCH 12 ------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
 // UNITS,,,,,,,,,,,,,,,,,,,,,,,,,,
-NonCombatAir2,text_NonCombatAir2_12_name,,12,0,,,0,2,1,Airport,NonCombatAir2,NonCombatAir2UpgradeEpoch12,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
+NonCombatAir2,text_NonCombatAir2_12_name,,12,0,,,0,2,1,Airport,NonCombatAir2,NonCombatAir2UpgradeEpoch12,20,0,0,0,0,0,0,0,0,0,0,,[],(None)
 NuclearBomber,text_NuclearBomber_12_name,,12,0,,,0,2,0,Airport,NuclearBomber,NuclearBomberUpgradeEpoch12,0,0,0,0,0,0,0,0,0,0,4,,[],(None)
 MachineGunNest12,tx_utn_machinegunnest12_name,,13,0,,,3,2,2,Citizen,MachineGunNest12,,50,0,100,100,100,0,0,0,0,0,0,,[],(None)
 
