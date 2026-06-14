@@ -3304,7 +3304,7 @@ DbAreaEffectInfo StoneBonus
       effects = [
         EffectResourceDropoff {
 			range = SelfClaimedTerritoryUnitIsIn
-			mask = TavernUnits
+			mask = Universities
 			player = Self
 			affected = [AllNaturalResource]
 			scale = 4.0
