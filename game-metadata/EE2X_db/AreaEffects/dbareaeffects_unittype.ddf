@@ -3270,36 +3270,6 @@ DbAreaEffectInfo AirdefShotSuccess
 			successRate = 0.5
 		}
 		EffectVisualGlow {
-
-DbAreaEffectInfo VineBonus
-{
-	button = ""
-	selectionType = None
-      effects = [
-        EffectResourceDropoff {
-			range = SelfClaimedTerritoryUnitIsIn
-			mask = TavernUnits
-			player = Self
-			affected = [Food]
-			scale = 2.0
-		}
-	]
-}
-
-DbAreaEffectInfo StoneBonus
-{
-	button = ""
-	selectionType = None
-      effects = [
-        EffectResourceDropoff {
-			range = SelfClaimedTerritoryUnitIsIn
-			mask = TavernUnits
-			player = Self
-			affected = [Stone]
-			scale = 2.0
-		}
-	]
-}
 			range = RadiusFromUnit
 			radius = 25
 			mask = ShotSuc_AirDefenses
