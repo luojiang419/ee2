@@ -3281,3 +3281,33 @@ DbAreaEffectInfo AirdefShotSuccess
 		}
 	]
 }
+
+DbAreaEffectInfo VineBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+        EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = TavernUnits
+			player = Self
+			affected = [AllNaturalResource]
+			scale = 4.0
+		}
+	]
+}
+
+DbAreaEffectInfo StoneBonus
+{
+	button = ""
+	selectionType = None
+      effects = [
+        EffectResourceDropoff {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = TavernUnits
+			player = Self
+			affected = [AllNaturalResource]
+			scale = 4.0
+		}
+	]
+}
