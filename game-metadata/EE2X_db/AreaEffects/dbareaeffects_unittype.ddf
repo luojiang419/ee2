@@ -3307,7 +3307,7 @@ DbAreaEffectInfo StoneBonus
 			mask = Universities
 			player = Self
 			affected = [AllNaturalResource]
-			scale = 4.0
+			scale = 1.5
 		}
 	]
 }
