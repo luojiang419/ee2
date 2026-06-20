@@ -3292,7 +3292,7 @@ DbAreaEffectInfo VineBonus
 			mask = TavernUnits
 			player = Self
 			affected = [AllNaturalResource]
-			scale = 4.0
+			scale = 2.0
 		}
 	]
 }
