@@ -438,9 +438,6 @@ UnitType f15
 		AircraftMove {speed = 8.5; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 950; range = 18; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; }
 	LOS { range = 20 }
-	SpecialPower { 		
-			effects = [ Air_anti_missle ]
-		}
 	]
 attributes [
 		GoesOnAirMissions
