@@ -371,6 +371,10 @@ verboseTooltip = vtt_unit_Mig29k
 		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 12;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 	LOS { range = 17 }
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
     attributes [
 		GoesOnAirMissions

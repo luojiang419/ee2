@@ -41,6 +41,10 @@ UnitType J10B
 		AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 10.5; ElevChangeRate = 0.5}
 		Attack { damage = 850; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 12;areaDamageRadius = 1.0;}
 	LOS { range = 20 }
+	SpecialPower { 		
+			effects = [ Air_anti_missle ]
+		}
+	]
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
 attributes [
 		GoesOnAirMissions
