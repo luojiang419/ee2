@@ -9,7 +9,7 @@ UnitType J10B
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1900
+		HitPoints = 3040
 		displayName = tx_utn_J10B_name
         verboseTooltip = vtt_utn_J10A
 		popCount = 2
@@ -39,7 +39,7 @@ UnitType J10B
 	}
 	abilities = [
 		AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 10.5; ElevChangeRate = 0.5}
-		Attack { damage = 850; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+		Attack { damage = 850; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 12;areaDamageRadius = 1.0;}
 	LOS { range = 20 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]

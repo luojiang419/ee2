@@ -344,7 +344,7 @@ UnitType mig29k
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1900
+		HitPoints = 3040
 		displayName = tx_utn_Mig29k_name
 verboseTooltip = vtt_unit_Mig29k
 		popCount = 2
@@ -369,7 +369,7 @@ verboseTooltip = vtt_unit_Mig29k
 	}
 	abilities = [
 		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 12;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 	LOS { range = 17 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
