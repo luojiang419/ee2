@@ -11,7 +11,7 @@ UnitType T50
 		popCount = 2
         displayName = tx_utn_T50_name
 		VerboseTooltip = vtt_unit_T50
-		HitPoints = 2200
+		HitPoints = 3500
 	}
 	sounds = {
 		sndSelection = ["CWCruSu27_MA_sel_01" 
@@ -33,7 +33,7 @@ UnitType T50
 	}
 	abilities = [
 		AircraftMove {speed = 9.5; angSpeed = 100; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-            Attack { damage = 900; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+            Attack { damage = 1400; range = 23; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
 		LOS { range = 22 }
 		AreaEffect {
 			effects = [ 
@@ -101,7 +101,7 @@ UnitType Su75
 		popCount = 2
         displayName = tx_utn_Su75_name
 		VerboseTooltip = vtt_unit_Su75
-		HitPoints = 2200
+		HitPoints = 2800
 	}
 	sounds = {
 		sndSelection = ["CWCruSu27_MA_sel_01" 
@@ -123,8 +123,8 @@ UnitType Su75
 	}
 	abilities = [
 		AircraftMove {speed = 9; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-            Attack { damage = 900; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
-		LOS { range = 20 }
+            Attack { damage = 1000; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+		LOS { range = 18 }
 		AreaEffect {
 			effects = [ 
 				SuperVision,

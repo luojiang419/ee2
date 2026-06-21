@@ -1619,7 +1619,7 @@ UnitType J20Naval
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1900
+		HitPoints = 2800
 		displayName = tx_utn_J20_name
 		verboseTooltip = vtt_unit_J20
 		popCount = 1
@@ -1649,7 +1649,7 @@ UnitType J20Naval
 	}
 	abilities = [
 		AircraftMove {speed = 9; angSpeed = 85; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 1000; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8 }
+		Attack { damage = 1500; range = 20; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8 }
 	LOS { range = 28 }
 	AreaEffect {
 			effects = [ 
