@@ -141,7 +141,7 @@ UnitType NuclearMissile
 		VerboseTooltip = vtt_unit_MissileSilo
 		displayName = tx_utn_MissSilo_name
 		displayNamePlural = tx_utn_MissSilo_pname
-		HitPoints = 20000
+		HitPoints = 10000
 
 	}
 	sounds {
@@ -166,25 +166,6 @@ UnitType NuclearMissile
 		LOS { range = 250}
 	]
 }
-    abilities = [
-        Produce {
-        }
-        Attack { range = 200;
-            angularRange = 360;
-            reloadTime = 30;
-            applyDamageTime = 0.1;
-            damage = 15000;
-            missileName = "TomahawkMissile3";
-            ignoreBlocking = 1;
-            areaDamageRadius = 5;
-            areaDamageFriendlyRatio = 0.5;
-            packTime = 1.5;
-            unpackTime = 1.5;
-        }
-        LOS { range = 200 }
-    ]
-}
-
 //------------------------------------------------
 //	EPOCH 15
 //------------------------------------------------
