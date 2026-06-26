@@ -989,7 +989,7 @@ Priest,text_Priest_name,,1,0,,,0,1,0,Temple,Priest,PriestUpgradeEpoch1,0,0,0,0,0
 Scout,text_Scout_name,,1,0,,,0,1,1,CityCenter,Scout,ScoutUpgradeEpoch1,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 Spy,text_Spy_name,,1,0,,,0,1,0,University,Spy,SpyUpgradeEpoch1,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 WarGalley,text_WarGalley_01_name,,1,0,,,0,2,0,Dock,WarGalley,WarGalleyUpgradeEpoch1,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
-MyEngineer2,text_Citizen_name,,1,0,,,0,1,0,CityCenter,MyEngineer2,,25,50,0,0,0,0,0,0,0,0,0,,[],(None)
+//MyEngineer2,text_Citizen_name,,1,0,,,0,1,0,CityCenter,MyEngineer2,,25,50,0,0,0,0,0,0,0,0,0,,[],(None)
 dapao,tx_utn_radar_name,,1,0,,,2,2,6,Citizen,dapao,dapaoUpgradeEpoch1,40,0,0,0,0,0,0,0,0,0,0,,[],(None)
 
 // UNIT UPGRADES,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -2019,7 +2019,7 @@ Leopard2A4_15_Veteran,text_tt_upgrade_veteran,,15,0,Improvement,icon_tech_upgrad
 Leopard2A4_15_Elite,text_tt_upgrade_elite,,15,0,Improvement,icon_tech_upgrade_elite,0,1,3,Leopard2A4,,Leopard2A4_15Elite,60,400,0,0,400,0,0,0,0,0,0,,[Leopard2A4_15_Veteran ],(UniqueUnitImprovement)
 
 // CAMPAIGN AND TURNING POINT SPECIFIC UNITS,,,,,,,,,,,,,,,,,,,,,,,,,,
-Engineer,text_Citizen_name,,1,0,,,0,1,0,CityCenter,Engineer,,25,50,0,0,0,0,0,0,0,0,0,,[],(ScriptUnlock)
+Engineer,text_Citizen_name,,1,0,,,0,2,2,University,Engineer,,30,50,0,0,0,0,0,0,0,0,0,,[],(None)
 AmericanCampaignBomber,text_AmCampBomb,,13,0,,,0,2,0,Airport,AmericanCampaignBomber,,60,0,480,0,480,0,0,0,0,200,0,,[],(ScriptUnlock)
 MaasaiResourceHarvester,text_Citizen_name,,12,0,,,1,3,3,Citizen,MaasaiResourceHarvester,,45,0,100,0,0,0,0,0,0,0,0,,[],(ScriptUnlock)
 EgyptHorusMonument,tx_eg_monument_horus_name,,1,0,,,1,3,0,Citizen,EgyptHorusMonument,,900,0,0,1000,2000,0,0,0,0,0,0,MiddleEast,[],(ScriptUnlock)
@@ -2032,7 +2032,7 @@ RussianCityCenterVisual,text_CityCenter_name,,1,0,Improvement,,0,1,3,CityCenter,
 RussianUniversityVisual,text_University_name,,1,0,Improvement,,0,1,3,University,,RussianUniversityImprove,0,0,0,0,0,0,0,0,0,0,0,,[],(ScriptUnlock)
 
 // Tree and Gardener Engineer
-Engineer2,text_Citizen_name,,1,0,,,0,2,0,CityCenter,Engineer2,,25,50,0,0,0,0,0,0,0,0,0,,[],(None)
+//Engineer2,text_Citizen_name,,1,0,,,0,2,0,CityCenter,Engineer2,,25,50,0,0,0,0,0,0,0,0,0,,[],(None)
 Gardener,text_Citizen_name,,2,0,,,0,2,1,CityCenter,Gardener,,70,500,300,0,300,0,0,0,0,0,0,,[],(None)
 TRE_BANANA2,tx_utn_TreeBananaTree_name,,2,0,,,1,3,0,Gardener,TRE_BANANA2,,10,200,200,0,200,0,0,0,0,0,0,,[],(None)
 TRE_ORANGE2,tx_utn_TreeBananaTree_name,,2,0,,,1,3,1,Gardener,TRE_ORANGE2,,10,200,200,0,200,0,0,0,0,0,0,,[],(None)
