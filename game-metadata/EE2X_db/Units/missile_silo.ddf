@@ -166,29 +166,6 @@ UnitType NuclearMissile
 		LOS { range = 250}
 	]
 }
-UnitType TomahawkMissile
-{
-    ownerType = PlayerOnly
-    parent = Building
-    icon = icon_unit_icbmsilo
-    properties {
-        SizeX = 1.7
-        SizeY = 1.7
-        FootprintSizeX = 2.5
-        FootprintSizeY = 2.5
-        OffsetX = 0.75
-        OffsetY = 0.75
-        rps = BuildingCombat
-        mass = 0
-        DisplayNameScenEdit = tx_utn_Tomahawk_sname
-        VerboseTooltip = vtt_unit_Tomahawk
-        displayName = tx_utn_Tomahawk_name
-        displayNamePlural = tx_utn_Tomahawk_pname
-        HitPoints = 10000
-    }
-    sounds {
-        sndSelection = ["silo_select"]
-    }
     abilities = [
         Produce {
         }
