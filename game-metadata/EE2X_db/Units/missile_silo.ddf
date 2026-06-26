@@ -184,7 +184,7 @@ UnitType TomahawkMissile
         VerboseTooltip = vtt_unit_Tomahawk
         displayName = tx_utn_Tomahawk_name
         displayNamePlural = tx_utn_Tomahawk_pname
-        HitPoints = 10000
+        HitPoints = 12000
     }
     sounds {
         sndSelection = ["silo_select"]
