@@ -1989,7 +1989,7 @@ UnitType BM30
 		mass = 3
 		displayName = tx_utn_BM30_name
 		verboseTooltip = vtt_unit_BM30
-		HitPoints = 1100
+		HitPoints = 500
 		popCount = 3
 	}
 	sounds = {
