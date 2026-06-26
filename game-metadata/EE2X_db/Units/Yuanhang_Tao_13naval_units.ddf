@@ -9345,17 +9345,6 @@ UnitType Ticonderoga
 		HitPoints = 26000
 
 	}
-//------------------------------------------------
-//	EPOCH 14 - VLS (Ch055同款)
-//------------------------------------------------
-UpgradeAbilities TiconderogaEpoch14Attack
-{
-	upgradedAbilities = [
-		Attack { damage = 3000; range = 48; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; }
-	        NavalMove {speed = 1.35; accel = 1; angSpeed = 60}
-	]
-}
-
 
 	attributes = [
 
