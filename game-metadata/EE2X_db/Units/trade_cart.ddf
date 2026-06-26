@@ -8,7 +8,7 @@ UnitType TradeCart
 		SizeX = 0.4
 		SizeY = 0.4
 		mass = 1
-		displayName = tx_utn_TradeCart_name
+		displayName = tx_utn_MarketCart_name
 		moveType = WheeledTrade
 		hitpoints = 0
 		VerboseTooltip = vtt_unit_TradeCart
@@ -23,7 +23,7 @@ UnitType TradeCart
 		VehicleMove {speed = 1.5; angSpeed = 180; followTerrainSlope = 0}
 		LOS { range = 0 }
 		Trade { MarketType = Markets; 
-				GoldPerTile = 0.90; 
+				GoldPerTile = 1.0; 
 				TechPerTile = 0.0; 
 				TechBonusEpochDiff = 0.0;
 				TechBonusLikelyhood = [ .10 .15 .20 .25 .30 ] 
@@ -51,7 +51,7 @@ UpgradeAbilities TradeCartTechTreeUpgrade
 	UnitType = TradeCart
 	upgradedAbilities = [
 		Trade { MarketType = Markets; 
-				GoldPerTile = 0.90; 
+				GoldPerTile = 1.0; 
 				TechPerTile = 0.0; 
 				TechBonusEpochDiff = 0.0;
 				TechBonusLikelyhood = [ .10 .15 .20 .25 .30 ] 

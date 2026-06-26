@@ -243,9 +243,9 @@ Weelloader,text_LightMounted1_02_name,,13,0,,,0,2,0,Autofactory,Weelloader,,70,0
 Harvester,text_LightMounted1_02_name,,13,0,,,0,2,1,Autofactory,Harvester,,70,0,500,500,500,0,0,0,0,0,0,,[],(None)
 Tractor,text_LightMounted1_02_name,,11,0,,,0,2,2,Autofactory,Tractor,TractorUpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 
-gruzovik,tx_utn_TradeCart_name,,11,0,,,0,3,1,Autofactory,gruzovik,gruzovikUpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
+gruzovik,tx_utn_TradeCart_name,,11,0,,,0,0,0,Market,gruzovik,gruzovikUpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 Autobus,text_LightMounted1_02_name,,12,0,,,0,3,2,Autofactory,Autobus,,50,100,100,0,300,0,0,0,200,0,0,,[],(None)
-TradeCart215,tx_utn_TradeCart_name,,13,0,,,0,3,0,Autofactory,TradeCart215,,30,50,100,0,100,0,0,0,0,100,0,,[],(None)
+TradeCart215,tx_utn_TradeCart_name,,13,0,,,0,0,1,Market,TradeCart215,,30,300,300,0,300,0,0,0,0,100,0,,[],(None)
 policecar,text_medcar_name,,13,0,,,0,1,0,Bank,policecar,,50,100,200,0,300,0,0,0,200,0,0,,[],(None)
 Firetruck,text_LightMounted1_02_name,,13,0,,,0,1,1,Bank,Firetruck,,50,200,100,0,400,0,0,0,200,0,0,,[],(None)
 
@@ -2019,7 +2019,7 @@ Leopard2A4_15_Veteran,text_tt_upgrade_veteran,,15,0,Improvement,icon_tech_upgrad
 Leopard2A4_15_Elite,text_tt_upgrade_elite,,15,0,Improvement,icon_tech_upgrade_elite,0,1,3,Leopard2A4,,Leopard2A4_15Elite,60,400,0,0,400,0,0,0,0,0,0,,[Leopard2A4_15_Veteran ],(UniqueUnitImprovement)
 
 // CAMPAIGN AND TURNING POINT SPECIFIC UNITS,,,,,,,,,,,,,,,,,,,,,,,,,,
-Engineer,text_Citizen_name,,1,0,,,0,2,2,University,Engineer,,30,50,0,0,0,0,0,0,0,0,0,,[],(None)
+Engineer,text_Citizen_name,,1,0,,,0,2,2,University,Engineer,EngineerUpgradeEpoch11,30,50,0,0,0,0,0,0,0,0,0,,[],(None)
 AmericanCampaignBomber,text_AmCampBomb,,13,0,,,0,2,0,Airport,AmericanCampaignBomber,,60,0,480,0,480,0,0,0,0,200,0,,[],(ScriptUnlock)
 MaasaiResourceHarvester,text_Citizen_name,,12,0,,,1,3,3,Citizen,MaasaiResourceHarvester,,45,0,100,0,0,0,0,0,0,0,0,,[],(ScriptUnlock)
 EgyptHorusMonument,tx_eg_monument_horus_name,,1,0,,,1,3,0,Citizen,EgyptHorusMonument,,900,0,0,1000,2000,0,0,0,0,0,0,MiddleEast,[],(ScriptUnlock)
