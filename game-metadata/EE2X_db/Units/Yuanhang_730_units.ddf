@@ -512,7 +512,7 @@ UnitType TRE_PALM_042_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
-    abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
+    abilities = [ Resource { type = kResourceType_Uranium; amount = 6000; maxNumOfWorkers = 6} ]
     icon = icon_TRE_PALM_042_15
 }
 
@@ -547,7 +547,7 @@ UnitType TRE_CYPRESS2_15
 		HitPoints = 1500
 		mmColor = [128,128,128,255]		
 		}
-	abilities = [ Resource { type = kResourceType_Food; amount = 6000; maxNumOfWorkers = 6} ]
+	abilities = [ Resource { type = kResourceType_Gold; amount = 6000; maxNumOfWorkers = 6} ]
 	icon = icon_TRE_CYPRESS2_15
 }
 ////////////////////////////
