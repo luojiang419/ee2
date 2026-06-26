@@ -181,7 +181,7 @@ UnitType TomahawkMissile
         rps = BuildingCombat
         mass = 0
         DisplayNameScenEdit = tx_utn_Tomahawk_sname
-        VerboseTooltip = vtt_unit_MissileSilo
+        VerboseTooltip = vtt_unit_Tomahawk
         displayName = tx_utn_Tomahawk_name
         displayNamePlural = tx_utn_Tomahawk_pname
         HitPoints = 12000
