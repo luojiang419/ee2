@@ -141,7 +141,7 @@ UnitType NuclearMissile
 		VerboseTooltip = vtt_unit_MissileSilo
 		displayName = tx_utn_MissSilo_name
 		displayNamePlural = tx_utn_MissSilo_pname
-		HitPoints = 10000
+		HitPoints = 20000
 
 	}
 	sounds {
