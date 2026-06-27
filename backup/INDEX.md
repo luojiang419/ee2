@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-05-31
+> 最后更新: 2026-06-27
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -181,6 +181,8 @@
 | 155 | EE2X_db-155-固定防空E14属性调整-pre.zip | pre | AirDefense/AIAirDefense/AMissileDefense E14 | upgrade_unittypes.csv, radar.ddf | 三个固定防空建筑E14统一：HP=10000, DMG=1000, RELOAD=0.75 | — | 2026-05-31 |
 | 156 | EE2X_db-155-固定防空E14属性调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 155修改应用后的完整游戏ZIP | 待测试 | 2026-05-31 |
 | 157 | EE2X_db-157-固定防空E14射速调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | AirDefense/AIAirDefense射速0.75→1.0，AMissileDefense恢复12000/2000/3.0 | 测试通过 | 2026-05-31 |
+| 158 | EE2X_db-158-日本E14海军参数15%高于俄罗斯-pre.zip | pre | 日本E14海军五舰(朝霧/高波/愛宕/春潮/瑞鶴) | upgrade_unittypes.csv | 日本E14五艦HP/LOS/DAMAGE/RANGE/RELOAD/BUILDTIME按对应俄舰×1.15(装填建造÷1.15) | — | 2026-06-27 |
+| 159 | EE2X_db-159-日本E14海军1.15倍高于俄罗斯-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 158修改应用后的完整游戏ZIP | 待测试 | 2026-06-27 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 
