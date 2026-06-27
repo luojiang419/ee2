@@ -1431,7 +1431,7 @@ UnitType ResourceGold
 		VerboseTooltip = vtt_unit_Gold
 	}
 	abilities [ 
-		Resource { type = kResourceType_Gold; alwaysExhaustible = 1; amount = 1500; maxNumOfWorkers = 6}
+		Resource { type = kResourceType_Gold; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 6}
 	]
 }
 
@@ -1472,7 +1472,7 @@ UnitType ResourceStone
 		VerboseTooltip = vtt_unit_Stone
 	}
 	abilities [ 
-		Resource { type = kResourceType_Stone; alwaysExhaustible = 1; amount = 1500; maxNumOfWorkers = 6}
+		Resource { type = kResourceType_Stone; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 6}
 	]
 }
 
@@ -1576,7 +1576,7 @@ UnitType ResourceCoal
 		 }
       abilities [
 		// change alwaysExhaustible to make tree exhaustible
-		Resource { type = kResourceType_Oil; alwaysExhaustible = 1; amount = 20000; maxNumOfWorkers = 6}
+		Resource { type = kResourceType_Oil; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 6}
 	]
 	
 }
@@ -1999,7 +1999,7 @@ UnitType ResourceOil
 		VerboseTooltip = vtt_unit_UnknownResource
 	}
 	abilities [ 
-		Resource { type = kResourceType_Oil; alwaysExhaustible = 1; amount = 800; maxNumOfWorkers = 3}
+		Resource { type = kResourceType_Oil; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 3}
 	]
 }
 
@@ -2078,7 +2078,7 @@ UnitType ResourceUranium
 		VerboseTooltip = vtt_unit_UnknownResource
 	}
 	abilities [ 
-		Resource { type = kResourceType_Uranium; alwaysExhaustible = 1; amount = 800; maxNumOfWorkers = 3}
+		Resource { type = kResourceType_Uranium; alwaysExhaustible = 1; amount = 10000; maxNumOfWorkers = 3}
 	]
 }
 
