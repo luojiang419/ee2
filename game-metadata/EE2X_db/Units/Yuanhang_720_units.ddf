@@ -597662,7 +597662,7 @@ UnitType C130
 
 
 
-             Attack { damage = 300; range = 15; reloadTime = 0.2; angularRange = 360; applyDamageTime = 0.01; missileName = "fkjqAmmo"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20; areaDamageRadius = 2.0; }
+             Attack { damage = 300; range = 15; reloadTime = 0.2; angularRange = 360; applyDamageTime = 0.01; missileName = "GroundRocketHerc"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20; areaDamageRadius = 2.0; }
 
 
 
