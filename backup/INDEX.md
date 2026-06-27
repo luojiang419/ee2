@@ -185,6 +185,8 @@
 | 159 | EE2X_db-159-日本E14海军1.15倍高于俄罗斯-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 158修改应用后的完整游戏ZIP | 待测试 | 2026-06-27 |
 | 160 | EE2X_db-160-愛宕級修正配對改對DestroyerLeader-pre.zip | pre | DestroyerAtago(愛宕級) E14配对修正 | upgrade_unittypes.csv | 愛宕級俄同级从kirov修正为DestroyerLeader，HP=57500/DAM=2530/RNG=51 | — | 2026-06-27 |
 | 161 | EE2X_db-161-愛宕級修正配對改對DestroyerLeader-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 160修改应用后的完整游戏ZIP | 待测试 | 2026-06-27 |
+| 162 | EE2X_db-162-日本E14五舰基准从俄切换为中国-pre.zip | pre | 日本E14海军五舰基准切换 | upgrade_unittypes.csv | 日本海军整体基准从俄×1.15改为中×0.9，愛宕級改对Ch055A | — | 2026-06-28 |
+| 163 | EE2X_db-163-日本E14五舰基准从俄切换为中国-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 162修改应用后的完整游戏ZIP | 待测试 | 2026-06-28 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 
