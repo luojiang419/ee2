@@ -2932,7 +2932,7 @@ UnitType MarderATGM
 	}
 	abilities = [
 		Attack { damage = 1200; range = 18; reloadTime = 2.55; applyDamageTime = 0.5; missileName = "AntankMissile"; areaDamageRadius =1.0; turretControllerName = Coast13Turret; throwUnits = true} 
-		VehicleMove {speed = 0.85; angSpeed = 50; followTerrainSlope = 1 }
+		VehicleMove {speed = 1.0; angSpeed = 50; followTerrainSlope = 1 }
 		LOS { range = 18 }
 		Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
 	]
