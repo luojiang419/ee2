@@ -6606,7 +6606,7 @@ UnitType AsagiriDestroyer
 
 	properties {
 
-		rps = Destroyer
+		rps = AntiAircraft
 
 		SizeX = 3.5
 
@@ -6672,6 +6672,87 @@ UnitType AsagiriDestroyer
 
 	icon = icon_unit_Asagiri
 
+}
+
+//------------------------------------------------
+
+//	EPOCH 11 - AA防空改造 (Asagiri专属)
+
+//------------------------------------------------
+
+// Attack Ability Upgrade
+
+UpgradeAbilities AsagiriAAAEpoch11Attack
+
+{
+	upgradedAbilities = [
+		Attack { damage = 315; range = 11; angularRange = 360; reloadTime = 0.56; applyDamageTime = 0.01; missileName = "fkjqAmmo"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+			NavalMove {speed = 2.03; accel = 1; angSpeed = 54}
+	]
+}
+
+//------------------------------------------------
+
+//	EPOCH 12 - AA防空改造 (Asagiri专属)
+
+//------------------------------------------------
+
+// Attack Ability Upgrade
+
+UpgradeAbilities AsagiriAAAEpoch12Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 360; range = 13; angularRange = 360; reloadTime = 0.56; applyDamageTime = 0.01; missileName = "fkjqAmmo"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+			NavalMove {speed = 2.16; accel = 1; angSpeed = 54}
+	]
+}
+
+//------------------------------------------------
+
+//	EPOCH 13 - AA防空改造 (Asagiri专属)
+
+//------------------------------------------------
+
+// Attack Ability Upgrade
+
+UpgradeAbilities AsagiriAAAEpoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 419; range = 14; angularRange = 360; reloadTime = 0.56; applyDamageTime = 0.01; missileName = "fkjqAmmo"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+			NavalMove {speed = 2.30; accel = 1; angSpeed = 63}
+	]
+}
+
+//------------------------------------------------
+
+//	EPOCH 14 - AA防空改造 (Asagiri专属)
+
+//------------------------------------------------
+
+// Attack Ability Upgrade
+
+UpgradeAbilities AsagiriAAAEpoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 2160; range = 50; angularRange = 360; reloadTime = 1.11; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+			NavalMove {speed = 1.8; accel = 1; angSpeed = 216}
+	]
+}
+
+//------------------------------------------------
+
+//	EPOCH 15 - AA防空改造 (Asagiri专属)
+
+//------------------------------------------------
+
+// Attack Ability Upgrade
+
+UpgradeAbilities AsagiriAAAEpoch15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 554; range = 19; angularRange = 360; reloadTime = 0.56; applyDamageTime = 0.01; missileName = "fkjqAmmo"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+			NavalMove {speed = 2.30; accel = 1; angSpeed = 77}
+	]
 }
 
 
