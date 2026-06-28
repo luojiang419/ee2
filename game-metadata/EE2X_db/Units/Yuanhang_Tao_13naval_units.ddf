@@ -12111,7 +12111,7 @@ UnitType FregattenF124
 
 	abilities = [
 
-            Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
+            Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 1.25; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
 
             NavalMove {speed = 2.0; accel = 1; angSpeed = 40}
 
@@ -12409,7 +12409,7 @@ UnitType DestroyerF217
 
 	abilities = [
 
-            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
+            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 1.25; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -12787,7 +12787,7 @@ UnitType Cruiser_Ger
 
 	abilities = [
 
-           Attack { damage = 1200; range = 28; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "AmericanRocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
+           Attack { damage = 1200; range = 33; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "AmericanRocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
