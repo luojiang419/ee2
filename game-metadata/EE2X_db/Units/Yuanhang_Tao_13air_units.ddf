@@ -3300,7 +3300,7 @@ UnitType TornadoGerman
 	}
 	abilities = [
 		AircraftMove {speed = 7.5; angSpeed = 60; CruisingHeight = 9.5; ElevChangeRate = 0.5}
-		Attack { damage = 1500; range = 14; reloadTime = 0.3; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 5.0;}
+		Attack { damage = 850; range = 14; reloadTime = 0.85; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 	LOS { range = 16}
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
