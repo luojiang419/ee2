@@ -2734,7 +2734,7 @@ UnitType Leopard2A6
 		popCount = 2
 		displayName = tx_utn_Leopard2A6_name
         verboseTooltip = vtt_unit_Leopard2A6
-		HitPoints = 8888
+		HitPoints = 11900
 	}
 	sounds = {
 		sndSelection = [
