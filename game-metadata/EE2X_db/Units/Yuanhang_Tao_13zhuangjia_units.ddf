@@ -4089,7 +4089,7 @@ UnitType Pzh2000
 	sounds = {
 	}
 	abilities = [
-	     Attack {  damage = 1500; range = 45; angularRange = 360; reloadTime = 3.0; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	     Attack {  damage = 1500; range = 40; angularRange = 360; reloadTime = 3.0; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3.5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport ] }
 		LOS { range = 20 }
 		VehicleMove {speed = 0.72; angSpeed = 50; followTerrainSlope = 1 }
@@ -4233,7 +4233,7 @@ UnitModel Pzh2000_14
 {
 	Parent		= BaseArtillery
 	ScaleType 	= kScaleVehicle
-	ForceScale      = 0.13
+	ForceScale      = 0.26
       DefaultModel 	= Pzh2000.nif
 	DefaultState 	= Idle
 	States 		= [
