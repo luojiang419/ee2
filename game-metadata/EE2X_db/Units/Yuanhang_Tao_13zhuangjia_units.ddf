@@ -2539,21 +2539,21 @@ UnitType GermanLeopard2A5
 		popCount = 2
 		displayName = tx_utn_Leo_name
         verboseTooltip = vtt_unit_Leo2
-		HitPoints = 4500
+		HitPoints = 7200
 	}
 	sounds = {
 		sndSelection = [
 "v_HeavyMounted1_11_spe01"
 "v_HeavyMounted1_13_spe01"
 "v_lightartillery1_13_sel01" ]
-sndCmdMove = ["v_heavyartillery_12_com01" 
+sndCmdMove = ["v_heavyartillery_12_com01"
 "v_HeavyMounted1_12_spe01"
 "v_HeavyMounted1_12_com01" ]
 //		sndCmdAttack = [""]
 //		sndDeath =  [""]
 	}
 	abilities = [
-      Attack { range = 15; reloadTime = 1.5; applyDamageTime = 0.5; damage = 500; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2;}
+      Attack { range = 21; reloadTime = 1.5; applyDamageTime = 0.5; damage = 415; missileName = TankShell; turretControllerName = TankTurret;areaDamageRadius = 2;}
 	  VehicleMove {speed = 1.53; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [ Taran_Tanks ]		}	
@@ -2734,7 +2734,7 @@ UnitType Leopard2A6
 		popCount = 2
 		displayName = tx_utn_Leopard2A6_name
         verboseTooltip = vtt_unit_Leopard2A6
-		HitPoints = 11900
+		HitPoints = 15900
 	}
 	sounds = {
 		sndSelection = [
@@ -2748,7 +2748,7 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 //		sndDeath =  [""]
 	}
 	abilities = [
-      Attack { range = 18; reloadTime = 2.0; applyDamageTime = 0.5; damage = 1500; missileName = TankShell; turretControllerName = TankTurret; }
+      Attack { range = 21; reloadTime = 2.0; applyDamageTime = 0.5; damage = 1500; missileName = TankShell; turretControllerName = TankTurret; }
 	  VehicleMove {speed = 1.53; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [ Taran_Tanks ]		}	
