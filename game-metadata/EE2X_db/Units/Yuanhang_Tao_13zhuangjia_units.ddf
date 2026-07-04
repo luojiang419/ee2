@@ -2849,7 +2849,7 @@ UnitModel Leopard2A6_14
 {
 	parent 		= BaseHeavyMountedArmored
 	DefaultModel 	= Leopard2A6.NIF
-	ForceScale      = 0.1
+	ForceScale      = 0.2
 	States = [
 			{ StateName= Idle AnimName = T99_A2_idle.KF 
 			TextKeys = [ 
