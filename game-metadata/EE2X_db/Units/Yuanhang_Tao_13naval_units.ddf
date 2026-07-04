@@ -1986,7 +1986,7 @@ UnitModel Ch055A_11
 
 	DefaultModel 	= aurora.NIF
 
-	ForceScale = 0.195
+	ForceScale = 0.295
 
 	States 		= [
 
@@ -2046,7 +2046,7 @@ UnitModel Ch055A_12
 
 	DefaultModel = Chongqin1945.NIF
 
-	ForceScale = 0.18
+	ForceScale = 0.28
 
 	States 		= [
 
@@ -2108,7 +2108,7 @@ UnitModel Ch055A_13
 
 	DefaultState 	= Idle
 
-      ForceScale = 0.14
+      ForceScale = 0.24
 
       States = [
 
@@ -2170,7 +2170,7 @@ UnitModel Ch055A_14
 
       DefaultModel 	= Ch055A.nif
 
-	  ForceScale = 0.1
+	  ForceScale = 0.2
 
 	  DefaultState 	= Idle
 
