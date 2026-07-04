@@ -2748,7 +2748,7 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 //		sndDeath =  [""]
 	}
 	abilities = [
-      Attack {  range = 21; reloadTime = 2.0; applyDamageTime = 0.5; damage = 1500; missileName = TankShell; turretControllerName = TankTurret; }
+      Attack {  range = 19; reloadTime = 2.0; applyDamageTime = 0.5; damage = 1200; missileName = TankShell; turretControllerName = TankTurret; }
 	  VehicleMove {speed = 1.53; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [ Taran_Tanks ]		}	
