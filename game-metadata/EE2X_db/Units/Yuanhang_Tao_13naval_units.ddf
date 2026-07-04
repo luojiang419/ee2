@@ -7577,7 +7577,7 @@ UnitType DestroyerAkitsuki
 
 		VerboseTooltip = vtt_unit_DestroyerAkitsuki
 
-		HitPoints = 15000
+		HitPoints = 24000
 
 	}
 
@@ -7593,7 +7593,7 @@ UnitType DestroyerAkitsuki
 
 	abilities = [
 
-            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; } //turretControllerName = sensordestroyerTurret;
+            Attack {  damage = 1000; range = 24; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; } //turretControllerName = sensordestroyerTurret;
 
             NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -11747,7 +11747,7 @@ UnitType BadenWurttemberg
 
 		VerboseTooltip = vtt_unit_BadenWurttemberg
 
-		HitPoints = 8000
+		HitPoints = 13500
 
 	}
 
@@ -11763,7 +11763,7 @@ UnitType BadenWurttemberg
 
 	abilities = [
 
-            Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
+            Attack {  damage = 700; range = 22; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
 
             NavalMove {speed = 2.0; accel = 1; angSpeed = 40}
 
@@ -12095,7 +12095,7 @@ UnitType FregattenF124
 
 		VerboseTooltip = vtt_unit_FregattenF124
 
-		HitPoints = 8000
+		HitPoints = 24000
 
 	}
 
@@ -12111,7 +12111,7 @@ UnitType FregattenF124
 
 	abilities = [
 
-            Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 1.25; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
+            Attack {  damage = 800; range = 23; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
 
             NavalMove {speed = 2.0; accel = 1; angSpeed = 40}
 
@@ -12393,7 +12393,7 @@ UnitType DestroyerF217
 
 		VerboseTooltip = vtt_unit_DestroyerF217
 
-		HitPoints = 15000
+		HitPoints = 24000
 
 	}
 
@@ -12409,7 +12409,7 @@ UnitType DestroyerF217
 
 	abilities = [
 
-            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 1.25; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
+            Attack {  damage = 1000; range = 24; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} 
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -12771,7 +12771,7 @@ UnitType Cruiser_Ger
 
 		VerboseTooltip = vtt_unit_DDG1000
 
-		HitPoints = 20000
+		HitPoints = 63000
 
 	}
 
@@ -12787,7 +12787,7 @@ UnitType Cruiser_Ger
 
 	abilities = [
 
-           Attack { damage = 1200; range = 33; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "AmericanRocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
+           Attack {  damage = 1100; range = 33; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.5; missileName = "AmericanRocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -12955,7 +12955,7 @@ UnitType L212Afr
 
 		mass = 1
 
-		HitPoints = 6000
+		HitPoints = 800
 
 displayName = tx_utn_L212A_name
 
@@ -12969,7 +12969,7 @@ verboseTooltip = vtt_unit_L212A
 
 	abilities = [
 
-		Attack { damage = 1000; range = 13; reloadTime = 3; applyDamageTime = 0.5; missileName = "Torpedo" }
+		Attack {  damage = 50000; range = 23; reloadTime = 2.0; applyDamageTime = 0.5; missileName = "Torpedo" }
 
 		LOS { range = 20 }
 

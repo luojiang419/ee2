@@ -21,7 +21,7 @@ UnitType GermanCarrier
 	abilities = [
 		NavalMove {speed = 1.725; accel = 1; angSpeed = 10}
 		LOS { range = 0 }
-		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5;}
+		Attack {  damage = 510; range = 26; reloadTime = 1.5; applyDamageTime = 0.5;}
 		Produce {  } // needs produce ability for EffectSpawn
 		GarrisonAircraft {
 			numOfSlots = 30;

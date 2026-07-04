@@ -91646,7 +91646,7 @@ UnitType gertiger1
 
 
 
-		HitPoints = 2450
+		HitPoints = 3900
 
 
 
@@ -91870,7 +91870,7 @@ verboseTooltip = vtt_unit_tiger1
 
 
 
-		Attack { range = 16; reloadTime = 2; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
+		Attack {  range = 20; reloadTime = 3.0; applyDamageTime = 0; damage = 620; missileName = "GuidedMissile";throwUnits = true }
 
 
 
