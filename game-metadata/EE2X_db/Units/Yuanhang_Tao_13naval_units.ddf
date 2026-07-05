@@ -6929,6 +6929,23 @@ UnitType DestroyerAtago
 
 }
 
+//------------------------------------------------
+
+//	EPOCH 14 - 愛宕級专属攻击升级 (Ch055Epoch14Attack ×0.9)
+
+//------------------------------------------------
+
+// Attack Ability Upgrade
+
+UpgradeAbilities DestroyerAtagoEpoch14Attack
+
+{
+	upgradedAbilities = [
+		Attack { damage = 2700; range = 43; angularRange = 360; reloadTime = 2.22; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; throwUnits = true }
+			NavalMove {speed = 1.7; accel = 1; angSpeed = 60}
+	]
+}
+
 UnitModel DestroyerAtago_11
 
 {
