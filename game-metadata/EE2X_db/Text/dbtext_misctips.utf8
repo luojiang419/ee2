@@ -140,6 +140,4 @@ vtt_buildPlace_unclaimedTerr,"""在此未占领地区内建造，比起在你所
 vtt_buildPlace_otherClaimedTerr,"""在其他玩家的占领地区内建造，比起在你所控制的地区内建造要久三倍的时间。"""
 vtt_buildPlace_twoCities,"""你无法在另一个城市的范围内建造城市中心。"""
 vtt_buildPlace_otherCity,"""你无法在属于其他玩家的城市范围内进行建造工程。"""
-tt_power_resource,"""资源爆发"""
-vtt_power_resource,"""激活后持续10分钟：资源交付翻倍、黄金和硝石采集+50%，仅自身生效。"""
 

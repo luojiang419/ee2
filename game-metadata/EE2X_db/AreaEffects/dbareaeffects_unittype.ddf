@@ -408,7 +408,7 @@ DbAreaEffectInfo UnitsResourcePower
 			mask = UniversitiesAndTemples
 			player = Self
 			affected = [AllNaturalResource]			
-			scale = 6
+			scale = 2
 		}
         EffectResourceGatherRate {
 			range = SelfClaimedTerritoryUnitIsIn		
@@ -416,7 +416,7 @@ DbAreaEffectInfo UnitsResourcePower
 			player = Self
 			affectedResourceTypes = [Gold]	
             affectedResourceSources = Anything		
-			scale = 6
+			scale = 2
 		}
         EffectResourceGatherRate {
 			range = SelfClaimedTerritoryUnitIsIn		
@@ -424,69 +424,29 @@ DbAreaEffectInfo UnitsResourcePower
 			player = Self
 			affectedResourceTypes = [Saltpeter]	
             affectedResourceSources = Anything		
-			scale = 6
+			scale = 2
 		}		
         EffectResourceDropoff {
 			range = SelfClaimedTerritoryUnitIsIn	
 			mask = OilRefineryUnits
 			player = Self
 			affected = [AllNaturalResource]			
-			scale = 6
+			scale = 2
 		}
         EffectResourceDropoff {
 			range = SelfClaimedTerritoryUnitIsIn		
 			mask = RectorUnits
 			player = Self
 			affected = [AllNaturalResource]			
-			scale = 6
+			scale = 2
 		}	
         EffectResourceTrade {
 			range = SelfClaimedTerritoryUnitIsIn			
 			mask = BankUnits
 			player = Self
 			affected = [Gold]			
-			scale = 6
+			scale = 2
 		}
-	        EffectResourceGatherRate {
-				range = SelfClaimedTerritoryUnitIsIn		
-				mask = Citizens
-				player = Self
-				affectedResourceTypes = [Food]	
-	            affectedResourceSources = Anything		
-				scale = 6
-			}
-	        EffectResourceGatherRate {
-				range = SelfClaimedTerritoryUnitIsIn		
-				mask = Citizens
-				player = Self
-				affectedResourceTypes = [Wood]	
-	            affectedResourceSources = Anything		
-				scale = 6
-			}
-	        EffectResourceGatherRate {
-				range = SelfClaimedTerritoryUnitIsIn		
-				mask = Citizens
-				player = Self
-				affectedResourceTypes = [Stone]	
-	            affectedResourceSources = Anything		
-				scale = 6
-			}
-	        EffectResourceGatherRate {
-				range = SelfClaimedTerritoryUnitIsIn		
-				mask = OilRig
-				player = Self
-				affectedResourceTypes = [Oil]	
-	            affectedResourceSources = Anything		
-				scale = 6
-			}
-	        EffectResourceGatherRate {
-				range = SelfClaimedTerritoryUnitIsIn		
-				mask = UraniumMine
-				player = Self
-				affectedResourceTypes = [Uranium]	
-	            affectedResourceSources = Anything		
-				scale = 6
-			}
 	]
 }
 DbAreaEffectInfo UnitsPower
