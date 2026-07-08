@@ -447,6 +447,46 @@ DbAreaEffectInfo UnitsResourcePower
 			affected = [Gold]			
 			scale = 6
 		}
+	        EffectResourceGatherRate {
+				range = SelfClaimedTerritoryUnitIsIn		
+				mask = Citizens
+				player = Self
+				affectedResourceTypes = [Food]	
+	            affectedResourceSources = Anything		
+				scale = 6
+			}
+	        EffectResourceGatherRate {
+				range = SelfClaimedTerritoryUnitIsIn		
+				mask = Citizens
+				player = Self
+				affectedResourceTypes = [Wood]	
+	            affectedResourceSources = Anything		
+				scale = 6
+			}
+	        EffectResourceGatherRate {
+				range = SelfClaimedTerritoryUnitIsIn		
+				mask = Citizens
+				player = Self
+				affectedResourceTypes = [Stone]	
+	            affectedResourceSources = Anything		
+				scale = 6
+			}
+	        EffectResourceGatherRate {
+				range = SelfClaimedTerritoryUnitIsIn		
+				mask = OilRig
+				player = Self
+				affectedResourceTypes = [Oil]	
+	            affectedResourceSources = Anything		
+				scale = 6
+			}
+	        EffectResourceGatherRate {
+				range = SelfClaimedTerritoryUnitIsIn		
+				mask = UraniumMine
+				player = Self
+				affectedResourceTypes = [Uranium]	
+	            affectedResourceSources = Anything		
+				scale = 6
+			}
 	]
 }
 DbAreaEffectInfo UnitsPower
