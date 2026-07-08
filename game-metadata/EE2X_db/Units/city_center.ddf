@@ -100,11 +100,10 @@ UnitType CityCenter
 				
 			]
 		}
-			SpecialPower {
-				effects = [ UnitsResourcePower ]
-			}
-		PowerReserve { timeToRecharge = 60 }
-		]
+		SpecialPower {
+			effects = [ UnitsResourcePower ]
+		}
+	]
 }
 //------------------------------------------------
 //	EPOCH 1
