@@ -174,3 +174,14 @@ UpgradeRefSet ImperialEpoch1Slot4 {
 	]
 }
 
+UpgradeRefSet CheatResUpgradeSet {
+    upgrades = [
+        CheatResGather_Food
+        CheatResGather_Wood
+        CheatResGather_Stone
+        CheatResGather_Gold
+        CheatResGather_Oil
+        CheatResGather_Uranium
+    ]
+}
+

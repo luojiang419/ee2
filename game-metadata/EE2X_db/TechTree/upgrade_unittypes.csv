@@ -1682,3 +1682,4 @@ AirAcademyUpgradeEpoch15,AirAcademy,"""Building""",15,13000,2,0,0,0,60,0,800,500
 RoadBigUpgradeEpoch11,RoadBig,"""?""",11,200,0,0,0,0,6,0,0,20,0,0,0,0,0,0,tx_utn_Road_name,tx_utn_Road_pname,RoadBig_3,UIRoadBig_3,icon_unit_road_3,[0 0 0 0],0,0,vtt_unit_Road,[],[],[],[],[],All
 RoadBigElbowUpgradeEpoch11,RoadBig_Elbow,"""?""",11,200,0,0,0,0,0,0,0,0,0,0,0,0,0,0,tx_utn_Road_name,tx_utn_Road_pname,RoadBig_Elbow_3,UIRoadBig_3,icon_unit_road_3,[0 0 0 0],0,0,vtt_unit_Road,[],[],[],[],[],All
 //==================================================================,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+CheatResUpgrade,CheatRes,"""Tech""",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,

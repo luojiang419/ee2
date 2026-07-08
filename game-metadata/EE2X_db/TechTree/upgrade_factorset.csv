@@ -577,3 +577,10 @@ Cruiser_Improve_1,,,,0,HitPoints,AddTempMul,30,0,None
 Cruiser_Improve_2,,,,0,Damage,AddTempMul,30,0,None
 Cruiser_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
 Cruiser_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
+CheatResGather_Food,TT_BasicGathering,,0,GatherFood,AddPermMul,5000,0,None
+CheatResGather_Wood,Citizens,,0,GatherWood,AddPermMul,5000,0,None
+CheatResGather_Stone,Citizens,,0,GatherStone,AddPermMul,5000,0,None
+CheatResGather_Gold,Citizens,,0,GatherGold,AddPermMul,5000,0,None
+CheatResGather_Oil,OilRig,,0,GatherOil,AddPermMul,5000,0,None
+CheatResGather_Uranium,UraniumMine,,0,GatherUranium,AddPermMul,5000,0,None
+
