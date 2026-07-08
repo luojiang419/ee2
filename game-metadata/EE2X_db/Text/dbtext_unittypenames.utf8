@@ -3513,4 +3513,4 @@ tx_utn_kingReg_pname,"""国王"""				// game name (plural)
 tx_utn_kingReg_sname,"""国王（弒君）"""		// scene editor name
 
 tx_utn_Paratrooper_AA_name,"""机械化战车运输-铠甲近程防空炮"""
-text_blank,""" """
+text_blank,"""."""
