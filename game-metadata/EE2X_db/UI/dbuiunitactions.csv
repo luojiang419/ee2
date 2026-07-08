@@ -158,3 +158,4 @@ unit_renameTerritory,,icon_unit_rename,TwoStateRollover,,0,0,3,0,3,tt_renameTerr
 
 // Button for rapid deployment,,,,,,,,,,,,,,,,,
 unit_power_rapidDep,AreaEffectColorButton,icon_unitpwr_RapidDeploy,,,0,1,2,0,3,tx_rarea_RapidDeploy_name,vtt_power_rapidDep_fortress,,1,1,"""UIUnitCommand_RapidDeployment""",,"""areaEffectName=RegionPowerWestern_11"""
+unit_citycenter_ResourcePower,SpecialPowerButton,icon_unitpwr_antimissile,TwoStateRollover,,0,0,3,3,3,tt_power_awacontroler,vtt_power_awacontroler,CityCenters,0,0,"""UIUnitCommand_SpecialPower UnitsResourcePower""","""UnitsResourcePower""",""""""
