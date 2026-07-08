@@ -2062,4 +2062,4 @@ Guanlitai,tx_utn_huabiao_name,,13,0,,,3,3,2,Engineer2,Guanlitai,,10,200,200,0,20
 // Destroyers Upgrade_v,e
 Destroyer_14_Veteran,text_tt_upgrade_veteran,,14,0,Improvement,icon_tech_upgrade_veteran,0,1,3,Destroyer,,DestroyerEpoch14Veteran,80,0,620,0,620,0,0,0,620,0,0,,[],(None)
 Destroyer_14_Elite,text_tt_upgrade_elite,,14,0,Improvement,icon_tech_upgrade_elite,0,1,3,Destroyer,,DestroyerEpoch14Elite,80,0,620,0,620,0,0,0,620,0,0,,[Destroyer_14_Veteran],(None)
-CheatRes,text_blank,,2,99,Economic,,3,4,0,Market,,CheatResUpgradeSet,1,0,0,0,0,0,0,0,0,0,0,,[],(None)
+CheatRes,text_Citizen_name,,2,99,,,0,0,3,Market,TradeCart,CheatResUpgradeSet,1,0,0,0,0,0,0,0,0,0,0,,[],(None)
