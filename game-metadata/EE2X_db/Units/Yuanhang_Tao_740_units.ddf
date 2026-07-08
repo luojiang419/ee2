@@ -836,7 +836,7 @@ UnitType ChinaWZ10
 		SizeX = 1
 		SizeY = 0.7
 		mass = 1
-		HitPoints = 2450
+		HitPoints = 2500
 		displayName = tx_utn_ChinaWZ10_name
 		verboseTooltip = vtt_unit_ChinaWZ10
 	}
@@ -860,7 +860,7 @@ UnitType ChinaWZ10
 		sndDeath =  ["v_helicopter_death_chn"]
 	}
 	abilities = [
-		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
+		AircraftMove {speed = 4.4; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
 		Attack { range = 16; reloadTime = 1; applyDamageTime = 0.3; damage = 600; missileName = "GuidedMissile" }
 		LOS { range = 15 }
 	]

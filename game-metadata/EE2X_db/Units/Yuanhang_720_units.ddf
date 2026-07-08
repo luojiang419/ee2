@@ -62334,7 +62334,7 @@ UnitType AH64
 
 
 
-		HitPoints = 2400
+		HitPoints = 2800
 
 
 
@@ -62526,7 +62526,7 @@ verboseTooltip = vtt_unit_AH64
 
 
 
-		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
+		AircraftMove {speed = 3.8; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
 
 
 
@@ -71294,7 +71294,7 @@ UnitType AH64Japan
 
 
 
-		HitPoints = 2450
+		HitPoints = 3200
 
 
 
@@ -71486,7 +71486,7 @@ verboseTooltip = vtt_unit_AH64
 
 
 
-		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
+		AircraftMove {speed = 4.2; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
 
 
 
@@ -74014,7 +74014,7 @@ UnitType UKAH64
 
 
 
-		HitPoints = 2450
+		HitPoints = 3500
 
 
 
@@ -74206,7 +74206,7 @@ verboseTooltip = vtt_unit_AH64
 
 
 
-		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
+		AircraftMove {speed = 4.2; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
 
 
 
@@ -81086,7 +81086,7 @@ UnitType ka52
 
 
 
-		HitPoints = 2455
+		HitPoints = 3600
 
 
 
@@ -81854,7 +81854,7 @@ UnitType ka52
 
 
 
-		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 360; CruisingHeight =5.0; ElevChangeRate = 1.0; CanHover = 1 }
+		AircraftMove {speed = 4.8; accel = 2.0;  angSpeed = 360; CruisingHeight =5.0; ElevChangeRate = 1.0; CanHover = 1 }
 
 
 
@@ -85342,7 +85342,7 @@ UnitType Mi28
 
 
 
-		HitPoints = 2300
+		HitPoints = 2800
 
 
 
@@ -86110,7 +86110,7 @@ UnitType Mi28
 
 
 
-		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
+		AircraftMove {speed = 4.6; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
 
 
 
@@ -91646,7 +91646,7 @@ UnitType gertiger1
 
 
 
-		HitPoints = 3900
+		HitPoints = 5200
 
 
 
