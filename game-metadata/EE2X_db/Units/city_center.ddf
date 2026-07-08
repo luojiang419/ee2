@@ -19,7 +19,7 @@ UnitType CityCenter
 		displayName = tx_utn_cityCenter_name
 		DisplayNameScenEdit = tx_utn_cityCenter_sname
 		VerboseTooltip = vtt_unit_CityCenter
-		popCapacity = 60
+		popCapacity = 50
 		requiredOpenSides = kBuildingOpenSides_PosX
 		RallyPlacementFlags = ( Resources | University | Warehouse | Fortress | Tower | Terrain | CityCenter | ConstructionSite )
 	}

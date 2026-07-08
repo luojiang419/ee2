@@ -9,6 +9,7 @@ UnitType Dock
 		SizeX = 4.0
 		SizeY = 5.0
 		mass = 1
+			popCapacity = 50
 		displayName = tx_utn_dock_name
 		DisplayNameScenEdit = tx_utn_dock_sname
 		VerboseTooltip = vtt_unit_Dock
