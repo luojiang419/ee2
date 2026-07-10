@@ -100,9 +100,6 @@ UnitType CityCenter
 				
 			]
 		}
-		SpecialPower {
-			effects = [ UnitsResourcePower ]
-		}
 	]
 }
 //------------------------------------------------
