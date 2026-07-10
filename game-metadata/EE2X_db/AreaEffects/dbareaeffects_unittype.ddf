@@ -3148,17 +3148,17 @@ DbAreaEffectInfo Deadly_Miss
 
 DbAreaEffectInfo Change_Miss
 {
-	disableDuringCeasefire = true	
+	disableDuringCeasefire = true
 	name = text_uarea_VLS_name
 	desc = text_uarea_VLS_desc
 	button = "unit_power_ChangeMiss"
 	selectionType = None
-	duration = 6
-	effects = [	
+	duration = 10
+	effects = [
 		EffectAttackSpeed {
 			range = Unit
 			player = Self
-			scale = 0.4
+			scale = 0.2
 		}
 		EffectAttackReplaceAmmo {
 			range = Unit
