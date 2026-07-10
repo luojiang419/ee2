@@ -1840,7 +1840,7 @@ UnitType DF17
 				RocketLaunchingTBMFix1
 			]
 		}
-		Attack { damage = 5000; range = 110; reloadTime = 15; angularRange = 360; applyDamageTime = 0.1; missileName = "DF17Missiles"; ignoreBlocking = 1; areaDamageRadius = 5; minRangeMobile = 30; minRangeImmobile = 30; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; throwUnits = true}
+		Attack { damage = 6000; range = 110; reloadTime = 7.5; angularRange = 360; applyDamageTime = 0.1; missileName = "DF17Missiles"; ignoreBlocking = 1; areaDamageRadius = 5; minRangeMobile = 30; minRangeImmobile = 30; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; throwUnits = true}
         Garrisonable { garrisonTypes = [ Fortress NavalTransport ] }
 		LOS { range = 13 }
 		VehicleMove {speed = 1.7; angSpeed = 60; followTerrainSlope = 1}
