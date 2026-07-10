@@ -2288,7 +2288,7 @@ UnitType EurofighterBritain
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 2200
+		HitPoints = 4000
 		displayName = tx_utn_EurofighterBr_name
 verboseTooltip = vtt_unit_Eurofighter
 		popCount = 2
@@ -2297,7 +2297,7 @@ verboseTooltip = vtt_unit_Eurofighter
 	}
 	abilities = [
 		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+		Attack { damage = 900; range = 16; reloadTime = 1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0;}
 	LOS { range = 17 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
@@ -3740,7 +3740,7 @@ verboseTooltip = vtt_unit_Eurofighter
 	}
 	abilities = [
 		AircraftMove {speed = 8.5; angSpeed = 85; CruisingHeight = 10.5; ElevChangeRate = 0.5}
-		Attack { damage = 850; range = 25; reloadTime = 0.5; angularRange = 120; applyDamageTime =0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+		Attack { damage = 950; range = 25; reloadTime = 0.25; angularRange = 120; applyDamageTime =0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0;}
 	LOS { range = 18 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
