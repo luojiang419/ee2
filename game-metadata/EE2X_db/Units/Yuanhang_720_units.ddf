@@ -9534,7 +9534,7 @@ UpgradeAbilities MachinegunnestEpoch14Attack
 
 
 
-		Attack { damage = 110; range = 14; reloadTime = 0.2; applyDamageTime = 0.1; missileName = "fkjqAmmo"; turretControllerName = TankTurret;}
+		Attack { damage = 50; range = 14; reloadTime = 0.05; applyDamageTime = 0.1; missileName = "fkjqAmmo"; turretControllerName = TankTurret;}
 
 
 
