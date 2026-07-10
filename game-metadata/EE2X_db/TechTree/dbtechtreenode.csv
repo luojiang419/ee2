@@ -979,7 +979,7 @@ il76,text_mig15_name,,12,0,,,0,1,1,Airport,il76,il76UpgradeEpoch12,55,100,200,0,
 
 // ---------------------- EPOCH 1 ------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
 // UNITS AND UPGRADES,,,,,,,,,,,,,,,,,,,,,,,,,,
-Citizen,text_Citizen_name,,1,0,,,0,1,0,CityCenter,Citizen,,25,50,0,0,0,0,0,0,0,0,0,,[],(None)
+Citizen,text_Citizen_name,,1,0,,,0,1,0,CityCenter,Citizen,,18,50,0,0,0,0,0,0,0,0,0,,[],(None)
 FishingShip,text_FishingShip_name,,1,0,,,0,1,0,Dock,FishingShip,FishingShipUpgradeEpoch1,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 HeavyInfantry1,text_HeavyInfantry1_01_name,,1,0,,,0,1,1,Barracks,HeavyInfantry1,HeavyInfantry1UpgradeEpoch1,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 LightArtillery1,text_LightArtillery1_01_name,,1,0,,,0,1,0,Mill,LightArtillery1,LightArtillery1UpgradeEpoch1,0,0,0,0,0,0,0,0,0,0,1,,[],(None)
@@ -2019,7 +2019,7 @@ Leopard2A4_15_Veteran,text_tt_upgrade_veteran,,15,0,Improvement,icon_tech_upgrad
 Leopard2A4_15_Elite,text_tt_upgrade_elite,,15,0,Improvement,icon_tech_upgrade_elite,0,1,3,Leopard2A4,,Leopard2A4_15Elite,60,400,0,0,400,0,0,0,0,0,0,,[Leopard2A4_15_Veteran ],(UniqueUnitImprovement)
 
 // CAMPAIGN AND TURNING POINT SPECIFIC UNITS,,,,,,,,,,,,,,,,,,,,,,,,,,
-Engineer,text_Citizen_name,,1,0,,,0,2,2,University,Engineer,EngineerUpgradeEpoch11,30,50,0,0,0,0,0,0,0,0,0,,[],(None)
+//Engineer,text_Citizen_name,,1,0,,,0,2,2,University,Engineer,EngineerUpgradeEpoch11,30,50,0,0,0,0,0,0,0,0,0,,[],(None)
 AmericanCampaignBomber,text_AmCampBomb,,13,0,,,0,2,0,Airport,AmericanCampaignBomber,,60,0,480,0,480,0,0,0,0,200,0,,[],(ScriptUnlock)
 MaasaiResourceHarvester,text_Citizen_name,,12,0,,,1,3,3,Citizen,MaasaiResourceHarvester,,45,0,100,0,0,0,0,0,0,0,0,,[],(ScriptUnlock)
 EgyptHorusMonument,tx_eg_monument_horus_name,,1,0,,,1,3,0,Citizen,EgyptHorusMonument,,900,0,0,1000,2000,0,0,0,0,0,0,MiddleEast,[],(ScriptUnlock)
