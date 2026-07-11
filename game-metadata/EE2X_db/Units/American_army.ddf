@@ -18,7 +18,7 @@ UnitType X47
 	}
 	abilities = [
 		AircraftMove {speed = 8.0; angSpeed = 35; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
-		Attack { damage = 12000; range = 25; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius = 1.0; }
+		Attack { damage = 12000; range = 13; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius = 1.0; }
 		LOS { range = 30 }
 		AreaEffect {
 			effects = [ 

@@ -727,7 +727,7 @@ UnitType predator2
 	}
 	abilities = [
 		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 11.5; ElevChangeRate = 0.5}
-		Attack { damage = 10000; range = 18; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius = 3.51; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+		Attack { damage = 10000; range = 9; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius = 3.51; areaDamageFriendlyRatio = 0.1;throwUnits = true }
 	LOS { range = 13 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
