@@ -1401,7 +1401,7 @@ Tank,text_LightMounted1_11_name,,11,0,,,0,1,0,Stable,Tank,LightMounted1UpgradeEp
 ObservationBalloon,text_ObservationBalloon_11_name,,11,0,,,0,1,0,Airport2,ObservationBalloon,NonCombatAir1UpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 Submarine,text_Submarine_11_name,,11,0,,,0,2,0,Dock,Submarine,SubmarineUpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,2,,[upFregatten_11],(None)
 Machinegunnest,text_machinegunnest_name,,11,0,,,3,3,3,Citizen,Machinegunnest,MachinegunnestUpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
-AIAirDefense,tx_utn_MIM23_name,,11,0,,,3,3,2,Citizen,AIAirDefense,AIAirDefenseEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
+AIAirDefense,text_machinegunnest_name,,11,0,,,2,3,6,Citizen,AIAirDefense,AIAirDefenseEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 
 // UNIT UPGRADES,,,,,,,,,,,,,,,,,,,,,,,,,,
 HeavyArtillery_11_Veteran,text_tt_upgrade_veteran,,11,0,Improvement,icon_tech_upgrade_veteran,0,1,3,HeavyArtillery,,HeavyArtilleryEpoch11Veteran,60,0,239,0,239,0,0,0,239,0,0,,[],(None)
