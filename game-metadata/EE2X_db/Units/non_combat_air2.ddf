@@ -876,7 +876,7 @@ UnitType Transport_USA
             garrisonType = AirTransport;
             numOfSlots = 50;
             initialContents = [
-                { typeName="Am_M1A1" count=4 }
+                { typeName="American_M1A1" count=4 }
                 { typeName="Stryker" count=3 }
                 { typeName="LightArtillery2" count=2 }
                 { typeName="Medcar" count=1 }
