@@ -1816,10 +1816,17 @@ UnitType IL78
 	abilities = [
 		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		LOS { range = 20 }
-            Garrison { 
-			garrisonType = NavalTransport; 
-			numOfSlots = 50;
-					}
+                        GarrisonParatrooper { 
+				garrisonType = AirTransport;
+				numOfSlots = 50;
+				initialContents = [
+					{ typeName="t80u" count=4 }
+					{ typeName="BTR80" count=3 }
+					{ typeName="BUKM1_2" count=2 }
+					{ typeName="Medcar" count=1 }
+				]
+				dontShowGarrisonButton = 1;
+			}
 	]
 	attributes [
 		GoesOnAirMissions

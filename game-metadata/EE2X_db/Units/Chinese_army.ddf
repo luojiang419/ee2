@@ -2273,9 +2273,16 @@ UnitType yun20
 	abilities = [
 		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 8.0; ElevChangeRate = 0.5}
 		LOS { range = 20 }
-            Garrison { 
-			garrisonType = NavalTransport; 
-			numOfSlots = 50;
+            GarrisonParatrooper { 
+				garrisonType = AirTransport;
+				numOfSlots = 50;
+				initialContents = [
+					{ typeName="T99A" count=4 }
+					{ typeName="ZSL92" count=3 }
+					{ typeName="AntiAir_Fkl03" count=2 }
+					{ typeName="Medcar" count=1 }
+				]
+				dontShowGarrisonButton = 1;
 			}
 		
 	]
