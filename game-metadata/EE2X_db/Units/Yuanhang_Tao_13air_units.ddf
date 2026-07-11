@@ -2418,7 +2418,7 @@ UnitType vulcan
 	}
 	abilities = [
 			AircraftMove {speed = 7; angSpeed = 65; CruisingHeight = 9.5; ElevChangeRate = 0.5}
-		Attack { damage = 1700; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime =0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;areaDamageRadius = 5.0;}
+		Attack { damage = 1700; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime =0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 4;areaDamageRadius = 5.0;}
 				
 		LOS { range = 28 }
 	]
@@ -3601,7 +3601,7 @@ UnitType ho229Ger
 	}
 	abilities = [
 			AircraftMove {speed = 6; angSpeed = 40; CruisingHeight = 9.5; ElevChangeRate = 0.5}
-		Attack { damage = 1500; range = 14; reloadTime = 0.045; angularRange = 120; applyDamageTime =0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 50;areaDamageRadius = 5.0;}
+		Attack { damage = 1500; range = 14; reloadTime = 0.045; angularRange = 120; applyDamageTime =0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 5.0;}
 				
 		LOS { range = 28 }
 	]
@@ -4247,7 +4247,7 @@ UnitType canberraJapan
 	}
 	abilities = [
 		AircraftMove {speed = 7; angSpeed = 65; CruisingHeight = 9.5; ElevChangeRate = 0.5}
-		Attack { damage = 1700; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime = 0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;areaDamageRadius = 5.0;}
+		Attack { damage = 1700; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime = 0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 5.0;}
 				
 		LOS { range = 28 }
 	]
