@@ -94,7 +94,7 @@ UpgradeAbilities ZSL92Epoch14Attack
 {
 	upgradedAbilities = [
 		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.1; turretControllerName = TankTurret; missileName = "fkjqAmmo" }
-		VehicleMove {speed = 2.91; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+		VehicleMove {speed = 2.1; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
 	]
 }
 UnitModel ZSL92_11
