@@ -28,11 +28,11 @@ UnitType ZSL92
 	}
 	abilities = [
 		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.01; missileName = "fkjqAmmo"; turretControllerName = TankTurret;  }
-		VehicleMove {speed = 1.6; angSpeed = 70;followTerrainSlope = 1;mustMoveToTurn = 0} 
+		VehicleMove {speed = 2.08; angSpeed = 70;followTerrainSlope = 1;mustMoveToTurn = 0} 
 		LOS { range = 17 }
 	Garrison { 
 			garrisonType = Tower; 
-			numOfSlots = 5;
+			numOfSlots = 20;
 			attackBonus = 0.05;	
 			healPoints = 10;		
 			rightClickToGarrison = 1;
@@ -94,7 +94,7 @@ UpgradeAbilities ZSL92Epoch14Attack
 {
 	upgradedAbilities = [
 		Attack { damage = 30; range = 15; reloadTime = 0.2; applyDamageTime = 0.1; turretControllerName = TankTurret; missileName = "fkjqAmmo" }
-		VehicleMove {speed = 2.1; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+		VehicleMove {speed = 2.08; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
 	]
 }
 UnitModel ZSL92_11
@@ -1204,7 +1204,7 @@ UnitType AntiAir_Fkl03
 		//SpecialPower { 
 		//	effects = [ Deadly_Miss ]
 		//}
-		VehicleMove {speed = 2.1; angSpeed = 80;followTerrainSlope = 1}
+		VehicleMove {speed = 2.08; angSpeed = 80;followTerrainSlope = 1}
 			]
 attributes = [
 		HealedByHERC 		
