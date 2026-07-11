@@ -1823,7 +1823,13 @@ UnitType IL78
 	]
 	attributes [
 		GoesOnAirMissions
-	]
+				initialContents = [
+				{ typeName="t80u" count=4 }
+				{ typeName="BTR80" count=3 }
+				{ typeName="BUKM1_2" count=2 }
+				{ typeName="Medcar" count=1 }
+			]
+]
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
 	icon = icon_unit_IL78
 }
