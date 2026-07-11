@@ -1189,7 +1189,7 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 //		sndDeath =  [""]
 	}
 	abilities = [
-      Attack { range = 16; reloadTime = 3.0; applyDamageTime = 0.5; damage = 420; missileName = TankShell; areaDamageRadius = 2; turretControllerName = TankTurret; }
+      Attack { range = 16; reloadTime = 1.5; applyDamageTime = 0.5; damage = 420; missileName = TankShell; areaDamageRadius = 2; turretControllerName = TankTurret; }
 	  VehicleMove {speed = 1.7; angSpeed = 50;followTerrainSlope = 1;mustMoveToTurn = 0}
 		LOS { range = 16 }
 	AreaEffect {			effects = [  Taran_Tanks ]		}	
@@ -1290,7 +1290,7 @@ UnitModel Challenger2_14
 {
 	parent 		= BaseHeavyMountedArmored
 	DefaultModel 	= Challenger2.NIF
-	ForceScale      = 0.105
+	ForceScale = 0.16
 	States = [
 			{ StateName= Idle AnimName = T99_A2_idle.KF 
 			TextKeys = [ 
@@ -3720,7 +3720,7 @@ UnitType As90
 	sounds = {
 	}
 	abilities = [
-	     Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	     Attack { damage = 700; range = 25; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
 		LOS { range = 20 }
 		VehicleMove {speed = 0.8; angSpeed = 50; followTerrainSlope = 1 }
