@@ -74238,7 +74238,7 @@ verboseTooltip = vtt_unit_AH64
 
 
 
-		Attack { range = 16; reloadTime = 1.0; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
+		Attack { range = 16; reloadTime = 1.0; applyDamageTime = 0; damage = 1260; missileName = "GuidedMissile";throwUnits = true }
 
 
 
