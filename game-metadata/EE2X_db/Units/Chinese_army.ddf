@@ -1988,7 +1988,7 @@ UnitType lijian
 		popCount = 1
 		displayName = tx_utn_lijian_name
 		verboseTooltip = vtt_unit_lijian
-		HitPoints = 1900
+		HitPoints = 100
 	}
 	sounds = {
 		sndSelection = ["v_plane_select_chn" 
@@ -2015,7 +2015,7 @@ UnitType lijian
 	}
 	abilities = [
 		AircraftMove {speed = 7; angSpeed = 60; CruisingHeight = 9.0; ElevChangeRate = 1.0} 
-		Attack { damage = 800; range = 14; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.5; }
+		Attack { damage = 8000; range = 20; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius = 1.5; }
 		LOS { range = 17 }
 		AreaEffect {
 			effects = [ 

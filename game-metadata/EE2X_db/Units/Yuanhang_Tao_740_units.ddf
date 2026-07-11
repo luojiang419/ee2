@@ -714,7 +714,7 @@ UnitType predator2
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1380
+		HitPoints = 80
 		displayName = tx_utn_predator2_pname
 		verboseTooltip = vtt_unit_predator2
 		popCount = 2
@@ -727,7 +727,7 @@ UnitType predator2
 	}
 	abilities = [
 		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 11.5; ElevChangeRate = 0.5}
-		Attack { damage = 1500; range = 13; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 25;areaDamageRadius = 3.51; areaDamageFriendlyRatio = 0.1;throwUnits = true }
+		Attack { damage = 10000; range = 18; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;areaDamageRadius = 3.51; areaDamageFriendlyRatio = 0.1;throwUnits = true }
 	LOS { range = 13 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
