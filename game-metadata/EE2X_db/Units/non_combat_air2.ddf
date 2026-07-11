@@ -872,17 +872,17 @@ UnitType Transport_USA
     abilities = [
         AircraftMove {speed = 6; angSpeed = 60; CruisingHeight = 6.0; ElevChangeRate = 0.5}
         LOS { range = 1 }
-        GarrisonParatrooper { 
-            garrisonType = AirTransport;
-            numOfSlots = 50;
-            initialContents = [
-                { typeName="American_M1A1" count=4 }
-                { typeName="Stryker" count=3 }
-                { typeName="LightArtillery2" count=2 }
-                { typeName="Medcar" count=1 }
-            ]
-            dontShowGarrisonButton = 1;
-        }
+		GarrisonParatrooper { 
+				garrisonType = AirTransport;
+				numOfSlots = 50;
+				initialContents = [
+					{ typeName="American_M1A1" count=4 }
+					{ typeName="Stryker" count=3 }
+					{ typeName="LightArtillery2" count=2 }
+					{ typeName="Medcar" count=1 }
+				]
+				dontShowGarrisonButton = 1;
+			}
     ]
     attributes [
         GoesOnAirMissions
@@ -895,33 +895,33 @@ UnitType Transport_UK
 {
     parent = Aircraft
     properties {
-        SizeX = 1
-        SizeY = 1
-        mass = 0
-        displayName = tx_utn_NonCmbtAir2_e14_name
-        VerboseTooltip = vtt_unit_Paratrooper_Mounter
-        HitPoints = 3500
-        popCount = 5
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		displayName = tx_utn_NonCmbtAir2_e14_name
+		VerboseTooltip = vtt_unit_Paratrooper_Mounter
+		HitPoints = 3500
+		popCount = 5
     }
     sounds = {
     }
     abilities = [
-        AircraftMove {speed = 6; angSpeed = 60; CruisingHeight = 6.0; ElevChangeRate = 0.5}
-        LOS { range = 1 }
-        GarrisonParatrooper { 
-            garrisonType = AirTransport;
-            numOfSlots = 50;
-            initialContents = [
-                { typeName="Challenger1" count=4 }
-                { typeName="Rosomak" count=3 }
-                { typeName="LightArtillery2" count=2 }
-                { typeName="Medcar" count=1 }
-            ]
-            dontShowGarrisonButton = 1;
-        }
+		AircraftMove {speed = 6; angSpeed = 60; CruisingHeight = 6.0; ElevChangeRate = 0.5}
+		LOS { range = 1 }
+		GarrisonParatrooper { 
+			garrisonType = AirTransport;
+			numOfSlots = 50;
+			initialContents = [
+			    { typeName="Challenger1" count=4 }
+			    { typeName="Rosomak" count=3 }
+			    { typeName="LightArtillery2" count=2 }
+			    { typeName="Medcar" count=1 }
+			]
+			dontShowGarrisonButton = 1;
+		}
     ]
     attributes [
-        GoesOnAirMissions
+		GoesOnAirMissions
     ]
     fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
     icon = icon_unit_yun20
@@ -931,33 +931,33 @@ UnitType Transport_Ger
 {
     parent = Aircraft
     properties {
-        SizeX = 1
-        SizeY = 1
-        mass = 0
-        displayName = tx_utn_NonCmbtAir2_e14_name
-        VerboseTooltip = vtt_unit_Paratrooper_Mounter
-        HitPoints = 3500
-        popCount = 5
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		displayName = tx_utn_NonCmbtAir2_e14_name
+		VerboseTooltip = vtt_unit_Paratrooper_Mounter
+		HitPoints = 3500
+		popCount = 5
     }
     sounds = {
     }
     abilities = [
-        AircraftMove {speed = 6; angSpeed = 60; CruisingHeight = 6.0; ElevChangeRate = 0.5}
-        LOS { range = 1 }
-        GarrisonParatrooper { 
-            garrisonType = AirTransport;
-            numOfSlots = 50;
-            initialContents = [
-                { typeName="GermanLeopard2A5" count=4 }
-                { typeName="Boxer" count=3 }
-                { typeName="ZiYuan" count=2 }
-                { typeName="Medcar" count=1 }
-            ]
-            dontShowGarrisonButton = 1;
-        }
+		AircraftMove {speed = 6; angSpeed = 60; CruisingHeight = 6.0; ElevChangeRate = 0.5}
+		LOS { range = 1 }
+		GarrisonParatrooper { 
+			garrisonType = AirTransport;
+			numOfSlots = 50;
+			initialContents = [
+			    { typeName="GermanLeopard2A5" count=4 }
+			    { typeName="Boxer" count=3 }
+			    { typeName="ZiYuan" count=2 }
+			    { typeName="Medcar" count=1 }
+			]
+			dontShowGarrisonButton = 1;
+		}
     ]
     attributes [
-        GoesOnAirMissions
+		GoesOnAirMissions
     ]
     fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
     icon = icon_unit_yun20
@@ -967,33 +967,33 @@ UnitType Transport_JPN
 {
     parent = Aircraft
     properties {
-        SizeX = 1
-        SizeY = 1
-        mass = 0
-        displayName = tx_utn_NonCmbtAir2_e14_name
-        VerboseTooltip = vtt_unit_Paratrooper_Mounter
-        HitPoints = 3500
-        popCount = 5
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		displayName = tx_utn_NonCmbtAir2_e14_name
+		VerboseTooltip = vtt_unit_Paratrooper_Mounter
+		HitPoints = 3500
+		popCount = 5
     }
     sounds = {
     }
     abilities = [
-        AircraftMove {speed = 6; angSpeed = 60; CruisingHeight = 6.0; ElevChangeRate = 0.5}
-        LOS { range = 1 }
-        GarrisonParatrooper { 
-            garrisonType = AirTransport;
-            numOfSlots = 50;
-            initialContents = [
-                { typeName="type90" count=4 }
-                { typeName="Type87" count=3 }
-                { typeName="LightArtillery2" count=2 }
-                { typeName="Medcar" count=1 }
-            ]
-            dontShowGarrisonButton = 1;
-        }
+		AircraftMove {speed = 6; angSpeed = 60; CruisingHeight = 6.0; ElevChangeRate = 0.5}
+		LOS { range = 1 }
+		GarrisonParatrooper { 
+			garrisonType = AirTransport;
+			numOfSlots = 50;
+			initialContents = [
+			    { typeName="type90" count=4 }
+			    { typeName="Type87" count=3 }
+			    { typeName="LightArtillery2" count=2 }
+			    { typeName="Medcar" count=1 }
+			]
+			dontShowGarrisonButton = 1;
+		}
     ]
     attributes [
-        GoesOnAirMissions
+		GoesOnAirMissions
     ]
     fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
     icon = icon_unit_yun20
