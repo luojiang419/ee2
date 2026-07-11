@@ -16600,7 +16600,7 @@ UnitType DestroyerType45
 
 	abilities = [
 
-            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; } //turretControllerName = sensordestroyerTurret;
+            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; } //turretControllerName = sensordestroyerTurret;
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -16914,7 +16914,7 @@ UnitType Cruiser_Eng
 
 		VerboseTooltip = vtt_unit_Ch055
 
-		HitPoints = 20000
+		HitPoints = 39999
 
 	}
 
