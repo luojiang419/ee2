@@ -2418,7 +2418,7 @@ UnitType vulcan
 	}
 	abilities = [
 			AircraftMove {speed = 7; angSpeed = 65; CruisingHeight = 9.5; ElevChangeRate = 0.5}
-		Attack { damage = 1700; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime =0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 4;areaDamageRadius = 5.0;}
+		Attack { damage = 1700; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime =0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 14;areaDamageRadius = 5.0;}
 				
 		LOS { range = 28 }
 	]
