@@ -32,11 +32,11 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 	}
 	abilities = [
 		Attack { damage = 30; range = 15; reloadTime = 0.2; angularRange = 360; applyDamageTime = 0.1; missileName = "fkjqAmmo"; turretControllerName = TankTurret; }
-        VehicleMove {speed = 2.0; angSpeed = 180; followTerrainSlope = 1; mustMoveToTurn = 0}
+        VehicleMove {speed = 2.8; angSpeed = 180; followTerrainSlope = 1; mustMoveToTurn = 0}
 		LOS { range = 11 }
 		Garrison { 
 			garrisonType = Tower; 
-			numOfSlots = 5;
+			numOfSlots = 20;
 			attackBonus = 0.05;	
 			healPoints = 10;		
 			rightClickToGarrison = 1;

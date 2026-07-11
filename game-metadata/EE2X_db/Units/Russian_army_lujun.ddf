@@ -33,11 +33,11 @@ UnitType BTR80
 	}
 	abilities = [
 		Attack { range = 15; reloadTime = 0.2; applyDamageTime = 0.1; damage = 24; missileName = "fkjqAmmo"; turretControllerName = TankTurret; }
-		VehicleMove {speed = 1.9; angSpeed = 80;followTerrainSlope = 1;mustMoveToTurn = 0} 
+		VehicleMove {speed = 2.66; angSpeed = 80;followTerrainSlope = 1;mustMoveToTurn = 0} 
 		LOS { range = 15 }
 		Garrison { 
 			garrisonType = Tower; 
-			numOfSlots = 5;
+			numOfSlots = 20;
 			attackBonus = 0.05;	
 			healPoints = 10;		
 			rightClickToGarrison = 1;
