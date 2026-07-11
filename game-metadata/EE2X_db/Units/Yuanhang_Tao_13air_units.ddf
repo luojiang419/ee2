@@ -3595,7 +3595,7 @@ UnitType ho229Ger
 		displayName = tx_utn_ho229Ger_name
 		verboseTooltip = vtt_unit_ho229Ger
 		popCount = 3
-		HitPoints = 4000
+		HitPoints = 4500
 	}
 	sounds = {
 	}
