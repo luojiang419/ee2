@@ -29502,7 +29502,7 @@ UnitType CsCommgril
 
 
 
-		Attack { damage = 20; range = 12; reloadTime = 0.5; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 2.0; unpackTime = 0.1;  }
+		Attack { damage = 100; range = 12; reloadTime = 0.5; applyDamageTime = 0.5; WeaponType = LightProjectile; packTime = 2.0; unpackTime = 0.1;  }
 
 
 
