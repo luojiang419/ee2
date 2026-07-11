@@ -2270,18 +2270,33 @@ UnitType yun20
 			     "v_plane_death_chn03"
 		]
 	}
-	abilities = [
+		abilities = [
 		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 8.0; ElevChangeRate = 0.5}
 		LOS { range = 20 }
-            Garrison { 
-			garrisonType = NavalTransport; 
+            GarrisonAircraft { 
 			numOfSlots = 50;
+			initialContents = [
+				{ typeName="T99A" count=4 }
+				{ typeName="ZSL92" count=3 }
+				{ typeName="AntiAir_Fkl03" count=2 }
+				{ typeName="Medcar" count=1 }
+			]
+			dontShowGarrisonButton = 1;
 			}
 		
 	]
 	attributes [
 		GoesOnAirMissions
 	]
+	attributes [
+		GoesOnAirMissions
+				initialContents = [
+				{ typeName="T99A" count=4 }
+				{ typeName="ZSL92" count=3 }
+				{ typeName="AntiAir_Fkl03" count=2 }
+				{ typeName="Medcar" count=1 }
+			]
+]
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
 	icon = icon_unit_yun20
 }

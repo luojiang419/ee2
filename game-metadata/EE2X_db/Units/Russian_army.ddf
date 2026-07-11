@@ -1813,13 +1813,23 @@ UnitType IL78
 		]
 		sndDeath =  ["CWCruSu27_MA_fue_01"]
 	}
-	abilities = [
-		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		LOS { range = 20 }
-            Garrison { 
-			garrisonType = NavalTransport; 
+		abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 35; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		LOS { range = 18 }
+            GarrisonAircraft { 
 			numOfSlots = 50;
-					}
+			initialContents = [
+				{ typeName="t80u" count=4 }
+				{ typeName="BTR80" count=3 }
+				{ typeName="BUKM1_2" count=2 }
+				{ typeName="Medcar" count=1 }
+			]
+			dontShowGarrisonButton = 1;
+			}
+		
+	]
+	attributes [
+		GoesOnAirMissions
 	]
 	attributes [
 		GoesOnAirMissions
