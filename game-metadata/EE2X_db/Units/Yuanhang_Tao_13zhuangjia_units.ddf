@@ -3900,12 +3900,12 @@ UnitType AUF1
 		popCount = 3
 		DisplayName = tx_utn_AUF1_pname
 		VerboseTooltip = vtt_unit_AUF1
-		HitPoints = 2000
+		HitPoints = 5000
 	}
 	sounds = {
 	}
 	abilities = [
-	     Attack { damage = 700; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	     Attack { damage = 700; range = 22; angularRange = 360; reloadTime = 4.0; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 5; minRangeImmobile = 5; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; throwUnits = true }
             Garrisonable { garrisonTypes = [ Fortress NavalTransport AirTransport] }
 		LOS { range = 20 }
 		VehicleMove {speed = 0.8; angSpeed = 50; followTerrainSlope = 1 }
