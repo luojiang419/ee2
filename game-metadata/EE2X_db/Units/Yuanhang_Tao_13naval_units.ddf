@@ -13280,7 +13280,7 @@ UnitType Fregatten_Formidable
 
 		VerboseTooltip = vtt_unit_Fregatten_Formidable
 
-		HitPoints = 8000
+		HitPoints = 13500
 
 	}
 
@@ -13970,7 +13970,7 @@ UnitType DestroyerHorizon
 
 	abilities = [
 
-            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
+            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -14268,7 +14268,7 @@ UnitType DestroyerFTI
 
 		VerboseTooltip = vtt_unit_DestroyerFTI
 
-		HitPoints = 20000
+		HitPoints = 28000
 
 	}
 
