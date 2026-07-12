@@ -2062,8 +2062,3 @@ Guanlitai,tx_utn_huabiao_name,,13,0,,,3,3,2,Engineer2,Guanlitai,,10,200,200,0,20
 // Destroyers Upgrade_v,e
 Destroyer_14_Veteran,text_tt_upgrade_veteran,,14,0,Improvement,icon_tech_upgrade_veteran,0,1,3,Destroyer,,DestroyerEpoch14Veteran,80,0,620,0,620,0,0,0,620,0,0,,[],(None)
 Destroyer_14_Elite,text_tt_upgrade_elite,,14,0,Improvement,icon_tech_upgrade_elite,0,1,3,Destroyer,,DestroyerEpoch14Elite,80,0,620,0,620,0,0,0,620,0,0,,[Destroyer_14_Veteran],(None)
-Transport_USA,text_Fighter_11_name,,13,0,,,0,1,4,Airport,Transport_USA,,150,0,2000,0,2000,0,0,0,1500,1500,10,American,[],(None)
-Transport_UK,text_Fighter_11_name,,13,0,,,0,1,4,Airport,Transport_UK,,150,0,2000,0,2000,0,0,0,1500,1500,10,English,[],(None)
-Transport_Ger,text_Fighter_11_name,,13,0,,,0,1,4,Airport,Transport_Ger,,150,0,2000,0,2000,0,0,0,1500,1500,10,German,[],(None)
-Transport_JPN,text_Fighter_11_name,,13,0,,,0,1,4,Airport,Transport_JPN,,150,0,2000,0,2000,0,0,0,1500,1500,10,Japanese,[],(None)
-Transport_FRA,text_Fighter_11_name,,13,0,,,0,1,4,Airport,Transport_FRA,,150,0,2000,0,2000,0,0,0,1500,1500,10,French,[],(None)
