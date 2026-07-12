@@ -2385,3 +2385,289 @@ UnitType Transport_USA
 }
 
 
+
+UnitType Transport_USA
+{
+	parent = Aircraft
+      properties {
+        SizeX = 2.5
+		SizeY = 2.5
+		mass = 0
+		popCount = 3
+       displayName = tx_utn_yun20_name
+		VerboseTooltip = vtt_unit_yun20
+		HitPoints = 2500
+	}
+	sounds = {
+		sndSelection = ["v_plane_select_chn" 
+				"v_plane_select_chn01" 
+				"v_plane_select_chn02"
+				"v_plane_select_chn03"
+				"v_plane_select_chn04"
+		]
+		sndCmdMove = ["v_plane_move_chn01" 
+	      		      "v_plane_move_chn02"
+			      "v_plane_move_chn03"
+			      "v_plane_move_chn04"
+			      "v_plane_move_chn05"
+			      "v_plane_move_chn06"
+		]
+		sndCmdAttack = ["v_plane_attack_chn01"
+				"v_plane_attack_chn02"
+				"v_plane_attack_chn03"
+		]
+		sndDeath =  ["v_plane_death_chn01"
+			     "v_plane_death_chn02"
+			     "v_plane_death_chn03"
+		]
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		LOS { range = 20 }
+            GarrisonParatrooper { 
+				garrisonType = AirTransport;
+				numOfSlots = 50;
+				initialContents = [
+					{ typeName="American_M1A1" count=4 }
+					{ typeName="Stryker" count=3 }
+					{ typeName="LightArtillery2" count=2 }
+					{ typeName="Medcar" count=1 }
+				]
+				dontShowGarrisonButton = 1;
+			}
+		
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	icon = icon_unit_yun20
+}
+UnitType Transport_UK
+{
+	parent = Aircraft
+      properties {
+        SizeX = 2.5
+		SizeY = 2.5
+		mass = 0
+		popCount = 3
+       displayName = tx_utn_yun20_name
+		VerboseTooltip = vtt_unit_yun20
+		HitPoints = 2500
+	}
+	sounds = {
+		sndSelection = ["v_plane_select_chn" 
+				"v_plane_select_chn01" 
+				"v_plane_select_chn02"
+				"v_plane_select_chn03"
+				"v_plane_select_chn04"
+		]
+		sndCmdMove = ["v_plane_move_chn01" 
+	      		      "v_plane_move_chn02"
+			      "v_plane_move_chn03"
+			      "v_plane_move_chn04"
+			      "v_plane_move_chn05"
+			      "v_plane_move_chn06"
+		]
+		sndCmdAttack = ["v_plane_attack_chn01"
+				"v_plane_attack_chn02"
+				"v_plane_attack_chn03"
+		]
+		sndDeath =  ["v_plane_death_chn01"
+			     "v_plane_death_chn02"
+			     "v_plane_death_chn03"
+		]
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		LOS { range = 20 }
+            GarrisonParatrooper { 
+				garrisonType = AirTransport;
+				numOfSlots = 50;
+				initialContents = [
+					{ typeName="Challenger1" count=4 }
+					{ typeName="Rosomak" count=3 }
+					{ typeName="LightArtillery2" count=2 }
+					{ typeName="Medcar" count=1 }
+				]
+				dontShowGarrisonButton = 1;
+			}
+		
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	icon = icon_unit_yun20
+}
+UnitType Transport_Ger
+{
+	parent = Aircraft
+      properties {
+        SizeX = 2.5
+		SizeY = 2.5
+		mass = 0
+		popCount = 3
+       displayName = tx_utn_yun20_name
+		VerboseTooltip = vtt_unit_yun20
+		HitPoints = 2500
+	}
+	sounds = {
+		sndSelection = ["v_plane_select_chn" 
+				"v_plane_select_chn01" 
+				"v_plane_select_chn02"
+				"v_plane_select_chn03"
+				"v_plane_select_chn04"
+		]
+		sndCmdMove = ["v_plane_move_chn01" 
+	      		      "v_plane_move_chn02"
+			      "v_plane_move_chn03"
+			      "v_plane_move_chn04"
+			      "v_plane_move_chn05"
+			      "v_plane_move_chn06"
+		]
+		sndCmdAttack = ["v_plane_attack_chn01"
+				"v_plane_attack_chn02"
+				"v_plane_attack_chn03"
+		]
+		sndDeath =  ["v_plane_death_chn01"
+			     "v_plane_death_chn02"
+			     "v_plane_death_chn03"
+		]
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		LOS { range = 20 }
+            GarrisonParatrooper { 
+				garrisonType = AirTransport;
+				numOfSlots = 50;
+				initialContents = [
+					{ typeName="GermanLeopard2A5" count=4 }
+					{ typeName="Boxer" count=3 }
+					{ typeName="ZiYuan" count=2 }
+					{ typeName="Medcar" count=1 }
+				]
+				dontShowGarrisonButton = 1;
+			}
+		
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	icon = icon_unit_yun20
+}
+UnitType Transport_JPN
+{
+	parent = Aircraft
+      properties {
+        SizeX = 2.5
+		SizeY = 2.5
+		mass = 0
+		popCount = 3
+       displayName = tx_utn_yun20_name
+		VerboseTooltip = vtt_unit_yun20
+		HitPoints = 2500
+	}
+	sounds = {
+		sndSelection = ["v_plane_select_chn" 
+				"v_plane_select_chn01" 
+				"v_plane_select_chn02"
+				"v_plane_select_chn03"
+				"v_plane_select_chn04"
+		]
+		sndCmdMove = ["v_plane_move_chn01" 
+	      		      "v_plane_move_chn02"
+			      "v_plane_move_chn03"
+			      "v_plane_move_chn04"
+			      "v_plane_move_chn05"
+			      "v_plane_move_chn06"
+		]
+		sndCmdAttack = ["v_plane_attack_chn01"
+				"v_plane_attack_chn02"
+				"v_plane_attack_chn03"
+		]
+		sndDeath =  ["v_plane_death_chn01"
+			     "v_plane_death_chn02"
+			     "v_plane_death_chn03"
+		]
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		LOS { range = 20 }
+            GarrisonParatrooper { 
+				garrisonType = AirTransport;
+				numOfSlots = 50;
+				initialContents = [
+					{ typeName="type90" count=4 }
+					{ typeName="Type87" count=3 }
+					{ typeName="LightArtillery2" count=2 }
+					{ typeName="Medcar" count=1 }
+				]
+				dontShowGarrisonButton = 1;
+			}
+		
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	icon = icon_unit_yun20
+}
+UnitType Transport_FRA
+{
+	parent = Aircraft
+      properties {
+        SizeX = 2.5
+		SizeY = 2.5
+		mass = 0
+		popCount = 3
+       displayName = tx_utn_yun20_name
+		VerboseTooltip = vtt_unit_yun20
+		HitPoints = 2500
+	}
+	sounds = {
+		sndSelection = ["v_plane_select_chn" 
+				"v_plane_select_chn01" 
+				"v_plane_select_chn02"
+				"v_plane_select_chn03"
+				"v_plane_select_chn04"
+		]
+		sndCmdMove = ["v_plane_move_chn01" 
+	      		      "v_plane_move_chn02"
+			      "v_plane_move_chn03"
+			      "v_plane_move_chn04"
+			      "v_plane_move_chn05"
+			      "v_plane_move_chn06"
+		]
+		sndCmdAttack = ["v_plane_attack_chn01"
+				"v_plane_attack_chn02"
+				"v_plane_attack_chn03"
+		]
+		sndDeath =  ["v_plane_death_chn01"
+			     "v_plane_death_chn02"
+			     "v_plane_death_chn03"
+		]
+	}
+	abilities = [
+		AircraftMove {speed = 6.0; angSpeed = 25; CruisingHeight = 8.0; ElevChangeRate = 0.5}
+		LOS { range = 20 }
+            GarrisonParatrooper { 
+				garrisonType = AirTransport;
+				numOfSlots = 50;
+				initialContents = [
+					{ typeName="Leclerc" count=4 }
+					{ typeName="EBRC" count=3 }
+					{ typeName="LightArtillery2" count=2 }
+					{ typeName="Medcar" count=1 }
+				]
+				dontShowGarrisonButton = 1;
+			}
+		
+	]
+	attributes [
+		GoesOnAirMissions
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	icon = icon_unit_yun20
+}
