@@ -1767,7 +1767,7 @@ UnitType Mirage4000
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 2200
+		HitPoints = 4000
 		displayName = tx_utn_Mirage4000_name
         verboseTooltip = vtt_unit_Mirage4000
 		popCount = 2
@@ -1780,7 +1780,7 @@ UnitType Mirage4000
 	}
 	abilities = [
 		AircraftMove {speed = 8; angSpeed = 68; CruisingHeight = 10.5; ElevChangeRate = 0.5}
-		Attack { damage = 900; range = 15; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+		Attack { damage = 800; range = 15; reloadTime = 0.3; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 16;areaDamageRadius = 1.0;}
 	LOS { range = 22 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
