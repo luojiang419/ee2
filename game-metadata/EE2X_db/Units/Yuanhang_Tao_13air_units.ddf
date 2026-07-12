@@ -1559,6 +1559,15 @@ UnitModel Mirage4_12
 	}
 	DamageDecalsSetName = BuildingDamageDecals
 }
+
+UpgradeAbilities Mirage4Epoch14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 7.0; angSpeed = 70; CruisingHeight = 9.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 4;
+				areaDamageRadius = 3.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
 UnitModel Mirage4_13
 {
 	Parent	= BaseAircraft
