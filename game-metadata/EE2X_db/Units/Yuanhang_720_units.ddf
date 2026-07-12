@@ -90110,7 +90110,7 @@ verboseTooltip = vtt_unit_tiger1
 
 
 
-		Attack { range = 16; reloadTime = 2; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
+		Attack { range = 16; reloadTime = 0.5; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
 
 
 
