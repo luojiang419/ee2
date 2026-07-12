@@ -1500,7 +1500,7 @@ UnitType Mirage4
 	}
 	abilities = [
 		AircraftMove {speed = 6; angSpeed = 40; CruisingHeight = 9.5; ElevChangeRate = 0.5}
-		Attack { damage = 1700; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime = 0.3; missileName = "bomb02"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 15;areaDamageRadius = 5.0;}
+		Attack { damage = 2000; range = 10; reloadTime = 0.05; angularRange = 120; applyDamageTime = 0.3; missileName = "DF41Nuke"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 4;areaDamageRadius = 3.0;}
 	LOS { range = 17 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
