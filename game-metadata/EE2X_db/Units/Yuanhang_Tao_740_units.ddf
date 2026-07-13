@@ -787,9 +787,10 @@ UnitType Z8
 	abilities = [
 		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
 		LOS { range = 10 }
-		Garrison { 
+		GarrisonAircraft { 
 			garrisonType = AirTransport; 
 			numOfSlots = 20;
+			rightClickToGarrison = 1;
 		}
 	]
 icon = icon_unit_Z8
