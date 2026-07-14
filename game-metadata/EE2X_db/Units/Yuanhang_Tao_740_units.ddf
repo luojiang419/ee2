@@ -9,7 +9,7 @@ UnitType PC3
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 2800
+		HitPoints = 4200
 		displayName = tx_utn_j2f_name
 		verboseTooltip = vtt_unit_j2f
 		popCount = 2
