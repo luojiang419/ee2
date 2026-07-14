@@ -1209,7 +1209,7 @@ verboseTooltip = vtt_unit_su37
 	}
 	abilities = [
 		AircraftMove {speed = 8.0; angSpeed = 90; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 855; range = 16; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
+		Attack { damage = 855; range = 21; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0; areaDamageFriendlyRatio = 0.1;throwUnits = true  }
 	LOS { range = 17}
 	]
 attributes [

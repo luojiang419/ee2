@@ -3917,7 +3917,7 @@ UnitType F35AGerman
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1980
+		HitPoints = 2970
 		displayName = tx_utn_F35_name
 		verboseTooltip = vtt_unit_F35
 		popCount = 2
