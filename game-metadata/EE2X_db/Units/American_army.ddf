@@ -146,7 +146,7 @@ UnitType F22
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 4950
+		HitPoints = 3300
 		displayName = tx_utn_F22_name
         verboseTooltip = vtt_unit_F22
 		popCount = 2

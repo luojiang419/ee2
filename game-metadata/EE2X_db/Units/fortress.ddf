@@ -55,7 +55,7 @@ UnitType Fortress
 UpgradeAbilities FortressEpoch1Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666;  applyDamageTime = 0.5; missileName = "FireArrow"; turretControllerName = fort2_ME}
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "FireArrow"; turretControllerName = fort2_ME}
 	]
 }
 
@@ -81,7 +81,7 @@ UpgradeAbilities FortressEpoch1Garrison
 UpgradeAbilities FortressEpoch4Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666;  applyDamageTime = 0.5; missileName = "FireArrow"; turretControllerName = fort2_ME }
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "FireArrow"; turretControllerName = fort2_ME }
 	]
 }
 
@@ -107,7 +107,7 @@ UpgradeAbilities FortressEpoch4Garrison
 UpgradeAbilities FortressEpoch6Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666;  applyDamageTime = 0.5; missileName = "FireArrow";turretControllerName = fort2_ME }
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "FireArrow";turretControllerName = fort2_ME }
 	]
 }
 
@@ -133,7 +133,7 @@ UpgradeAbilities FortressEpoch6Garrison
 UpgradeAbilities FortressEpoch8Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666;  applyDamageTime = 0.5; missileName = "Cannonball"; areaDamageRadius = 2; turretControllerName = fort2_ME; }
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "Cannonball"; areaDamageRadius = 2; turretControllerName = fort2_ME; }
 	]
 }
 
@@ -159,7 +159,7 @@ UpgradeAbilities FortressEpoch8Garrison
 UpgradeAbilities FortressEpoch10Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666;  applyDamageTime = 0.5; missileName = "Cannonball"; areaDamageRadius = 2; turretControllerName = BuildingTurret; }
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "Cannonball"; areaDamageRadius = 2; turretControllerName = BuildingTurret; }
 	]
 }
 
@@ -185,7 +185,7 @@ UpgradeAbilities FortressEpoch10Garrison
 UpgradeAbilities FortressEpoch12Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 0; range = 0; reloadTime = 666;  applyDamageTime = 0.5; missileName = "TankShell"; areaDamageRadius = 2; turretControllerName = BuildingTurret; }
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "TankShell"; areaDamageRadius = 2; turretControllerName = BuildingTurret; }
 	]
 }
 
