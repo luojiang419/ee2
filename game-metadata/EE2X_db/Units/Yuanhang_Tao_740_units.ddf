@@ -9,7 +9,7 @@ UnitType PC3
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 4200
+		HitPoints = 2800
 		displayName = tx_utn_j2f_name
 		verboseTooltip = vtt_unit_j2f
 		popCount = 2
@@ -787,10 +787,9 @@ UnitType Z8
 	abilities = [
 		AircraftMove {speed = 4.0; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
 		LOS { range = 10 }
-		GarrisonAircraft { 
-			garrisonType = AirTransport; 
+		Garrison { 
+			garrisonType = Tower; 
 			numOfSlots = 20;
-			rightClickToGarrison = 1;
 		}
 	]
 icon = icon_unit_Z8
@@ -862,7 +861,7 @@ UnitType ChinaWZ10
 	}
 	abilities = [
 		AircraftMove {speed = 4.4; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
-		Attack { range = 20; reloadTime = 0.77; applyDamageTime = 0.3; damage = 600; missileName = "GuidedMissile" }
+		Attack { range = 20; reloadTime = 0.77.0; applyDamageTime = 0.3; damage = 600; missileName = "GuidedMissile" }
 		LOS { range = 15 }
 	]
 icon = icon_unit_WZ10
