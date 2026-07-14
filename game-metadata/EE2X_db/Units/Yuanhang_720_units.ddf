@@ -62558,7 +62558,7 @@ verboseTooltip = vtt_unit_AH64
 
 
 
-		Attack { range = 16; reloadTime = 1.25; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
+		Attack { range = 21; reloadTime = 0.96; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
 
 
 
@@ -71518,7 +71518,7 @@ verboseTooltip = vtt_unit_AH64
 
 
 
-		Attack { range = 16; reloadTime = 0.9; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
+		Attack { range = 21; reloadTime = 0.69; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
 
 
 
@@ -74238,7 +74238,7 @@ verboseTooltip = vtt_unit_AH64
 
 
 
-		Attack { range = 16; reloadTime = 1.0; applyDamageTime = 0; damage = 1260; missileName = "GuidedMissile";throwUnits = true }
+		Attack { range = 21; reloadTime = 0.77; applyDamageTime = 0; damage = 1260; missileName = "GuidedMissile";throwUnits = true }
 
 
 
@@ -81886,7 +81886,7 @@ UnitType ka52
 
 
 
-		Attack { range = 16; reloadTime = 0.85; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
+		Attack { range = 21; reloadTime = 0.65; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
 
 
 
@@ -86142,7 +86142,7 @@ UnitType Mi28
 
 
 
-		Attack { range = 16; reloadTime = 1.1; applyDamageTime = 0; damage = 550; missileName = "GuidedMissile";throwUnits = true }
+		Attack { range = 21; reloadTime = 0.85; applyDamageTime = 0; damage = 550; missileName = "GuidedMissile";throwUnits = true }
 
 
 
@@ -90110,7 +90110,7 @@ verboseTooltip = vtt_unit_tiger1
 
 
 
-		Attack { range = 16; reloadTime = 0.5; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
+		Attack { range = 21; reloadTime = 0.38; applyDamageTime = 0; damage = 600; missileName = "GuidedMissile";throwUnits = true }
 
 
 
@@ -91870,7 +91870,7 @@ verboseTooltip = vtt_unit_tiger1
 
 
 
-		Attack {  range = 20; reloadTime = 1.25; applyDamageTime = 0; damage = 620; missileName = "GuidedMissile";throwUnits = true }
+		Attack {  range = 26; reloadTime = 0.96; applyDamageTime = 0; damage = 620; missileName = "GuidedMissile";throwUnits = true }
 
 
 

@@ -862,7 +862,7 @@ UnitType ChinaWZ10
 	}
 	abilities = [
 		AircraftMove {speed = 4.4; accel = 2.0;  angSpeed = 180; CruisingHeight = 5.0; ElevChangeRate = 1.0; CanHover = 1 }
-		Attack { range = 16; reloadTime = 1.0; applyDamageTime = 0.3; damage = 600; missileName = "GuidedMissile" }
+		Attack { range = 21; reloadTime = 0.77; applyDamageTime = 0.3; damage = 600; missileName = "GuidedMissile" }
 		LOS { range = 15 }
 	]
 icon = icon_unit_WZ10
