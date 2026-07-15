@@ -597827,6 +597827,11 @@ UnitType C130
 			numOfSlots = 50; 
 			rightClickToGarrison = 1; 
 		}
+		GarrisonAircraft { 
+			garrisonType = AirTransport; 
+			numOfSlots = 50; 
+			rightClickToGarrison = 1; 
+		}
 		]
 
 

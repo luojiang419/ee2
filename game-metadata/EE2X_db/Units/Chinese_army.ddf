@@ -2201,6 +2201,11 @@ UnitType China_yun8
 			numOfSlots = 50; 
 			rightClickToGarrison = 1; 
 		}
+		GarrisonAircraft { 
+			garrisonType = AirTransport; 
+			numOfSlots = 50; 
+			rightClickToGarrison = 1; 
+		}
 		]
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
 	icon = icon_unit_chinayun8
@@ -2286,6 +2291,8 @@ UnitType yun20
 					{ typeName="ZSL92" count=3 }
 					{ typeName="AntiAir_Fkl03" count=2 }
 					{ typeName="Medcar" count=1 }
+					{ typeName="Plz45" count=2 }
+					{ typeName="PHL_03" count=2 }
 					{ typeName="Plz45" count=2 }
 					{ typeName="PHL_03" count=2 }
 				]
