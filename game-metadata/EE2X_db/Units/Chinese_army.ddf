@@ -2196,7 +2196,12 @@ UnitType China_yun8
 	]
 	attributes [
 		GoesOnAirMissions
-	]
+	GarrisonAircraft { 
+			garrisonType = AirTransport; 
+			numOfSlots = 50; 
+			rightClickToGarrison = 1; 
+		}
+		]
 	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
 	icon = icon_unit_chinayun8
 }
