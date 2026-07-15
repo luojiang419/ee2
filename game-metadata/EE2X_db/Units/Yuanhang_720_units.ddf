@@ -597822,12 +597822,7 @@ UnitType C130
 
 
 
-	Garrison { 
-			garrisonType = NavalTransport; 
-			numOfSlots = 50; 
-			rightClickToGarrison = 1; 
-		}
-		]
+	]
 
 
 
