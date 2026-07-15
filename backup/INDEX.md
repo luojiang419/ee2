@@ -191,6 +191,7 @@
 | 165 | EE2X_db-165-朝霧級改造为防空护卫舰-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 164修改应用后的完整游戏ZIP | 待测试 | 2026-06-28 |
 | 168 | EE2X_db-168-日本E14海军五舰成本统一×0.9-pre.zip | pre | 日本E14海军五舰生产成本 | upgrade_unittypes.csv | 朝霧/高波/愛宕/春潮/瑞鶴5舰成本统一为中国同级×0.9 | — | 2026-07-14 |
 | 169 | EE2X_db-169-日本E14海军五舰成本×0.9-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 168修改应用后的完整游戏ZIP | 测试通过 | 2026-07-14 |
+| 170 | EE2X_db-170-日本E14海军五舰成本×0.9-覆盖修复-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 远端覆盖后重新应用168修改 | 测试通过 | 2026-07-15 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 
