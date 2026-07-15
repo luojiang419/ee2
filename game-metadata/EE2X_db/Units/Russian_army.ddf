@@ -1826,8 +1826,6 @@ UnitType IL78
 					{ typeName="Medcar" count=1 }
 					{ typeName="Rus_2s19" count=2 }
 					{ typeName="BM30" count=2 }
-					{ typeName="Rus_2s19" count=2 }
-					{ typeName="BM30" count=2 }
 				]
 				dontShowGarrisonButton = 1;
 			}
