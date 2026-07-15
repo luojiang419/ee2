@@ -193,7 +193,7 @@
 | 169 | EE2X_db-169-日本E14海军五舰成本×0.9-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 168修改应用后的完整游戏ZIP | 测试通过 | 2026-07-14 |
 | 170 | EE2X_db-170-日本E14海军五舰成本×0.9-覆盖修复-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 远端覆盖后重新应用168修改 | 测试通过 | 2026-07-15 |
 | 171 | EE2X_db-171-日本E14陆军坦克火炮对标中国-pre.zip | pre | 日本E14陆军6单位(Type87/type90/Type10MBT/Type89mi/Type75_155m/Type75_Japan) | upgrade_unittypes.csv, dbtechtreenode.csv, Yuanhang_Tao_13zhuangjia_units.ddf | 成本对标中国×0.9、伤害×0.95修改前源文件 | — | 2026-07-15 22:29 |
-| 172 | EE2X_db-172-日本E14陆军修改后完整ZIP-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 171修改应用后的完整游戏ZIP(含Type10MBT HP10070/DMG950、2个新DDF攻击块、Type75_Japan射程修复25) | 待测试 | 2026-07-15 22:38 |
+| 172 | EE2X_db-172-日本E14陆军修改后完整ZIP-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 171修改应用后的完整游戏ZIP(含Type10MBT HP10070/DMG950、2个新DDF攻击块、Type75_Japan射程修复25) | 测试通过 | 2026-07-15 22:38 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 
