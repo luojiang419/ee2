@@ -13296,7 +13296,7 @@ UnitType Fregatten_Formidable
 
 	abilities = [
 
-            Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
+            Attack { damage = 800; range = 29; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
 
            NavalMove {speed = 2.0; accel = 1; angSpeed = 40}
 
@@ -13656,7 +13656,7 @@ UnitType France_Fremm
 
 	abilities = [
 
-            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
+            Attack { damage = 1000; range = 31; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;}
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -13970,7 +13970,7 @@ UnitType DestroyerHorizon
 
 	abilities = [
 
-            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
+            Attack { damage = 1000; range = 31; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -14284,7 +14284,7 @@ UnitType DestroyerFTI
 
 	abilities = [
 
-            Attack { damage = 1200; range = 26; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
+            Attack { damage = 1200; range = 31; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
 
             NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -14608,7 +14608,7 @@ UnitType Barracuda
 
 	abilities = [
 
-	 Attack { damage = 1000; range = 15; reloadTime = 3; angularRange = 1;  missileName = "Torpedo"}
+	 Attack { damage = 1000; range = 18; reloadTime = 3; angularRange = 1;  missileName = "Torpedo"}
 
 	LOS { range = 12 }
 
@@ -16266,7 +16266,7 @@ UnitType FregattenType26
 
 	abilities = [
 
-            Attack { damage = 800; range = 24; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
+            Attack { damage = 800; range = 29; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
 
            NavalMove {speed = 2.0; accel = 1; angSpeed = 40}
 
@@ -16600,7 +16600,7 @@ UnitType DestroyerType45
 
 	abilities = [
 
-            Attack { damage = 1000; range = 26; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; } //turretControllerName = sensordestroyerTurret;
+            Attack { damage = 1000; range = 31; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; } //turretControllerName = sensordestroyerTurret;
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -16952,7 +16952,7 @@ UnitType Cruiser_Eng
 
 	abilities = [
 
-            Attack { damage = 1200; range = 28; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 3; } //turretControllerName = sensordestroyerTurret;
+            Attack { damage = 1200; range = 34; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 3; } //turretControllerName = sensordestroyerTurret;
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
@@ -17318,7 +17318,7 @@ popCount = 2
 
 	abilities = [
 
-	 Attack { damage = 1000; range = 15; reloadTime = 3; angularRange = 1;  missileName = "Torpedo"}
+	 Attack { damage = 1000; range = 18; reloadTime = 3; angularRange = 1;  missileName = "Torpedo"}
 
 	LOS { range = 14 }
 
