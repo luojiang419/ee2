@@ -93,6 +93,15 @@ UpgradeAbilities J10B14Attack
 	]
 }
 //------------------------------------------------
+// Attack Ability Upgrade (Japan F2 E14 - clone of J10B14Attack, damage x1.05)
+UpgradeAbilities F2Epoch14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 8.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		Attack { damage = 945; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 12;areaDamageRadius = 1.0;}
+	]
+}
+//------------------------------------------------
 //	EPOCH 15
 //------------------------------------------------
 // Attack Ability Upgrade
@@ -567,6 +576,24 @@ UpgradeAbilities J1614Attack
 	]
 }
 //------------------------------------------------
+// Attack Ability Upgrade (Japan f15 E14 - clone of J1614Attack, damage x0.90)
+UpgradeAbilities Japanf15Epoch14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 8.0; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		Attack { damage = 810; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0;}
+	]
+}
+//------------------------------------------------
+// Attack Ability Upgrade (Japan UniqueUnitJapanese3 E14 - clone of J1614Attack, damage x0.90)
+UpgradeAbilities UU_Japanese3E14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 8.0; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 1.0}
+		Attack { damage = 810; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 1.0;}
+	]
+}
+//------------------------------------------------
 //	EPOCH 15
 //------------------------------------------------
 // Attack Ability Upgrade
@@ -1018,6 +1045,15 @@ UpgradeAbilities JH7A14Attack
 	upgradedAbilities = [
 		AircraftMove {speed = 6.5; angSpeed = 80; CruisingHeight = 8.5; ElevChangeRate = 1.0}
 		Attack { damage = 1800; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;areaDamageRadius = 0.3;}
+	]
+}
+//------------------------------------------------
+// Attack Ability Upgrade (Japan F1 E14 - clone of JH7A14Attack, damage x1.10)
+UpgradeAbilities JapanF1E14Attack
+{
+	upgradedAbilities = [
+		AircraftMove {speed = 6.5; angSpeed = 80; CruisingHeight = 8.5; ElevChangeRate = 1.0}
+		Attack { damage = 1980; range = 16; reloadTime = 1.0; angularRange = 120; applyDamageTime = 0.1; missileName = "J7Rocket"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 20;areaDamageRadius = 0.3;}
 	]
 }
 //------------------------------------------------
