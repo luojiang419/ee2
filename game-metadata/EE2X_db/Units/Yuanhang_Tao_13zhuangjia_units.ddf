@@ -152,6 +152,14 @@ UnitModel Type87_14
 		angle = 37.89
 	}
 }
+// Attack Ability Upgrade (Japan Type87 E14 - clone of ZSL92Epoch14Attack, damage x0.95)
+UpgradeAbilities Type87Epoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 29; range = 15; reloadTime = 0.2; applyDamageTime = 0.1; turretControllerName = TankTurret; missileName = "fkjqAmmo" }
+		VehicleMove {speed = 2.08; angSpeed = 80; followTerrainSlope = 1; mustMoveToTurn = 0}
+	]
+}
 ////////////////////////////////////
 //
 ///////////////////////////////////
@@ -4825,6 +4833,13 @@ UnitModel T300
 		angle = 45.00
 	}
 }
+// Attack Ability Upgrade (Japan Type75_155m E14 - clone of Plz45Epoch14Attack, damage x0.95)
+UpgradeAbilities Type75_155mEpoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 665; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 16; minRangeImmobile = 16; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 5.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
 UnitType Type75_Japan
 {
 	parent = Artillery
@@ -4856,7 +4871,7 @@ sndCmdMove = ["v_heavyartillery_12_com01"
 	SpecialPower { 		
 			effects = [ Change_Range ]
 		}
-		Attack {range = 2; reloadTime = 0.5; damage = 150; angularRange = 360; packTime = 2.0;unpackTime = 2.0; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1;  minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
+		Attack {range = 25; reloadTime = 0.5; damage = 95; angularRange = 360; packTime = 2.0;unpackTime = 2.0; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1;  minRangeMobile = 16; minRangeImmobile = 16; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5;turretControllerName = MRocketLauncherTurret; throwUnits = true }
 		VehicleMove {speed = 0.8; angSpeed = 80; followTerrainSlope = 1 }
 		LOS { range = 16 }
 		Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }
