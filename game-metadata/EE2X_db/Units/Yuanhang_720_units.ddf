@@ -8510,10 +8510,7 @@ UnitType Machinegunnest
 
 
 
-	AreaEffect { 
-			effects = [ AntiMissileMember ] 
-		}
-		]
+			]
 
 
 

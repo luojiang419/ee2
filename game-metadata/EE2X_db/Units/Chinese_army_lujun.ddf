@@ -1198,7 +1198,7 @@ UnitType AntiAir_Fkl03
 	}
 	abilities = [
 		//PowerReserve { timeToRecharge = 40 }
-		Attack { damage = 90; range = 14; reloadTime = 0.05; angularRange = 360; applyDamageTime = 0; missileName = "fkjqAmmo"; ignoreBlocking = 1;  areaDamageFriendlyRatio = 0.1; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 0.5; minRangeImmobile = 0.5;turretControllerName = FklsaTurret}
+		Attack { damage = 90; range = 14; reloadTime = 0.03; angularRange = 360; applyDamageTime = 0; missileName = "fkjqAmmo"; ignoreBlocking = 1;  areaDamageFriendlyRatio = 0.1; packTime = 1.0; unpackTime = 1.0;minRangeMobile = 0.5; minRangeImmobile = 0.5;turretControllerName = FklsaTurret}
         Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
 		LOS { range = 19 }
 		//SpecialPower { 
