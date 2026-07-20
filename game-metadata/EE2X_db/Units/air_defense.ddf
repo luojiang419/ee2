@@ -48,7 +48,7 @@ UpgradeAbilities AirDefenseEpoch10Attack
 UpgradeAbilities AirDefenseEpoch13Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 900; range = 22; reloadTime = 0.8; angularRange = 360; applyDamageTime = 0.5; missileName = "GuidedMissile"; ignoreBlocking = 1; turretControllerName = AA13Turret; }
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 360; applyDamageTime = 0.5; missileName = "GuidedMissile"; ignoreBlocking = 1; turretControllerName = AA13Turret; }
 	]
 }
 
