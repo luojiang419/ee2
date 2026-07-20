@@ -582,7 +582,7 @@ UpgradeAbilities Antiship_missile11Attack
 UpgradeAbilities Antiship_missile13Attack
 {
 	upgradedAbilities = [
-		Attack { range = 28; reloadTime = 3.5; applyDamageTime = 0.3; damage = 3000;packTime = 3.5;unpackTime = 3.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1;  areaDamageRadius = 3.0;  throwUnits = true }
+		Attack { range = 35; reloadTime = 3.5; applyDamageTime = 0.3; damage = 3000;packTime = 3.5;unpackTime = 3.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1;  areaDamageRadius = 3.0;  throwUnits = true }
 	]
 }
 UnitModel Antiship_missile_12
