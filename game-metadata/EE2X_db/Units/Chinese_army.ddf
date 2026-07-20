@@ -2317,10 +2317,9 @@ UnitType yun20
 					{ typeName="ZSL92" count=3 }
 					{ typeName="AntiAir_Fkl03" count=2 }
 					{ typeName="Medcar" count=1 }
-					{ typeName="Plz45" count=2 }
-					{ typeName="PHL_03" count=2 }
-					{ typeName="Plz45" count=2 }
-					{ typeName="PHL_03" count=2 }
+					{ typeName="LightInfantry" count=10 }
+					{ typeName="LightArtillery1" count=10 }
+					{ typeName="HeavyInfantry2" count=10 }
 				]
 				dontShowGarrisonButton = 1;
 			}

@@ -1824,10 +1824,9 @@ UnitType IL78
 					{ typeName="BTR80" count=3 }
 					{ typeName="BUKM1_2" count=2 }
 					{ typeName="Medcar" count=1 }
-					{ typeName="Rus_2s19" count=2 }
-					{ typeName="BM30" count=2 }
-					{ typeName="Rus_2s19" count=2 }
-					{ typeName="BM30" count=2 }
+					{ typeName="LightInfantry" count=10 }
+					{ typeName="LightArtillery1" count=10 }
+					{ typeName="HeavyInfantry2" count=10 }
 				]
 				dontShowGarrisonButton = 1;
 			}
