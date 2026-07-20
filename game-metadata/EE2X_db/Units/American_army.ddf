@@ -85,7 +85,7 @@ UnitType F35
 	}
 	abilities = [
 		AircraftMove {speed = 9.0; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-            Attack { damage = 1200; range = 22; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+            Attack { damage = 1200; range = 22; reloadTime = 0.2; angularRange = 360; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 		LOS { range = 26 }
 		AreaEffect {
 			effects = [ 
