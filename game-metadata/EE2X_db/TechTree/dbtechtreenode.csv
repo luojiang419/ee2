@@ -472,13 +472,13 @@ gertiger1,text_Mi8_name,,13,0,,,0,2,1,Airport2,gertiger1,gertiger1UpgradeEpoch13
 MarderATGM,text_BMP1_name,,11,0,,,0,1,0,Mill,MarderATGM,MarderATGMUpgradeEpoch11,30,250,250,250,250,0,0,0,0,0,2,German,[upArmoredCar_11],(None)
 Pzh2000,text_BMP1_name,,11,0,,,0,1,1,Mill,Pzh2000,Pzh2000UpgradeEpoch11,40,0,0,400,550,0,0,0,250,550,5,German,[upArmoredCar_11],(None)
 //ww13
-EurofighterGermany,text_Fighter_11_name,,13,0,,,1,3,1,Airport,EurofighterGermany,EurofighterGerUpgradeEpoch13,80,0,600,0,600,0,0,0,400,400,10,German,[upHelicopter_13],(None)
+EurofighterGermany,text_Fighter_11_name,,13,0,,,1,3,1,Airport,EurofighterGermany,EurofighterGerUpgradeEpoch13,53,0,600,0,600,0,0,0,400,400,10,German,[upHelicopter_13],(None)
 F35AGerman,text_Fighter_11_name,,14,0,,,1,3,3,Airport,F35AGerman,,90,0,850,0,850,0,0,0,850,500,8,German,[upStealthPlane_14],(None)
 L212Afr,text_Submarine_11_name,,11,0,,,0,2,0,Dock,L212Afr,L212AfrUpgradeEpoch11,80,0,800,0,800,0,0,0,800,800,2,German,[upFregatten_11],(None)
 GermanSSGN,text_Submarine_11_name,,13,0,,,0,3,0,Dock,GermanSSGN,,100,0,3000,0,3000,0,0,0,2000,2000,30,German,[],(None)
-G91,text_Fighter_11_name,,11,0,,,0,2,2,Airport,G91,G91UpgradeEpoch11,70,0,450,0,450,0,0,0,200,450,5,German,[upfighter_11],(None)
-TornadoGerman,text_Fighter_11_name,,11,0,,,0,3,1,Airport,TornadoGerman,TornadoGermanUpgradeEpoch11,70,0,450,0,450,0,0,0,450,200,5,German,[upfighter_11],(None)
-ho229Ger,text_Fighter_11_name,,11,0,,,0,3,0,Airport,ho229Ger,ho229GerUpgradeEpoch11,100,0,1000,0,1000,0,0,0,1000,1000,20,German,[upfighter_11],(None)
+G91,text_Fighter_11_name,,11,0,,,0,2,2,Airport,G91,G91UpgradeEpoch11,47,0,450,0,450,0,0,0,200,450,5,German,[upfighter_11],(None)
+TornadoGerman,text_Fighter_11_name,,11,0,,,0,3,1,Airport,TornadoGerman,TornadoGermanUpgradeEpoch11,47,0,450,0,450,0,0,0,450,200,5,German,[upfighter_11],(None)
+ho229Ger,text_Fighter_11_name,,11,0,,,0,3,0,Airport,ho229Ger,ho229GerUpgradeEpoch11,67,0,1000,0,1000,0,0,0,1000,1000,20,German,[upfighter_11],(None)
 
 //QueenElizabethCarrier,text_AircraftCarrier_11_name,,13,0,,,0,1,3,Dock,QueenElizabethCarrier,,500,0,1000,0,0,0,0,0,1000,1000,0,English,[],(None)
 EnglishCarrier,text_AircraftCarrier_11_name,,12,0,,,0,2,3,Dock,EnglishCarrier,EnglishCarrierEpoch11,0,0,0,0,0,0,0,0,0,0,0,English,[],(None)
@@ -681,7 +681,7 @@ FrenchPlane,text_Fighter_11_name,,11,0,,,0,3,2,FrenchCarrier,FrenchPlane,FrenchP
 EnglishPlane,text_Fighter_11_name,,11,0,,,0,3,2,EnglishCarrier,EnglishPlane,EnglishPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,English,[],(None)
 RomanPlane,text_Fighter_11_name,,11,0,,,0,3,2,RomanCarrier,RomanPlane,RomanPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,Roman,[],(None)
 ChinaPlane,text_Fighter_11_name,,11,0,,,0,3,2,ChinaCarrier,ChinaPlane,ChinaPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,Chinese,[],(None)
-GermanPlane,text_Fighter_11_name,,11,0,,,0,3,2,GermanCarrier,GermanPlane,GermanPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,German,[],(None)
+GermanPlane,text_Fighter_11_name,,11,0,,,0,3,2,GermanCarrier,GermanPlane,GermanPlaneEpoch12,3,0,60,0,50,0,0,0,50,60,0,German,[],(None)
 RussianPlane,text_Fighter_11_name,,11,0,,,0,3,2,RussianCarrier,RussianPlane,RussianPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,Russian,[],(None)
 IncaPlane,text_Fighter_11_name,,12,0,,,0,3,2,IncaCarrier,IncaPlane,IncaPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,Inca,[],(None)
 //------------------------ww2-war-airplane-----------------,,,,,,,,,,,,,,,,,,,,,,,,,
