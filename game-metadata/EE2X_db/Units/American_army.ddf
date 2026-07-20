@@ -79,13 +79,13 @@ UnitType F35
 		popCount = 2
         displayName = tx_utn_F35_name
 		VerboseTooltip = vtt_unit_F35
-		HitPoints = 2200
+		HitPoints = 3000
 	}
 	sounds = {
 	}
 	abilities = [
 		AircraftMove {speed = 9.0; angSpeed = 75; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-            Attack { damage = 900; range = 18; reloadTime =1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+            Attack { damage = 1200; range = 22; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 		LOS { range = 26 }
 		AreaEffect {
 			effects = [ 
