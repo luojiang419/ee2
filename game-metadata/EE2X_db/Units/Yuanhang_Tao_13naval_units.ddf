@@ -318,7 +318,7 @@ UnitType Ch054A
 
 	properties {
 
-		rps = AntiAircraft
+		rps = Destroyer
 
 		SizeX = 2.5
 
@@ -4880,7 +4880,7 @@ UnitType Type22350
 
 	properties {
 
-		rps = AntiAircraft
+		rps = Destroyer
 
 		SizeX = 3.5
 
@@ -10284,7 +10284,7 @@ UnitType FregattenFFG
 
 	properties {
 
-		rps = AntiAircraft
+		rps = Destroyer
 
 		SizeX = 3.0
 
