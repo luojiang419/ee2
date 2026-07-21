@@ -3917,7 +3917,7 @@ UnitType F35AGerman
 		SizeX = 1
 		SizeY = 1
 		mass = 0
-		HitPoints = 1980
+		HitPoints = 3000
 		displayName = tx_utn_F35_name
 		verboseTooltip = vtt_unit_F35
 		popCount = 2
@@ -3926,7 +3926,7 @@ UnitType F35AGerman
 	}
 	abilities = [
 	AircraftMove {speed = 7.5; angSpeed = 75; CruisingHeight =9; ElevChangeRate = 0.5}
-	Attack { damage = 1064; range = 18; reloadTime = 0.45; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
+	Attack { damage = 1200; range = 22; reloadTime = 0.2; angularRange = 360; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 8;areaDamageRadius = 1.0;}
 	LOS { range = 22 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle Radardetectioning]
