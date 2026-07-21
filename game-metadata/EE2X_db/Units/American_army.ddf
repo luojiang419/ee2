@@ -239,7 +239,7 @@ UnitType YF23
 			 sndDeath = ["fix_plane_deathh3" "fix_plane_deathh2" "fix_plane_deathh1"]
 	}
 	abilities = [
-		AircraftMove {speed = 9.5; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
+		AircraftMove {speed = 14.3; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
 		Attack { damage = 950; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
 	LOS { range = 26 }
 	AreaEffect {
@@ -1024,7 +1024,7 @@ UnitType B1b
 		displayName = tx_utn_B1b_name
 verboseTooltip = vtt_unit_B1b
 		popCount = 3
-HitPoints = 3500
+HitPoints = 7000
 	}
 	sounds = {
 	}
