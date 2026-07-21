@@ -12804,7 +12804,7 @@ UnitType Cruiser_Ger
 
 	abilities = [
 
-           Attack {  damage = 1100; range = 33; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.5; missileName = "AmericanRocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
+           Attack {  damage = 1100; range = 33; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.5; missileName = "AmericanRocket"; ignoreBlocking = 1; areaDamageRadius = 2;} //turretControllerName = sensordestroyerTurret;
 
            NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
