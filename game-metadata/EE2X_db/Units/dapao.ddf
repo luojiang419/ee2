@@ -13,7 +13,7 @@ UnitType dapao
 		mass = 0
         displayName = tx_utn_dapao11_name
 		VerboseTooltip = vtt_unit_dapao11
-            HitPoints = 14625
+            HitPoints = 29250
 	}
 	sounds {
     	}
@@ -84,7 +84,7 @@ UpgradeAbilities dapaoEpoch13Attack
 UpgradeAbilities dapaoEpoch14Attack
 {
 	upgradedAbilities = [
-		Attack { range = 19; reloadTime = 0.15; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "MlrsRocket_PHL03";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; throwUnits = true}
+		Attack { range = 22; reloadTime = 0.3; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "MlrsRocket_PHL03";ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; throwUnits = true}
 	]
 }
 
