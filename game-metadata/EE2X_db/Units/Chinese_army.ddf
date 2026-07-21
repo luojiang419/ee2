@@ -991,7 +991,7 @@ UnitType JH7A
 	}
 	abilities = [
 		AircraftMove {speed = 7; angSpeed = 60; CruisingHeight = 8.5; ElevChangeRate = 0.5}
-		Attack { damage = 800; range = 14; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "MlrsRocket_PHL03"; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 3.0; }
+		Attack { damage = 800; range = 14; reloadTime = 0.2; angularRange = 120; applyDamageTime = 0.3; missileName = "MlrsRocket_PHL03"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 10;areaDamageRadius = 3.0; }
 	LOS { range = 16 }
 	SpecialPower { 		
 			effects = [ Air_anti_missle ]
