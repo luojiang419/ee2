@@ -240,7 +240,7 @@ UnitType YF23
 	}
 	abilities = [
 		AircraftMove {speed = 14.3; angSpeed = 80; CruisingHeight = 9.0; ElevChangeRate = 0.5}
-		Attack { damage = 950; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
+		Attack { damage = 2000; range = 22; reloadTime = 0.1; angularRange = 120; applyDamageTime = 0.3; missileName = "GuidedMissile"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6 }
 	LOS { range = 26 }
 	AreaEffect {
 			effects = [ 
