@@ -25,7 +25,7 @@ UnitType Spy
 			spottedTextDBI = tx_spy_spotted_owner
 			spotterTextDBI = tx_spy_spotted_spotter
 			
-			effects = [ Extraction GatherIntelligence ]
+			effects = [ Extraction GatherIntelligence AIResourcePower ]
 		}
 		Garrisonable { garrisonTypes = [ SpyShip Fortress Tower NavalTransport SeigeTower AirTransport ] }
 	]
