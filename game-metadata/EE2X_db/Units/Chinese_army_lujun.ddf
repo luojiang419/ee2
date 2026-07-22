@@ -1837,7 +1837,6 @@ UnitType DF17
 	abilities = [
 	 AreaEffect {
 			effects = [
-				AIResourcePower 
 				RocketLaunchingTBMFix1
 			]
 		}
