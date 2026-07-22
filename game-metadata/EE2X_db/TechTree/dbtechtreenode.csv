@@ -894,7 +894,7 @@ M3AT37mm,text_BMP1_name,,11,0,,,0,0,3,Barracks,M3AT37mm,M3AT37mmUpgradeEpoch11,6
 //AnatraDS,text_Fighter_11_name,,11,0,,,0,2,3,Airport,AnatraDS,,80,0,400,0,400,0,0,400,400,0,2,Russian,[],(None)
 //AnatraVKh,text_Fighter_11_name,,11,0,,,0,2,0,Airport,AnatraVKh,,80,0,400,0,400,0,0,400,400,0,2,Russian,[],(None)
 
-il76,text_mig15_name,,12,0,,,0,1,1,Airport,il76,il76UpgradeEpoch12,55,100,200,0,200,0,0,0,200,0,10,,[],(None)
+il76,text_mig15_name,,12,0,,,0,1,1,Airport2,il76,il76UpgradeEpoch12,55,100,200,0,200,0,0,0,200,0,10,,[],(None)
 //------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
 //	TW10 Napoleon 1.0,,,,,,,,,,,,,,,,,,,,,,,,,,
 //------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
