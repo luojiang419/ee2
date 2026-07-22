@@ -1684,7 +1684,6 @@ UnitType J20Naval
 	AreaEffect {
 			effects = [ 
 				SuperVision
-				AIResourcePower
 			]
 		}
 		SpecialPower { 		
