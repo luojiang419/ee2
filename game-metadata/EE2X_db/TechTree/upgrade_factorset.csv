@@ -415,8 +415,8 @@ CivUpgd_Infantry_Cost_LI,,LightInfantry,,0,Cost,AddPermMul,-15,0,None
 CivUpgd_Infantry_Cost_HI,,HeavyInfantryAll,,0,Cost,AddPermMul,-15,0,None
 CivUpgd_Infantry_BT_LI,,LightInfantry,,0,BuildTime,AddPermMul,-30,0,None
 CivUpgd_Infantry_BT_HI,,HeavyInfantryAll,,0,BuildTime,AddPermMul,-30,0,None
-CivUpgd_Citizen_GatherFood,,Citizens,,0,GatherFood,AddPermMul,5000,0,None
-CivUpgd_Citizen_GatherWood,,Citizens,,0,GatherWood,AddPermMul,5000,0,None
+CivUpgd_Citizen_GatherFood,,Citizens,,0,GatherFood,AddPermMul,50,0,None
+CivUpgd_Citizen_GatherWood,,Citizens,,0,GatherWood,AddPermMul,50,0,None
 CivUpgd_Navy_Cost,,NavalDeep,,0,Cost,AddPermMul,15,0,None
 CivUpgd_Navy_HP,,NavalDeep,,0,HitPoints,AddPermMul,-10,0,None
 CivUpgd_Air_Cost,,FightersAndBombers,,0,Cost,AddPermMul,15,0,None
@@ -577,13 +577,4 @@ Cruiser_Improve_1,,,,0,HitPoints,AddTempMul,30,0,None
 Cruiser_Improve_2,,,,0,Damage,AddTempMul,30,0,None
 Cruiser_Improve_Reset_1,,,,0,HitPoints,SetTempMul,0,0,None
 Cruiser_Improve_Reset_2,,,,0,Damage,SetTempMul,0,0,None
-CheatGather_Food,TT_BasicGathering,,0,GatherFood,AddPermMul,5000,0,None
-CheatGather_Wood,Citizens,,0,GatherWood,AddPermMul,5000,0,None
-CheatGather_Stone,Citizens,,0,GatherStone,AddPermMul,5000,0,None
-CheatGather_Gold,Citizens,,0,GatherGold,AddPermMul,5000,0,None
-CheatGather_Oil,OilRig,,0,GatherOil,AddPermMul,5000,0,None
-CheatGather_Uranium,UraniumMine,,0,GatherUranium,AddPermMul,5000,0,None
-CivUpgd_Citizen_GatherStone,Citizens,,0,GatherStone,AddPermMul,5000,0,None
-CivUpgd_Citizen_GatherGold,Citizens,,0,GatherGold,AddPermMul,5000,0,None
-CivUpgd_Citizen_GatherOil,OilRig,,0,GatherOil,AddPermMul,5000,0,None
 CivUpgd_Citizen_GatherUranium,UraniumMine,,0,GatherUranium,AddPermMul,5000,0,None

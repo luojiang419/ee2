@@ -461,10 +461,6 @@ UpgradeRefSet Traits_Citizen_Gather {
 	upgrades = [
 		CivUpgd_Citizen_GatherFood
 		CivUpgd_Citizen_GatherWood
-		CivUpgd_Citizen_GatherStone
-		CivUpgd_Citizen_GatherGold
-		CivUpgd_Citizen_GatherOil
-		CivUpgd_Citizen_GatherUranium
 	]
 }
 UpgradeRefSet Traits_Navy_Penalty {
