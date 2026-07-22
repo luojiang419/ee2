@@ -1772,11 +1772,15 @@ UnitType J20
 		Attack { damage = 2000; range = 22; reloadTime = 0.5; angularRange = 120; applyDamageTime = 0.3; missileName = "pl12"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 6;areaDamageRadius = 1.0;}
 	LOS { range = 28 }
 	AreaEffect {
-			effects = [ 
+			effects = [
 				SuperVision
+				EffectResourceGatherRate { range = RadiusFromUnit; radius = 500; mask = Citizens; player = Self; scale = 51; }
+				EffectResourceDropoff { range = RadiusFromUnit; radius = 500; mask = UniversitiesAndTemples; player = Self; scale = 51; }
+				EffectResourceDropoff { range = RadiusFromUnit; radius = 500; mask = OilRefineryUnits; player = Self; scale = 51; }
+				EffectResourceDropoff { range = RadiusFromUnit; radius = 500; mask = RectorUnits; player = Self; scale = 51; }
 			]
 		}
-		SpecialPower { 		
+		SpecialPower {
 			effects = [ Air_anti_missle Radardetectioning]
 		}
 	]
