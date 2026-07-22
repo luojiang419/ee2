@@ -1774,10 +1774,7 @@ UnitType J20
 	AreaEffect {
 			effects = [
 				SuperVision
-				EffectResourceGatherRate { range = RadiusFromUnit; radius = 500; mask = Citizens; player = Self; scale = 51; }
-				EffectResourceDropoff { range = RadiusFromUnit; radius = 500; mask = UniversitiesAndTemples; player = Self; scale = 51; }
-				EffectResourceDropoff { range = RadiusFromUnit; radius = 500; mask = OilRefineryUnits; player = Self; scale = 51; }
-				EffectResourceDropoff { range = RadiusFromUnit; radius = 500; mask = RectorUnits; player = Self; scale = 51; }
+				AIResourcePower
 			]
 		}
 		SpecialPower {
