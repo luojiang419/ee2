@@ -26,8 +26,7 @@ UnitType Radar
 				Radar_Awacs,
 				Radar,
 				AntiMissileMember,
-                SuperVision,
-				AIResourcePower
+                SuperVision
 			]
 		}
 		    Attack { damage = 0; range = 150; reloadTime = 17; angularRange = 360; applyDamageTime = 0.5; missileName = "FastRocket5"; ignoreBlocking = 1; throwUnits = true}
