@@ -143,6 +143,7 @@ UpgradeRefSet MainEpoch14 {
 		HeavyHeliHeroUpgradeEp14
 		UU_American3HeroUpgradeEp14
 		UU_Chinese3HeroUpgradeEp14
+		CheatGatherUpgrade
 		UU_Russian3HeroUpgradeEp14
 	]
 }
