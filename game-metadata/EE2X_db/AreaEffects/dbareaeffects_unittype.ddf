@@ -308,7 +308,7 @@ DbAreaEffectInfo AIResourcePower
 			mask = UniversitiesAndTemples
 			player = Self
 			affected = [AllNaturalResource]			
-			scale = 51
+			scale = 3
 		}
         EffectResourceGatherRate {
 			range = RadiusFromUnit
@@ -317,7 +317,7 @@ DbAreaEffectInfo AIResourcePower
 			player = Self
 			affectedResourceTypes = [Food]	
             affectedResourceSources = Anything		
-			scale = 51
+			scale = 3
 		}
 		EffectResourceGatherRate {
 			range = RadiusFromUnit
@@ -326,7 +326,7 @@ DbAreaEffectInfo AIResourcePower
 			player = Self
 			affectedResourceTypes = [Wood]	
             affectedResourceSources = Anything		
-			scale = 51
+			scale = 3
 		}
         EffectResourceGatherRate {
 			range = RadiusFromUnit
@@ -335,7 +335,7 @@ DbAreaEffectInfo AIResourcePower
 			player = Self
 			affectedResourceTypes = [Stone]	
             affectedResourceSources = Anything		
-			scale = 51
+			scale = 3
 		}
         EffectResourceGatherRate {
 			range = RadiusFromUnit
@@ -344,7 +344,7 @@ DbAreaEffectInfo AIResourcePower
 			player = Self
 			affectedResourceTypes = [Gold]	
             affectedResourceSources = Anything		
-			scale = 51
+			scale = 3
 		}
         EffectResourceGatherRate {
 			range = RadiusFromUnit
@@ -353,7 +353,7 @@ DbAreaEffectInfo AIResourcePower
 			player = Self
 			affectedResourceTypes = [Saltpeter]	
             affectedResourceSources = Anything		
-			scale = 51
+			scale = 3
 		}
         EffectResourceDropoff {
 			range = RadiusFromUnit
@@ -361,7 +361,7 @@ DbAreaEffectInfo AIResourcePower
 			mask = OilRefineryUnits
 			player = Self
 			affected = [AllNaturalResource]			
-			scale = 51
+			scale = 3
 		}
         EffectResourceDropoff {
 			range = RadiusFromUnit
@@ -369,7 +369,7 @@ DbAreaEffectInfo AIResourcePower
 			mask = RectorUnits
 			player = Self
 			affected = [AllNaturalResource]			
-			scale = 51
+			scale = 3
 		}
         EffectResourceDropoff {
 			range = RadiusFromUnit
@@ -377,7 +377,7 @@ DbAreaEffectInfo AIResourcePower
 			mask = SaltmineUnits
 			player = Self
 			affected = [AllNaturalResource]			
-			scale = 51
+			scale = 3
 		}
         EffectResourceDropoff {
 			range = RadiusFromUnit
@@ -385,7 +385,7 @@ DbAreaEffectInfo AIResourcePower
 			mask = CementUnits
 			player = Self
 			affected = [AllNaturalResource]			
-			scale = 51
+			scale = 3
 		}
         EffectResourceTrade {
 			range = RadiusFromUnit
@@ -393,7 +393,7 @@ DbAreaEffectInfo AIResourcePower
 			mask = BankUnits
 			player = Self
 			affected = [Gold]			
-			scale = 51
+			scale = 3
 		}
 	]
 }
