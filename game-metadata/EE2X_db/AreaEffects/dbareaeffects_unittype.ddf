@@ -529,12 +529,12 @@ DbAreaEffectInfo Awacs
 			player = NonSelf
 			mask = TT_HelicopterUnits
 		}
-		//EffectGiveLOS {
-		//	range = RadiusFromUnit
-		//	radius = 80
-		//	player = NonSelf
-		//	mask = PowerMobileMilitaryUnits
-		//}
+		EffectGiveLOS {
+			range = RadiusFromUnit
+			radius = 70
+			player = NonSelf
+			mask = PowerMobileMilitaryUnits
+		}
 		EffectVisualGlow {
 			range = Unit
 			mask = Anything
@@ -543,7 +543,7 @@ DbAreaEffectInfo Awacs
 			OwnerOnly = false
 			Icon = spr_game_unitinfo_icon_awacs
 			Tooltip = tt_power_awacs_fallout
-			VTooltip = vtt_power_awacs_fallout           
+			VTooltip = vtt_power_awacs_fallout
 		}
            
 	]
