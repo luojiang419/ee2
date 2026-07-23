@@ -114,7 +114,7 @@ upBattleship_15,text_upBattleship_15_name,,15,4,Improvement,icon_tech_upBattlesh
 upVLSTech_14,text_upVLSTech_name,,14,4,Military,icon_unitpwr_VLS,0,2,2,NavalAcademy,,upVLSTechSlot1_14,4,0,0,0,0,0,0,0,0,0,15,,[upBattleship_14],(None)
 
 ////---------------------- yuanhang 8.09------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
-E2D,text_Fighter_11_name,,13,0,,,0,2,2,AircraftCarrier,E2D,,20,800,0,0,800,0,0,0,800,800,5,American,[],(None)
+E2D,text_Fighter_11_name,,13,0,,,0,2,2,AircraftCarrier,E2D,,10,400,0,0,400,0,0,0,400,400,2,American,[],(None)
 ////---------------------- yuanhang 8.05------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
 F5Mexico,text_Fighter_11_name,,13,0,,,0,3,1,Airport,F5Mexico,,70,0,500,0,500,0,0,0,500,250,5,Mayan,[upHelicopter_13],(None)
 jiqiangpika_Mexico,text_LightMounted1_11_name,,13,0,,,0,2,0,Stable,jiqiangpika_Mexico,,30,200,200,0,200,0,0,0,100,0,0,Mayan,[],(None)
@@ -566,8 +566,8 @@ Tu16Kitai,text_Fighter_11_name,,11,0,,,0,3,0,Airport,Tu16Kitai,Tu16KitaiUpgradeE
 H20,text_Tu95_name,,14,0,,,1,2,3,Airport,H20,,120,0,5000,0,5000,0,0,0,5000,5000,100,Chinese,[],(None)
 J20,text_Fighter_11_name,,14,0,,,1,3,2,Airport,J20,,40,0,700,0,700,0,0,0,400,350,8,Chinese,[upStealthPlane_14],(None)
 J20S,text_Fighter_11_name,,14,0,,,1,3,3,Airport,J20S,,80,0,750,0,750,0,0,0,750,400,8,Chinese,[upStealthPlane_14],(None)
-J15,text_Fighter_11_name,,14,0,,,0,3,2,Type003,J15,,20,0,600,0,600,0,0,0,350,400,0,Chinese,[],(None)
-J35A,text_Fighter_11_name,,14,0,,,0,2,2,Type003,J35A,,20,0,750,0,750,0,0,0,750,400,5,Chinese,[upStealthPlane_14],(None)
+J15,text_Fighter_11_name,,14,0,,,0,3,2,Type003,J15,,10,0,300,0,300,0,0,0,175,200,0,Chinese,[],(None)
+J35A,text_Fighter_11_name,,14,0,,,0,2,2,Type003,J35A,,10,0,375,0,375,0,0,0,375,200,2,Chinese,[upStealthPlane_14],(None)
 
 DF41,text_SA9_name,,14,0,,,0,0,1,Mill,DF41,,150,0,8000,0,8000,0,0,0,8000,8000,300,Chinese,[],(None)
 Scud_culd,text_SA9_name,,13,0,,,0,0,2,Mill,Scud_culd,,100,0,5000,0,0,0,0,0,5000,5000,50,Chinese,[],(None)
@@ -676,17 +676,17 @@ tegetthoff,text_Battleship_11_name,,11,0,,,0,2,1,Dock,tegetthoff,,120,0,1500,0,1
 
 scorpene,text_Submarine_11_name,,13,0,,,1,3,0,Dock,scorpene,,80,0,800,0,800,0,0,0,800,800,2,Mayan,[],(None)
 
-NavalF18,text_Fighter_11_name,,11,0,,,0,3,2,AircraftCarrier,NavalF18,NavalF18Epoch12,5,0,60,0,50,0,0,0,50,60,0,American,[],(None)
-FrenchPlane,text_Fighter_11_name,,11,0,,,0,3,2,FrenchCarrier,FrenchPlane,FrenchPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,French,[],(None)
-EnglishPlane,text_Fighter_11_name,,11,0,,,0,3,2,EnglishCarrier,EnglishPlane,EnglishPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,English,[],(None)
-RomanPlane,text_Fighter_11_name,,11,0,,,0,3,2,RomanCarrier,RomanPlane,RomanPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,Roman,[],(None)
-ChinaPlane,text_Fighter_11_name,,11,0,,,0,3,2,ChinaCarrier,ChinaPlane,ChinaPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,Chinese,[],(None)
-GermanPlane,text_Fighter_11_name,,11,0,,,0,3,2,GermanCarrier,GermanPlane,GermanPlaneEpoch12,3,0,60,0,50,0,0,0,50,60,0,German,[],(None)
-RussianPlane,text_Fighter_11_name,,11,0,,,0,3,2,RussianCarrier,RussianPlane,RussianPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,Russian,[],(None)
-IncaPlane,text_Fighter_11_name,,12,0,,,0,3,2,IncaCarrier,IncaPlane,IncaPlaneEpoch12,5,0,60,0,50,0,0,0,50,60,0,Inca,[],(None)
+NavalF18,text_Fighter_11_name,,11,0,,,0,3,2,AircraftCarrier,NavalF18,NavalF18Epoch12,2,0,30,0,25,0,0,0,25,30,0,American,[],(None)
+FrenchPlane,text_Fighter_11_name,,11,0,,,0,3,2,FrenchCarrier,FrenchPlane,FrenchPlaneEpoch12,2,0,30,0,25,0,0,0,25,30,0,French,[],(None)
+EnglishPlane,text_Fighter_11_name,,11,0,,,0,3,2,EnglishCarrier,EnglishPlane,EnglishPlaneEpoch12,2,0,30,0,25,0,0,0,25,30,0,English,[],(None)
+RomanPlane,text_Fighter_11_name,,11,0,,,0,3,2,RomanCarrier,RomanPlane,RomanPlaneEpoch12,2,0,30,0,25,0,0,0,25,30,0,Roman,[],(None)
+ChinaPlane,text_Fighter_11_name,,11,0,,,0,3,2,ChinaCarrier,ChinaPlane,ChinaPlaneEpoch12,2,0,30,0,25,0,0,0,25,30,0,Chinese,[],(None)
+GermanPlane,text_Fighter_11_name,,11,0,,,0,3,2,GermanCarrier,GermanPlane,GermanPlaneEpoch12,1,0,30,0,25,0,0,0,25,30,0,German,[],(None)
+RussianPlane,text_Fighter_11_name,,11,0,,,0,3,2,RussianCarrier,RussianPlane,RussianPlaneEpoch12,2,0,30,0,25,0,0,0,25,30,0,Russian,[],(None)
+IncaPlane,text_Fighter_11_name,,12,0,,,0,3,2,IncaCarrier,IncaPlane,IncaPlaneEpoch12,2,0,30,0,25,0,0,0,25,30,0,Inca,[],(None)
 //------------------------ww2-war-airplane-----------------,,,,,,,,,,,,,,,,,,,,,,,,,
 ///////////////////Chinese/////////////////////////
-LN401,text_Fighter_11_name,,12,0,,,0,2,2,ChinaCarrier,LN401,,20,0,500,0,500,0,0,500,500,0,2,Chinese,[upbomber_12],(None)
+LN401,text_Fighter_11_name,,12,0,,,0,2,2,ChinaCarrier,LN401,,10,0,250,0,250,0,0,250,250,0,1,Chinese,[upbomber_12],(None)
 b24kitai,text_Bomber_11_name,,12,0,,,0,2,3,Airport,b24kitai,,100,0,2000,0,2000,0,0,2000,2000,0,5,Chinese,[upbomber_12],(None)
 j2f,text_Fighter_11_name,,12,0,,,0,2,3,ChinaCarrier,j2f,,20,0,400,0,400,0,0,400,200,0,2,Chinese,[upfighter_12],(None)
 
