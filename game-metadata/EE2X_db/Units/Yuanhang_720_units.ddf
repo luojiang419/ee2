@@ -27138,14 +27138,125 @@ UnitType poj_popBuild
 
 
 	abilities = [
-		abilities = [
-			AircraftMove {speed = 5.5; angSpeed = 58; CruisingHeight = 10.0 }
-			AreaEffect {
-				effects = [ 
-					Awacs,SuperVision
-				]
-			}
-			LOS { range = 50 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//Attack { latent = true; range = 4; reloadTime = 1; applyDamageTime = 0.5; damage = 20; missileName = "Arrow"; angularRange = 360 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		LOS { range = 0 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Garrison { 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
