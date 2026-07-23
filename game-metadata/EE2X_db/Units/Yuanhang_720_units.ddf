@@ -27145,63 +27145,7 @@ UnitType poj_popBuild
 					Awacs,SuperVision
 				]
 			}
-			LOS { range = 30 }
-		LOS { range = 0 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		Garrison { 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			LOS { range = 50 }
 
 
 

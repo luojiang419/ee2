@@ -42,7 +42,7 @@ UnitType KJ2000
 				Awacs,SuperVision
 			]
 		}
-        LOS { range = 35 }
+        LOS { range = 50 }
        // SpecialPower { 
 		//	range = 100; 
 		//	effects = [ Awace_PowerControler ]
@@ -5048,7 +5048,7 @@ UnitType E2D
 				Awacs,SuperVision
 			]
 		}
-        LOS { range = 13 }
+        LOS { range = 50 }
 	]
 	attributes [
 		GoesOnAirMissions

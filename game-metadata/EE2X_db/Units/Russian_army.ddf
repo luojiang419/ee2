@@ -1906,7 +1906,7 @@ UnitType A100
 				Awacs,SuperVision
 			]
 		}
-        LOS { range = 32} 		
+        LOS { range = 50} 		
 	]
 	attributes [
 		GoesOnAirMissions
