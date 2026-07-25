@@ -1362,25 +1362,25 @@ DbAreaEffectInfo Radardetectioning
 	effects = [
 		EffectGiveLOS {
 			range = RadiusFromUnit
-			radius = 50
+			radius = 60
 			player = NonSelf
 			mask = AllPlanes
 		}
 		 EffectGiveLOS {
 			range = RadiusFromUnit
-			radius = 50
+			radius = 60
 			player = NonSelf
 			mask = AwacsNavalUnits
 		}
 		EffectGiveLOS {
 			range = RadiusFromUnit
-			radius = 50
+			radius = 60
 			player = NonSelf
 			mask = TT_HelicopterUnits
 		}
 		EffectGiveLOS {
 			range = RadiusFromUnit
-			radius = 50
+			radius = 60
 			player = NonSelf
 			mask = TT_AirDefense
 		}

@@ -289,5 +289,5 @@ vtt_power_ChangeRange,"""装备在特殊能量100%才能攻击。"""
 // power SubmarineDiveing
 tt_power_SubmarineDiveing,"""下潜<b><color green>功能：隐身10秒，不能攻击，移速下降20%</color></b>"""
 vtt_power_SubmarineDiveing,"""下潜<b><color green>功能：隐身10秒，不能攻击，移速下降20%</color></b>"""
-tt_power_Radardetectioning,"""雷达探测<b><color green>功能：探测15秒，可发现40距离飞机、军舰、防空系统</color></b>"""
-vtt_power_Radardetectioning,"""雷达探测<b><color green>功能：探测15秒，可发现40距离飞机、军舰、防空系统</color></b>"""
+tt_power_Radardetectioning,"""雷达探测<b><color green>功能：探测15秒，可发现60距离飞机、军舰、防空系统</color></b>"""
+vtt_power_Radardetectioning,"""雷达探测<b><color green>功能：探测15秒，可发现60距离飞机、军舰、防空系统</color></b>"""
