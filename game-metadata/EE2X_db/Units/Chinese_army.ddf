@@ -1774,7 +1774,7 @@ UnitType J20
 	AreaEffect {
 			effects = [
 				SuperVision
-				AIResourcePower
+
 			]
 		}
 		SpecialPower {
