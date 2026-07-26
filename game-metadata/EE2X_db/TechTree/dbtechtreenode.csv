@@ -894,7 +894,7 @@ M3AT37mm,text_BMP1_name,,11,0,,,0,0,3,Barracks,M3AT37mm,M3AT37mmUpgradeEpoch11,6
 //AnatraDS,text_Fighter_11_name,,11,0,,,0,2,3,Airport,AnatraDS,,80,0,400,0,400,0,0,400,400,0,2,Russian,[],(None)
 //AnatraVKh,text_Fighter_11_name,,11,0,,,0,2,0,Airport,AnatraVKh,,80,0,400,0,400,0,0,400,400,0,2,Russian,[],(None)
 
-il76,text_mig15_name,,12,0,,,0,1,3,Airport2,il76,il76UpgradeEpoch12,55,100,200,0,200,0,0,0,200,0,10,,[],(None)
+il76,text_mig15_name,,12,0,,,0,2,0,Airport2,il76,il76UpgradeEpoch12,55,100,200,0,200,0,0,0,200,0,10,,[],(None)
 //------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
 //	TW10 Napoleon 1.0,,,,,,,,,,,,,,,,,,,,,,,,,,
 //------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -1398,7 +1398,7 @@ FighterBomber,text_FighterBomber_11_name,,11,0,,,0,2,2,Airport,FighterBomber,Fig
 HeavyTank,text_HeavyMounted1_11_name,,11,0,,,0,1,1,Stable,HeavyTank,HeavyMounted1UpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,2,,[upArmoredCar_11],(None)
 LightArtillery2,text_LightArtillery2_11_name,,11,0,,,0,1,2,Mill,LightArtillery2,LightArtillery2UpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 Tank,text_LightMounted1_11_name,,11,0,,,0,1,0,Stable,Tank,LightMounted1UpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,1,,[],(None)
-ObservationBalloon,text_ObservationBalloon_11_name,,11,0,,,0,1,0,Airport2,ObservationBalloon,NonCombatAir1UpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
+ObservationBalloon,text_ObservationBalloon_11_name,,11,0,,,0,1,1,Airport2,ObservationBalloon,NonCombatAir1UpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 Submarine,text_Submarine_11_name,,11,0,,,0,2,0,Dock,Submarine,SubmarineUpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,2,,[upFregatten_11],(None)
 Machinegunnest,text_machinegunnest_name,,11,0,,,3,3,3,Citizen,Machinegunnest,MachinegunnestUpgradeEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 AIAirDefense,text_machinegunnest_name,,11,0,,,2,3,6,Citizen,AIAirDefense,AIAirDefenseEpoch11,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
@@ -1452,7 +1452,7 @@ Military11_4,text_Military11_4_name,,11,3,Military,icon_tech_e11_military4,3,3,2
 
 // ------------------------- EPOCH 12 ------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
 // UNITS,,,,,,,,,,,,,,,,,,,,,,,,,,
-NonCombatAir2,text_NonCombatAir2_12_name,,12,0,,,0,1,0,Airport2,NonCombatAir2,NonCombatAir2UpgradeEpoch12,20,0,0,0,0,0,0,0,0,0,0,,[],(None)
+NonCombatAir2,text_NonCombatAir2_12_name,,12,0,,,0,1,2,Airport2,NonCombatAir2,NonCombatAir2UpgradeEpoch12,20,0,0,0,0,0,0,0,0,0,0,,[],(None)
 NuclearBomber,text_NuclearBomber_12_name,,12,0,,,0,2,0,Airport,NuclearBomber,NuclearBomberUpgradeEpoch12,0,0,0,0,0,0,0,0,0,0,4,,[],(None)
 MachineGunNest12,tx_utn_machinegunnest12_name,,13,0,,,3,2,2,Citizen,MachineGunNest12,,50,0,100,100,100,0,0,0,0,0,0,,[],(None)
 
@@ -1495,7 +1495,7 @@ Military12_4,text_Military12_4_name,,12,3,Military,icon_tech_e12_military4,3,3,1
 HeavyMounted2,text_HeavyMounted2_13_name,,13,0,,,0,2,0,Airport2,HeavyMounted2,HeavyMounted2UpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,3,,[upHelicopter_13],(None)
 LightMounted2,text_LightMounted2_13_name,,13,0,,,0,2,1,Airport2,LightMounted2,LightMounted2UpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,3,,[upHelicopter_13],(None)
 TransportHelicopter,text_TransportHelicopter_name,,13,0,,,0,2,2,Airport2,TransportHelicopter,TransHelicopterUpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
-Satellite,text_Satellite_13_name,,13,0,,,0,2,2,Airport2,Satellite,NonCombatAir3UpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
+Satellite,text_Satellite_13_name,,13,0,,,0,2,3,Airport2,Satellite,NonCombatAir3UpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 Missile_Silo,text_MissileSilo_name,,13,0,,icon_unit_missile_silo,2,3,1,Citizen,Missile_Silo,,90,0,0,350,0,0,0,0,75,0,0,,[],(None)
 NuclearMissile,text_MissileSilo_name,,14,0,,icon_unit_missile_silo,2,3,1,Citizen,NuclearMissile,,75,6000,6000,6000,6000,0,0,0,6000,6000,50,American,[],(None)
 NuclearMissile_ch,text_MissileSilo_name,,14,0,,icon_unit_missile_silo,2,3,1,Citizen,NuclearMissile_ch,,75,6000,6000,6000,6000,0,0,0,6000,6000,50,Chinese,[],(None)
