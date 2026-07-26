@@ -20,8 +20,8 @@ UnitType Satellite
 	}
 	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
 	abilities = [
-		AircraftMove {speed = 3.45; angSpeed = 90; CruisingHeight = 10.0; ElevChangeRate = 0.5; canHover = 1}
-		LOS { range = 10 }
+		AircraftMove {speed = 6.9; angSpeed = 90; CruisingHeight = 10.0; ElevChangeRate = 0.5; canHover = 1}
+		LOS { range = 30 }
 		Garrisonable { garrisonTypes = [ Heliport ] }
 	//	SpecialPower { 
 	//		range = 5; 
