@@ -434369,7 +434369,7 @@ UnitType Ka28Kitai
 
 
 
-		Attack { range = 25; reloadTime = 3.0; applyDamageTime = 0.5; damage = 1500; missileName = "Torpedo";attackOnTheMove = 1 }
+		Attack { range = 30; reloadTime = 3.0; applyDamageTime = 0.5; damage = 1500; missileName = "Torpedo";attackOnTheMove = 1 }
 
 
 
