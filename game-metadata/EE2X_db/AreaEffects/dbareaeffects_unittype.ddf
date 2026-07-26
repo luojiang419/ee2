@@ -3158,7 +3158,7 @@ DbAreaEffectInfo Change_Miss
 		EffectAttackSpeed {
 			range = Unit
 			player = Self
-			scale = 1.0
+			scale = 0.5
 		}
 		EffectAttackReplaceAmmo {
 			range = Unit
