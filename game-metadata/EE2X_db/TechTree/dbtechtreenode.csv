@@ -141,7 +141,7 @@ Type075,text_Destroyer_11_name,,13,0,,,1,1,3,Dock,Type075,,100,400,1500,0,1500,0
 moskva_Heliport,text_Destroyer_11_name,,13,0,,,1,1,3,Dock,moskva_Heliport,,100,154,577,0,577,0,0,0,577,577,5,Russian,[],(None)
 China_yun8,text_Fighter_11_name,,13,0,,,0,1,3,Airport,China_yun8,,70,450,0,0,550,0,0,0,250,550,5,Chinese,[upHelicopter_13],(None)
 yun20,text_Fighter_11_name,,13,0,,,0,1,1,Airport2,yun20,,150,2000,3000,0,3000,0,0,0,2000,2000,10,Chinese,[],(None)
-IL78,text_Fighter_11_name,,13,0,,,0,1,1,Airport2,IL78,,150,2000,3000,0,3000,0,0,0,2000,2000,10,Russian,[],(None)
+IL78,text_Fighter_11_name,,13,0,,,0,1,2,Airport2,IL78,,150,2000,3000,0,3000,0,0,0,2000,2000,10,Russian,[],(None)
 //yun8,text_Fighter_11_name,,13,0,,,0,1,1,Airport,yun8,,55,150,0,0,200,0,0,0,200,0,0,Chinese,[],(None)
 KJ2000,text_E3_name,,13,0,,,0,1,2,Airport,KJ2000,KJ2000UpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,20,Chinese,[upHelicopter_13],(None)
 A100,text_E3_name,,13,0,,,0,1,2,Airport,A100,,100,0,1000,0,1000,0,0,0,1000,1000,20,Russian,[upHelicopter_13],(None)
@@ -894,7 +894,7 @@ M3AT37mm,text_BMP1_name,,11,0,,,0,0,3,Barracks,M3AT37mm,M3AT37mmUpgradeEpoch11,6
 //AnatraDS,text_Fighter_11_name,,11,0,,,0,2,3,Airport,AnatraDS,,80,0,400,0,400,0,0,400,400,0,2,Russian,[],(None)
 //AnatraVKh,text_Fighter_11_name,,11,0,,,0,2,0,Airport,AnatraVKh,,80,0,400,0,400,0,0,400,400,0,2,Russian,[],(None)
 
-il76,text_mig15_name,,12,0,,,0,1,1,Airport2,il76,il76UpgradeEpoch12,55,100,200,0,200,0,0,0,200,0,10,,[],(None)
+il76,text_mig15_name,,12,0,,,0,1,3,Airport2,il76,il76UpgradeEpoch12,55,100,200,0,200,0,0,0,200,0,10,,[],(None)
 //------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
 //	TW10 Napoleon 1.0,,,,,,,,,,,,,,,,,,,,,,,,,,
 //------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -1495,7 +1495,7 @@ Military12_4,text_Military12_4_name,,12,3,Military,icon_tech_e12_military4,3,3,1
 HeavyMounted2,text_HeavyMounted2_13_name,,13,0,,,0,2,0,Airport2,HeavyMounted2,HeavyMounted2UpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,3,,[upHelicopter_13],(None)
 LightMounted2,text_LightMounted2_13_name,,13,0,,,0,2,1,Airport2,LightMounted2,LightMounted2UpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,3,,[upHelicopter_13],(None)
 TransportHelicopter,text_TransportHelicopter_name,,13,0,,,0,2,2,Airport2,TransportHelicopter,TransHelicopterUpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
-Satellite,text_Satellite_13_name,,13,0,,,0,1,1,Airport2,Satellite,NonCombatAir3UpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
+Satellite,text_Satellite_13_name,,13,0,,,0,2,2,Airport2,Satellite,NonCombatAir3UpgradeEpoch13,0,0,0,0,0,0,0,0,0,0,0,,[],(None)
 Missile_Silo,text_MissileSilo_name,,13,0,,icon_unit_missile_silo,2,3,1,Citizen,Missile_Silo,,90,0,0,350,0,0,0,0,75,0,0,,[],(None)
 NuclearMissile,text_MissileSilo_name,,14,0,,icon_unit_missile_silo,2,3,1,Citizen,NuclearMissile,,75,6000,6000,6000,6000,0,0,0,6000,6000,50,American,[],(None)
 NuclearMissile_ch,text_MissileSilo_name,,14,0,,icon_unit_missile_silo,2,3,1,Citizen,NuclearMissile_ch,,75,6000,6000,6000,6000,0,0,0,6000,6000,50,Chinese,[],(None)
