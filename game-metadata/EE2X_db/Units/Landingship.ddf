@@ -12,7 +12,7 @@ UnitType LandingShip
 		displayName = tx_utn_LandingShip_name
 		verboseTooltip = vtt_unit_LandingShip
 		popCount = 2
-		hitpoints = 90000
+		hitpoints = 4000
 	}
 	attributes = [
 		HealedByHERC 
@@ -27,7 +27,7 @@ UnitType LandingShip
 		}
 		Garrison { 
 			garrisonType = NavalTransport; 
-			numOfSlots = 250;
+			numOfSlots = 30;
 			healPoints = 50;		// Each unit type garrison heals this many points per second
 			GarrisonFlagModelName = "GarrisonShip"
 		}
@@ -51,7 +51,7 @@ UpgradeAbilities LandingShipEpoch11Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = NavalTransport; 
-			numOfSlots = 250;			
+			numOfSlots = 50;			
                   GarrisonFlagModelName = "GarrisonShip"
 			}
 	]
@@ -73,7 +73,7 @@ UpgradeAbilities LandingShipEpoch12Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = NavalTransport; 
-			numOfSlots = 250;			
+			numOfSlots = 50;			
                   GarrisonFlagModelName = "GarrisonShip"
 			}
 	]
@@ -96,7 +96,7 @@ UpgradeAbilities LandingShipEpoch13Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = NavalTransport; 
-			numOfSlots = 250;			
+			numOfSlots = 55;			
                   GarrisonFlagModelName = "GarrisonShip"
 			}
 	]
@@ -127,7 +127,7 @@ UpgradeAbilities LandingShipEpoch15Garrison
 	upgradedAbilities = [
 		Garrison { 
 			garrisonType = NavalTransport; 
-			numOfSlots = 250;			
+			numOfSlots = 60;			
                   GarrisonFlagModelName = "GarrisonShip"
 			}
 	]
