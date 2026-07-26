@@ -582,7 +582,7 @@ China_T99A,text_HeavyMounted1_11_name,,11,0,,,0,1,2,Stable,China_T99A,China_T99A
 PHL_03,text_SA9_name,,14,0,,,0,2,0,Mill,PHL_03,,42,0,0,322,483,0,0,0,241,483,5,Chinese,[upHeavyArtillery_14],(None)
 Ka28Kitai,text_Mi8_name,,13,0,,,0,1,0,Airport2,Ka28Kitai,,30,0,250,0,250,0,0,0,250,250,0,,[],(None)
 ChinaCarrier,text_AircraftCarrier_11_name,,12,0,,,0,2,3,Dock,ChinaCarrier,ChinaCarrierEpoch11,0,0,0,0,0,0,0,0,0,0,0,Chinese,[],(None)
-Chinaship_071,text_typhoon_name,,13,0,,,1,3,0,Dock,Chinaship_071,,120,0,1000,0,0,0,0,0,1000,1000,5,Chinese,[],(None)
+Chinaship_071,text_typhoon_name,,13,0,,,1,3,0,Dock,Chinaship_071,,120,0,1000,0,0,0,0,0,1000,1000,5,,[],(None)
 AntiAir_Fkl03,text_BMP1_name,,13,0,,,0,0,2,Stable,AntiAir_Fkl03,,32,0,400,0,400,0,0,0,400,0,1,Chinese,[],(None)
 Plz45,text_BMP1_name,,11,0,,,0,1,1,Mill,Plz45,Plz45UpgradeEpoch11,40,0,0,440,605,0,0,0,275,605,5,Chinese,[upArmoredCar_11],(None)
 ChinaArmy,tx_utn_Sniper_name,,13,0,,,0,1,0,Barracks,ChinaArmy,,14,10,0,0,6,0,0,0,0,0,0,Chinese,[],(None)
