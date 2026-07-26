@@ -554,7 +554,7 @@ UnitType Antiship_missile
 	 AreaEffect {
 			
 		}
-		Attack { range = 28; reloadTime = 1.75; applyDamageTime = 0.3; damage = 3000;packTime = 3.5;unpackTime = 3.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1;  areaDamageRadius = 3.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		Attack { range = 35; reloadTime = 1.75; applyDamageTime = 0.3; damage = 3000;packTime = 3.5;unpackTime = 3.5; missileName = "TomahawkMissile3"; ignoreBlocking = 1;  areaDamageRadius = 3.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
             VehicleMove {speed = 1.6; angSpeed = 80; followTerrainSlope = 1 }
             Garrisonable { garrisonTypes = [ Fortress  NavalTransport  AirTransport ] }
 		LOS { range = 35 }
