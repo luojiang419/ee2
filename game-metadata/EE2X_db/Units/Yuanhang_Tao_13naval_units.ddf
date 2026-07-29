@@ -4862,7 +4862,7 @@ UpgradeAbilities Cruiser1164Epoch14Attack
 
 	upgradedAbilities = [
 
-		Attack { damage = 3000; range = 48; angularRange = 360; reloadTime = 2.0; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; }
+		Attack { damage = 3000; range = 48; angularRange = 360; reloadTime = 3.0; applyDamageTime = 0.1; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 2; }
 
 	        NavalMove {speed = 1.7; accel = 1; angSpeed = 60}
 
@@ -5816,7 +5816,7 @@ UnitType akula
 
 		mass = 1
 
-		HitPoints = 16000
+		HitPoints = 8000
 
 displayName = tx_utn_akula_name
 
@@ -10432,7 +10432,7 @@ UpgradeAbilities FregattenFFGEpoch14Attack
 
 	upgradedAbilities = [
 
-		Attack { damage = 2400; range = 55; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+		Attack { damage = 2400; range = 55; angularRange = 360; reloadTime = 0.7; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
 
 	            NavalMove {speed = 2.0; accel = 1; angSpeed = 255}
 
