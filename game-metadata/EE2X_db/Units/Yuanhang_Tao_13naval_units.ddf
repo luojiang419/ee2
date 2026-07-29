@@ -18778,7 +18778,7 @@ UnitType SupportShip
 
             NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
-			Heal {range = 10; healRate = 300; HealRadius = 5.0; healType = HealedByHERC }
+			Heal {range = 18; healRate = 300; HealRadius = 5.0; healType = HealedByHERC }
 
 			LOS { range = 18 }
 
@@ -18894,7 +18894,7 @@ UnitType SupportShip15
 
             NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
-			Heal {range = 10; healRate = 300; HealRadius = 5.0; healType = HealedByHERC }
+			Heal {range = 18; healRate = 300; HealRadius = 5.0; healType = HealedByHERC }
 
 			LOS { range = 18 }
 
