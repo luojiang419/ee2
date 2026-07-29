@@ -18638,11 +18638,11 @@ UnitType electronicBoat
 
 	abilities = [
 
-           Attack { damage = 100; range = 18; reloadTime = 0.1; angularRange = 360;  missileName = "fkjqAmmo" }
+           Attack { damage = 250; range = 22; reloadTime = 0.05; angularRange = 360;  missileName = "fkjqAmmo" }
 
             NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
-		LOS { range = 18 }
+		LOS { range = 25 }
 
 		AreaEffect {
 
@@ -18778,7 +18778,7 @@ UnitType SupportShip
 
             NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
-			Heal {range = 10; healRate = 150; HealRadius = 5.0; healType = HealedByHERC }
+			Heal {range = 10; healRate = 300; HealRadius = 5.0; healType = HealedByHERC }
 
 			LOS { range = 18 }
 
@@ -18894,7 +18894,7 @@ UnitType SupportShip15
 
             NavalMove {speed = 1.7; accel = 1; angSpeed = 40}
 
-			Heal {range = 10; healRate = 150; HealRadius = 5.0; healType = HealedByHERC }
+			Heal {range = 10; healRate = 300; HealRadius = 5.0; healType = HealedByHERC }
 
 			LOS { range = 18 }
 
