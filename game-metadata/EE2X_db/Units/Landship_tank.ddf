@@ -24,10 +24,10 @@ UnitType LandShip_tank
 			garrisonType = NavalTransport;
 			numOfSlots = 40;
 			initialContents = [
-				{ typeName="American_M1A2" count=4 }
-				{ typeName="Stryker" count=4 }
-				{ typeName="HeavyInfantry2" count=20 }
-				{ typeName="PAC3" count=4 }
+				{ typeName="Paratrooper_M1A1" count=4 }
+				{ typeName="Paratrooper_Mounter" count=4 }
+				{ typeName="Paratrooper_Mortar" count=20 }
+				{ typeName="Paratrooper_AAMissile" count=4 }
 			];
 			dontShowGarrisonButton = 1;
 		}
