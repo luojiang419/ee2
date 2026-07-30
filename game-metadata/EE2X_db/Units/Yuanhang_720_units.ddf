@@ -149732,13 +149732,7 @@ displayName = tx_utn_sanantonio_name
 
 			numOfSlots = 300;
 
-			initialContents = [
-				{ typeName="American_M1A2" count=4 }
-				{ typeName="Stryker" count=4 }
-				{ typeName="HeavyInfantry2" count=20 }
-				{ typeName="PAC3" count=4 }
-			]
-
+			initialContents = [ { typeName="HeavyTank" count=5 } ];
 
 
 
