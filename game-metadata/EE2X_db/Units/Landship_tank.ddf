@@ -20,7 +20,7 @@ UnitType LandShip_tank
 	abilities = [
 		NavalMove {speed = 2.5; accel = 1.0; angSpeed = 130;}
 		LOS { range = 0 }
-		Garrison {
+		GarrisonParatrooper {
 			garrisonType = NavalTransport;
 			numOfSlots = 40;
 			initialContents = [
@@ -29,8 +29,7 @@ UnitType LandShip_tank
 				{ typeName="HeavyInfantry2" count=20 }
 				{ typeName="PAC3" count=4 }
 			];
-			rightClickToGarrison = 1;
-			GarrisonFlagModelName = "GarrisonShip"
+			dontShowGarrisonButton = 1;
 		}
 	]
 	icon = icon_unit_LandShip
