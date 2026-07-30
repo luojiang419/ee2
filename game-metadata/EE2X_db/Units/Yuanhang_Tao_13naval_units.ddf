@@ -236,6 +236,8 @@ hitpoints = 90000
 
 			numOfSlots = 250;
 
+			initialContents = [ { typeName="HeavyTank" count=5 } ];
+
 			healPoints = 200;		// Each unit type garrison heals this many points per second
 
 			garrisonType = NavalTransport; 
