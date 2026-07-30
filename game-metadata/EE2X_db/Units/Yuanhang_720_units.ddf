@@ -146369,8 +146369,7 @@ verboseTooltip = vtt_unit_Landing
 
 
 
-			garrisonType = NavalTransport;
-			rightClickToGarrison = 1; 
+			garrisonType = NavalTransport; 
 
 
 
@@ -149698,8 +149697,7 @@ displayName = tx_utn_sanantonio_name
 
 
 
-						Produce { }
-Garrison{
+			Garrison{
 
 
 
@@ -149795,8 +149793,7 @@ Garrison{
 
 
 
-			garrisonType = NavalTransport;
-			rightClickToGarrison = 1; 
+			garrisonType = NavalTransport; 
 
 
 
@@ -436420,8 +436417,7 @@ UnitType il76
 
 
 
-			garrisonType = NavalTransport;
-			rightClickToGarrison = 1; 
+			garrisonType = NavalTransport; 
 
 
 
@@ -437317,8 +437313,7 @@ UpgradeAbilities il76Epoch13Garrison
 
 
 
-			garrisonType = NavalTransport;
-			rightClickToGarrison = 1; 
+			garrisonType = NavalTransport; 
 
 
 
@@ -437702,8 +437697,7 @@ UpgradeAbilities il76Epoch14Garrison
 
 
 
-			garrisonType = NavalTransport;
-			rightClickToGarrison = 1; 
+			garrisonType = NavalTransport; 
 
 
 
@@ -438087,8 +438081,7 @@ UpgradeAbilities il76Epoch15Garrison
 
 
 
-			garrisonType = NavalTransport;
-			rightClickToGarrison = 1; 
+			garrisonType = NavalTransport; 
 
 
 
@@ -584904,8 +584897,7 @@ UnitType Vikingship
 
 
 
-			garrisonType = NavalTransport;
-			rightClickToGarrison = 1; 
+			garrisonType = NavalTransport; 
 
 
 
@@ -586761,8 +586753,7 @@ UnitType Kobukson
 
 
 
-			garrisonType = NavalTransport;
-			rightClickToGarrison = 1; 
+			garrisonType = NavalTransport; 
 
 
 
@@ -588682,8 +588673,7 @@ UnitType Lodia
 
 
 
-			garrisonType = NavalTransport;
-			rightClickToGarrison = 1; 
+			garrisonType = NavalTransport; 
 
 
 
