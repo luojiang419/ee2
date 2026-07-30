@@ -146369,7 +146369,8 @@ verboseTooltip = vtt_unit_Landing
 
 
 
-			garrisonType = NavalTransport; 
+			garrisonType = NavalTransport;
+			rightClickToGarrison = 1; 
 
 
 
@@ -149731,6 +149732,13 @@ displayName = tx_utn_sanantonio_name
 
 			numOfSlots = 300;
 
+			initialContents = [
+				{ typeName="American_M1A2" count=4 }
+				{ typeName="Stryker" count=4 }
+				{ typeName="HeavyInfantry2" count=20 }
+				{ typeName="PAC3" count=4 }
+			]
+
 
 
 
@@ -149793,7 +149801,8 @@ displayName = tx_utn_sanantonio_name
 
 
 
-			garrisonType = NavalTransport; 
+			garrisonType = NavalTransport;
+			rightClickToGarrison = 1; 
 
 
 
@@ -436417,7 +436426,8 @@ UnitType il76
 
 
 
-			garrisonType = NavalTransport; 
+			garrisonType = NavalTransport;
+			rightClickToGarrison = 1; 
 
 
 
@@ -437313,7 +437323,8 @@ UpgradeAbilities il76Epoch13Garrison
 
 
 
-			garrisonType = NavalTransport; 
+			garrisonType = NavalTransport;
+			rightClickToGarrison = 1; 
 
 
 
@@ -437697,7 +437708,8 @@ UpgradeAbilities il76Epoch14Garrison
 
 
 
-			garrisonType = NavalTransport; 
+			garrisonType = NavalTransport;
+			rightClickToGarrison = 1; 
 
 
 
@@ -438081,7 +438093,8 @@ UpgradeAbilities il76Epoch15Garrison
 
 
 
-			garrisonType = NavalTransport; 
+			garrisonType = NavalTransport;
+			rightClickToGarrison = 1; 
 
 
 
@@ -584897,7 +584910,8 @@ UnitType Vikingship
 
 
 
-			garrisonType = NavalTransport; 
+			garrisonType = NavalTransport;
+			rightClickToGarrison = 1; 
 
 
 
@@ -586753,7 +586767,8 @@ UnitType Kobukson
 
 
 
-			garrisonType = NavalTransport; 
+			garrisonType = NavalTransport;
+			rightClickToGarrison = 1; 
 
 
 
@@ -588673,7 +588688,8 @@ UnitType Lodia
 
 
 
-			garrisonType = NavalTransport; 
+			garrisonType = NavalTransport;
+			rightClickToGarrison = 1; 
 
 
 
