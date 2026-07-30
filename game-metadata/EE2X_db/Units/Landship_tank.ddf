@@ -22,13 +22,8 @@ UnitType LandShip_tank
 		LOS { range = 0 }
 		GarrisonParatrooper {
 			garrisonType = NavalTransport;
-			numOfSlots = 40;
-			initialContents = [
-				{ typeName="Paratrooper_M1A1" count=4 }
-				{ typeName="Paratrooper_Mounter" count=4 }
-				{ typeName="Paratrooper_Mortar" count=20 }
-				{ typeName="Paratrooper_AAMissile" count=4 }
-			];
+			numOfSlots = 20;
+			initialContents = [ { typeName="HeavyTank" count=5 } ];
 			dontShowGarrisonButton = 1;
 		}
 	]
