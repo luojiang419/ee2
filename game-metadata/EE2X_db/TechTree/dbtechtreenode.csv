@@ -18,9 +18,9 @@ AIResource1,text_wonder_ME_01_name,,1,0,,,4,3,1,Citizen,AIResource1,AIResource1U
 AIBuilding,text_wonder_ME_01_name,,4,0,,,4,3,1,Citizen,AIBuilding,AIBuildingUpgradeEpoch4,40,0,100,100,100,0,0,0,0,0,0,,[],(None)
 AInavyBuilding,text_wonder_ME_01_name,,4,0,,,4,3,1,Citizen,AInavyBuilding,AInavyBuildingUpgradeEpoch4,40,0,100,100,100,0,0,0,0,0,0,,[],(None)
 
-ArmyAcademy,text_CityCenter_name,,9,0,,,5,3,0,Citizen,ArmyAcademy,ArmyAcademyUpgradeEpoch9,60,0,500,500,500,0,0,0,0,0,0,,[],(None)
-AirAcademy,text_CityCenter_name,,9,0,,,5,3,1,Citizen,AirAcademy,AirAcademyUpgradeEpoch9,60,0,500,500,500,0,0,0,0,0,0,,[],(None)
-NavalAcademy,text_CityCenter_name,,9,0,,,5,3,2,Citizen,NavalAcademy,,60,0,500,500,500,0,0,0,0,0,0,,[],(None)
+ArmyAcademy,text_CityCenter_name,,9,0,,,5,3,0,Citizen,ArmyAcademy,ArmyAcademyUpgradeEpoch9,30,0,0,0,0,0,0,0,0,0,0,,[],(None)
+AirAcademy,text_CityCenter_name,,9,0,,,5,3,1,Citizen,AirAcademy,AirAcademyUpgradeEpoch9,30,0,0,0,0,0,0,0,0,0,0,,[],(None)
+NavalAcademy,text_CityCenter_name,,9,0,,,5,3,2,Citizen,NavalAcademy,,30,0,0,0,0,0,0,0,0,0,0,,[],(None)
 
 upAIunit_12,text_upArmoredCar_12_name,,12,4,Military,icon_tech_ArmoredCar12,0,3,0,AIResource1,,upAIunitSlot1_12,60,0,700,0,700,0,0,0,0,0,10,,[],(None)
 upAIunit_13,text_upArmoredCar_13_name,,13,4,Military,icon_tech_ArmoredCar13,0,3,0,AIResource1,,upAIunitSlot1_13,60,0,700,0,700,0,0,0,0,0,10,,[],(None)
