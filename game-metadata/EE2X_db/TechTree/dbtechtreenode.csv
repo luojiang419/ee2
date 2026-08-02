@@ -157,7 +157,7 @@ SupportShip15,text_Destroyer_11_name,,15,0,,,1,1,1,Dock,SupportShip15,,100,0,100
 SupportShip,text_Destroyer_11_name,,13,0,,,1,1,1,Dock,SupportShip,,100,0,1000,0,1000,0,0,0,1000,1000,5,,[],(None)
 
 //13-14驱逐舰 護衛艦
-Ch054A,text_Destroyer_11_name,,11,0,,,0,2,2,Dock,Ch054A,Ch054AUpgradeEpoch11,80,800,800,800,800,0,0,0,0,0,2,Chinese,[],(None)
+Ch054A,text_Destroyer_11_name,,11,0,,,0,2,2,Dock,Ch054A,Ch054AUpgradeEpoch11,80,800,600,0,800,0,0,0,0,0,2,Chinese,[],(None)
 Ch052d,text_Destroyer_11_name,,11,0,,,0,0,2,Dock,Ch052d,Ch052dUpgradeEpoch11,100,0,1000,0,1000,0,0,0,1000,0,5,Chinese,[upFregatten_11],(None)
 Ch055,text_Battleship_11_name,,11,0,,,0,2,1,Dock,Ch055,Ch055UpgradeEpoch11,120,0,2000,0,2000,0,0,0,2000,2000,10,Chinese,[upFregatten_11],(None)
 //Destroyer055,text_Battleship_11_name,,11,0,,,0,2,1,Dock,Destroyer055,Destroyer055UpgradeEpoch11,100,0,1500,0,1500,0,0,0,1500,1500,3,Chinese,[],(None)

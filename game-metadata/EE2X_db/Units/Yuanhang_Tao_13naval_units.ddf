@@ -490,7 +490,7 @@ UpgradeAbilities Ch054AAAEpoch14Attack
 
 	upgradedAbilities = [
 
-		Attack { damage = 650; range = 20; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+		Attack { damage = 650; range = 20; angularRange = 360; reloadTime = 0.5; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
 
 	            NavalMove {speed = 2.0; accel = 1; angSpeed = 240}
 
@@ -598,7 +598,7 @@ UpgradeAbilities Ch054AEpoch14Attack
 
 	upgradedAbilities = [
 
-		Attack { damage = 600; range = 18; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+		Attack { damage = 600; range = 18; angularRange = 360; reloadTime = 0.5; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
 
 	            NavalMove {speed = 2.0; accel = 1; angSpeed = 80}
 
@@ -5042,7 +5042,7 @@ UpgradeAbilities Type22350Epoch14Attack
 
 	upgradedAbilities = [
 
-		Attack { damage = 550; range = 18; angularRange = 360; reloadTime = 1.0; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+		Attack { damage = 550; range = 18; angularRange = 360; reloadTime = 0.5; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
 
 	            NavalMove {speed = 2.0; accel = 1; angSpeed = 169}
 
@@ -10432,7 +10432,7 @@ UpgradeAbilities FregattenFFGEpoch14Attack
 
 	upgradedAbilities = [
 
-		Attack { damage = 600; range = 22; angularRange = 360; reloadTime = 0.7; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
+		Attack { damage = 600; range = 22; angularRange = 360; reloadTime = 0.4; applyDamageTime = 0.01; missileName = "A054Rocket"; ignoreBlocking = 1; areaDamageRadius = 1; throwUnits = true; attackOnTheMove = 1 }
 
 	            NavalMove {speed = 2.0; accel = 1; angSpeed = 255}
 
