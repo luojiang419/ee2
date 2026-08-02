@@ -1672,11 +1672,11 @@ AntishipMisUpgradeEpoch14,Antiship_missile,"""Unit""",14,4500,25,3000,35,1.5,80,
 AntishipMisUpgradeEpoch15,Antiship_missile,"""Unit""",15,5000,27,1100,27,3,80,0,500,0,500,0,0,0,250,500,tx_utn_Antiship_missile_name,tx_utn_Antiship_missile_pname,Antiship_missile_15,,icon_unit_Antiship_missile,[0 0 0 0],0,0,vtt_unit_Antiship_missile,[CoastalDefense_select],[],[],[],[Antiship_missile13Attack],All
 
 ArmyAcademyUpgradeEpoch9,ArmyAcademy,"""Building""",9,9000,2,0,0,0,60,0,0,0,0,0,0,0,0,0,tx_utn_ArmyAcademy_name,tx_utn_ArmyAcademy_pname,ArmyAcademy_9,,icon_unit_ArmyAcademy,[0 0 0 0],0,0,vtt_unit_ArmyAcademy,[University_select],[],[],[],[],All
-ArmyAcademyUpgradeEpoch12,ArmyAcademy,"""Building""",13,10000,2,0,0,0,60,0,800,500,700,0,0,0,0,0,tx_utn_ArmyAcademy_name,tx_utn_ArmyAcademy_pname,ArmyAcademy_9,,icon_unit_ArmyAcademy,[0 0 0 0],0,0,vtt_unit_ArmyAcademy,[University_select],[],[],[],[],All
+ArmyAcademyUpgradeEpoch12,ArmyAcademy,"""Building""",13,10000,2,0,0,0,60,0,0,0,0,0,0,0,0,0,tx_utn_ArmyAcademy_name,tx_utn_ArmyAcademy_pname,ArmyAcademy_9,,icon_unit_ArmyAcademy,[0 0 0 0],0,0,vtt_unit_ArmyAcademy,[University_select],[],[],[],[],All
 ArmyAcademyUpgradeEpoch15,ArmyAcademy,"""Building""",15,13000,2,0,0,0,60,0,0,0,0,0,0,0,0,0,tx_utn_ArmyAcademy_name,tx_utn_ArmyAcademy_pname,ArmyAcademy_9,,icon_unit_ArmyAcademy,[0 0 0 0],0,0,vtt_unit_ArmyAcademy,[University_select],[],[],[],[],All
 
 AirAcademyUpgradeEpoch9,AirAcademy,"""Building""",9,9000,2,0,0,0,60,0,0,0,0,0,0,0,0,0,tx_utn_AirAcademy_name,tx_utn_AirAcademy_pname,AirAcademy_9,,icon_unit_AirAcademy,[0 0 0 0],0,0,vtt_unit_AirAcademy,[University_select],[],[],[],[],All
-AirAcademyUpgradeEpoch12,AirAcademy,"""Building""",13,10000,2,0,0,0,60,0,800,500,700,0,0,0,0,0,tx_utn_AirAcademy_name,tx_utn_AirAcademy_pname,AirAcademy_9,,icon_unit_AirAcademy,[0 0 0 0],0,0,vtt_unit_AirAcademy,[University_select],[],[],[],[],All
+AirAcademyUpgradeEpoch12,AirAcademy,"""Building""",13,10000,2,0,0,0,60,0,0,0,0,0,0,0,0,0,tx_utn_AirAcademy_name,tx_utn_AirAcademy_pname,AirAcademy_9,,icon_unit_AirAcademy,[0 0 0 0],0,0,vtt_unit_AirAcademy,[University_select],[],[],[],[],All
 AirAcademyUpgradeEpoch15,AirAcademy,"""Building""",15,13000,2,0,0,0,60,0,0,0,0,0,0,0,0,0,tx_utn_AirAcademy_name,tx_utn_AirAcademy_pname,AirAcademy_9,,icon_unit_AirAcademy,[0 0 0 0],0,0,vtt_unit_AirAcademy,[University_select],[],[],[],[],All
 //==================================================================,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 RoadBigUpgradeEpoch11,RoadBig,"""?""",11,200,0,0,0,0,6,0,0,20,0,0,0,0,0,0,tx_utn_Road_name,tx_utn_Road_pname,RoadBig_3,UIRoadBig_3,icon_unit_road_3,[0 0 0 0],0,0,vtt_unit_Road,[],[],[],[],[],All
