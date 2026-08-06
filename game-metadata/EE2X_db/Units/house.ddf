@@ -38,7 +38,13 @@ UnitType House
 			damageRate = 0.0;			  // hitpoints subtracted from capture target hitpoints per round
 			capture = 1;
 		} // may be captured
-	]
+	
+		AreaEffect {
+			effects = [ 
+				effectattackforplayer
+			]
+		}
+]
 }
 UnitType AIResource
 {
