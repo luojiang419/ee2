@@ -52,7 +52,7 @@ DbAreaEffectInfo effectattackforplayer
 {
 	selectionType = None
 	effects = [
-		EffectAttackSpeed {
+		EffectDamage {
 			range = RadiusFromUnit 
 			radius = 30
 			player = Enemies //敌人
