@@ -33,7 +33,7 @@ UnitType Fortress
 		Garrison { 
 			garrisonType = Fortress; 
 			numOfSlots = 10;
-			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			attackBonus = 0.10;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 2;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -66,7 +66,7 @@ UpgradeAbilities FortressEpoch1Garrison
 		Garrison { 
 			garrisonType = Fortress; 
 			numOfSlots = 10;
-			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			attackBonus = 0.10;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 2;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -92,7 +92,7 @@ UpgradeAbilities FortressEpoch4Garrison
 		Garrison { 
 			garrisonType = Fortress; 
 			numOfSlots = 15;
-			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			attackBonus = 0.10;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 4;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -118,7 +118,7 @@ UpgradeAbilities FortressEpoch6Garrison
 		Garrison { 
 			garrisonType = Fortress; 
 			numOfSlots = 20;
-			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			attackBonus = 0.10;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 6;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -144,7 +144,7 @@ UpgradeAbilities FortressEpoch8Garrison
 		Garrison { 
 			garrisonType = Fortress; 
 			numOfSlots = 25;
-			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			attackBonus = 0.10;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 8;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -170,7 +170,7 @@ UpgradeAbilities FortressEpoch10Garrison
 		Garrison { 
 			garrisonType = Fortress; 
 			numOfSlots = 30;
-			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			attackBonus = 0.10;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 10;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -196,7 +196,7 @@ UpgradeAbilities FortressEpoch12Garrison
 		Garrison { 
 			garrisonType = Fortress; 
 			numOfSlots = 30;
-			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			attackBonus = 0.10;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 12;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -221,7 +221,7 @@ UpgradeAbilities FortressEpoch14Garrison
 		Garrison { 
 			garrisonType = Fortress; 
 			numOfSlots = 60;
-			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			attackBonus = 0.10;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 14;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
@@ -245,7 +245,7 @@ UpgradeAbilities FortressEpoch15Garrison
 		Garrison { 
 			garrisonType = Fortress; 
 			numOfSlots = 50;
-			attackBonus = 0.03;	// 3 percent more attack for each garrisoned UnitType
+			attackBonus = 0.10;	// 3 percent more attack for each garrisoned UnitType
 			healPoints = 20;		// 2 hit points heal every second for each UnitType
 			rightClickToGarrison = 1;
 			GarrisonFlagModelName = "GarrisonFlag"
