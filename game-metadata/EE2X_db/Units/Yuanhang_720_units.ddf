@@ -601057,7 +601057,16 @@ UnitType Bank
 
 
 
-	]
+	
+		Garrison {
+			garrisonType = Tower;
+			numOfSlots = 6;
+			attackBonus = 0.50;
+			healPoints = 10;
+			rightClickToGarrison = 1;
+			GarrisonFlagModelName = "GarrisonFlag"
+		}
+]
 
 
 
