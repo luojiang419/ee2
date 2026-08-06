@@ -55,30 +55,30 @@ DbAreaEffectInfo effectattackforplayer
 		EffectAttackSpeed {
 			range = RadiusFromUnit 
 			radius = 30
-			player = Self
-			mask = AllMilitaryUnits
-			scale = 1.2
+			player = Enemies //敌人
+			mask = AllPlanes
+			scale = 1.5
 		}
 		EffectRange {
 			range = RadiusFromUnit 
 			radius = 30
 			player = Enemies
-			mask = AllMilitaryUnits
-			scale = 1.0
+			mask = AllPlanes
+			scale = 0.85
 		}
 		EffectLOS {
 			range = RadiusFromUnit 
 			radius = 30
 			player = Enemies
-			mask = AllMilitaryUnits
-			scale = 1.0
+			mask = AllPlanes
+			scale = 0.85
 		}
 		EffectSpeed {
 			range = RadiusFromUnit 
 			radius = 30
 			player = Enemies
-			mask = AllMilitaryUnits
-			scale = 1.0
+			mask = AllPlanes
+			scale = 0.85
 		}
 	]
 }
