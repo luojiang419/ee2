@@ -84,7 +84,7 @@ UpgradeAbilities dapaoEpoch13Attack
 UpgradeAbilities dapaoEpoch14Attack
 {
 	upgradedAbilities = [
-		Attack { range = 19; reloadTime = 0.15; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "MlrsRocket_PHL03"; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; throwUnits = true}
+		Attack { range = 20; reloadTime = 0.15; angularRange = 360; applyDamageTime = 0.5; damage = 0; missileName = "MlrsRocket_PHL03"; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 3; throwUnits = true}
 	]
 }
 
