@@ -1,9 +1,0 @@
-// Singleton object for defining sets of exclusive civ attributes.
-// This is for the civilization builder.  Players may choose only
-// attribute from each set per civilization.
-DbCivAttributeExclusive TheExclusiveCivAtts
-{
-	sets = [
-		{ civAtts = [CivAtt_BarrWkshp_Cost CivAtt_BarrStab_Cost CivAtt_WkshpStab_Cost ] }
-	]
-}

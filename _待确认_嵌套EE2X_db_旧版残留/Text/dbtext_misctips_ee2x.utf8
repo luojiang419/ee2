@@ -1,9 +1,0 @@
-﻿// NAME,TEXT
-
-// hero related tooltip
-vtt_unitinfo_killsforhero,"""获得英雄需要的杀戮数：%d"""
-vtt_unitinfo_havehero,"""此种单位有一个英雄"""
-
-tt_unitinfo_kills,"""杀戮数"""
-vtt_unitinfo_kills,"""杀戮数：%FORMAT%\n\n这是这个单位所杀掉的敌人数量。"""
-

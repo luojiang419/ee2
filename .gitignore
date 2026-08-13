@@ -3,3 +3,4 @@ __pycache__/
 backup/*
 !backup/INDEX.md
 !backup/*.zip
+/_待确认_嵌套EE2X_db_旧版残留/

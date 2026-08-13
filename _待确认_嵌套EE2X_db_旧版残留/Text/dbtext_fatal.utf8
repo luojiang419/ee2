@@ -1,8 +1,0 @@
-﻿// NAME,TEXT
-msg_DirectX8Required, """EE2需要安装有DirectX8.1或更高的版本。"""
-msg_NiRendererCreateFailure,"""未能建立Direct3D设备，无法继续。"""
-msg_NoD3DAdapter,"""没有找到可相容的Direct3D配接器。"""
-msg_unsupportedbycard,"""未能找到任何支援你的显像配接器的Direct3D显示模式。"""
-msg_unsupportedbymonitor,"""未能找到任何支援你的萤幕的Direct3D显示模式。"""
-msg_missingtextureformat,"""你的显像配接器并未支援此一必须具备的材质格式(DXTC)。"""
-msg_missingMainDirectory,"""未能打开游戏主目录(请检查在我的文件中此一档案夹是否存在)。"""
