@@ -1,0 +1,2114 @@
+// Page contents for the Empire Earth Encyclopedia
+
+// Test sidebar
+PageContents eee_contents_unittype_sidebar {
+	pageLayout = eee_layout_sidebartext
+	retainOnArgChange = 1
+	elems = [
+		{widgetName = eee_sidebar_list; tooltip = tx_eee_sidebar_units;}
+	]
+}
+
+// Home page
+PageContents eee_contents_home {
+	pageLayout = eee_layout_home
+	pageTOC = eee_contents_unittype_sidebar
+}
+
+// Unit Type
+PageContents eee_contents_unittype {
+	pageLayout = eee_layout_unittype
+	pageTOC = eee_contents_unittype_sidebar 
+	elems = [
+	]
+}
+
+// Unit Type Main Page
+PageContents eee_contents_utmain {
+	pageLayout = eee_layout_utmain
+	pageTOC = eee_contents_unittype_sidebar 
+	elems = [
+	]
+}
+
+// Test page
+PageContents eee_contents_test {
+	pageLayout = eee_layout_test
+	pageTOC = eee_contents_unittype_sidebar 
+	elems = [
+		{widgetName = eee_test_texttop; text = text_rarea_citadel_desc;}
+		{widgetName = eee_test_text; text = text_rarea_cloning_desc;}
+		{widgetName = eee_test_text; indexCopy = 1; anchorToPrev = PrevName; text = text_rarea_tribcust_desc;}
+		{widgetName = eee_test_icon; indexCopy = 1; sprite = spr_eee_butt_fwd;}
+		{widgetName = eee_test_text; indexCopy = 2; anchorToPrev = PrevName; text = text_rarea_favorofgods_desc;}
+		{widgetName = eee_test_icon; indexCopy = 2; sprite = spr_eee_butt_back;}
+	]
+}
+
+// Interface and User Controls
+PageContents eee_contents_ui {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar 
+	elems = [
+	]
+}
+
+// Your World
+PageContents eee_contents_yourworld {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar 
+	elems = [
+	]
+}
+
+// Game Systems
+PageContents eee_contents_systems {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar 
+	elems = [
+	]
+}
+
+// test info page (for steve to reference)
+PageContents eee_contents_info_sp {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_sp;}
+		{widgetName = eee_info_body; text = tx_eee_body_sp;}
+	]
+}
+
+// Campaign and Scenarios
+PageContents eee_contents_info_campscen {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_campscen;}
+		{widgetName = eee_info_body; text = tx_eee_body_campscen;}
+	]
+}
+
+// Campaigns
+PageContents eee_contents_tinfo_camp {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_camp_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_camp_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_camp_title1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_camp_body1; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_camp_title2; }
+		{widgetName = eee_tinfo_body; text = tx_eee_camp_body2; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_camp_title3; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_camp_body3; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_camp_title4; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_camp_body4; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_camp_title5; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_camp_body5; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_camp_title6; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_camp_body6; }
+	]
+}
+
+// Random Map Generator
+PageContents eee_contents_info_mapgen {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_mapgen;}
+		{widgetName = eee_info_body; text = tx_eee_body_mapgen;}
+	]
+}
+
+// Editor
+PageContents eee_contents_info_editor {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_editor;}
+		{widgetName = eee_info_body; text = tx_eee_body_editor;}
+	]
+}
+
+// victory conditions ("Game Types")
+PageContents eee_contents_info_gametypes {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_gametypes;}
+		{widgetName = eee_info_body; text = tx_eee_body_gametypes;}
+	]
+}
+
+PageContents eee_contents_info_gt_conquest {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_gt_conquest_title;}
+		{widgetName = eee_info_body; text = tx_eee_gt_conquest_body;}
+	]
+}
+
+PageContents eee_contents_tinfo_gt_crowns {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top title and intro
+		{widgetName = eee_tinfo_header; text = tx_eee_gt_crowns_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_gt_crowns_intro;}
+		// variants: Number and Time-of-possession
+		{widgetName = eee_tinfo_titletop; text = tx_eee_gt_crowns_head1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_gt_crowns_body1; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_gt_crowns_head2; }
+		{widgetName = eee_tinfo_body; text = tx_eee_gt_crowns_body2; }
+	]
+}
+
+PageContents eee_contents_info_gt_kinghill {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_gt_kinghill_title;}
+		{widgetName = eee_info_body; text = tx_eee_gt_kinghill_body;}
+	]
+}
+
+PageContents eee_contents_tinfo_gt_capitols {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top title and intro
+		{widgetName = eee_tinfo_header; text = tx_eee_gt_capitols_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_gt_capitols_intro;}
+		// variant: Allied Capitols
+		{widgetName = eee_tinfo_titletop; text = tx_eee_gt_capitols_head1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_gt_capitols_body1; }
+	]
+}
+
+PageContents eee_contents_info_gt_regicide {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_gt_regicide_title;}
+		{widgetName = eee_info_body; text = tx_eee_gt_regicide_body;}
+	]
+}
+
+PageContents eee_contents_info_gt_hotspots {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_gt_hotspots_title;}
+		{widgetName = eee_info_body; text = tx_eee_gt_hotspots_body;}
+	]
+}
+
+PageContents eee_contents_info_gt_terrs {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_gt_territories_title;}
+		{widgetName = eee_info_body; text = tx_eee_gt_territories_body;}
+	]
+}
+
+PageContents eee_contents_info_gt_terrhot {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_gt_terrhotspots_title;}
+		{widgetName = eee_info_body; text = tx_eee_gt_terrhotspots_body;}
+	]
+}
+
+PageContents eee_contents_tinfo_gt_tugofwar {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top title and intro
+		{widgetName = eee_tinfo_header; text = tx_eee_gt_tugofwar_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_gt_tugofwar_intro;}
+		// subheadings: Troops and Handicaps
+		{widgetName = eee_tinfo_titletop; text = tx_eee_gt_tugofwar_head_troops; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_gt_tugofwar_body_troops; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_gt_tugofwar_head_handi; }
+		{widgetName = eee_tinfo_body; text = tx_eee_gt_tugofwar_body_handi; }
+	]
+}
+
+// Fog of War
+PageContents eee_contents_info_fog {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_fog;}
+		{widgetName = eee_info_body; text = tx_eee_body_fog;}
+	]
+}
+
+// Options
+PageContents eee_contents_info_options {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_options;}
+		{widgetName = eee_info_body; text = tx_eee_body_options;}
+	]
+}
+
+// Video Options
+PageContents eee_contents_info_optionsvid {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_optionsvid;}
+		{widgetName = eee_info_body; text = tx_eee_body_optionsvid;}
+	]
+}
+
+// Sound Options
+PageContents eee_contents_info_optionssnd {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_optionssnd;}
+		{widgetName = eee_info_body; text = tx_eee_body_optionssnd;}
+	]
+}
+
+// Game Options
+PageContents eee_contents_info_optionsgame {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_optionsgame;}
+		{widgetName = eee_info_body; text = tx_eee_body_optionsgame;}
+	]
+}
+
+// Tutorials
+PageContents eee_contents_info_tutorials {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_tutorials;}
+		{widgetName = eee_info_body; text = tx_eee_body_tutorials;}
+	]
+}
+
+// Flare
+PageContents eee_contents_info_flare {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_flare;}
+		{widgetName = eee_info_body; text = tx_eee_body_flare;}
+	]
+}
+
+// Selected Unit Info Panel
+PageContents eee_contents_info_selectpanel {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_selectpanel;}
+		{widgetName = eee_info_body; text = tx_eee_body_selectpanel;}
+	]
+}
+
+// Control Groups Display
+PageContents eee_contents_info_ctrlgroupdisp {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_ctrlgroupdisp;}
+		{widgetName = eee_info_body; text = tx_eee_body_ctrlgroupdisp;}
+	]
+}
+
+// Crowns UI
+PageContents eee_contents_tinfo_crownsUI {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_crownsUI_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_crownsUI_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_crownsUI_title1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_crownsUI_body1; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_crownsUI_title2; }
+		{widgetName = eee_tinfo_body; text = tx_eee_crownsUI_body2; }
+	]
+}
+
+// Player Epoch, Name, Civ in UI
+PageContents eee_contents_info_playerinfoUI {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_playerinfoUI;}
+		{widgetName = eee_info_body; text = tx_eee_body_playerinfoUI;}
+	]
+}
+
+// Citizen Manager
+PageContents eee_contents_info_citman {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_citman;}
+		{widgetName = eee_info_body; text = tx_eee_body_citman;}
+	]
+}
+
+// Full Screen Map
+PageContents eee_contents_info_fullscreenmap {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_fullscreenmap;}
+		{widgetName = eee_info_body; text = tx_eee_body_fullscreenmap;}
+	]
+}
+
+// Full Screen Map PIP
+PageContents eee_contents_info_fsmPIP {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_fsmPIP;}
+		{widgetName = eee_info_body; text = tx_eee_body_fsmPIP;}
+	]
+}
+
+// PIP
+PageContents eee_contents_info_PIP {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_title_pip;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_body_pip;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_bookmarks_title1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_bookmarks_body1; }
+	]
+}
+
+// War Plans
+PageContents eee_contents_info_warplans {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_warplans_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_warplans_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_warplans_title1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_warplans_body1; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_warplans_title2; }
+		{widgetName = eee_tinfo_body; text = tx_eee_warplans_body2; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_warplans_title3; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_warplans_body3; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_warplans_title4; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_warplans_body4; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_warplans_title5; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_warplans_body5; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_warplans_title6; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_warplans_body6; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_warplans_title7; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_warplans_body7; }
+	]
+}
+
+// Control group War Plans
+PageContents eee_contents_info_ctrlgrpwp {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_ctrlgrpwp_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_ctrlgrpwp_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_ctrlgrpwp_title1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_ctrlgrpwp_body1; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_ctrlgrpwp_title2; }
+		{widgetName = eee_tinfo_body; text = tx_eee_ctrlgrpwp_body2; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_ctrlgrpwp_title3; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_ctrlgrpwp_body3; }
+	]
+}
+
+	
+
+// Mini-map
+PageContents eee_contents_info_minimap {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_title_minimap;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_body_minimap;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_flares_title1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_flares_body1; }
+	]
+}
+
+// Tool tips
+PageContents eee_contents_info_tooltips {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_title_tooltips;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_body_tooltips;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_conciseTT_title1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_conciseTT_body1; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_verboseTT_title2; }
+		{widgetName = eee_tinfo_body; text = tx_eee_verboseTT_body2; }
+	]
+}
+
+// Game Alerts
+PageContents eee_contents_info_gamealerts {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_gamealerts;}
+		{widgetName = eee_info_body; text = tx_eee_body_gamealerts;}
+	]
+}
+
+// Player Color
+PageContents eee_contents_info_playercolor {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_playercolor;}
+		{widgetName = eee_info_body; text = tx_eee_body_playercolor;}
+	]
+}
+
+// Camera
+PageContents eee_contents_info_camera {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_camera;}
+		{widgetName = eee_info_body; text = tx_eee_body_camera;}
+	]
+}
+
+// Reinforcements screen
+PageContents eee_contents_info_reinf {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_reinf;}
+		{widgetName = eee_info_body; text = tx_eee_body_reinf;}
+	]
+}
+
+// Your View
+PageContents eee_contents_tinfo_yourview {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_title_yourview;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_body_yourview;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_LOS_title1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_LOS_body1; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_fogofwar_title2; }
+		{widgetName = eee_tinfo_body; text = tx_eee_fogofwar_body2; }
+	]
+}
+
+
+// Climates
+PageContents eee_contents_tinfo_climates {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_climates_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_climates_intro;}
+		// tiled widgets
+//		{widgetName = eee_tinfo_titletop; text = tx_eee_climates_title1; }
+//		{widgetName = eee_tinfo_bodytop; text = tx_eee_climates_body1; }
+//		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_climates_title2; }
+//		{widgetName = eee_tinfo_body; text = tx_eee_climates_body2; }
+//		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_climates_title3; }
+//		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_climates_body3; }
+	]
+}
+
+// Seasons and Weather
+PageContents eee_contents_info_weather {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_weather;}
+		{widgetName = eee_info_body; text = tx_eee_body_weather;}
+	]
+}
+
+// Bridges
+PageContents eee_contents_info_bridges {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_bridges;}
+		{widgetName = eee_info_body; text = tx_eee_body_bridges;}
+	]
+}
+
+// Test page - sprite and text (below sprite) tiled
+PageContents eee_contents_test2 {
+	pageLayout = eee_layout_tstb
+	pageTOC = eee_contents_unittype_sidebar 
+	elems = [
+		// non-tiled widgets
+		{widgetName = eee_tstb_title; text = tx_eee_title_selectpanel;}
+		{widgetName = eee_tstb_intro; text = text_rarea_cloning_desc;}
+		
+		// tiled widgets
+		{widgetName = eee_tstb_imagetop; sprite = spr_eee_butt_fwd;}
+		{widgetName = eee_tstb_texttop; text = text_rarea_cloning_desc;}
+		{widgetName = eee_tstb_image; anchorToPrev = PrevCreated; sprite = spr_eee_butt_fwd;}
+		{widgetName = eee_tstb_text; text = text_rarea_tribcust_desc;}
+		{widgetName = eee_tstb_image; indexCopy=1; width=100; height=100; anchorToPrev=PrevCreated; sprite=spr_eee_butt_back;}
+		{widgetName = eee_tstb_text; indexCopy = 1; text = text_rarea_favorofgods_desc;}
+	]
+}
+
+// Geography
+PageContents eee_contents_tinfo_geography {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_geography_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_geography_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_geography_title1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_geography_body1; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_geography_title2; }
+		{widgetName = eee_tinfo_body; text = tx_eee_geography_body2; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_geography_title3; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_geography_body3; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_geography_title4; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_geography_body4; }
+	]
+}
+
+// Cities
+PageContents eee_contents_info_cities {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_info_title; text = tx_eee_cities_main_title;}
+		{widgetName = eee_info_body; text = tx_eee_cities_intro;}
+	]
+}
+
+// Regions
+PageContents eee_contents_info_regions {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_regions;}
+		{widgetName = eee_info_body; text = tx_eee_body_regions;}
+	]
+}
+
+// Regions - Western
+PageContents eee_contents_tinfo_regionWE {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_regionWE_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_regionWE_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_regionWE_power1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_regionWE_power1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_regionWE_power2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_regionWE_power2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_regionWE_power3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_regionWE_power3_body; }
+	]
+}
+
+// Regions - Eastern
+PageContents eee_contents_tinfo_regionFE {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_regionFE_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_regionFE_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_regionFE_power1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_regionFE_power1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_regionFE_power2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_regionFE_power2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_regionFE_power3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_regionFE_power3_body; }
+	]
+}
+
+// Regions - Meso American
+PageContents eee_contents_tinfo_regionAM {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_regionAM_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_regionAM_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_regionAM_power1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_regionAM_power1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_regionAM_power2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_regionAM_power2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_regionAM_power3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_regionAM_power3_body; }
+	]
+}
+
+// Regions - African
+PageContents eee_contents_tinfo_regionAF {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_regionAF_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_regionAF_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_regionAF_power1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_regionAF_power1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_regionAF_power2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_regionAF_power2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_regionAF_power3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_regionAF_power3_body; }
+	]
+}
+
+// Regions - Middle Eastern
+PageContents eee_contents_tinfo_regionME {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_regionME_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_regionME_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_regionME_power1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_regionME_power1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_regionME_power2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_regionME_power2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_regionME_power3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_regionME_power3_body; }
+	]
+}
+
+
+
+
+
+
+
+
+
+
+
+// Civilizations
+PageContents eee_contents_tinfo_civ {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_civ_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_civ_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_civ_american_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_civ_american_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_civ_aztec_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_civ_aztec_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_civ_babylonia_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_civ_babylonia_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_civ_britain_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_civ_britain_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_civ_china_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_civ_china_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_civ_egypt_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_civ_egypt_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_civ_france_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_civ_france_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 6; anchorToPrev = PrevCreated; text = tx_eee_civ_germany_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 6; text = tx_eee_civ_germany_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 7; anchorToPrev = PrevCreated; text = tx_eee_civ_greece_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 7; text = tx_eee_civ_greece_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 8; anchorToPrev = PrevCreated; text = tx_eee_civ_inca_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 8; text = tx_eee_civ_inca_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 9; anchorToPrev = PrevCreated; text = tx_eee_civ_japan_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 9; text = tx_eee_civ_japan_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 10; anchorToPrev = PrevCreated; text = tx_eee_civ_korea_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 10; text = tx_eee_civ_korea_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 11; anchorToPrev = PrevCreated; text = tx_eee_civ_maasai_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 11; text = tx_eee_civ_maasai_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 12; anchorToPrev = PrevCreated; text = tx_eee_civ_maya_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 12; text = tx_eee_civ_maya_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 13; anchorToPrev = PrevCreated; text = tx_eee_civ_rome_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 13; text = tx_eee_civ_rome_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 14; anchorToPrev = PrevCreated; text = tx_eee_civ_russia_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 14; text = tx_eee_civ_russia_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 15; anchorToPrev = PrevCreated; text = tx_eee_civ_turkey_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 15; text = tx_eee_civ_turkey_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 16; anchorToPrev = PrevCreated; text = tx_eee_civ_zulu_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 16; text = tx_eee_civ_zulu_body; }
+	]
+}
+
+// Population Capacity
+PageContents eee_contents_info_pop {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_pop;}
+		{widgetName = eee_info_body; text = tx_eee_body_pop;}
+	]
+}
+
+// Resources
+PageContents eee_contents_info_resources {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_resources;}
+		{widgetName = eee_info_body; text = tx_eee_body_resources;}
+	]
+}
+
+// Gathering Resources
+PageContents eee_contents_tinfo_gathering {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_gathering_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_gathering_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_gathering_farm_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_gathering_farm_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_gathering_forage_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_gathering_forage_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_gathering_hunt_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_gathering_hunt_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_gathering_fish_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_gathering_fish_body; }
+	]
+}
+
+// Technology Points
+PageContents eee_contents_info_techpoints {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_techpoints;}
+		{widgetName = eee_info_body; text = tx_eee_body_techpoints;}
+	]
+}
+
+// Special Resources
+PageContents eee_contents_info_specres {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_specres;}
+		{widgetName = eee_info_body; text = tx_eee_body_specres;}
+	]
+}
+
+// Crowns - Gameplay Systems
+PageContents eee_contents_info_crowns {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_crowns;}
+		{widgetName = eee_info_body; text = tx_eee_body_crowns;}
+	]
+}
+
+// Crown - Military
+PageContents eee_contents_tinfo_milcrown {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_milcrown_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_milcrown_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_milcrown_airsup_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_milcrown_airsup_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_milcrown_amphib_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_milcrown_amphib_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_milcrown_firesup_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_milcrown_firesup_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_milcrown_infdoc_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_milcrown_infdoc_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_milcrown_mobile_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_milcrown_mobile_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_milcrown_sealane_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_milcrown_sealane_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_milcrown_static_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_milcrown_static_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 6; anchorToPrev = PrevCreated; text = tx_eee_milcrown_strategic_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 6; text = tx_eee_milcrown_strategic_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 7; anchorToPrev = PrevCreated; text = tx_eee_milcrown_vertical_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 7; text = tx_eee_milcrown_vertical_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 8; anchorToPrev = PrevCreated; text = tx_eee_milcrown_sleader_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 8; text = tx_eee_milcrown_sleader_body; }
+	]
+}
+
+
+// Crown - Imperial
+PageContents eee_contents_tinfo_impcrown {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_impcrown_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_impcrown_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_impcrown_cental_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_impcrown_central_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_impcrown_drills_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_impcrown_drills_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_impcrown_expansion_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_impcrown_expansion_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_impcrown_explore_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_impcrown_explore_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_impcrown_fanatic_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_impcrown_fanatic_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_impcrown_ranges_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_impcrown_ranges_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_impcrown_mission_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_impcrown_mission_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 6; anchorToPrev = PrevCreated; text = tx_eee_impcrown_piracy_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 6; text = tx_eee_impcrown_piracy_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 7; anchorToPrev = PrevCreated; text = tx_eee_impcrown_medicine_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 7; text = tx_eee_impcrown_medicine_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 8; anchorToPrev = PrevCreated; text = tx_eee_impcrown_spies_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 8; text = tx_eee_impcrown_spies_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 9; anchorToPrev = PrevCreated; text = tx_eee_impcrown_think_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 9; text = tx_eee_impcrown_think_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 10; anchorToPrev = PrevCreated; text = tx_eee_impcrown_sleader_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 10; text = tx_eee_impcrown_sleader_body; }
+	]
+
+}
+
+// Crown - Economic
+PageContents eee_contents_tinfo_ecocrown {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_ecocrown_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_ecocrown_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_ecocrown_airsup_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_ecocrown_airsup_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_immig_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_ecocrown_immig_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_farming_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_ecocrown_farming_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_process_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_ecocrown_process_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_tax_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_ecocrown_tax_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_lumbering_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_ecocrown_lumbering_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_market_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_ecocrown_market_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 6; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_quarrying_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 6; text = tx_eee_ecocrown_quarrying_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 7; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_retooling_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 7; text = tx_eee_ecocrown_retooling_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 8; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_waves_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 8; text = tx_eee_ecocrown_waves_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 9; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_economy_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 9; text = tx_eee_ecocrown_economy_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 10; anchorToPrev = PrevCreated; text = tx_eee_ecocrown_sleader_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 10; text = tx_eee_ecocrown_sleader_body; }
+	]
+
+}
+
+// Flags - Gameplay Systems
+PageContents eee_contents_info_flags {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_flags;}
+		{widgetName = eee_info_body; text = tx_eee_body_flags;}
+	]
+}
+
+// Flags - Flag powers
+PageContents eee_contents_tinfo_flagpowers {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_flagpowers_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_flagpowers_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_flagpowers_naval_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_flagpowers_naval_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_flagpowers_air_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_flagpowers_air_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_flagpowers_inf_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_flagpowers_inf_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_flagpowers_mobile_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_flagpowers_mobile_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_flagpowers_machine_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_flagpowers_machine_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_flagpowers_cult_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_flagpowers_cult_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_flagpowers_relig_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_flagpowers_relig_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 6; anchorToPrev = PrevCreated; text = tx_eee_flagpowers_fin_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 6; text = tx_eee_flagpowers_fin_body; }
+	]
+
+}
+
+// Flags - Gameplay Systems
+PageContents eee_contents_info_earningflags {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_earningflags;}
+		{widgetName = eee_info_body; text = tx_eee_body_earningflags;}
+	]
+}
+
+// Diplomacy
+PageContents eee_contents_tinfo_diplomacy {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_diplomacy_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_diplomacy_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_diplomacy_enemy_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_diplomacy_enemy_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_diplomacy_ally_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_diplomacy_ally_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_diplomacy_neutral_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_diplomacy_neutral_body; }
+	]
+}
+
+// Propose Alliance
+PageContents eee_contents_tinfo_propose {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_propose_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_propose_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_propose_duration_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_propose_duration_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_propose_LOS_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_propose_LOS_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_propose_borders_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_propose_borders_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_propose_resrights_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_propose_resrights_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_propose_gifts_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_propose_gifts_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_propose_unit_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_propose_unit_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_propose_territory_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_propose_territory_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 6; anchorToPrev = PrevCreated; text = tx_eee_propose_counter_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 6; text = tx_eee_propose_counter_body; }
+	]
+
+}
+
+// Declare War
+PageContents eee_contents_info_declarewar {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_declarewar;}
+		{widgetName = eee_info_body; text = tx_eee_body_declarewar;}
+	]
+}
+
+// Tribute
+PageContents eee_contents_info_tribute {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_tribute;}
+		{widgetName = eee_info_body; text = tx_eee_body_tribute;}
+	]
+}
+
+// Fealty
+PageContents eee_contents_info_fealty {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_fealty_title;}
+		{widgetName = eee_info_body; text = tx_eee_fealty_body;}
+	]
+}
+
+// Trade
+PageContents eee_contents_info_trade {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_trade;}
+		{widgetName = eee_info_body; text = tx_eee_body_trade;}
+	]
+}
+
+// Healing
+PageContents eee_contents_tinfo_healing {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_healing_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_healing_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_healing_city_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_healing_city_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_healing_fortress_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_healing_fortress_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_healing_medic_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_healing_medic_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_healing_herc_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_healing_herc_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_healing_airdock_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_healing_airdock_body; }
+	]
+
+}
+
+// Coordinated Attack
+PageContents eee_contents_info_coordattack {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_coordattack;}
+		{widgetName = eee_info_body; text = tx_eee_body_coordattack;}
+	]
+}
+
+
+// Special Forces
+PageContents eee_contents_info_specforces {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_specforces;}
+		{widgetName = eee_info_body; text = tx_eee_body_specforces;}
+	]
+}
+
+// Priest
+PageContents eee_contents_tinfo_priest {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_priest_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_priest_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_priest_convert_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_priest_convert_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_priest_bless_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_priest_bless_body; }
+	]
+
+}
+
+// Spy
+PageContents eee_contents_tinfo_spy {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_spy_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_spy_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_spy_disguise_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_spy_disguise_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_spy_sabotage_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_spy_sabotage_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_spy_restore_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_spy_restore_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_spy_contam_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_spy_contam_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_spy_cleanup_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_spy_cleanup_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_spy_intel_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_spy_intel_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_spy_extract_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_spy_extract_body; }
+	]
+
+}
+
+// Native Tribes
+PageContents eee_contents_tinfo_nativetribes {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_native_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_native_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_native_title_1; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_native_body_1; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_native_title_2; }
+		{widgetName = eee_tinfo_body; text = tx_eee_native_body_2; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_native_title_3; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_native_body_3; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_native_title_4; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_native_body_4; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_native_title_5; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_native_body_5; }
+	]
+}
+
+// Custom Civs
+PageContents eee_contents_tinfo_customciv {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_title_customciv;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_body_customciv;}
+	]
+}
+
+// Custom Forces
+PageContents eee_contents_tinfo_customforces {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_title_customforces;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_intro_customforces;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_title1_customforces; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_body1_customforces; }
+	]
+}
+
+
+
+// Auto-casting
+PageContents eee_contents_info_autocast {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_autocast;}
+		{widgetName = eee_info_body; text = tx_eee_body_autocast;}
+	]
+}
+
+// Unit Construction
+PageContents eee_contents_info_construct {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_construct;}
+		{widgetName = eee_info_body; text = tx_eee_body_construct;}
+	]
+}
+
+// Control Groups
+PageContents eee_contents_info_ctrlgroups {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_ctrlgroups;}
+		{widgetName = eee_info_body; text = tx_eee_body_ctrlgroups;}
+	]
+}
+
+// Stances
+PageContents eee_contents_tinfo_stances {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_stances_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_stances_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_stances_caut_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_stances_caut_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_stances_def_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_stances_def_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_stances_hold_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_stances_hold_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_stances_aggr_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_stances_aggr_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_stances_holdfire_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_stances_holdfire_body; }
+	]
+
+}
+
+// Orders
+PageContents eee_contents_tinfo_orders {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_orders_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_orders_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_orders_attmov_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_orders_attmov_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_orders_exp_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_orders_exp_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_orders_seardest_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_orders_seardest_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_orders_attack_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_orders_attack_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_orders_move_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_orders_move_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_orders_patrol_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_orders_patrol_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_orders_guard_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_orders_guard_body; }
+	]
+
+}
+
+// Upgrades
+PageContents eee_contents_tinfo_upgrades {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_upgrades_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_upgrades_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_upgrades_eco_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_upgrades_eco_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_upgrades_imp_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_upgrades_imp_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_upgrades_mil_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_upgrades_mil_body; }
+	]
+
+}
+
+// Roads
+PageContents eee_contents_info_roads {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_roads;}
+		{widgetName = eee_info_body; text = tx_eee_body_roads;}
+	]
+}
+
+
+// Combat
+PageContents eee_contents_tinfo_combat {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_combat_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_combat_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_combat_defatt_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_combat_defatt_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_combat_capt_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_combat_capt_body; }
+	]
+
+}
+
+// Formations
+PageContents eee_contents_info_formations {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_formations;}
+		{widgetName = eee_info_body; text = tx_eee_body_formations;}
+	]
+}
+
+// Formations - Land
+PageContents eee_contents_tinfo_formLand {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_formLand_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_formLand_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_formLand_phalanx_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_formLand_phalanx_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_formLand_stag_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_formLand_stag_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_formLand_line_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_formLand_line_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_formLand_wedge_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_formLand_wedge_body; }
+	]
+
+}
+
+// Formations - Air
+PageContents eee_contents_tinfo_formAir {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_formAir_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_formAir_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_formAir_pyr_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_formAir_pyr_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_formAir_v_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_formAir_v_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_formAir_spear_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_formAir_spear_body; }
+	]
+
+}
+
+// Formations - Sea
+PageContents eee_contents_tinfo_formSea {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_formSea_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_formSea_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_formSea_line_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_formSea_line_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_formSea_cresc_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_formSea_cresc_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_formSea_conv_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_formSea_conv_body; }
+	]
+
+}
+
+// Epoch
+PageContents eee_contents_tinfo_epoch {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_epoch_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_epoch_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_epoch_1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_epoch_1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_epoch_2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_epoch_2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_epoch_3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_epoch_3_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_epoch_4_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_epoch_4_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_epoch_5_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_epoch_5_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_epoch_6_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_epoch_6_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_epoch_7_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_epoch_7_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 6; anchorToPrev = PrevCreated; text = tx_eee_epoch_8_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 6; text = tx_eee_epoch_8_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 7; anchorToPrev = PrevCreated; text = tx_eee_epoch_9_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 7; text = tx_eee_epoch_9_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 8; anchorToPrev = PrevCreated; text = tx_eee_epoch_10_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 8; text = tx_eee_epoch_10_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 9; anchorToPrev = PrevCreated; text = tx_eee_epoch_11_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 9; text = tx_eee_epoch_11_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 10; anchorToPrev = PrevCreated; text = tx_eee_epoch_12_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 10; text = tx_eee_epoch_12_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 11; anchorToPrev = PrevCreated; text = tx_eee_epoch_13_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 11; text = tx_eee_epoch_13_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 12; anchorToPrev = PrevCreated; text = tx_eee_epoch_14_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 12; text = tx_eee_epoch_14_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 13; anchorToPrev = PrevCreated; text = tx_eee_epoch_15_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 13; text = tx_eee_epoch_15_body; }
+	]
+
+}
+
+// Technology
+PageContents eee_contents_tinfo_tech {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_tech_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_tech_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_tech_choose_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_tech_choose_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_tech_research_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_tech_research_body; }
+	]
+
+}
+
+// Wonders
+PageContents eee_contents_info_wonders {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_wonders;}
+		{widgetName = eee_info_body; text = tx_eee_body_wonders;}
+	]
+}
+
+// Wonders - Western
+PageContents eee_contents_tinfo_wondersWE {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_WondersWE_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_WondersWE_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_WondersWE_1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_WondersWE_1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_WondersWE_2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_WondersWE_2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_WondersWE_3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_WondersWE_3_body; }
+	]
+
+}
+
+// Wonders - Middle Eastern
+PageContents eee_contents_tinfo_wondersME {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_WondersME_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_WondersME_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_WondersME_1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_WondersME_1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_WondersME_2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_WondersME_2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_WondersME_3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_WondersME_3_body; }
+	]
+
+}
+
+// Wonders - Far Eastern
+PageContents eee_contents_tinfo_wondersFE {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_WondersFE_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_WondersFE_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_WondersFE_1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_WondersFE_1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_WondersFE_2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_WondersFE_2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_WondersFE_3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_WondersFE_3_body; }
+	]
+
+}
+
+// Wonders - Meso-American
+PageContents eee_contents_tinfo_wondersAM {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_WondersAM_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_WondersAM_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_WondersAM_1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_WondersAM_1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_WondersAM_2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_WondersAM_2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_WondersAM_3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_WondersAM_3_body; }
+	]
+
+}
+
+// Wonders - African
+PageContents eee_contents_tinfo_wondersAF {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_WondersAF_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_WondersAF_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_WondersAF_1_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_WondersAF_1_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_WondersAF_2_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_WondersAF_2_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_WondersAF_3_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_WondersAF_3_body; }
+	]
+
+}
+
+// Leader
+PageContents eee_contents_info_leader {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_leader;}
+		{widgetName = eee_info_body; text = tx_eee_body_leader;}
+	]
+}
+
+// Crown - Supreme Leaders
+PageContents eee_contents_tinfo_sleader {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_sleader_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_sleader_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_sleader_economic_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_sleader_economic_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_sleader_imperial_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_sleader_imperial_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_sleader_military_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_sleader_military_body; }
+	]
+
+}
+
+// Heroes
+PageContents eee_contents_tinfo_heroes {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_heroes_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_heroes_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_heroes_ability_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_heroes_ability_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_heroes_earn_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_heroes_earn_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_heroes_army_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_heroes_army_body; }
+	]
+
+}
+
+// Main Screen
+PageContents eee_contents_tinfo_mainscreen {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_mainscrn_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_mainscrn_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_mainscrn_info_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_mainscrn_info_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_groups_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_mainscrn_groups_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_settings_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_mainscrn_settings_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_mainscren_chat_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_mainscrn_chat_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_eee_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_mainscrn_eee_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 4; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_obj_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 4; text = tx_eee_mainscrn_obj_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 5; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_diplo_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 5; text = tx_eee_mainscrn_diplo_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 6; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_techtree_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 6; text = tx_eee_mainscrn_techtree_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 7; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_warplans_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 7; text = tx_eee_mainscrn_warplans_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 8; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_crowns_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 8; text = tx_eee_mainscrn_crowns_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 9; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_resources_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 9; text = tx_eee_mainscrn_resources_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 10; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_PIP_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 10; text = tx_eee_mainscrn_PIP_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 11; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_verbose_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 11; text = tx_eee_mainscrn_verbose_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 12; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_minimap_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 12; text = tx_eee_mainscrn_minimap_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 13; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_clock_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 13; text = tx_eee_mainscrn_clock_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 14; anchorToPrev = PrevCreated; text = tx_eee_mainscrn_calendar_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 14; text = tx_eee_mainscrn_calendar_body; }
+	]
+
+}
+
+
+// Turning Points
+PageContents eee_contents_tinfo_tpoints {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_tpoints_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_tpoints_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_tpoints_3kingdoms_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_tpoints_3kingdoms_body; }
+		{widgetName = eee_tinfo_title; anchorToPrev = PrevCreated; text = tx_eee_tpoints_normandy_title; }
+		{widgetName = eee_tinfo_body; text = tx_eee_tpoints_normandy_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 1; anchorToPrev = PrevCreated; text = tx_eee_tpoints_kursk_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 1; text = tx_eee_tpoints_kursk_body; }
+		{widgetName = eee_tinfo_title; indexCopy = 2; anchorToPrev = PrevCreated; text = tx_eee_tpoints_rorke_title; }
+		{widgetName = eee_tinfo_body; indexCopy = 2; text = tx_eee_tpoints_rorke_body; }
+//		{widgetName = eee_tinfo_title; indexCopy = 3; anchorToPrev = PrevCreated; text = tx_eee_tpoints_seki_title; }
+//		{widgetName = eee_tinfo_body; indexCopy = 3; text = tx_eee_tpoints_seki_body; }
+	]
+
+}
+
+// Multiplayer
+PageContents eee_contents_tinfo_mp {
+	pageLayout = eee_layout_tinfo
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		// top non tiling widgets
+		{widgetName = eee_tinfo_header; text = tx_eee_mp_main_title;}
+		{widgetName = eee_tinfo_intro; text = tx_eee_mp_intro;}
+		// tiled widgets
+		{widgetName = eee_tinfo_titletop; text = tx_eee_mp_chat_title; }
+		{widgetName = eee_tinfo_bodytop; text = tx_eee_mp_chat_body; }
+	]
+
+}
+
+// Territories
+PageContents eee_contents_info_territories {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_territories;}
+		{widgetName = eee_info_body; text = tx_eee_body_territories;}
+	]
+}
+
+// Getting Started
+PageContents eee_contents_info_gstarted {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_gstarted;}
+		{widgetName = eee_info_body; text = tx_eee_body_gstarted;}
+	]
+}
+
+// Interface and User Controls
+PageContents eee_contents_info_UI {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_UI;}
+		{widgetName = eee_info_body; text = tx_eee_body_UI;}
+	]
+}
+
+// Your World
+PageContents eee_contents_info_yourworld {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_yourworld;}
+		{widgetName = eee_info_body; text = tx_eee_body_yourworld;}
+	]
+}
+
+// Systems
+PageContents eee_contents_info_systems {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_systems;}
+		{widgetName = eee_info_body; text = tx_eee_body_systems;}
+	]
+}
+
+// Unit
+PageContents eee_contents_info_unit {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_unit;}
+		{widgetName = eee_info_body; text = tx_eee_body_unit;}
+	]
+}
+
+// Land Units
+PageContents eee_contents_info_landunits {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_landunits;}
+		{widgetName = eee_info_body; text = tx_eee_body_landunits;}
+	]
+}
+
+// Land Military Units
+PageContents eee_contents_info_landmilitary {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_landmilitaryunits;}
+		{widgetName = eee_info_body; text = tx_eee_body_landmilitaryunits;}
+	]
+}
+
+// Land Special Forces Units
+PageContents eee_contents_info_landsf {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_landsf;}
+		{widgetName = eee_info_body; text = tx_eee_body_landsf;}
+	]
+}
+
+// Sea Units
+PageContents eee_contents_info_seaunits {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_seaunits;}
+		{widgetName = eee_info_body; text = tx_eee_body_seaunits;}
+	]
+}
+
+// Sea Military Units
+PageContents eee_contents_info_seamilitary {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_seamilitaryunits;}
+		{widgetName = eee_info_body; text = tx_eee_body_seamilitaryunits;}
+	]
+}
+
+// Sea Special Forces Units
+PageContents eee_contents_info_seasf {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_seasf;}
+		{widgetName = eee_info_body; text = tx_eee_body_seasf;}
+	]
+}
+
+// Air Units
+PageContents eee_contents_info_airunits {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_airunits;}
+		{widgetName = eee_info_body; text = tx_eee_body_airunits;}
+	]
+}
+
+// Air Military Units
+PageContents eee_contents_info_airmilitary {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_airmilitaryunits;}
+		{widgetName = eee_info_body; text = tx_eee_body_airmilitaryunits;}
+	]
+}
+
+// Air Special Forces Units
+PageContents eee_contents_info_airsf {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_airsf;}
+		{widgetName = eee_info_body; text = tx_eee_body_airsf;}
+	]
+}
+
+
+// Buildings
+PageContents eee_contents_info_buildings {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_buildings;}
+		{widgetName = eee_info_body; text = tx_eee_body_buildings;}
+	]
+}
+
+// Buildings Civilian
+PageContents eee_contents_info_buildciv {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_buildciv;}
+		{widgetName = eee_info_body; text = tx_eee_body_buildciv;}
+	]
+}
+
+// Buildings Military
+PageContents eee_contents_info_buildmil {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_buildmil;}
+		{widgetName = eee_info_body; text = tx_eee_body_buildmil;}
+	]
+}
+
+// Civilization Unique Units
+PageContents eee_contents_info_unique {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_uniqueunit;}
+		{widgetName = eee_info_body; text = tx_eee_body_uniqueunit;}
+	]
+}
+
+// American Civilization Unique Units
+PageContents eee_contents_info_american {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_american;}
+		{widgetName = eee_info_body; text = tx_eee_body_american;}
+	]
+}
+
+// English Civilization Unique Units
+PageContents eee_contents_info_english {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_english;}
+		{widgetName = eee_info_body; text = tx_eee_body_english;}
+	]
+}
+
+// German Civilization Unique Units
+PageContents eee_contents_info_german {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_german;}
+		{widgetName = eee_info_body; text = tx_eee_body_german;}
+	]
+}
+
+// Greek Civilization Unique Units
+PageContents eee_contents_info_greek {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_greek;}
+		{widgetName = eee_info_body; text = tx_eee_body_greek;}
+	]
+}
+
+// Roman Civilization Unique Units
+PageContents eee_contents_info_roman {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_roman;}
+		{widgetName = eee_info_body; text = tx_eee_body_roman;}
+	]
+}
+
+// Babylonian Civilization Unique Units
+PageContents eee_contents_info_babylonian {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_babylonian;}
+		{widgetName = eee_info_body; text = tx_eee_body_babylonian;}
+	]
+}
+
+// Egyptian Civilization Unique Units
+PageContents eee_contents_info_egyptian {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_egyptian;}
+		{widgetName = eee_info_body; text = tx_eee_body_egyptian;}
+	]
+}
+
+// Turkish Civilization Unique Units
+PageContents eee_contents_info_turkish {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_turkish;}
+		{widgetName = eee_info_body; text = tx_eee_body_turkish;}
+	]
+}
+
+// Chinese Civilization Unique Units
+PageContents eee_contents_info_chinese {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_chinese;}
+		{widgetName = eee_info_body; text = tx_eee_body_chinese;}
+	]
+}
+
+
+// Japanese Civilization Unique Units
+PageContents eee_contents_info_japanese {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_japanese;}
+		{widgetName = eee_info_body; text = tx_eee_body_japanese;}
+	]
+}
+
+// Korean Civilization Unique Units
+PageContents eee_contents_info_korean {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_korean;}
+		{widgetName = eee_info_body; text = tx_eee_body_korean;}
+	]
+}
+
+// Aztec Civilization Unique Units
+PageContents eee_contents_info_aztec {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_aztec;}
+		{widgetName = eee_info_body; text = tx_eee_body_aztec;}
+	]
+}
+
+// Inca Civilization Unique Units
+PageContents eee_contents_info_inca {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_inca;}
+		{widgetName = eee_info_body; text = tx_eee_body_inca;}
+	]
+}
+
+// Mayan Civilization Unique Units
+PageContents eee_contents_info_mayan {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_mayan;}
+		{widgetName = eee_info_body; text = tx_eee_body_mayan;}
+	]
+}
+
+// French Civilization Unique Units
+PageContents eee_contents_info_french {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_french;}
+		{widgetName = eee_info_body; text = tx_eee_body_french;}
+	]
+}
+
+// Maasai Civilization Unique Units
+PageContents eee_contents_info_maasai {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_maasai;}
+		{widgetName = eee_info_body; text = tx_eee_body_maasai;}
+	]
+}
+
+// Russian Civilization Unique Units
+PageContents eee_contents_info_russian {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_russian;}
+		{widgetName = eee_info_body; text = tx_eee_body_russian;}
+	]
+}
+
+// Zulu Civilization Unique Units
+PageContents eee_contents_info_zulu {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_zulu;}
+		{widgetName = eee_info_body; text = tx_eee_body_zulu;}
+	]
+}
+
+// 远航版
+PageContents eee_contents_info_yuanhang {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_yuanhang;}
+		{widgetName = eee_info_body; text = tx_eee_body_yuanhang;}
+	]
+}
+
+PageContents eee_contents_info_xzdanwei {
+	pageLayout = eee_layout_info
+	pageTOC = eee_contents_unittype_sidebar
+	elems = [
+		{widgetName = eee_info_title; text = tx_eee_title_xzdanwei;}
+		{widgetName = eee_info_body; text = tx_eee_body_xzdanwei;}
+	]
+}

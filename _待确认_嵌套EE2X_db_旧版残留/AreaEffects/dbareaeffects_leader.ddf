@@ -1,0 +1,860 @@
+//////////////////////////////Leader Area Effects//////////////////////////////
+
+///////////////////////////// 
+// ACTIVE POWERS
+///////////////////////////// 
+
+// ECONOMIC LEADER POWER
+// MOBILIZATION
+DbAreaEffectInfo Mobilization
+{
+	name = text_larea_mobilize_name
+	desc = text_larea_mobilize_desc
+	
+	button = unit_power_mobilize
+	selectionType = Unit
+	mouseCursor = Mobilization
+	mouseCursorInvalid = Mobilization_Invalid
+
+	maskSelection = BuildingsThatProduce
+	playerSelection = Self
+	
+	bSkipKingOfTheHillUnit = true
+
+	duration = 45
+	
+	effects = [
+		EffectProductionTime {
+			range = Unit
+			mask = BuildingsThatProduce
+			player = Self
+
+			affected = Anything
+			scale = 0.80
+		}
+		
+		EffectVisualGlow {
+			range = Unit
+			mask = BuildingsThatProduce
+			player = Self
+			
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_mobilize_s
+			Tooltip = text_larea_mobilize_name
+			VTooltip = vtt_power_unitinfo_mobilize
+		}
+	]
+}
+
+// ECONOMIC LEADER POWER
+// FOREIGN INVESTMENT
+DbAreaEffectInfo ForeignInvestment
+{
+	disableDuringCeasefire = true
+	
+	name = text_larea_forinvest_name
+	desc = text_larea_forinvest_desc
+	
+	button = unit_power_forInvest
+	selectionType = Unit
+	mouseCursor = ForeignInvestment
+	mouseCursorInvalid = ForeignInvestment_Invalid
+	
+	maskSelection = SubjectToForeignInvestment
+	playerSelection = NonAlliedPlayers
+	
+	effects = [
+		EffectPurchaseUnit {
+			range = Unit
+			mask = Buildings
+			player = NonSelf
+			
+			instant = true
+
+			affectedResourceTypes = [ Food Wood Stone Gold Tin Iron Saltpeter Oil Uranium]
+			scale = 2.0
+		}
+	]
+}
+
+// ECONOMIC LEADER POWER
+// CAPITALISM
+DbAreaEffectInfo Capitalism
+{
+	disableDuringCeasefire = true
+	
+	name = text_larea_capitalism_name
+	desc = text_larea_capitalism_desc
+	
+	button = "unit_power_capitalism"
+	selectionType = Unit
+	mouseCursor = Capitalism
+	mouseCursorInvalid = Capitalism_Invalid
+	
+	maskSelection = LandRPS
+	playerSelection = NonSelf
+	
+	effects = [
+		EffectPurchaseUnit {
+			range = Unit
+			mask = LandRPS
+			player = NonSelf
+			
+			instant = true
+			
+			affectedResourceTypes = [ Food Wood Stone Gold Tin Iron Saltpeter Oil Uranium ]
+			scale = 2.0
+			
+			isCapitalism = true // sum cost, then charge in gold
+		}
+	]
+}
+
+// IMPERIAL LEADER POWER
+// ENDEAVOR
+DbAreaEffectInfo Endeavor
+{
+	name = text_larea_endeavor_name
+	desc = text_larea_endeavor_desc
+	
+	button = "unit_power_endeavor"
+	selectionType = Unit
+	mouseCursor = Endeavor
+	mouseCursorInvalid = Endeavor_Invalid
+	
+	bSkipKingOfTheHillUnit = true
+	
+	maskSelection = Endeavor
+
+	maskSelectionForConstructionSite = true // use UTA of unit construction site will become
+	
+	playerSelection = Self
+	
+	effects = [
+		EffectConstructionAdvance {
+			range = Unit
+			instant = 1
+
+			fractionToAdvance = 0.5
+		}
+	]
+}
+
+// IMPERIAL LEADER POWER
+// FAST TRACKING
+DbAreaEffectInfo FastTracking
+{
+	name = text_larea_fasttrack_name
+	desc = text_larea_fasttrack_desc
+	
+	bSkipKingOfTheHillUnit = true
+	
+	button = "unit_power_fastTrack"
+	selectionType = Unit
+	mouseCursor = FastTracking
+	mouseCursorInvalid = FastTracking_Invalid
+	
+	maskSelection = FastTracking
+	maskSelectionForConstructionSite = true // use UTA of unit construction site will become
+	
+	playerSelection = Self
+	effects = [
+		EffectConstructionAdvance {
+			range = Unit
+			instant = 1
+
+			fractionToAdvance = 1.0
+		}
+	]
+}
+
+// IMPERIAL LEADER POWER
+// IMPERIALISM
+DbAreaEffectInfo Imperialism
+{
+	name = text_larea_imperial_name
+	desc = text_larea_imperial_desc
+	
+	bSkipKingOfTheHillUnit = true
+	
+	button = unit_power_imperialism
+	selectionType = Unit
+	mouseCursor = Imperialism
+	mouseCursorInvalid = Imperialism_Invalid
+
+	maskSelection = Buildings
+	playerSelection = Self
+
+	duration = 45
+	
+	effects = [
+		// affected units may not be converted/captured,
+		EffectNoConversion {
+			range = Unit
+		}
+		
+		// and may not take damage,
+		EffectDamage {
+			range = Unit
+			scale = 0.0
+		}
+	
+		// not even area damage,
+		EffectAreaDamage {
+			range = Unit
+			scale = 0.0
+		}
+	
+		// but they will glow...
+		EffectVisualGlow {
+			range = Unit
+					
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_imperialism_s
+			Tooltip = text_larea_imperial_name
+			VTooltip = vtt_power_unitinfo_imperial
+		}
+	]
+}
+
+// MILITARY LEADER POWER
+// RALLY
+DbAreaEffectInfo Rally
+{
+	name = text_larea_rally_name
+	desc = text_larea_rally_desc
+	button = "unit_power_Rally"
+	selectionType = None
+	effects = [
+		// Heal nearby units.
+		EffectMassHeal {
+			range = RadiusFromUnit
+			radius = 3
+			mask = LandRPS
+			player = Self
+			instant = 1
+
+			hitpointsHealed = 0.5
+			usePercentage = 1
+			effectName = "FX_BeingHealed"
+		}
+	]
+
+}
+
+// MILITARY LEADERPOWER
+// FIRE AND MANUEVER
+DbAreaEffectInfo FireAndManeuver
+{
+	disableDuringCeasefire = true
+	
+	name = text_larea_fireman_name
+	desc = text_larea_fireman_desc
+	button = "unit_power_fireandmaneuver"
+	selectionType = None
+	duration = 45
+
+	effects = [
+		// Make friendlies move faster.
+		EffectSpeed {
+			range = RadiusFromUnit
+			radius = 5
+			mask = LandRPS
+			player = Self
+			scale = 1.5
+		}
+		// Make em glow
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = LandRPS
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_firemanuever_s
+			Tooltip = tt_power_FireAndManeuver
+			VTooltip = vtt_power_unitinfo_FaM_fast
+		}
+		// Make enemies stop
+		EffectImmobilize {
+			range = RadiusFromUnit
+			radius = 5
+			mask = LandRPS
+			player = Enemies
+		}
+		// Make em glow
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = LandRPS
+			player = Enemies
+			GlowType = Bad
+			Icon = icon_leaderpwr_firemanuever_s
+			Tooltip = tt_power_FireAndManeuver
+			VTooltip = vtt_power_unitinfo_FaM_slow
+		}
+	]
+
+}
+
+// MILITARY LEADER POWER
+// DIVERSION
+DbAreaEffectInfo Diversion
+{
+	disableDuringCeasefire = true
+	
+	name = text_larea_diversion_name
+	desc = text_larea_diversion_desc
+	
+	button = unit_power_diversion
+	
+	selectionType = Location
+	mouseCursor = Diversion
+	mouseCursorInvalid = Diversion_Invalid
+	
+	effects = [
+		EffectDiversion {
+			instant = true
+			range = Unit
+			
+			// diversion lasts this long
+			duration = 45
+			
+			// diversion is in a phalanx formation
+			formation = Phalanx
+			
+			// diversion is composed of the 
+			// following unit type counts
+			// (keep in mind that epoch ranges are inclusive)
+			units = [
+			    { 
+			      name = DiversionUnit_Epoch11
+			      count = 9
+			      startEpoch = 11
+			      endEpoch = 11
+			    }
+			    { 
+			      name = DiversionUnit_Epoch12
+			      count = 12
+			      startEpoch = 12
+			      endEpoch = 12
+			    }
+			    { 
+			      name = DiversionUnit_Epoch13
+			      count = 13
+			      startEpoch = 13
+			      endEpoch = 13
+			    }  
+			    { 
+			      name = DiversionUnit_Epoch14
+			      count = 13
+			      startEpoch = 14
+			      endEpoch = 15
+			    }  
+
+			]
+		}
+	]
+}
+
+///////////////////////////// 
+// PASSIVE POWERS
+///////////////////////////// 
+
+// ECONOMIC LEADER POWER
+// CUSTOMS
+//Any market within the leader's area of effect - 5 tiles - receives twice the normal gold resources from a successful trade route.
+DbAreaEffectInfo Customs
+{
+	name = text_larea_customs_name
+	desc = text_larea_customs_desc
+	effects = [
+		EffectResourceTrade {
+			range = RadiusFromUnit
+			radius = 5
+			mask = AffectedByCustoms
+			player = Self
+
+			affected = [Gold]
+
+			scale = 2
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = AffectedByCustoms
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_customs_s
+			Tooltip = tt_power_Customs
+			VTooltip = vtt_power_unitinfo_Customs
+		}
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			OwnerOnly = true
+			SuppressGlow = true
+			Icon = icon_leaderpwr_customs_s
+			Tooltip = tt_power_Customs
+			VTooltip = vtt_power_pl_Customs
+		}
+	]
+}
+
+// ECONOMIC LEADER POWER
+// PRIORITIZATION
+DbAreaEffectInfo Prioritization
+{
+	name = text_larea_priority_name
+	desc = text_larea_priority_desc
+	effects = [
+		EffectBuildRepairRate {
+			range = RadiusFromUnit
+			radius = 5
+			mask = BuildingsAndConstructionSites
+			player = Self
+
+			scale = 2
+		}
+		
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = Builders
+			player = Self
+			
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_prioritization_s
+			Tooltip = text_larea_priority_name
+			VTooltip = vtt_power_unitinfo_priority
+		}
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			OwnerOnly = true
+			SuppressGlow = true
+			Icon = icon_leaderpwr_prioritization_s
+			Tooltip = text_larea_priority_name
+			VTooltip = vtt_power_pl_Priority
+		}
+	]
+}
+
+// ECONOMIC LEADER POWER
+// PROJECT MANAGEMENT
+DbAreaEffectInfo ProjectManagement
+{
+	name = text_larea_prjmngmt_name
+	desc = text_larea_prjmngmt_desc
+	effects = [
+		EffectResourceGatherRate {
+			range = RadiusFromUnit
+			radius = 5
+			mask = ResourceGatherers
+			player = Self
+
+			affectedResourceTypes = [AllNaturalResource]
+			affectedResourceSources = Anything	//gather from anything
+
+			scale = 2
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = ResourceGatherers
+			player = Self
+			GlowType = Good
+			Icon = icon_leaderpwr_projectman_s
+			Tooltip = tt_power_ProjMan
+			VTooltip = vtt_power_unitinfo_ProjMan
+		}
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			OwnerOnly = true
+			SuppressGlow = true
+			Icon = icon_leaderpwr_projectman_s
+			Tooltip = tt_power_ProjMan
+			VTooltip = vtt_power_pl_ProjMan
+		}
+	]
+}
+
+// IMPERIAL LEADER POWER
+// LOYALTY
+DbAreaEffectInfo Loyalty
+{
+	name = text_larea_loyalty_name
+	desc = text_larea_loyalty_desc
+	effects = [
+		EffectNoConversion {
+			range = RadiusFromUnit
+			radius = 5
+			mask = SubjectToConversion
+			player = Self
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = SubjectToConversion
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_loyalty_s
+			Tooltip = tt_power_Loyalty
+			VTooltip = vtt_power_unitinfo_Loyalty
+		}
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			OwnerOnly = true
+			SuppressGlow = true
+			Icon = icon_leaderpwr_loyalty_s
+			Tooltip = tt_power_Loyalty
+			VTooltip = vtt_power_pl_Loyalty
+		}
+]
+}
+
+// IMPERIAL LEADER POWER
+// LECTURES
+DbAreaEffectInfo Lectures
+{
+	name = text_larea_lecture_name
+	desc = text_larea_lecture_desc
+	effects = [
+		EffectResourceDropoff {
+			range = RadiusFromUnit
+			radius = 5
+			mask = UniversitiesAndTemples
+			player = Self
+
+			affected = [AllNaturalResource]
+			
+			scale = 2
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = UniversitiesAndTemples
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_lectures_s
+			Tooltip = tt_power_Lectures
+			VTooltip = vtt_power_unitinfo_Lectures
+		}
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			OwnerOnly = true
+			SuppressGlow = true
+			Icon = icon_leaderpwr_lectures_s
+			Tooltip = tt_power_Lectures
+			VTooltip = vtt_power_pl_Lectures
+		}
+	]
+}
+
+// IMPERIAL LEADER POWER
+// NATIONALISM
+DbAreaEffectInfo Nationalism
+{
+	name = text_larea_national_name
+	desc = text_larea_national_desc
+	
+	bSkipKingOfTheHillUnit = true
+	
+	effects = [
+		// Morale
+//		EffectDamage {
+//			range = SelfClaimedTerritoryUnitIsIn
+//			mask = LandRPS
+//			player = Self
+//			scale = 0.8 // take 20% less damage
+//		}
+		
+//		EffectAreaDamage {
+//			range = SelfClaimedTerritoryUnitIsIn
+//			mask = LandRPS
+//			player = Self
+//			scale = 0.8 // take 20% less area damage
+//		}
+
+		// Fervor
+		EffectAttack {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = LandRPS
+			player = Self
+			scale = 1.2 // inflict 20% more damage
+		}
+		
+		EffectVisualGlow {
+			range = SelfClaimedTerritoryUnitIsIn
+			mask = LandRPS
+			player = Self
+
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_nationalism_s
+			Tooltip = text_larea_national_name
+			VTooltip = vtt_power_unitinfo_national
+		}
+	]
+}
+
+// MILITARY LEADER POWER
+// HIGH FERVOR
+DbAreaEffectInfo HighFervor
+{
+	name = text_larea_hifervor_name
+	desc = text_larea_hifervor_desc
+	effects = [
+		EffectAttack {
+			range = RadiusFromUnit
+			radius = 3
+			mask = LandRPS
+			player = Self
+
+			scale = 1.2
+		}
+		// give the land dudes a good glow
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 3
+			mask = LandRPS
+			player = Self
+			GlowType = Good
+			Icon = icon_leaderpwr_highfervor_s
+			Tooltip = tt_power_HighFervor
+			VTooltip = vtt_power_unitinfo_HighFervor
+		}
+		
+		EffectAttack {
+			range = RadiusFromUnit
+			radius = 3
+			mask = BuildingsThatAttackRPS
+			player = Self
+
+			scale = 1.2
+		}
+		// and the attacking buildings get a good glow too
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 3
+			mask = BuildingsThatAttackRPS
+			player = Self
+			GlowType = Good
+			Icon = icon_leaderpwr_highfervor_s
+			Tooltip = tt_power_HighFervor
+			VTooltip = vtt_power_unitinfo_HighFervor
+		}
+	]
+}
+
+// MILITARY LEADER POWER
+// HIGH MORALE
+DbAreaEffectInfo HighMorale
+{
+	name = text_larea_himorale_name
+	desc = text_larea_himorale_desc
+	effects = [
+		EffectDamage {
+			range = RadiusFromUnit
+			radius = 3
+			mask = LandRPS
+			player = Self
+
+			scale = 0.8		// 20% reduced
+		}
+		EffectAreaDamage {
+			range = RadiusFromUnit
+			radius = 3
+			mask = LandRPS
+			player = Self
+
+			scale = 0.8		// 20% reduced
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 3
+			mask = LandRPS
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_highmorale_s
+			Tooltip = tt_power_HighMorale
+			VTooltip = vtt_power_unitinfo_HighMorale
+		}
+	]
+}
+
+// MILITARY LEADER POWER
+// DISCIPLINE
+DbAreaEffectInfo Discipline
+{
+	name = text_larea_disc_name
+	desc = text_larea_disc_desc
+	effects = [
+		EffectAreaDamage {
+			range = RadiusFromUnit
+			radius = 5				//@TODO: is this 5?  or is it... something else?!!?!???
+			mask = LandRPS
+			player = Self
+
+			scale = 0.5
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 5
+			mask = LandRPS
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_discipline_s
+			Tooltip = tt_power_Discipline
+			VTooltip = vtt_power_unitinfo_Discipline
+		}
+	]
+}
+
+//The leader emits an area effect of 5 tiles and all special power recharge rates are done 50% faster.
+DbAreaEffectInfo Resourcefulness
+{
+	name = text_larea_rsrcflnss_name
+	desc = text_larea_rsrcflnss_desc
+	effects = [
+		EffectSpecialPowerRechargeTime {
+			// decrease all my neighbors' recharge time, but leave mine alone.
+			range = RadiusFromUnitExcludingSelf
+			radius = 5
+			mask = UnitsWithPower
+			player = Self
+
+			scale = 0.5
+		}
+		EffectVisualGlow {
+			range = RadiusFromUnitExcludingSelf
+			radius = 5
+			mask = UnitsWithPower
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_leaderpwr_resourceful_s
+			Tooltip = tt_power_Resourcefullness
+			VTooltip = vtt_power_unitinfo_Resourcefull
+		}
+	]
+}
+
+// adds grey glow to dudes that are going to be blessed
+DbAreaEffectInfo PropagandaPreviewGlow
+{
+	name = text_larea_propchg_name
+	desc = text_larea_propchg_desc
+	
+	effects = [
+		EffectVisualGlow {
+			range = RadiusFromLocation
+			radius = 3 // should match radius in Propaganda.EffectMassConvert below
+			mask = SubjectToConversion
+			player = NonSelf
+			GlowType = Neutral
+			OwnerOnly = false
+			
+			// this effect wants to be updated at a higher
+			// frequency, to make the glows responsive to mouse movement
+			period = 0.2
+		}
+	]
+}
+
+DbAreaEffectInfo Propaganda
+{
+	disableDuringCeasefire = true
+	
+	name = text_larea_propag_name
+	desc = text_larea_propag_desc
+	button = "unit_power_propaganda"
+	selectionType = Location
+	mouseCursor = Propaganda
+	mouseCursorInvalid = Propaganda_Invalid
+
+	MouseRadius = 3
+	HighlightAreaEffect = PropagandaPreviewGlow
+	
+	effects = [
+		EffectMassConvert {
+			range = RadiusFromLocation
+			radius = 3
+			mask = SubjectToConversion
+			player = NonSelf
+			
+			// yes instant, the time you see below is the delay before
+			// this effect is even instantiated, once created,
+			// the effect does it's thing instantly.
+			instant = 1
+
+			chance = 0.2	// base (same-epoch) chance for success 
+			
+			// how long does it take to adequately
+			// indoctrinate the targeted units?
+			time = 0.1
+			
+			// this visual state is assumed by the unit casting this effect
+			stateName = "Indoctrinate"
+		}
+	]
+}
+
+DbAreaEffectInfo Resistance
+{
+	name = text_larea_resist_name
+	desc = text_larea_resist_desc
+	effects = [
+		EffectDamageCapturers {
+			range = Unit
+			mask = Buildings
+			player = Self
+
+			scale = 0.5		// scale of damage
+		}
+	]
+}
+
+//These two are tests, and I'm putting them at the end to make sure LHandScan gets everything in the file -
+DbAreaEffectInfo SARS
+{
+	name = text_larea_sars_name
+	desc = text_larea_sars_desc
+	effects = [
+		EffectIncredibleDeath {
+			range = RadiusFromUnit
+			radius = 3
+			mask = Citizens
+			player = Enemies
+		}
+	]
+}
+
+DbAreaEffectInfo SuperSight
+{
+	name = text_larea_sprsight_name
+	desc = text_larea_sprsight_desc
+	effects = [
+		EffectLOS {
+			range = Unit
+			scale = 2
+		}
+		EffectAddLOS {
+			range = Unit
+			additionalLOS = 5
+		}
+	]
+
+}
+

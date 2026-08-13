@@ -1,0 +1,128 @@
+Objective Maasai3_Primary1 {
+	name		= text_scen_m3_pobj1
+	description	= text_scen_m3_pobj1_description
+	type		= Primary
+	startHidden	= 0
+	targetUnits = [ "Behrinium1" ]
+}
+Objective Maasai3_Primary2 {
+	name		= text_scen_m3_pobj2
+	description	= text_scen_m3_pobj2_description
+	type		= Primary
+	startHidden	= 1
+	//targetUnits = [ "Behrinium1" "Behrinium2" "Behrinium3" "Behrinium4" "Behrinium5" "Behrinium6" "Behrinium7" "Behrinium8" "Behrinium9" "Behrinium10" "Behrinium11"]
+}
+Objective Maasai3_Primary3 {
+	name		= text_scen_m3_pobj3
+	description	= text_scen_m3_pobj3_description
+	type		= Primary
+	startHidden	= 1
+}
+Objective Maasai3_Secondary1 {
+	name		= text_scen_m3_sobj1
+	description	= text_scen_m3_sobj1_description
+	type		= Secondary
+	startHidden	= 1
+	targetTerritories = [ "Maralai" ]
+}
+Objective Maasai3_Secondary2 {
+	name		= text_scen_m3_sobj2
+	description	= text_scen_m3_sobj2_description
+	type		= Secondary
+	startHidden	= 1
+	targetUnits = [ "GloboHangar" "GloboAirport"]
+}
+Objective Maasai3_Defeat1 {
+	name		= text_scen_m3_dobj1
+	description	= text_scen_m3_dobj1_description
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MaasaiHero" ]
+}
+Objective Maasai3_Defeat2 {
+	name		= text_scen_m3_dobj2
+	description	= text_scen_m3_dobj2_description
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MaasaiChief" ]
+}
+Objective Maasai3_Defeat3 {
+	name		= text_scen_m3_dobj3
+	description	= text_scen_m3_dobj3_description
+	type		= Lose
+	startHidden	= 1
+}
+Objective Maasai3_Defeat4 {
+	name		= text_scen_m3_dobj4
+	description	= text_scen_m3_dobj4_description
+	type		= Lose
+	startHidden	= 1
+	targetUnits = [ "KisumuCC" ]
+}
+
+Scenario EE2X_Maasai3 {
+	name = text_scen_m3_name
+	mapfilename = "EE2X_Maasai3.scn"
+	briefing = tx_fe_prog_EE2X_Maasai3
+	sprite = spr_mas3_camp_screenshot
+	thumbnail = spr_mas3_camp_thumb
+
+	reinforcementLocX = 18.98
+	reinforcementLocY = 102.42
+	numReinforcements = 2
+
+	reinforcementGroups = 
+	[
+		{ members = 
+			[
+			{type = Unit amount = 10 unitType = HeavyInfantry1}
+			]
+		}
+		{ members = 
+			[
+			{type = Resource amount = 1000 resType = Gold}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = LightInfantry_13_Veteran}
+			{type = Tech tech = LightInfantry_13_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = HeavyInfantry1_13_Veteran}
+			{type = Tech tech = HeavyInfantry1_13_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 5 unitType = HeavyInfantry1}
+			{type = Unit amount = 2 unitType = Medic}
+			]
+		}
+	]
+	
+	victory = text_scen_massai_victory
+	loss = text_scen_massai_loss
+
+	hints = text_scen_m3_hints
+	
+	historicalInfo = text_scen_m3_history
+	
+	description = tx_fe_prog_EE2X_Maasai3
+	
+	date = text_scen_m3_date
+
+	objectives = [
+		"Maasai3_Primary1"
+		"Maasai3_Primary2"
+		"Maasai3_Primary3"
+		"Maasai3_Secondary1"
+		"Maasai3_Secondary2"
+		"Maasai3_Defeat1"
+		"Maasai3_Defeat2"
+		"Maasai3_Defeat3"
+		"Maasai3_Defeat4"
+	]
+}

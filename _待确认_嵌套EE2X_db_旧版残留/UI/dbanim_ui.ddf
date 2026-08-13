@@ -1,0 +1,30 @@
+//	This file holds animation framesets and other animations used in the UI.
+//
+//	We are actually not using this database for anything.
+//	It was a failed experiment.
+
+/*
+GDbFrameSetAnimKeys anim_pipBookmark1 {
+	baseSprite = icon_pip_bookmark_1; numFrames = 2; numColumns = 1;
+}
+
+GDbFrameSetAnimKeys anim_pipBookmark2 {
+	baseSprite = icon_pip_bookmark_2; numFrames = 2; numColumns = 1;
+}
+
+GDbFrameSetAnimKeys anim_pipBookmark3 {
+	baseSprite = icon_pip_bookmark_3; numFrames = 2; numColumns = 1;
+}
+
+GDbFrameSetAnimKeys anim_pipBookmark4 {
+	baseSprite = icon_pip_bookmark_4; numFrames = 2; numColumns = 1;
+}
+
+GDbFrameSetAnimKeys anim_pipBookmark5 {
+	baseSprite = icon_pip_bookmark_5; numFrames = 2; numColumns = 1;
+}
+
+GDbFrameSetAnimKeys anim_pipBookmark6 {
+	baseSprite = icon_pip_bookmark_6; numFrames = 2; numColumns = 1;
+}
+*/

@@ -1,0 +1,547 @@
+//	This file holds movie subtitles
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+//      Egypt Campaign
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Subtitles egypt_1_opening
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 3.0; text = movsub_egypt1_1;}
+		Text {time = 11.0; text = movsub_egypt1_2;}
+		Text {time = 23.0; text = movsub_egypt1_3;}
+		Text {time = 36.0; text = movsub_egypt1_4;}
+		Text {time = 49.0; text = movsub_egypt1_5;}
+		Text {time = 63.5; text = movsub_egypt1_6;}
+		Blank {time = 73.5}
+	]
+}
+
+Subtitles egypt_1_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_egypt1_V1;}
+		Blank {time = 12.0}
+	]
+}
+
+Subtitles egypt_2_opening
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_egypt2_1;}
+		Text {time = 8.0; text = movsub_egypt2_2;}
+		Text {time = 14.0; text = movsub_egypt2_3;}
+		Text {time = 20.0; text = movsub_egypt2_4;}
+		Text {time = 27.0; text = movsub_egypt2_5;}
+		Text {time = 33.0; text = movsub_egypt2_6;}
+		Blank {time = 40.0}
+	]
+}
+
+Subtitles egypt_2_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_egypt2_V1;}
+		Blank {time = 12.0}
+	]
+}
+
+Subtitles egypt_3_opening
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_egypt3_1;}
+		Text {time = 10.0; text = movsub_egypt3_2;}
+		Text {time = 21.0; text = movsub_egypt3_3;}
+		Text {time = 32.0; text = movsub_egypt3_4;}
+		Text {time = 40.0; text = movsub_egypt3_5;}		
+		Text {time = 48.0; text = movsub_egypt3_6;}
+		Blank {time = 53.0}
+	]
+}
+
+Subtitles egypt_3_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_egypt3_V1;}
+		Blank {time = 12.0}
+	]
+}
+
+Subtitles egypt_4_opening
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_egypt4_1;}
+		Text {time = 14.0; text = movsub_egypt4_2;}
+		Text {time = 23.0; text = movsub_egypt4_3;}
+		Text {time = 32.0; text = movsub_egypt4_4;}
+		Text {time = 42.0; text = movsub_egypt4_5;}
+		Blank {time = 51.0}
+	]
+}
+
+Subtitles egypt_4_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_egypt4_V1;}
+		Blank {time = 14.0}
+	]
+}
+
+Subtitles egypt_5_opening
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_egypt5_1;}
+		Text {time = 8.0; text = movsub_egypt5_2;}
+		Text {time = 18.0; text = movsub_egypt5_3;}
+		Text {time = 27.0; text = movsub_egypt5_4;}
+		Text {time = 37.0; text = movsub_egypt5_5;}
+		Blank {time = 48.0}
+	]
+}
+
+Subtitles egypt_5_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_egypt5_V1;}
+		Blank {time = 14.0}
+	]
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+//      Russian Campaign
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+Subtitles russia_1_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_russian1_1;}
+		Text {time = 9.0; text = movsub_russian1_2;}
+		Text {time = 18.0; text = movsub_russian1_3;}
+		Blank {time = 27.0}
+	]
+}
+
+Subtitles russia_1_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_russian1_V1;}
+		Blank {time = 13.0}
+	]
+}
+
+Subtitles russia_2_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_russian2_1;}
+		Text {time = 13.0; text = movsub_russian2_2;}
+		Text {time = 25.0; text = movsub_russian2_3;}
+		Blank {time = 35.0}
+	]
+}
+
+Subtitles russia_2_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_russian2_V1;}
+		Blank {time = 13.0}
+	]
+}
+
+Subtitles russia_3_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_russian3_1;}
+		Text {time = 13.0; text = movsub_russian3_2;}
+		Text {time = 29.0; text = movsub_russian3_3;}
+		Blank {time = 38.0}
+	]
+}
+
+Subtitles russia_3_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_russian3_V1;}
+		Blank {time = 21.0}
+	]
+}
+
+Subtitles russia_4_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_russian4_1;}
+		Text {time = 16.0; text = movsub_russian4_2;}
+		Text {time = 35.5; text = movsub_russian4_3;}
+		Blank {time = 45.0}
+	]
+}
+
+Subtitles russia_4_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_russian4_V0;}
+		Text {time = 12.0; text = movsub_russian4_V1;}
+		Blank {time = 25.0}
+	]
+}
+
+Subtitles russia_5_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_russian5_1;}
+		Text {time = 12.0; text = movsub_russian5_2;}
+		Text {time = 22.5; text = movsub_russian5_3;}
+		Text {time = 34.0; text = movsub_russian5_4;}
+		Blank {time = 42.5}
+	]
+}
+
+Subtitles russia_5_Victory
+
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_russian5_V1;}
+		Blank {time = 21.0}
+	]
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+//      Maasai Campaign
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+Subtitles maasai_1_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_maasai1_1;}
+		Blank {time = 20.0}
+	]
+}
+
+Subtitles maasai_1_victory
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_maasai1_V1;}
+		Blank {time = 10.0}
+	]
+}
+
+
+Subtitles maasai_2_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_maasai2_1;}
+		Blank {time = 17.0}
+	]
+}
+
+Subtitles maasai_2_victory
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_maasai2_V1;}
+		Blank {time = 10.0}
+	]
+}
+
+Subtitles maasai_3_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_maasai3_1;}
+		Blank {time = 21.0}
+	]
+}
+
+Subtitles maasai_3_victory
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_maasai3_V1;}
+		Blank {time = 12.0}
+	]
+}
+
+Subtitles maasai_4_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_maasai4_1;}
+		Blank {time = 17.0}
+	]
+}
+
+Subtitles maasai_4_victory
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_maasai4_V1;}
+		Blank {time = 12.0}
+	]
+}
+
+Subtitles maasai_5_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = movsub_maasai5_1;}
+		Blank {time = 14.0}
+	]
+}
+
+Subtitles maasai_5_victory
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = movsub_maasai5_V1;}
+		Blank {time = 20.5}
+	]
+}
+
+///////////////
+//Rorke's Drift
+///////////////
+
+
+Subtitles rorkes_1_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = text_scenario_r1_shot0;}
+		Text {time = 12.0; text = text_scenario_r1_shot1;}
+		Text {time = 22.0; text = text_scenario_r1_shot2;}
+		Text {time = 31.0; text = text_scenario_r1_shot3;}
+		Text {time = 40.0; text = text_scenario_r1_shot4;}
+		Text {time = 50.0; text = text_scenario_r1_shot5;}
+		Blank {time = 59.0}
+	]
+}
+
+//British win
+
+Subtitles rorkes_1_victory_brit
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = text_scenario_r1_shot10;}
+		Blank {time = 12.0}
+	]
+}
+
+//Zulu win
+
+Subtitles rorkes_1_victory_zulu
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = text_scenario_r1_shot8;}
+		Blank {time = 12.0}
+	]
+}
+
+///////
+//Kursk
+///////
+
+Subtitles kursk_1_intro
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 2.0; text = txt_kursk_german_intro_0;}
+		Text {time = 10.0; text = txt_kursk_german_intro_1;}
+		Text {time = 23.0; text = txt_kursk_german_intro_2;}
+		Text {time = 31.0; text = txt_kursk_german_intro_3;}
+		Blank {time = 45.0}
+	]
+}
+
+
+
+//Russian Win
+
+Subtitles kursk_russian_victory
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = txt_kursk_russia_win;}
+		Blank {time = 20.0}
+	]
+}
+
+//German Win
+
+Subtitles kursk_german_victory
+{
+	widgetName = "binkMovie_stdSubtitle"
+	steps = [
+		TextTiming {fadeUpTime = 2.0; fadeDownTime = 2.0; autoTimer = 10.0; blankTime = 0.0}
+//		TextColor {color = [255,0,0,255];}
+		Text {time = 1.0; text = txt_kursk_german_win;}
+		Blank {time = 22.0}
+	]
+}
+
+ 
+
+
+// --------------------------------------------------------------------
+//	Credits
+// --------------------------------------------------------------------
+
+Subtitles EE2_credits
+{
+	widgetName = "credit_subtitles"
+	steps = [
+		TextTiming{fadeUpTime = 0.5; fadeDownTime = 0.25; autoTimer = 5.75; blankTime = 0.0}
+		Text {time = 4; text = movsub_credits_01;}
+		Text {text = movsub_credits_02}
+		Text {text = movsub_credits_03}
+		Text {text = movsub_credits_04}
+		Text {text = movsub_credits_05}
+		Text {text = movsub_credits_06}
+		Text {text = movsub_credits_07}
+		Text {text = movsub_credits_08}
+		Text {text = movsub_credits_09}
+		Text {text = movsub_credits_10}
+		Text {text = movsub_credits_11}
+		Text {text = movsub_credits_12}
+		Text {text = movsub_credits_13}
+		Text {text = movsub_credits_14}
+		Text {text = movsub_credits_15}
+		Text {text = movsub_credits_16}
+		Text {text = movsub_credits_17}
+		Text {text = movsub_credits_18}
+		Text {text = movsub_credits_19}
+		Text {text = movsub_credits_20}
+		Text {text = movsub_credits_21}
+		Text {text = movsub_credits_22}
+		Text {text = movsub_credits_23}
+		Text {text = movsub_credits_24}
+		Text {text = movsub_credits_25}
+		Text {text = movsub_credits_26}
+		Text {text = movsub_credits_27}
+		Text {text = movsub_credits_28}
+		Text {text = movsub_credits_29}
+		Text {text = movsub_credits_30}
+		Text {text = movsub_credits_31}
+		Text {text = movsub_credits_32}
+		Text {text = movsub_credits_33}
+		Text {text = movsub_credits_34}
+		Text {text = movsub_credits_35} 
+		Text {text = movsub_credits_36}
+		Text {text = movsub_credits_37}
+		Text {text = movsub_credits_38}
+		Text {text = movsub_credits_39}
+		Text {text = movsub_credits_40}
+		Text {text = movsub_credits_41}
+		Text {text = movsub_credits_42}
+		Text {text = movsub_credits_43}
+		Text {text = movsub_credits_44}
+		Text {text = movsub_credits_45}
+		Text {text = movsub_credits_blank}
+		
+	]
+}
+

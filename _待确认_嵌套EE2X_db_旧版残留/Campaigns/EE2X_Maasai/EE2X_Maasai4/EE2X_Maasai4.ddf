@@ -1,0 +1,110 @@
+Objective Maasai4_Primary1 {
+	name		= txt_scen_m4_pobj1
+	description	= txt_scen_m4_pobj1_desc
+	type		= Primary
+	startHidden	= 0
+}
+Objective Maasai4_Primary2 {
+	name		= txt_scen_m4_pobj2
+	description	= txt_scen_m4_pobj2_desc
+	type		= Primary
+	startHidden	= 1
+	targetUnits = [ "WarLord" ]
+}
+Objective Maasai4_Primary3 {
+	name		= txt_scen_m4_pobj3
+	description	= txt_scen_m4_pobj3_desc
+	type		= Primary
+	startHidden	= 1
+}
+Objective Maasai4_Defeat1 {
+	name		= txt_scen_m4_dobj1
+	description	= txt_scen_m4_dobj1_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MaasaiHero" ]
+}
+Objective Maasai4_Secondary1 {
+	name		= txt_scen_m4_sobj1
+	description	= txt_scen_m4_sobj1_desc
+	type		= Secondary
+	startHidden	= 1
+}
+Objective Maasai4_Secondary2 {
+	name		= txt_scen_m4_sobj2
+	description	= txt_scen_m4_sobj2_desc
+	type		= Secondary
+	startHidden	= 1
+}
+
+
+Scenario EE2X_Maasai4 {
+	name = txt_scen_m4_name
+	mapfilename = "EE2X_Maasai4.scn"
+	briefing = tx_fe_prog_EE2X_Maasai4
+	sprite = spr_mas4_camp_screenshot
+	thumbnail = spr_mas4_camp_thumb
+	
+	reinforcementLocX = 20.61
+	reinforcementLocY = 11.06
+	numReinforcements = 1
+
+	reinforcementGroups = 
+	[
+		{ members = 
+			[
+			{type = Unit amount = 10 unitType = HeavyInfantry1}
+			]
+		}
+		{ members = 
+			[
+			{type = Resource amount = 1000 resType = Gold}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = LightInfantry_13_Veteran}
+			{type = Tech tech = LightInfantry_13_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = HeavyInfantry1_13_Veteran}
+			{type = Tech tech = HeavyInfantry1_13_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 5 unitType = HeavyInfantry1}
+			{type = Unit amount = 2 unitType = Medic}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 4 unitType = HeavyTank}
+			{type = Unit amount = 4 unitType = Tank}
+			]
+		}
+	]
+
+	victory = txt_scen_m4_victory
+	loss = txt_scen_m4_loss
+	
+	hints = txt_scen_m4_hints
+	
+	historicalInfo = txt_scen_m4_history
+	
+	description = tx_fe_prog_EE2X_Maasai4
+	
+	date = txt_scen_m4_date
+
+	objectives = 
+	[
+		Maasai4_Primary1
+		Maasai4_Primary2
+		Maasai4_Primary3
+		Maasai4_Defeat1
+		Maasai4_Secondary1
+		Maasai4_Secondary2
+	]
+}

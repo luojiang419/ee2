@@ -1,0 +1,160 @@
+//NAME,WIDGET CLASS,ICON,BUTTONSTYLE,USER TYPE,MENU,FIRST ROW,LAST ROW,FIRST COLUMN,LAST COLUMN,C. TOOLTIP,V. TOOLTIP,UT ATTRIBUTES,IS SPECIAL CASE,CAN BE SABOTAGED,CMDSTR,AUTOCAST EFFECT,ARGSTRING
+unitactions_zeroentry_donotuse,,,,,-1,-1,-1,-1,-1,,,,0,0,"""""",,""""""
+
+unit_action_setRally,,icon_unitact_rallyPoint,TwoStateRollover,,0,0,0,0,0,tt_unitact_setRally,vtt_unitact_setRally,CanHaveRallyFlag,1,1,"""UIUnitCommand_SetRally""",,""""""
+
+// simple unit action buttons,,,,,,,,,,,,,,,,,
+unit_action_move,,icon_unitact_move,TwoStateRollover,Simple,0,2,2,3,3,tt_unitact_move,vtt_unitact_move,MobileUnits,1,1,"""UIUnitCommand_Move""",,""""""
+unit_action_captureBuilding,,icon_unitact_captureBuilding,TwoStateRollover,,0,1,1,1,1,tt_unitact_captureBuilding,vtt_unitact_captureBuilding,Capturers,0,1,UIUnitCommand_CaptureBuilding,,""""""
+unit_action_convertUnit,,icon_unitact_convertUnit,TwoStateRollover,,0,1,1,1,1,tt_unitact_convertUnit,vtt_unitact_convertUnit,Converters,0,1,UIUnitCommand_ConvertUnit,"""convert""",""""""
+unit_action_explore,,icon_unitact_explore,TwoStateRollover,,0,0,0,2,2,tt_unitact_explore,vtt_unitact_explore,MobileUnits,1,1,"""UIUnitCommand_Explore""",,""""""
+unit_action_stop,,icon_unitact_stop,TwoStateRollover,,0,0,0,1,1,tt_unitact_stop,vtt_unitact_stop,MobileUnits,1,1,"""UIUnitCommand_Stop""",,""""""
+unit_action_patrol,,icon_unitact_patrol,TwoStateRollover,,0,0,0,3,3,tt_unitact_Patrol,vtt_unitact_Patrol,MobileUnits,1,1,"""UIUnitCommand_Patrol""",,""""""
+unit_action_guard,,icon_unitact_guard,TwoStateRollover,,0,1,1,1,2,tt_unitact_guard,vtt_unitact_guard,MobileAttackers,1,1,"""UIUnitCommand_Guard""",,""""""
+unit_action_buildRepair,,icon_unitact_buildRepair,TwoStateRollover,,0,1,1,3,3,tt_unitact_buildRepair,vtt_unitact_buildRepair,Citizens,0,1,"""UIUnitCommand_BuildRepair""",,""""""
+unit_action_gather,,icon_unitact_gather,TwoStateRollover,,0,1,1,2,2,tt_unitact_gather,vtt_unitact_gather,ResourceGatherers,0,1,"""UIUnitCommand_Gather""",,""""""
+unit_action_attack,,icon_unitact_attack,TwoStateRollover,,0,2,2,1,1,tt_unitact_attack,vtt_unitact_attack,Attackers,1,1,"""UIUnitCommand_Attack""",,""""""
+unit_action_attackMove,,icon_unitact_attackMove,TwoStateRollover,,0,2,2,2,2,tt_unitact_attackMove,vtt_unitact_attackMove,MobileAttackers,1,1,"""UIUnitCommand_AttackMove""",,""""""
+unit_action_forceUnpacked,,icon_unitact_forceUnpack,TwoStateRollover,,0,1,2,2,3,tt_unitact_unpack,vtt_unitact_unpack,HasForcePackUnpackButton,1,1,"""UIUnitCommand_ForceUnpack""",,""""""
+unit_action_cancelForceUnpacked,,icon_unitact_cancelFU,TwoStateRollover,,0,1,2,2,3,tt_unitact_pack,vtt_unitact_pack,HasForcePackUnpackButton,1,1,"""UIUnitCommand_CancelForceUnpack""",,""""""
+unit_action_attackGround,DisableInCeaseFireButton,icon_unitact_attackGround,TwoStateRollover,,0,2,2,0,0,tt_unitact_attackGround,vtt_unitact_attackGround,MobileAttackers,1,1,"""UIUnitCommand_AttackGround""",,""""""
+unit_action_attackGroup,,icon_unitact_attackGroup,TwoStateRollover,Advanced,0,2,2,3,3,tt_unitact_attackGroup,vtt_unitact_attackGroup,MobileAttackers,1,1,"""UIUnitCommand_AttackGroup""",,""""""
+unit_action_attackType,,icon_unitact_attackType,TwoStateRollover,Advanced,0,3,3,3,3,tt_unitact_attackType,vtt_unitact_attackType,MobileAttackers,1,1,"""UIUnitCommand_AttackType""",,""""""
+unit_action_nuke,DisableInCeaseFireButton,icon_unitact_nuke,TwoStateRollover,,0,1,1,3,2,tt_unitact_launchICBM,vtt_unitact_launchICBM,MissileSilos,1,1,"""UIUnitCommand_NukeGround""",,""""""
+unit_action_EMP,SpecialPowerButton,icon_unitpwr_emp,TwoStateRollover,,0,2,2,0,0,tt_power_emp,vtt_power_emp,,0,1,"""UIUnitCommand_SpecialPower HERC_EMP_blast""","""HERC_EMP_blast""",""""""
+unit_action_searchDestroy,,icon_unitact_searchDestroy,TwoStateRollover,,0,1,1,0,0,tt_unitact_searchDestroy,vtt_unitact_searchDestroy,MobileAttackers,1,1,"""UIUnitCommand_SearchDestroy""",,""""""
+unit_action_emergency,,icon_unitact_emergency,TwoStateRollover,,0,1,1,2,2,tt_unitact_emergency,vtt_unitact_emergency,CitizenEmergencyHosts,1,1,"""UIUnitCommand_SignalEmergency""",,""""""
+unit_action_allClear,,icon_unitact_allClear,TwoStateRollover,,0,1,1,2,2,tt_unitact_allClear,vtt_unitact_allClear,CitizenEmergencyHosts,1,1,"""UIUnitCommand_SignalAllClear""",,""""""
+unit_action_trade,,icon_unitact_trade,TwoStateRollover,,0,3,3,3,3,tt_unitact_trade,vtt_unitact_trade,TT_TradeUnit,0,1,"""UIUnitCommand_Trade""",,""""""
+unit_action_heal,,icon_unitact_heal,TwoStateRollover,,0,1,2,0,3,tt_unitact_heal,vtt_unitact_heal,SpecialHealers,0,0,"""UIUnitCommand_Heal""","""heal""",""""""
+
+// army buttons,,,,,,,,,,,,,,,,,
+unit_action_army_form,FormArmyButton,icon_unitact_army_form,TwoStateRollover,,0,3,3,2,2,tt_unitact_army_form,vtt_unitact_army_form,Heroes,1,0,"""UIUnitCommand_FormArmy""",,""""""
+unit_action_army_disband,,icon_unitact_army_disband,TwoStateRollover,,0,3,3,2,2,tt_unitact_army_disband,vtt_unitact_army_disband,Heroes,1,0,"""UIUnitCommand_DisbandArmy""",,""""""
+unit_action_army_quit,,icon_unitact_army_quit,TwoStateRollover,,0,3,3,2,2,tt_unitact_army_quit,vtt_unitact_army_quit,CanJoinArmy,1,0,"""UIUnitCommand_ReleaseFromArmy""",,""""""
+
+// nested attack and move actions (for aircraft carrier),,,,,,,,,,,,,,,,,
+nested_actions_attackAndMove,,icon_unitact_nestAttackMove,TwoStateRollover,,0,2,2,1,3,tt_unitact_nestedAttackAndMove,vtt_unitact_nestedAttackAndMove,NestedAttackAndMove,0,1,"""UIUnitButtons_SetMenu 5""",,""""""
+unit_action_move_nest,,icon_unitact_move,TwoStateRollover,Simple,5,2,2,3,3,tt_unitact_move,vtt_unitact_move,NestedAttackAndMove,0,1,"""UIUnitCommand_Move""",,""""""
+unit_action_attack_nest,,icon_unitact_attack,TwoStateRollover,,5,2,2,1,1,tt_unitact_attack,vtt_unitact_attack,NestedAttackAndMove,0,1,"""UIUnitCommand_Attack""",,""""""
+unit_action_attackMove_nest,,icon_unitact_attackMove,TwoStateRollover,,5,2,2,2,2,tt_unitact_attackMove,vtt_unitact_attackMove,NestedAttackAndMove,0,1,"""UIUnitCommand_AttackMove""",,""""""
+unit_action_attackGroup_nest,,icon_unitact_attackGroup,TwoStateRollover,Advanced,5,2,2,3,3,tt_unitact_attackGroup,vtt_unitact_attackGroup,NestedAttackAndMove,0,1,"""UIUnitCommand_AttackGroup""",,""""""
+unit_action_attackType_nest,,icon_unitact_attackType,TwoStateRollover,Advanced,5,3,3,3,3,tt_unitact_attackType,vtt_unitact_attackType,NestedAttackAndMove,0,1,"""UIUnitCommand_AttackType""",,""""""
+unit_action_searchDestroy_nest,,icon_unitact_searchDestroy,TwoStateRollover,,5,1,1,0,0,tt_unitact_searchDestroy,vtt_unitact_searchDestroy,NestedAttackAndMove,0,1,"""UIUnitCommand_SearchDestroy""",,""""""
+unit_action_guard_nest,,icon_unitact_guard,TwoStateRollover,,5,1,1,1,2,tt_unitact_guard,vtt_unitact_guard,NestedAttackAndMove,0,1,"""UIUnitCommand_Guard""",,""""""
+
+// (ungarrison/unload buttons programmatic because things that garrison aircraft don't get these buttons),,,,,,,,,,,,,,,,,
+unit_action_garrison,,icon_unitact_garrison,TwoStateRollover,,0,0,0,0,1,tt_unitact_garrison,vtt_unitact_garrison,GarrisonnableUnits,0,1,"""UIUnitCommand_Garrison""",,""""""
+unit_action_ungarrison,UngarrisonButton,icon_unitact_ungarrison,TwoStateRollover,,0,0,0,1,1,tt_unitact_ungarrison,vtt_unitact_ungarrison,GarrisonHosts,1,1,"""UIUnitCommand_Ungarrison""",,""""""
+unit_action_unload,UngarrisonButton,icon_unitact_unload,TwoStateRollover,,0,1,1,0,2,tt_unitact_unload,vtt_unitact_unload,MobileGarrisonHosts,1,1,"""UIUnitCommand_Ungarrison""",,""""""
+
+
+unit_action_towerUpgrade,TowerGateUpgradeButton,,,,0,0,0,1,1,tt_unitact_towerUpgrade,vtt_unitact_towerUpgrade,HasTowerUpgradeButton,0,1,"""UIUnitCommand_TowerUpgrade""",,"""rightMouseArg=cancel"""
+unit_action_makeGate,TowerGateUpgradeButton,,,,0,0,0,1,1,tt_unitact_makeGate,vtt_unitact_makeGate,HasGateUpgradeButton,1,1,"""UIUnitCommand_MakeGate""",,""""""
+unit_action_lockGate,,icon_unitact_gate_lock,TwoStateRollover,,0,0,0,1,1,tt_unitact_lockGate,vtt_unitact_lockGate,HasGateLockUnlockButtons,1,1,"""UIUnitCommand_LockGate""",,""""""
+unit_action_unlockGate,,icon_unitact_gate_unlock,TwoStateRollover,,0,0,0,1,1,tt_unitact_unlockGate,vtt_unitact_unlockGate,HasGateLockUnlockButtons,1,1,"""UIUnitCommand_UnlockGate""",,""""""
+
+// market buy/sell buttons (name suffix should be resource name),,,,,,,,,,,,,,,,,
+unit_market_buy_food,MarketBuyButton,icon_unitact_market_buy,TwoStateRollover,,0,3,3,0,0,tt_unitact_market_buy,vtt_unitact_market_buy,Markets,0,1,"""UIUnitCommand_PurchaseResource res=Food amount=1000""",,""""""
+unit_market_buy_wood,MarketBuyButton,icon_unitact_market_buy,TwoStateRollover,,0,2,2,0,0,tt_unitact_market_buy,vtt_unitact_market_buy,Markets,0,1,"""UIUnitCommand_PurchaseResource res=Wood amount=1000""",,""""""
+unit_market_buy_stone,MarketBuyButton,icon_unitact_market_buy,TwoStateRollover,,0,1,1,0,0,tt_unitact_market_buy,vtt_unitact_market_buy,Markets,0,1,"""UIUnitCommand_PurchaseResource res=Stone amount=1000""",,""""""
+unit_market_buy_special1,MarketBuyButton,icon_unitact_market_buy,TwoStateRollover,,0,2,2,2,2,tt_unitact_market_buy,vtt_unitact_market_buy,Markets,0,1,"""UIUnitCommand_PurchaseResource res=Special1 amount=1000""",,""""""
+unit_market_buy_special2,MarketBuyButton,icon_unitact_market_buy,TwoStateRollover,,0,1,1,2,2,tt_unitact_market_buy,vtt_unitact_market_buy,Markets,0,1,"""UIUnitCommand_PurchaseResource res=Special2 amount=1000""",,""""""
+unit_market_sell_food,MarketSellButton,icon_unitact_market_sell,TwoStateRollover,,0,3,3,1,1,tt_unitact_market_sell,vtt_unitact_market_sell,Markets,0,1,"""UIUnitCommand_SellResource res=Food amount=1000""",,""""""
+unit_market_sell_wood,MarketSellButton,icon_unitact_market_sell,TwoStateRollover,,0,2,2,1,1,tt_unitact_market_sell,vtt_unitact_market_sell,Markets,0,1,"""UIUnitCommand_SellResource res=Wood amount=1000""",,""""""
+unit_market_sell_stone,MarketSellButton,icon_unitact_market_sell,TwoStateRollover,,0,1,1,1,1,tt_unitact_market_sell,vtt_unitact_market_sell,Markets,0,1,"""UIUnitCommand_SellResource res=Stone amount=1000""",,""""""
+unit_market_sell_special1,MarketSellButton,icon_unitact_market_sell,TwoStateRollover,,0,2,2,3,3,tt_unitact_market_sell,vtt_unitact_market_sell,Markets,0,1,"""UIUnitCommand_SellResource res=Special1 amount=1000""",,""""""
+unit_market_sell_special2,MarketSellButton,icon_unitact_market_sell,TwoStateRollover,,0,1,1,3,3,tt_unitact_market_sell,vtt_unitact_market_sell,Markets,0,1,"""UIUnitCommand_SellResource res=Special2 amount=1000""",,""""""
+
+// cycle build queue button,,,,,,,,,,,,,,,,,
+unit_action_cycleBuildQueue,CycleBuildQueueButton,icon_unitact_cycleBuild,TwoStateRollover,,0,3,3,3,3,tt_unitact_cycleBuildQueue,vtt_unitact_cycleBuildQueue,HasCycleProductionButton,0,0,"""UIUnitCommand_ToggleBuildQueue""",,"""clickFlags=37 cycleOnOverlay=game_actionbut_cycle_on"""
+
+// buttons for menuing,,,,,,,,,,,,,,,,,
+unit_action_build_civilian,,icon_unitact_buildCivilian,TwoStateRollover,,0,1,1,0,0,tt_unitact_buildCivilian,vtt_unitact_buildCivilian,Citizens,0,0,"""UIUnitButtons_SetMenu 1""",,""""""
+unit_action_build_military,,icon_unitact_buildMilitary,TwoStateRollover,,0,1,1,1,1,tt_unitact_buildMilitary,vtt_unitact_buildMilitary,Citizens,0,0,"""UIUnitButtons_SetMenu 2""",,""""""
+//unit_action_produce,,icon_unitact_buildCivilian,TwoStateRollover,,0,3,3,3,3,tt_unitact_buildAircraft,vtt_unitact_buildAircraft,NestedProduction,0,0,"""UIUnitButtons_SetMenu 4""",,""""""
+//unit_action_research,,icon_unitact_research,TwoStateRollover,,0,3,2,3,3,tt_unitact_research,vtt_unitact_research,Buildings,1,0,"""UIUnitButtons_SetMenu 3""",,""""""
+unit_action_build_more4,,icon_unitact_buildCivilian,TwoStateRollover,,0,3,2,0,0,tt_unitact_buildCivilian,vtt_unitact_buildCivilian,Citizens,0,0,"""UIUnitButtons_SetMenu 4""",,""""""
+unit_action_build_more5,,icon_unitact_buildMilitary,TwoStateRollover,,0,3,2,1,0,tt_unitact_buildMilitary,vtt_unitact_buildMilitary,Citizens,0,0,"""UIUnitButtons_SetMenu 5""",,""""""
+
+//UnofficialPatch1.5,,,,,,,,,,,,,,,,,
+unit_action_build_more,,icon_build_up15units,TwoStateRollover,,0,3,3,3,3,tt_unitact_buildMore,vtt_unitact_buildMore,Citizens,0,0,"""UIUnitButtons_SetMenu 3""",,""""""
+unit_action_produceShip_more,,icon_unitact_research,TwoStateRollover,,0,3,1,2,0,tt_unitact_produceMore,vtt_unitact_produceMore,Docks,0,0,"""UIUnitButtons_SetMenu 1""",,""""""
+unit_action_produceAir_more,,icon_unitact_research,TwoStateRollover,,0,3,1,2,0,tt_unitact_produceMore,vtt_unitact_produceMore,Airports,0,0,"""UIUnitButtons_SetMenu 1""",,""""""
+unit_action_produceMil_more,,icon_unitact_research,TwoStateRollover,,0,3,1,2,0,tt_unitact_produceMore,vtt_unitact_produceMore,Mills,0,0,"""UIUnitButtons_SetMenu 1""",,""""""
+unit_action_produceBar_more,,icon_unitact_research,TwoStateRollover,,0,3,1,2,0,tt_unitact_produceMore,vtt_unitact_produceMore,Barracks,0,0,"""UIUnitButtons_SetMenu 1""",,""""""
+unit_action_produceHel_more,,icon_unitact_research,TwoStateRollover,,0,3,1,2,0,tt_unitact_produceMore,vtt_unitact_produceMore,Hangars,0,0,"""UIUnitButtons_SetMenu 1""",,""""""
+unit_action_produceSta_more,,icon_unitact_research,TwoStateRollover,,0,3,1,2,0,tt_unitact_produceMore,vtt_unitact_produceMore,Stables,0,0,"""UIUnitButtons_SetMenu 1""",,""""""
+
+unit_action_back_1,,icon_unitact_menuback,TwoStateRollover,,1,0,0,0,0,tt_unitact_back,vtt_unitact_back,ImportantUnits,0,0,"""UIUnitButtons_SetMenu 0""",,""""""
+unit_action_back_2,,icon_unitact_menuback,TwoStateRollover,,2,0,0,0,0,tt_unitact_back,vtt_unitact_back,ImportantUnits,0,0,"""UIUnitButtons_SetMenu 0""",,""""""
+unit_action_back_3,,icon_unitact_menuback,TwoStateRollover,,3,0,0,0,0,tt_unitact_back,vtt_unitact_back,ImportantUnits,0,0,"""UIUnitButtons_SetMenu 0""",,""""""
+unit_action_back_4,,icon_unitact_menuback,TwoStateRollover,,4,0,0,0,0,tt_unitact_back,vtt_unitact_back,ImportantUnits,0,0,"""UIUnitButtons_SetMenu 0""",,""""""
+unit_action_back_5,,icon_unitact_menuback,TwoStateRollover,,5,0,0,0,0,tt_unitact_back,vtt_unitact_back,ImportantUnits,0,0,"""UIUnitButtons_SetMenu 0""",,""""""
+
+// formations and stances (icons are set programmatically to reflect current state),,,,,,,,,,,,,,,,,
+unit_action_stance,StanceButton,,Rollover,,0,3,3,0,0,tt_stance_button,vtt_stance_button,MobileUnits,1,1,"""UIUnitCommand_Stance Flyout""",,""""""
+unit_action_formation,FormationButton,,Rollover,,0,3,3,1,1,tt_formation_button,vtt_formation_button,HasFormationButton,1,1,"""UIUnitCommand_Formation Flyout""",,""""""
+
+
+// special powers,,,,,,,,,,,,,,,,,
+unit_power_propaganda,SpecialPowerButton,icon_unitpwr_propaganda,TwoStateRollover,,0,1,2,0,3,tt_power_Propaganda,vtt_power_Propaganda,,1,1,"""UIUnitCommand_SpecialPower Propaganda""",,""""""
+unit_power_healGroup,SpecialPowerButton,icon_unitpwr_healGroup,TwoStateRollover,,0,1,2,0,3,tt_power_HealGroup,vtt_power_HealGroup,,1,1,"""UIUnitCommand_SpecialPower HealGroup""",,""""""
+unit_power_bless,SpecialPowerButton,icon_unitpwr_bless,TwoStateRollover,,0,1,2,0,3,tt_power_Bless,vtt_power_Bless,,1,1,"""UIUnitCommand_SpecialPower Bless""","""Bless""",""""""
+unit_power_fireAndManeuver,SpecialPowerButton,icon_unitpwr_fireAndManeuv,TwoStateRollover,,0,1,2,0,3,tt_power_FireAndManeuver,vtt_power_FireAndManeuver,,1,1,"""UIUnitCommand_SpecialPower FireAndManeuver""","""FireAndManeuver""",""""""
+unit_power_rally,SpecialPowerButton,icon_unitpwr_rally,TwoStateRollover,,0,1,2,0,3,tt_power_Rally,vtt_power_Rally,,1,1,"""UIUnitCommand_SpecialPower Rally""","""Rally""",""""""
+
+// spy powers,,,,,,,,,,,,,,,,,
+unit_power_gatherIntel,SpecialPowerButton,icon_unitpwr_gatherIntel,TwoStateRollover,,0,1,1,0,0,tx_uarea_gatherIntel_name,tx_uarea_gatherIntel_desc,,1,1,"""UIUnitCommand_SpecialPower GatherIntelligence""","""GatherIntelligence""",""""""
+unit_power_extraction,SpecialPowerButton,icon_unitpwr_extraction,TwoStateRollover,,0,2,2,0,0,tt_power_Extraction,vtt_power_Extraction,,1,1,"""UIUnitCommand_SpecialPower Extraction""","""Extraction""",""""""
+unit_power_decontaminate,SpecialPowerButton,icon_unitpwr_decontaminate,TwoStateRollover,,0,1,1,2,2,tt_power_ToxicCleanup,vtt_power_ToxicCleanup,,1,1,"""UIUnitCommand_SpecialPower ToxicCleanup""","""ToxicCleanup""",""""""
+unit_power_restore,SpecialPowerButton,icon_unitpwr_restore,TwoStateRollover,,0,1,1,1,1,tt_power_Restore,vtt_power_Restore,,1,1,"""UIUnitCommand_SpecialPower RestoreBuilding""","""RestoreBuilding""",""""""
+unit_power_contaminate,SpecialPowerButton,icon_unitpwr_contaminate,TwoStateRollover,,0,2,2,2,2,tt_power_ToxicSpill,vtt_power_ToxicSpill,,1,1,"""UIUnitCommand_SpecialPower ToxicSpill ImprovedToxicSpill""","""ToxicSpill ImprovedToxicSpill""",""""""
+unit_power_sabotage,SpecialPowerButton,icon_unitpwr_sabotage,TwoStateRollover,,0,2,2,1,1,tt_power_Sabotage,vtt_power_Sabotage,,1,1,"""UIUnitCommand_SpecialPower SabotageBuilding ImprovedSabotageBuilding""","""SabotageBuilding ImprovedSabotageBuilding""",""""""
+unit_power_sabotageUnique,SpecialPowerButton,icon_unitpwr_sabotage,TwoStateRollover,,0,2,2,1,1,tt_power_Sabotage,vtt_power_Sabotage,,1,1,"""UIUnitCommand_SpecialPower SabotageBuildingUnique""","""SabotageBuildingUnique""",""""""
+
+unit_power_endeavor,SpecialPowerButton,icon_unitpwr_endeavor,TwoStateRollover,,0,1,2,0,3,tt_power_Endeavor,vtt_power_Endeavor,,1,1,"""UIUnitCommand_SpecialPower Endeavor""","""Endeavor""",""""""
+unit_power_fastTrack,SpecialPowerButton,icon_unitpwr_fastTrack,TwoStateRollover,,0,1,2,0,3,tt_power_FastTracking,vtt_power_FastTracking,,1,1,"""UIUnitCommand_SpecialPower FastTracking""","""FastTracking""",""""""
+unit_power_capitalism,SpecialPowerButton,icon_unitpwr_capitalism,TwoStateRollover,,0,1,2,0,3,text_larea_capitalism_name,text_larea_capitalism_desc,,1,1,"""UIUnitCommand_SpecialPower Capitalism""",,""""""
+unit_power_forinvest,SpecialPowerButton,icon_unitpwr_foreignInvest,TwoStateRollover,,0,1,2,0,3,text_larea_forInvest_name,text_larea_forInvest_desc,,1,1,"""UIUnitCommand_SpecialPower ForeignInvestment""",,""""""
+unit_power_mobilize,SpecialPowerButton,icon_unitpwr_mobilize,TwoStateRollover,,0,1,2,0,3,text_larea_mobilize_name,text_larea_mobilize_desc,,1,1,"""UIUnitCommand_SpecialPower Mobilization""","""Mobilization""",""""""
+unit_power_imperialism,SpecialPowerButton,icon_unitpwr_imperialism,TwoStateRollover,,0,1,2,0,3,text_larea_imperial_name,text_larea_imperial_desc,,1,1,"""UIUnitCommand_SpecialPower Imperialism""","""Imperialism""",""""""
+unit_power_diversion,SpecialPowerButton,icon_unitpwr_diversion,TwoStateRollover,,0,1,2,0,3,text_larea_diversion_name,text_larea_diversion_desc,,1,1,"""UIUnitCommand_SpecialPower Diversion""","""Diversion""",""""""
+
+// airport/aircraft carrier buttons,,,,,,,,,,,,,,,,,
+unit_airmission_set,BasicButton,icon_airmission_mission,TwoStateRollover,,0,0,1,0,0,tt_airmission_mission,vtt_airmission_mission,CanHaveAirmissionFlag,1,1,"""UIUnitCommand_AirMissionSet""",,""""""
+unit_airmission_launch,AirmissionLaunchButton,icon_airmission_launch,TwoStateRollover,,0,0,1,2,2,tt_airmission_launch,vtt_airmission_launch,GarrisonAircraftHosts,0,1,"""UIUnitCommand_AirMissionLaunch""","""launchAirplanes""",""""""
+unit_airmission_returnToBase,AirmissionReturnToBaseButton,icon_airmission_returnToBase,TwoStateRollover,,0,0,1,3,3,tt_airmission_returnToBase,vtt_airmission_returnToBase,GarrisonAircraftHosts,0,1,"""UIUnitCommand_AirMissionReturn""",,""""""
+unit_airmission_scramble,BasicButton,icon_airmission_scramble,TwoStateRollover,,0,0,1,1,1,tt_airmission_scramble,vtt_airmission_scramble,GarrisonAircraftHosts,0,1,"""UIUnitCommand_Ungarrison""",,""""""
+unit_airmission_cancel,AirmissionCancelButton,icon_airmission_cancel,TwoStateRollover,,0,1,2,0,1,tt_airmission_cancel,vtt_airmission_cancel,CanHaveAirmissionFlag,1,1,"""UIUnitCommand_AirMissionCancel""",,""""""
+unit_airplane_returnToBase,AirplaneReturnToBaseButton,icon_airmission_returnToBase,TwoStateRollover,,0,2,2,3,3,tt_airplane_returnToBase,vtt_airplane_returnToBase,,1,1,"""UIUnitCommand_AirMissionReturn""",,""""""
+
+// electronic warfare herc - anti-missile system,,,,,,,,,,,,,,,,,
+unit_power_WW15antimissile,SpecialPowerButton,icon_unitpwr_antimissile,TwoStateRollover,,0,1,2,0,3,tt_power_antimissile,vtt_power_antimissile,ElecWarfareHercs,0,1,"""UIUnitCommand_SpecialPower Plane_AntiMissileSystem""","""Plane_AntiMissileSystem""",""""""
+unit_power_antimissile,SpecialPowerButton,icon_unitpwr_antimissile,TwoStateRollover,,0,1,2,0,3,tt_power_antimissile,vtt_power_antimissile,ElecWarfareHercs,0,1,"""UIUnitCommand_SpecialPower HERC_AntiMissileSystem""","""HERC_AntiMissileSystem""",""""""
+unit_power_awacontroler,SpecialPowerButton,icon_unitpwr_antimissile,TwoStateRollover,,0,1,2,0,3,tt_power_awacontroler,vtt_power_awacontroler,AwacEplans,0,0,"""UIUnitCommand_SpecialPower Awace_PowerControler""","""Awace_PowerControler""",""""""
+unit_power_air_antimissle,SpecialPowerButton,icon_unitpwr_diversion,TwoStateRollover,,0,1,2,0,3,tt_power_airanmissile,vtt_power_airanmissile,,0,0,"""UIUnitCommand_SpecialPower Air_anti_missle""","""Air_anti_missle""",""""""
+unit_power_ThrowGrenade,SpecialPowerButton,icon_unitpwr_ThrowGrenade,TwoStateRollover,,0,1,2,0,3,tt_power_ThrowGrenade,vtt_power_ThrowGrenade,,0,0,"""UIUnitCommand_SpecialPower ThrowGrenade""","""ThrowGrenade""",""""""
+unit_power_air_stealthing,SpecialPowerButton,icon_unit_air_stealthing,TwoStateRollover,,0,1,3,3,3,tt_power_stealth_Button,vtt_power_stealth_effects,,0,0,"""UIUnitCommand_SpecialPower Stealthing""","""Stealthing""",""""""
+unit_power_deadlyMiss,SpecialPowerButton,icon_unitpwr_deadlyAim,TwoStateRollover,,0,1,2,0,3,tt_power_deadaim,vtt_power_deadaim,,0,0,"""UIUnitCommand_SpecialPower Deadly_Miss""","""Deadly_Miss""",""""""
+unit_power_ChangeMiss,SpecialPowerButton,icon_unitpwr_VLS,TwoStateRollover,,0,1,2,0,3,tt_power_VLS,vtt_power_VLS,,0,0,"""UIUnitCommand_SpecialPower Change_Miss""","""Change_Miss""",""""""
+unit_power_changeAirShell,SpecialPowerButton,icon_unitpwr_AirShell,TwoStateRollover,,0,1,2,0,3,tt_power_airdefend,vtt_power_airdefend,,0,0,"""UIUnitCommand_SpecialPower chang_AirShell""","""chang_AirShell""",""""""
+unit_power_shipawacontroler,SpecialPowerButton,icon_unitpwr_antimissile,TwoStateRollover,,0,1,2,0,3,tt_power_awacontroler,vtt_power_awacontroler,,0,0,"""UIUnitCommand_SpecialPower Awace_PowerforshipControler""","""Awace_PowerforshipControler""",""""""
+unit_AIResourcePowercontroler,SpecialPowerButton,icon_unitpwr_antimissile,TwoStateRollover,,0,1,3,3,3,tt_power_awacontroler,vtt_power_awacontroler,,0,0,"""UIUnitCommand_SpecialPower AIResourcePower""","""AIResourcePower""",""""""
+unit_power_Unitcontroler,SpecialPowerButton,icon_unitpwr_antimissile,TwoStateRollover,,0,1,3,3,3,tt_power_awacontroler,vtt_power_awacontroler,,0,0,"""UIUnitCommand_SpecialPower UnitsPower""","""UnitsPower""",""""""
+unit_power_Resourcecontroler,SpecialPowerButton,icon_unitpwr_antimissile,TwoStateRollover,,0,1,3,3,3,tt_power_awacontroler,vtt_power_awacontroler,,0,0,"""UIUnitCommand_SpecialPower UnitsResourcePower""","""UnitsResourcePower""",""""""
+unit_power_ChangeRange,SpecialPowerButton,icon_unit_warfactory,TwoStateRollover,,0,3,1,2,0,tt_power_ChangeRange,vtt_power_ChangeRange,,0,0,"""UIUnitCommand_SpecialPower Change_Range""","""Change_Range""",""""""
+unit_power_ChangedapaoRange,SpecialPowerButton,icon_unit_warfactory,TwoStateRollover,,0,3,1,2,0,tt_power_ChangeRange,vtt_power_ChangeRange,,0,0,"""UIUnitCommand_SpecialPower Change_dapaoRange""","""Change_dapaoRange""",""""""
+unit_power_SubmarineDiveing,SpecialPowerButton,icon_unit_Submarinediveing,TwoStateRollover,,0,1,2,0,3,tt_power_SubmarineDiveing,vtt_power_SubmarineDiveing,,0,0,"""UIUnitCommand_SpecialPower SubmarineDiveing""","""SubmarineDiveing""",""""""
+unit_power_Radardetectioning,SpecialPowerButton,icon_unit_air_stealthing,TwoStateRollover,,0,1,3,3,3,tt_power_Radardetectioning,vtt_power_Radardetectioning,,0,0,"""UIUnitCommand_SpecialPower Radardetectioning""","""Radardetectioning""",""""""
+// repair herc - shield,,,,,,,,,,,,,,,,,
+unit_power_shield,SpecialPowerButton,icon_unitpwr_shield,TwoStateRollover,,0,1,2,0,3,tt_power_shield,vtt_power_shield,RepairHercs,0,1,"""UIUnitCommand_SpecialPower HERC_Shield""","""HERC_Shield""",""""""
+
+// name city,,,,,,,,,,,,,,,,,
+unit_renameCity,,icon_unit_rename,TwoStateRollover,,0,0,3,2,3,tt_unitact_renameCity,vtt_unitact_renameCity,CityCenters,0,1,"""UIUnitCommand_NameCity""",,""""""
+
+// @HACK rename territory - this isn't really a unit action,,,,,,,,,,,,,,,,,
+unit_renameTerritory,,icon_unit_rename,TwoStateRollover,,0,0,3,0,3,tt_renameTerritory,vtt_renameTerritory,,0,1,"""RenameTerritory""",,""""""
+
+// Button for rapid deployment,,,,,,,,,,,,,,,,,
+unit_power_rapidDep,AreaEffectColorButton,icon_unitpwr_RapidDeploy,,,0,1,2,0,3,tx_rarea_RapidDeploy_name,vtt_power_rapidDep_fortress,,1,1,"""UIUnitCommand_RapidDeployment""",,"""areaEffectName=RegionPowerWestern_11"""

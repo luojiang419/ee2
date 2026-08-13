@@ -1,0 +1,110 @@
+//------------------------------------------------------------------------------------------------
+//	LIGHT MOUNTED 3 - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightMounted3
+{
+	visualName = LightMounted3
+	properties {
+		displayName = tx_utn_LightMnt3_e14_name
+		moveType = kUnitMoveType_Mechanized
+		rps = LightMounted
+		SizeX = 0.75
+		SizeY = 0.75
+		mass = 1
+		popCount = 2
+		FootprintType = Ellipse
+		stance = Defensive
+	}
+	
+	attributes = [
+		HealedByHERC 
+		CanJoinHeroArmy
+	]
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 6; reloadTime = 1.3; packtime = 1.0; unpacktime = 1.0; applyDamageTime = 0.4; damage = 100; turretControllerName = LightHercTurret; }
+		VehicleMove {speed = 1.725; angSpeed = 180; followTerrainSlope = 1; bounce = 0.2;}
+		LOS { range = 7 }
+		Garrisonable { garrisonTypes = [ NavalTransport Fortress ] }
+	]
+	icon = icon_unit_4leg_mech
+	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightMounted3Epoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 1.5; packtime = 1.0; unpacktime = 1.0; missileName = "ProjectileRocketHerc" }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove LightMounted3Epoch14Veteran
+{
+	unitType = LightMounted3
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		LightMounted_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove LightMounted3Epoch14Elite
+{
+	unitType = LightMounted3
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		LightInfantry_Improve_Default
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT MOUNTED 3 - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel LightMounted3
+{
+	ScaleType 		= kScaleUnit
+	OutlineType		= kOutlineMake
+	DefaultModel 	= LLM14_mech.nif
+        ForceScale      = 0.1
+	States 		= [
+		{	StateName = Idle	AnimName = llm14_mech_idle01.KF
+                          AnimVariants = [ llm14_mech_idle02.KF llm14_mech_idle03.KF ]
+        	                AnimVariantsWeights = [ 0.1 0.05 ] 
+			}
+		{ 	StateName = Walk	AnimName = llm14_mech_walk01.KF
+			TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_mech_02}]}
+		{ 	StateName = Attack1	AnimName = llm14_mech_attack01.KF	
+                		TextKeys = [ { Name = PLAY_SOUND  Data = fx_rocket_launch KeyTime = 0.7}]}
+        { 	StateName = Pack	AnimName = llm14_mech_pack01.KF  	}
+		{ 	StateName = Unpack	AnimName = llm14_mech_unpack01.KF }
+		{ 	StateName = Death	AnimName = llm14_mech_death01.KF }
+			]
+
+	ChildNames 	= [ TheHealthBar SelectCircleMedium SmallGlow TheVisualUnitElecSpark 
+					UnitShadow Hercprints expl_herc_Tandrill ExplSelectorTank02 SinkHerc
+					HemisphereLighting_Unit DynamicLighting_Unit SpecularLighting_Herc
+				  ]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = 0.00
+		zOffset = 0.44
+		scale = 1.53
+		angle = 80.53
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}	
+}

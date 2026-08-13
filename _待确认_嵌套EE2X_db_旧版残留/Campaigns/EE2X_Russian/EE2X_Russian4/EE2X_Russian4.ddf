@@ -1,0 +1,115 @@
+Objective Russian4_Objective1 {
+	name		= tx_r4_bleed
+	description	= tx_r4_bleed_desc
+	type		= Primary
+	startHidden	= 0
+}
+
+Objective Russian4_Objective2 {
+	name		= tx_r4_defend_moscow
+	description	= tx_r4_defend_moscow_desc
+	type		= Secondary
+	startHidden	= 0
+	targetTerritories 	= [ "territoryMoscow" ]
+}
+
+Objective Russian4_Objective3 {
+	name		= tx_r4_defend_alexander
+	description	= tx_r4_defend_alexander_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits 	= [ "Alexander" ]
+}
+
+Objective Russian4_Objective4 {
+	name		= tx_r4_defend_production
+	description	= tx_r4_defend_production_desc
+	type		= Lose
+	startHidden	= 0
+	targetTerritories = [ 	"territoryMalo" "territoryWestBorodino" "territoryMogilev" "territoryPolotsk"	]
+
+}
+
+Objective Russian4_Objective5 {
+	name		= tx_r4_earn_flags
+	description	= tx_r4_earn_flags_desc
+	type		= Secondary
+	startHidden	= 1
+
+}
+
+Objective Russian4_Objective6 {
+	name		= tx_r4_cut_off
+	description	= tx_r4_cut_off_desc
+	type		= Primary
+	startHidden	= 1
+	targetTerritories 	= [ "territoryWestKovno" ]
+
+}
+
+Objective Russian4_Objective7 {
+	name		= tx_r4_cossacks
+	description	= tx_r4_cossacks_desc
+	type		= Secondary
+	startHidden	= 1
+	targetUnits 	= [ "CommandTent" ]
+
+}
+
+Scenario EE2X_Russian4 {
+	name = text_scen_r4_name
+	mapfilename = "EE2X_Russian4.scn"
+	briefing = text_scen_r4_desc
+	sprite = spr_rus4_camp_screenshot
+	thumbnail = spr_rus4_camp_thumb
+
+
+	reinforcementLocX = 253.0
+	reinforcementLocY = 74.0
+	numReinforcements = 1
+
+	reinforcementGroups = 
+[
+		{ members = 
+			[
+			{type = Resource amount = 250 resType = Gold}
+			{type = Resource amount = 500 resType = Food}
+			{type = Resource amount = 250 resType = Wood}
+			{type = Resource amount = 250 resType = Stone}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 6 unitType = HeavyInfantry1}
+			{type = Unit amount = 6 unitType = LightInfantry}
+			{type = Unit amount = 2 unitType = LightMounted1}
+			{type = Unit amount = 2 unitType = LightArtillery1}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 4 unitType = Cossack}
+			{type = Unit amount = 8 unitType = Conscript}
+			{type = Resource amount = 250 resType = Wood}
+			{type = Resource amount = 250 resType = Stone}
+			]
+		}
+]
+
+	victory = text_scen_r4_victory
+	loss = text_scen_r4_loss	
+	hints = text_scen_r4_hints	
+	historicalInfo = text_scen_r4_history	
+	description = text_scen_r4_desc	
+	date = text_scen_r4_date
+
+	objectives = [
+		Russian4_Objective1
+		Russian4_Objective2
+		Russian4_Objective3
+		Russian4_Objective4
+		Russian4_Objective5
+		Russian4_Objective6
+		Russian4_Objective7
+	]
+}

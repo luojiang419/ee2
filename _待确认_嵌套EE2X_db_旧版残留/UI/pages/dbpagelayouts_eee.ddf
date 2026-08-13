@@ -1,0 +1,53 @@
+// Page layouts for the Empire Earth Encyclopedia
+
+// Home page
+
+PageLayout eee_layout_home {
+	firstWidget = eee_home_onlyWidget
+	lastWidget = eee_home_text
+}
+
+// Left sidebar: text listing
+
+PageLayout eee_layout_sidebartext {
+	firstWidget = eee_sidebar_list
+	lastWidget = eee_sidebar_list
+
+}
+
+// Unit Type
+PageLayout eee_layout_unittype {
+	firstWidget = eee_unittype
+	lastWidget = eee_unittype
+}
+
+// Title and Scene
+PageLayout eee_layout_utmain {
+	firstWidget = eee_utmain_title
+	lastWidget = eee_utmain_icon16
+}
+
+// Test layout: use this for test purposes
+PageLayout eee_layout_test {
+	firstWidget = eee_test_firstWidget
+	lastWidget = eee_test_lastWidget
+}
+
+
+// Title and body - general info page
+PageLayout eee_layout_info {
+	firstWidget = eee_info_title
+	lastWidget = eee_info_body
+}
+
+// Header with tiled title and body widgets
+PageLayout eee_layout_tinfo {
+	firstWidget = eee_tinfo_header
+	lastWidget = eee_tinfo_body
+}
+
+// title and intro with [T]iled [S]prite and [T]ext ([B]elow sprite) widgets
+PageLayout eee_layout_tstb {
+	firstWidget = eee_tstb_title
+	lastWidget = eee_tstb_text
+}

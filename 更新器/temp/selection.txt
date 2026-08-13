@@ -1,1 +1,24 @@
-zips_ee2x/EE2X_db.zip
+EE2.exe
+EE2X.exe
+UP16.dll
+steam_api.dll
+dxvk.conf
+D3DCompiler_47.dll
+UP15_GameHelper.dll
+UnofficialDevelopersVersionConfig.txt
+Unofficial Patch 1.6 - Empire Earth II.url
+EE2.EE2X-Windows8-FIX-by.DrMonaLisa.exe
+zips/hdrs.zip
+Unofficial Patch Files/MinorVersion-data
+Unofficial Patch Files/CustomScreenRes-data
+Unofficial Patch Files/1.5ExternalLauncherBitmaps/fileicon_e2s.ico
+Unofficial Patch Files/VulkanSupportForUP16/VULKAN_d3d9.dll
+Unofficial Patch Files/EXEGeneratorData/TextsSource.txt
+Unofficial Patch Files/EXEGeneratorData/TextsSourceTranslation_German.txt
+Unofficial Patch Files/EXEGeneratorData/TextsSourceTranslation_Italian.txt
+Unofficial Patch Files/EXEGeneratorData/TextsSourceTranslation_Polish.txt
+Unofficial Patch Files/EXEGeneratorData/TextsSourceTranslation_Spanish.txt
+Unofficial Patch Files/EXEGeneratorData/ScreenResolutionsTexts01.txt
+Unofficial Patch Files/EXEGeneratorData/ScreenResolutionsTexts02.txt
+Unofficial Patch Files/EXEGeneratorData/ScreenResolutionsTexts99.txt
+Unofficial Patch Files/EXEGeneratorData/ScreenResolutionsTextsAll.txt

@@ -1,0 +1,52 @@
+DbAIPersonalityDef Mil_Crown.dll
+{
+	regions = [
+		West,
+		FarEast,
+		African,
+		MiddleEast
+	]
+	
+	difficulties = [
+		Easiest,
+		Easier,
+		Easy,
+		Normal,
+		Hard,
+		Hardest
+	]
+}
+
+DbAIPersonalityDef Eco_Crown.dll
+{
+	regions = [
+		West,
+		FarEast,
+		MiddleEast
+	]
+	
+	difficulties = [
+		Easiest,
+		Easier,
+		Easy,
+		Normal,
+		Hard,
+		Hardest
+	]
+}
+
+DbAIPersonalityDef Imp_Crown.dll
+{
+	regions = [
+		MesoAmerican
+	]
+	
+	difficulties = [
+		Easiest,
+		Easier,
+		Easy,
+		Normal,
+		Hard,
+		Hardest
+	]
+}

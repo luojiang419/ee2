@@ -1,0 +1,72 @@
+// NAME,TEXT
+tx_utn_donotuse_EE2X,"""零式入口－不要使用"""
+
+// RESOURCES
+tx_utn_ResourceEg1_name,"""死去的祖先"""
+tx_utn_ResourceEg1_sname,"""死去的祖先"""
+tx_utn_ResourceMaasai_name,"""贝里尼姆"""
+tx_utn_ResourceMaasai_sname,"""贝里尼姆战役"""
+tx_utn_HarvesterMaasai_name,"""贝里尼姆抽取器"""
+tx_utn_HarvesterMaasai_sname,"""贝里尼姆战役抽取器"""
+
+// HEROES!,
+tx_utn_hero_modify_name,"""英雄%NAME%"""
+
+// UNIQUE UNITS
+tx_utn_UUZulu1_name,"""长矛战士"""
+tx_utn_UUZulu1_pname,"""长矛战士"""
+tx_utn_UUZulu1_sname,"""独特单位－祖鲁长矛战士"""
+tx_utn_UUZulu2_name,"""巫医战士"""
+tx_utn_UUZulu2_pname,"""巫医战士"""
+tx_utn_UUZulu2_sname,"""独特单位－祖鲁巫医战士"""
+tx_utn_UUZulu3_name,"""牛角战士"""
+tx_utn_UUZulu3_pname,"""牛角战士"""
+tx_utn_UUZulu3_sname,"""独特单位－牛角战士"""
+
+tx_utn_UUMaasai1_name,"""莫拉尼战士"""
+tx_utn_UUMaasai1_pname,"""莫拉尼战士"""
+tx_utn_UUMaasai1_sname,"""独特单位－莫拉尼战士"""
+tx_utn_UUMaasai2_name,"""莱邦"""
+tx_utn_UUMaasai2_pname,"""莱邦"""
+tx_utn_UUMaasai2_sname,"""独特单位－莱邦祭师"""
+tx_utn_UUMaasai3_name,"""希利特重型轰炸机"""
+tx_utn_UUMaasai3_pname,"""希利特重型轰炸机"""
+tx_utn_UUMaasai3_sname,"""独特单位－希利特重型轰炸机"""
+
+tx_utn_UURussian1_name,"""瓦兰金战士"""
+tx_utn_UURussian1_pname,"""瓦兰金战士"""
+tx_utn_UURussian1_sname,"""独特单位－瓦兰金战士"""
+tx_utn_UURussian2_name,"""利抗榴弹砲"""
+tx_utn_UURussian2_pname,"""利抗榴弹砲"""
+tx_utn_UURussian2_sname,"""独特单位－利抗榴弹砲"""
+tx_utn_UURussian3_name,"""T-90S主力战车"""
+tx_utn_UURussian3_pname,"""T-90S主力战车"""
+tx_utn_UURussian3_sname,"""独特单位－T-90S主力战车"""
+
+tx_utn_UUFrench1_name,"""蒙戈弩炮"""
+tx_utn_UUFrench1_pname,"""蒙戈弩炮"""
+tx_utn_UUFrench1_sname,"""独特单位－蒙戈弩炮攻城机器"""
+tx_utn_UUFrench2_name,"""胸甲骑兵"""
+tx_utn_UUFrench2_pname,"""胸甲骑兵"""
+tx_utn_UUFrench2_sname,"""独特单位－胸甲骑兵"""
+tx_utn_UUFrench3_name,"""阵风隐形战机"""
+tx_utn_UUFrench3_pname,"""阵风隐形战机"""
+tx_utn_UUFrench3_sname,"""独特单位－阵风隐形战机"""
+
+// WONDERS
+tx_utn_WonderAf1_name,"""战士之城"""
+tx_utn_WonderAf6_name,"""杰内市集"""
+tx_utn_WonderAf11_name,"""桑科尔研究中心"""
+
+// LION
+tx_utn_lion_name,"""狮子"""
+tx_utn_DeadLion_name,"""狮子（死亡）"""
+
+// PHAROAH'S TOMB
+tx_utn_PharoahsTomb_name,"""法老的陵寝"""
+
+tx_utn_RussianCampaignBuilding,"""%NAME%"""
+
+// @TEST
+tx_utn_test1_modify_name,"""母牛%NAME%"""
+tx_utn_test2_modify_name,"""大象%NAME%"""

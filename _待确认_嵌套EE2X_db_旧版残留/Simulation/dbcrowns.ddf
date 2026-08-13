@@ -1,0 +1,191 @@
+Crown Military {
+	Formula = [
+		//(Total Number of Military Technologies Researched) +
+		FactorTechsResearched { Branch = Military Weight = 1.0 }
+
+		//(Total Number of Enemy Units killed) +
+		FactorUnitsKilled { Attribute = MobileUnits Weight = 1.0 }
+		
+		//(Current Number of Military Units Owned) +
+		FactorUnitsActive { Attribute = MilitaryUnits Weight = 1.0 }
+		
+		//(Total Number of Enemy Buildings Destroyed) +
+		FactorUnitsKilled { Attribute = Buildings Weight = 1.0 }
+		
+		//(Total Number of Enemy Buildings Captured) +
+		FactorUnitsConverted { Attribute = Buildings Weight = 1.25 }
+		
+		//(Military Buildings Constructed) +
+		FactorUnitsActive { Attribute = MilitaryBuildings Weight = 1.0 }
+
+		//(Wonders Owned) +
+		FactorUnitsActive { Attribute = Wonders Weight = 10.0 }
+
+		//(Heroes Earned)
+		FactorHeroesEarned { Weight = 10.0 }
+	]
+	
+	//Score targets by epoch (1-15).
+	ScoreTargets = [
+		50
+		100
+		150
+		200
+		250
+		300
+		350
+		400
+		450
+		500
+		550
+		600
+		650
+		700
+		750
+	]
+
+	//Effects that user gets to choose!
+	EffectList = [
+		{ Effect = AirSuperiorityDoctrine	Icon = icon_crown_airsuperiority }
+		{ Effect = AmphibiousWarfareDoctrine	Icon = icon_crown_amphibiouswarfare }
+		{ Effect = FireSupportDoctrine		Icon = icon_crown_firesupport }
+		{ Effect = InfantryDoctrine		Icon = icon_crown_infantry }
+		{ Effect = MobileWarfareDoctrine	Icon = icon_crown_mobilewarfare }
+		{ Effect = SeaLanesDoctrine		Icon = icon_crown_sealanes }
+		{ Effect = StaticDefenseDoctrine	Icon = icon_crown_staticdefense }
+		{ Effect = StrategicBombingDoctrine	Icon = icon_crown_strategicbombing }
+		{ Effect = VerticalEnvelopmentDoctrine	Icon = icon_crown_verticalenvelopment }
+		{ Effect = CrownSupremeLeader_Mil	Icon = icon_crown_sleader_mil }
+	]
+}
+
+
+Crown Economic {
+	Formula = [
+		//(Total Number of Economic Technologies Researched) +
+		FactorTechsResearched { Branch = Economic Weight = 1.0 }
+
+		//(Current Number of Economic Buildings Owned) +
+		FactorUnitsActive { Attribute = EconomicBuildings Weight = 1.0 }
+		
+		//(Current Number of Trade Routes Operating) +
+		FactorTradeRoutesOperating { Weight = 5.0 }
+		
+		//(Total Number of Resources Gathered) +
+		FactorResourcesGathered { Type = AllNaturalResource Weight = 0.05 }
+		
+		//(Gold Generated Through Trade Routes) +
+		FactorResourcesTradeRoutesOperating { Weight = 0.05 }
+		
+		//(Wonders Owned) +
+		FactorUnitsActive { Attribute = Wonders Weight = 10.0 }
+
+		//(Flags Earned) +
+		FactorFlagsEarned { Weight = 10.0 }
+	]
+	
+	//Score targets by epoch (1-15).
+	ScoreTargets = [
+		50
+		100
+		150
+		200
+		250
+		300
+		350
+		400
+		450
+		500
+		550
+		600
+		650
+		700
+		750
+	]
+
+	//Effects that user gets to choose!
+	EffectList = [
+		{ Effect = AirSuperiority	Icon = icon_crown_aviationexpertise }
+		{ Effect = Farming		Icon = icon_crown_farming }
+		{ Effect = FoodProcessing	Icon = icon_crown_foodprocessing }
+		{ Effect = Immigration		Icon = icon_crown_immigration }
+		{ Effect = IncomeTax		Icon = icon_crown_incometax }
+		{ Effect = Lumbering		Icon = icon_crown_lumbering }
+		{ Effect = MarketStability	Icon = icon_crown_marketstability }
+		{ Effect = Quarrying		Icon = icon_crown_quarrying }
+		{ Effect = Retooling		Icon = icon_crown_retooling }
+		{ Effect = RuleTheWaves		Icon = icon_crown_rulethewaves }
+		{ Effect = WarEconomy		Icon = icon_crown_wareconomy }
+		{ Effect = CrownSupremeLeader_Eco		Icon = icon_crown_sleader_eco }
+	]
+}
+
+Crown Imperial {
+	Formula = [
+		//(Number of Imperial Technologies Researched) +
+		FactorTechsResearched { Branch = Imperial Weight = 1.0 }
+
+		//(Number of Territories Owned) +
+		FactorClaimedTerritories { Weight = 10.0 }
+		
+		//(Current Number of Roads and Bridges Owned) +
+		FactorUnitsActive { Attribute = RoadsAndBridges Weight = 0.1 }
+		
+		//(Current Population level) +
+		FactorUnitsActive { Attribute = Humanoid Weight = 0.1 }
+		
+		//(Resources Stolen) +
+		FactorResourcesStolen { Type = AllNaturalResource Weight = 0.001 }
+		
+		//(Number of Cultural Units Owned) +
+		FactorUnitsActive { Attribute = CulturalUnits Weight = 2.0 }
+
+		//(Units converted) +
+		FactorUnitsConverted { Attribute = NonBuildings Weight = 2.0 }
+
+		//(Wonders Owned) +
+		FactorUnitsActive { Attribute = Wonders Weight = 10.0 }
+
+		//(Vassals Earned) +
+		FactorVassalsEarned { Weight = 10.0 }
+
+		//(Tribes Assimilated)
+		FactorTribesAssimilated { Weight = 10.0 }
+	]
+	
+	//Score targets by epoch (1-15).
+	ScoreTargets = [
+		50
+		100
+		150
+		200
+		250
+		300
+		350
+		400
+		450
+		500
+		550
+		600
+		650
+		700
+		750
+	]
+
+	//Effects that user gets to choose!
+	EffectList = [
+		{ Effect = Centralization	Icon = icon_crown_centralization }
+		{ Effect = Drills		Icon = icon_crown_drills }
+		{ Effect = Expansionism		Icon = icon_crown_expansionism }
+		{ Effect = Exploration		Icon = icon_crown_exploration }
+		{ Effect = Fanaticism		Icon = icon_crown_fanaticism }
+		{ Effect = FiringRanges		Icon = icon_crown_firingranges }
+		{ Effect = Missionaries		Icon = icon_crown_missionaries }
+		{ Effect = Piracy		Icon = icon_crown_piracy }
+		{ Effect = SocializedMedicine	Icon = icon_crown_socializedmedicine }
+		{ Effect = SuperSpies		Icon = icon_crown_superspies }
+		{ Effect = ThinkTanks		Icon = icon_crown_thinktanks }
+		{ Effect = CrownSupremeLeader_Imp		Icon = icon_crown_sleader_imp }
+	]
+}
+

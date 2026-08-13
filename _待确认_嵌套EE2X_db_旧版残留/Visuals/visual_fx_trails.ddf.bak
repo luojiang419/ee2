@@ -1,0 +1,1073 @@
+//---------------------------------------------------------------------------
+// Unit tracks of various types, including decal'd tracks and smoke trails
+// and boat wakes.
+//---------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------
+//	TRACKS
+//--------------------------------------------------------------------------
+UnitTracks	TankTracks
+{
+	TrackDecalNames =	   [Track_Tank_1 ]
+	TrackDecalNamesLod2 =  [Track_Tank_1_L2 ]
+	TrackDecalNamesLod3 =  [Track_Tank_1_L3 ]
+
+	TrackSpacing = 0.25
+	NumFeet = 1
+
+	ShowTurns = true
+	TrackDecalTurnL = Track_Tank_Turn_L1
+	TrackDecalTurnR = Track_Tank_Turn_R1
+	// PI / 16
+	TrackTurnSpacing = 0.19625
+}
+
+UnitTracks	ArtilleryTracks
+{
+	TrackDecalNames =	   [Track_Artillery_1 ]
+	TrackDecalNamesLod2 =  [Track_Artillery_1_L2 ]
+	TrackDecalNamesLod3 =  [Track_Artillery_1_L3 ]
+
+	TrackSpacing = 0.25
+	NumFeet = 1
+
+	ShowTurns = true
+	TrackDecalTurnL = Track_Artillery_Turn_L1
+	TrackDecalTurnR = Track_Artillery_Turn_R1
+	// PI / 16
+	TrackTurnSpacing = 0.19625
+}
+
+UnitTracks	Footprints
+{
+	TrackDecalNames =	   [Track_Human_1 Track_Human_2 Track_Human_3 Track_Human_4
+							Track_Human_5 Track_Human_6 Track_Human_7 Track_Human_8 ]
+	
+	TrackDecalNamesLod2 =   [Track_Human_1_L2 Track_Human_2_L2 Track_Human_3_L2 Track_Human_4_L2
+							Track_Human_5_L2 Track_Human_6_L2 Track_Human_7_L2 Track_Human_8_L2 ]
+	
+	TrackDecalNamesLod3 =   [Track_Human_1_L3 Track_Human_2_L3 Track_Human_3_L3 Track_Human_4_L3
+							Track_Human_5_L3 Track_Human_6_L3 Track_Human_7_L3 Track_Human_8_L3 ]
+	
+	NumFeet = 2
+	//TrackSpacing = 0.2
+	TrackSpacing = 0.25
+	JitterPositional = 0.01
+	JitterRotational = 0.0008
+}
+
+UnitTracks	Hercprints
+{
+	TrackDecalNames =	   [Track_Herc_1 Track_Herc_2 Track_Herc_3 Track_Herc_4
+							Track_Herc_5 Track_Herc_6 Track_Herc_7 Track_Herc_8 ]
+	
+	TrackDecalNamesLod2 =   [Track_Herc_1_L2 Track_Herc_2_L2 Track_Herc_3_L2 Track_Herc_4_L2
+							Track_Herc_5_L2 Track_Herc_6_L2 Track_Herc_7_L2 Track_Herc_8_L2 ]
+	
+	TrackDecalNamesLod3 =  [Track_Herc_1_L3 Track_Herc_2_L3 Track_Herc_3_L3 Track_Herc_4_L3
+							Track_Herc_5_L3 Track_Herc_6_L3 Track_Herc_7_L3 Track_Herc_8_L3 ]
+
+	NumFeet = 2
+	TrackSpacing = 0.4
+}
+
+//--------------------------------------------------------------------------
+//	BOAT WAKES
+//--------------------------------------------------------------------------
+//Each naval unit should create a new instance of this class.
+BoatWake		TheBoatWake 
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake01.nif
+	Scales = 1
+	WakeMovedTimer = 0.6
+	WakeIdleTimer = 3
+	WakeSinkName = [wake_01.NIF]
+}
+
+BoatWake		TheBoatWake1
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake01a.nif
+	Scales = 1
+	WakeMovedTimer = 0.6
+	WakeIdleTimer = 3
+	WakeSinkName = [wake_01.NIF]
+}
+
+BoatWake		TheBoatWake2
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake02.nif
+	Scales = 1
+	WakeMovedTimer = 0.6
+	WakeIdleTimer = 3
+	WakeSinkName = [wake_01.NIF]
+}
+
+BoatWake		TheBoatWake3
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake03.nif
+	Scales = 1
+	WakeMovedTimer = 0.6
+	WakeIdleTimer = 3
+	WakeSinkName = [wake_01.NIF]
+}
+
+BoatWake		TheBoatWake4
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake04.nif
+	Scales = 1
+	WakeMovedTimer = 0.6
+	WakeIdleTimer = 3
+	WakeSinkName = [wake_01.NIF]
+}
+
+BoatWake		TheBoatWake5
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake05.nif
+	Scales = 1
+	WakeMovedTimer = 0.6
+	WakeIdleTimer = 3
+	WakeSinkName = [wake_01.NIF]
+}
+
+BoatWake		TheBoatWake6
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake06.nif
+	Scales = 1
+	WakeMovedTimer = 0.6
+	WakeIdleTimer = 3
+	WakeSinkName = [wake_01.NIF]
+}
+
+BoatWake		TheBoatWake7
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake07.nif
+	Scales = 1
+	WakeMovedTimer = 0.6
+	WakeIdleTimer = 3
+	WakeSinkName = [wake_01.NIF]
+}
+
+BoatWake		TheBoatWake8
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake08.nif
+	Scales = 1
+	WakeMovedTimer = 0.6
+	WakeIdleTimer = 3
+	WakeSinkName = [wake_01.NIF]
+}
+
+BoatWake		TheSubmarineWake 
+{ 
+	WakeModelsName = BoatWake_L2.nif
+	WakeVshapeName = BoatWake_L1.nif
+	WakeIdleName = fx_idlewake06.nif
+	Scales = 1
+	WakeMovedTimer = 0.5
+	WakeIdleTimer = 4 
+	WakeSinkName = [wake_01.NIF] 
+	StopUnderWater = true
+}
+
+BoatWake		TheTorpedoWake 
+{ 
+	WakeModelsName = TorpadoWake_1.nif
+	WakeVshapeName = TorpadoWake_1.nif
+	Scales = 0.3
+	WakeMovedTimer = 0.5
+	WakeIdleTimer = 4 
+}
+
+//--------------------------------------------------------------------------
+//	SMOKE TRAILS
+//--------------------------------------------------------------------------
+// Smoke trail Guided Missile
+SmokeTrailDC		SmokeTrailGuidedMissile
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = TrailA_1.tga
+	TextureSet2 = TrailB_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 1.0
+	MaxLife = 1.5
+	//Geometry
+	MaximumParticle = 100
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.1   
+	OriginalSizeMax = 0.1
+	SizeGrowMin = 0.1
+	SizeGrowMax = 0.1
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.1
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+// Missile Fire
+SmokeTrailDC		SmokeTrailMFGuidedMissile
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = TrailA_2.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.4
+	MaxLife = 0.4
+	//Geometry
+	MaximumParticle = 80
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.1
+	OriginalSizeMax = 0.1
+	SizeGrowMin = -0.05
+	SizeGrowMax = -0.05
+	PositionRadiusRandom = 0.01
+	ParticleDensity = 0.05
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+// Smoke Trail ICBM
+SmokeTrailDC		SmokeTrailICBM_1
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_tracer_1
+	//Texture
+	TextureSet1 = TrailA_1.tga
+	TextureSet2 = TrailB_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.5
+	MaxLife = 0.75
+	//Geometry
+	MaximumParticle = 600
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.1   
+	OriginalSizeMax = 0.1
+	SizeGrowMin = 0.1
+	SizeGrowMax = 0.1
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.05
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+SmokeTrailDC		SmokeTrailICBM_2
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_tracer_2
+	//Texture
+	TextureSet1 = TrailA_1.tga
+	TextureSet2 = TrailB_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.5
+	MaxLife = 0.75
+	//Geometry
+//	MaximumParticle = 600
+	MaximumParticle = 100
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.1   
+	OriginalSizeMax = 0.1
+	SizeGrowMin = 0.1
+	SizeGrowMax = 0.1
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.05
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+SmokeTrailDC		SmokeTrailICBM_3
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_tracer_3
+	//Texture
+	TextureSet1 = TrailA_1.tga
+	TextureSet2 = TrailB_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.5
+	MaxLife = 0.75
+	//Geometry
+//	MaximumParticle = 600
+	MaximumParticle = 100
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.1   
+	OriginalSizeMax = 0.1
+	SizeGrowMin = 0.1
+	SizeGrowMax = 0.1
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.05
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+SmokeTrailDC		SmokeTrailICBM_4
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_tracer_4
+	//Texture
+	TextureSet1 = TrailX_1.tga
+	TextureSet2 = TrailY_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.5
+	MaxLife = 0.75
+	//Geometry
+//	MaximumParticle = 600
+	MaximumParticle = 100
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.1   
+	OriginalSizeMax = 0.1
+	SizeGrowMin = 0.1
+	SizeGrowMax = 0.1
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.05
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+SmokeTrailDC		SmokeTrailHelicopterJet_1
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_tracer_1
+	//Texture
+	TextureSet1 = TrailX_1.tga
+	TextureSet2 = TrailY_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.25
+	MaxLife = 0.75
+	//Geometry
+	MaximumParticle = 100
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.025   
+	OriginalSizeMax = 0.05
+	SizeGrowMin = 0.025
+	SizeGrowMax = 0.05
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.01
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+SmokeTrailDC		SmokeTrailHelicopterJet_2
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_tracer_2
+	//Texture
+	TextureSet1 = TrailX_1.tga
+	TextureSet2 = TrailY_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.25
+	MaxLife = 0.75
+	//Geometry
+	MaximumParticle = 100
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.025   
+	OriginalSizeMax = 0.05
+	SizeGrowMin = 0.025
+	SizeGrowMax = 0.05
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.01
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+SmokeTrailDC		SmokeTrailJet_1
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_tracer_4
+	//Texture
+	TextureSet1 = TrailX_1.tga
+	TextureSet2 = TrailY_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.5
+	MaxLife = 0.75
+	//Geometry
+//	MaximumParticle = 600
+	MaximumParticle = 100
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.1   
+	OriginalSizeMax = 0.1
+	SizeGrowMin = 0.1
+	SizeGrowMax = 0.1
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.05
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+// bubbles for the torpedo
+SmokeTrailDC		SmokeTrailTorpedo
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = BubbleTrailA_1.tga
+	TextureSet2 = BubbleTrailB_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 1.0
+	MaxLife = 1.0
+	//Geometry
+	MaximumParticle = 140
+	ColorStart = [255, 255, 255, 255]
+	ColorMiddle = [255, 255, 255, 255]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0
+	OriginalSizeMin = 0.07
+	OriginalSizeMax = 0.07
+	SizeGrowMin = -0.05
+	SizeGrowMax = -0.05
+	PositionRadiusRandom = 0.01
+	ParticleDensity = 0.02
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+	DrawUnderWater = true
+}
+
+//--------------------------------------------------------------------------
+//	FIRE ARROW TRAILS
+//--------------------------------------------------------------------------
+// Smoke trail Guided Missile
+SmokeTrailDC		SmokeTrailFireArrow1
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = TrailA_1.tga
+	TextureSet2 = TrailB_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.9
+	MaxLife = 0.9
+	//Geometry
+	MaximumParticle = 30
+	ColorStart = [10, 10, 10, 20]
+	ColorMiddle = [0, 0, 0, 80]
+	ColorEnd = [0, 0, 0, 0]
+	MiddleColorFor = 0.4
+	OriginalSizeMin = 0.1   
+	OriginalSizeMax = 0.1
+	SizeGrowMin = 0.09
+	SizeGrowMax = 0.09
+	PositionRadiusRandom = 0.1
+	ParticleDensity = 0.055
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+// Missile Fire
+SmokeTrailDC		SmokeTrailMFFireArrow1
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_firetrail_128.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.1
+	MaxLife = 0.3
+	//Geometry
+	MaximumParticle = 80
+	ColorStart = [0, 0, 255, 255]
+	ColorMiddle = [0, 100, 255, 125]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.09
+	OriginalSizeMax = 0.09
+	SizeGrowMin = -0.05
+	SizeGrowMax = -0.05
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.02
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+SmokeTrailDC		FireBoulderFlames1
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_firetrail_128.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.3
+	MaxLife = 0.45
+	//Geometry
+	MaximumParticle = 2000
+	ColorStart = [0, 0, 255, 255]
+	ColorMiddle = [0, 100, 255, 125]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.25
+	OriginalSizeMax = 0.25
+	SizeGrowMin = -0.25
+	SizeGrowMax = -0.25
+	PositionRadiusRandom = 0.015
+	ParticleDensity = 0.0075
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.12
+}
+SmokeTrailDC		RocketFlames1
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_firetrail_128.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.18
+	MaxLife = 0.18
+	//Geometry
+	MaximumParticle = 2000
+	ColorStart = [0, 0, 255, 255]
+	ColorMiddle = [0, 100, 255, 125]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.2
+	OriginalSizeMax = 0.2
+	SizeGrowMin = -0.2
+	SizeGrowMax = -0.2
+	PositionRadiusRandom = 0.02
+	ParticleDensity = 0.016
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.02
+}
+
+SmokeTrailDC		RocketFlames2
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_firetrail_128.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.075
+	MaxLife = 0.075
+	//Geometry
+	MaximumParticle = 2000
+	ColorStart = [0, 0, 255, 255]
+	ColorMiddle = [0, 100, 255, 125]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.4
+	OriginalSizeMax = 0.4
+	SizeGrowMin = -0.4
+	SizeGrowMax = -0.4
+	PositionRadiusRandom = 0.02
+	ParticleDensity = 0.02
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.02
+}
+SmokeTrailDC		RocketFlames3
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_firetrail_128.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.18
+	MaxLife = 0.18
+	//Geometry
+	MaximumParticle = 2000
+	ColorStart = [0, 0, 255, 255]
+	ColorMiddle = [0, 100, 255, 125]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.3
+	OriginalSizeMax = 0.3
+	SizeGrowMin = -0.3
+	SizeGrowMax = -0.3
+	PositionRadiusRandom = 0.02
+	ParticleDensity = 0.016
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.02
+}
+
+SmokeTrailDC		RocketFlames4
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_firetrail_128.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.075
+	MaxLife = 0.075
+	//Geometry
+	MaximumParticle = 2000
+	ColorStart = [0, 0, 255, 255]
+	ColorMiddle = [0, 100, 255, 125]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.6
+	OriginalSizeMax = 0.6
+	SizeGrowMin = -0.6
+	SizeGrowMax = -0.6
+	PositionRadiusRandom = 0.02
+	ParticleDensity = 0.02
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.02
+}
+
+SmokeTrailDC		FireBoulderFlames2
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_firetrail_128.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.33
+	MaxLife = 0.4
+	//Geometry
+	MaximumParticle = 2000
+	ColorStart = [0, 0, 255, 255]
+	ColorMiddle = [0, 100, 255, 185]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.2
+	OriginalSizeMax = 0.3
+	SizeGrowMin = -0.1
+	SizeGrowMax = -0.2
+	PositionRadiusRandom = 0.08
+	ParticleDensity = 0.04
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.4
+}
+SmokeTrailDC		FireBoulderFlames3
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = flash.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.6
+	MaxLife = 0.8
+	//Geometry
+	MaximumParticle = 2000
+	ColorStart = [0, 125, 255, 75]
+	ColorMiddle = [0, 125, 255, 125]
+	ColorEnd = [0, 125, 255, 255]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.1
+	OriginalSizeMax = 0.1
+	SizeGrowMin = -0.1
+	SizeGrowMax = -0.1
+	PositionRadiusRandom = 0.12
+	ParticleDensity = 0.045
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.1
+}
+// Missile Fire
+SmokeTrailDC		FireBoulderFlameball
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = flash.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.13
+	MaxLife = 0.13
+	//Geometry
+	MaximumParticle = 1000
+	ColorStart = [0, 125, 255, 255]
+	ColorMiddle = [0, 125, 255, 125]
+	ColorEnd = [0, 125, 255, 0]
+	MiddleColorFor = 0.025
+	OriginalSizeMin = 0.35
+	OriginalSizeMax = 0.35
+	SizeGrowMin = -0.35
+	SizeGrowMax = -0.35
+	PositionRadiusRandom = 0.0
+	ParticleDensity = 0.05
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+//--------------------------------------------------------------------------
+//	FIRE BOULDER TRAILS
+//--------------------------------------------------------------------------
+// Smoke trail Guided Missile
+SmokeTrailDC		SmokeTrailFireBoulder1
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = TrailA_1.tga
+	TextureSet2 = TrailB_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.9
+	MaxLife = 0.9
+	//Geometry
+	MaximumParticle = 30
+	ColorStart = [10, 10, 10, 20]
+	ColorMiddle = [0, 0, 0, 80]
+	ColorEnd = [0, 0, 0, 0]
+	MiddleColorFor = 0.4
+	OriginalSizeMin = 0.1   
+	OriginalSizeMax = 0.1
+	SizeGrowMin = 0.09
+	SizeGrowMax = 0.09
+	PositionRadiusRandom = 0.1
+	ParticleDensity = 0.055
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+// Missile Fire
+SmokeTrailDC		SmokeTrailMFFireBoulder1
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture_Additive
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_firetrail_128.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.1
+	MaxLife = 0.3
+	//Geometry
+	MaximumParticle = 80
+	ColorStart = [0, 0, 255, 255]
+	ColorMiddle = [0, 100, 255, 125]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.09
+	OriginalSizeMax = 0.09
+	SizeGrowMin = -0.05
+	SizeGrowMax = -0.05
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.02
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+//--------------------------------------------------------------------------
+//	CANNON BALL TRAILS
+//--------------------------------------------------------------------------
+// Smoke trail Guided Missile
+SmokeTrailDC		SmokeTrailCannonball1
+{
+	//Shader
+	ShaderName = SmokeTrail_2Textures
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = TrailA_1.tga
+	TextureSet2 = TrailB_1.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 1.5
+	MaxLife = 1.5
+	//Geometry
+	MaximumParticle = 30
+	ColorStart = [255, 255, 255, 0]
+	ColorMiddle = [255, 255, 255, 100]
+	ColorEnd = [180, 180, 180, 0]
+	MiddleColorFor = 0.5
+	OriginalSizeMin = 0.1   
+	OriginalSizeMax = 0.1
+	SizeGrowMin = 0.09
+	SizeGrowMax = 0.09
+	PositionRadiusRandom = 0.12
+	ParticleDensity = 0.055
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+// Missile Fire
+SmokeTrailDC		SmokeTrailMFCannonball1
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_smoke_03.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 0.1
+	MaxLife = 0.3
+	//Geometry
+	MaximumParticle = 80
+	ColorStart = [255, 255, 255, 100]
+	ColorMiddle = [200, 200, 200, 190]
+	ColorEnd = [255, 255, 255, 0]
+	MiddleColorFor = 0.1
+	OriginalSizeMin = 0.09
+	OriginalSizeMax = 0.09
+	SizeGrowMin = -0.05
+	SizeGrowMax = -0.05
+	PositionRadiusRandom = 0.05
+	ParticleDensity = 0.02
+	//Physics
+	WindOn = false
+	VelocityRandom = 0.0
+}
+
+SmokeTrailDC		RocketPuff1
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_smoke_03.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 3
+	MaxLife = 3
+	//Geometry
+	MaximumParticle = 7500
+	ColorStart = [215, 255, 255, 255]
+	ColorMiddle = [140, 170, 170, 170]
+	ColorEnd = [0, 50, 50, 0]
+	MiddleColorFor = 1.0
+	OriginalSizeMin = 0.08
+	OriginalSizeMax = 0.1
+	SizeGrowMin = -0.0
+	SizeGrowMax = -0.0
+	PositionRadiusRandom = 0.04
+	ParticleDensity = 0.04
+	//Physics
+	WindOn = true
+	VelocityRandom = 0.04
+}
+SmokeTrailDC		RocketPuff2
+{
+	//Shader
+	ShaderName = SmokeTrail_1Texture
+	//Where to attach the effetc
+	TagName = tag_trail_1_c
+	//Texture
+	TextureSet1 = fx_smoke_03.tga
+	TexturesNbrOfSubPart = 1
+	ExpandTexture = false
+	//Effect manager
+	LiveFrombornToDeath = true
+	//Particle parameter
+	MinLife = 3
+	MaxLife = 3
+	//Geometry
+	MaximumParticle = 7500
+	ColorStart = [215, 255, 255, 255]
+	ColorMiddle = [140, 170, 170, 170]
+	ColorEnd = [0, 50, 50, 0]
+	MiddleColorFor = 1.0
+	OriginalSizeMin = 0.16
+	OriginalSizeMax = 0.20
+	SizeGrowMin = -0.0
+	SizeGrowMax = -0.0
+	PositionRadiusRandom = 0.09
+	ParticleDensity = 0.2
+	//Physics
+	WindOn = true
+	VelocityRandom = 0.2
+}
+//--------------------------------------------------------------------------
+//	MISCELANEOUS TRAILS
+//--------------------------------------------------------------------------
+BaseModel	FX_GuidedMissile_Trail_1
+{
+	ModelFileName 	= fx_missile_exhaust_1.nif
+	TagPoint 		= ROOT
+	DeletionMode	= eUNITDIE
+}
+
+BaseModel	FX_ARROW_FIRE_Trail_1
+{
+	ModelFileName 	= fx_arrow_fire_1.nif
+	TagPoint 		= ROOT
+	DeletionMode	= eUNITDIE
+}

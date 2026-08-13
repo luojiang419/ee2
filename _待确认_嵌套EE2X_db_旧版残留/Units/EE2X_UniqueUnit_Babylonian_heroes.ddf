@@ -1,0 +1,72 @@
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT BABYLONIAN ASSYRIAN BOWMAN (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitBabylonian1Hero
+{
+	parent = UniqueUnitBabylonian1
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.144
+		SizeY = 0.144
+	}
+	abilities = [
+		Hero { HeroClass = LightInfantry; HeroForUnit = UniqueUnitBabylonian1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitBabylonian1Hero
+{
+	Parent		= UniqueUnitBabylonian1
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT BABYLONIAN MAMELUKE (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitBabylonian2Hero
+{
+	parent = UniqueUnitBabylonian2
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.46
+		SizeY = 0.23
+	}
+	abilities = [
+		Hero { HeroClass = LightMounted; HeroForUnit = UniqueUnitBabylonian2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitBabylonian2Hero
+{
+	Parent		= UniqueUnitBabylonian2
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT BABYLONIAN DESERT FIGHTER (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitBabylonian3Hero
+{
+	parent = UniqueUnitBabylonian3
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.144
+		SizeY = 0.144
+	}
+	abilities = [
+		Hero { HeroClass = HeavyInfantry; HeroForUnit = UniqueUnitBabylonian3 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitBabylonian3Hero
+{
+	Parent		= UniqueUnitBabylonian3
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

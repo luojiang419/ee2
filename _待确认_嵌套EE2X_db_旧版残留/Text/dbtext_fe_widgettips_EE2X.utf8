@@ -1,0 +1,77 @@
+﻿// front end widget tooltips for EE2X
+tx_fe_widgettips_donotuse_EE2X,"""@BUG"""
+
+
+tt_fe_mp_status_busy,"""玩家状态：忙碌"""
+
+// new game settings
+tt_fe_gameset_teamstate,"""队伍状态：\n在这里选择进阶外交选项。"""
+
+tt_fe_teamstate_Normal,"""普通"""
+tt_fe_teamstate_Locked,"""锁定队伍：\n如果选择了这个选项，游戏一开始所设定的分队方式在游戏中不能藉由外交方式改变。"""
+tt_fe_teamstate_SoleSurvivor,"""唯一生还者：\n在唯一生还者的游戏中只有一位玩家能赢得胜利。游戏期间同盟可以加入队伍，但是当只剩一组时，这组人员会自动互斗。在剩下最后两个玩家前，玩家们都可以组成新的同盟。"""
+tt_fe_teamstate_Fealty,"""封建效忠：\n玩家可以对另一位玩家要求效忠。领土可以控制附庸的军事单位，也可以随时将附庸给移除。领主也可以分享到附庸所采集到的一部分资源。"""
+
+// Native tribes tooltips
+tt_fe_NT_amount_None,"""无：\n游戏中不会有原住民部落。"""
+tt_fe_NT_amount_Some,"""少数：\n游戏中会有1至3个原住民部落。"""
+tt_fe_NT_amount_Many,"""多数：\n游戏中会有3至5个原住民部落。"""
+tt_fe_NT_diff,"""本游戏中原住民部落的困难度设定。"""
+tt_fe_NT_armySize,"""本游戏中原住民部落的启始军团规模。"""
+
+// custom civs allowed tooltip
+tt_fe_allowCCivs,"""若是勾选了，玩家可以选择使用他们所创造的自订文明。"""
+
+// Victory Condition tips
+tt_fe_vcond_terrhs_st,"""启始地区：\n开启此选项时，玩家的启始地区会被选为热点。"""
+
+tt_fe_gametype_LoadToWGame,"""载入已储存的拉锯战游戏"""
+
+tt_fe_ToW_maps,"""绳索上的地图数量。"""
+tt_fe_ToW_battles,"""这场游戏中需要进行的最多战争数目。"""
+tt_fe_gametype_TugOfWar,"""拉锯战：\n以古老经典的游戏方式决定谁是胜利者。两个队伍间会在不同的地图间进行一连串的游戏。"""
+
+tt_fe_ToW_Battle_but,"""战争%d\n按钮可查阅战事状态"""
+
+// Resource distribution (asymmetrical)
+tt_fe_mapset_res_Asymmetrical,"""不均分：\n正常资源（石头、黄金、食物、木材）以随机方式分配，特殊资源则有一部分是以随机方式分配。玩家的启始地区并不需要涵盖所有的特殊资源。"""
+
+// Custom Quick Start
+tt_fe_cqstart_name,"""此快速开始的军力名称"""
+tt_fe_cqstart_unit_amt,"""成本：%d"""
+tt_fe_cqstart_unit_family,"""\n%NUMBEROFUNITS% %UNITNAME%在纪元%EPOCH%"""
+tt_fe_cqstart_epoch,"""此纪元的单位"""
+tt_fe_cqstart_civ,"""选择与此军力相连的文明。这个动作不会影响到此军力的效率，相关的图示会被你在游戏中选择的文明取代。"""
+
+tt_fe_cqstart_min_units,"""\n%MIN%是最低购买数量"""
+
+tt_fe_cqstart_Advanced,"""小：\n此一设定会给予你足够的点数，让你组成一支相等于预设的小型快速开始游戏的军队。"""
+tt_fe_cqstart_Large,"""中：\n此一设定会给予你足够的点数，让你组成一支相等于预设的中型快速开始游戏的军队。"""
+tt_fe_cqstart_Huge,"""大：\n此一设定会给予你足够的点数，让你组成一支相等于预设的大型快速开始游戏的军队。"""
+tt_fe_cqstart_EditAll,"""编辑全部：\n在此模式中，你可以同时编辑所有的军队规模。小规模时加入单位的单位数是1，中等是2，大型是3。"""
+
+tt_fe_cqsfilter_Land,"""陆上：\n查看并选择陆上单位和建筑物，加到你的军力中。"""
+tt_fe_cqsfilter_Naval,"""海上：\n查看并选择海上单位和建筑物，加到你的军力中。"""
+tt_fe_cqsfilter_Air,"""空中：\n查看并选择空中单位和建筑物，加到你的军力中。"""
+tt_fe_cqsfilter_All,"""全部：\n查看并选择陆上、海上或空中单位和建筑物，加到你的军力中。"""
+
+
+////////////////////////////////
+// Custom Civ editor tooltips
+
+tt_fe_cciv_techs_dis_flagged,"""<color Red>此科技必须一直持续自动研发，所以你无法选择／解除选择之。</color>"""
+tt_fe_cciv_techs_dis_tooMany,"""<color Red>你已经在此纪元中选择了%MAXTECHS% 个科技，所以不能再选择了。</color>"""
+
+// quick start combo on Create Game panel
+tt_fe_gameset_qstart_none,"""无：\n启动此选项后，每位玩家可以设定自己启始的人民数量。"""
+
+// Stats screen tooltips
+tt_stats_d_vassals,"""附庸：此玩家拥有的附庸数量。"""
+tt_stats_d_fealty,"""宣誓效忠：此玩家宣誓效忠的时间。"""
+tt_stats_misc_heroes,"""英雄：此玩家拥有的英雄数量。"""
+tt_stats_misc_armies,"""已组成的军队：此玩家所组成的军队数量。"""
+
+tt_stats_vassal_icon,"""%VASSALNAME%\n%TIME%"""
+tt_stats_liege_icon,"""%LIEGENAME%\n%TIME%"""
+
+tt_stats_nativetribe_icon,"""%NAME%\n%POWER%\n%TIME%"""

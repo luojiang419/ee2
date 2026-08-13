@@ -1,0 +1,526 @@
+// this is used when someone keeps sending alliance request over and over in a short period
+DbAITauntDef RepeatedAllianceRequest
+{
+	records = [
+		{
+			tauntText = text_ai_repeatalliance
+			// other params you could use:
+			
+			// default to being HOSTILE only text, use the following line
+			//	to have it be used for allies
+			//isNonHostile = true
+			
+			// Not yet hooked up entirely
+			//personalityType = "angryAI"
+			
+			// weight is how much it will use one response over another
+			//	currently defaults to 1.0 if not assigned
+			//	if you make it higher, that response will show up more frequently
+			// weight = 3.2
+		}
+
+		{
+			// Standard AI Personality
+			tauntText = text_ai_repeatalliance
+		}
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_repeatalliance2
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_repeatalliance3
+		}
+		
+		// if we're friendly, use these -
+		//		this is actually for repeated WAR PLAN requests
+		//		since we're already friends
+		{
+			tauntText = text_ai_repeatalliance3
+			isNonHostile = true;
+		}
+	]
+}
+
+// used if someone requests an alliance after breaking a treaty
+DbAITauntDef TraitorAllianceRequest
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_traitoralliance
+		}
+	
+		{
+			// Aggressive AI Personality	
+			tauntText = text_ai_traitoralliance1
+		}
+	
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_traitoralliance2
+		}
+	]
+}
+
+// when the AI already has enough allies
+DbAITauntDef UnneededAllianceRequest
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_unneededalliance
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_unneededalliance1
+		}			
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_unneededalliance2
+		}		
+	]
+}
+
+// when the AI accepts a request because you bribed it with resources or units
+DbAITauntDef BribedAllianceSuccess
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_bribedalliance
+		}		
+		
+		{
+			// Aggresssive AI Personality
+			tauntText = text_ai_bribedalliance1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_bribedalliance2
+		}
+	]
+}
+
+// AI accepts a request even though you've broken agreements in the past because
+//		you bribed it
+DbAITauntDef BribedTraitorAllianceSuccess
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_bribedtraitoralliance
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_bribedtraitoralliance1
+		}		
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_bribedtraitoralliance2
+		}		
+	]
+}	
+
+// when the AI accepts a request
+DbAITauntDef SuccessfulAllianceRequest
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_successfulalliance
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_successfulalliance1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_successfulalliance2
+		}
+	]
+}
+
+// when AI just arbitrarily rejects the request
+DbAITauntDef UnsuccessfulAllianceRequest
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_unsuccessfulalliance
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_unsuccessfulalliance1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_unsuccessfulalliance2
+		}
+	]
+}
+
+// when AI can't afford the tribute demanded
+DbAITauntDef NoCashAllianceRequestFailure
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_nocashalliancefailure
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_nocashalliancefailure1
+		}	
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_nocashalliancefailure2
+		}	
+	]
+}
+
+// when AI offers to surrender
+DbAITauntDef SurrenderRequest
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_surrenderrequest
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_surrenderrequest1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_surrenderrequest2
+		}
+	]
+}
+
+// when you break an alliance with the AI
+DbAITauntDef BrokeAlliance
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_brokealliance
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_brokealliance1
+		}	
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_brokealliance2
+		}	
+	]
+}
+
+// taunt when AI decides to betray you
+DbAITauntDef BetraysYou
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_betraysyou
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_betraysyou1
+		}	
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_betraysyou2
+		}	
+	]
+}
+
+
+// when AI accepts your war plan
+DbAITauntDef AcceptedWarPlan
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_acceptedwarplan
+			isNonHostile = true
+		}
+
+		{
+			// Aggresssive AI Personality
+			tauntText = text_ai_acceptedwarplan1
+			isNonHostile = true
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_acceptedwarplan2
+			isNonHostile = true
+		}		
+	]
+}
+
+// when AI rejects your war plan.  Allied and Neutral\Hostile
+DbAITauntDef RejectedWarPlan
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_rejectedwarplan
+			isNonHostile = true
+		}
+
+		{
+			// Aggresssive AI Personality
+			tauntText = text_ai_rejectedwarplan1
+			isNonHostile = true
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_rejectedwarplan2
+			isNonHostile = true
+		}
+
+		{
+			// Standard AI Personality
+			tauntText = text_ai_rejectedwarplanenemy
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_rejectedwarplanenemy1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_rejectedwarplanenemy2
+		}
+	]
+}
+
+// when you capture a territory from the AI
+DbAITauntDef CapturedTerritory
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_capturedterritory
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_capturedterritory1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_capturedterritory2
+		}
+	]	
+}
+
+// when you capture a building from the AI
+DbAITauntDef CapturedBuilding
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_capturedbuilding
+		}		
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_capturedbuilding1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_capturedbuilding2
+		}
+	]	
+}
+
+// when you win a crown.  Responses from Allied AI players and Neutral\Hostile AI players.
+DbAITauntDef WinsCrown
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_winscrown_allied
+			isNonHostile = true
+		}
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_winscrown_allied1
+			isNonHostile = true
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_winscrown_allied2
+			isNonHostile = true
+		}
+
+		{
+			// Standard AI Personality
+			tauntText = text_ai_winscrown
+		}
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_winscrown1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_winscrown2
+		}
+	]	
+}
+
+// when you advance an epoch.  Responses from Allied AI players and Neutral\Hostile AI players.
+DbAITauntDef AdvancesEpoch
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_advancesepoch_allied
+			isNonHostile = true
+		}
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_advancesepoch_allied1
+			isNonHostile = true
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_advancesepoch_allied2
+			isNonHostile = true
+		}
+		// NO Non-Hostiles here, use three specific
+		//	hostile taunts below for if the player is ahead
+		//	behind or tied in epoch
+	]	
+}
+DbAITauntDef AdvancesEpochPlayerAhead
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_advancesepochahead
+		}
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_advancesepochahead1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_advancesepochahead2
+		}
+	]
+}
+
+DbAITauntDef AdvancesEpochPlayerBehind
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_advancesepochbehind
+		}
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_advancesepochbehind1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_advancesepochbehind2
+		}
+	]
+}
+
+DbAITauntDef AdvancesEpochPlayerEven
+{
+	records = [
+		{
+			// Standard AI Personality
+			tauntText = text_ai_advancesepocheven
+		}
+
+		{
+			// Aggressive AI Personality
+			tauntText = text_ai_advancesepocheven1
+		}
+
+		{
+			// Defensive AI Personality
+			tauntText = text_ai_advancesepocheven2
+		}
+	]
+}
+
+
+
+// just plays every few minutes
+DbAITauntDef RandomTimeTick
+{
+	records = [
+		{
+			tauntText = text_ai_timetick
+		}
+		{
+			tauntText = text_ai_timetick2
+		}
+		{
+			tauntText = text_ai_timetick3
+		}
+		{
+			tauntText = text_ai_timetick4
+		}
+		{
+			tauntText = text_ai_timetick5
+		}
+		{
+			tauntText = text_ai_timetick6
+		}
+		{
+			tauntText = text_ai_timetick7
+		}
+		{
+			tauntText = text_ai_timetick8
+		}
+		{
+			tauntText = text_ai_timetick9
+		}
+		{
+			tauntText = text_ai_timetick10
+		}
+	]	
+}

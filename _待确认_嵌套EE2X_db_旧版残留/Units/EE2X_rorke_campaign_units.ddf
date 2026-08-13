@@ -1,0 +1,218 @@
+////////////////////////////////////////
+// Campaign special units for Rorke's Drift
+////////////////////////////////////////
+
+
+////////////////////
+//CHARD
+UnitType LeaderChard
+{
+	//one leader only
+// 	parent = LeaderMilitary
+// 	parent = human
+	parent = LeaderImperial
+	properties {
+		hitpoints = 3000
+		displayName = tx_rorke_chard_name
+		displayNameScenEdit = tx_rorke_chard_name_ed
+		verboseTooltip = tx_rorke_chard_verbose
+	}
+	sounds {
+			sndCmdMove = ["v_leader_mil_02_com01" "v_leader_mil_02_com02"]
+			sndCmdAttack = ["v_leader_mil_02_com01" "v_leader_mil_02_com02" "v_leader_mil_02_spe01"]
+			sndSelection = ["v_leader_mil_02_sel01"]
+	}
+	abilities = [
+		Attack { range = 5.0; reloadTime = 1; applyDamageTime = 0.5; damage = 40; WeaponType = LightProjectile }
+		LOS { range = 5 }
+		AreaEffect {
+			effects = [ 
+// 				HighFervor
+// 				HighMorale		
+				Discipline
+			]
+		}
+		SpecialPower {
+			effects = [
+				FireAndManeuver
+// 				Rally
+			]	
+		}
+	]
+	icon = icon_unit_roosevelt
+}
+UnitModel LeaderChard
+{
+	ScaleType	= kScaleUnit
+	Parent		= BaseHuman
+                DefaultModel 	= camp_am11_roosevelt.nif
+	ForceScale = 0.260
+	ChildNames 		= [ UnitShadow Beam_Tracer01 Muzzle_Rifleman ]
+	States 		= [
+		{	StateName = Idle	AnimName = camp_am11_idle.kf	
+                              AnimVariants = [ camp_am11_idle2.kf ]
+                              AnimVariantsWeights = [ 0.05 ]
+                 }
+		{ 	StateName = Walk	AnimName = camp_am11_walk.KF AnimSpeedScale = 2.25 }
+		{	StateName = Run		AnimName = camp_am11_jog.KF 	
+			
+			}
+		{ 	StateName = Attack1	AnimName = camp_am11_attack.kf
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_rifle_fire KeyTime = 0.35 }
+							] }
+		{ 	StateName = Death	AnimName = camp_am11_death.kf	}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.32
+		zOffset = -6.48
+		scale = 2.43
+		angle = 23.68
+	}
+}
+
+////////////////////
+//BROMHEAD
+UnitType LeaderBromhead
+{
+// 	parent = LeaderMilitary
+	parent = LeaderMilitary
+	properties {
+		hitpoints = 3000
+		displayName = tx_rorke_bromhead_name
+		displayNameScenEdit = tx_rorke_bromhead_name_ed
+		verboseTooltip = tx_rorke_bromhead_verbose
+	}
+	sounds {
+			sndCmdMove = ["v_leader_mil_02_com01" "v_leader_mil_02_com02"]
+			sndCmdAttack = ["v_leader_mil_02_com01" "v_leader_mil_02_com02" "v_leader_mil_02_spe01"]
+			sndSelection = ["v_leader_mil_02_sel01"]
+	}
+	abilities = [
+		Attack { range = 5.0; reloadTime = 1; applyDamageTime = 0.5; damage = 40; WeaponType = LightProjectile }
+		LOS { range = 5 }
+		AreaEffect {
+			effects = [ 
+				HighFervor
+				HighMorale		
+// 				Discipline
+			]
+		}
+		SpecialPower {
+			effects = [
+// 				FireAndManeuver
+				Rally
+			]	
+		}
+	]
+	icon = icon_unit_roosevelt
+}
+
+UnitModel LeaderBromhead
+{
+	ScaleType	= kScaleUnit
+	Parent		= BaseHuman
+                DefaultModel 	= camp_am11_roosevelt.nif
+	ForceScale = 0.260
+	ChildNames 		= [ UnitShadow Beam_Tracer01 Muzzle_Rifleman ]
+	States 		= [
+		{	StateName = Idle	AnimName = camp_am11_idle.kf	
+                              AnimVariants = [ camp_am11_idle2.kf ]
+                              AnimVariantsWeights = [ 0.05 ]
+                 }
+		{ 	StateName = Walk	AnimName = camp_am11_walk.KF AnimSpeedScale = 2.25 }
+		{	StateName = Run		AnimName = camp_am11_jog.KF 	
+			
+			}
+		{ 	StateName = Attack1	AnimName = camp_am11_attack.kf
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_rifle_fire KeyTime = 0.35 }
+							] }
+		{ 	StateName = Death	AnimName = camp_am11_death.kf	}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.32
+		zOffset = -6.48
+		scale = 2.43
+		angle = 23.68
+	}
+}
+
+
+
+////////////////////////////////////////
+// DABULAMANZI //
+// leader throughout egypt campaign
+UnitType LeaderDabulamanzi
+{
+	parent = LeaderMilitary
+// 	icon = icon_unit_camp_greatpyramid
+	properties {
+		DisplayName = tx_e1_dabulamanzi_display
+		DisplayNamePlural = tx_e1_dabulamanzi_display_p
+		DisplayNameScenEdit = tx_utn_cmpgnDabulamanzi_sname
+		VerboseTooltip = tx_e1_dabulamanzi_vtt
+//		SizeX = 0.4
+//		SizeY = 0.4
+		mass = 2
+		moveType = Mounted
+		HitPoints = 2500
+
+	}
+	sounds {
+	}
+	abilities = [
+		PowerReserve { timeToRecharge = 60 }
+		Attack { range = 0.8; reloadTime = 1.5; applyDamageTime = 0.5; damage = 50.0 }
+		Move {speed = 1.725; angSpeed = 180}
+		LOS { range = 5 }
+		AreaEffect {
+			effects = [ 
+				HighFervor
+				HighMorale		
+			]
+		}
+		SpecialPower {
+			effects = [
+				Rally
+			]	
+		}
+	]
+	icon = icon_unit_LeaderMil_01
+}
+
+UnitModel LeaderDabulamanzi
+{
+	Parent		= BaseHuman
+	DefaultModel 	= lm1_chief.nif
+	ForceScale = 0.300
+	ChildNames	= [ ThePowerBar UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_chief_idle01.kf 
+                              AnimVariants = [ sh_chief_idle02.kf sh_chief_idle03.kf sh_chief_battlecry01.kf ]
+                              AnimVariantsWeights = [ 0.05 0.05 0.05 ]
+                 }
+		{ 	StateName = Walk	AnimName = sh_chief_walk01.kf	}
+		{ 	StateName = Run	AnimName = sh_chief_jog01.kf	}
+		{ 	StateName = Attack1	AnimName = sh_chief_attack01.kf
+                              AnimVariants = [ sh_chief_attack02.kf ]
+                              AnimVariantsWeights = [ 0.4 ]
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = Sword_medium KeyTime = 0.50 }
+							] }
+		{ 	StateName = Death	AnimName = sh_chief_death01.kf	}
+		{	StateName = Flinch	AnimName = sh_sword_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_sword_flying01.kf
+			AnimVariants = [ sh_sword_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_sword_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.65
+		zOffset = -5.05
+		scale = 2.43
+		angle = 23.68
+	}
+}

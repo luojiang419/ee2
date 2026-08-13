@@ -1,0 +1,211 @@
+//////////////////////////////Territory Area Effects//////////////////////////////
+// definitions of the area effects relating to territory ownership
+
+DbAreaEffectInfo TerritoryConstructionTime
+{	
+	effects = [
+		// unclaimed territory modifier
+		EffectTerritoryConstructionTime {
+			range = UnclaimedTerritory
+			mask = BuildSlowInNonOwnedTerritories // city centers are excluded (in code) for this effect type
+			player = Self
+		
+			scale = 2.00
+		}
+		
+		// claimed territory modifier
+		EffectTerritoryConstructionTime {
+			range = OtherClaimedTerritoryIncludeDisputed
+			mask = BuildSlowInNonOwnedTerritories // city centers are excluded (in code) for this effect type
+			player = Self
+			
+			scale = 3.00
+		}
+            // claimed territory modifier
+		EffectCauseDamageOverTime {
+			range = SelfClaimedTerritory
+			player = NonSelf
+			Mask = BuildingsAndConstructionSites
+
+			DamageAmount = 10		// How much damage to do per second.
+
+			NoDamageSource = true	// There should be no source unit when applying damage.
+		}
+           // claimed territory modifier
+           EffectVisualGlow {
+			range = SelfClaimedTerritory
+			player = NonSelf
+			Mask = BuildingsAndConstructionSites
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = spr_game_unitinfo_icon_border
+			Tooltip = text_rarea_border_name
+			VTooltip = vtt_rarea_border_unitinfo
+		}
+            // claimed territory modifier
+		EffectHeal {
+			range = SelfClaimedTerritory
+			player = Self
+			Mask = Buildings
+			healRate = 5		
+			
+		}
+           // claimed territory modifier
+           EffectVisualGlow {
+			range = SelfClaimedTerritory
+			player = Self
+			Mask = Buildings
+            GlowType = Mixed
+			OwnerOnly = true
+			Icon = spr_game_unitinfo_icon_br
+			Tooltip = text_rarea_br_name
+			VTooltip = vtt_rarea_br_unitinfo
+		}
+          // claimed territory modifier
+		EffectCauseDamageOverTime {
+			range = SelfClaimedTerritory
+			player = Anybody
+			Mask = AnimalsUnits
+
+			DamageAmount = 8		// How much damage to do per second.
+
+			NoDamageSource = true	// There should be no source unit when applying damage.
+		}
+          // claimed territory modifier
+		EffectCauseDamageOverTime {
+			range = UnclaimedTerritory
+			player = Anybody
+			Mask = AnimalsUnits
+
+			DamageAmount = 8		// How much damage to do per second.
+
+			NoDamageSource = true	// There should be no source unit when applying damage.
+		}
+
+	]
+}
+
+DbAreaEffectInfo TerritoryFervor
+{	
+	effects = [
+		// 10% attack bonus when in home territory
+		EffectAttack {
+			range = SelfClaimedTerritory
+			mask = AttackingUnits
+			player = Self
+			
+			upgradeFactor = TerritoryFervorBonus
+			
+			scale = 1  // actual value will come from upgradeFactor call
+		}
+		
+		/*
+		EffectVisualGlow {
+			range = SelfClaimedTerritory
+			player = Self
+			mask = AttackingUnits
+
+			SuppressGlow = true
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_territory_homeland_s
+			Tooltip = tt_TerrAttack
+			VTooltip = vtt_unitinfo_TerrAttack
+		}
+		*/
+	]
+}
+
+
+// Any eligible units within their home territory receive a reduction to the damage they take.
+DbAreaEffectInfo TerritoryMorale
+{
+	name = text_uarea_tmorale_name
+	desc = text_uarea_tmorale_desc
+	effects = [
+		EffectDamage {
+			range = SelfClaimedTerritory
+			mask = LandRPS
+			player = Self
+			
+			upgradeFactor = TerritoryMoraleBonus
+			
+			scale = 1  // actual value will come from upgradeFactor call
+		}
+		
+		EffectAreaDamage {
+			range = SelfClaimedTerritory
+			mask = LandRPS
+			player = Self
+
+			upgradeFactor = TerritoryMoraleBonus
+
+			scale = 1  // actual value will come from upgradeFactor call
+		}
+	]
+}
+
+// Resource dropoff sites within own territory gets a bonus 
+DbAreaEffectInfo TerritoryResourceBonus
+{
+	name = text_uarea_cresbonus_name
+	desc = text_uarea_cresbonus_desc
+	effects = [
+		EffectResourceDropoff {
+			range = SelfClaimedTerritory
+			radius = 0		// implied through range
+			mask = ResourceDropoffSites
+			player = Self
+			upgradeFactor = TerritoryFoodBonus
+
+			affected = [Food]
+			
+			scale = 1  // actual value will come from upgradeFactor call
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritory
+			radius = 0		// implied through range
+			mask = ResourceDropoffSites
+			player = Self
+			upgradeFactor = TerritoryGoldBonus
+
+			affected = [Gold]
+			
+			scale = 1  // actual value will come from upgradeFactor call
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritory
+			radius = 0		// implied through range
+			mask = ResourceDropoffSites
+			player = Self
+			upgradeFactor = TerritoryStoneBonus
+
+			affected = [Stone]
+			
+			scale = 1  // actual value will come from upgradeFactor call
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritory
+			radius = 0		// implied through range
+			mask = ResourceDropoffSites
+			player = Self
+			upgradeFactor = TerritoryWoodBonus
+
+			affected = [Wood]
+			
+			scale = 1  // actual value will come from upgradeFactor call
+		}
+		EffectResourceDropoff {
+			range = SelfClaimedTerritory
+			radius = 0		// implied through range
+			mask = ResourceDropoffSites
+			player = Self
+			upgradeFactor = TerritoryGeneralResourceBonus
+
+			affected = [Tin Iron Saltpeter Oil Uranium]	// Tech, Pop ??
+			
+			scale = 1  // actual value will come from upgradeFactor call
+		}
+	]
+}
+

@@ -1,0 +1,576 @@
+//------------------------------------------------------------------------------------------------
+//	AMERICAN CAMPAIGN SPECIFIC UNIT - UNIT TYPE AND VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	AMERICAN 1 - SPECIAL FIELD GUN
+//------------------------------------------------
+UnitType AmericanCampaignSpecialFieldGun
+{
+	parent = HeavyArtillery
+	properties {
+		HitPoints = 200
+		displayName = tx_utn_heavyArt10_name
+		displayNameScenEdit = tx_utn_cmpgnAmerFieldGun_sname
+		verboseTooltip = vtt_unit_siegegun
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 30; reloadTime = 4; applyDamageTime = 0.29; damage = 90; missileName = "CannonBall02"; ignoreBlocking = 1; areaDamageRadius = 3; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; turretControllerName = TankTurret; minRangeMobile = 3.0; minRangeImmobile = 3.0 }
+		Move {speed = 1.15; angSpeed = 180}
+		LOS { range = 9 }
+	]
+	icon = icon_unit_SiegeGun
+}
+
+UnitModel AmericanCampaignSpecialFieldGun
+{
+	Parent = HeavyArtillery_10
+	DefaultModel 	= camp_am1_siegegun.nif
+}
+
+//------------------------------------------------
+// AMERICAN 1 - TEDDY ROOSEVELT
+//------------------------------------------------
+UnitType LeaderRoosevelt
+{
+	parent = LeaderMilitary
+	properties {
+		displayName = tx_utn_LeadTedRoos_name
+		displayNameScenEdit = tx_utn_LeadTedRoos_sname
+		hitpoints = 3000
+		verboseTooltip = vtt_unit_LeadTedRoos
+	}
+	sounds {
+			sndCmdMove = ["v_leader_mil_02_com01" "v_leader_mil_02_com02"]
+			sndCmdAttack = ["v_leader_mil_02_com01" "v_leader_mil_02_com02" "v_leader_mil_02_spe01"]
+			sndSelection = ["v_leader_mil_02_sel01"]
+	}
+	abilities = [
+		Attack { range = 5.0; reloadTime = 1; applyDamageTime = 0.5; damage = 40; WeaponType = LightProjectile }
+		LOS { range = 5 }
+		AreaEffect {
+			effects = [ 
+				HighFervor
+				HighMorale		
+				Discipline
+			]
+		}
+		SpecialPower {
+			effects = [
+				FireAndManeuver
+				Rally
+			]	
+		}
+	]
+	icon = icon_unit_roosevelt
+}
+
+UnitModel LeaderRoosevelt
+{
+	ScaleType	= kScaleUnit
+	Parent		= BaseHuman
+                DefaultModel 	= camp_am11_roosevelt.nif
+	ForceScale = 0.260
+	ChildNames 		= [ UnitShadow Beam_Tracer01 Muzzle_Rifleman ]
+	States 		= [
+		{	StateName = Idle	AnimName = camp_am11_idle.kf	
+                              AnimVariants = [ camp_am11_idle2.kf ]
+                              AnimVariantsWeights = [ 0.05 ]
+                 }
+		{ 	StateName = Walk	AnimName = camp_am11_walk.KF AnimSpeedScale = 2.25 }
+		{	StateName = Run		AnimName = camp_am11_jog.KF 	
+			
+			}
+		{ 	StateName = Attack1	AnimName = camp_am11_attack.kf
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_rifle_fire KeyTime = 0.35 }
+							] }
+		{ 	StateName = Death	AnimName = camp_am11_death.kf	}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.32
+		zOffset = -6.48
+		scale = 2.43
+		angle = 23.68
+	}
+}
+
+//------------------------------------------------
+//	AMERICAN 1 - SPANISH BLOCKHOUSE
+//------------------------------------------------
+UnitType AmericanCampaignBlockhouse
+{
+	parent = NoProduceBuilding
+	properties {
+		SizeX = 1
+		SizeY = 1
+		mass = 1
+		displayName = tx_utn_cmpgnBlockhouse_name
+		DisplayNameScenEdit = tx_utn_cmpgnBlockhouse_sname
+		VerboseTooltip = vtt_unit_cmpgnBlockhouse
+		HitPoints = 900
+	}
+	sounds {
+    	}
+	abilities = [
+		Attack { range = 8; reloadTime = 3.0; applyDamageTime = 0.5; damage = 25; missileName = "TankShell"; angularRange = 360 }
+		LOS { range = 7 }
+	]
+	icon = icon_unit_spanishBlockhouse
+}
+
+UnitModel AmericanCampaignBlockhouse
+{
+	Parent = BaseBuilding 
+	DefaultModel 	= bld_spanishblockhouse.nif
+}
+
+//------------------------------------------------
+//	AMERICAN 2 - LOST BATTALION
+//------------------------------------------------
+UnitType AmericanCampaignLost
+{
+	parent = HeavyInfantry2
+	properties {
+		rps = HeavyInfantry
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+		displayName = tx_utn_cmpgnAmerLost_name
+		DisplayNameScenEdit = tx_utn_cmpgnAmerLost_sname
+		VerboseTooltip = vtt_unit_cmpgnAmerLost
+		HitPoints = 300
+	}
+	sounds {
+	}
+	abilities = [
+		Attack { damage = 24; range = 7; reloadTime = 0.2; applyDamageTime = 0.5; packTime = 1.5; unpackTime = 1.5 }
+		ConvertAttack { convertTimeModifier = 3.0; range = 2.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 8 }
+	]
+	icon = icon_unit_machinegunner
+}
+
+UnitModel AmericanCampaignLost
+{
+	Parent = HeavyInfantry2_11
+}
+
+//------------------------------------------------
+//	AMERICAN 2 - GERMAN COMMAND POST
+//------------------------------------------------
+UnitType AmericanCampaignPost
+{
+	parent = AmbientCampaignBuilding
+	properties {
+		SizeX = 2
+		SizeY = 2
+		displayName = tx_utn_cmpgnAmerPost_name
+		DisplayNameScenEdit = tx_utn_cmpgnAmerPost_sname
+		HitPoints = 1000
+	}
+	abilities = [
+	]
+	icon = icon_unit_cluster_bavarMini
+}
+
+UnitModel AmericanCampaignPost
+{
+	Parent		= ClusterBavarianMini
+}
+
+//------------------------------------------------------------------------------------------------
+//	AMERICAN 5 - COMMANDO
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitBritishCommando
+{
+	parent = Spy
+	properties {
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 1
+		displayName = tx_utn_UniqBritCmdo_name
+		DisplayNameScenEdit = tx_utn_UniqBritCmdo_sname
+		VerboseTooltip = vtt_unit_Commando
+		HitPoints = 500
+	}
+	abilities = [
+	]
+	icon = 	icon_unit_BritishCommando
+}
+
+UnitModel UniqueUnitBritishCommando
+{
+	Parent		= UniqueUnitAmericanGI
+	ChildNames 		= [ UnitShadow ThePowerBar SpyShimmer]
+	States 		= [
+			]
+}
+
+//------------------------------------------------------------------------------------------------
+//	AMERICAN 6 - OH-56 MOHAWK OBSERVATION HELICOPTER
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitOH58
+{
+	parent = Helicopter
+	properties {
+		displayName = tx_utn_OH58_name
+		DisplayNameScenEdit = tx_utn_OH58_sname
+		VerboseTooltip = vtt_unit_OH58
+		hitpoints = 350
+
+	}
+	sounds {
+		sndCmdMove = ["v_LightMounted2_13_com01" "v_LightMounted2_13_com02"]
+		sndSelection = ["v_LightMounted2_13_sel01"]
+    	}
+	abilities [
+		AircraftMove {speed = 3.45; angSpeed = 90; CruisingHeight = 3.0; ElevChangeRate = 0.5; canHover = 1}
+		LOS { range = 7 }
+	]
+	icon = icon_unit_MissileHelicopter
+}
+// Add to mobile units for a blobby ellipsoid shadow
+ShadowData        OH56Shadow
+{
+	Flags = (IsMobile)
+	FlatBillboard
+	{
+		TextureFilename = LLM13_MissileHelicopter_shadow.tga
+		WidthScale = 0.9
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+UnitModel UniqueUnitOH58
+{
+	Parent		= BaseHelicopter
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= LLM13_Mohawk.nif
+      ChildNames 	= [ TheHealthBar SelectCircleHelicopter Muzzle_MissHelicopter 
+						expl_heli_Tandrill MissileHelicopter_FlyingParts OH56Shadow ]
+	States 		= 
+[
+		{	StateName = Idle	AnimName = llm13_missilehelicopter_idle.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Walk	AnimName = llm13_missilehelicopter_walk.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = START_SOUND Data = fx_move_helicopter_01 }
+					]}
+		{ 	StateName = Attack1	AnimName = llm13_missilehelicopter_attack.kf	
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					{ Name = PLAY_SOUND Data = fx_battle_rocket_launch }
+					]}
+		{ 	StateName = Death	AnimName = llm13_missilehelicopter_death.kf		
+				TextKeys = [ 
+					{ Name = HIDE_NODE Data = swipe 	KeyTime = 0 }
+					]}
+]
+}
+
+//------------------------------------------------
+//	AMERICAN 6 - OUTPOST
+//------------------------------------------------
+UnitType AmericanCampaignOutpost
+{
+	parent = Outpost
+	properties {
+		SizeX = 1
+		SizeY = 1
+		rps = LightArtillery
+		mass = 1
+		displayName = tx_utn_cmpgnAmerOutpost_name
+		DisplayNameScenEdit = tx_utn_cmpgnAmerOutpost_sname
+		VerboseTooltip = vtt_unit_Outpost
+		HitPoints = 900
+	}
+	sounds {
+		sndSelection = ["outpost_select"]
+    	}
+	abilities = [
+		Attack { range = 8; reloadTime = 3.0; applyDamageTime = 0.5; damage = 25; missileName = "TankShell"; angularRange = 360 }
+		LOS { range = 14 }
+	]
+	icon = icon_unit_outpost_7
+}
+
+UnitModel AmericanCampaignOutpost
+{
+	Parent = Outpost_13
+}
+
+//------------------------------------------------
+//	AMERICAN 6 - SPY SUBMARINE
+//------------------------------------------------
+UnitType SpyShip
+{
+	parent = NavalShallow
+	icon = icon_unit_Submarine_11
+	properties {
+		rps = Submarine
+		SizeX = 1.6
+		SizeY = 0.96
+		mass = 1
+		hitpoints = 1000
+		VerboseTooltip = vtt_unit_SpyShip
+		displayName = tx_utn_SpyShip_name
+	}
+	sounds = {
+		sndCmdMove = ["v_Submarine_11_com01" "v_Submarine_11_com02"]
+		sndSelection = ["v_Submarine_11_sel01"]
+	}
+	abilities = [
+		NavalMove {speed = 3.45; angSpeed = 180; cruisingDepth = -1 }
+		LOS { range = 10 }
+		Garrison { 
+			garrisonType = SpyShip; 
+			numOfSlots = 14;
+		}
+	]
+}
+
+UnitModel SpyShip
+{
+	parent		= BaseSubmarine
+	DefaultModel 	= NS11_submarine.nif
+	ForceScale = 0.07
+	States 		= [
+		{	StateName = Idle	}                            
+        	{ 	StateName = Walk	
+                      		TextKeys = [{ Name = PLAY_SOUND Data = fx_move_sub_dive_horn KeyTime = 0.5 }]}
+		{ 	StateName = Attack1	}	
+		{ 	StateName = Pack	}
+		{ 	StateName = Unpack	}
+		{ 	StateName = Death	}
+]  	
+ChildNames 	= [ ExplSelectorSubmarine Submarine_FlyingParts ]
+
+}
+
+//------------------------------------------------
+//	AMERICAN 6 - STEALTH PLANE EXPERIMENTAL
+//------------------------------------------------
+UnitType AmericanCampaignBomber
+{
+	parent = Bomber
+	properties {
+		rps = Bomber
+		SizeX = 1
+		SizeY = 1
+		mass = 0
+		VerboseTooltip = vtt_unit_cmpgnAmerBomber
+		displayName = tx_utn_cmpgnAmerBomber_name
+		DisplayNameScenEdit = tx_utn_cmpgnAmerBomber_sname
+		HitPoints = 1500
+	}
+	sounds = {
+		sndCmdMove = ["v_Bomber_14_com01" "v_Bomber_14_com02"]
+		sndCmdAttack = ["v_Bomber_14_com01" "v_Bomber_14_com02" "v_Bomber_14_spe01"]
+		sndSelection = ["v_Bomber_14_sel01"]
+	}
+	abilities = [
+		AircraftMove {speed = 8.05; angSpeed = 60; CruisingHeight = 4.0; ElevChangeRate = 0.5; OnGroundScale = 0.8}
+		Attack { damage = 7000; range = 1.5; reloadTime = 0.3; angularRange = 60; applyDamageTime = 0; missileName = "AtomBomb"; ignoreBlocking = 1; attackOnTheMove = 1; ordnance = 1;
+				areaDamageRadius = 6; areaDamageFriendlyRatio = 0.5 }
+		LOS { range = 8 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+	attributes [
+		GoesOnAirMissions
+	]
+	icon = icon_unit_stealthbomber
+}
+
+UnitModel AmericanCampaignBomber
+{
+	Parent		= Bomber_14
+}
+
+//------------------------------------------------
+//	AMERICAN 6 - SOVIET STEALTH RESEARCH FACILITY
+//------------------------------------------------
+UnitType AmericanCampaignStealthFacility
+{
+	ownerType = PlayerOnly
+	parent = NoProduceBuilding
+	properties {
+		SizeX = 5
+		SizeY = 5
+		FootprintSizeX = 6.5
+		FootprintSizeY = 6.5
+		UndertextureSizeX = 6.5
+		UndertextureSizeY = 6.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_cmpgnAmerFacility_name
+		DisplayNameScenEdit = tx_utn_cmpgnAmerFacility_sname
+		VerboseTooltip = vtt_unit_cmpgnAmerFacility
+		HitPoints = 5000
+	}
+	abilities = [
+	]
+	icon = icon_unit_WonderMiddleEast_01
+}
+
+UnitModel AmericanCampaignStealthFacility
+{
+	Parent		= WonderMiddleEast_11
+}
+
+//------------------------------------------------
+//	AMERICAN 6 - YUKON YOUTH COMMUNITY CENTER
+//------------------------------------------------
+UnitType AmericanCampaignComCenter
+{
+	ownerType = PlayerOnly
+	parent = NoProduceBuilding
+	properties {
+		SizeX = 5.5
+		SizeY = 5.5
+		FootprintSizeX = 7
+		FootprintSizeY = 7
+		OffsetX = 0.75
+		OffsetY = 0.75
+		mass = 1
+		displayName = tx_utn_cmpgnAmerComCenter_name
+		DisplayNameScenEdit = tx_utn_cmpgnAmerComCenter_sname
+		VerboseTooltip = vtt_unit_cmpgnAmerComCenter
+		HitPoints = 10000
+	}
+	abilities = [
+		LOS { range = 5 }
+	]
+	icon = icon_unit_wonderwestern_11
+}
+
+UnitModel AmericanCampaignComCenter
+{
+	Parent		= WonderWestern_11
+}
+
+
+//------------------------------------------------
+//	AMERICAN 7 - BLACKWORTH
+//------------------------------------------------
+UnitType AmericanCampaignBlackworth
+{
+	parent = HeavyMounted3
+	visualName = AmericanCampaignBlackworth
+	properties {
+		hitpoints = 8000
+		SizeX = 0.55
+		SizeY = 0.55
+		displayName = tx_utn_uniqBlackworth_name
+		DisplayNameScenEdit = tx_utn_uniqBlackworth_sname
+		VerboseTooltip = vtt_unit_blackworth
+
+	}
+	abilities = [
+		VehicleMove {speed = 1.35; angSpeed = 180; followTerrainSlope = 1; bounce = 0.2;}
+		Attack { range = 6; reloadTime = 2; applyDamageTime = 1.3; damage = 315; packTime = 1.0; unpackTime = 1.0; missileName = "GuidedMissile" }
+		LOS { range = 6 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
+}
+
+UnitModel AmericanCampaignBlackworth
+{
+	Parent		=LightMounted3
+        ForceScale      = 0.12
+}
+
+//------------------------------------------------
+//	AMERICAN 8 - RADAR CENTER
+//------------------------------------------------
+UnitType AmericanCampaignRadarCenter
+{
+	ownerType = PlayerOnly
+	parent = NoProduceBuilding
+	properties {
+		SizeX = 6
+		SizeY = 4
+		FootprintSizeX = 7.5
+		FootprintSizeY = 5.5
+		UndertextureSizeX = 7.5
+		UndertextureSizeY = 5.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_cmpgnAmerRadar_name
+		DisplayNameScenEdit = tx_utn_cmpgnAmerRadar_sname
+		VerboseTooltip = vtt_unit_cmpgnAmerRadar
+		HitPoints = 9000
+	}
+	abilities = [
+		LOS { range = 5 }
+	]
+	icon = icon_unit_WonderFarEast_11
+}
+
+UnitModel AmericanCampaignRadarCenter
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_robotics_factory.NIF
+	ChildNames		= [ UnderWonderFarEast_11 ]
+}
+
+//------------------------------------------------
+//	AMERICAN 8 - PRESIDENTIAL HUMMVEE
+//------------------------------------------------
+UnitType PresidentialHumvee
+{
+	parent = Mounted
+	properties {
+		rps = LightMounted
+		SizeX = 0.4
+		SizeY = 0.4
+		mass = 1
+		popCount = 2
+		displayName = tx_utn_UniqPresHumvee_name
+		DisplayNameScenEdit = tx_utn_UniqPresHumvee_sname
+		VerboseTooltip = vtt_unit_UniqPresHumvee
+		HitPoints = 700
+	}
+	sounds = {
+		sndSelection = ["v_LightArtillery2_13_sel01"]
+		sndCmdMove = ["v_LightArtillery2_13_com01" "v_LightArtillery2_13_com02"]
+//		sndCmdAttack = [""]
+//		sndDeath =  [""]
+	}
+	abilities = [
+		Move {speed = 2.875; angSpeed = 180}
+		LOS { range = 6 }
+		Garrisonable { garrisonTypes = [ AirTransport Fortress Tower ] }
+	]
+	icon = icon_unit_presHumvee
+}
+
+UnitModel PresidentialHumvee
+{
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= lla13_preshumvee.nif
+	DefaultState 	= Idle
+	States = [
+			{ StateName= Idle AnimName = lla13_preshumvee_idle.KF	
+				TextKeys = [ { Name = STOP_CONTROLLER	Data = NiUVController KeyTime = 0 } 
+					   ]
+				 }
+
+			{ StateName= Walk AnimName = lla13_preshumvee_walk.KF		
+				TextKeys = [ { Name = START_CONTROLLER	Data = NiUVController KeyTime = 0 }
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_halftrack KeyTime = 0} 
+					   ] 
+				}
+			{ StateName= Death }
+
+		]
+	ChildNames 	= [ TheHealthBar SelectCircleMedium FX_ExaustSmoke1 TankTracks ExplSelectorTank01 PresHumvee_FlyingParts ]
+}
+

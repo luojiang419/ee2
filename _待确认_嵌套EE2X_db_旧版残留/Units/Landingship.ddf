@@ -1,0 +1,224 @@
+////////////////////////////////////
+//登陆艦
+///////////////////////////////////
+UnitType LandingShip
+{
+	parent = NavalDeep
+	properties {
+		rps = Carrier
+		SizeX = 3.5
+		SizeY = 0.75
+		mass = 5
+		displayName = tx_utn_LandingShip_name
+		verboseTooltip = vtt_unit_LandingShip
+		popCount = 2
+		hitpoints = 4000
+	}
+	attributes = [
+		HealedByHERC 
+			]
+	sounds = {
+	}
+	abilities = [
+		NavalMove {speed = 1.8; accel = 1; angSpeed = 60}
+		Attack { range = 0; reloadTime = 1; applyDamageTime = 0.66; damage = 0; missileName = "fkjqAmmo" }
+		LOS { range = 13 }
+		 Produce { 
+		}
+		Garrison { 
+			garrisonType = NavalTransport; 
+			numOfSlots = 30;
+			healPoints = 50;		// Each unit type garrison heals this many points per second
+			GarrisonFlagModelName = "GarrisonShip"
+		}
+	]
+	icon = icon_unit_LandingShip
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LandingShipEpoch11Attack
+{
+	upgradedAbilities = [
+		Attack { range = 0; reloadTime = 1; applyDamageTime = 0.66; damage = 0; missileName = "fkjqAmmo" }
+		NavalMove {speed = 1.5; accel = 1.0; angSpeed = 90}
+	]
+}
+
+UpgradeAbilities LandingShipEpoch11Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = NavalTransport; 
+			numOfSlots = 50;			
+                  GarrisonFlagModelName = "GarrisonShip"
+			}
+	]
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LandingShipEpoch12Attack
+{
+	upgradedAbilities = [
+		Attack { range = 0; reloadTime = 1; applyDamageTime = 0.66; damage = 0; missileName = "fkjqAmmo" }
+		NavalMove {speed = 1.6; accel = 1.0; angSpeed = 90}
+	]
+}
+
+UpgradeAbilities LandingShipEpoch12Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = NavalTransport; 
+			numOfSlots = 50;			
+                  GarrisonFlagModelName = "GarrisonShip"
+			}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LandingShipEpoch13Attack
+{
+	upgradedAbilities = [
+		Attack { range = 0; reloadTime = 1; applyDamageTime = 0.66; damage = 0; missileName = "fkjqAmmo" }
+		NavalMove {speed = 1.7; accel = 1.0; angSpeed = 90}
+	]
+}
+
+UpgradeAbilities LandingShipEpoch13Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = NavalTransport; 
+			numOfSlots = 55;			
+                  GarrisonFlagModelName = "GarrisonShip"
+			}
+	]
+}
+
+// Size Upgrade
+UpgradeSize LandingShipEpoch13Size
+{
+	unitType = CargoShip
+	sizeX = 2.5
+	SizeY = 1.6
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LandingShipEpoch15Attack
+{
+	upgradedAbilities = [
+			Attack { range = 0; reloadTime = 1; applyDamageTime = 0.66; damage = 0; missileName = "fkjqAmmo" }
+            NavalMove {speed = 1.7; accel = 1; angSpeed = 90}
+	]
+}
+
+UpgradeAbilities LandingShipEpoch15Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = NavalTransport; 
+			numOfSlots = 60;			
+                  GarrisonFlagModelName = "GarrisonShip"
+			}
+	]
+}
+
+
+UnitModel LandingShip_11
+{
+	Parent			= BaseShip
+	DefaultModel = LandingShip.NIF
+	ForceScale = 0.13
+	States = [
+		{ StateName = Idle	}
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_aircraftcarrier KeyTime = 0}]}
+		{ 	StateName = Death	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_dea_ship_metal_3  KeyTime = 0}]}
+		{ StateName= Attack1		
+			TextKeys = [ { Name = PLAY_SOUND Data = fx_battle_Laser_01 KeyTime=0.5 } ]
+		}
+	]
+
+	ChildNames 	= [ ExplSelectorDestroy TheBoatWake6 AircraftCarrier_FlyingParts FX_Smoke_Chimney_Large3 FX_Smoke_Chimney_Large2 ]
+	
+      UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 3.43
+		zOffset = -0.08
+		scale = 1.66
+		angle = 47.37
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+
+UnitModel LandingShip_13
+{
+	Parent			= BaseShip
+	DefaultModel = LandingShip13.NIF
+	ForceScale = 0.13
+	States = [
+		{ StateName = Idle	}
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_aircraftcarrier KeyTime = 0}]}
+		{ 	StateName = Death	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_dea_ship_metal_3  KeyTime = 0}]}
+		{ StateName= Attack1		
+			TextKeys = [ { Name = PLAY_SOUND Data = fx_battle_Laser_01 KeyTime=0.5 } ]
+		}
+	]
+
+	ChildNames 	= [ ExplSelectorDestroy TheBoatWake6 AircraftCarrier_FlyingParts FX_Smoke_Chimney_Large3 FX_Smoke_Chimney_Large2 ]
+	
+      UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 3.43
+		zOffset = -0.08
+		scale = 1.66
+		angle = 47.37
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+
+UnitModel LandingShip_15
+{
+	Parent			= BaseShip
+	DefaultModel = LandingShip15.NIF
+	ForceScale = 0.13
+	States = [
+		{ StateName = Idle	}
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_aircraftcarrier KeyTime = 0}]}
+		{ 	StateName = Death	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_dea_ship_metal_3  KeyTime = 0}]}
+		{ StateName= Attack1		
+			TextKeys = [ { Name = PLAY_SOUND Data = fx_battle_Laser_01 KeyTime=0.5 } ]
+		}
+	]
+
+	ChildNames 	= [ ExplSelectorDestroy TheBoatWake6 AircraftCarrier_FlyingParts FX_Smoke_Chimney_Large3 FX_Smoke_Chimney_Large2 ]
+	
+      UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 3.43
+		zOffset = -0.08
+		scale = 1.66
+		angle = 47.37
+	}
+}

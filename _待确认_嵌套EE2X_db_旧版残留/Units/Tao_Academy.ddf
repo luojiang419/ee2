@@ -1,0 +1,183 @@
+UnitType ArmyAcademy
+{
+	parent = Building      
+	properties {
+		SizeX = 3.5
+		SizeY = 2.4
+		FootprintSizeX = 5
+		FootprintSizeY = 3
+		OffsetX = 0.75
+		OffsetY = 0.75
+        UndertextureSizeX = 3.5
+		UndertextureSizeY = 2.4
+		mass = 1
+		displayName = tx_utn_ArmyAcademy_name
+		verboseTooltip = vtt_unit_ArmyAcademy
+		HitPoints = 10000
+	}
+	sounds {
+		sndSelection = ["University_select"]
+    	}
+	fullMapOverlay { sprite = spr_fullmap_university}
+	abilities = [
+		LOS { range = 5 }
+	]
+	icon = icon_unit_ArmyAcademy
+}
+UnitModel ArmyAcademy_9
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= ArmyAcademy10.NIF
+	ForceScale = 0.03
+	ChildNames	= [HugeGlow UnderUniversity ExplSelectorBuild_Medium ExplPartsStoneBrick ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.16
+		zOffset = 1.32
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitModel ArmyAcademy_12
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= ArmyAcademy13.NIF
+	ForceScale = 0.035
+	ChildNames	= [HugeGlow UnderUniversity ExplSelectorBuild_Medium ExplPartsStoneBrick ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.16
+		zOffset = 1.32
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType AirAcademy
+{
+	parent = Building      
+	properties {
+		SizeX = 3.5
+		SizeY = 1.5
+		FootprintSizeX = 3.5
+		FootprintSizeY = 1.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+        UndertextureSizeX = 3.5
+		UndertextureSizeY = 1.5
+		mass = 1
+		displayName = tx_utn_AirAcademy_name
+		verboseTooltip = vtt_unit_AirAcademy
+		HitPoints = 10000
+	}
+	sounds {
+		sndSelection = ["University_select"]
+    	}
+	fullMapOverlay { sprite = spr_fullmap_university}
+	abilities = [
+		LOS { range = 5 }
+	]
+	icon = icon_unit_AirAcademy
+}
+UnitModel AirAcademy_9
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= AirAcademy10.NIF
+	ForceScale = 0.035
+	ChildNames	= [HugeGlow UnderUniversity ExplSelectorBuild_Medium ExplPartsStoneBrick ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.16
+		zOffset = 1.32
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitModel AirAcademy_12
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= AirAcademy13.NIF
+	ForceScale = 0.035
+	ChildNames	= [HugeGlow UnderUniversity ExplSelectorBuild_Medium ExplPartsStoneBrick ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.16
+		zOffset = 1.32
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+UnitType NavalAcademy
+{
+	parent = Building      
+	properties {
+		SizeX = 3.5
+		SizeY = 2
+		FootprintSizeX = 4
+		FootprintSizeY = 4
+		OffsetX = 0.75
+		OffsetY = 0.75
+        UndertextureSizeX = 3.5
+		UndertextureSizeY = 2
+		mass = 1
+		displayName = tx_utn_NavalAcademy_name
+		verboseTooltip = vtt_unit_NavalAcademy
+		HitPoints = 10000
+	}
+	sounds {
+		sndSelection = ["University_select"]
+    	}
+	fullMapOverlay { sprite = spr_fullmap_university}
+	abilities = [
+		LOS { range = 5 }
+	]
+	icon = icon_unit_NavalAcademy
+}
+UnitModel NavalAcademy
+{
+	Parent		= BaseBuilding
+	DefaultModel 	= NavalAcademy13.NIF
+	ForceScale = 0.035
+	ChildNames	= [HugeGlow UnderUniversity ExplSelectorBuild_Medium ExplPartsStoneBrick ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.16
+		zOffset = 1.32
+		scale = 1.15
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 30.26
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

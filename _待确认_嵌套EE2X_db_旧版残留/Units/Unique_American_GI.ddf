@@ -1,0 +1,68 @@
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT AMERICAN GI
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitAmericanGI
+{
+	parent = HeavyInfantry1
+	properties {
+		hitpoints = 270
+		displayName = tx_utn_UniqGI_name
+		DisplayNameScenEdit = tx_utn_UniqGI_sname
+		VerboseTooltip = vtt_unit_GI
+		
+	}
+	sounds {
+		sndCmdMove = ["v_HeavyInfantry1_11_com01" "v_HeavyInfantry1_11_com02"]
+		sndCmdAttack = ["v_HeavyInfantry1_11_spe01"]
+		sndSelection = ["v_HeavyInfantry1_11_sel01"]
+	}
+	abilities = [
+		Move {speed = 1.4375; angSpeed = 720}
+		Attack { range = 6.0; reloadTime = 1.5; applyDamageTime = 0.5; damage = 27; packTime = 1.0; unpackTime = 1.0; weaponType = LightProjectile }
+		LOS { range = 9 }
+	]
+	icon = 	icon_unit_BritishCommando
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT AMERICAN GI - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+UnitModel UniqueUnitAmericanGI
+{
+	Parent		= BaseHuman
+	DefaultModel 	= CIV12_GI_we.nif
+	ChildNames 		= [ UnitShadow Muzzle_Musketeer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_CIV12_GI_idle01.KF	}
+		{ 	StateName = Walk	AnimName = sh_CIV12_GI_walk01.KF	}
+ 		{ 	StateName = Run	AnimName = sh_CIV12_GI_jog01.KF	}
+                                { 	StateName = Attack1	AnimName = sh_CIV12_GI_attack01.KF 
+			TextKeys = [
+					{ Name = PLAY_SOUND Data = fx_rifle_fire KeyTime = 0.16 }
+					] }
+		{ 	StateName = Death	AnimName = sh_CIV12_GI_death01.KF	}
+		{ 	StateName = Contaminate		AnimName = sh_CIV12_GI_sabotage02.KF	}
+		{ 	StateName = Decontaminate	AnimName = sh_CIV12_GI_sabotage01.KF	}
+		{ 	StateName = Sabotage		AnimName = sh_CIV12_GI_sabotage01.KF	}
+		{	StateName = GatherIntel		AnimName = sh_CIV12_GI_sabotage02.KF }
+                                { 	StateName = CaptureAttack1	AnimName = sh_CIV12_GI_capture01.kf
+                                                     AnimVariants = [ sh_CIV12_GI_capture02.kf ]
+                                                     AnimVariantsWeights = [0.5]
+                                 }
+
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.52
+		zOffset = -6.15
+		scale = 3.84
+		angle = 23.68
+		rotationSpeed = 0.00
+		pitch = 9.47
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}		
+}

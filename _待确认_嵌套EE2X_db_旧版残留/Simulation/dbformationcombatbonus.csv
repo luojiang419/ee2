@@ -1,0 +1,19 @@
+//,IMPORTANT: NOTE THAT ROWS AND COLUMNS **MUST** MATCH THE LAYOUT OF DbFormationCombatBonusInfo,,,,,,,,,,,,,,,
+//,"ROWS ARE ATTACKERS, COLUMNS ARE DEFENDERS - OPPOSITE OF DBCOMBAT.CSV",,,,,,,,,,,,,,,
+//,Column,Circle,Wedge,Phalanx,StaggeredLine,DoubleLine,Bowed,Horn,Crescent,WaterColumn,Line,Convoy,Blockade,AirPhalanx,BeastHorns,Mob
+Column,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Circle,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Wedge,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Phalanx,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+StaggeredLine,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+DoubleLine,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Bowed,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Horn,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Crescent,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+WaterColumn,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Line,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Convoy,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Blockade,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+AirPhalanx,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+BeastHorns,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Mob,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1

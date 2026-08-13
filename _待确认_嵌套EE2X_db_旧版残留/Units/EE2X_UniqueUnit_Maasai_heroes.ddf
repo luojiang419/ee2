@@ -1,0 +1,23 @@
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT Maasai (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitMaasai1Hero
+{
+	parent = UniqueUnitMaasai1
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.144
+		SizeY = 0.144
+	}
+	abilities = [
+		Hero { HeroClass = LightInfantry; HeroForUnit = UniqueUnitMaasai1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitMaasai1Hero
+{
+	Parent		= UniqueUnitMaasai1
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

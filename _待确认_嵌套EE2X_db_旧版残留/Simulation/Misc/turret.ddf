@@ -1,0 +1,747 @@
+// definition of the tank turret animation visual
+// add in the child name list to animate a turret
+TurretControllerData TankTurret { }
+
+TurretControllerData BuildingTurret { }
+
+// this one's for epoch 1 fortress (middle eastern)
+TurretControllerData fort2_ME
+{
+	patterns = [
+	 	{ bankName = "tag_bank_1"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1" ] }
+	 	    { tags = [ "tag_muzzle_2" ] }
+	 	  ]
+	 	}
+	 	{ bankName = "tag_bank_2"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_3" ] }
+	 	    { tags = [ "tag_muzzle_4" ] }
+	 	  ]
+	 	}
+	 	{ bankName = "tag_bank_3"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_5" ] }
+	 	    { tags = [ "tag_muzzle_6" ] }
+	 	  ]
+	 	}
+	 	{ bankName = "tag_bank_4"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_7" ] }
+	 	    { tags = [ "tag_muzzle_8" ] }
+	 	  ]
+	 	}
+	 ]
+}
+
+// this one's for epoch 13 air defense
+TurretControllerData AA13Turret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1" ] }
+	 	    { tags = [ "tag_muzzle_02" ] }
+	 	    { tags = [ "tag_muzzle_03" ] }
+	 	    { tags = [ "tag_muzzle_04" ] }
+	 	  ]
+	 	}
+	 ]
+}
+
+// this one's for Hera Herc
+TurretControllerData HeraTurret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_2" ] }
+	 	    { tags = [ "tag_muzzle_3" ] }
+	 	  ]
+	 	}
+	 ]
+}
+
+
+// this one's for Hades Herc
+TurretControllerData HadesTurret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_2" ] }
+	 	    { tags = [ "tag_muzzle_3" ] }
+	 	  ]
+	 	}
+	 ]
+}
+
+
+
+
+// this one's for the mobile rocket launcher (MRL)
+TurretControllerData MobileRocketLauncherTurret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1" ] }
+	 	    { tags = [ "tag_muzzle_2" ] }
+	 	    { tags = [ "tag_muzzle_3" ] }
+	 	    { tags = [ "tag_muzzle_4" ] }
+	 	    { tags = [ "tag_muzzle_5" ] }
+	 	    { tags = [ "tag_muzzle_6" ] }
+	 	    { tags = [ "tag_muzzle_7" ] }
+	 	    { tags = [ "tag_muzzle_8" ] }
+	 	    { tags = [ "tag_muzzle_9" ] }
+	 	    { tags = [ "tag_muzzle_10" ] }
+	 	    { tags = [ "tag_muzzle_11" ] }
+	 	    { tags = [ "tag_muzzle_12" ] }
+	 	  ]
+	 	}
+	 ]
+}
+
+// this one's for the light herc (the 4 legged one)
+TurretControllerData LightHercTurret
+{
+	patterns = [
+		{ bankName = "default"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_01" "tag_muzzle_05" ] }
+		  	{ tags = [ "tag_muzzle_02" "tag_muzzle_06" ] }
+		  	{ tags = [ "tag_muzzle_03" "tag_muzzle_07" ] }
+		  	{ tags = [ "tag_muzzle_04" "tag_muzzle_08" ] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData impiTurret
+{
+	patterns = [
+		{ bankName = "default"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1" ] }
+		  	{ tags = [ "tag_muzzle_2" ] }	
+		  	{ tags = [ "tag_muzzle_3" ] }	
+		  	{ tags = [ "tag_muzzle_4" ] }	
+		  	{ tags = [ "tag_muzzle_5" ] }	
+		  	{ tags = [ "tag_muzzle_6" ] }	
+		  	{ tags = [ "tag_muzzle_7" ] }	
+		  	{ tags = [ "tag_muzzle_8" ] }		
+		  ]
+		}
+	]  			
+}
+
+// this one's for the missile cruiser, battleship, epoch 13
+TurretControllerData MissileCruiserTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1_a" ] }
+		  	{ tags = [ "tag_muzzle_2_1_b" ] }
+		  	{ tags = [ "tag_muzzle_2_2_a" ] }
+		  	{ tags = [ "tag_muzzle_2_2_b" ] }
+		 		  ]
+		}
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1_a" ] }
+		  	{ tags = [ "tag_muzzle_1_1_b" ] }
+		  		  ]
+		}
+	]  			
+}
+
+// this one's for the xship, destroyer, epoch 15
+TurretControllerData XShipTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" ] }
+		  	{ tags = [ "tag_muzzle_1_3" ] }
+		  	{ tags = [ "tag_muzzle_1_2" ] }
+		  	{ tags = [ "tag_muzzle_1_4" ] }
+		 		  ]
+		}
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1" ] }
+		  	{ tags = [ "tag_muzzle_2_3" ] }
+		  	{ tags = [ "tag_muzzle_2_2" ] }
+		  	{ tags = [ "tag_muzzle_2_4" ] }
+		  		  ]
+		}
+	]  			
+}
+
+TurretControllerData leviathanTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" ] }
+		  	{ tags = [ "tag_muzzle_1_2" ] }
+		 		  ]
+		}
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1" ] }
+		  	{ tags = [ "tag_muzzle_2_2" ] }
+		  		  ]
+		}
+	]  			
+}
+
+TurretControllerData sensordestroyerTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_2_a" ] }
+		  	{ tags = [ "tag_muzzle_1_1_a" ] }
+		  	{ tags = [ "tag_muzzle_1_2_c" ] }
+			{ tags = [ "tag_muzzle_1_1_c" ] }
+			{ tags = [ "tag_muzzle_1_2_b" ] }
+			{ tags = [ "tag_muzzle_1_1_b" ] }
+			{ tags = [ "tag_muzzle_1_2_d" ] }
+			{ tags = [ "tag_muzzle_1_1_d" ] }
+			{ tags = [ "tag_muzzle_1_2_e" ] }
+			{ tags = [ "tag_muzzle_1_1_e" ] }
+			{ tags = [ "tag_muzzle_1_2_g" ] }
+			{ tags = [ "tag_muzzle_1_1_g" ] }
+			{ tags = [ "tag_muzzle_1_2_f" ] }
+			{ tags = [ "tag_muzzle_1_1_f" ] }
+			{ tags = [ "tag_muzzle_1_2_h" ] }
+		  	{ tags = [ "tag_muzzle_1_1_h" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1_a" ] }
+		  	{ tags = [ "tag_muzzle_2_1_c" ] }
+		  	{ tags = [ "tag_muzzle_2_1_b" ] }
+			{ tags = [ "tag_muzzle_2_1_d" ] }
+			{ tags = [ "tag_muzzle_2_1_e" ] }
+			{ tags = [ "tag_muzzle_2_1_g" ] }
+			{ tags = [ "tag_muzzle_2_1_f" ] }
+			{ tags = [ "tag_muzzle_2_1_h" ] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData ironcladTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_3" ] }
+		  	{ tags = [ "tag_muzzle_1_1" ] }
+		  	{ tags = [ "tag_muzzle_1_2" ] }
+			{ tags = [ "tag_muzzle_1_3" ] }
+			{ tags = [ "tag_muzzle_1_4" ] }
+			{ tags = [ "tag_muzzle_1_5" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_4" ] }
+		  	{ tags = [ "tag_muzzle_2_1" ] }
+		  	{ tags = [ "tag_muzzle_2_2" ] }
+			{ tags = [ "tag_muzzle_2_3" ] }
+			{ tags = [ "tag_muzzle_2_4" ] }
+			{ tags = [ "tag_muzzle_2_5" ] }
+		  ]
+		}
+		
+		{ bankName = "tag_bank_3"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_3_1"] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_4"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_4_1"] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData FrigateTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_01" "tag_muzzle_1_05" "tag_muzzle_1_12" ] }
+		  	{ tags = [ "tag_muzzle_1_01" "tag_muzzle_1_08"  ] }
+		  	{ tags = [ "tag_muzzle_1_02" "tag_muzzle_1_06"  ] }
+			{ tags = [ "tag_muzzle_1_03" "tag_muzzle_1_12"  ] }
+			{ tags = [ "tag_muzzle_1_04" "tag_muzzle_1_05"  ] }
+			{ tags = [ "tag_muzzle_1_06" "tag_muzzle_1_10"  ] }
+			{ tags = [ "tag_muzzle_1_07" "tag_muzzle_1_11"  ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_01" "tag_muzzle_2_03" "tag_muzzle_2_12" ] }
+		  	{ tags = [ "tag_muzzle_2_01" "tag_muzzle_2_08"  ] }
+		  	{ tags = [ "tag_muzzle_2_02" "tag_muzzle_2_06"  ] }
+			{ tags = [ "tag_muzzle_2_03" "tag_muzzle_2_12"  ] }
+			{ tags = [ "tag_muzzle_2_04" "tag_muzzle_2_05"  ] }
+			{ tags = [ "tag_muzzle_2_06" "tag_muzzle_2_10"  ] }
+			{ tags = [ "tag_muzzle_2_07" "tag_muzzle_2_11"  ] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData privateerTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_a" "tag_muzzle_1_d" "tag_muzzle_1_g" ] }
+		  	{ tags = [ "tag_muzzle_1_a" "tag_muzzle_1_g"  ] }
+		  	{ tags = [ "tag_muzzle_1_c" "tag_muzzle_1_d"  ] }
+			{ tags = [ "tag_muzzle_1_b" "tag_muzzle_1_f" "tag_muzzle_1_g" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_b" "tag_muzzle_2_e" "tag_muzzle_2_g" ] }
+		  	{ tags = [ "tag_muzzle_2_a" "tag_muzzle_2_g"  ] }
+		  	{ tags = [ "tag_muzzle_2_c" "tag_muzzle_2_d"  ] }
+			{ tags = [ "tag_muzzle_2_b" "tag_muzzle_2_f" "tag_muzzle_2_g" ] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData ShipOfTheLineTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_8" "tag_muzzle_1_9" "tag_muzzle_1_10" "tag_muzzle_1_16" "tag_muzzle_1_27" ] }
+		  	{ tags = [ "tag_muzzle_1_2" "tag_muzzle_1_4" "tag_muzzle_1_5" "tag_muzzle_1_10" "tag_muzzle_1_14" ] }
+			{ tags = [ "tag_muzzle_1_15" "tag_muzzle_1_20" "tag_muzzle_1_23" "tag_muzzle_1_27" ] }
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_4" "tag_muzzle_1_5" "tag_muzzle_1_7"  ] }
+		  	{ tags = [ "tag_muzzle_1_4" "tag_muzzle_1_19" "tag_muzzle_1_21"  ] }
+		  	{ tags = [ "tag_muzzle_1_8" "tag_muzzle_1_11" "tag_muzzle_1_12" "tag_muzzle_1_14" ] }
+		  	{ tags = [ "tag_muzzle_1_22" "tag_muzzle_1_1" "tag_muzzle_1_24" "tag_muzzle_1_16" ] }
+		  	{ tags = [ "tag_muzzle_1_2" "tag_muzzle_1_10" ] }
+			{ tags = [ "tag_muzzle_1_15" "tag_muzzle_1_9" "tag_muzzle_1_25" "tag_muzzle_1_5" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+			{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_12" "tag_muzzle_2_16" "tag_muzzle_2_22" "tag_muzzle_2_23" "tag_muzzle_2_27" ] }
+		  	{ tags = [ "tag_muzzle_2_3" "tag_muzzle_2_13" "tag_muzzle_2_19" ] }
+			{ tags = [ "tag_muzzle_2_15" "tag_muzzle_2_21" "tag_muzzle_2_27" ] }
+		  	{ tags = [ "tag_muzzle_2_2" "tag_muzzle_2_7"  ] }
+		  	{ tags = [ "tag_muzzle_2_8" "tag_muzzle_2_14" "tag_muzzle_2_20" "tag_muzzle_2_26"  ] }
+		  	{ tags = [ "tag_muzzle_2_4" "tag_muzzle_2_13" "tag_muzzle_2_24"  ] }
+		  	{ tags = [ "tag_muzzle_2_2" "tag_muzzle_2_5" "tag_muzzle_2_16" "tag_muzzle_2_27"  ] }
+		  	{ tags = [ "tag_muzzle_2_5" "tag_muzzle_2_10" "tag_muzzle_2_22" "tag_muzzle_2_24" ] }
+			{ tags = [ "tag_muzzle_2_6" "tag_muzzle_2_13" "tag_muzzle_2_25" "tag_muzzle_2_27" ] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData CarrackTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_2" "tag_muzzle_1_3" ] }
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_3"  ] }
+		  	{ tags = [ "tag_muzzle_1_2"   ] }
+			{ tags = [ "tag_muzzle_1_3" "tag_muzzle_1_2"  ] }
+			
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_2" "tag_muzzle_2_3" ] }
+		  	{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_3"  ] }
+		  	{ tags = [ "tag_muzzle_2_2" "tag_muzzle_2_1"  ] }
+			{ tags = [ "tag_muzzle_2_3"  ] }
+	
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData hwachaTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_a" ] }
+		  	{ tags = [ "tag_muzzle_1_b" ] }
+		  	{ tags = [ "tag_muzzle_1_c" ] }
+			{ tags = [ "tag_muzzle_1_d" ] }
+			{ tags = [ "tag_muzzle_1_e" ] }
+			{ tags = [ "tag_muzzle_1_f" ] }			
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData GalleonTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_7" "tag_muzzle_1_13" ] }
+		  	{ tags = [ "tag_muzzle_1_2" "tag_muzzle_1_4" "tag_muzzle_1_7" "tag_muzzle_1_10" "tag_muzzle_1_12"  ] }
+			{ tags = [ "tag_muzzle_1_3" "tag_muzzle_1_8" "tag_muzzle_1_12" "tag_muzzle_1_13" ] }
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_2" "tag_muzzle_1_7" ] }
+		  	{ tags = [ "tag_muzzle_1_2" "tag_muzzle_1_5" "tag_muzzle_1_6" "tag_muzzle_1_9"  ] }
+		  	{ tags = [ "tag_muzzle_1_3" "tag_muzzle_1_6" "tag_muzzle_1_10" "tag_muzzle_1_11"  ] }
+		  	{ tags = [ "tag_muzzle_1_12" "tag_muzzle_1_13"   ] }
+		  	{ tags = [ "tag_muzzle_1_2" "tag_muzzle_1_12" ] }
+			{ tags = [ "tag_muzzle_1_5" "tag_muzzle_1_7" "tag_muzzle_1_13" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+			{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_5" "tag_muzzle_2_13" ] }
+		  	{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_2" "tag_muzzle_2_8" "tag_muzzle_2_12" ] }
+			{ tags = [ "tag_muzzle_2_3" "tag_muzzle_2_9" "tag_muzzle_2_12" "tag_muzzle_2_13" ] }
+		  	{ tags = [ "tag_muzzle_2_2" "tag_muzzle_2_4" "tag_muzzle_2_11" ] }
+		  	{ tags = [ "tag_muzzle_2_4" "tag_muzzle_2_6" "tag_muzzle_2_10"  ] }
+		  	{ tags = [ "tag_muzzle_2_4" "tag_muzzle_2_6" "tag_muzzle_2_10" "tag_muzzle_2_11" ] }
+		  	{ tags = [ "tag_muzzle_2_10" "tag_muzzle_2_13"  ] }
+		  	{ tags = [ "tag_muzzle_2_2" "tag_muzzle_2_5" "tag_muzzle_2_12" ] }
+			{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_3" "tag_muzzle_2_9" "tag_muzzle_2_11" "tag_muzzle_2_13" ] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData GalleasTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_2"  ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_2"  ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_3"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_3_1"] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData BarqueTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_5" "tag_muzzle_1_7" ] }
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_4"] }
+		  	{ tags = [ "tag_muzzle_1_2" ] }
+			{ tags = [ "tag_muzzle_1_3" ] }
+			{ tags = [ "tag_muzzle_1_4" ] }
+			{ tags = [ "tag_muzzle_1_5" ] }
+			{ tags = [ "tag_muzzle_1_6" ] }
+			{ tags = [ "tag_muzzle_1_7" "tag_muzzle_1_3"] }
+			{ tags = [ "tag_muzzle_1_8" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_3" "tag_muzzle_2_7"] }
+		  	{ tags = [ "tag_muzzle_2_1" ] }
+		  	{ tags = [ "tag_muzzle_2_2" ] }
+			{ tags = [ "tag_muzzle_2_3" ] }
+			{ tags = [ "tag_muzzle_2_4" "tag_muzzle_2_7"] }
+			{ tags = [ "tag_muzzle_2_5" ] }
+			{ tags = [ "tag_muzzle_2_6" "tag_muzzle_2_4"] }
+			{ tags = [ "tag_muzzle_2_7" ] }
+			{ tags = [ "tag_muzzle_2_8" ] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData CaravelTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_3" ] }
+		  	{ tags = [ "tag_muzzle_1_1" ] }
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_2" ] }
+			{ tags = [ "tag_muzzle_1_3" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_2" ] }
+		  	{ tags = [ "tag_muzzle_2_1" ] }
+		  	{ tags = [ "tag_muzzle_2_2" ] }
+			{ tags = [ "tag_muzzle_2_3" ] }
+		  ]
+		}
+	]  			
+}
+
+TurretControllerData heavysiegetowerTurret
+{
+	patterns = [
+		{ bankName = "tag_bank_1"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_2" "tag_muzzle_1_3" "tag_muzzle_1_4" "tag_muzzle_1_5" "tag_muzzle_1_6" ] }
+		  	{ tags = [ "tag_muzzle_1_1" "tag_muzzle_1_2" ] }
+		  	{ tags = [ "tag_muzzle_1_3" "tag_muzzle_1_4" ] }
+			{ tags = [ "tag_muzzle_1_5" "tag_muzzle_1_6" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_2"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_2_1" "tag_muzzle_2_2" "tag_muzzle_2_3" ] }
+		  	{ tags = [ "tag_muzzle_2_1" ] }
+		  	{ tags = [ "tag_muzzle_2_2" ] }
+			{ tags = [ "tag_muzzle_2_3" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_3"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_3_1" "tag_muzzle_3_2" "tag_muzzle_3_3" ] }
+		  	{ tags = [ "tag_muzzle_3_1" ] }
+		  	{ tags = [ "tag_muzzle_3_2" ] }
+			{ tags = [ "tag_muzzle_3_3" ] }
+		  ]
+		}
+
+		{ bankName = "tag_bank_4"
+		  sequence = [
+		  	{ tags = [ "tag_muzzle_4_1" ] }
+		  	{ tags = [ "tag_muzzle_4_1" ] }
+		  	{ tags = [ "tag_muzzle_4_1" ] }
+			{ tags = [ "tag_muzzle_4_1" ] }
+		  ]
+		}
+	]  			
+}
+
+//UP1.5:
+TurretControllerData GeckoTurret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_01" ] }
+	 	    { tags = [ "tag_muzzle_02" ] }
+	 	    { tags = [ "tag_muzzle_03" ] }
+	 	    { tags = [ "tag_muzzle_04" ] }
+                { tags = [ "tag_muzzle_05" ] }
+	 	    { tags = [ "tag_muzzle_06" ] }
+	 	  ]
+	 	}
+	 ]
+}
+
+TurretControllerData ThaadTurret15
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_01" ] }
+	 	    { tags = [ "tag_muzzle_02" ] }	 	    
+	 	  ]
+	 	}
+	 ]
+}
+TurretControllerData ThaadTurret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_01" ] }
+	 	    { tags = [ "tag_muzzle_02" ] }
+	 	    { tags = [ "tag_muzzle_03" ] }
+	 	    { tags = [ "tag_muzzle_04" ] }
+	 	  ]
+	 	}
+	 ]
+}
+
+TurretControllerData MRocketLauncherTurret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1" ] }	 	    
+	 	  ]
+	 	}
+	 ]
+}
+TurretControllerData M2RocketLauncherTurret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1" ] }
+                { tags = [ "tag_muzzle_2" ] } 	 	    
+	 	  ]
+	 	}
+	 ]
+}
+TurretControllerData apc15Turret
+{
+	patterns = [
+	 	{ bankName = "tag_bank_1"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1_1" ] }
+	 	    { tags = [ "tag_muzzle_1_2" ] }
+                { tags = [ "tag_muzzle_1_3" ] }
+	 	    { tags = [ "tag_muzzle_1_4" ] }               
+	 	  ]
+	 	}	
+            
+	 ]
+}
+TurretControllerData Coast13Turret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_01" ] }
+	 	    { tags = [ "tag_muzzle_02" ] }
+	 	    { tags = [ "tag_muzzle_03" ] }
+	 	    { tags = [ "tag_muzzle_04" ] }
+                { tags = [ "tag_muzzle_05" ] }
+                { tags = [ "tag_muzzle_06" ] }
+                { tags = [ "tag_muzzle_07" ] }
+                { tags = [ "tag_muzzle_08" ] }
+	 	  ]
+	 	}
+	 ]
+}
+TurretControllerData AAShip
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1" ] }
+	 	    { tags = [ "tag_muzzle_2" ] }
+	 	    { tags = [ "tag_muzzle_3" ] }
+	 	    { tags = [ "tag_muzzle_4" ] }
+	 	  ]
+	 	}
+	 ]
+}
+TurretControllerData OniTurret
+{
+	patterns = [
+	 	{ bankName = "tag_bank_1"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1_1" ] }
+	 	    { tags = [ "tag_muzzle_1_1" ] }
+                { tags = [ "tag_muzzle_1_2" ] }
+                { tags = [ "tag_muzzle_1_2" ] }
+                { tags = [ "tag_muzzle_1_3" ] }
+                { tags = [ "tag_muzzle_1_3" ] }                                                                                             
+	 	  ]
+	 	}
+	 	{ bankName = "tag_bank_2"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_2_1" ] }
+	 	    { tags = [ "tag_muzzle_2_1" ] }
+                { tags = [ "tag_muzzle_2_2" ] } 
+                { tags = [ "tag_muzzle_2_2" ] }                                                                                                        
+	 	  ]
+	 	}            
+            
+	 ]
+}
+TurretControllerData GruzovTurret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1_1" ] }
+	 	    { tags = [ "tag_muzzle_1_2" ] }	 	    
+	 	  ]
+	 	}
+	 ]
+}
+
+TurretControllerData FklsaTurret
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_1" ] }
+	 	    { tags = [ "tag_muzzle_2" ] }
+			{ tags = [ "tag_muzzle_3" ] }
+			{ tags = [ "tag_muzzle_4" ] }
+	 	  ]
+	 	}
+	 ]
+}
+
+TurretControllerData MobileRocketLauncherTurret2
+{
+	patterns = [
+	 	{ bankName = "default"
+	 	  sequence = [
+	 	    { tags = [ "tag_muzzle_2" ] }
+	 	    { tags = [ "tag_muzzle_3" ] }
+	 	    { tags = [ "tag_muzzle_4" ] }
+	 	    { tags = [ "tag_muzzle_5" ] }
+	 	    { tags = [ "tag_muzzle_6" ] }
+	 	    { tags = [ "tag_muzzle_7" ] }
+	 	    { tags = [ "tag_muzzle_8" ] }
+	 	    { tags = [ "tag_muzzle_9" ] }
+	 	    { tags = [ "tag_muzzle_12" ] }
+			{ tags = [ "tag_muzzle_13" ] }
+			{ tags = [ "tag_muzzle_14" ] }
+			{ tags = [ "tag_muzzle_15" ] }
+			{ tags = [ "tag_muzzle_16" ] }
+			{ tags = [ "tag_muzzle_17" ] }
+			{ tags = [ "tag_muzzle_18" ] }
+			{ tags = [ "tag_muzzle_19" ] }
+			{ tags = [ "tag_muzzle_22" ] }
+			{ tags = [ "tag_muzzle_23" ] }
+			{ tags = [ "tag_muzzle_24" ] }
+			{ tags = [ "tag_muzzle_25" ] }
+			{ tags = [ "tag_muzzle_26" ] }
+			{ tags = [ "tag_muzzle_27" ] }
+			{ tags = [ "tag_muzzle_28" ] }
+			{ tags = [ "tag_muzzle_29" ] }
+	 	  ]
+	 	}
+	 ]
+}

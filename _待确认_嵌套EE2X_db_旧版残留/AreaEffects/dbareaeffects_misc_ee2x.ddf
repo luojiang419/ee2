@@ -1,0 +1,20 @@
+//////////////////////////////Miscelaneous Area Effects//////////////////////////////
+
+// Glow effect to stick on units belonging to a player in resistance
+DbAreaEffectInfo ResistanceGlow
+{
+	effects = [
+		EffectVisualGlow {
+			range = Global
+			player = Self
+			mask = LandRPS
+
+			GlowType = Good
+			OwnerOnly = false
+			Icon = icon_capture_building_s
+			Tooltip = tt_marea_resistance
+			VTooltip = vtt_marea_resistance
+			UseResistanceVTooltip = true
+		}
+	]
+}

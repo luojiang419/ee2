@@ -1,0 +1,161 @@
+//------------------------------------------------------------------------------------------------
+//	EPOCH 5 UPGRADES 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	MAIN BRANCH
+//------------------------------------------------
+UpgradeSet AdvanceEpoch5 {
+	upgrades = [
+		UpgradeEpoch {epoch = 5;}
+	]
+}
+
+// Main5
+UpgradeRefSet MainEpoch5 {
+	upgrades = [
+		AdvanceEpoch5 
+		LightInfantryUpgradeEpoch5
+		HeavyInfantry1UpgradeEpoch5
+		HeavyInfantry2UpgradeEpoch5
+		LightArtillery1UpgradeEpoch5
+		WarGalleyUpgradeEpoch5
+		RamUpgradeEpoch5
+		StableUpgradeEpoch5
+		CoastalDefenseUpgradeEpoch5
+		AICoastalDefenseUpgradeEpoch5
+		MarketUpgradeEpoch5
+		RoadUpgradeEpoch5
+		RoadElbowUpgradeEpoch5
+		BridgeUpgradeEpoch5
+		CityPlazaUpgradeEpoch5
+		MillUpgradeEpoch5
+		HouseUpgradeEpoch5
+		WallUpgradeEpoch5
+		WallConnectorUpgradeEpoch5
+		WallFragmentUpgradeEpoch5
+		WallTowerUpgradeEpoch5
+		WallTowerAbilitiesEpoch5
+		WallGateUpgradeEpoch5
+		// new unit
+		AIResourceUpgradeEpoch5
+		MiddleEastBoatUpgradeEpoch5
+		MesoAmerBoatUpgradeEpoch5
+		AfricanBoatUpgradeEpoch5
+		WesternBoat1UpgradeEpoch5
+		WesternBoat2UpgradeEpoch5
+		guichuanUpgradeEpoch5
+		JapanBoat2UpgradeEpoch5
+		JapanBoat1UpgradeEpoch5
+		ZhengHeUpgradeEpoch5
+		MaChuanUpgradeEpoch5
+		dapaoUpgradeEpoch5
+		// LEADERS
+		LeaderEconomicUpgradeEpoch5
+		LeaderMilitaryUpgradeEpoch5
+		LeaderImperialUpgradeEpoch5
+		KingRegicideUpgradeEpoch5
+		// UNIQUE UNITS
+		
+		// EE2X HERO UPGRADES
+		LightInfantryHeroUpgradeEp5
+		HeavyInfantry1HeroUpgradeEp5
+		HeavyInfantry2HeroUpgradeEp5
+		LightArtillery1HeroUpgradeEp5
+	]
+}
+
+//------------------------------------------------
+//	MILITARY BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet MilitaryEpoch5Slot1 {
+	upgrades = [
+		MilitaryTechUpgrade_E5_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet MilitaryEpoch5Slot2 {
+	upgrades = [
+		MilitaryTechUpgrade_E5_Slot2a
+	]
+}
+
+// Slot 3
+UpgradeRefSet MilitaryEpoch5Slot3 {
+	upgrades = [
+		MilitaryTechUpgrade_E5_Slot3a
+	]
+} 
+
+// Slot 4
+UpgradeRefSet MilitaryEpoch5Slot4 {
+	upgrades = [
+		MilitaryTechUpgrade_E5_Slot4a
+		MilitaryTechUpgrade_E5_Slot4b
+	]
+} 
+
+//------------------------------------------------
+//	ECONOMIC BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet EconomicEpoch5Slot1 {
+	upgrades = [
+		EconomicTechUpgrade_E5_Slot1a
+		EconomicTechUpgrade_E5_Slot1b
+	]
+}
+
+// Slot 2
+UpgradeRefSet EconomicEpoch5Slot2 {
+	upgrades = [
+		EconomicTechUpgrade_E5_Slot2a
+		EconomicTechUpgrade_E5_Slot2b
+	]
+}
+
+// Slot 3
+UpgradeRefSet EconomicEpoch5Slot3 {
+	upgrades = [
+		EconomicTechUpgrade_E5_Slot3a
+	]
+}
+
+// Slot 4
+UpgradeRefSet EconomicEpoch5Slot4 {
+	upgrades = [
+		EconomicTechUpgrade_E5_Slot4a
+	]
+}
+
+//------------------------------------------------
+//	IMPERIAL BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet ImperialEpoch5Slot1 {
+	upgrades = [
+		ImperialTechUpgrade_E5_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet ImperialEpoch5Slot2 {
+	upgrades = [
+		ImperialTechUpgrade_E5_Slot2a
+	]
+}
+
+// Slot 3
+UpgradeRefSet ImperialEpoch5Slot3 {
+	upgrades = [
+		ImperialTechUpgrade_E5_Slot3a
+	]
+}
+
+// Slot 4
+UpgradeRefSet ImperialEpoch5Slot4 {
+	upgrades = [
+		ImperialTechUpgrade_E5_Slot4a
+	]
+}

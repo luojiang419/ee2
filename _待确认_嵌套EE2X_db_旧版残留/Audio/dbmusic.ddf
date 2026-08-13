@@ -1,0 +1,231 @@
+//	DbMusic.ddf - music db records
+//	------------------------------
+//
+//	Shell looping music
+
+DbMusicCtrlLoopSetDef music_fe
+{
+	filenames = [ "Hell March.mp3" "Hell March.mp3"
+	]
+}
+
+//
+//	In-game ambient music
+//
+
+DbMusicCtrlGameAmbientDef music_ingame
+{
+	regionSets = [
+	{
+	region = West
+	filenames = [
+"amb_West_1.mp3" "amb_West_2.mp3" "amb_West_3.mp3" "amb_West_4.mp3" "amb_West_5.mp3" "amb_West_6.mp3" "amb_West_7.mp3" "amb_West_8.mp3" "amb_West_9.mp3" "amb_West_10.mp3" "amb_West_11.mp3" "amb_West_12.mp3" "amb_West_13.mp3" "amb_West_14.mp3" "amb_West_15.mp3"
+	]
+	}
+
+	{
+	region = FarEast
+	filenames = [
+"amb_Asia_1a.mp3" "amb_Asia_2a.mp3" "amb_Asia_3a.mp3" "amb_Asia_4a.mp3" "amb_Asia_5a.mp3" "amb_Asia_6a.mp3" "amb_Asia_7a.mp3" "amb_Asia_8a.mp3" "amb_Asia_9a.mp3" "amb_Asia_10a.mp3" "amb_Asia_11a.mp3" "amb_Asia_12a.mp3" "amb_Asia_13a.mp3" "amb_Asia_14a.mp3" "amb_Asia_15a.mp3" 
+	]
+	}
+
+	{
+	region = MiddleEast
+	filenames = [
+"amb_vostok_1a.mp3" "amb_vostok_2a.mp3" "amb_vostok_3a.mp3" "amb_vostok_4a.mp3" "amb_vostok_5a.mp3" "amb_vostok_6a.mp3" "amb_vostok_7a.mp3" "amb_vostok_8a.mp3" "amb_vostok_9a.mp3" "amb_vostok_10a.mp3" "amb_vostok_11a.mp3" "amb_vostok_12a.mp3" "amb_vostok_13a.mp3" "amb_vostok_14a.mp3" "amb_vostok_15a.mp3"
+	]
+	}
+
+	{
+	region = MesoAmerican
+	filenames = [
+"amb_mezo_1a.mp3" "amb_mezo_2a.mp3" "amb_mezo_3a.mp3" "amb_mezo_4a.mp3" "amb_mezo_5a.mp3" "amb_mezo_6a.mp3" "amb_mezo_7a.mp3" "amb_mezo_8a.mp3" "amb_mezo_9a.mp3" "amb_mezo_10a.mp3" "amb_mezo_11a.mp3" "amb_mezo_12a.mp3" "amb_mezo_13a.mp3" "amb_mezo_14a.mp3" "amb_mezo_15a.mp3"
+	]
+	}
+
+	// @EE2X @MRC
+	// New African region music.
+ 	{
+	region = African
+	filenames = [
+"amb_afrika_1a.mp3" "amb_afrika_2a.mp3" "amb_afrika_3a.mp3" "amb_afrika_4a.mp3" "amb_afrika_5a.mp3" "amb_afrika_6a.mp3" "amb_afrika_7a.mp3" "amb_afrika_8a.mp3" "amb_afrika_9a.mp3" "amb_afrika_10a.mp3" "amb_afrika_11a.mp3" "amb_afrika_12a.mp3" "amb_afrika_13a.mp3" "amb_afrika_14a.mp3" "amb_afrika_15a.mp3"
+	]
+	}
+	]
+
+	epochSets = [
+	{
+	//Stone Copper Bronze Iron Dark
+	epochFirst = Stone
+	epochLast = Stone
+	filenames = [
+	"amb_ww1_1.mp3" "amb_ww1_2.mp3" "amb_ww1_3.mp3" "amb_ww1_4.mp3" "amb_ww1_5.mp3" "amb_ww1_6.mp3" "amb_ww1_7.mp3" "amb_ww1_8.mp3" "amb_ww1_9.mp3" "amb_ww1_10.mp3" "amb_ww1_11.mp3" "amb_ww1_12.mp3" "amb_ww1_13.mp3" "amb_ww1_14.mp3" "amb_ww1_15.mp3"
+	"amb_ww1_16.mp3" "amb_ww1_17.mp3" "amb_ww1_18.mp3" "amb_ww1_19.mp3" "amb_ww1_20.mp3" "amb_ww1_21.mp3" "amb_ww1_22.mp3" "amb_ww1_23.mp3" "amb_ww1_24.mp3" "amb_ww1_25.mp3" "amb_ww1_26.mp3" "amb_ww1_27.mp3" "amb_ww1_28.mp3" "amb_ww1_29.mp3" "amb_ww1_30.mp3" "amb_ww1_31.mp3"
+	]		
+	}
+
+	{
+	//Stone Copper Bronze Iron Dark
+	epochFirst = Copper
+	epochLast = Copper
+	filenames = [
+	"amb_ww2_1.mp3" "amb_ww2_2.mp3" "amb_ww2_3.mp3" "amb_ww2_4.mp3" "amb_ww2_5.mp3" "amb_ww2_6.mp3" "amb_ww2_7.mp3" "amb_ww2_8.mp3" "amb_ww2_9.mp3" "amb_ww2_10.mp3" 
+	"amb_ww2_11.mp3" "amb_ww2_12.mp3" "amb_ww2_13.mp3" "amb_ww2_14.mp3" "amb_ww2_15.mp3" "amb_ww2_16.mp3" "amb_ww2_17.mp3" "amb_ww2_18.mp3" "amb_ww2_19.mp3" "amb_ww2_20.mp3" 
+	"amb_ww2_21.mp3" "amb_ww2_22.mp3" "amb_ww2_23.mp3" "amb_ww2_24.mp3" "amb_ww2_25.mp3" "amb_ww2_26.mp3" "amb_ww2_27.mp3" "amb_ww2_28.mp3" "amb_ww2_29.mp3" "amb_ww2_30.mp3" 
+	"amb_ww2_31.mp3" "amb_ww2_32.mp3" "amb_ww2_33.mp3" "amb_ww2_34.mp3" "amb_ww2_35.mp3" "amb_ww2_36.mp3" "amb_ww2_37.mp3" "amb_ww2_38.mp3" "amb_ww2_39.mp3" 
+	]		
+	}
+	
+	{
+	epochFirst = Bronze
+	epochLast = Bronze
+	filenames = [
+	//0AD
+	"amb_ww3_1.mp3" "amb_ww3_2.mp3" "amb_ww3_3.mp3" "amb_ww3_4.mp3" "amb_ww3_5.mp3" "amb_ww3_6.mp3" "amb_ww3_7.mp3" "amb_ww3_8.mp3" "amb_ww3_9.mp3" "amb_ww3_10.mp3" "amb_ww3_11.mp3" "amb_ww3_12.mp3" 
+	"amb_ww3_13.mp3" "amb_ww3_14.mp3" "amb_ww3_15.mp3" "amb_ww3_16.mp3" "amb_ww3_17.mp3" "amb_ww3_18.mp3" "amb_ww3_19.mp3" "amb_ww3_20.mp3" "amb_ww3_21.mp3" "amb_ww3_22.mp3" "amb_ww3_23.mp3"
+	]
+	}
+	
+	{
+	//漢朝與羅馬
+	epochFirst = Iron
+	epochLast = Iron
+	filenames = [
+	"amb_ww4_1.mp3" "amb_ww4_2.mp3" "amb_ww4_3.mp3" "amb_ww4_4.mp3" "amb_ww4_5.mp3" "amb_ww4_6.mp3" "amb_ww4_7.mp3" "amb_ww4_8.mp3" "amb_ww4_9.mp3" "amb_ww4_10.mp3" 
+	"amb_ww4_11.mp3" "amb_ww4_12.mp3" "amb_ww4_13.mp3" "amb_ww4_14.mp3" "amb_ww4_15.mp3" "amb_ww4_16.mp3" "amb_ww4_17.mp3"
+	]		
+	}
+
+	{
+	epochFirst = Dark
+	epochLast = Dark
+	filenames = [
+	//Dark Middle Renaissance
+	"amb_ww5_1.mp3" "amb_ww5_2.mp3" "amb_ww5_3.mp3" "amb_ww5_4.mp3" "amb_ww5_5.mp3" "amb_ww5_6.mp3" "amb_ww5_7.mp3" "amb_ww5_8.mp3" "amb_ww5_9.mp3" "amb_ww5_10.mp3"
+	"amb_ww5_11.mp3" "amb_ww5_12.mp3" "amb_ww5_13.mp3" "amb_ww5_14.mp3" "amb_ww5_15.mp3" "amb_ww5_16.mp3" "amb_ww5_17.mp3" "amb_ww5_18.mp3" "amb_ww5_19.mp3" "amb_ww5_20.mp3"
+	"amb_ww5_21.mp3" "amb_ww5_22.mp3" "amb_ww5_23.mp3" "amb_ww5_24.mp3" 
+	]
+	}
+
+	{
+	epochFirst = Middle
+	epochLast = Middle
+	filenames = [
+	"amb_ww6_1.mp3" "amb_ww6_2.mp3" "amb_ww6_3.mp3" "amb_ww6_4.mp3" "amb_ww6_5.mp3" "amb_ww6_6.mp3" "amb_ww6_7.mp3" "amb_ww6_8.mp3" "amb_ww6_9.mp3" "amb_ww6_10.mp3"
+	"amb_ww6_11.mp3" "amb_ww6_12.mp3" "amb_ww6_13.mp3" "amb_ww6_14.mp3" "amb_ww6_15.mp3" "amb_ww6_16.mp3" "amb_ww6_17.mp3" "amb_ww6_18.mp3" "amb_ww6_19.mp3" "amb_ww6_20.mp3"
+	"amb_ww6_21.mp3" "amb_ww6_22.mp3" "amb_ww6_23.mp3" "amb_ww6_24.mp3" "amb_ww6_25.mp3" "amb_ww6_26.mp3" "amb_ww6_27.mp3" "amb_ww6_28.mp3" "amb_ww6_29.mp3" "amb_ww6_30.mp3"
+	"amb_ww6_31.mp3" "amb_ww6_32.mp3" "amb_ww6_33.mp3" "amb_ww6_34.mp3" "amb_ww6_35.mp3" "amb_ww6_36.mp3" "amb_ww6_37.mp3" "amb_ww6_38.mp3" "amb_ww6_39.mp3" "amb_ww6_40.mp3"
+	"amb_ww6_41.mp3" "amb_ww6_42.mp3"
+	]
+	}
+	
+	{
+	epochFirst = Renaissance
+	epochLast = Renaissance
+	filenames = [
+	//文藝復興 大航海時代
+	"amb_ww7_1.mp3" "amb_ww7_2.mp3" "amb_ww7_3.mp3" "amb_ww7_4.mp3" "amb_ww7_5.mp3" "amb_ww7_6.mp3" "amb_ww7_7.mp3" "amb_ww7_8.mp3" "amb_ww7_9.mp3" "amb_ww7_10.mp3"
+	"amb_ww7_11.mp3" "amb_ww7_12.mp3" "amb_ww7_13.mp3" "amb_ww7_14.mp3" "amb_ww7_15.mp3" "amb_ww7_16.mp3" "amb_ww7_17.mp3" "amb_ww7_18.mp3" "amb_ww7_19.mp3" "amb_ww7_20.mp3"
+	"amb_ww7_21.mp3" "amb_ww7_22.mp3" "amb_ww7_23.mp3" "amb_ww7_24.mp3" "amb_ww7_25.mp3" "amb_ww7_26.mp3" "amb_ww7_27.mp3" "amb_ww7_28.mp3" "amb_ww7_29.mp3" "amb_ww7_30.mp3"
+	"amb_ww7_31.mp3" "amb_ww7_32.mp3" "amb_ww7_33.mp3" "amb_ww7_34.mp3" "amb_ww7_35.mp3" "amb_ww7_36.mp3" "amb_ww7_37.mp3" "amb_ww7_38.mp3" "amb_ww7_39.mp3" "amb_ww7_40.mp3"
+	"amb_ww7_41.mp3" "amb_ww7_42.mp3" "amb_ww7_43.mp3" "amb_ww7_44.mp3" "amb_ww7_45.mp3" "amb_ww7_46.mp3" "amb_ww7_47.mp3" "amb_ww7_48.mp3" "amb_ww7_49.mp3" "amb_ww7_50.mp3"
+	"amb_ww7_51.mp3" "amb_ww7_52.mp3" "amb_ww7_53.mp3" "amb_ww7_54.mp3" "amb_ww7_55.mp3" "amb_ww7_56.mp3" "amb_ww7_57.mp3" "amb_ww7_58.mp3" "amb_ww7_59.mp3" "amb_ww7_60.mp3" 
+	]
+	}
+	
+	{
+	epochFirst = Imperial
+	epochLast = Imperial
+	filenames = [
+	"amb_ww8_1a.mp3" "amb_ww8_2a.mp3" "amb_ww8_3a.mp3" "amb_ww8_4a.mp3" "amb_ww8_5a.mp3" "amb_ww8_6a.mp3" "amb_ww8_7a.mp3" "amb_ww8_8a.mp3" "amb_ww8_9a.mp3" "amb_ww8_10a.mp3"
+	"amb_ww8_11a.mp3" "amb_ww8_12a.mp3" "amb_ww8_13a.mp3" "amb_ww8_14a.mp3" "amb_ww8_15a.mp3" "amb_ww8_16a.mp3" "amb_ww8_17a.mp3" "amb_ww8_18a.mp3" "amb_ww8_19a.mp3" "amb_ww8_20a.mp3"
+	"amb_ww8_21a.mp3" "amb_ww8_22a.mp3" "amb_ww8_23a.mp3" "amb_ww8_24a.mp3" "amb_ww8_25a.mp3" "amb_ww8_26a.mp3" "amb_ww8_27a.mp3" "amb_ww8_28a.mp3" "amb_ww8_29a.mp3" "amb_ww8_30a.mp3"
+	"amb_ww8_31a.mp3" "amb_ww8_32a.mp3" "amb_ww8_33a.mp3" "amb_ww8_34a.mp3" "amb_ww8_35a.mp3" "amb_ww8_36a.mp3" "amb_ww8_37a.mp3" "amb_ww8_38a.mp3" "amb_ww8_39a.mp3" "amb_ww8_40a.mp3"
+	"amb_ww8_41a.mp3" "amb_ww8_42a.mp3" 
+	]
+	}
+
+	{
+	epochFirst = Enlightenment
+	epochLast = Enlightenment
+	filenames = [
+	//西班牙王位繼承戰
+	"amb_ww9_1a.mp3" "amb_ww9_2a.mp3" "amb_ww9_3a.mp3" "amb_ww9_4a.mp3" "amb_ww9_5a.mp3" "amb_ww9_6a.mp3" "amb_ww9_7a.mp3" "amb_ww9_8a.mp3" "amb_ww9_9a.mp3" "amb_ww9_10a.mp3"
+	"amb_ww9_11a.mp3" "amb_ww9_12a.mp3" "amb_ww9_13a.mp3" "amb_ww9_14a.mp3" "amb_ww9_15a.mp3" "amb_ww9_16a.mp3" "amb_ww9_17a.mp3" "amb_ww9_18a.mp3" "amb_ww9_19a.mp3" "amb_ww9_20a.mp3"
+	"amb_ww9_21a.mp3" "amb_ww9_22a.mp3" "amb_ww9_23a.mp3" "amb_ww9_24a.mp3" "amb_ww9_25a.mp3" "amb_ww9_26a.mp3" "amb_ww9_27a.mp3" "amb_ww9_28a.mp3" "amb_ww9_29a.mp3" "amb_ww9_30a.mp3"
+	"amb_ww9_31a.mp3" "amb_ww9_32a.mp3" "amb_ww9_33a.mp3" "amb_ww9_34a.mp3" "amb_ww9_35a.mp3" "amb_ww9_36a.mp3" "amb_ww9_37a.mp3" "amb_ww9_38a.mp3" "amb_ww9_39a.mp3" "amb_ww9_40a.mp3"
+	]
+	}
+
+	{
+	epochFirst = Industrial
+	epochLast = Industrial
+	filenames = [
+	//拿破崙 美國獨立戰爭
+	"amb_ww10_1a.mp3" "amb_ww10_2a.mp3" "amb_ww10_3a.mp3" "amb_ww10_4a.mp3" "amb_ww10_5a.mp3" "amb_ww10_6a.mp3" "amb_ww10_7a.mp3" "amb_ww10_8a.mp3" "amb_ww10_9a.mp3" "amb_ww10_10a.mp3" "amb_ww10_11a.mp3" "amb_ww10_12a.mp3" "amb_ww10_13a.mp3" "amb_ww10_14a.mp3" "amb_ww10_15a.mp3"
+	"amb_ww10_16a.mp3" "amb_ww10_17a.mp3" "amb_ww10_18a.mp3" "amb_ww10_19a.mp3" "amb_ww10_20a.mp3" "amb_ww10_21a.mp3" "amb_ww10_22a.mp3" "amb_ww10_23a.mp3" "amb_ww10_24a.mp3" "amb_ww10_25a.mp3" "amb_ww10_26a.mp3" "amb_ww10_27a.mp3" "amb_ww10_28a.mp3" "amb_ww10_29a.mp3" "amb_ww10_30a.mp3"
+	"amb_ww10_31a.mp3" "amb_ww10_32a.mp3" "amb_ww10_33a.mp3" "amb_ww10_34a.mp3" "amb_ww10_35a.mp3" "amb_ww10_36a.mp3" "amb_ww10_37a.mp3" "amb_ww10_38a.mp3" "amb_ww10_39a.mp3" "amb_ww10_40a.mp3" "amb_ww10_41a.mp3" "amb_ww10_42a.mp3" "amb_ww10_43a.mp3" "amb_ww10_44a.mp3" "amb_ww10_45a.mp3"
+	"amb_ww10_46a.mp3" "amb_ww10_47a.mp3" "amb_ww10_48a.mp3" "amb_ww10_49a.mp3" "amb_ww10_50a.mp3" "amb_ww10_51a.mp3" "amb_ww10_52a.mp3" "amb_ww10_53a.mp3" "amb_ww10_54a.mp3" "amb_ww10_55a.mp3"
+	]
+	}
+	{
+	epochFirst = Modern
+	epochLast = Modern
+	filenames = [
+	//戰爭風雲
+	"amb_ww11_1.mp3" "amb_ww11_2.mp3" "amb_ww11_3.mp3" "amb_ww11_4.mp3" "amb_ww11_5.mp3" "amb_ww11_6.mp3" "amb_ww11_7.mp3" "amb_ww11_8.mp3" "amb_ww11_9.mp3" "amb_ww11_10.mp3"
+	"amb_ww11_11.mp3" "amb_ww11_12.mp3" "amb_ww11_13.mp3" "amb_ww11_14.mp3" "amb_ww11_15.mp3" "amb_ww11_16.mp3" "amb_ww11_17.mp3" "amb_ww11_18.mp3" "amb_ww11_19.mp3" "amb_ww11_20.mp3"
+	"amb_ww11_21.mp3" "amb_ww11_22.mp3" "amb_ww11_23.mp3" "amb_ww11_24.mp3" "amb_ww11_25.mp3" "amb_ww11_26.mp3" "amb_ww11_27.mp3" "amb_ww11_28.mp3" "amb_ww11_29.mp3" "amb_ww11_30.mp3"
+	"amb_ww11_31.mp3" "amb_ww11_32.mp3" "amb_ww11_33.mp3" "amb_ww11_34.mp3" "amb_ww11_35.mp3" "amb_ww11_36.mp3" "amb_ww11_37.mp3" "amb_ww11_38.mp3"
+	]
+	}
+	{
+	epochFirst = Atomic
+	epochLast = Atomic
+	filenames = [
+	"amb_ww12_1.mp3" "amb_ww12_2.mp3" "amb_ww12_3.mp3" "amb_ww12_4.mp3" "amb_ww12_5.mp3" "amb_ww12_6.mp3" "amb_ww12_7.mp3" "amb_ww12_8.mp3" "amb_ww12_9.mp3" "amb_ww12_10.mp3"
+	"amb_ww12_11.mp3" "amb_ww12_12.mp3" "amb_ww12_13.mp3" "amb_ww12_14.mp3" "amb_ww12_15.mp3" "amb_ww12_16.mp3" "amb_ww12_17.mp3" "amb_ww12_18.mp3" "amb_ww12_19.mp3" "amb_ww12_20.mp3"
+	"amb_ww12_21.mp3" "amb_ww12_22.mp3" "amb_ww12_23.mp3" "amb_ww12_24.mp3" "amb_ww12_25.mp3" "amb_ww12_26.mp3" "amb_ww12_27.mp3" "amb_ww12_28.mp3" "amb_ww12_29.mp3" "amb_ww12_30.mp3"
+	"amb_ww12_31.mp3" "amb_ww12_32.mp3" "amb_ww12_33.mp3" "amb_ww12_34.mp3" "amb_ww12_35.mp3" "amb_ww12_36.mp3" "amb_ww12_37.mp3" "amb_ww12_38.mp3" "amb_ww12_39.mp3" "amb_ww12_40.mp3"
+	"amb_ww12_41.mp3" "amb_ww12_42.mp3" "amb_ww12_43.mp3" "amb_ww12_44.mp3" "amb_ww12_45.mp3" "amb_ww12_46.mp3" "amb_ww12_47.mp3" "amb_ww12_48.mp3" "amb_ww12_49.mp3" "amb_ww12_50.mp3"
+	"amb_ww12_51.mp3" "amb_ww12_52.mp3" "amb_ww12_53.mp3" "amb_ww12_54.mp3" "amb_ww12_55.mp3"
+	]
+	}
+	{
+	//cold war
+	epochFirst = Digital
+	epochLast = Digital
+	filenames = [
+	"amb_ww13_1.mp3" "amb_ww13_2.mp3" "amb_ww13_3.mp3" "amb_ww13_4.mp3" "amb_ww13_5.mp3" "amb_ww13_6.mp3" "amb_ww13_7.mp3" "amb_ww13_8.mp3" "amb_ww13_9.mp3" "amb_ww13_10.mp3" "amb_ww13_11.mp3" "amb_ww13_12.mp3"
+	]
+	}
+	{
+	//Information Age
+	epochFirst = Genetic
+	epochLast = Genetic
+	filenames = [
+	"amb_ww14_1.mp3" "amb_ww14_2.mp3" "amb_ww14_3.mp3" "amb_ww14_4.mp3" "amb_ww14_5.mp3" "amb_ww14_6.mp3" "amb_ww14_7.mp3" "amb_ww14_8.mp3" "amb_ww14_9.mp3" "amb_ww14_10.mp3" "amb_ww14_11.mp3" "amb_ww14_12.mp3" "amb_ww14_13.mp3" "amb_ww14_14.mp3" "amb_ww14_15.mp3"
+	"amb_ww14_16.mp3" "amb_ww14_17.mp3" "amb_ww14_18.mp3" "amb_ww14_19.mp3" "amb_ww14_20.mp3" "amb_ww14_21.mp3" "amb_ww14_22.mp3" "amb_ww14_23.mp3" "amb_ww14_24.mp3" "amb_ww14_25.mp3" "amb_ww14_26.mp3" "amb_ww14_27.mp3" "amb_ww14_28.mp3" "amb_ww14_29.mp3" "amb_ww14_30.mp3"
+	"amb_ww14_31.mp3"
+	
+	]
+	}
+	{
+	epochFirst = Synthetic
+	epochLast = Synthetic
+	filenames = [
+	//將軍
+	"amb_ww15_1.mp3" "amb_ww15_2.mp3" "amb_ww15_3.mp3" "amb_ww15_4.mp3" "amb_ww15_6.mp3" "amb_ww15_7.mp3" "amb_ww15_8.mp3" "amb_ww15_9.mp3" "amb_ww15_10.mp3" "amb_ww15_11.mp3" "amb_ww15_12.mp3" "amb_ww15_13.mp3" "amb_ww15_14.mp3" "amb_ww15_15.mp3"
+	"amb_ww15_16.mp3" "amb_ww15_17.mp3" "amb_ww15_18.mp3" "amb_ww15_19.mp3" "amb_ww15_20.mp3" "amb_ww15_21.mp3" "amb_ww15_22.mp3" "amb_ww15_23.mp3" "amb_ww15_24.mp3" "amb_ww15_25.mp3" "amb_ww15_26.mp3" "amb_ww15_27.mp3" "amb_ww15_28.mp3" "amb_ww15_29.mp3"
+	"amb_ww15_30.mp3" "amb_ww15_31.mp3" "amb_ww15_31.mp3" "amb_ww15_32.mp3" "amb_ww15_33.mp3" "amb_ww15_34.mp3" "amb_ww15_35.mp3" "amb_ww15_36.mp3" "amb_ww15_37.mp3" "amb_ww15_38.mp3" "amb_ww15_39.mp3"
+	]
+	}
+	]
+
+	fracSilentPieces = 0.5
+	timeSilenceLow = 20
+	timeSilenceHigh = 30
+	numLoopsLow = 2
+	numLoopsHigh = 4
+}

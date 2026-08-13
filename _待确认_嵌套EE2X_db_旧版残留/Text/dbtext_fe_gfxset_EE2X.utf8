@@ -1,0 +1,11 @@
+﻿/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	All of the entries in this file are created by postfixing "tx_gfxset_"	//
+//	with the last part of the respective widget name (everything after //
+//	the "options_video_" part).  The widget "options_video_pip" has	//
+//	an entry tx_gfxset_pip.  											//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// lighting detail
+tx_gfxset_light_menu_0,"""•最佳效能\n•单纯环境光源。\n•无动态光源。"""
+tx_gfxset_light_menu_1,"""•建筑物上有天空和地面反射环境光源。\n•建筑物上多达2个动态光源。\n•地形上多达8个动态光源。"""
+tx_gfxset_light_menu_2,"""•最佳视觉效果\n•所有模型均会反射天空与地面环境光源。\n•特定模型可反射光源。\n•建筑物上有多达4个动态光源。\n•树木和机动单位上有多达2个动态光源。\n•地面材质上有多达8个动态光源。\n•高动态光源颜色过滤。"""

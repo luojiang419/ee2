@@ -1,0 +1,348 @@
+//////////////////////////////Flag Area Effects///////////////////////////////
+
+// Naval Flag Power
+DbAreaEffectInfo NavalPower
+{
+	name = text_farea_navalpower_name
+	desc = text_farea_navalpower_desc
+
+	mouseCursor = FlagNaval
+	mouseCursorInvalid = FlagNavalInvalid
+
+	effects = [
+	
+		// decrease built time for military vessels by 15%
+		EffectProductionTime {
+			range = Unit
+			player = Self
+			affected = MilitaryNavalUnits
+			scale = 0.85
+		}
+
+		// decrease cost of military vessels by 15%
+		EffectProductionCost {
+			range = Unit
+			player = Self
+			affected = MilitaryNavalUnits
+			scale = 0.85
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			SuppressGlow = 1
+			GlowType = Good
+			Icon = icon_flag_naval
+			Tooltip = text_farea_navalpower_name
+			VTooltip = text_farea_navalpower_desc
+		}
+	]
+}
+
+
+// Air Flag Power
+DbAreaEffectInfo AirPower
+{
+	name = text_farea_airpower_name
+	desc = text_farea_airpower_desc
+
+	mouseCursor = FlagAir
+	mouseCursorInvalid = FlagAirInvalid
+
+	effects = [
+
+		// decrease built time for air units by 15%
+		EffectProductionTime {
+			range = Unit
+			player = Self
+			affected = Anything
+			scale = 0.85
+		}
+
+		// decrease cost of air units by 15%
+		EffectProductionCost {
+			range = Unit
+			player = Self
+			affected = Anything
+			scale = 0.85
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			SuppressGlow = 1
+			GlowType = Good
+			Icon = icon_flag_air
+			Tooltip = text_farea_airpower_name
+			VTooltip = text_farea_airpower_desc
+		}
+	]
+}
+
+// Infantry Flag Power
+DbAreaEffectInfo InfantryPower
+{
+	name = text_farea_infpower_name
+	desc = text_farea_infpower_desc
+
+	mouseCursor = FlagInfantry
+	mouseCursorInvalid = FlagInfantryInvalid
+
+	effects = [
+
+		// decrease built time for infantry units by 15%
+		EffectProductionTime {
+			range = Unit
+			player = Self
+			affected = LightAndHeavyInfantry
+			scale = 0.85
+		}
+
+		// decrease cost of infantry units by 15%
+		EffectProductionCost {
+			range = Unit
+			player = Self
+			affected = LightAndHeavyInfantry
+			scale = 0.85
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			SuppressGlow = 1
+			GlowType = Good
+			Icon = icon_flag_infantry
+			Tooltip = text_farea_infpower_name
+			VTooltip = text_farea_infpower_desc
+		}
+	]
+}
+
+// Mobile Flag Power
+DbAreaEffectInfo MobilePower
+{
+	name = text_farea_mobilepower_name
+	desc = text_farea_mobilepower_desc
+
+	mouseCursor = FlagMobile
+	mouseCursorInvalid = FlagMobileInvalid
+
+	effects = [
+
+		// decrease built time for mounted/tank units by 75%
+		EffectProductionTime {
+			range = Unit
+			player = Self
+			affected = Anything
+			scale = 0.85
+		}
+
+		// decrease cost of mounted/tank units by 75%
+		EffectProductionCost {
+			range = Unit
+			player = Self
+			affected = Anything
+			scale = 0.85
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			SuppressGlow = 1
+			GlowType = Good
+			Icon = icon_flag_mobile
+			Tooltip = text_farea_mobilepower_name
+			VTooltip = text_farea_mobilepower_desc
+		}
+	]
+}
+
+// Machine Flag Power
+DbAreaEffectInfo MachinePower
+{
+	name = text_farea_machinepower_name
+	desc = text_farea_machinepower_desc
+
+	mouseCursor = FlagMachine
+	mouseCursorInvalid = FlagMachineInvalid
+
+	effects = [
+
+		// decrease built time for artillery units by 75%
+		EffectProductionTime {
+			range = Unit
+			player = Self
+			affected = LightAndHeavyArtillery
+			scale = 0.85
+		}
+
+		// decrease cost of artillery units by 75%
+		EffectProductionCost {
+			range = Unit
+			player = Self
+			affected = LightAndHeavyArtillery
+			scale = 0.85
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			SuppressGlow = 1
+			GlowType = Good
+			Icon = icon_flag_machine
+			Tooltip = text_farea_machinepower_name
+			VTooltip = text_farea_machinepower_desc
+		}
+	]
+}
+
+// Cultural Flag Power
+DbAreaEffectInfo CulturalPower
+{
+	name = text_farea_cultpower_name
+	desc = text_farea_cultpower_desc
+
+	mouseCursor = FlagCultural
+	mouseCursorInvalid = FlagCulturalInvalid
+
+	effects = [
+
+		// increase tech gather rate by 25%
+		EffectResourceDropoff {
+			range = Unit
+			player = Self
+			affected = [Tech]
+			scale = 1.25
+		}
+
+		// decrease built time for spies by 75%
+		EffectProductionTime {
+			range = Unit
+			player = Self
+			affected = Spies
+			scale = 0.85
+		}
+
+		// decrease cost of spies by 75%
+		EffectProductionCost {
+			range = Unit
+			player = Self
+			affected = Spies
+			scale = 0.85
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			SuppressGlow = 1
+			GlowType = Good
+			Icon = icon_flag_cultural
+			Tooltip = text_farea_cultpower_name
+			VTooltip = text_farea_cultpower_desc
+		}
+	]
+}
+
+// Religious Flag Power
+DbAreaEffectInfo ReligiousPower
+{
+	name = text_farea_relpower_name
+	desc = text_farea_relpower_desc
+
+	mouseCursor = FlagReligious
+	mouseCursorInvalid = FlagReligiousInvalid
+
+	effects = [
+		// increase tech gather rate by 25%
+		EffectResourceDropoff {
+			range = Unit
+			player = Self
+			affected = [Tech]
+			scale = 1.25
+		}
+
+		// decrease built time for priests by 75%
+		EffectProductionTime {
+			range = Unit
+			player = Self
+			affected = AffectedByReligiousFlag
+			scale = 0.85
+		}
+
+		// decrease cost of priests by 75%
+		EffectProductionCost {
+			range = Unit
+			player = Self
+			affected = AffectedByReligiousFlag
+			scale = 0.85
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			SuppressGlow = 1
+			GlowType = Good
+			Icon = icon_flag_religious
+			Tooltip = text_farea_relpower_name
+			VTooltip = text_farea_relpower_desc
+		}
+	]
+}
+
+// Financial Flag Power
+DbAreaEffectInfo FinancialPower
+{
+	name = text_farea_finpower_name
+	desc = text_farea_finpower_desc
+
+	mouseCursor = FlagFinancial
+	mouseCursorInvalid = FlagFinancialInvalid
+
+	effects = [
+
+//@TODO: trade time is halved
+
+		// triple trade route drop-off amount
+		EffectResourceTrade {
+			range = Unit
+			player = Self
+			affected = [Gold]
+			scale = 3
+		}
+
+		// decrease built time for trade units by 75%
+		EffectProductionTime {
+			range = Unit
+			player = Self
+			affected = TT_TradeUnit
+			scale = 0.85
+		}
+
+		// decrease cost of trade units by 75%
+		EffectProductionCost {
+			range = Unit
+			player = Self
+			affected = TT_TradeUnit
+			scale = 0.85
+		}
+		
+		// "glow" (suppressed) so we get sexy icon
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			SuppressGlow = 1
+			GlowType = Good
+			Icon = icon_flag_financial
+			Tooltip = text_farea_finpower_name
+			VTooltip = text_farea_finpower_desc
+		}
+	]
+}
+

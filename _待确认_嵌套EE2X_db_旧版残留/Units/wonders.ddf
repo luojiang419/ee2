@@ -1,0 +1,483 @@
+//------------------------------------------------------------------------------------------------
+//	WONDERS
+//------------------------------------------------------------------------------------------------
+UnitType Wonder
+{
+	ownerType = PlayerOnly
+	parent = NoProduceBuilding
+	properties {
+		SizeX = 3
+		SizeY = 3
+		mass = 1
+		hitpoints = 6000
+		displayNameTTTooltip = tx_utn_Wonder_tt_name
+	}
+
+	abilities = [
+		LOS { range = 2 }
+		Convertable { 
+			convertTimeModifier = 300.0;  //
+			garrisonedUnitModifier = 0.0; // 10% increase in capture time
+			garrisonedUnitDamage = 0.0;	  // hitpoints subtracted from capturer per round per garrisoned unit
+			damageRate = 0.0;			  // hitpoints subtracted from capture target hitpoints per round
+			capture = 1;
+		} // may be captured
+	]
+	attributes = [IsWonder]
+}
+
+//------------------------------------------------------------------------------------------------
+//	WONDERS WESTERN - UNIT TYPE AND VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1 - PARTHENON
+//------------------------------------------------
+UnitType WonderWestern_01
+{
+	parent = Wonder
+	properties {
+		SizeX = 5
+		SizeY = 3
+		FootprintSizeX = 6.5
+		FootprintSizeY = 4.5
+		UndertextureSizeX = 6.5
+		UndertextureSizeY = 4.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderW1_name
+		VerboseTooltip = vtt_unit_WonderW1
+	}
+
+abilities = [
+		LOS { range = 5 }
+	]
+	icon = icon_unit_wonderwestern_01
+}
+
+UnitModel WonderWestern_01
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_wonder1_we.nif
+	ChildNames		= [ UnderWonderWestern_01 ]
+	UIRenderingParams {
+		xOffset = 0.53
+		yOffset = 0.89
+		zOffset = 1.17
+		scale = 1.28
+		angle = 42.63
+		rotationSpeed = 0.00
+		pitch = 40.26
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 6 - BRANDENBURG GATE
+//------------------------------------------------
+UnitType WonderWestern_06
+{
+	parent = Wonder
+	properties {
+		SizeX = 2.5
+		SizeY = 5.5
+		FootprintSizeX = 4
+		FootprintSizeY = 7
+		UndertextureSizeX = 4
+		UndertextureSizeY = 7
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderW6_name
+		VerboseTooltip = vtt_unit_WonderW6
+		hitpoints = 8000
+	}
+	abilities = [
+		LOS { range = 5 }
+		AreaEffect { effects = [ SpoilsOfWar ] }
+	]
+	icon = icon_unit_wonderwestern_06
+}
+
+UnitModel WonderWestern_06
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_Brandenburg.nif
+	ChildNames		= [ UnderWonderWestern_06 ]
+	UIRenderingParams {
+		xOffset = -1.84
+		yOffset = -0.59
+		zOffset = 2.16
+		scale = 1.00
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 40.26
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 11 - PENTAGON
+//------------------------------------------------
+UnitType WonderWestern_11
+{
+	parent = Wonder
+	properties {
+		SizeX = 5.5
+		SizeY = 5.5
+		FootprintSizeX = 7
+		FootprintSizeY = 7
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderW11_name
+		VerboseTooltip = vtt_unit_WonderW11
+		hitpoints = 10000
+	}
+	abilities = [
+		LOS { range = 5 }
+		AreaEffect {effects = [ HomelandDefense ] }
+	]
+	icon = icon_unit_wonderwestern_11
+}
+
+UnitModel WonderWestern_11
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_pentagon.NIF
+	ChildNames		= [ UnderWonderWestern_11 ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	WONDERS MIDDLE EASTERN - UNIT TYPE AND VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1 - SPHINX
+//------------------------------------------------
+UnitType WonderMiddleEast_01
+{
+	parent = Wonder
+	properties {
+		SizeX = 4
+		SizeY = 3
+		FootprintSizeX = 5.5
+		FootprintSizeY = 4.5
+		UndertextureSizeX = 5.5
+		UndertextureSizeY = 4.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderMidE1_name
+		VerboseTooltip = vtt_unit_WonderMidE1
+	}
+	abilities = [
+		LOS { range = 5 }
+		AreaEffect { effects = [ RiddleOfTheSphinx ] }
+	]
+	icon = icon_unit_WonderMiddleEast_01
+}
+
+UnitModel WonderMiddleEast_01
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_wonder1_me.NIF
+	ChildNames		= [ UnderWonderMiddleEast_01 ]
+}
+
+//------------------------------------------------
+//	EPOCH 6 - SELIMYE MOSQUE
+//------------------------------------------------
+UnitType WonderMiddleEast_06
+{
+	parent = Wonder
+	properties {
+		SizeX = 5
+		SizeY = 4
+		FootprintSizeX = 6.5
+		FootprintSizeY = 5.5
+		UndertextureSizeX = 6.5
+		UndertextureSizeY = 5.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderMidE6_name
+		VerboseTooltip = vtt_unit_WonderMidE6
+		hitpoints = 8000
+	}
+	abilities = [
+		LOS { range = 5 }
+		AreaEffect {effects = [ SultansReward ] }
+	]
+	icon = icon_unit_WonderMiddleEast_06
+}
+
+UnitModel WonderMiddleEast_06
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_selimye_mosque.nif
+	ChildNames		= [ UnderWonderMiddleEast_06 ]
+}
+
+//------------------------------------------------
+//	EPOCH 11 - DESALINZATION PLANT
+//------------------------------------------------
+UnitType WonderMiddleEast_11
+{
+	parent = Wonder
+	properties {
+		SizeX = 5
+		SizeY = 5
+		FootprintSizeX = 6.5
+		FootprintSizeY = 6.5
+		UndertextureSizeX = 5.5
+		UndertextureSizeY = 5.5
+		UndertextureOffsetX = 0.10
+		UndertextureOffsetY = 0.25
+
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderMidE11_name
+		VerboseTooltip = vtt_unit_WonderMidE11
+		hitpoints = 10000
+	}
+	abilities = [
+		LOS { range = 5 }
+		
+		// see: ee2/run/db/simulation/misc/wonder.ddf
+		// for this wonder's power hookup
+	]
+	icon = icon_unit_WonderMiddleEast_11
+}
+
+UnitModel WonderMiddleEast_11
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_desalinization.nif
+	ChildNames		= [ UnderWonderMiddleEast_11 ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	WONDERS FAR EASTERN - UNIT TYPE AND VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1 - TOWER OF THE MOON AND STARS
+//------------------------------------------------
+UnitType WonderFarEast_01
+{
+	parent = Wonder
+	properties {
+		SizeX = 6
+		SizeY = 6
+		FootprintSizeX = 7.5
+		FootprintSizeY = 7.5
+		UndertextureSizeX = 7.5
+		UndertextureSizeY = 7.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderFarE1_name
+		VerboseTooltip = vtt_unit_WonderFarE1
+	}
+	abilities = [
+		LOS { range = 5 }
+		AreaEffect {effects = [ Farseeing ] }
+	]
+	icon = icon_unit_WonderFarEast_01
+}
+
+UnitModel WonderFarEast_01
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_wonder1_fe.NIF
+	ChildNames		= [ UnderWonderFarEast_01 ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.31
+		zOffset = 1.18
+		scale = 1.53
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = 60.00
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 6 - FORBIDDEN PALACE
+//------------------------------------------------
+UnitType WonderFarEast_06
+{
+	parent = Wonder
+	properties {
+		SizeX = 4.5
+		SizeY = 5.5
+		FootprintSizeX = 6
+		FootprintSizeY = 7
+		UndertextureSizeX = 6
+		UndertextureSizeY = 7
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderFarE6_name
+		VerboseTooltip = vtt_unit_WonderFarE6
+		hitpoints = 8000
+	}
+	abilities = [
+		LOS { range = 5 }
+		AreaEffect { effects = [ Splendor ] }
+	]
+	icon = icon_unit_WonderFarEast_06
+}
+
+UnitModel WonderFarEast_06
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_ForbiddenPalace.NIF
+	ChildNames		= [ UnderWonderFarEast_06 ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.03
+		zOffset = 1.19
+		scale = 1.28
+		angle = 42.63
+		rotationSpeed = 0.00
+		pitch = 40.26
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 11 - ROBOTICS FACTORY
+//------------------------------------------------
+UnitType WonderFarEast_11
+{
+	parent = Wonder
+	properties {
+		SizeX = 6
+		SizeY = 4
+		FootprintSizeX = 7.5
+		FootprintSizeY = 5.5
+		UndertextureSizeX = 7.5
+		UndertextureSizeY = 5.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderFarE11_name
+		VerboseTooltip = vtt_unit_WonderFarE11
+		requiredOpenSides = kBuildingOpenSides_PosX
+		RallyPlacementFlags = ( Fortress | Tower | Terrain )
+		hitpoints = 10000
+	}
+	abilities = [
+		LOS { range = 5 }
+		AreaEffect {
+			effects = [ AutomationEpoch11 ]
+		}
+		// For the automation effect, we need to produce
+		Produce {
+		}
+	]
+	icon = icon_unit_WonderFarEast_11
+}
+
+UnitModel WonderFarEast_11
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_robotics_factory.NIF
+	ChildNames		= [ UnderWonderFarEast_11 ]
+}
+
+UpgradeEffects WonderFarEastEpoch15AreaEffect
+{
+	unitType = WonderFarEast_11
+	effectsToAdd = [ AutomationEpoch15 ]
+	effectsToRemove = [ AutomationEpoch11 ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	WONDERS MESO AMERICAN - UNIT TYPE AND VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1 - TEMPLE OF THE GREAT JAGUAR
+//------------------------------------------------
+UnitType WonderMesoAmerican_01
+{
+	parent = Wonder
+	properties {
+		SizeX = 3
+		SizeY = 3
+		FootprintSizeX = 4.5
+		FootprintSizeY = 4.5
+		UndertextureSizeX = 4.5
+		UndertextureSizeY = 4.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderMesoAmer1_name
+		VerboseTooltip = vtt_unit_WonderMesoAmer1
+	}
+	abilities = [
+		LOS { range = 5 }
+		AreaEffect { effects = [ ArtOfWar ] }
+	]
+	icon = icon_unit_WonderMesoAmerican_01
+}
+
+UnitModel WonderMesoAmerican_01
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_jaguar.NIF
+	ChildNames		= [ UnderWonderMesoAmerican_01 ]
+}
+
+//------------------------------------------------
+//	EPOCH 6 - GREAT PYRAMID OF TENOCHTITLAN
+//------------------------------------------------
+UnitType WonderMesoAmerican_06
+{
+	parent = Wonder
+	properties {
+		SizeX = 5
+		SizeY = 4.5
+		FootprintSizeX = 6.5
+		FootprintSizeY = 6
+		UndertextureSizeX = 6.5
+		UndertextureSizeY = 6
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderMesoAmer6_name
+		VerboseTooltip = vtt_unit_WonderMesoAmer6
+		hitpoints = 8000
+	}
+	abilities = [
+		LOS { range = 5 }
+		AreaEffect { effects = [ Proselytizing ] }
+	]
+	icon = icon_unit_WonderMesoAmerican_06
+}
+
+UnitModel WonderMesoAmerican_06
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_pyramid.NIF
+	ChildNames		= [ UnderWonderMesoAmerican_06 ]
+}
+
+//------------------------------------------------
+//	EPOCH 11 - SOLAR POWER STATION
+//------------------------------------------------
+UnitType WonderMesoAmerican_11
+{
+	parent = Wonder
+	properties {
+		SizeX = 6
+		SizeY = 6
+		FootprintSizeX = 7.5
+		FootprintSizeY = 7.5
+		UndertextureSizeX = 7.5
+		UndertextureSizeY = 7.5
+		OffsetX = 0.75
+		OffsetY = 0.75
+		displayName = tx_utn_WonderMesoAmer11_name
+		VerboseTooltip = vtt_unit_WonderMesoAmer11
+		hitpoints = 10000
+	}
+	abilities = [
+		LOS { range = 5 }
+	]
+	icon = icon_unit_WonderMesoAmerican_11
+}
+
+UnitModel WonderMesoAmerican_11
+{
+	Parent			= BaseBuilding
+	DefaultModel 		= bld_solararray.nif
+	ChildNames		= [ UnderWonderMesoAmerican_11 ]
+}

@@ -1,0 +1,23 @@
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT ENGLISH LIGHT HORSE (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitEnglish2Hero
+{
+	parent = UniqueUnitEnglish2
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.46
+		SizeY = 0.23
+	}
+	abilities = [
+		Hero { HeroClass = HeavyMounted; HeroForUnit = UniqueUnitEnglish2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitEnglish2Hero
+{
+	Parent		= UniqueUnitEnglish2
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

@@ -1,0 +1,90 @@
+﻿/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	All of the entries in this file are created by postfixing "tx_gfxset_"	//
+//	with the last part of the respective widget name (everything after //
+//	the "options_video_" part).  The widget "options_video_pip" has	//
+//	an entry tx_gfxset_pip.  											//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// screen resolution/colordepth
+tx_gfxset_displaymode_menu_0,"""•最佳效能\n•画面解析度宽800图素，高600图素（低解析度），每个图素有32位元的色彩深度。"""
+tx_gfxset_displaymode_menu_1,"""•最佳效能\n•画面解析度宽800图素，高600图素（低解析度），每个图素有16位元的色彩深度。"""
+tx_gfxset_displaymode_menu_2,"""•画面解析度宽1024图素，高768图素，每个图素有32位元的色彩深度。"""
+tx_gfxset_displaymode_menu_3,"""•画面解析度宽1024图素，高768图素，每个图素有16位元的色彩深度。"""
+tx_gfxset_displaymode_menu_4,"""•画面解析度宽1152图素，高864图素，每个图素有32位元的色彩深度。"""
+tx_gfxset_displaymode_menu_5,"""•画面解析度宽1152图素，高864图素，每个图素有16位元的色彩深度。"""
+tx_gfxset_displaymode_menu_6,"""•画面解析度宽1280图素，高960图素，每个图素有32位元的色彩深度。"""
+tx_gfxset_displaymode_menu_7,"""•画面解析度宽1280图素，高960图素，每个图素有16位元的色彩深度。"""
+tx_gfxset_displaymode_menu_8,"""•画面解析度宽1280图素，高1024图素，每个图素有32位元的色彩深度。"""
+tx_gfxset_displaymode_menu_9,"""•画面解析度宽1280图素，高1024图素，每个图素有16位元的色彩深度。"""
+tx_gfxset_displaymode_menu_10,"""•最佳视效\n•画面解析度宽1600图素，高1200图素（高解析度），每个图素有32位元的色彩深度。"""
+tx_gfxset_displaymode_menu_11,"""•最佳视效\n•画面解析度宽1600图素，高1200图素（高解析度），每个图素有16位元的色彩深度。"""
+
+// model detail
+tx_gfxset_model_menu_0,"""•最佳效能\n•所有模型是以最低的几何图形细致度显示。\n•每个顶点上只用2个骨架来显示动画。\n•角色身上的光影是平坦的（移除法线）。"""
+tx_gfxset_model_menu_1,"""•所有模型是以中等的几何图形细致度显示。\n•每个顶点上只用2个骨架来显示动画。\n•角色身上的光影使用了部分的动态顶点法线。"""
+tx_gfxset_model_menu_2,"""•最佳视效\n•所有模型是以最高的几何图形细致度显示。\n•每个顶点上只用4个骨架来显示动画。\n•角色身上的光影使用了完整的动态顶点法线。"""
+
+// animation detail
+tx_gfxset_anim_menu_0,"""•最佳效能\n•无树木与环境特效。\n•诸如单位间的动画会同步重复播放。\n•无随机且具季节效果的动画。\n•颈、手与足部无动画。"""
+tx_gfxset_anim_menu_1,"""•无树木动画，但是有环境特效。\n•无诸如单位间的强制同步动画。\n•使用随机且具季节效果的动画。\n•颈、手与足部依视角决定是否提供动画。"""
+tx_gfxset_anim_menu_2,"""•最佳视效\n•所有动画效果完全开启。"""
+
+// texture detail
+tx_gfxset_texture_menu_0,"""•最佳效能\n•季节变幻的地形材质在不混合的状况下被置换。\n•游戏中所有的材质降到最大解析度的1/4。\n•使用者介面的材质降到最大解析度的1/2或1/4。"""
+tx_gfxset_texture_menu_1,"""•季节变幻的地形材质会定期混合。\n•游戏中所有的材质降到最大解析度的1/2。\n•使用者介面的材质降到最大解析度的1/2。"""
+tx_gfxset_texture_menu_2,"""•最佳视效\n•季节变幻的地形材质会平顺地被混合。\n•所有材质以最高解析度显示。"""
+
+// effect detail
+tx_gfxset_fx_menu_0,"""•最佳效能\n•颗粒数会减少为最大值的1/4。\n•无飞行破片、光线、火花以及其他特效。\n•无船舰的水迹和岸边的波涛。\n•建筑物的建造和毁坏效果使用低细致度的几何图形。\n•旗帜与船帆使用固定的光影。\n•无脚印与车辆轨迹。"""
+tx_gfxset_fx_menu_1,"""•颗粒数会减少为最大值的1/2。\n•飞行破片、光线、火花以及其他特效会降低。\n•船舰的水迹和岸边的波涛会被简化。\n•建筑物的建造和毁坏效果使用中细致度的几何图形。\n•旗帜与船帆使用固定的光影，但会更新环境光影效果。\n•脚印与车辆轨迹会很快消失。"""
+tx_gfxset_fx_menu_2,"""•颗粒为标准数量。\n•飞行破片、光线、火花以及其他特效为正常细致度。\n•有船舰的水迹和岸边的波涛。\n•建筑物的建造和毁坏效果使用高细致度的几何图形。\n•旗帜与船帆使用动态的光影。\n•脚印与车辆轨迹维持一般的显示时间。"""
+tx_gfxset_fx_menu_3,"""•最佳视效\n•颗粒为最大数量。\n•飞行破片、光线、火花以及其他特效为最大细致度。\n•有船舰的水迹和岸边的波涛。\n•建筑物的建造和毁坏效果使用高细致度的几何图形。\n•旗帜与船帆使用动态的光影。\n•脚印与车辆轨迹维持最久的显示时间。"""
+
+// weather detail
+tx_gfxset_weather_menu_0,"""•最佳效能\n•最低数量的雪、雨和灰尘粒子。\n•在下雨和下雪时不会起雾。"""
+tx_gfxset_weather_menu_1,"""•适当数量的雪、雨和灰尘粒子。\n•在下雨和下雪时不会起雾。"""
+tx_gfxset_weather_menu_2,"""•较多数量的雪、雨和灰尘粒子。\n•在下雨和下雪时不会起雾。"""
+tx_gfxset_weather_menu_3,"""•最佳视效\n•最大数量的雪、雨和灰尘粒子。\n•在下雨和下雪时会起雾。\n•雨滴飞溅的效果会出现在地面和水面上。"""
+
+// water detail
+tx_gfxset_water_menu_0,"""•最佳效能\n•简化的材质水面，无动画效果。\n•无水面反射。"""
+tx_gfxset_water_menu_1,"""•基本的多材质动态水面\n•基本水面反射。\n•需要顶点和图素遮影器1.1版。"""
+tx_gfxset_water_menu_2,"""•最佳视效\n•进一步的多材质动态水面\n•进阶水面反射。\n•需要顶点和图素遮影器1.4版。"""
+
+// terrain detail
+tx_gfxset_terrain_menu_0,"""•最佳效能\n•峭壁使用了较低细致度的几何图形。\n•材质变换规模会降低。"""
+tx_gfxset_terrain_menu_1,"""•峭壁使用较低细致度的几何图形。\n•地形材质会完整变换。"""
+tx_gfxset_terrain_menu_2,"""•最佳视效\n•峭壁使用高细致度的几何图形。\n•地形材质会完整变换。"""
+
+// shadow detail
+tx_gfxset_shadow_menu_0,"""•最佳效能\n•阴影已被关闭。"""
+tx_gfxset_shadow_menu_1,"""•阴影只投射在地形和主要摄影机上。"""
+tx_gfxset_shadow_menu_2,"""•阴影只投射在主要和子母画面摄影机的地形上。"""
+tx_gfxset_shadow_menu_3,"""•所有建筑物的阴影会影响所有物件。"""
+tx_gfxset_shadow_menu_4,"""•所有单位的阴影会影响所有物件。"""
+tx_gfxset_shadow_menu_5,"""•最佳视效\n•所有单位的阴影会投射在所有摄影机的所有物件上，包括反射摄影机。"""
+
+// pip on/off
+tx_gfxset_pip,"""开启或关闭子母画面视窗，关闭此项目可增加游戏执行效率。"""
+
+// battlefield ambients on/off
+tx_gfxset_bfield_amb,"""开启或关闭战场特效（脚印、车辆轨迹、车痕、弹孔与血迹）。请注意特效细致度的设定可能会修改或覆盖掉此设定。关闭此功能可增加游戏的执行效率。"""
+
+// blood on/off
+tx_gfxset_blood,"""开启或关闭血迹。"""
+
+// dynamic lighting on/off
+tx_gfxset_ee2xLight,"""启动或关闭EE2X动态光源。关闭此项目可以增加游戏的执行效率。"""
+
+// default setting
+tx_gfxset_default_menu_0,"""分析你的系统（CPU、RAM与显卡）并调整所有设定，让执行效率和视觉品质达到平衡。"""
+tx_gfxset_default_menu_1,"""调整所有设定，提供最快的执行效率。"""
+tx_gfxset_default_menu_2,"""调整所有设定，提供最好的视觉品质。"""
+
+// show system info text
+tx_gfxset_showinfo_info,"""系统资讯：\n\n%VIDMEM%\n%AGPMEM%\n%PIXEL%\n%VERTEX%\n%VIDCARD%"""
+tx_gfxset_showinfo_vidmem,"""显存：%MEMORY%"""
+tx_gfxset_showinfo_agpmem,"""AGP记忆：%MEMORY%"""
+tx_gfxset_showinfo_vidcard,"""显卡：%CARD%"""
+tx_gfxset_showinfo_pixel,"""图素遮影器版本：%MAJOR%.%MINOR%"""
+tx_gfxset_showinfo_vertex,"""顶点遮影器版本：%MAJOR%.%MINOR%"""

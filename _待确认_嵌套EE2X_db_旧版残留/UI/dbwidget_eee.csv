@@ -1,0 +1,103 @@
+//NAME,CLASS,PARENT,INC ACCUM DEPTH,ANCHORNAME1,ANCHORTYPE1,ANCHORNAME2,ANCHORTYPE2,XOFF,YOFF,XOFF ANCHOR2,YOFF ANCHOR2,WIDTH,HEIGHT,SPRITE,FRAMESTYLE,BUTTONSTYLE,FONTSTYLE,TEXTJUST,XTEXTOFF,YTEXTOFF,LABEL,TOOLTIP,VERBOSE,NOMOUSE,CMDSTR,ARGSTR
+// Empire Earth Encyclopedia main panel and toolbar,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_main,Sprite,,0,,,,,0,0,0,0,1600,1200,spr_parchment,,,,,0,0,,,,0,,"""tileUV"""
+eee_frame_outer,Widget,eee_main,0,,,,,5,5,0,0,1590,1190,,wfs_eee_simple_inner,,,,0,0,,,,0,,""""""
+eee_frame_inner,Widget,eee_frame_outer,0,,,,,5,5,0,0,1565,1165,,wfs_eee_fancy_inner,,,,0,0,,,,0,,""""""
+eee_page_root,Widget,eee_frame_inner,0,,,,,0,0,0,0,1430,1030,,wfs_eee_simple_inner,,,,0,0,,,,0,,""""""
+eee_toolbar,Sprite,eee_frame_outer,0,,,,,600,-1,0,0,400,75,spr_eee_butt_frame,,,,,0,0,,,,0,,""""""
+eee_toolbar_back,Button,eee_toolbar,0,,,,,30,0,0,0,75,75,spr_eee_butt_back,,TwoStateRollover,fs_std_med_white,CenterMid,0,0,,tx_eee_toolbar_back,,0,,"""clickFlags=5"""
+eee_toolbar_forward,Button,eee_toolbar,0,eee_toolbar_back,SourceURTargetUL,,,20,0,0,0,75,75,spr_eee_butt_fwd,,TwoStateRollover,fs_std_med_white,CenterMid,0,0,,tx_eee_toolbar_forward,,0,,"""clickFlags=5"""
+eee_toolbar_home,Button,eee_toolbar,0,eee_toolbar_forward,SourceURTargetUL,,,20,0,0,0,75,75,spr_eee_butt_home,,TwoStateRollover,fs_std_med_white,CenterMid,0,0,,tx_eee_toolbar_home,,0,EEE_LinkToPage,"""clickFlags=5"""
+eee_toolbar_close,Button,eee_toolbar,0,eee_toolbar_home,SourceURTargetUL,,,20,0,0,0,75,75,spr_eee_butt_close,,TwoStateRollover,fs_std_med_white,CenterMid,0,0,,tx_eee_toolbar_close,,0,EEE_Toggle,"""clickFlags=5"""
+
+
+// Fullscreen page widget,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_page_full,Page,eee_page_root,0,,,,,0,0,0,0,1415,1015,,,,,,0,0,,,,0,,""""""
+
+// Split page widgets,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_page_left,Page,eee_page_root,0,,,,,0,0,0,0,420,1015,,,,,,0,0,,,,0,,""""""
+eee_page_right,Page,eee_page_root,0,,,,,420,0,0,0,995,1015,spr_eee_page,,,,,0,0,,,,0,,""""""
+
+// Home page,,,,,,,,,,,,,,,,,,,,,,,,,,
+//eee_home_onlyWidget,Sprite,,0,,,,,115,50,0,0,768,384,spr_eee_main_title,,,,,0,0,,,,0,,""""""
+eee_home_onlyWidget,Sprite,,0,,,,,310,200,0,0,400,200,spr_eee_main_title,,,,,0,0,,,,0,,""""""
+eee_home_text,Text,,0,eee_home_onlyWidget,SourceLLTargetUL,eee_home_onlyWidget,SourceLRTargetUR,0,20,0,0,-1,40,,,,fs_std_huge_bold_black,CenterMid,0,0,tx_eee_home_encyc,,,0,,"""noClip"""
+// Sidebar at left,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_sidebar_list,ListText,,0,,,,,0,20,0,0,420,975,,,,fs_eee_list_links,Left,5,0,,,,0,,"""scrollBar=eee_scrollbar itemHilite=spr_fe_listitem folderSprite=spr_folder_closed folderIndent=30 itemIndent=10"""
+
+// title and intro with sprite and text (next to sprite),,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_test_firstWidget,Text,,0,,,,,180,200,0,0,800,80,,,,fs_eee_home_links,CenterMid,0,0,tx_eee_test1,,,0,,""""""
+eee_test_texttop,Text,,0,,,,,180,250,0,0,800,80,,,,fs_eee_home_links,,0,0,,,,0,,"""autosize wordwrap"""
+eee_test_icontop,Sprite,,0,eee_test_texttop,SourceULTargetUR,,,-20,0,0,0,50,50,spr_eee_butt_home,,,,,0,0,,,,0,,""""""
+eee_test_text,Text,,0,eee_test_texttop,SourceLLTargetUL,,,0,20,0,0,800,80,,,,fs_eee_home_links,,0,0,,,,0,,"""autosize wordwrap"""
+eee_test_icon,Sprite,,0,eee_test_text,SourceULTargetUR,,,-20,0,0,0,50,50,spr_eee_butt_back,,,,,0,0,,,,0,,""""""
+eee_test_lastWidget,Text,,0,,,,,180,800,0,0,800,80,,,,fs_eee_home_links,CenterMid,0,0,tx_eee_test2,,,0,,""""""
+
+// Unit type page,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_unittype,EEE_UnitType,,0,,,,,80,40,0,0,870,960,,,,,,0,0,,,,0,,"""firstWidget=eee_unittype_model_frame lastWidget=eee_unittype_description"""
+// The widgets below are not part of the layout; they are created by eee_unittype,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_unittype_model_frame,Widget,EEE_UnitType,0,,,,,40,100,0,0,200,200,,wfs_game_blackline,,,,0,0,,,,0,,""""""
+eee_unittype_model,UnitRenderingBase,eee_unittype_model_frame,0,,SourceULTargetUL,,SourceLRTargetLR,2,2,-2,-2,-1,-1,,wfs_game_dash_inset,,,,0,0,,,,0,,""""""
+eee_unittype_epoch_inc,Button,EEE_UnitType,0,eee_unittype_model_frame,SourceLRTargetUR,,,0,0,0,0,32,32,spr_eee_butt_right,,TwoStateRollover,fs_std_med_black,,0,0,,,,0,,""""""
+eee_unittype_epoch_dec,Button,EEE_UnitType,0,eee_unittype_model_frame,SourceLLTargetUL,,,0,0,0,0,32,32,spr_eee_butt_left,,TwoStateRollover,fs_std_med_black,,0,0,,,,0,,""""""
+eee_unittype_epoch_number,Text,EEE_UnitType,0,,,,,80,300,0,0,120,40,,,,fs_std_med_black,CenterMid,0,0,,,,1,,""""""
+eee_unittype_typename,Text,EEE_UnitType,0,,,,,40,0,0,0,560,80,,,,fs_std_huge_grey_drop,Left,0,0,,,,0,,""""""
+eee_unittype_costlabel,Text,EEE_UnitType,0,,,,,40,470,0,0,100,50,,,,fs_std_med_bold_black,,0,0,tx_eee_unittype_cost,,,0,,""""""
+eee_unittype_resicon_0,Sprite,EEE_UnitType,0,,,,,140,400,0,0,64,64,,,,,,0,0,,,,0,,""""""
+eee_unittype_rescost_0,Text,EEE_UnitType,0,,,,,140,470,0,0,64,40,,,,fs_std_med_black,Center,0,0,,,,0,,""""""
+eee_unittype_resicon_1,Sprite,EEE_UnitType,0,,,,,240,400,0,0,64,64,,,,,,0,0,,,,0,,""""""
+eee_unittype_rescost_1,Text,EEE_UnitType,0,,,,,240,470,0,0,64,40,,,,fs_std_med_black,Center,0,0,,,,0,,""""""
+eee_unittype_resicon_2,Sprite,EEE_UnitType,0,,,,,340,400,0,0,64,64,,,,,,0,0,,,,0,,""""""
+eee_unittype_rescost_2,Text,EEE_UnitType,0,,,,,340,470,0,0,64,40,,,,fs_std_med_black,Center,0,0,,,,0,,""""""
+eee_unittype_resicon_3,Sprite,EEE_UnitType,0,,,,,440,400,0,0,64,64,,,,,,0,0,,,,0,,""""""
+eee_unittype_rescost_3,Text,EEE_UnitType,0,,,,,440,470,0,0,64,40,,,,fs_std_med_black,Center,0,0,,,,0,,""""""
+eee_unittype_description,Text,EEE_UnitType,0,,,,,40,650,0,0,800,300,,,,fs_std_med_bold_black,Left,0,0,,,,0,,"""scrollBar=eee_scrollbar wordWrap"""
+// These are not auto-created, but are created by the unittype widget by hand,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_unittype_info,Text,EEE_UnitType,0,,,,,300,100,0,0,560,400,,,,fs_std_med_black,Left,0,0,,,,1,,""""""
+
+// Unit Type Main Page,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_utmain_title,Text,,0,,,,,120,40,0,0,560,80,,,,fs_std_huge_grey_drop,Left,0,0,tx_eee_unittype_title,,,0,,""""""
+eee_utmain_icon1,Sprite,,0,,,,,120,160,0,0,200,200,icon_unit_citizen_male_1_fe,,,,,0,0,,,,0,,""""""
+eee_utmain_icon2,Sprite,,0,,,,,120,360,0,0,200,200,icon_unit_house_1_fe,,,,,0,0,,,,0,,""""""
+eee_utmain_icon3,Sprite,,0,,,,,120,560,0,0,200,200,icon_unit_priest_fe,,,,,0,0,,,,0,,""""""
+eee_utmain_icon4,Sprite,,0,,,,,120,760,0,0,200,200,icon_unit_composite_bowman_we,,,,,0,0,,,,0,,""""""
+eee_utmain_icon5,Sprite,,0,,,,,320,160,0,0,200,200,icon_unit_trebuchet,,,,,0,0,,,,0,,""""""
+eee_utmain_icon6,Sprite,,0,,,,,320,360,0,0,200,200,icon_unit_tradecart_2_fe,,,,,0,0,,,,0,,""""""
+eee_utmain_icon7,Sprite,,0,,,,,320,560,0,0,200,200,icon_unit_fishing_galley,,,,,0,0,,,,0,,""""""
+eee_utmain_icon8,Sprite,,0,,,,,320,760,0,0,200,200,icon_unit_fortress_6_fe,,,,,0,0,,,,0,,""""""
+eee_utmain_icon9,Sprite,,0,,,,,520,160,0,0,200,200,icon_unit_outpost_10,,,,,0,0,,,,0,,""""""
+eee_utmain_icon10,Sprite,,0,,,,,520,360,0,0,200,200,icon_unit_medic_am,,,,,0,0,,,,0,,""""""
+eee_utmain_icon11,Sprite,,0,,,,,520,560,0,0,200,200,icon_unit_mill_12,,,,,0,0,,,,0,,""""""
+eee_utmain_icon12,Sprite,,0,,,,,520,760,0,0,200,200,icon_unit_machinegunner_am,,,,,0,0,,,,0,,""""""
+eee_utmain_icon13,Sprite,,0,,,,,720,160,0,0,200,200,icon_unit_assaulttank,,,,,0,0,,,,0,,""""""
+eee_utmain_icon14,Sprite,,0,,,,,720,360,0,0,200,200,icon_unit_warehouse_7,,,,,0,0,,,,0,,""""""
+eee_utmain_icon15,Sprite,,0,,,,,720,560,0,0,200,200,icon_unit_quadengine,,,,,0,0,,,,0,,""""""
+eee_utmain_icon16,Sprite,,0,,,,,720,760,0,0,200,200,icon_unit_4leg_mech,,,,,0,0,,,,0,,""""""
+
+// stuff for EEE scrollbars,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_scrollbar,ScrollBar,,0,,,,,0,0,0,0,32,128,spr_eee_scroll_bar,,,,,0,0,,,,0,,"""slider=eee_scrollbar_slider up=eee_scrollbar_up down=eee_scrollbar_down dontResizeSlider"""
+eee_scrollbar_slider,Sprite,,0,,,,,0,0,0,0,32,16,spr_eee_scroll_slider,,TwoState,,,0,0,,,,0,,""""""
+eee_scrollbar_up,Sprite,,0,,,,,0,0,0,0,32,40,spr_eee_scroll_up,,TwoState,,,0,0,,,,0,,""""""
+eee_scrollbar_down,Sprite,,0,,,,,0,0,0,0,32,40,spr_eee_scroll_down,,TwoState,,,0,0,,,,0,,""""""
+
+// header and info pages,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_info_title,Text,,0,,,,,120,40,0,0,560,80,,,,fs_std_huge_grey_drop,,0,0,,,,0,,"""noClip"""
+eee_info_body,Text,,0,,,,,120,160,0,0,760,800,,,,fs_std_med_black,,0,0,,,,0,,"""scrollBar=eee_scrollbar wordWrap markup"""
+
+// title and intro text with tiled header text and info text widgets,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_tinfo_header,Text,,0,,,,,120,40,0,0,560,80,,,,fs_std_huge_grey_drop,,0,0,,,,1,,"""autosize wordwrap"""
+eee_tinfo_container,Container,,0,,,,,120,120,0,0,760,800,,,,,,0,0,,,,0,,"""scrollVert=eee_scrollbar"""
+eee_tinfo_intro,Text,eee_tinfo_container,0,,,,,0,0,0,0,720,0,,,,fs_std_med_black,,0,0,,,,0,,"""autosize wordwrap"""
+eee_tinfo_titletop,Text,eee_tinfo_container,0,eee_tinfo_intro,SourceLLTargetUL,,,0,40,0,0,560,0,,,,fs_std_med_bold_black,,0,0,,,,0,,"""autosize wordwrap"""
+eee_tinfo_bodytop,Text,eee_tinfo_container,0,eee_tinfo_titletop,SourceLLTargetUL,,,20,20,0,0,700,0,,,,fs_std_med_black,,0,0,,,,0,,"""autosize wordwrap"""
+eee_tinfo_title,Text,eee_tinfo_container,0,eee_tinfo_bodytop,SourceLLTargetUL,,,-20,20,0,0,560,0,,,,fs_std_med_bold_black,,0,0,,,,0,,"""autosize wordwrap"""
+eee_tinfo_body,Text,eee_tinfo_container,0,eee_tinfo_title,SourceLLTargetUL,,,20,20,0,0,700,0,,,,fs_std_med_black,,0,0,,,,0,,"""autosize wordwrap"""
+
+// title and intro text with Tiled Sprite and Text (Below sprite) page widgets,,,,,,,,,,,,,,,,,,,,,,,,,,
+eee_tstb_title,Text,,0,,,,,120,40,0,0,560,80,,,,fs_std_huge_grey_drop,,0,0,,,,1,,"""autosize wordwrap"""
+eee_tstb_intro,Text,,0,,,,,120,120,0,0,720,0,,,,fs_std_med_black,,0,0,,,,0,,"""autosize wordwrap"""
+eee_tstb_container,Container,,0,,,,,140,250,0,0,760,710,,,,,,0,0,,,,0,,""""""
+eee_tstb_imagetop,Sprite,eee_tstb_container,0,,,,,0,0,0,0,50,50,,,,,,0,0,,,,0,,""""""
+eee_tstb_texttop,Text,eee_tstb_container,0,eee_tstb_imagetop,SourceLLTargetUL,,,20,20,0,0,700,0,,,,fs_std_med_black,,0,0,,,,0,,"""autosize wordwrap"""
+eee_tstb_image,Sprite,eee_tstb_container,0,eee_tstb_texttop,SourceLLTargetUL,,,-20,20,0,0,50,50,,,,,,0,0,,,,0,,""""""
+eee_tstb_text,Text,eee_tstb_container,0,eee_tstb_image,SourceLLTargetUL,,,20,20,0,0,700,0,,,,fs_std_med_black,,0,0,,,,0,,"""autosize wordwrap"""

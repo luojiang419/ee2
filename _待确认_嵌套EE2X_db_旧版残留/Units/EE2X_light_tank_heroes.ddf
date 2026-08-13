@@ -1,0 +1,104 @@
+//------------------------------------------------------------------------------------------------
+//	LIGHT TANK HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType LightTankHero
+{
+	parent = Tank
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	properties {
+		SizeX = 1.0
+		SizeY = 1.0
+	}
+	abilities = [
+		Hero { HeroClass = LightTank; HeroForUnit = Tank }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightTankHeroEp11Attack
+{
+	upgradedAbilities = [
+		Attack { range = 12.0; reloadTime = 0.3; angularRange = 360; applyDamageTime = 0.1; damage = 60; WeaponType = LightProjectile; turretControllerName = TankTurret; }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightTankHeroEp12Attack
+{
+	upgradedAbilities = [
+		Attack { range = 13.0; reloadTime = 0.3; angularRange = 360; applyDamageTime = 0.1; damage = 60; WeaponType = LightProjectile; turretControllerName = TankTurret; }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightTankHeroEp13Attack
+{
+	upgradedAbilities = [
+		Attack { range = 15.0; reloadTime = 0.3; angularRange = 360; applyDamageTime = 0.1; damage = 60; WeaponType = LightProjectile; turretControllerName = TankTurret; }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities LightTankHeroEp15Attack
+{
+	upgradedAbilities = [
+		Attack { range = 17.0; reloadTime = 0.3; angularRange = 360; applyDamageTime = 0.1; damage = 60; WeaponType = LightProjectile; turretControllerName = TankTurret; }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	LIGHT TANK HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel LightTankHero_11
+{
+	Parent		= LightMounted1_11
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+UnitModel LightTankHero_12
+{
+	Parent		= LightMounted1_12
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel LightTankHero_13
+{
+	Parent		= LightMounted1_13
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel LightTankHero_15
+{
+	Parent		= LightMounted1_15
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

@@ -1,0 +1,221 @@
+AnimatedParticleDC  Building_fire
+{
+ShaderName = Fire_Add_Modulate_Depth
+ShaderDepth = eAnimExploDepth_Tiny
+TextureName = fire_1_1024.tga
+WidthNbrBitmapInTexture = 8
+HeightNbrBitmapInTexture = 8
+DrawingLayer = 0
+PlayAllBitmapsSecond = 2.5
+
+//Condition to start effect
+//MessageToStartEffect
+StartEffectAtCreation = false
+
+//Effect duration condition
+LiveForEver = true
+NbrParticleTospawnSecond = 3
+//EffectLifeMin
+//EffectLifeMax
+
+//Node parameters
+//NodeAnimated = false
+//NodeAnimatedMinRadius;		
+//NodeAnimatedMaxRadius;
+//NodeSpeedMin;
+//NodeSpeedMax;
+NodeName = tag_fire_
+													
+//Particles parameters
+GravityOn = false
+WindOn = true
+VelocityAngle = 30
+RadiusMinX = -0.2
+RadiusMaxX = 0.2
+RadiusMinY = -0.2
+RadiusMaxY = 0.2
+RadiusMinZ = 0.0
+RadiusMaxZ = 0.0
+WindPercentInUse = 0.4
+MaximumParticle = 20
+MinLife = 3.0
+MaxLife = 5.0
+MinSpeed = 0.1
+MaxSpeed = 0.4
+ColorStart [255, 128, 0, 0.0]
+ColorMiddle = [32, 0, 0, 255]
+ColorEnd = [0, 0, 0, 0.0]
+MiddleColorFor = 0.25
+OriginalSizeMin = 0.2
+OriginalSizeMax = 0.2
+SizeGrowMin = 0.3
+SizeGrowMax = 0.3
+GrowFor = 0.25
+//ZOrderingOn = false
+}
+
+AnimatedParticleDC  Building_smoke
+{
+ShaderName = Fire_Add_Modulate_Depth
+ShaderDepth = eAnimExploDepth_Small
+TextureName = smoke_fire_256.tga
+WidthNbrBitmapInTexture = 8
+HeightNbrBitmapInTexture = 8
+DrawingLayer = 1
+PlayAllBitmapsSecond = 6.0
+
+//Condition to start effect
+//MessageToStartEffect
+StartEffectAtCreation = false
+
+//Effect duration condition
+LiveForEver = true
+NbrParticleTospawnSecond = 3
+//EffectLifeMin
+//EffectLifeMax
+
+//Node parameters
+//NodeAnimated = false
+//NodeAnimatedMinRadius;		
+//NodeAnimatedMaxRadius;
+//NodeSpeedMin;
+//NodeSpeedMax;
+NodeName = tag_fire_
+													
+//Particles parameters
+GravityOn = false
+WindOn = true
+VelocityAngle = 30
+RadiusMinX = -0.2
+RadiusMaxX = 0.2
+RadiusMinY = -0.2
+RadiusMaxY = 0.2
+RadiusMinZ = 0.1
+RadiusMaxZ = 0.2
+WindPercentInUse = 0.4
+MaximumParticle = 32
+MinLife = 5
+MaxLife = 7
+MinSpeed = 0.1
+MaxSpeed = 0.4
+ColorStart [0, 0, 0, 0.0]
+ColorMiddle = [0, 0, 0, 255]
+ColorEnd = [0, 0, 0, 0.0]
+MiddleColorFor = 4.5
+OriginalSizeMin = 0.4
+OriginalSizeMax = 0.4
+SizeGrowMin = 0.4
+SizeGrowMax = 0.4
+GrowFor = 4.0
+}
+
+AnimatedParticleDC  MobileUnit_fire
+{
+ShaderName = Fire_Add_Modulate_Depth
+ShaderDepth = eAnimExploDepth_Tiny
+TextureName = fire_1_1024.tga
+WidthNbrBitmapInTexture = 8
+HeightNbrBitmapInTexture = 8
+DrawingLayer = 0
+PlayAllBitmapsSecond = 2.5
+
+//Condition to start effect
+//MessageToStartEffect
+StartEffectAtCreation = false
+
+//Effect duration condition
+LiveForEver = true
+NbrParticleTospawnSecond = 3
+//EffectLifeMin
+//EffectLifeMax
+
+//Node parameters
+//NodeAnimated = false
+//NodeAnimatedMinRadius;		
+//NodeAnimatedMaxRadius;
+//NodeSpeedMin;
+//NodeSpeedMax;
+NodeName = tag_fire_
+													
+//Particles parameters
+GravityOn = false
+WindOn = true
+VelocityAngle = 30
+RadiusMinX = -0.2
+RadiusMaxX = 0.2
+RadiusMinY = -0.2
+RadiusMaxY = 0.2
+RadiusMinZ = 0.0
+RadiusMaxZ = 0.0
+WindPercentInUse = 0.4
+MaximumParticle = 20
+MinLife = 3.0
+MaxLife = 5.0
+MinSpeed = 0.1
+MaxSpeed = 0.4
+ColorStart [255, 128, 0, 0.0]
+ColorMiddle = [32, 0, 0, 255]
+ColorEnd = [0, 0, 0, 0.0]
+MiddleColorFor = 0.25
+OriginalSizeMin = 0.1
+OriginalSizeMax = 0.1
+SizeGrowMin = 0.15
+SizeGrowMax = 0.15
+GrowFor = 0.25
+//ZOrderingOn = false
+}
+
+AnimatedParticleDC  MobileUnit_smoke
+{
+ShaderName = Fire_Add_Modulate_Depth
+ShaderDepth = eAnimExploDepth_Small
+TextureName = smoke_fire_256.tga
+WidthNbrBitmapInTexture = 8
+HeightNbrBitmapInTexture = 8
+DrawingLayer = 1
+PlayAllBitmapsSecond = 6.0
+
+//Condition to start effect
+//MessageToStartEffect
+StartEffectAtCreation = false
+
+//Effect duration condition
+LiveForEver = true
+NbrParticleTospawnSecond = 3
+//EffectLifeMin
+//EffectLifeMax
+
+//Node parameters
+//NodeAnimated = false
+//NodeAnimatedMinRadius;		
+//NodeAnimatedMaxRadius;
+//NodeSpeedMin;
+//NodeSpeedMax;
+NodeName = tag_fire_
+													
+//Particles parameters
+GravityOn = false
+WindOn = true
+VelocityAngle = 30
+RadiusMinX = -0.2
+RadiusMaxX = 0.2
+RadiusMinY = -0.2
+RadiusMaxY = 0.2
+RadiusMinZ = 0.1
+RadiusMaxZ = 0.2
+WindPercentInUse = 0.4
+MaximumParticle = 32
+MinLife = 5
+MaxLife = 7
+MinSpeed = 0.1
+MaxSpeed = 0.4
+ColorStart [0, 0, 0, 0.0]
+ColorMiddle = [0, 0, 0, 128]
+ColorEnd = [0, 0, 0, 0.0]
+MiddleColorFor = 0.5
+OriginalSizeMin = 0.4
+OriginalSizeMax = 0.4
+SizeGrowMin = 0.4
+SizeGrowMax = 0.4
+GrowFor = 4.0
+}

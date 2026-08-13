@@ -1,0 +1,24 @@
+﻿// NAME,TEXT
+fe_map_small,"""小─130x130"""
+fe_map_medium,"""中─250x250"""
+fe_map_large,"""大─400x400"""
+fe_map_huge,"""庞大─500x500"""
+
+fe_resources_tournamentlow,"""锦标赛─低"""
+fe_resources_tournamentdef,"""锦标赛─防御"""
+fe_resources_standardlow,"""标准的─低"""
+fe_resources_standardhigh,"""标准的─高"""
+fe_resources_deathmatch,"""死斗"""
+
+fe_teamname_1,"""1"""
+fe_teamname_2,"""2"""
+fe_teamname_3,"""3"""
+fe_teamname_4,"""4"""
+
+fe_gamespeed_slow,"""慢"""
+fe_gamespeed_normal,"""普通"""
+fe_gamespeed_fast,"""快"""
+fe_gamespeed_veryfast,"""非常快"""
+
+fullscreen_warplan_col0,"""名称"""
+fullscreen_warplan_col1,"""状态"""

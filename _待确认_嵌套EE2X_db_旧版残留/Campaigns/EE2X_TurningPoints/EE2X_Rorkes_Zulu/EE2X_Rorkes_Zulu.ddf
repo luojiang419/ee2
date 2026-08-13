@@ -1,0 +1,62 @@
+//"Destroy the Fort at Rorke's Drift"
+Objective EE2X_Rorkes_Zulu_Objective1 {
+	name		= text_scen_ror_zulu_pobj1
+	description	= text_scenario_r1_verbose2
+	type		= Primary
+	startHidden	= 0
+
+}
+//"Destroy the Fort at Rorke's Drift"
+Objective EE2X_Rorkes_Zulu_Objective2 {
+	name		= text_scen_ror_zulu_pobj2
+	description	= text_scenario_r1_verbose8
+	type		= Lose
+	startHidden	= 0
+}
+//"Destroy the Fort at Rorke's Drift"
+Objective EE2X_Rorkes_Zulu_Objective3 {
+	name		= text_scen_ror_zulu_sobj1
+	description	= text_scenario_r1_verbose1
+	type		= Secondary
+	startHidden	= 1
+}
+//"Failure to Take the Fort"
+Objective EE2X_Rorkes_Zulu_Objective4 {
+	name		= text_scen_ror_zulu_lobj1
+	description	= text_scenario_r1_verbose9
+	type		= Lose
+	startHidden	= 0
+
+}
+
+Scenario EE2X_Rorkes_Zulu {
+	name = text_scen_ror_zulu_name
+	mapfilename = "EE2X_RorkesDrift.scn"
+// 	overrideScriptLib = "ScriptLibs_EE2X\\\\EE2X_Rorkes_Zulu.dll"
+	overrideScriptLib = "ScriptLibs_EE2X\\\\EE2X_Rorkes_British.dll"
+	overrideHumanPlayers = [2]
+	briefing = text_scen_ror_zulu_desc
+	sprite = spr_rorZ_camp_screenshot
+	thumbnail = spr_rorZ_camp_thumb
+
+	victory = text_scen_ror_zulu_victory
+	loss = text_scen_ror_zulu_loss
+	
+	hints = text_scen_ror_zulu_hints
+	
+	historicalInfo = text_scen_ror_zulu_history
+	
+	description = text_scen_ror_zulu_desc
+	
+	date = text_scen_ror_zulu_date
+
+	objectives = [
+		EE2X_Rorkes_Zulu_Objective1
+		EE2X_Rorkes_Zulu_Objective2
+		EE2X_Rorkes_Zulu_Objective3
+		EE2X_Rorkes_Zulu_Objective4
+	]
+
+	// Turning points never load heroes from previous scenarios.
+	NoOldHeroes = true
+}

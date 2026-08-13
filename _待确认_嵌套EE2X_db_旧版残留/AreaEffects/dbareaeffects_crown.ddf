@@ -1,0 +1,1441 @@
+//////////////////////////////Crown Area Effects///////////////////////////////
+
+// Super Spies
+DbAreaEffectInfo SuperSpies
+{
+	name = text_carea_sprspies_name
+	desc = text_carea_sprspies_desc
+	effects = [
+		// scale sabotage super-effect duration
+		
+		EffectDuration {
+			range = SpaceTime
+			
+			player = Self
+			// which effect's duration is this scaling
+			effect = "SabotageBuilding"
+			scale = 1.25
+		}
+		
+		EffectDuration {
+			range = SpaceTime
+			
+			player = Self
+			// which effect's duration is this scaling
+			effect = "ImprovedSabotageBuilding"
+			scale = 1.25
+		}
+
+		EffectSpeed {
+			range = Global
+			mask = Spies
+			player = Self
+			// 25% faster
+			scale = 1.25
+		}
+		
+		EffectMaxHitPoints {
+			range = Global
+			mask = Spies
+			player = Self
+			// 25% more hit points
+			scale = 1.25
+		}
+		
+		EffectVisualGlow {
+			range = Global
+			mask = Spies
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_superspies_s
+			Tooltip = text_carea_sprspies_name
+			VTooltip = vtt_power_unitinfo_SuperSpies
+		}
+		
+		EffectIsACrown {
+			range = Global
+			mask = Spies
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Immigration
+DbAreaEffectInfo Immigration
+{
+	name = text_carea_immigration_name
+	desc = text_carea_immigration_desc
+	
+	bSkipKingOfTheHillUnit = true
+	
+	effects = [
+		EffectSpawn {
+			range = Global
+			mask = CityCenters
+			player = Self
+			
+			delay = 90	// how many seconds until next spawn time.
+			minCount = 3;	// how many units (minimum) to spawn when the time comes
+			maxCount = 3;	// how many units (maximum) to spawn when the time comes
+			unitTypes = [ "Citizen" ]; // what kind of units to spawn
+			showImmigrationMsg = true;
+		}
+
+		EffectVisualGlow {
+			SuppressGlow = true // don't show the glow
+			range = Global
+			mask = CityCenters
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_immigration_s
+			Tooltip = tt_power_Immigration
+			VTooltip = vtt_power_unitinfo_Immigration
+		}
+		EffectIsACrown {
+			range = Global
+			mask = CityCenters
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	
+	]
+}
+
+// Centralization
+DbAreaEffectInfo Centralization
+{
+	name = text_carea_centralization_name
+	desc = text_carea_centralization_desc
+	
+	bSkipKingOfTheHillUnit = true
+	
+	effects = [
+		EffectCaptureTime {
+			range = AllSelfCities
+			mask = Buildings
+			player = Self
+			scale = 1.3 // capture takes 30% more time
+		}
+
+		EffectDamage {
+			range = AllSelfCities
+			mask = Buildings
+			player = Self
+			scale = 0.7 // take 30% less damage on each attack
+		}
+		
+		EffectAreaDamage {
+			range = AllSelfCities
+			mask = Buildings
+			player = Self
+			scale = 0.7 // take 30% less damage on each attack
+		}
+
+		EffectVisualGlow {
+			range = AllSelfCities
+			mask = Buildings
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_centralization_s
+			Tooltip = tt_power_Centralize
+			VTooltip = vtt_power_unitinfo_Centralize
+		}
+		EffectIsACrown {
+			range = AllSelfCities
+			mask = Buildings
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Fanaticism
+DbAreaEffectInfo Fanaticism
+{
+	name = text_carea_fanaticism_name
+	desc = text_carea_fanaticism_desc
+	effects = [
+		EffectNoConversion {
+			range = Global
+			mask = SubjectToConversion
+			player = Self
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = SubjectToConversion
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_fanaticism_s
+			Tooltip = tt_power_Fanaticism
+			VTooltip = vtt_power_unitinfo_Fanaticism
+		}
+		EffectIsACrown {
+			range = Global
+			mask = SubjectToConversion
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Missionaries
+DbAreaEffectInfo Missionaries
+{
+	name = text_carea_missionaries_name
+	desc = text_carea_missionaries_desc
+	effects = [
+		EffectProductionCost {
+			range = Global
+			mask = Anything
+			player = Self
+			
+			affected = Priests
+			scale = 0.75
+		}
+		EffectSpeed {
+			range = Global
+			mask = Priests
+			player = Self
+			scale = 1.25
+		}
+		EffectConversionRange {
+			range = Global
+			mask = Priests
+			player = Self
+			scale = 1.25
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Priests
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_missionaries_s
+			Tooltip = tt_power_Missionaries
+			VTooltip = vtt_power_unitinfo_Mission_P
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Temples
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_missionaries_s
+			Tooltip = tt_power_Missionaries
+			VTooltip = vtt_power_unitinfo_Mission_T
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Priests
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Temples
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Socialized Medicine
+DbAreaEffectInfo SocializedMedicine
+{
+	name = text_carea_socmed_name
+	desc = text_carea_socmed_desc
+	
+	bSkipKingOfTheHillUnit = true
+	
+	effects = [
+		// @NOTE:  be sure that Healers and HealingBuildings do not intersect
+		// if they do, then units in the intersection will be doubly modified
+		EffectHealRate {
+			range = Global
+			mask = Healers
+			player = Self
+			scale = 1.33
+		}
+		EffectHealRate {
+			range = Global
+			mask = HealingBuildings
+			player = Self
+			scale = 1.33
+		}
+		
+		EffectVisualGlow {
+			range = Global
+			mask = Healers
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_socializedmedicine_s
+			Tooltip = tt_power_SocMedicine
+			VTooltip = vtt_power_unitinfo_SocMedicine
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = HealingBuildings
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_socializedmedicine_s
+			Tooltip = tt_power_SocMedicine
+			VTooltip = vtt_power_unitinfo_SocMedicine
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Healers
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+		EffectIsACrown {
+			range = Global
+			mask = HealingBuildings
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Think Tanks
+DbAreaEffectInfo ThinkTanks
+{
+	name = text_carea_thinktank_name
+	desc = text_carea_thinktank_desc
+	effects = [
+		EffectResourceDropoff {
+			range = Global
+			mask = UniversitiesAndTemples			
+			player = Self
+
+			affected = [Tech]
+			
+			scale = 1.1
+		}
+
+//		EffectTechCost {
+//			range = TechTree
+//			scale = 0.9
+//		}
+
+//		EffectTechDiscoveryTime {
+//			range = TechTree
+//			scale = 0.9
+//		}
+
+		EffectVisualGlow {
+			range = Global
+			mask = UniversitiesAndTemples
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_thinktanks_s
+			Tooltip = tt_power_ThinkTank
+			VTooltip = vtt_power_unitinfo_ThinkTank
+		}
+		EffectIsACrown {
+			range = Global
+			mask = UniversitiesAndTemples
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Aviation Expertise
+DbAreaEffectInfo AirSuperiority
+{
+	name = text_carea_airsup_name
+	desc = text_carea_airsup_desc
+	EpochRangeLow = 11
+	effects = [
+		EffectProductionTime {
+			range = Global
+			mask = Airports
+			player = Self
+			
+			affected = Anything
+			scale = 0.90
+		}
+		EffectProductionCost {
+			range = Global
+			mask = Airports
+			player = Self
+			
+			affected = Anything
+			scale = 0.90
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Airports
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_aviationexpertise_s
+			Tooltip = tt_power_AirSuperiority
+			VTooltip = vtt_power_unitinfo_AirSuper
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Airports
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// Farming
+DbAreaEffectInfo Farming
+{
+	name = text_carea_farming_name
+	desc = text_carea_farming_desc
+	effects = [
+		EffectResourceGatherRate {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			affectedResourceTypes = [Food]
+			affectedResourceSources = Farms
+			scale = 1.2
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Citizens
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_farming_s
+			Tooltip = tt_power_Farming
+			VTooltip = vtt_power_unitinfo_Farming
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// Food Processing
+DbAreaEffectInfo FoodProcessing
+{
+	name = text_carea_foodproc_name
+	desc = text_carea_foodproc_desc
+	effects = [
+		EffectResourceGatherRate {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			affectedResourceTypes = [Food]
+			affectedResourceSources = FoodProcessingSources
+			scale = 1.2
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Citizens
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_foodprocessing_s
+			Tooltip = tt_power_FoodProc
+			VTooltip = vtt_power_unitinfo_FoodProc
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// Income Tax
+DbAreaEffectInfo IncomeTax
+{
+	name = text_carea_inctax_name
+	desc = text_carea_inctax_desc
+	effects = [
+		EffectResourceGatherRate {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			affectedResourceTypes = [Gold]
+			affectedResourceSources = Anything
+			scale = 1.2
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Citizens
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_incometax_s
+			Tooltip = tt_power_IncomeTax
+			VTooltip = vtt_power_unitinfo_IncomeTax
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// Lumbering
+DbAreaEffectInfo Lumbering
+{
+	name = text_carea_lumber_name
+	desc = text_carea_lumber_desc
+	effects = [
+		EffectResourceGatherRate {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			affectedResourceTypes = [Wood]
+			affectedResourceSources = Anything
+			
+			scale = 1.2
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Citizens
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_lumbering_s
+			Tooltip = tt_power_Lumbering
+			VTooltip = vtt_power_unitinfo_Lumbering
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// Market Stability
+DbAreaEffectInfo MarketStability
+{
+	name = text_carea_markstab_name
+	desc = text_carea_markstab_desc
+	effects = [
+		EffectMarketStability {
+			range = SpaceTime
+			player = Self
+			
+			inflationFactor = 0.5; // on purchase - price rises at 50% normal rate
+			deflationFactor = 0.5; // on sale - price falls at 50% normal rate
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Markets
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_marketstability_s
+			Tooltip = tt_power_MarketStabl
+			VTooltip = vtt_power_unitinfo_MarketStabl
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Markets
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// Quarrying
+DbAreaEffectInfo Quarrying
+{
+	name = text_carea_quarry_name
+	desc = text_carea_quarry_desc
+	effects = [
+		EffectResourceGatherRate {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			affectedResourceTypes = [Stone]
+			affectedResourceSources = Anything
+			
+			scale = 1.2
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Citizens
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_quarrying_s
+			Tooltip = tt_power_Quarrying
+			VTooltip = vtt_power_unitinfo_Quarrying
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// Retooling
+DbAreaEffectInfo Retooling
+{
+	name = text_carea_retool_name
+	desc = text_carea_retool_desc
+	effects = [
+		EffectResourceGatherRate {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			affectedResourceTypes = [Tin Iron Saltpeter ]
+			affectedResourceSources = Anything
+			
+			scale = 1.2
+		}
+		EffectResourceDropoff {
+			range = Global
+			mask = OilRigsAndUraniumMines
+			player = Self
+			
+			affected = [ Oil Uranium ]
+			scale = 1.2
+		}
+		
+		EffectVisualGlow {
+			range = Global
+			mask = Citizens
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_retooling_s
+			Tooltip = tt_power_Retooling
+			VTooltip = vtt_power_unitinfo_Retooling
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Citizens
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// Rule the waves
+DbAreaEffectInfo RuleTheWaves
+{
+	name = text_carea_rulewaves_name
+	desc = text_carea_rulewaves_desc
+	effects = [
+		EffectProductionCost {
+			range = Global
+			mask = Docks
+			player = Self
+			
+			affected = Anything
+			scale = 0.90
+		}
+		EffectProductionTime {
+			range = Global
+			mask = Docks
+			player = Self
+			
+			affected = Anything
+			scale = 0.90
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Docks
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_rulethewaves_s
+			Tooltip = tt_power_RuleWaves
+			VTooltip = vtt_power_unitinfo_RuleWaves
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Docks
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// War Economy
+DbAreaEffectInfo WarEconomy
+{
+	name = text_carea_warecon_name
+	desc = text_carea_warecon_desc
+	effects = [
+		EffectProductionCost {
+			range = Global
+			mask = BarracksMillsAndStables
+			player = Self
+			
+			affected = Anything
+			scale = 0.90
+		}
+		EffectProductionTime {
+			range = Global
+			mask = BarracksMillsAndStables
+			player = Self
+			
+			affected = Anything
+			scale = 0.90
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = BarracksMillsAndStables
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_wareconomy_s
+			Tooltip = tt_power_WarEconomy
+			VTooltip = vtt_power_unitinfo_WarEcon
+		}
+		EffectIsACrown {
+			range = Global
+			mask = BarracksMillsAndStables
+			player = Self
+			
+			crownType = kCrownType_Economic
+		}
+	]
+}
+
+// Drills
+DbAreaEffectInfo Drills
+{
+	name = text_carea_drills_name
+	desc = text_carea_drills_desc
+	effects = [
+		EffectSpeed {
+			range = Global
+			mask = LandRPS
+			player = Self
+			scale = 1.20
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = LandRPS
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_drills_s
+			Tooltip = tt_power_Drills
+			VTooltip = vtt_power_unitinfo_Drills
+		}
+		EffectIsACrown {
+			range = Global
+			mask = LandRPS
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Expansionism
+DbAreaEffectInfo Expansionism
+{
+	name = text_carea_expansion_name
+	desc = text_carea_expansion_desc
+	
+	bSkipKingOfTheHillUnit = true
+	
+	effects = [
+		EffectPopulation {
+			range = PopCap
+			player = Self
+			
+			UnitType = CityCenter
+			scale = 1.30
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = CityCenters
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_expansionism_s
+			Tooltip = tt_power_Expansionism
+			VTooltip = vtt_power_unitinfo_Expansion
+		}
+		EffectIsACrown {
+			range = Global
+			mask = CityCenters
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Exploration
+DbAreaEffectInfo Exploration
+{
+	name = text_carea_explore_name
+	desc = text_carea_explore_desc
+	effects = [
+		EffectLOS {
+			range = Global
+			mask = Naval
+			player = Self
+			scale = 1.25
+		}
+		EffectSpeed {
+			range = Global
+			mask = Naval
+			player = Self
+			scale = 1.25
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Naval
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_exploration_s
+			Tooltip = tt_power_Exploration
+			VTooltip = vtt_power_unitinfo_Exploration
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Naval
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Firing Ranges
+DbAreaEffectInfo FiringRanges
+{
+	name = text_carea_ranges_name
+	desc = text_carea_ranges_desc
+	effects = [
+
+		// multiple EffectRange hack in place to cope with 
+		// impossibility of expressing "ranged land units" through UTAs...
+		EffectRange {
+			range = Global
+			mask = LandUnits_Foot_Ranged
+			player = Self
+			scale = 1.20
+		}
+
+		EffectRange {
+			range = Global
+			mask = LandUnits_Mounted_Ranged
+			player = Self
+			scale = 1.20
+		}
+
+		EffectRange {
+			range = Global
+			mask = LandUnits_Wheeled_Ranged
+			player = Self
+			scale = 1.20
+		}
+
+		EffectRange {
+			range = Global
+			mask = LandUnits_Mechanized_Ranged
+			player = Self	
+			scale = 1.20
+		}
+
+
+		EffectVisualGlow {
+			range = Global
+			mask = LandUnits_Foot_Ranged
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_firingranges_s
+			Tooltip = tt_power_FiringRange
+			VTooltip = vtt_power_unitinfo_FiringRange
+		}
+
+		EffectVisualGlow {
+			range = Global
+			mask = LandUnits_Mounted_Ranged
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_firingranges_s
+			Tooltip = tt_power_FiringRange
+			VTooltip = vtt_power_unitinfo_FiringRange
+		}
+
+		EffectVisualGlow {
+			range = Global
+			mask = LandUnits_Wheeled_Ranged
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_firingranges_s
+			Tooltip = tt_power_FiringRange
+			VTooltip = vtt_power_unitinfo_FiringRange
+		}
+
+		EffectVisualGlow {
+			range = Global
+			mask = LandUnits_Mechanized_Ranged
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_firingranges_s
+			Tooltip = tt_power_FiringRange
+			VTooltip = vtt_power_unitinfo_FiringRange
+		}
+		
+		EffectIsACrown {
+			range = Global
+			mask = LandUnits_Mechanized_Ranged
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+		EffectIsACrown {
+			range = Global
+			mask = LandUnits_Wheeled_Ranged
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+		EffectIsACrown {
+			range = Global
+			mask = LandUnits_Mounted_Ranged
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+		EffectIsACrown {
+			range = Global
+			mask = LandUnits_Foot_Ranged
+			player = Self
+			
+			crownType = kCrownType_Imperial
+		}
+	]
+}
+
+// Piracy
+DbAreaEffectInfo Piracy
+{
+	name = text_carea_piracy_name
+	desc = text_carea_piracy_desc
+	
+	effects = [
+		EffectKillPayment {
+			range = Global
+			mask = Naval
+			player = Self
+
+			// 50% of killed unit's resource cost
+			payment = [
+				{ 
+					resource = AllNaturalResource
+					scale = 0.5
+					bonus = 0.0
+				}
+			]
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Naval
+			player = Enemies
+			SuppressGlow = true // don't show the glow
+			GlowType = Bad
+			OwnerOnly = false
+			Icon = icon_crown_piracy_s
+			Tooltip = tt_power_piracy
+			VTooltip = vtt_power_unitinfo_Piracy
+		}
+		EffectIsACrown {
+			range = Global
+			crownType = kCrownType_Imperial
+			player = Self
+		}
+	]
+}
+
+// Air Superiority Doctrine
+DbAreaEffectInfo AirSuperiorityDoctrine
+{
+	name = text_carea_airsupdoc_name
+	desc = text_carea_airsupdoc_desc
+	EpochRangeLow = 11
+	effects = [
+		EffectMaxHitPoints {
+			range = Global
+			mask = Fighters
+			player = Self
+			
+			scale = 1.1
+		}
+		EffectAttack {
+			range = Global
+			mask = Fighters
+			player = Self
+			
+			scale = 1.1
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Fighters
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_airdoctrine_s
+			Tooltip = tt_power_DoctrineAir
+			VTooltip = vtt_power_unitinfo_DoctrineAir
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Fighters
+			player = Self
+			
+			crownType = kCrownType_Military
+		}
+	]
+}
+
+// Amphibious Warfare Doctrine
+DbAreaEffectInfo AmphibiousWarfareDoctrine
+{
+	name = text_carea_amphdoc_name
+	desc = text_carea_amphdoc_desc
+	effects = [
+		EffectMaxHitPoints {
+			range = Global
+			mask = TransportsAndLandingCraft
+			player = Self
+			
+			scale = 1.2
+		}
+		EffectSpeed {
+			range = Global
+			mask = TransportsAndLandingCraft
+			player = Self
+			
+			scale = 1.2
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = TransportsAndLandingCraft
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_amphibiouswarfare_s
+			Tooltip = tt_power_DoctrineAmph
+			VTooltip = vtt_power_unitinfo_DoctrineAmph
+		}
+		EffectIsACrown {
+			range = Global
+			mask = TransportsAndLandingCraft
+			player = Self
+			
+			crownType = kCrownType_Military
+		}
+	]
+}
+
+// Fire Support Doctrine
+DbAreaEffectInfo FireSupportDoctrine
+{
+	name = text_carea_firedoc_name
+	desc = text_carea_firedoc_desc
+	effects = [
+		EffectMaxHitPoints {
+			range = Global
+			mask = LightAndHeavyArtillery
+			player = Self
+			
+			scale = 1.1
+		}
+		EffectAttack {
+			range = Global
+			mask = LightAndHeavyArtillery
+			player = Self
+			
+			scale = 1.1
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = LightAndHeavyArtillery
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_firesupport_s
+			Tooltip = tt_power_DoctrineFire
+			VTooltip = vtt_power_unitinfo_DoctrineFire
+		}
+		EffectIsACrown {
+			range = Global
+			mask = LightAndHeavyArtillery
+			player = Self
+			
+			crownType = kCrownType_Military
+		}
+	]
+}
+
+//Infantry Doctrine
+DbAreaEffectInfo InfantryDoctrine
+{
+	name = text_carea_infantdoc_name
+	desc = text_carea_infantdoc_desc
+	effects = [
+		EffectMaxHitPoints {
+			range = Global
+			mask = LightAndHeavyInfantry
+			player = Self
+			
+			scale = 1.20
+		}
+		EffectAttack {
+			range = Global
+			mask = LightAndHeavyInfantry
+			player = Self
+			
+			scale = 1.20
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = LightAndHeavyInfantry
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_infantry_s
+			Tooltip = tt_power_DoctrineInf
+			VTooltip = vtt_power_unitinfo_DoctrineInf
+		}
+		EffectIsACrown {
+			range = Global
+			mask = LightAndHeavyInfantry
+			player = Self
+			
+			crownType = kCrownType_Military
+		}
+	]
+}
+
+// Mobile Warfare Doctrine
+DbAreaEffectInfo MobileWarfareDoctrine
+{
+	name = text_carea_mobdoc_name
+	desc = text_carea_mobdoc_desc
+	effects = [
+		EffectMaxHitPoints {
+			range = Global
+			mask = LightAndHeavyMounted
+			player = Self
+			
+			scale = 1.1
+		}
+		EffectAttack {
+			range = Global
+			mask = LightAndHeavyMounted
+			player = Self
+			
+			scale = 1.1
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = LightAndHeavyMounted
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_mobilewarfare_s
+			Tooltip = tt_power_DoctrineMob
+			VTooltip = vtt_power_unitinfo_DoctrineMob
+		}
+		EffectIsACrown {
+			range = Global
+			mask = LightAndHeavyMounted
+			player = Self
+			
+			crownType = kCrownType_Military
+		}
+	]
+}
+
+// Sea Lanes Doctrine
+DbAreaEffectInfo SeaLanesDoctrine
+{
+	name = text_carea_seadoc_name
+	desc = text_carea_seadoc_desc
+	effects = [
+		EffectMaxHitPoints {
+			range = Global
+			mask = MilitaryNavalUnits
+			player = Self
+			scale = 1.1
+		}
+		EffectAttack {
+			range = Global
+			mask = MilitaryNavalUnits
+			player = Self
+			scale = 1.1
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = MilitaryNavalUnits
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_sealanes_s
+			Tooltip = tt_power_DoctrineSea
+			VTooltip = vtt_power_unitinfo_DoctrineSea
+		}
+		EffectIsACrown {
+			range = Global
+			mask = MilitaryNavalUnits
+			player = Self
+			
+			crownType = kCrownType_Military
+		}
+	]
+}
+
+// Static Defense Doctrine
+DbAreaEffectInfo StaticDefenseDoctrine
+{
+	name = text_carea_defdoc_name
+	desc = text_carea_defdoc_desc
+	effects = [
+		EffectMaxHitPoints {
+			range = Global
+			mask = StaticDefenseUnits
+			player = Self
+			scale = 1.2 // 20% more hitpoints
+		}
+		
+		EffectRange {
+			range = Global
+			mask = StaticDefenseUnits
+			player = Self
+			scale = 1.20
+		}
+		EffectLOS {
+			range = Global
+			mask = Walls
+			player = Self
+			scale = 2.00
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = StaticDefenseUnits
+			player = Self
+			SuppressGlow = true // don't show the glow
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_staticdefense_s
+			Tooltip = tt_power_DoctrineStat
+			VTooltip = vtt_power_unitinfo_DoctrineStat
+		}
+		EffectIsACrown {
+			range = Global
+			mask = StaticDefenseUnits
+			player = Self
+			
+			crownType = kCrownType_Military
+		}
+	]
+}
+
+// Strategic Bombing Doctrine
+DbAreaEffectInfo StrategicBombingDoctrine
+{
+	name = text_carea_bombdoc_name
+	desc = text_carea_bombdoc_desc
+	EpochRangeLow = 11
+	effects = [
+		EffectMaxHitPoints {
+			range = Global
+			mask = Bombers
+			player = Self
+			
+			scale = 1.20
+		}
+		EffectAttack {
+			range = Global
+			mask = Bombers
+			player = Self
+			
+			scale = 1.20
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = Bombers
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_strategicbombing_s
+			Tooltip = tt_power_DoctrineBomb
+			VTooltip = vtt_power_unitinfo_DoctrineBomb
+		}
+		EffectIsACrown {
+			range = Global
+			mask = Bombers
+			player = Self
+			
+			crownType = kCrownType_Military
+		}
+	]
+}
+
+// Vertical Envelopment Doctrine
+DbAreaEffectInfo VerticalEnvelopmentDoctrine
+{
+	name = text_carea_vertdoc_name
+	desc = text_carea_vertdoc_desc
+	EpochRangeLow = 11
+	effects = [
+		EffectMaxHitPoints {
+			range = Global
+			mask = ParatrooperPlanes
+			player = Self
+			
+			scale = 1.50
+		}
+		EffectCapacity {
+			range = Global
+			mask = ParatrooperPlanes
+			player = Self
+			
+			scale = 1.25
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = ParatrooperPlanes
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_vertenvelopment_s
+			Tooltip = tt_power_DoctrineVert
+			VTooltip = vtt_power_unitinfo_DocVert_Para
+		}
+		EffectAttack {
+			range = Global
+			mask = FighterBombers
+			player = Self
+			
+			scale = 1.20
+		}
+		EffectMaxHitPoints {
+			range = Global
+			mask = FighterBombers
+			player = Self
+			
+			scale = 1.20
+		}
+
+		EffectAttack {
+			range = Global
+			mask = AttackHelicopters
+			player = Self
+			
+			scale = 1.20
+		}
+		EffectMaxHitPoints {
+			range = Global
+			mask = AttackHelicopters
+			player = Self
+			
+			scale = 1.20
+		}
+		EffectVisualGlow {
+			range = Global
+			mask = FighterBombers
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_vertenvelopment_s
+			Tooltip = tt_power_DoctrineVert
+			VTooltip = vtt_power_unitinfo_DocVert_FB
+		}
+
+		EffectVisualGlow {
+			range = Global
+			mask = AttackHelicopters
+			player = Self
+			GlowType = Good
+			OwnerOnly = true
+			Icon = icon_crown_vertenvelopment_s
+			Tooltip = tt_power_DoctrineVert
+			VTooltip = vtt_power_unitinfo_DocVert_FB
+		}
+		
+		EffectIsACrown {
+			range = Global
+			mask = FighterBombers
+			player = Self
+			
+			crownType = kCrownType_Military
+		}
+		EffectIsACrown {
+			range = Global
+			mask = ParatrooperPlanes
+			player = Self
+			crownType = kCrownType_Military
+		}
+	]
+}
+
+//This is a test, it goes at the end of the file to ensure
+//that LHandScan finds everything.
+
+DbAreaEffectInfo SuperPunchy
+{
+	name = text_carea_punchy_name
+	desc = text_carea_punchy_desc
+	effects = [
+		EffectAttack {
+			range = Global
+			mask = Anything
+			player = Self
+			scale = 10
+		}
+	]
+}
+

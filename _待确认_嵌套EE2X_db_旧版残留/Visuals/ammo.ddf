@@ -1,0 +1,4753 @@
+// =======================================================
+//  Base Ammunition Type
+// =======================================================
+
+UnitType Ammo
+{
+	PlacementType = Unplaceable
+	
+	properties {
+		// uses projectile move type
+		moveType = kUnitMoveType_Projectile
+		FootprintType = Ellipse
+		}
+
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 6 }
+		PayloadAttack { }
+	]
+}
+
+// =======================================================
+//  Base Ammunition Type2
+// =======================================================
+
+UnitType Ao_Cluster
+{
+	PlacementType = Unplaceable
+	
+	properties {
+		// uses projectile move type
+		moveType = kUnitMoveType_Projectile
+		FootprintType = Ellipse
+		}
+
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 10;accel = 6; angSpeed = 180 }
+		Attack { }
+	]
+}
+
+//=========================================================
+// Arrow
+//=========================================================
+StateDatabase ArrowStates
+{
+	DefaultModel 	= fx_arrow.nif
+	DefaultState 	= Idle
+	States = [
+		{	
+			StateName="Idle" 
+			TextKeys = []
+		}
+		{ 
+			StateName = Death 	
+			TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] 
+		}
+		]
+}
+
+CompositeModel Arrow
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= ArrowStates
+	ChildNames 		= [ ArrowStreak ]
+}
+
+UnitType Arrow
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 8 }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+
+StateDatabase ArrowStates_BreathOfDragon
+{
+	DefaultModel 	= fx_arrow.nif
+	DefaultState 	= Idle
+	States = [
+		{	
+			StateName="Idle" 
+			TextKeys = []
+		}
+		{ 
+			StateName = Death 	
+			TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] 
+		}
+		]
+}
+
+CompositeModel Arrow_BreathOfDragon
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName = ArrowStates_BreathOfDragon
+	ChildNames 		= [ ArrowStreak_Red ]
+}
+
+UnitType Arrow_BreathOfDragon
+{
+	Parent = Arrow
+}
+
+//=========================================================
+// Arrow_Crossbowman
+//=========================================================
+CompositeModel Arrow_Crossbowman
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= ArrowStates
+	ChildNames 		= [ ArrowStreak ]
+}
+
+UnitType Arrow_Crossbowman
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 12 }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+
+//=========================================================
+// Fire Arrow
+//=========================================================
+StateDatabase FireArrowStates
+{
+	DefaultModel 	= fx_fire_arrow.nif
+	DefaultState 	= Idle
+	States = [
+		{	
+			StateName="Idle" 
+			TextKeys = []
+		}
+		{ 
+			StateName = Death 	
+			TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] 
+		}
+		]
+}
+
+CompositeModel FireArrow
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= FireArrowStates
+//	ChildNames 		= [ FX_ARROW_FIRE_Trail_1 ]
+//	ChildNames 		= [ SmokeTrailGuidedMissile ]
+	ChildNames 		= [ SmokeTrailFireArrow1 SmokeTrailMFFireArrow1 ExplSelectorFireArrow ArrowStreak ]
+
+}
+
+UnitType FireArrow
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10 }
+		PayloadAttack { weaponType = LightProjectile }
+	//	PayloadAttack { weaponType = Nuke; damageEffects = [ Fire_fallout ] }
+	]
+}
+//=========================================================
+// Smoke Arrow
+//=========================================================
+StateDatabase SmokeArrowStates
+{
+	DefaultModel 	= fx_fire_arrow.nif
+	DefaultState 	= Idle
+	States = [
+		{	
+			StateName="Idle" 
+			TextKeys = []
+		}
+		{ 
+			StateName = Death 	
+			TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] 
+		}
+		]
+}
+
+CompositeModel SmokeArrow
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= SmokeArrowStates
+//	ChildNames 		= [ FX_ARROW_FIRE_Trail_1 ]
+//	ChildNames 		= [ SmokeTrailGuidedMissile ]
+	ChildNames 		= [ SmokeTrailMFFireArrow1  ExplSelectorFireArrow ]
+
+}
+
+UnitType SmokeArrow
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10 }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+//=========================================================
+// Fire Boulder
+//=========================================================
+StateDatabase FireBoulderStates
+{
+	DefaultModel 	= fx_fire_boulder.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel FireBoulder
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= FireBoulderStates
+	ChildNames 		=	[ TheWaterSplash SmokeTrailFireBoulder1 SmokeTrailMFFireBoulder1 ExplSelectorFireBoulder]
+}
+UnitType FireBoulder
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//=========================================================
+// Musket Bullet
+//=========================================================
+StateDatabase MusketBulletStates
+{
+	DefaultModel 	= NULL.nif
+	DefaultState 	= Idle
+	States = [
+		{	
+			StateName="Idle" 
+			TextKeys = []
+		}
+		{ 
+			StateName = Death 	
+			TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] 
+		}
+		]
+}
+
+CompositeModel MusketBullet
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= MusketBulletStates
+	//ChildNames 		= [ ExplSelectorBullet01 ]
+	ChildNames 		= [  ]
+
+}
+
+UnitType MusketBullet
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 20 }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// jqAmmo
+//---------------------------------------------------------------------------
+StateDatabase jqAmmoStates
+{
+	DefaultModel 	= fx_missile_1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+								   ] }
+		]
+}
+CompositeModel jqAmmo
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.01
+	StateDatabaseName 	= jqAmmoStates
+	ChildNames 		= [ ExplSelectorfkjqAmmo] //FX_GuidedMissile_Trail_1
+}
+
+UnitType jqAmmo
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 20;}
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// fkjqAmmo
+//---------------------------------------------------------------------------
+StateDatabase fkjqAmmoStates
+{
+	DefaultModel 	= fx_missile_1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+								   ] }
+		]
+}
+CompositeModel fkjqAmmo
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.01
+	StateDatabaseName 	= fkjqAmmoStates
+	ChildNames 		= [ RocketFlames5  ExplSelectorfkjqAmmo] 
+
+}
+
+UnitType fkjqAmmo
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 20;}
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+//=========================================================
+// Outpost Bullet
+//=========================================================
+StateDatabase OutpostBulletStates
+{
+	DefaultModel 	= fx_bullet.nif
+	DefaultState 	= Idle
+	States = [
+		{	
+			StateName="Idle" 
+			TextKeys = []
+		}
+		{ 
+			StateName = Death 	
+			TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] 
+		}
+		]
+}
+
+CompositeModel OutpostBullet
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= OutpostBulletStates
+	ChildNames 		= [ ExplSelectorBullet01 BulletStreak ]
+
+}
+
+UnitType OutpostBullet
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 30 }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+//=========================================================
+// Outpost Bullet03
+//=========================================================
+StateDatabase OutpostBulletStates03
+{
+	DefaultModel 	= fx_bullet.nif
+	DefaultState 	= Idle
+	States = [
+		{	
+			StateName="Idle" 
+			TextKeys = [{ Name = PLAY_SOUND  Data = fx_battle_machgun KeyTime = 0 }]
+		}
+		{ 
+			StateName = Death 	
+			TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] 
+		}
+		]
+}
+
+CompositeModel OutpostBullet03
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= OutpostBulletStates03
+	ForceScale = 0.05
+	ChildNames 		= [ ExplSelectorBullet01 BulletStreak_b2]
+
+}
+
+UnitType OutpostBullet03
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 30 }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+//=========================================================
+// Outpost Bullet02
+//=========================================================
+StateDatabase OutpostBulletStates02
+{
+	DefaultModel 	= fx_bullet.nif
+	DefaultState 	= Idle
+	States = [
+		{	
+			StateName="Idle" 
+			TextKeys = [{ Name = PLAY_SOUND  Data = fx_battle_machgun KeyTime = 0 }]
+		}
+		{ 
+			StateName = Death 	
+			TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] 
+		}
+		]
+}
+
+CompositeModel OutpostBullet02
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= OutpostBulletStates02
+	ChildNames 		= [ ExplSelectorBullet01 BulletStreak_b2 ]
+
+}
+
+UnitType OutpostBullet02
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 30 }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+//=========================================================
+// guided missile
+//=========================================================
+StateDatabase GuidedMissileStates
+{
+	DefaultModel 	= fx_missile_1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" 
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel GuidedMissile
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= GuidedMissileStates
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile  RocketPuff1  RocketFlames3 ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType GuidedMissile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 15; accel = 15; angSpeed = 180 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// guided missile aws
+//=========================================================
+
+CompositeModel GuidedMissileSA9Irak
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= GuidedMissileStates
+	ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1 ]
+
+
+}
+
+UnitType GuidedMissileSA9Irak
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+		displayName = tx_utn_boepripas_name
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 15; accel = 15; angSpeed = 180 }
+		PayloadAttack { weaponType = Missile }
+	]
+	icon = icon_unit_boepripas
+}
+//=========================================================
+// pl12
+//=========================================================
+StateDatabase pl12States
+{
+	DefaultModel 	= pl12.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+		] }
+	]
+}
+CompositeModel pl12
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= pl12States
+	ForceScale = 0.26
+	ChildNames 		= [ ExplSelectorMissile1  SmokeTrailGuidedMissile  RocketPuff1  RocketFlames3  ] //FX_GuidedMissile_Trail_1
+
+
+}
+UnitType pl12
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 15; angSpeed = 180 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// Fighter bomber rocket
+//=========================================================
+StateDatabase FbRocketStates
+{
+	DefaultModel 	= fbrocket.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel FbRocket
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= FbRocketStates
+	ForceScale = 0.130
+      ChildNames 		= [ ExplSelectorStone01 SmokeTrailGuidedMissile SmokeTrailMFGuidedMissile TheWaterSplash ExplSelectorMissile1 ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType FbRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 80; accel = 8; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// Big rocket
+//=========================================================
+StateDatabase BigRocketStates
+{
+	DefaultModel 	= fx_missile_2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel BigRocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.200
+      StateDatabaseName 	= BigRocketStates
+	ChildNames 		= [ExplSelectorMissile1  SmokeTrailGuidedMissile  RocketPuff1  RocketFlames3 ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType BigRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 80; accel = 10; angSpeed = 720 }
+		LOS { range = 5 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// Thaad rocket
+//=========================================================
+StateDatabase ThaadRocketStates
+{
+	DefaultModel 	= fx_missile_1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" 
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel ThaadRocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.330
+      StateDatabaseName 	= ThaadRocketStates
+	ChildNames 		= [ ExplSelectorMissile1  SmokeTrailGuidedMissile  RocketPuff1  RocketFlames3 ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType ThaadRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 10; angSpeed = 180 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+
+//=========================================================
+// Smoking Rocket
+//=========================================================
+StateDatabase SmokingRocketStates
+{
+	DefaultModel 	= fx_warhammer.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle 
+			TextKeys = [ {Name = ATTACH_VISUAL	Data = FX_TrailingSmoke} 
+				   ]
+		}
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						     { Name = DETACH_VISUAL_BY_NAME	Data = FX_TrailingSmoke}
+						     					     
+						   ] 
+		}
+		]
+}
+CompositeModel SmokingRocket
+{	
+	ForceScale		= 0.06
+	ScaleType 		= kScaleIdentity
+	StateDatabaseName 	= SmokingRocketStates
+	ChildNames 		= [ TheWaterSplash SmokeTrailGuidedMissile SmokeTrailMFGuidedMissile ExplSelectorShell1 RocketPuff1 RocketPuff2 RocketFlames3 RocketFlames4 ]
+
+
+}
+UnitType SmokingRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 8; }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// Tactical rocket
+//=========================================================
+StateDatabase TacticalRocketStates
+{
+	DefaultModel 	= fx_nuke_sub_icbm_top.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel TacticalRocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.045
+      StateDatabaseName 	= TacticalRocketStates
+	ChildNames 		= [ SmokeTrailGuidedMissile SmokeTrailMFGuidedMissile TheWaterSplash ExplSelectorMissile1  ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType TacticalRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 100; accel = 16; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// tomahawk missile
+//=========================================================
+StateDatabase TomahawkMissileStates
+{
+	DefaultModel 	= fx_missile_2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						   ] }
+		]
+}
+CompositeModel  TomahawkMissile
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.360
+      StateDatabaseName 	=  TomahawkMissileStates
+	ChildNames 		= [ TheWaterSplash ExplSelectorMissile01  ExplSelectorStone01 SmokeTrailGuidedMissile ExplSelectorBomb03 ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType  TomahawkMissile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 30; accel = 8; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// nuke rocket
+//=========================================================
+StateDatabase NukeRocketStates
+{
+	DefaultModel 	= bigtoma.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						   ] }
+		]
+}
+CompositeModel  NukeRocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.095
+      StateDatabaseName 	=  NukeRocketStates
+	ChildNames 		= [ TheWaterSplash   SmokeTrailGuidedMissile   ExplSelectorNuke01 ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType  NukeRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 80; accel = 4; angSpeed = 720 }
+		LOS { range = 5 }
+            PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ] }
+	]
+     fullMapOverlay { sprite = spr_fullmap_icbm } 
+}
+
+
+//=========================================================
+// Tactical tomahawk
+//=========================================================
+StateDatabase TacttomStates
+{
+	DefaultModel 	= newtoma.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						   ] }
+		]
+}
+CompositeModel  Tacttom
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.110
+      StateDatabaseName 	=  TacttomStates
+	ChildNames 		= [ TheWaterSplash   SmokeTrailGuidedMissile   ExplSelectorMissile01  ExplSelectorStone01  ExplSelectorBomb03  ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType  Tacttom
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 100; accel = 8; angSpeed = 720 }
+		LOS { range = 5 }
+            PayloadAttack { weaponType = Missile }
+	]
+     fullMapOverlay { sprite = spr_fullmap_icbm } 
+}
+//=========================================================
+// Projectile Rocket for the Hercs   
+//=========================================================
+StateDatabase ProjectileRocketHercStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel ProjectileRocketHerc
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.140
+      StateDatabaseName 	= ProjectileRocketHercStates
+	ChildNames 		= [ SmokeTrailGuidedMissile  ExplSelectorMissile1 TheWaterSplash ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType ProjectileRocketHerc
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 80; accel = 8; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// Projectile Rocket for Ground Attack Aircraft
+//=========================================================
+StateDatabase GroundRocketHercStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel GroundRocketHerc
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.160
+      StateDatabaseName 	= ProjectileRocketHercStates
+	ChildNames 		= [ SmokeTrailGuidedMissile  ExplSelectorMissile1 TheWaterSplash ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType GroundRocketHerc
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 50; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+
+	]
+}
+//=========================================================
+// Projectile Rocket for J7
+//=========================================================
+StateDatabase J7RocketcStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel J7Rocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.13
+   StateDatabaseName 	= ProjectileRocketHercStates
+   ChildNames 		= [ExplSelectorShell1 SmokeTrailGuidedMissile RocketFlames3 ]
+}
+
+UnitType J7Rocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 30; accel = 30; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+
+	]
+}
+
+
+//=========================================================
+// MLRS Rocket
+//=========================================================
+StateDatabase MlrsRocketStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel MlrsRocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.15
+      StateDatabaseName 	= MlrsRocketStates
+	ChildNames 		= [ExplSelectorShell1  SmokeTrailGuidedMissile  RocketFlames3 ExplSelectorBigWeapon   ] //FX_GuidedMissile_Trail_1 SmokeTrailMFGuidedMissile
+
+}
+
+UnitType MlrsRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10;accel = 8;angSpeed = 720 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// MLRS Rocket For PHL_03
+//=========================================================
+CompositeModel MlrsRocket_PHL03
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.230
+      StateDatabaseName 	= MlrsRocketStates
+	ChildNames 		= [ExplSelectorShell1 SmokeTrailGuidedMissile RocketFlames3 ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType MlrsRocket_PHL03
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10;accel = 30;angSpeed = 720 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+	icon = icon_projects_boepripas
+}
+//=========================================================
+// MLRS Rocket For CJ10
+//=========================================================
+CompositeModel MlrsRocket_CJ10
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.35
+      StateDatabaseName 	= MlrsRocketStates
+	  ChildNames 		= [ SmokeTrailICBM_1 SmokeTrailGuidedMissile  RocketPuff1  RocketFlames3  ExplSelectorBomb03] //FX_GuidedMissile_Trail_1
+	
+
+}
+
+UnitType MlrsRocket_CJ10
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 20;accel = 10;angSpeed = 720 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+	icon = icon_projects_boepripas
+}
+
+//=========================================================
+// Fast Rocket
+//=========================================================
+StateDatabase FastRocketStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel FastRocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.005
+      StateDatabaseName 	= FastRocketStates
+	ChildNames 		= [ExplSelectorShellN2 TheWaterSplash ExplSelectorMissile01  ExplSelectorTorp01  ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType FastRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.01
+		SizeY = 0.01
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 800; accel = 30; angSpeed = 720 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Navalmine_fallout ]}
+	]
+}
+//=========================================================
+// Fast Rocket2
+//=========================================================
+StateDatabase FastRocket2States
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel FastRocket2
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.005
+      StateDatabaseName 	= FastRocketStates
+	ChildNames 		= [ TheWaterSplash ExplSelectorMissile01  ExplSelectorTorp01 ExplSelectorBomb03 ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType FastRocket2
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.01
+		SizeY = 0.01
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 800; accel = 30; angSpeed = 720 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Navalmine_fallout2 ]}
+	]
+}
+//=========================================================
+// Fast Rocket 3
+//=========================================================
+StateDatabase FastRocket3States
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel FastRocket3
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.005
+      StateDatabaseName 	= FastRocket3States
+	ChildNames 		= [ExplSelectorShellN2 TheWaterSplash ExplSelectorMissile01  ExplSelectorTorp01  ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType FastRocket3
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.01
+		SizeY = 0.01
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 800; accel = 30; angSpeed = 720 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Landmine_fallout ]}
+	]
+}
+
+//=========================================================
+// Chemical bomb 
+//=========================================================
+StateDatabase ChemicalBombStates
+{
+	DefaultModel 	= fx_projectile_bomb_01.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ChemicalBomb
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.200
+      StateDatabaseName 	= BombStates
+	ChildNames 		= [ TheWaterSplash ProjectileBombStreak ExplSelectorStone01  ExplSelectorBomb03 ]
+}
+UnitType ChemicalBomb
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = Bomb; speed = 1.8 }
+            PayloadAttack { weaponType = Nuke; damageEffects = [ Chemical_fallout ] }
+	]
+}
+
+//=========================================================
+// Chemical bomb2 
+//=========================================================
+StateDatabase ChemicalBomb2States
+{
+	DefaultModel 	= fx_projectile_bomb_01.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ChemicalBomb2
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.200
+      StateDatabaseName 	= BombStates
+	ChildNames 		= [ TheWaterSplash ProjectileBombStreak ExplSelectorStone01  ExplSelectorBomb03 ]
+}
+UnitType ChemicalBomb2
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = Bomb; speed = 1.8 }
+            PayloadAttack { weaponType = Nuke; damageEffects = [ Chemical_fallout2 ] }
+	]
+}
+
+//=========================================================
+// bomb (for bombers)
+//=========================================================
+StateDatabase BombStates
+{
+	DefaultModel 	= fx_projectile_bomb_01.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Bomb
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.130
+      StateDatabaseName 	= BombStates
+	ChildNames 		= [ TheWaterSplash ProjectileBombStreak ExplSelectorStone01 ExplSelectorBomb03 ]
+}
+UnitType Bomb
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = Bomb; speed = 1.8 }
+	]
+}
+//=========================================================
+// bombsharp (for B2)
+//=========================================================
+StateDatabase BombSharpStates
+{
+	DefaultModel 	= fx_projectile_atombomb3.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel BombSharp
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.035
+      StateDatabaseName 	= BombSharpStates
+	ChildNames 		= [ TheWaterSplash ProjectileBombStreak ExplSelectorStone01 ExplSelectorBomb03 ]
+}
+UnitType BombSharp
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = Bomb; speed = 1.8 }
+	]
+}
+
+//=========================================================
+// bomb02 (for fighter bombers)
+//=========================================================
+StateDatabase Bomb02States
+{
+	DefaultModel 	= fx_projectile_bomb_01.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Bomb02
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.120
+      StateDatabaseName 	= Bomb02States
+	ChildNames 		= [ TheWaterSplash ProjectileBombStreak ExplSelectorStone01 ExplSelectorBomb02 ]
+}
+UnitType Bomb02
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = Bomb; speed = 1.5 }
+	]
+}
+//=========================================================
+// bomb03 (WW1)
+//=========================================================
+StateDatabase Bomb03States
+{
+	DefaultModel 	= fx_projectile_bomb_01.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Bomb03
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.150
+      StateDatabaseName 	= Bomb03States
+	ChildNames 		= [ TheWaterSplash ProjectileBombStreak ExplSelectorStone01 ]
+}
+UnitType Bomb03
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = Bomb; speed = 1.5 }
+	]
+}
+//---------------------------------------------------------------------------
+// flak01 (for aa guns)
+//---------------------------------------------------------------------------
+
+
+StateDatabase Flak01States
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Flak01
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= Flak01States
+	ChildNames 		=	[ ExplSelectorFlak01 ]
+}
+
+UnitType Flak01
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 20 }
+	]
+}
+//=========================================================
+// Cannon Ball
+//=========================================================
+StateDatabase CannonBallStates
+{
+	DefaultModel 	= fx_cannonball.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel CannonBall
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= CannonBallStates
+	ChildNames 		= [ TheWaterSplash ExplSelectorStone01 ProjectileRockStreak ExplSelectorCannonball01 ]
+}
+UnitType CannonBall
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+StateDatabase DapaoBallStates
+{
+	DefaultModel 	= fx_cannonball.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel DapaoBall
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= BoatCannonBallStates
+	ForceScale		= 0.18
+	ChildNames 		= [ ExplSelectorStone01 ProjectileRockStreak ]
+}
+UnitType DapaoBall
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 15 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//=========================================================
+// Cannon Ball
+//=========================================================
+StateDatabase BoatCannonBallStates
+{
+	DefaultModel 	= fx_cannonball.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel BoatCannonBall
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= BoatCannonBallStates
+	ForceScale		= 0.18
+	ChildNames 		= [ TheWaterSplash ExplSelectorStone01 ProjectileRockStreak ]
+}
+UnitType BoatCannonBall
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 15 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//=========================================================
+// Cannon Ball02
+//=========================================================
+StateDatabase CannonBallStates02
+{
+	DefaultModel 	= fx_cannonball.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel CannonBall02
+{
+	ForceScale		= 0.33
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= CannonBallStates
+	ChildNames 		= [ TheWaterSplash ExplSelectorStone01 ProjectileRockStreak ]
+}
+UnitType CannonBall02
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05	
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//=========================================================
+// Smoking Cannon Ball
+//=========================================================
+StateDatabase SmokingCannonBallStates
+{
+	DefaultModel 	= fx_smoking_cannonball.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle 
+			TextKeys = [ {Name = ATTACH_VISUAL	Data = FX_TrailingSmoke} 
+				   ]
+		}
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						     { Name = DETACH_VISUAL_BY_NAME	Data = FX_TrailingSmoke}
+						     					     
+						   ] 
+		}
+		]
+}
+CompositeModel SmokingCannonBall
+{	
+	ForceScale		= .12
+	ScaleType 		= kScaleIdentity
+	StateDatabaseName 	= SmokingCannonBallStates
+//	ChildNames 		= [ TheWaterSplash ExplSelectorStone01 SmokeTrailCannonball1 ]
+	ChildNames 		= [ TheWaterSplash ExplSelectorStone01 SmokeTrailCannonball1 SmokeTrailMFCannonball1 ]
+//	ChildNames 		= [ TheWaterSplash ExplSelectorStone01 ]
+
+}
+UnitType SmokingCannonBall
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 9 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// Grenade Bullet for Grenade Pistoleer and Grenadier
+//=========================================================
+StateDatabase GrenadeBulletStates
+{
+	DefaultModel 	= fx_bullet.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel GrenadeBullet
+{
+	ForceScale		= 0.025	
+	ScaleType 		= kScaleAmmo
+	StateDatabaseName 	= GrenadeBulletStates
+	//ChildNames 		= [ TheWaterSplash ExplSelectorGrenadeBullet01 ]
+	ChildNames 		= [  ]
+}
+UnitType GrenadeBullet
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 17 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// Grenade
+//=========================================================
+StateDatabase GrenadeStates
+{
+	DefaultModel 	= fx_cannonball.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Grenade
+{
+	ForceScale		= 0.025	
+	ScaleType 		= kScaleAmmo
+	StateDatabaseName 	= CannonBallStates
+	ChildNames 		= [ ]
+	//ChildNames 		= [ TheWaterSplash ExplSelectorTankShell01 ]
+}
+UnitType Grenade
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 8 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// Rock Ammo 
+//=========================================================
+StateDatabase RockAmmoStates
+{
+	DefaultModel 	= fx_rockammo.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel RockAmmo
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= RockAmmoStates
+	ChildNames 		=	[ TheWaterSplash ExplSelectorStone01 ProjectileRockStreak ]
+}
+UnitType RockAmmo
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 6 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// ProjectileRock - Trebuchet
+//=========================================================
+StateDatabase ProjectileRockStates
+{
+	DefaultModel 	= fx_projectile_rock.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ProjectileRock
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= ProjectileRockStates
+	ChildNames 		=	[ TheWaterSplash ExplSelectorStone01 ProjectileRockStreak ]
+}
+UnitType ProjectileRock
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 6 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// Ballista Ammo
+//=========================================================
+StateDatabase BallistaAmmoStates
+{
+	DefaultModel 	= fx_ballistabolt.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel BallistaAmmo
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= BallistaAmmoStates
+	ChildNames 		=	[ TheWaterSplash ]
+	
+}
+UnitType BallistaAmmo
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.5
+		SizeY = 0.5
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 9 }
+	]
+}
+//---------------------------------------------------------------------------
+// LaserAmmo
+//---------------------------------------------------------------------------
+StateDatabase LaserAmmoStates
+{
+	DefaultModel 	= LaserAmmo.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel LaserAmmo
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= LaserAmmoStates
+	ForceScale = 0.4
+	ChildNames 		= [ ExplSelectorBullet01 BulletStreak TheWaterSplash ExplSelectorMissile1]
+	//ChildNames 		= [ ExplSelectorMissile1 RocketPuff1 RocketPuff2 RocketFlames1 RocketFlames2 SmokeTrailGuidedMissile SmokeTrailMFGuidedMissile ] 
+}
+UnitType LaserAmmo
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 30 }
+		//PayloadAttack { weaponType = MediumProjectile }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// LaserAmmo2
+//---------------------------------------------------------------------------
+StateDatabase LaserAmmo2States
+{
+	DefaultModel 	= LaserAmmo2.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel LaserAmmo2
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= LaserAmmo2States
+	ForceScale = 0.4
+	ChildNames 		= [ ExplSelectorBullet01 BulletStreak TheWaterSplash ExplSelectorMissile1 ExplSelectorFireArrow]
+	//ChildNames 		= [ ExplSelectorMissile1 RocketPuff1 RocketPuff2 RocketFlames1 RocketFlames2 SmokeTrailGuidedMissile SmokeTrailMFGuidedMissile ] 
+}
+
+UnitType LaserAmmo2
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 30 }
+		//PayloadAttack { weaponType = MediumProjectile }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// WW2AirShellStates 二战防空车辆弹药
+//---------------------------------------------------------------------------
+StateDatabase WW2AirShellStates
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel WW2AirShell
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= WW2AirShellStates
+	ForceScale = 0.02
+	ChildNames = [ ExplSelectorStone01  ExplSelectorShellN2]
+}
+
+UnitType WW2AirShell
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 15 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// TankShell
+//---------------------------------------------------------------------------
+StateDatabase TankShellStates
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel TankShell
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= TankShellStates
+	ChildNames = [ ExplSelectorShell1 BulletzipwhiteFat]
+}
+
+UnitType TankShell
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 15 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// TankShell15
+//---------------------------------------------------------------------------
+StateDatabase TankShell15States
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel TankShell15
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.05
+	StateDatabaseName 	= TankShell15States
+	ChildNames = [ ExplSelectorShell1 MuzzleBlast MuzzleBlast2 MuzzleBlast3 MuzzleFlame2  ]
+}
+
+UnitType TankShell15
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 50 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// TankShell for Boat
+//---------------------------------------------------------------------------
+
+
+StateDatabase TankShellBoatStates
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel TankShellBoat
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.250
+	StateDatabaseName 	= TankShellBoatStates
+	ChildNames = [ ExplSelectorShell1 ExplSelectorBigWeapon TheWaterSplash BulletzipwhiteFat]
+}
+
+UnitType TankShellBoat
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 15 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// TankShell for SPAA
+//---------------------------------------------------------------------------
+
+
+StateDatabase TankShellSPStates
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel TankShellSP
+{
+	ScaleType 			= kScaleAmmo
+      ForceScale = 0.150
+	StateDatabaseName 	= TankShellSPStates
+	ChildNames = [ ExplSelectorShell1 ]
+}
+
+UnitType TankShellSP
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 15 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// TankShell02 (for Self-Propelled Artillery)
+//---------------------------------------------------------------------------
+
+
+StateDatabase TankShellStates02
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+	]
+}
+CompositeModel TankShell02
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= TankShellStates02
+	ChildNames = [ SmokeTrailGuidedMissile ExplSelectorFireArrow ExplSelectorTankShell01 ]
+}
+
+UnitType TankShell02
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 20 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//---------------------------------------------------------------------------
+// TankShell03 (For Field Artillery)
+//---------------------------------------------------------------------------
+
+
+StateDatabase TankShellStates03
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel TankShell03
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.200
+      StateDatabaseName 	= TankShellStates
+	  ChildNames = [ ExplSelectorShell1 ExplSelectorBigWeapon TheWaterSplash  ExplSelectorFireArrow ]
+	
+}
+
+UnitType TankShell03
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 30 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// TankShellB (For Battleship)
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+// PlaneShell15
+//---------------------------------------------------------------------------
+StateDatabase PlaneShell15States
+{
+	DefaultModel 	= fx_missile_1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel PlaneShell15
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.01
+	StateDatabaseName 	= PlaneShell15States
+	ChildNames 		= [ ExplSelectorMissile1 TheWaterSplash  RocketFlames2  ] //FX_GuidedMissile_Trail_1
+}
+
+UnitType PlaneShell15
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 100; accel = 30; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// guided missile
+//=========================================================
+StateDatabase paodan15States
+{
+	DefaultModel 	= fx_missile_1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel paodan15
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.01
+	StateDatabaseName 	= paodan15States
+	ChildNames 		= [ ExplSelectorMissile1 TheWaterSplash  RocketFlames3 ExplSelectorShell1 ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType paodan15
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 20;}
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+StateDatabase TankShellBStates
+{
+	DefaultModel 	= fx_rocket_herc.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel TankShellB
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.15
+    StateDatabaseName 	= TankShellBStates
+	ChildNames = [ExplSelectorBigWeapon  ExplSelectorBomb04   BulletzipwhiteFat] 
+   
+}
+
+UnitType TankShellB
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10 }
+		PayloadAttack { weaponType = MediumProjectile }
+		
+	]
+}
+StateDatabase TankShellB15States
+{
+	DefaultModel 	= fx_rocket_herc.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel TankShellB15
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.05
+    StateDatabaseName 	= TankShellB15States
+	ChildNames = [ExplSelectorBigWeapon  ExplSelectorBomb04   BulletzipwhiteFat Beam_HercBoat] 
+   
+}
+
+UnitType TankShellB15
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10 }
+		PayloadAttack { weaponType = MediumProjectile }
+		
+	]
+}
+StateDatabase DapaoShellStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel DapaoShell
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.20
+    StateDatabaseName 	= DapaoShellStates
+	ChildNames = [ExplSelectorBigWeapon  ExplSelectorBomb04  BulletzipwhiteFat]
+   
+}
+
+UnitType DapaoShell
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 12 }
+		PayloadAttack { weaponType = MediumProjectile }
+		
+	]
+}
+StateDatabase TankspaoShellStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel TankspaoShell
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.10
+    StateDatabaseName 	= TankspaoShellStates
+	ChildNames = [ExplSelectorShell1 TheWaterSplash TheWaterSplash   MuzzleBlast MuzzleBlast2 MuzzleBlast3 MuzzleFlame2 MuzzleFlameShort BulletzipwhiteFat]
+   
+}
+
+UnitType TankspaoShell
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 15 }
+		PayloadAttack { weaponType = MediumProjectile }
+		
+	]
+}
+//---------------------------------------------------------------------------
+// TankShellB (For Chinaship)
+//---------------------------------------------------------------------------
+StateDatabase ChinashipShellStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ChinashipShell
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.10
+    StateDatabaseName 	= ChinashipShellStates
+    ChildNames = [ExplSelectorShell1  TheWaterSplash MuzzleBlast  MuzzleFlame2  BulletzipwhiteFat]
+}
+
+UnitType ChinashipShell
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 15 }
+		PayloadAttack { weaponType = LightProjectile }
+	]
+}
+
+
+//---------------------------------------------------------------------------
+// Bertha (For Bertha)
+//---------------------------------------------------------------------------
+
+
+StateDatabase BerthaStates
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Bertha
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.400
+      StateDatabaseName 	= BerthaStates
+	ChildNames = [ ExplSelectorStone01 TheWaterSplash  ExplSelectorTankShell01 ExplSelectorBomb03 ]
+}
+
+UnitType Bertha
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 14 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//---------------------------------------------------------------------------
+// HERC EMP BLAST
+//---------------------------------------------------------------------------
+
+
+StateDatabase HERC_EMP_States
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+	]
+}
+
+CompositeModel HERC_EMP
+{
+	ScaleType 		= kScaleAmmo
+	StateDatabaseName 	= HERC_EMP_States
+	ChildNames 		= [ TheWaterSplash ExplSelectorEmp01 ]
+}
+
+UnitType HERC_EMP
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 80 }
+		
+		// set the damageEffect so that the detonation
+		// can spawn area effects that temporarily disables nearby units
+		PayloadAttack { damageEffects = [ HERC_EMP_blast ] }
+	]
+}
+
+//---------------------------------------------------------------------------
+// NUCLEAR AMMO
+//---------------------------------------------------------------------------
+// AI_ICBM
+StateDatabase AI_ICBMStates
+{
+	DefaultModel 	= fx_missile_icbm.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel AI_ICBM
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.055
+      StateDatabaseName 	= AI_ICBMStates
+	ChildNames 		=	[ TheWaterSplash SmokeTrailICBM_1  ExplSelectorNuke02 ]
+}
+
+UnitType AI_ICBM
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 12; accel = 20; angSpeed = 720  }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout215 ]}
+		LOS { range = 5 }
+	]
+	icon = icon_unit_ICBM
+	// @NOTE:  ICBM is "special", in that it is the only ammo type that
+	//         gets shown in the mini/full map, the sprite it uses is defined below.
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+}
+// ICBM
+StateDatabase ICBMStates
+{
+	DefaultModel 	= fx_missile_icbm.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ICBM
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.055
+      StateDatabaseName 	= ICBMStates
+	ChildNames 		=	[ TheWaterSplash SmokeTrailICBM_1 ExplSelectorNuke02 ]
+}
+
+UnitType ICBM
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+		popCount = 4
+		displayName = tx_utn_ICBM_name
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 8; angSpeed = 720  }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout215 ]}
+		LOS { range = 5 }
+	]
+	icon = icon_unit_ICBM
+	// @NOTE:  ICBM is "special", in that it is the only ammo type that
+	//         gets shown in the mini/full map, the sprite it uses is defined below.
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+}
+// NuclearMissile
+StateDatabase Nuclear_MissileStates
+{
+	DefaultModel 	= NuclearMissile_icbm.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Nuclear_Missile
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.06
+    StateDatabaseName 	= Nuclear_MissileStates
+	ChildNames 		=	[ TheWaterSplash SmokeTrailICBM_1 ExplSelectorNuke01 ]
+}
+
+UnitType Nuclear_Missile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 9; accel = 20; angSpeed = 720  }
+		//PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout215 ]}
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ] }
+		LOS { range = 10 }
+	]
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+}
+
+// Sub-based Nuclear missiles
+StateDatabase SubNukeStates
+{
+	DefaultModel 	= fx_nuke_sub_icbm_top.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel SubNuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.070
+      StateDatabaseName 	= SubNukeStates
+	ChildNames 		=	[ TheWaterSplash SmokeTrailICBM_1 ExplSelectorNuke01 ]
+}
+
+UnitType SubNuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 12; accel = 20; angSpeed = 360 }
+		LOS { range = 5 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ] }
+	]
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+}
+StateDatabase SSBNNukeStates
+{
+	DefaultModel 	= fx_nuke_sub_icbm_top.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel SSBNNuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.070
+      StateDatabaseName 	= SSBNNukeStates
+	ChildNames 		=	[ TheWaterSplash SmokeTrailICBM_1 ExplSelectorNuke01 ]
+}
+
+UnitType SSBNNuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+		popCount = 4
+		displayName = tx_utn_ICBM_name
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 8; angSpeed = 360  }
+		LOS { range = 5 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ] }
+	]
+	icon = icon_unit_ICBM
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+}
+// MGM Nuclear missiles
+StateDatabase MGMNukeStates
+{
+	DefaultModel 	= tacticalnuke.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel MGMNuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.060
+      StateDatabaseName 	= MGMNukeStates
+	ChildNames 		=	[ SmokeTrailICBM_1 ExplSelectorNuke01 ]
+}
+
+UnitType MGMNuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 8; angSpeed = 720  }
+		LOS { range = 5 }
+        PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ] }
+	]
+}
+//==============================================
+//  Scud based Nuclear missiles
+//==============================================
+StateDatabase ScudNukeStates
+{
+	DefaultModel 	= fx_nuke_scud_icbm_top.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ScudNuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.070
+      StateDatabaseName 	= ScudNukeStates
+	ChildNames 		=	[ SmokeTrailICBM_1 ExplSelectorNuke01 ]
+}
+
+UnitType ScudNuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 10;accel =20; angSpeed = 720  }
+		LOS { range = 5 }
+            PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ] }
+	]
+}
+//====================================
+// Arab Nuclear missiles
+//====================================
+StateDatabase ArabNukeStates
+{
+	DefaultModel 	= tacticalnuke2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ArabNuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.060
+      StateDatabaseName 	= ArabNukeStates
+	ChildNames 		=	[ SmokeTrailCannonball1 SmokeTrailMFCannonball1 SmokeTrailGuidedMissile SmokeTrailMFGuidedMissile ExplSelectorNuke01 ]
+}
+UnitType ArabNuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 8 }		
+            PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ] }
+	]
+}
+// Nuclear bomb
+StateDatabase ChinaAtomBombStates
+{
+	DefaultModel 	= fx_projectile_atombomb2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ChinaAtomBomb
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.05
+      StateDatabaseName 	= ChinaAtomBombStates
+	//ChildNames 		= [ TheWaterSplash  ProjectileBombStreak ExplSelectorNuke01 ]
+	ChildNames 		=	[ TheWaterSplash SmokeTrailICBM_1 SmokeTrailICBM_2 SmokeTrailICBM_3 
+						SmokeTrailICBM_4 ExplSelectorNuke02 ]
+}
+UnitType ChinaAtomBomb
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = Bomb; speed = 2 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout215 ] }
+	]
+}
+// Nuclear bomb
+StateDatabase AtomBombStates
+{
+	DefaultModel 	= fx_projectile_atombomb2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel AtomBomb
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.06
+      StateDatabaseName 	= AtomBombStates
+	ChildNames 		= [ TheWaterSplash ProjectileBombStreak 
+						ExplSelectorNuke01 ]
+}
+UnitType AtomBomb
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = Bomb; speed = 2 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ] }
+	]
+}
+
+//=========================================================
+// torpedo
+//=========================================================
+StateDatabase TorpedoStates
+{
+	DefaultModel 	= fx_torpedo_1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						   ] }
+		]
+}
+CompositeModel Torpedo
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.350
+	StateDatabaseName 	= TorpedoStates
+	ChildNames 		= [ ExplSelectorTorp01 SmokeTrailTorpedo ] 
+
+}
+
+UnitType Torpedo
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+		moveType = kUnitMoveType_Projectile
+	}
+	abilities [
+		ProjectileMissileMove { type = Torpedo; speed = 7; accel = 8; angSpeed = 720; }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+
+//=========================================================
+// Stone
+//=========================================================
+StateDatabase StoneStates
+{
+	DefaultModel 	= fx_cannonball.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Stone
+{
+	ForceScale		= 0.025	
+	ScaleType 		= kScaleAmmo
+	StateDatabaseName 	= StoneStates
+}
+UnitType Stone
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 6 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+
+//---------------------------------------------------------------------------
+// MortarShell
+//---------------------------------------------------------------------------
+
+
+StateDatabase MortarShellStates
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel MortarShell
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= TankShellStates
+	ChildNames = [ ExplSelectorStone01 TheWaterSplash ExplSelectorTankShell01 ]
+}
+
+UnitType MortarShell
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 8 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// Spear
+//=========================================================
+StateDatabase SpearStates
+{
+	DefaultModel 	= fx_ballistabolt.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ 
+			StateName = Death 	
+			TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] 
+		}
+		]
+}
+CompositeModel Spear
+{
+	ForceScale		= 0.12
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= SpearStates
+	ChildNames 		=	[]
+	
+}
+UnitType Spear
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.5
+		SizeY = 0.5
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 9 }
+	]
+}
+
+//=========================================================
+// CannonBall03 (for Culverin and Field Gun)
+//=========================================================
+StateDatabase CannonBallStates03
+{
+	DefaultModel 	= fx_cannonball.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel CannonBall03
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= CannonBallStates03
+	ChildNames 		= [  ExplSelectorCannonball01  ProjectileRockStreak  ]
+}
+UnitType CannonBall03
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//=========================================================
+// CannonBall05 (for Culverin and Field Gun)
+//=========================================================
+StateDatabase CannonBallStates05
+{
+	DefaultModel 	= fx_cannonball.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel CannonBall05
+{
+	ScaleType 			= kScaleAmmo
+      ForceScale = 0.060
+	StateDatabaseName 	= CannonBallStates03
+	ChildNames 		= [ TheWaterSplash ExplSelectorStone01  ProjectileRockStreak  ]
+}
+UnitType CannonBall05
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 25 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//=========================================================
+// ProjectileTest1
+//=========================================================
+StateDatabase ProjectileTest1States
+{
+	DefaultModel 	= faucow.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ 	StateName = Death	AnimName = sh_faucow_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_cow_die_01 KeyTime = 0}]}
+		]
+}
+CompositeModel ProjectileTest1
+{
+	ScaleType 			= kScaleLandAnimal
+	StateDatabaseName 	= ProjectileTest1States
+	ChildNames 		=	[ TheWaterSplash ExplSelectorStone01 ProjectileRockStreak ]
+}
+UnitType ProjectileTest1
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 6 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// ProjectileTest2
+//=========================================================
+StateDatabase ProjectileTest2States
+{
+	DefaultModel 	= fauelephant.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ 	StateName = Death	AnimName = sh_fauelephant_death01.kf 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_animal_elephant_die_01 KeyTime = 0.0 }] }
+		]
+}
+CompositeModel ProjectileTest2
+{
+	ForceScale = 0.12
+	StateDatabaseName 	= ProjectileTest2States
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile  ] //FX_GuidedMissile_Trail_1
+
+
+}
+UnitType ProjectileTest2
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 11; accel = 8; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+// Unofficial Patch 1.5, by Dr.MonaLisa, 30.06.2014 - Alert Siren Mod's Ammo (thanks to Vladimir I.):
+//=========================================================
+// Fast Rocket 4
+//=========================================================
+StateDatabase FastRocket4States
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel FastRocket4
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= FastRocket4States
+	ChildNames 		= [ ]
+
+}
+
+UnitType FastRocket4
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.01
+		SizeY = 0.01
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 800; accel = 30; angSpeed = 720 }
+	]
+}
+
+//=========================================================
+// Fast Rocket 5
+//=========================================================
+StateDatabase FastRocket5States
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel FastRocket5
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.005
+      StateDatabaseName 	= FastRocket5States
+	ChildNames 		= [ ] 
+
+}
+
+UnitType FastRocket5
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.01
+		SizeY = 0.01
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 0.5; }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//=========================================================
+// sd_daodan missile 
+//=========================================================
+StateDatabase THAAD_daodanStates
+{
+	DefaultModel 	= THAAD_daodan.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" 
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel THAAD_daodan
+{
+	ScaleType 			= kScaleAmmo
+      ForceScale = 0.25  
+	StateDatabaseName 	= THAAD_daodanStates
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile   RocketFlames3 ]
+
+
+}
+
+UnitType THAAD_daodan
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+	AreaEffect {
+			effects = [ 				
+                      AntiMissileRocket                 
+			]
+		}
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 10; angSpeed = 180 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// MIM23 missile 
+//=========================================================
+StateDatabase MIM23MissileStates
+{
+	DefaultModel 	= Mim23_missile.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle"
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel MIM23Missile
+{
+	ScaleType 			= kScaleAmmo
+      ForceScale = 0.300  
+	StateDatabaseName 	= MIM23MissileStates
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile  RocketFlames3 ]
+
+
+}
+
+UnitType MIM23Missile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+	AreaEffect {
+			effects = [ 				
+                      AntiMissileRocket                 
+			]
+		}
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 10; angSpeed = 180 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// SA2 missile 
+//=========================================================
+StateDatabase SA2MissileStates
+{
+	DefaultModel 	= fx_missile_sa2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" 
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel SA2Missile
+{
+	ScaleType 			= kScaleAmmo
+      ForceScale = 0.300  
+	StateDatabaseName 	= SA2MissileStates
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile   RocketFlames3 ]
+
+
+}
+
+UnitType SA2Missile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+	AreaEffect {
+			effects = [ 				
+                      AntiMissileRocket                 
+			]
+		}
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 10; angSpeed = 180 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// SA5 missile 
+//=========================================================
+StateDatabase SA5MissileStates
+{
+	DefaultModel 	= SA5Missile.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" 
+			TextKeys = [ 
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel SA5Missile
+{
+	ScaleType 			= kScaleAmmo
+      ForceScale = 0.300  
+	StateDatabaseName 	= SA5MissileStates
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile   RocketFlames3]
+
+
+}
+
+UnitType SA5Missile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+	AreaEffect {
+			effects = [ 				
+                      AntiMissileRocket                 
+			]
+		}
+		ProjectileMissileMove { type = GuidedMissile; speed = 23; accel = 10; angSpeed = 180 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// Plazmoid missile 2
+//=========================================================
+StateDatabase Plazmoid2States
+{
+	DefaultModel 	= fx_missile_plasma2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } { Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+						    ] }
+		]
+}
+CompositeModel Plazmoid2
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.01
+      StateDatabaseName 	= Plazmoid2States
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailMFGuidedMissile  ] //FX_GuidedMissile_Trail_1
+
+}
+
+UnitType Plazmoid2
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 25; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+
+	]
+}
+//============================================
+//  DF17 missiles
+//============================================
+StateDatabase DF17MissilesStates
+{
+	DefaultModel 	= DF17daodan.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle 
+		}
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel DF17Missiles
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.1
+    StateDatabaseName 	= DF17MissilesStates
+	ChildNames 		=	[ SmokeTrailICBM_1 ExplSelectorBomb02 ExplSelectorBigWeapon TheWaterSplash ExplSelectorNaval]
+}
+
+UnitType DF17Missiles
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 10
+	}
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+      abilities [
+	  AreaEffect {
+			effects = [ 				
+				RocketLaunchingFix1                
+			]
+		}
+		ProjectileMissileMove { type = ICBM; speed = 15; accel = 30;angSpeed = 720  }
+		LOS { range = 2 }
+        PayloadAttack { weaponType = Nuke; damageEffects = [  ] }
+	]
+}
+//============================================
+//  Scud 13 based Nuclear missiles
+//============================================
+StateDatabase ScudNuke13States
+{
+	DefaultModel 	= fx_nuke_scud2_icbm_top.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ScudNuke13
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.090
+      StateDatabaseName 	= ScudNuke13States
+	//ChildNames 		=	[ SmokeTrailICBM_1 ExplSelectorMonaMissile]
+	ChildNames 		=	[ SmokeTrailICBM_1 ExplSelectorBomb02 ExplSelectorBigWeapon TheWaterSplash]
+}
+
+UnitType ScudNuke13
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 10
+	}
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+      abilities [
+	  AreaEffect {
+			effects = [ 				
+            RocketLaunchingFix1                
+			]
+		}
+		ProjectileMissileMove { type = ICBM; speed = 10;accel = 20;angSpeed = 720  }
+		LOS { range = 5 }
+            PayloadAttack { weaponType = Nuke; damageEffects = [  ] }
+	]
+}
+//============================================
+//  CJ10Rocket based Nuclear missiles
+//============================================
+StateDatabase CJ10RocketStates
+{
+	DefaultModel 	= tacticalnuke2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel CJ10Rocke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.06
+    StateDatabaseName 	= CJ10RocketStates
+	ChildNames 		=	[  SmokeTrailGuidedMissile TheWaterSplash RocketPuff1  RocketFlames3   ExplSelectorBomb02]
+}
+
+UnitType CJ10Rocke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 10
+	}
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+      abilities [
+	  AreaEffect {
+			effects = [ 				
+            RocketLaunchingFix1                 
+			]
+		}
+		ProjectileMissileMove { type = GuidedMissile; speed = 15; accel = 20; angSpeed = 180 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//============================================
+//  Scud 15 based Nuclear missiles
+//============================================
+StateDatabase Scud154NukeStates
+{
+	DefaultModel 	= fx_nuke_scud154_icbm.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Scud154Nuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.060
+      StateDatabaseName 	= Scud154NukeStates
+	ChildNames 		=	[ SmokeTrailICBM_1 ExplSelectorMonaMissile ]
+}
+
+UnitType Scud154Nuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 10
+	}
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+      abilities [
+	  AreaEffect {
+			effects = [ 				
+            RocketLaunchingFix1                 
+			]
+		}
+		ProjectileMissileMove { type = ICBM; speed = 14; accel = 20; angSpeed = 720  }
+		LOS { range = 5 }
+            PayloadAttack { weaponType = Nuke; damageEffects = [  ] }
+	]
+}
+//========================================
+//  V2 based Nuclear missiles
+//========================================
+StateDatabase V2NukeStates
+{
+	DefaultModel 	= fx_nuke_v2_icbm.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel V2Nuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.090
+      StateDatabaseName 	= V2NukeStates
+	ChildNames 		=	[ SmokeTrailICBM_1 ExplSelectorBomb02 ExplSelectorBigWeapon TheWaterSplash]
+}
+
+UnitType V2Nuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+	AreaEffect {
+			effects = [ 				
+            RocketLaunchingFix1                 
+			]
+		}
+		ProjectileMissileMove { type = ICBM; speed = 7; accel = 20; angSpeed = 720  }
+		LOS { range = 5 }
+            PayloadAttack { weaponType = Nuke; damageEffects = [  ] }
+	]
+}
+//=========================================
+//  Scud 15 based Nuclear missiles
+//=========================================
+StateDatabase Scud15NukeStates
+{
+	DefaultModel 	= fx_nuke_scud15_icbm.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Scud15Nuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.060
+      StateDatabaseName 	= Scud15NukeStates
+	ChildNames 		=	[ SmokeTrailICBM_1 ExplSelectorMonaMissile ]
+}
+
+UnitType Scud15Nuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+	AreaEffect {
+			effects = [ 				
+            RocketLaunchingDontMove                 
+			]
+		}
+		ProjectileMissileMove { type = ICBM; speed = 12; accel = 20; angSpeed = 720  }
+		LOS { range = 5 }
+            PayloadAttack { weaponType = Nuke; damageEffects = [  ] }
+	]
+}
+//=========================================================
+// ANaval rocket
+//=========================================================
+StateDatabase ANavalRocketStates
+{
+	DefaultModel 	= fx_missile_2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel ANavalRocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.200
+      StateDatabaseName 	= ANavalRocketStates
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile  TheWaterSplash ExplSelectorStone01 ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType ANavalRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+	AreaEffect {
+			effects = [ 				
+            AntiNavalRocket4                
+			]
+		}
+		ProjectileMissileMove { type = GuidedMissile; speed = 25; accel = 7; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//===========================================
+// Sub-based TomahawkMissile2
+//===========================================
+StateDatabase TomahawkMissile2States
+{
+	DefaultModel 	= fx_missile_2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						   ] }
+		]
+}
+CompositeModel TomahawkMissile2
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.22
+	StateDatabaseName 	= TomahawkMissile2States
+	ChildNames = [  SmokeTrailGuidedMissile  RocketPuff1  RocketFlames3   ExplSelectorBigWeapon TheWaterSplash  ExplSelectorBomb02  ]
+}
+
+UnitType TomahawkMissile2
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 10; accel = 12; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=======================================
+// Sub-based Tu95Missile
+//=======================================
+StateDatabase Tu95MissileStates
+{
+	DefaultModel 	= fx_Gmissile_2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						   ] }
+		]
+}
+CompositeModel Tu95Missile
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.1
+	StateDatabaseName 	= Tu95MissileStates
+	ChildNames 		= [ SmokeTrailGuidedMissile  RocketPuff1  RocketFlames3   ExplSelectorBigWeapon TheWaterSplash ExplSelectorNuke01 ]
+	
+	
+}
+
+UnitType Tu95Missile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 10; accel = 10; angSpeed = 720 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ]  }
+	]
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+}
+
+
+
+//=======================================
+// Sub-based TomahawkMissile3
+//=======================================
+StateDatabase TomahawkMissile3States
+{
+	DefaultModel 	= fx_Gmissile_2.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						   ] }
+		]
+}
+CompositeModel TomahawkMissile3
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.08
+	StateDatabaseName 	= TomahawkMissile3States
+	//ChildNames 		=	[ TheWaterSplash SmokeTrailICBM_1 SmokeTrailICBM_2 SmokeTrailICBM_3 SmokeTrailICBM_4 ExplSelectorNuke02 ]
+	ChildNames 		= 	[ TheWaterSplash SmokeTrailICBM_1 SmokeTrailICBM_2 SmokeTrailICBM_3 SmokeTrailICBM_4 ExplSelectorNaval ExplSelectorBomb02 ExplSelectorTorp03 ExplSelectorBigWeapon ExplSelectorFireArrow]
+}
+
+UnitType TomahawkMissile3
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 10; accel = 10; angSpeed = 720 }
+		//PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ]  }
+		PayloadAttack { weaponType = MediumProjectile; }
+	]
+}
+
+// END of Unofficial Patch 1.5 Modification========================================
+//=========================================================
+// CannonBall83 (for NM_cannonmidle)
+//=========================================================
+StateDatabase CannonBallStates83
+{
+	DefaultModel 	= fx_cannonball83.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel CannonBall83
+{
+ForceScale		= 0.07	
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= CannonBallStates83
+	ChildNames 		= [ TheWaterSplash ExplSelectorCannonball01 ProjectileRockStreak ]
+}
+UnitType CannonBall83
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//========================================================
+// My Ammo (for bettship.phl_03)
+//========================================================
+StateDatabase GuidedProStates
+{
+	DefaultModel 	= fx_missile_1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel GuidedPro
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= GuidedProStates
+	ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1  ]
+
+
+}
+
+UnitType GuidedPro
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 6; accel = 6; angSpeed = 720 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+//==============================================================
+// My Ammo (for other)
+//==============================================================
+StateDatabase GuidedAMGStates
+{
+	DefaultModel 	= fx_missile_3.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel GuidedAMG
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= GuidedAMGStates
+	ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1  ]
+
+
+}
+
+UnitType GuidedAMG
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 10; accel = 60; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+
+StateDatabase AntiAirProStates
+{
+	DefaultModel 	= fx_missile_3.nif
+	DefaultState 	= Idle
+	States = [
+		//{ StateName="Idle" AnimName = Br_missle2_Idle.kf 
+		//	TextKeys = []
+		//}
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel AntiAirPro
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.3
+	StateDatabaseName 	= AntiAirProStates
+	ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1   SmokeTrailGuidedMissile   ]
+
+
+}
+
+UnitType AntiAirPro
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 25; accel = 10; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+		LOS { range = 5 }
+	]
+}
+
+//==================================================
+// My Ammo (for MobileSAM)
+//==================================================
+StateDatabase AntiAirPro2States
+{
+	DefaultModel 	= fx_missile_4.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel AntiAirPro2
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= AntiAirPro2States
+	ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1  ]
+
+
+}
+
+UnitType AntiAirPro2
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 25; accel = 10; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//==================================================
+// My Ammo (for WW2chinadefend)
+//==================================================
+StateDatabase ChinaScud154States
+{
+	//DefaultModel 	= fx_missile_4.nif
+	DefaultModel 	= fx_nuke_scud154_icbm.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel ChinaScud154
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.060
+	StateDatabaseName 	= ChinaScud154States
+	//ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1  ]
+	ChildNames 		=	[ SmokeTrailICBM_1 ExplSelectorMonaMissile ]
+
+
+}
+
+UnitType ChinaScud154
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 15; accel = 60; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+
+
+
+//==================================================
+// My Ammo (for Fkl103)
+//==================================================
+StateDatabase AntiAirFkl03States
+{
+	DefaultModel 	= fx_missile_a6.nif
+	DefaultState 	= Idle
+	States = [
+		//{ StateName="Idle"  AnimName = Br_missle2_Idle.kf 
+		//	TextKeys = [
+		//		{ Name = PLAY_SOUND Data = fx_attack_hq9x_01 KeyTime = 0}
+		//	]
+		//}
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel AntiAirFkl03
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= AntiAirFkl03States
+	ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1  ]
+
+
+}
+
+UnitType AntiAirFkl03
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 10; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+		LOS { range = 5 }
+	]
+}
+//=========================================================
+// My Ammo(for Suicuide attack Test1)
+//=========================================================
+StateDatabase SuicideattackStates
+{
+	DefaultModel 	= A6M.nif //faucow.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle  AnimName = Crzero_idle.kf}
+		{ 	StateName = Death	AnimName = civ12_zero_japan_death.kf //sh_faucow_death01.kf 
+				TextKeys = [{ Name = HIDE_VISUAL Data = MainModel} { Name = PLAY_SOUND Data = fx_exp_air_02 KeyTime = 0}]}
+		]
+}
+CompositeModel Suicideattack
+{
+	ScaleType 			= kScaleUnit
+	//ForceScale = 0.18
+	StateDatabaseName 	= SuicideattackStates
+	ChildNames 		=	[ TheWaterSplash ExplSelectorHeli01 ]
+}
+UnitType Suicideattack
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 6 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ ] }
+	]
+	fullMapOverlay { sprite = spr_fullmap_plane; scale = 1.5; }
+}
+//---------------------------------------------------------------------------
+// My Ammo (for Ewp_Emp_airplane)
+//---------------------------------------------------------------------------
+
+
+StateDatabase Ewpair_EMP_States
+{
+	DefaultModel 	= fx_projectile_1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+	]
+}
+
+CompositeModel Ewpair_EMP
+{
+	ScaleType 		= kScaleAmmo
+	StateDatabaseName 	= Ewpair_EMP_States
+	ChildNames 		= [ TheWaterSplash ExplSelectorEmp01 ]
+}
+
+UnitType Ewpair_EMP
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 80 }
+		
+		// set the damageEffect so that the detonation
+		// can spawn area effects that temporarily disables nearby units
+		PayloadAttack { damageEffects = [ EWPAir_EMP_bombe ] }
+	]
+}
+
+//=========================================================
+// MLRS2 Rocket(for katysha)
+//=========================================================
+StateDatabase katyshaRocketStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						    ] }
+		]
+}
+CompositeModel katyshaRocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.230
+      StateDatabaseName 	= katyshaRocketStates
+	ChildNames 		= [ SmokeTrailGuidedMissile  ExplSelectorMissile01 RocketPuff1  RocketFlames3   ExplSelectorBigWeapon ] //ExplSelectorStone01
+
+}
+
+UnitType katyshaRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 12}
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//==============================================
+//  Scud Clud Nuclear missiles
+//==============================================
+StateDatabase Scud2NukeStates
+{
+	DefaultModel 	= fx_nuke_scud_icbm_top.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle   TextKeys = [ { Name = HIDE_VISUAL Data = MainModel 	KeyTime = 0 }
+		//{ Name = SHOW_VISUAL Data = MainModel 	KeyTime = 2.4 }
+		] }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel Scud2Nuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.07
+    StateDatabaseName 	= Scud2NukeStates
+	ChildNames 		=	[ TheWaterSplash SmokeTrailICBM_1 ExplSelectorNuke01 ]
+}
+
+UnitType Scud2Nuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 12;accel = 60; angSpeed = 720  }
+		LOS { range = 5 }
+            PayloadAttack { weaponType = Missile; damageEffects = [ Nuclear_fallout ] } //MediumProjectile
+	]
+}
+//==============================================
+//  DF41 Nuclear missiles
+//==============================================
+StateDatabase DF41NukeStates
+{
+	DefaultModel 	= tacticalnuke.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName=Idle   TextKeys = [ { Name = HIDE_VISUAL Data = MainModel 	KeyTime = 0 }
+		] }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel DF41Nuke
+{
+	ScaleType 			= kScaleBuilding
+	ForceScale = 0.08
+    StateDatabaseName 	= DF41NukeStates
+	ChildNames 		= 	[ TheWaterSplash SmokeTrailICBM_1  ExplSelectorNuke02 ]
+}
+UnitType DF41Nuke
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+		popCount = 1
+		displayName = tx_utn_ICBM_name
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 14;accel = 90; angSpeed = 720  }
+		LOS { range = 3 }
+        PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ] } //MediumProjectile
+	]
+	icon = icon_unit_ICBM
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+}
+
+//=========================================================
+// ANTITANK missile
+//=========================================================
+StateDatabase AntankMissileStates
+{
+	DefaultModel 	= fx_missile_antitank.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel AntankMissile
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.140  
+      StateDatabaseName 	= AntankMissileStates
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile RocketPuff1  RocketFlames3 ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType AntankMissile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 8; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// ANTITANK missile1
+//=========================================================
+StateDatabase AntankMissile1States
+{
+	DefaultModel 	= fx_missile_antitank.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel AntankMissile1
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.08  
+      StateDatabaseName 	= AntankMissile1States
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile RocketPuff1  RocketFlames3 ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType AntankMissile1
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 8; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//---------------------------------------------------------------------------
+// WW2Artillery (For WW2 Artillery)
+//---------------------------------------------------------------------------
+
+
+StateDatabase WW2ArtilleryStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel WW2Artillery
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.10
+      StateDatabaseName 	= WW2ArtilleryStates
+	ChildNames = [ SmokeTrailGuidedMissile ExplSelectorBigWeapon TheWaterSplash ExplSelectorMissile01  ExplSelectorTorp03 ExplSelectorNaval]
+}
+
+UnitType WW2Artillery
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.15
+		SizeY = 0.15
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 20;accel = 10;angSpeed = 360 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//---------------------------------------------------------------------------
+// ShellMikasa (For Heavy Cruiser)
+//---------------------------------------------------------------------------
+
+
+StateDatabase ShellMikasaStates
+{
+	DefaultModel 	= fx_rocket_herc.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel } ] }
+		]
+}
+CompositeModel ShellMikasa
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.10
+      StateDatabaseName 	= ShellMikasaStates
+	ChildNames = [ SmokeTrailGuidedMissile ExplSelectorBigWeapon TheWaterSplash ExplSelectorMissile01  ExplSelectorTorp03 ExplSelectorNaval]
+}
+
+UnitType ShellMikasa
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.15
+		SizeY = 0.15
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = RegularProjectile; speed = 10;accel = 8;angSpeed = 720 }
+		PayloadAttack { weaponType = MediumProjectile }
+	]
+}
+
+//=========================================================
+// Harpoon missile for Destroyer
+//=========================================================
+StateDatabase HarpoonMissileStates
+{
+	DefaultModel 	= fx_missile_harpoon.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel HarpoonMissile
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.110  
+      StateDatabaseName 	= HarpoonMissileStates
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailGuidedMissile  ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType HarpoonMissile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 80; accel = 8; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// Greek fire for fireTank
+//=========================================================
+StateDatabase GreekfireStates
+{
+	DefaultModel 	= fx_missile_greekfire.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			//{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel Greekfire
+{
+	ScaleType 			= kScaleAmmo
+      ForceScale = 0.001  
+	StateDatabaseName 	= GreekfireStates
+	ChildNames 		= [  GreekTrailMFGuidedMissile ExplSelectorMissile1 ]
+	//ChildNames 		= [  GreekTrailMFGuidedMissile ExplSelectorLFlame ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType Greekfire
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 10; angSpeed = 720 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+
+//==================================================
+// My Ammo (for Hq61)
+//==================================================
+StateDatabase AntiAirH61xStates
+{
+	DefaultModel 	= fx_antiair_missle1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" 
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel AntiAirH61x
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.14
+	StateDatabaseName 	= AntiAirH61xStates
+	ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1  ]
+
+
+}
+
+UnitType AntiAirH61x
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 10; angSpeed = 180 }
+		LOS { range = 5 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//==================================================
+// My Ammo (for SA6)
+//==================================================
+StateDatabase SA6missleStates
+{
+	DefaultModel 	= SA6_missle.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle"
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel SA6missle
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.20
+	StateDatabaseName 	= SA6missleStates
+	ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1  ]
+
+
+}
+
+UnitType SA6missle
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 10; angSpeed = 180 }
+		LOS { range = 5 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//==================================================
+// My Ammo (for BUKM1missl)
+//==================================================
+StateDatabase BUKM1missleStates
+{
+	DefaultModel 	= BUKM1_missle.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" 
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel BUKM1missle
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.20
+	StateDatabaseName 	= BUKM1missleStates
+	ChildNames 		= [ ExplSelectorMissile1 RocketPuff1  RocketFlames1  ]
+
+
+}
+
+UnitType BUKM1missle
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 10; angSpeed = 180 }
+		LOS { range = 5 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// AmericanRocket 
+//=========================================================
+StateDatabase AmericanRocketStates
+{
+	DefaultModel 	= fx_missile_AmericanRocket.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle"}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel AmericanRocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.13
+    StateDatabaseName 	= AmericanRocketStates
+	ChildNames 		= [ExplSelectorMissile1  SmokeTrailGuidedMissile  RocketPuff1  RocketFlames3 ] //FX_GuidedMissile_Trail_1
+
+
+}
+
+UnitType AmericanRocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+	AreaEffect {
+			effects = [ 				
+            AntiNavalRocket5                
+			]
+		}
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 15; angSpeed = 180 }
+		LOS { range = 5 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+
+//=========================================================
+// 054missile
+//=========================================================
+StateDatabase A054RocketStates
+{
+	DefaultModel 	= fx_missile_054.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle"
+		}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel A054Rocket
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.1
+      StateDatabaseName 	= A054RocketStates
+	ChildNames 		= [ExplSelectorMissile1  SmokeTrailGuidedMissile  RocketPuff1  RocketFlames3 ] //FX_GuidedMissile_Trail_1
+}
+
+UnitType A054Rocket
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+	AreaEffect {
+			effects = [ 				
+            AntiNavalRocket5                
+			]
+		}
+		ProjectileMissileMove { type = GuidedMissile; speed = 20; accel = 15; angSpeed = 180 }
+		LOS { range = 5 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=========================================================
+// VLSMissile
+//=========================================================
+StateDatabase VLSMissileStates
+{
+	DefaultModel 	= fx_missile_054.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle"}
+		{ StateName = Death 	TextKeys = [ 
+			{ Name = HIDE_VISUAL	Data = MainModel }
+			{ Name = PLAY_SOUND Data = fx_battle_missile_exp KeyTime = 0}
+								   ] }
+		]
+}
+CompositeModel VLSMissile
+{
+	ScaleType 			= kScaleAmmo
+	ForceScale = 0.130
+    StateDatabaseName 	= VLSMissileStates
+	ChildNames 		= [ ExplSelectorMissile1 SmokeTrailICBM_1 SmokeTrailGuidedMissile ExplSelectorBigWeapon TheWaterSplash RocketPuff1  RocketFlames3   ExplSelectorTorp03 ExplSelectorNaval]
+
+
+}
+
+UnitType VLSMissile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.35
+		SizeY = 0.35
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = ICBM; speed = 15; accel = 20; angSpeed = 360 }
+		LOS { range = 3 }
+		PayloadAttack { weaponType = Missile }
+	]
+}
+//=======================================
+// Sub-based Tu95Missile
+//=======================================
+StateDatabase Tu95MissileStates
+{
+	//DefaultModel 	= fx_Gmissile_2.nif
+	DefaultModel 	= fx_antiair_missle1.nif
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		{ StateName = Death 	TextKeys = [ { Name = HIDE_VISUAL	Data = MainModel }
+						   ] }
+		]
+}
+CompositeModel Tu95Missile
+{
+	ScaleType 			= kScaleAmmo
+	StateDatabaseName 	= Tu95MissileStates
+	ChildNames 		=	[ TheWaterSplash SmokeTrailICBM_1 SmokeTrailICBM_2 SmokeTrailICBM_3 SmokeTrailICBM_4 ExplSelectorNuke02 ]
+	
+}
+
+UnitType Tu95Missile
+{
+	Parent = Ammo
+	properties {
+		SizeX = 0.05
+		SizeY = 0.05
+		mass = 0
+		hitpoints = 1
+	}
+	abilities [
+		ProjectileMissileMove { type = GuidedMissile; speed = 10; accel = 10; angSpeed = 720 }
+		PayloadAttack { weaponType = Nuke; damageEffects = [ Nuclear_fallout ]  }
+	]
+	fullMapOverlay { sprite = spr_fullmap_icbm }
+}
+/

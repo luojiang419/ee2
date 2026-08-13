@@ -1,0 +1,1066 @@
+//NAME,CLASS,PARENT,INC ACCUM DEPTH,ANCHORNAME1,ANCHORTYPE1,ANCHORNAME2,ANCHORTYPE2,XOFF,YOFF,XOFF ANCHOR2,YOFF ANCHOR2,WIDTH,HEIGHT,SPRITE,FRAMESTYLE,BUTTONSTYLE,FONTSTYLE,TEXTJUST,XTEXTOFF,YTEXTOFF,LABEL,TOOLTIP,VERBOSE,NOMOUSE,CMDSTR,ARGSTR
+
+// ROOT,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_root,Widget,,0,,,,,0,0,0,0,1600,1200,,,,,,0,0,,,,0,,""""""
+
+
+// FIRST BATCH WIDGET,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_first_batch_widget,Widget,,0,,,,,0,0,0,0,2,2,,,,,,0,0,,,,1,,""""""
+
+// parent widget for scenedit UI (everything except 3d view),,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_UIParent,Widget,,1,,SourceULTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+
+// TITLE BAR (does not ignore mouse for cursor reasons),,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_titlebar,Sprite,scenedit_UIParent,0,,,,,0,0,0,0,1600,32,spr_titlebar_bkgnd,,,,,0,0,,,,0,,""""""
+scenedit_title,Text,scenedit_titlebar,0,,,,,40,0,0,0,500,32,,,,fs_std_small_bold_white,LeftMid,0,4,tx_se_title,,,1,,""""""
+scenedit_titlebar_icon,Sprite,scenedit_titlebar,0,,,,,4,0,0,0,32,32,spr_ee2logo_small,,,,,0,0,,,,1,,""""""
+
+scenedit_title_filename,Text,scenedit_titlebar,0,,,,,0,0,0,0,1600,32,,,,fs_std_small_white,CenterMid,0,4,,,,1,,""""""
+scenedit_title_xy_text,Text,scenedit_titlebar,0,,SourceURTargetUR,,,-10,0,0,0,300,32,,,,fs_std_small_white,LeftMid,0,4,tx_se_titlebar_mouse,,,1,,""""""
+
+
+// LAST BATCH WIDGET,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_last_batch_widget,Widget,,0,,,,,0,0,0,0,2,2,,,,,,0,0,,,,1,,""""""
+
+// scenedit 3d view,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_mainview,Unknown,,0,scenedit_menubar,SourceULTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,0,,""""""
+
+// VERBOSE SCENEDIT TOOLTIPS,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_verbose_tooltip,Unknown,scenedit_UIParent,0,scenedit_menubar,SourceLRTargetUR,,,0,0,0,0,284,360,spr_dropdown_menu_bkg,wfs_game_glass_dropdown,,fs_std_med_white,Left,4,4,,,,1,,""""""
+
+
+// -------------------------------------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// MENU BAR (does not ignore mouse for cursor reasons),,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_menubar,Unknown,scenedit_UIParent,0,,,,,0,32,0,0,1600,32,spr_titlebar_bkgnd,,,,,0,0,,,,0,,""""""
+scenedit_menuitem_separator,Sprite,,0,,,,,0,0,0,0,2,16,spr_menuitem_separator,,,,,0,0,,,,1,,""""""
+
+// FILE MENU,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_menutitle_file,MenuTitle,scenedit_menubar,0,,,,,3,0,0,0,60,32,,,,,,0,0,tx_se_file_title,,,0,,""""""
+scenedit_file_new,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_new,,,0,,""""""
+scenedit_file_resize,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_resize,,,0,,""""""
+scenedit_file_open,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_open,,,0,,""""""
+scenedit_file_openMap,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_openmap,,,0,,""""""
+scenedit_file_import,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_importdem,,,0,,""""""
+scenedit_file_close,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_close,,,0,,""""""
+scenedit_file_save,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_save,,,0,,""""""
+scenedit_file_saveAs,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_saveas,,,0,,""""""
+scenedit_file_saveAsMap,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_saveasmap,,,0,,""""""
+scenedit_file_testMission,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_testmission,,,0,,""""""
+scenedit_file_autoBalance,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_autobalance,,,0,,""""""
+scenedit_file_exit,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_file_exit,,,0,,""""""
+
+// EDIT MENU,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_menutitle_edit,MenuTitle,scenedit_menubar,0,,,,,60,0,0,0,60,32,,,,,,0,0,tx_se_edit_title,,,0,,""""""
+scenedit_edit_undo,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_undo,,,0,,""""""
+scenedit_edit_redo,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_redo,,,0,,""""""
+scenedit_edit_copy,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_copy,,,0,,""""""
+scenedit_edit_cut,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_cut,,,0,,""""""
+scenedit_edit_paste,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_paste,,,0,,""""""
+scenedit_edit_delete,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_delete,,,0,,""""""
+scenedit_edit_group,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_createassigngroups,,,0,,""""""
+scenedit_edit_selectionProp,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_selectionprops,,,0,,""""""
+scenedit_edit_missionProp,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_missionprops,,,0,,""""""
+scenedit_edit_diplomacy,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_diplomacy,,,0,,""""""
+scenedit_edit_victoryConditions,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_victoryconditions,,,0,,""""""
+scenedit_edit_cinematics,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_cinematics,,,0,,""""""
+scenedit_edit_territories_names,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_edit_terry_names,,,0,,""""""
+
+// TOOLS MENU,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_menutitle_tools,MenuTitle,scenedit_menubar,0,,,,,120,0,0,0,75,32,,,,,,0,0,tx_se_tools_title,,,0,,""""""
+scenedit_tools_terrain,RadioButton,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_tools_terrainmod,,,0,,"""family=scenedit_tools_radio_family"""
+scenedit_tools_forest,RadioButton,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_tools_forestpainting,,,0,,"""family=scenedit_tools_radio_family"""
+scenedit_tools_objects,RadioButton,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_tools_objectplacement,,,0,,"""family=scenedit_tools_radio_family"""
+scenedit_tools_areas,RadioButton,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_tools_areaplacement,,,0,,"""family=scenedit_tools_radio_family"""
+scenedit_tools_cinematics,RadioButton,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_tools_cinematicsplines,,,0,,"""family=scenedit_tools_radio_family"""
+scenedit_tools_spos,RadioButton,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_tools_startingpositions,,,0,,"""family=scenedit_tools_radio_family"""
+scenedit_tools_vclocs,RadioButton,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_tools_vcpositions,,,0,,"""family=scenedit_tools_radio_family"""
+scenedit_tools_animals,RadioButton,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_tools_animals,,,0,,"""family=scenedit_tools_radio_family"""
+scenedit_tools_territories,RadioButton,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_tools_territories,,,0,,"""family=scenedit_tools_radio_family"""
+
+// VIEW MENU,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_menutitle_view,MenuTitle,scenedit_menubar,0,,,,,195,0,0,0,70,32,,,,,,0,0,tx_se_view_title,,,0,,""""""
+scenedit_view_objects,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_objects,,,0,,""""""
+scenedit_view_forest,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_forest,,,0,,""""""
+scenedit_view_areas,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_areas,,,0,,""""""
+scenedit_view_cinematics,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_cinematics,,,0,,""""""
+scenedit_view_water,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_water,,,0,,""""""
+scenedit_view_shadows,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_objectshadows,,,0,,""""""
+scenedit_view_grid,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_gridoverlay,,,0,,""""""
+scenedit_view_pip,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_cinematicpreview,,,0,,""""""
+scenedit_view_minimap,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_minimap,,,0,,""""""
+scenedit_view_minimap_terr,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_minimap_terr,,,0,,""""""
+scenedit_view_month,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_previewseasons,,,0,,""""""
+scenedit_view_goto_start,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_goto_start,,,0,,""""""
+scenedit_view_save_start,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_save_start,,,0,,""""""
+scenedit_view_centerCam,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_centercamera,,,0,,""""""
+scenedit_view_goto,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_view_goto,,,0,,""""""
+
+// MAP MENU,,,,,,,,,,,,,,,,,,,,,,,,,,
+scenedit_menutitle_map,MenuTitle,scenedit_menubar,0,,,,,265,0,0,0,55,32,,,,,,0,0,tx_se_map_title,,,0,,""""""
+scenedit_map_overview,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_map_mapoverview,,,0,,""""""
+scenedit_map_objects,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_map_objectlist,,,0,,""""""
+scenedit_map_areas,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_map_arealist,,,0,,""""""
+scenedit_map_cinematics,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_map_cinematiclist,,,0,,""""""
+scenedit_map_territories,CheckBox,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_map_territories_list,,,0,,""""""
+
+// HELP MENU,,,,,,,,,,,,,,,,,,,,,,,,,,
+//scenedit_menutitle_help,MenuTitle,scenedit_menubar,0,,,,,330,0,0,0,60,32,,,,,,0,0,tx_se_help_title,,,0,,""""""
+//scenedit_help_help,Text,,0,,,,,0,0,0,0,10,32,,,,,,0,0,tx_se_help_help,,,0,,""""""
+
+
+
+// ----------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// REUSEABLE PANEL ELEMENTS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_basic_button,Button,,0,,,,,0,0,0,0,128,40,spr_scenedit_button,,TwoState,fs_std_small_white,CenterMid,0,0,,,,0,,"""clickFlags=5"""
+se_basic_button_2,Button,,0,,,,,0,0,0,0,128,32,spr_scenedit_button2,,TwoStateDisabled,fs_std_small_white,CenterMid,0,0,,,,0,,"""clickFlags=5"""
+
+se_checkbox,CheckBox,,0,,,,,0,0,0,0,128,32,,,,fs_std_small_white,LeftMid,38,0,,,,0,,"""boxSprite=spr_checkbox_small_off boxWidth=32"""
+
+se_panel_title,TitleBar,,0,,,,,0,0,0,0,100,32,spr_titlebar_bkgnd,,,fs_std_small_bold_white,LeftMid,8,0,,,,0,,""""""
+se_panel_title_noMove,Text,,0,,,,,0,0,0,0,100,32,spr_titlebar_bkgnd,,,fs_std_small_bold_white,LeftMid,8,0,,,,0,,"""clickFlags=1"""
+se_panel_closebox,Icon,,0,,,,,0,0,0,0,20,20,spr_closebox_small,,TwoState,,,0,0,,,,0,,"""clickFlags=5"""
+se_panel_minimize,Icon,,0,,,,,0,0,0,0,20,20,spr_minimize_small,,TwoState,,,0,0,,,,0,,"""clickFlags=5"""
+
+se_slider,Slider,,0,,,,,0,0,0,0,128,32,,,,,,0,0,,,,0,,"""sliderSprite=se_slider_sprite, thumbSprite=se_slider_spriteThumb, offset=10"""
+se_slider_med,Slider,,0,,,,,0,0,0,0,192,32,,,,,,0,0,,,,0,,"""sliderSprite=se_slider_spriteMed, thumbSprite=se_slider_spriteThumb, offset=4"""
+se_slider_long,Slider,,0,,,,,0,0,0,0,256,32,,,,,,0,0,,,,0,,"""sliderSprite=se_slider_spriteLong, thumbSprite=se_slider_spriteThumb, offset=4"""
+se_slider_sprite,Sprite,,0,,,,,0,0,0,0,128,32,spr_slider_horiz,,,,,0,0,,,,1,,""""""
+se_slider_spriteMed,Sprite,,0,,,,,0,0,0,0,192,32,spr_slider_horiz_long,,,,,0,0,,,,1,,""""""
+se_slider_spriteLong,Sprite,,0,,,,,0,0,0,0,256,32,spr_slider_horiz_long,,,,,0,0,,,,1,,""""""
+se_slider_spriteThumb,Sprite,,0,,,,,0,0,0,0,24,32,spr_slider_horiz_thumb,,,,,0,0,,,,1,,""""""
+se_sliderVert,Slider,,0,,,,,0,0,0,0,32,128,,,,,,0,0,,,,0,,"""sliderSprite=se_sliderVert_sprite, thumbSprite=se_sliderVert_spriteThumb, offset=10"""
+se_sliderVert_sprite,Sprite,,0,,,,,0,0,0,0,32,128,spr_slider_vert,,,,,0,0,,,,1,,""""""
+se_sliderVert_spriteThumb,Sprite,,0,,,,,0,0,0,0,32,24,spr_slider_vert_thumb,,,,,0,0,,,,1,,""""""
+se_int_editbox,NumEditText,,0,,,,,0,0,0,0,56,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_float_editbox,FloatEditText,,0,,,,,0,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_float_editbox_big,FloatEditText,,0,,,,,0,0,0,0,92,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+
+se_scrollbar,ScrollBar,,0,,,,,0,0,0,0,24,128,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,,,0,,"""slider=se_scrollbar_slider up=se_scrollbar_up down=se_scrollbar_down"""
+se_scrollbar_slider,Sprite,,0,,,,,0,0,0,0,24,64,spr_scroll_vert_slider,,TwoState,,,0,0,,,,0,,""""""
+se_scrollbar_up,Sprite,,0,,,,,0,0,0,0,24,24,spr_scroll_vert_up,,TwoState,,,0,0,,,,0,,""""""
+se_scrollbar_down,Sprite,,0,,,,,0,0,0,0,24,24,spr_scroll_vert_down,,TwoState,,,0,0,,,,0,,""""""
+
+se_columnButton,Button,,0,,,,,0,0,0,0,128,28,spr_scenedit_button2,,TwoState,fs_std_small_white,LeftMid,10,0,,,,0,,"""clickFlags=5"""
+se_columnList,ListText,,0,,,,,0,0,0,0,100,100,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white,,5,0,,,,0,,"""itemHilite=spr_listitem noScrollBar"""
+
+// MAP DIMENSION PICKER,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_xy,Unknown,,0,,,,,0,0,0,0,450,170,,,,,,0,0,,,,1,,""""""
+se_xy_text,Text,se_xy,0,,,,,0,0,0,0,180,32,,,,fs_std_small_bold_white,,0,0,tx_se_xy_mapdimension,,,1,,""""""
+se_xy_combo,Combo,se_xy,0,,,,,5,40,0,0,200,32,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eMapSize valueDrivenTooltip itemTooltips tooltipBaseName=tt_fe_mapSize_"""
+se_xy_x_text,Text,se_xy,0,,,,,5,87,0,0,20,32,,,,fs_std_small_bold_white,,0,0,tx_se_xy_x,,,1,,""""""
+se_xy_y_text,Text,se_xy,0,,,,,5,127,0,0,20,32,,,,fs_std_small_bold_white,,0,0,tx_se_xy_y,,,1,,""""""
+se_xy_x_edit,SliderEdit,se_xy,0,,,,,35,80,0,0,205,40,,,,,,10,0,,,,0,,"""sliderWidget=se_slider editWidget=se_int_editbox sliderFirst=0 min=64 max=500"""
+se_xy_y_edit,SliderEdit,se_xy,0,,,,,35,123,0,0,205,40,,,,,,10,0,,,,0,,"""sliderWidget=se_slider editWidget=se_int_editbox sliderFirst=0 min=64 max=500"""
+se_xy_lock,CheckBox,se_xy,0,,,,,260,85,0,0,200,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_xy_lockaspectratio,,,0,,"""boxSprite=spr_checkbox_small_off boxWidth=32 value=1"""
+
+
+// ----------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// INPUT DIALOG,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_inputDialog,Panel,,0,,,,,0,0,0,0,420,232,spr_panelback,wfs_scenedit_panel,,,,0,0,,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox modal center"""
+se_inputDialog_text,Text,se_inputDialog,0,,,,,0,47,0,0,420,64,,,,fs_std_small_white,LeftMid,20,0,,,,1,,""""""
+se_inputDialog_ok,Button,se_inputDialog,0,,,,,-168,-20,0,0,128,32,spr_scenedit_button2,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_input_ok,,,0,,"""clickFlags=5 blink=1"""
+se_inputDialog_cancel,Button,se_inputDialog,0,,,,,-20,-20,0,0,128,32,spr_scenedit_button2,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_input_cancel,,,0,,"""clickFlags=5 blink=1"""
+se_inputDialog_input,EditText,se_inputDialog,0,,,,,20,-72,0,0,380,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+
+
+// ----------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// MESSAGE BOX,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_messagebox,Panel,,0,,,,,0,0,0,0,424,180,spr_panelback,wfs_scenedit_panel,,,,0,0,,,,0,,"""titleBar=se_panel_title modal center"""
+
+
+
+
+//NAME,CLASS,PARENT,,,,,,XOFF,YOFF,XOFF ANCHOR2,YOFF ANCHOR2,WIDTH,HEIGHT,SPRITE,FRAMESTYLE,BUTTONSTYLE,FONTSTYLE,TEXTJUST,XTEXTOFF,YTEXTOFF,LABEL,TOOLTIP,VERBOSE,NOMOUSE,CMDSTR,ARGSTR
+
+// ----------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// NEW MAP GENERATION DIALOG,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_mapgen,Unknown,,0,,,,,10,74,0,0,530,722,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_mapgen_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize modal"""
+se_mapgen_panelback,Sprite,se_mapgen,0,,,,,0,72,0,0,530,650,spr_panelback,,,,,0,0,,,,1,,""""""
+se_mapgen_container,Widget,se_mapgen,0,,,,,0,72,0,0,530,650,,,,,,0,0,,,,1,,""""""
+se_mapgen_flat_pane,Widget,se_mapgen,0,,,,,0,72,0,0,530,650,,,,,,0,0,,,,1,,""""""
+se_mapgen_random_pane,Widget,se_mapgen,0,,,,,0,72,0,0,530,650,,,,,,0,0,,,,1,,""""""
+se_mapgen_tab_filler1,Sprite,se_mapgen,0,,,,,0,40,0,0,10,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+se_mapgen_tab_flat,FolderTab,se_mapgen,0,,,,,10,40,0,0,110,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_mapgen_flat,,,0,,"""family=mapgen_tab_family, pane=se_mapgen_flat_pane"""
+se_mapgen_tab_random,FolderTab,se_mapgen,0,,,,,120,40,0,0,110,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_mapgen_random,,,0,,"""family=mapgen_tab_family, pane=se_mapgen_random_pane"""
+se_mapgen_tab_filler2,Sprite,se_mapgen,0,,,,SourceURTargetUR,230,40,0,0,-1,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+se_mapgen_ok,Button,se_mapgen,0,,,,,-168,-15,0,0,128,32,,,,,,0,0,tx_se_mapgen_generate,,,0,,""""""
+se_mapgen_close,Button,se_mapgen,0,,,,,-20,-15,0,0,128,32,,,,,,0,0,tx_se_mapgen_done,,,0,,""""""
+
+se_mapgen_xy_container,Widget,se_mapgen_container,0,,,,,20,20,0,0,450,170,,,,,,0,0,,,,1,,""""""
+se_mapgen_climate_text,Text,se_mapgen_container,0,,,,,0,200,0,0,160,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_mapgen_climate,,,1,,""""""
+se_mapgen_climate,Combo,se_mapgen_container,0,,,,,175,200,0,0,200,32,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eClimate"""
+
+se_mapgen_flat_elev_text,Text,se_mapgen_flat_pane,0,,,,,0,250,0,0,140,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_mapgen_elevation,,,1,,""""""
+se_mapgen_flat_elev,FloatEditText,se_mapgen_flat_pane,0,,,,,155,250,0,0,56,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=0.1 max=15.0 value=1.0"""
+
+se_mapgen_rand_elevType_text,Text,se_mapgen_random_pane,0,,,,,0,260,0,0,160,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_fe_mapset_elev,,,1,,""""""
+se_mapgen_rand_elevType,Combo,se_mapgen_random_pane,0,,,,,175,260,0,0,200,32,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eFeElevation"""
+se_mapgen_rand_elev_text,Text,se_mapgen_random_pane,0,,,,,0,300,0,0,160,40,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_mapgen_maxelevation,,,1,,""""""
+se_mapgen_rand_elev,SliderEdit,se_mapgen_random_pane,0,,,,,175,300,0,0,235,40,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox_big sliderFirst=0 min=0.1 max=15.0 value=8.0"""
+se_mapgen_rand_rough_text,Text,se_mapgen_random_pane,0,,,,,0,345,0,0,160,40,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_mapgen_roughness,,,1,,""""""
+se_mapgen_rand_roughness,SliderEdit,se_mapgen_random_pane,0,,,,,175,345,0,0,235,40,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox_big sliderFirst=0 min=0.0 max=1.0 value=0.25"""
+se_mapgen_rand_geo_text,Text,se_mapgen_random_pane,0,,,,,0,410,0,0,160,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_mapgen_geography,,,1,,""""""
+se_mapgen_rand_geography,Combo,se_mapgen_random_pane,0,,,,,175,410,0,0,200,32,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eGeography"""
+se_mapgen_rand_geo_numConts,Combo,se_mapgen_random_pane,0,se_mapgen_rand_geography,SourceURTargetUL,,,5,0,0,0,100,32,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eNumContinents"""
+se_mapgen_rand_forest_text,Text,se_mapgen_random_pane,0,,,,,0,450,0,0,160,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_mapgen_forestation,,,1,,""""""
+se_mapgen_rand_forestation,Combo,se_mapgen_random_pane,0,,,,,175,450,0,0,200,32,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eFeForestation"""
+se_mapgen_rand_rivers_text,Text,se_mapgen_random_pane,0,,,,,0,490,0,0,160,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_mapgen_rivers,,,1,,""""""
+se_mapgen_rand_rivers,Combo,se_mapgen_random_pane,0,,,,,175,490,0,0,200,32,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eFeRiverLevel"""
+se_mapgen_rand_seed_text,Text,se_mapgen_random_pane,0,,,,,0,540,0,0,160,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_mapgen_randomseed,,,1,,""""""
+se_mapgen_rand_seed,NumEditText,se_mapgen_random_pane,0,,,,,175,540,0,0,140,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-2147483648 max=2147483647 value=1"""
+se_mapgen_rand_seedPick,Button,se_mapgen_random_pane,0,,,,,-20,540,0,0,180,32,,,,,,0,0,tx_se_mapgen_seedfromclock,,,0,,""""""
+se_mapgen_rand_preview,Button,se_mapgen_random_pane,0,,,,,20,-15,0,0,128,32,,,,,,0,0,tx_se_mapgen_preview,,,0,,""""""
+
+// preview panel,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_mapgen_preview_dialog,Panel,,0,se_mapgen,SourceLRTargetLR,,,10,10,0,0,2,2,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_mapgen_preview_pan,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox modal"""
+se_mapgen_preview_contents,Unknown,se_mapgen_preview_dialog,0,,SourceULTargetUL,,SourceLRTargetLR,0,32,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+
+
+// ------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// MAP RESIZING DIALOG,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_resize,Unknown,,0,,,,,10,74,0,0,300,350,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_resize_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize modal"""
+se_resize_xoffset_text,Text,se_resize,0,,,,,15,47,0,0,110,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_resize_xoffset,,,1,,""""""
+se_resize_yoffset_text,Text,se_resize,0,se_resize_xoffset_text,SourceLLTargetUL,,,0,15,0,0,110,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_resize_yoffset,,,1,,""""""
+se_resize_width_text,Text,se_resize,0,se_resize_yoffset_text,SourceLLTargetUL,,,0,15,0,0,110,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_resize_width,,,1,,""""""
+se_resize_height_text,Text,se_resize,0,se_resize_width_text,SourceLLTargetUL,,,0,15,0,0,110,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_resize_height,,,1,,""""""
+se_resize_xoffset,NumEditText,se_resize,0,se_resize_xoffset_text,SourceURTargetUL,,,10,0,0,0,80,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,5,0,,,,0,,""""""
+se_resize_yoffset,NumEditText,se_resize,0,se_resize_yoffset_text,SourceURTargetUL,,,10,0,0,0,80,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,5,0,,,,0,,""""""
+se_resize_width,NumEditText,se_resize,0,se_resize_width_text,SourceURTargetUL,,,10,0,0,0,80,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,5,0,,,,0,,"""min=32 max=511"""
+se_resize_height,NumEditText,se_resize,0,se_resize_height_text,SourceURTargetUL,,,10,0,0,0,80,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,5,0,,,,0,,"""min=32 max=511"""
+se_resize_cancel,Button,se_resize,0,,SourceLRTargetLR,,,-15,-15,0,0,128,32,,,,,,0,0,tx_se_resize_cancel,,,0,,""""""
+se_resize_ok,Button,se_resize,0,se_resize_cancel,SourceULTargetUR,,,-15,0,0,0,128,32,,,,,,0,0,tx_se_resize_ok,,,0,,""""""
+se_resize_preview,Button,se_resize,0,se_resize_ok,SourceULTargetLL,,,0,-15,0,0,128,32,,,,,,0,0,tx_se_resize_preview,,,0,,""""""
+
+
+// ----------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// DEM IMPORT DIALOG,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_dem,Unknown,,0,,,,,0,0,0,0,480,567,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_dem_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize modal center"""
+se_dem_xy_container,Widget,se_dem,0,,,,,20,52,0,0,450,170,,,,,,0,0,,,,1,,""""""
+se_dem_scale_text,Text,se_dem,0,,,,,20,250,0,0,150,32,,,,fs_std_small_bold_white,,0,0,tx_se_dem_elevationscale,,,1,,""""""
+se_dem_scale,SliderEdit,se_dem,0,,,,,180,240,0,0,210,50,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox sliderFirst=1 min=0.05 max=3.0 value=1.0"""
+se_dem_maxelev_text,Text,se_dem,0,,,,,20,315,0,0,150,32,,,,fs_std_small_bold_white,,0,0,tx_se_dem_maxelevation,,,1,,""""""
+se_dem_maxelev,FloatEditText,se_dem,0,,,,,240,310,0,0,56,40,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=1.0 max=10.0 value=5.0"""
+se_dem_cliffify,SliderEdit,se_dem,0,,,,,180,365,0,0,210,50,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox sliderFirst=1 min=0.00 max=1.0 value=0.0"""
+se_dem_cliffify_text,Text,se_dem,0,,,,,20,375,0,0,120,32,,,,fs_std_small_bold_white,,0,0,tx_se_dem_cliffify,,,1,,""""""
+se_dem_climate_text,Text,se_dem,0,,,,,20,432,0,0,130,30,,,,fs_std_small_bold_white,,0,0,tx_se_dem_climate,,,1,,""""""
+se_dem_rotate,CheckBox,se_dem,0,,,,,20,465,0,0,210,50,,,,,,0,0,tx_se_dem_rotate180,,,0,,""""""
+se_dem_climate_combo,Combo,se_dem,0,,,,,20,515,0,0,128,32,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eClimate"""
+se_dem_ok,Button,se_dem,0,,,,,158,512,0,0,128,32,,,,,,0,0,tx_se_dem_generate,,,0,,""""""
+se_dem_close,Button,se_dem,0,,,,,296,512,0,0,128,32,,,,,,0,0,tx_se_dem_done,,,0,,""""""
+
+
+// -------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// MISSION PROPERTIES DIALOG,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_properties,Panel,,0,,SourceULTargetUL,,SourceLRTargetLR,0,34,0,0,-1,-1,spr_panelback,wfs_scenedit_panel,,,,0,0,,,,0,,"""modal"""
+se_properties_global_container,Widget,se_properties,0,,SourceULTargetUL,,SourceURTargetUR,0,0,0,0,-1,147,,,,,,0,0,,,,1,,""""""
+se_properties_global_title,Text,se_properties_global_container,0,,SourceULTargetUL,,SourceURTargetUR,0,0,0,0,-1,32,spr_titlebar_bkgnd,,,fs_std_small_bold_white,LeftMid,8,0,tx_se_props_title,,,1,,""""""
+se_properties_global_separator,Sprite,se_properties_global_container,0,,SourceLLTargetLL,,SourceLRTargetLR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+
+se_properties_name_container,Widget,se_properties_global_container,0,,,,,0,32,0,0,420,115,,,,,,0,0,,,,1,,""""""
+se_properties_name_text,Text,se_properties_name_container,0,,,,,20,15,0,0,300,32,,,,fs_std_small_bold_white,,0,0,tx_se_props_missionname,,,1,,""""""
+se_properties_name,EditText,se_properties_name_container,0,,,,,20,53,0,0,380,32,,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+
+se_properties_script_container,Widget,se_properties_global_container,0,,,,,418,32,0,0,424,115,,,,,,0,0,,,,1,,""""""
+se_properties_script_separator,Sprite,se_properties_script_container,0,,,se_properties_global_separator,SourceLLTargetLL,0,0,0,0,4,-1,spr_separator_vert,,,,,0,0,,,,1,,""""""
+se_properties_script_text,Text,se_properties_script_container,0,,,,,24,15,0,0,300,32,,,,fs_std_small_bold_white,,0,0,tx_se_props_scriptfile,,,1,,""""""
+se_properties_script,EditText,se_properties_script_container,0,,,,,24,53,0,0,232,32,,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_properties_dll_browse,Button,se_properties_script_container,0,,,,,276,15,0,0,128,32,,,,,,0,0,tx_se_props_dll_browse,,,0,,""""""
+se_properties_ies_browse,Button,se_properties_script_container,0,,,,,276,55,0,0,128,32,,,,,,0,0,tx_se_props_ies_browse,,,0,,""""""
+
+se_properties_maptype_container,Widget,se_properties_global_container,0,,,,,838,32,0,0,422,115,,,,,,0,0,,,,1,,""""""
+se_properties_maptype_separator,Sprite,se_properties_maptype_container,0,,,se_properties_global_separator,SourceLLTargetLL,0,0,0,0,4,-1,spr_separator_vert,,,,,0,0,,,,1,,""""""
+se_properties_maptype_title,Text,se_properties_maptype_container,0,,SourceULTargetUL,,SourceURTargetUR,24,15,0,0,-1,32,,,,fs_std_small_bold_white,,8,0,tx_se_props_maptype,,,1,,""""""
+se_properties_maptype_chooser,Combo,se_properties_maptype_container,0,,,,,24,53,0,0,200,32,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eGeography"""
+
+// ok and cancel buttons,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_properties_ok,Button,se_properties,0,,,,,-163,-15,0,0,128,32,,,,,,0,0,tx_se_props_accept,,,0,,""""""
+se_properties_close,Button,se_properties,0,,,,,-15,-15,0,0,128,32,,,,,,0,0,tx_se_props_cancel,,,0,,""""""
+se_properties_saveDefaults,Button,se_properties,0,se_properties_ok,SourceULTargetUR,,,-20,0,0,0,200,32,,,,,,0,0,tx_se_props_saveDefaults,,,0,,""""""
+
+
+////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// mission properties player setup:,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// player settings parent widget and label,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_properties_player_container,Widget,se_properties,0,se_properties_global_container,SourceLLTargetUL,,SourceURTargetUR,0,0,0,0,-1,565,,,,,,0,0,,,,1,,""""""
+se_player_text,Text,se_properties_player_container,0,,,,,20,15,0,0,300,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_player_title,,,1,,""""""
+
+// container widgets,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_main_cont,Widget,se_properties_player_container,0,,,,,20,70,0,0,320,490,,,,,,0,0,,,,1,,""""""
+se_player_panes_cont,Widget,se_properties_player_container,0,se_player_main_cont,SourceURTargetUL,se_player_main_cont,SourceLRTargetLL,10,0,0,0,1130,-1,,wfs_scenedit_panel,,,,0,0,,,,1,,""""""
+se_player_settings_pane,Widget,se_player_panes_cont,0,,SourceULTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_player_resources_pane,Widget,se_player_panes_cont,0,,SourceULTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+
+// tabs (do after the panes),,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_tab_settings,RadioButton,se_properties_player_container,0,se_player_panes_cont,SourceULTargetLL,,,10,0,0,0,300,32,spr_tab_long_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_se_player_tab_settings,,,0,,"""family=player_settings_family, widgetToShowHide=se_player_settings_pane, omitBoxSprite, value=1"""
+se_player_tab_resources,RadioButton,se_properties_player_container,0,se_player_tab_settings,SourceURTargetUL,,,0,0,0,0,300,32,spr_tab_long_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_se_player_tab_res,,,0,,"""family=player_settings_family, widgetToShowHide=se_player_resources_pane, omitBoxSprite"""
+
+// main section labels,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_main_labels_cont,Widget,se_player_main_cont,0,,SourceULTargetUL,,SourceURTargetUR,0,0,0,0,-1,50,,,,,,0,0,,,,1,,""""""
+se_player_label_name,Text,se_player_main_labels_cont,0,,SourceLLTargetLL,,,40,0,0,0,200,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_player_name,,,1,,"""autoTruncStd"""
+se_player_label_name_local,Text,se_player_main_labels_cont,0,,SourceLRTargetLR,,,0,0,0,0,80,32,,,,fs_std_small_white,RightMid,0,0,tx_se_player_name_local,tt_se_player_name_local,vtt_se_player_name_local,1,,"""autoTruncStd"""
+
+// player settings pane labels,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_settings_labels_cont,Widget,se_player_settings_pane,0,,SourceULTargetUL,,SourceURTargetUR,0,0,0,0,-1,50,,,,,,0,0,,,,1,,""""""
+se_player_label_type,Text,se_player_settings_labels_cont,0,,SourceLLTargetLL,,,10,0,0,0,200,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_player_type,,,1,,"""autoTruncStd"""
+se_player_label_civ,Text,se_player_settings_labels_cont,0,se_player_label_type,SourceURTargetUL,,,6,0,0,0,200,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_player_civilization,,,1,,"""autoTruncStd"""
+se_player_label_civCustName,Text,se_player_settings_labels_cont,0,se_player_label_civ,SourceURTargetUL,,,6,0,0,0,250,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_player_civCustName,tt_se_player_civCustName,vtt_se_player_civCustName,1,,"""autoTruncStd"""
+se_player_label_epoch,Text,se_player_settings_labels_cont,0,se_player_label_civCustName,SourceURTargetUL,,,6,0,0,0,100,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_player_epoch,,,1,,"""autoTruncStd"""
+se_player_label_aiscript,Text,se_player_settings_labels_cont,0,se_player_label_epoch,SourceURTargetUL,,,6,0,0,0,190,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_player_aiscript,,,1,,"""autoTruncStd"""
+se_player_label_color,Text,se_player_settings_labels_cont,0,se_player_label_aiscript,SourceURTargetUL,,,6,0,0,0,80,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_player_color,,,1,,"""autoTruncStd"""
+se_player_label_cinematic,Text,se_player_settings_labels_cont,0,se_player_label_color,SourceURTargetUL,,,0,0,0,0,64,32,,,,fs_std_small_white,RightMid,0,0,tx_se_player_cinematic,tt_se_cinematic_only,,1,,"""autoTruncStd"""
+
+// player resources pane labels (icons),,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_resources_labels_cont,Widget,se_player_resources_pane,0,,SourceULTargetUL,,SourceURTargetUR,0,0,0,0,-1,50,,,,,,0,0,,,,1,,""""""
+se_player_food_icon,Sprite,se_player_resources_labels_cont,0,,SourceLLTargetLL,,,30,0,0,0,48,48,icon_resource_food,,,,,0,0,,,,1,,""""""
+se_player_wood_icon,Sprite,se_player_resources_labels_cont,0,se_player_food_icon,SourceURTargetUL,,,46,0,0,0,48,48,icon_resource_wood,,,,,0,0,,,,1,,""""""
+se_player_stone_icon,Sprite,se_player_resources_labels_cont,0,se_player_wood_icon,SourceURTargetUL,,,46,0,0,0,48,48,icon_resource_stone,,,,,0,0,,,,1,,""""""
+se_player_gold_icon,Sprite,se_player_resources_labels_cont,0,se_player_stone_icon,SourceURTargetUL,,,46,0,0,0,48,48,icon_resource_gold,,,,,0,0,,,,1,,""""""
+se_player_tin_icon,Sprite,se_player_resources_labels_cont,0,se_player_gold_icon,SourceURTargetUL,,,46,0,0,0,48,48,icon_resource_tin,,,,,0,0,,,,1,,""""""
+se_player_iron_icon,Sprite,se_player_resources_labels_cont,0,se_player_tin_icon,SourceURTargetUL,,,46,0,0,0,48,48,icon_resource_iron,,,,,0,0,,,,1,,""""""
+se_player_saltpeter_icon,Sprite,se_player_resources_labels_cont,0,se_player_iron_icon,SourceURTargetUL,,,46,0,0,0,48,48,icon_resource_saltpeter,,,,,0,0,,,,1,,""""""
+se_player_oil_icon,Sprite,se_player_resources_labels_cont,0,se_player_saltpeter_icon,SourceURTargetUL,,,46,0,0,0,48,48,icon_resource_oil,,,,,0,0,,,,1,,""""""
+se_player_uranium_icon,Sprite,se_player_resources_labels_cont,0,se_player_oil_icon,SourceURTargetUL,,,46,0,0,0,48,48,icon_resource_uranium,,,,,0,0,,,,1,,""""""
+se_player_tech_icon,Sprite,se_player_resources_labels_cont,0,se_player_uranium_icon,SourceURTargetUL,,,46,0,0,0,48,48,icon_resource_tech,,,,,0,0,,,,1,,""""""
+
+// main section player widgets,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_1,Unknown,se_properties_player_container,0,se_player_main_labels_cont,SourceLLTargetUL,se_player_main_labels_cont,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_2,Unknown,se_properties_player_container,0,se_player_1,SourceLLTargetUL,se_player_1,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_3,Unknown,se_properties_player_container,0,se_player_2,SourceLLTargetUL,se_player_2,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_4,Unknown,se_properties_player_container,0,se_player_3,SourceLLTargetUL,se_player_3,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_5,Unknown,se_properties_player_container,0,se_player_4,SourceLLTargetUL,se_player_4,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_6,Unknown,se_properties_player_container,0,se_player_5,SourceLLTargetUL,se_player_5,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_7,Unknown,se_properties_player_container,0,se_player_6,SourceLLTargetUL,se_player_6,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_8,Unknown,se_properties_player_container,0,se_player_7,SourceLLTargetUL,se_player_7,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_9,Unknown,se_properties_player_container,0,se_player_8,SourceLLTargetUL,se_player_8,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_10,Unknown,se_properties_player_container,0,se_player_9,SourceLLTargetUL,se_player_9,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+
+// player settings per-player containers,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_settings_1,Widget,se_player_settings_pane,0,se_player_settings_labels_cont,SourceLLTargetUL,se_player_settings_labels_cont,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_settings_2,Widget,se_player_settings_pane,0,se_player_settings_1,SourceLLTargetUL,se_player_settings_1,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_settings_3,Widget,se_player_settings_pane,0,se_player_settings_2,SourceLLTargetUL,se_player_settings_2,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_settings_4,Widget,se_player_settings_pane,0,se_player_settings_3,SourceLLTargetUL,se_player_settings_3,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_settings_5,Widget,se_player_settings_pane,0,se_player_settings_4,SourceLLTargetUL,se_player_settings_4,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_settings_6,Widget,se_player_settings_pane,0,se_player_settings_5,SourceLLTargetUL,se_player_settings_5,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_settings_7,Widget,se_player_settings_pane,0,se_player_settings_6,SourceLLTargetUL,se_player_settings_6,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_settings_8,Widget,se_player_settings_pane,0,se_player_settings_7,SourceLLTargetUL,se_player_settings_7,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_settings_9,Widget,se_player_settings_pane,0,se_player_settings_8,SourceLLTargetUL,se_player_settings_8,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_settings_10,Widget,se_player_settings_pane,0,se_player_settings_9,SourceLLTargetUL,se_player_settings_9,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+
+// player resources per-player containers,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_resources_1,Widget,se_player_resources_pane,0,se_player_resources_labels_cont,SourceLLTargetUL,se_player_resources_labels_cont,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_resources_2,Widget,se_player_resources_pane,0,se_player_resources_1,SourceLLTargetUL,se_player_resources_1,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_resources_3,Widget,se_player_resources_pane,0,se_player_resources_2,SourceLLTargetUL,se_player_resources_2,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_resources_4,Widget,se_player_resources_pane,0,se_player_resources_3,SourceLLTargetUL,se_player_resources_3,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_resources_5,Widget,se_player_resources_pane,0,se_player_resources_4,SourceLLTargetUL,se_player_resources_4,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_resources_6,Widget,se_player_resources_pane,0,se_player_resources_5,SourceLLTargetUL,se_player_resources_5,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_resources_7,Widget,se_player_resources_pane,0,se_player_resources_6,SourceLLTargetUL,se_player_resources_6,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_resources_8,Widget,se_player_resources_pane,0,se_player_resources_7,SourceLLTargetUL,se_player_resources_7,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_resources_9,Widget,se_player_resources_pane,0,se_player_resources_8,SourceLLTargetUL,se_player_resources_8,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_player_resources_10,Widget,se_player_resources_pane,0,se_player_resources_9,SourceLLTargetUL,se_player_resources_9,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+
+// child widgets for per-player settings,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_active_cont,Widget,,0,,,,,8,0,0,0,32,32,,,,,,0,0,,,,1,,""""""
+se_player_active,CheckBox,se_player_active_cont,0,,,,,4,4,0,0,24,24,spr_dip_check_off,,TwoState,,,0,0,,,,0,,"""omitBoxSprite"""
+se_player_name,EditText,,0,se_player_active_cont,SourceURTargetUL,,,0,0,0,0,250,32,,,,,,0,0,,,,0,,""""""
+se_player_name_local_cont,Widget,,0,se_player_name,SourceURTargetUL,,,4,0,0,0,32,32,,,,,,0,0,,,,1,,""""""
+se_player_name_local,CheckBox,se_player_name_local_cont,0,,,,,4,4,0,0,24,24,spr_dip_check_off,,TwoState,,,0,0,,tt_se_player_name_local,vtt_se_player_name_local,0,,"""omitBoxSprite"""
+
+se_player_type,Combo,,0,,,,,10,0,0,0,200,32,,,,,,0,0,,,,0,,"""enum=ePlayerType startIndex=0 endIndex=1"""
+se_player_civ,Combo,,0,se_player_type,SourceURTargetUL,,,6,0,0,0,200,32,,,,,,0,0,,,,0,,"""enum=eCivs"""
+se_player_civCustomName,EditText,,0,se_player_civ,SourceURTargetUL,,,6,0,0,0,250,32,,,,,,0,0,,,,0,,""""""
+se_player_epoch,Combo,,0,se_player_civCustomName,SourceURTargetUL,,,6,0,0,0,100,32,spr_scenedit_button2_small,,,,,0,0,,,,0,,"""enum=eEpochs useNumbers useOnlyNumberOnButton"""
+se_player_aiscript,Combo,,0,se_player_epoch,SourceURTargetUL,,,6,0,0,0,200,32,,,,,,0,0,,,,0,,"""enum=eAIScriptDir smartLabels useOtherItem otherItemText=se_player_ai_none_text"""
+se_player_color,ColorComboExclusive,,0,se_player_aiscript,SourceURTargetUL,,,6,0,0,0,100,32,,,,,,0,0,,,,0,,"""enum=eNonWorldPlayerColors family=se_color_family searchRoot=se_properties_player_container dontExcludeCurValue removeExcludedValues"""
+se_player_cinematic_cont,Widget,,0,se_player_color,SourceURTargetUL,,,4,0,0,0,32,32,,,,,,0,0,,,,1,,""""""
+se_player_cinematic,CheckBox,se_player_cinematic_cont,0,,,,,4,4,0,0,24,24,spr_dip_check_off,,TwoState,,,0,0,,tt_se_cinematic_only,,0,,"""omitBoxSprite"""
+
+se_player_Food,NumEditText,,0,,,,,10,0,0,0,88,32,,,,,,4,0,,,,0,,"""min=0 max=99999"""
+se_player_Wood,NumEditText,,0,se_player_Food,SourceURTargetUL,,,6,0,0,0,88,32,,,,,,4,0,,,,0,,"""min=0 max=99999"""
+se_player_Stone,NumEditText,,0,se_player_Wood,SourceURTargetUL,,,6,0,0,0,88,32,,,,,,4,0,,,,0,,"""min=0 max=99999"""
+se_player_Gold,NumEditText,,0,se_player_Stone,SourceURTargetUL,,,6,0,0,0,88,32,,wfs_scenedit_edittext_inner,,,,4,0,,,,0,,"""min=0 max=99999"""
+se_player_Tin,NumEditText,,0,se_player_Gold,SourceURTargetUL,,,6,0,0,0,88,32,,,,,,4,0,,,,0,,"""min=0 max=99999"""
+se_player_Iron,NumEditText,,0,se_player_Tin,SourceURTargetUL,,,6,0,0,0,88,32,,,,,,4,0,,,,0,,"""min=0 max=99999"""
+se_player_Saltpeter,NumEditText,,0,se_player_Iron,SourceURTargetUL,,,6,0,0,0,88,32,,,,,,4,0,,,,0,,"""min=0 max=99999"""
+se_player_Oil,NumEditText,,0,se_player_Saltpeter,SourceURTargetUL,,,6,0,0,0,88,32,,,,,,4,0,,,,0,,"""min=0 max=99999"""
+se_player_Uranium,NumEditText,,0,se_player_Oil,SourceURTargetUL,,,6,0,0,0,88,32,,,,,,4,0,,,,0,,"""min=0 max=99999"""
+se_player_TechPoints,NumEditText,,0,se_player_Uranium,SourceURTargetUL,,,6,0,0,0,88,32,,,,,,4,0,,,,0,,"""min=0 max=99999"""
+
+// optional hack uses non-exclusive combo,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_player_color_notexclusive,ColorCombo,,0,se_player_color,SourceULTargetUL,se_player_color,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,0,,"""enum=eNonWorldPlayerColors family=se_color_family searchRoot=se_properties_player_container"""
+
+
+////////////////////////////////////////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,
+// mission properties native tribe setup:,,,,,,,,,,,,,,,,,,,,,,,,,,
+// player settings parent widget and label,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_properties_native_container,Widget,se_properties,0,se_properties_player_container,SourceLLTargetUL,,SourceLRTargetLR,0,0,0,-62,-1,-1,,,,,,0,0,,,,1,,""""""
+se_native_text,Text,se_properties_native_container,0,,,,,20,15,0,0,300,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_native_title,,,1,,""""""
+
+// native player settings labels,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_native_labels_cont,Widget,se_properties_native_container,0,,SourceULTargetUL,,SourceURTargetUR,20,42,0,0,-1,50,,,,,,0,0,,,,1,,""""""
+se_native_label_name,Text,se_native_labels_cont,0,,SourceLLTargetLL,,,40,0,0,0,250,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_native_name,,,1,,"""autoTruncStd"""
+se_native_label_tribe,Text,se_native_labels_cont,0,se_native_label_name,SourceURTargetUL,,,20,0,0,0,200,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_native_tribe,,,1,,"""autoTruncStd"""
+se_native_label_power,Text,se_native_labels_cont,0,se_native_label_tribe,SourceURTargetUL,,,6,0,0,0,250,32,,,,fs_std_small_white,LeftMid,0,0,tx_se_native_power,,,1,,"""autoTruncStd"""
+
+// native tribe section widgets,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_native_0,Unknown,se_properties_native_container,0,se_native_labels_cont,SourceLLTargetUL,se_native_labels_cont,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_native_1,Unknown,se_properties_native_container,0,se_native_0,SourceLLTargetUL,se_native_0,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_native_2,Unknown,se_properties_native_container,0,se_native_1,SourceLLTargetUL,se_native_1,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_native_3,Unknown,se_properties_native_container,0,se_native_2,SourceLLTargetUL,se_native_2,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+se_native_4,Unknown,se_properties_native_container,0,se_native_3,SourceLLTargetUL,se_native_3,SourceLRTargetUR,0,10,0,0,-1,32,,,,,,0,0,,,,1,,""""""
+
+// child widgets for per-native-player settings,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_native_active_cont,Widget,,0,,,,,8,0,0,0,32,32,,,,,,0,0,,,,1,,""""""
+se_native_active,CheckBox,se_native_active_cont,0,,,,,4,4,0,0,24,24,spr_dip_check_off,,TwoState,,,0,0,,,,0,,"""omitBoxSprite"""
+se_native_name,Text,,0,se_native_active_cont,SourceURTargetUL,,,10,0,0,0,250,32,,,,,,0,0,tx_se_native_setname,,,1,,""""""
+se_native_tribe,ComboExclusive,,0,se_native_name,SourceURTargetUL,,,10,0,0,0,200,32,,,,,,0,0,,,,0,,"""enum=eNativeTribes family=se_tribe_family searchRoot=se_properties_native_container dontExcludeCurValue"""
+se_native_power,ComboExclusive,,0,se_native_tribe,SourceURTargetUL,,,6,0,0,0,200,32,,,,,,0,0,,,,0,,"""enum=eNativePowers family=se_tribe_powers_family searchRoot=se_properties_native_container dontExcludeCurValue"""
+
+// -------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// VICTORY CONDITIONS DIALOG,,,,,,,,,,,,,,,,,,,,,,,,,,
+//NAME,CLASS,PARENT,,,,,XOFF,YOFF,XOFF ANCHOR2,YOFF ANCHOR2,WIDTH,HEIGHT,SPRITE,FRAMESTYLE,BUTTONSTYLE,FONTSTYLE,TEXTJUST,XTEXTOFF,YTEXTOFF,LABEL,TOOLTIP,VERBOSE,NOMOUSE,CMDSTR,ARGSTR,
+se_vc,Panel,,0,,,,,0,0,0,0,800,800,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_vc_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox modal center"""
+se_vc_clause,Combo,,0,,,,,0,0,0,0,200,32,spr_scenedit_button2,,,fs_std_small_bold_white,,8,4,,,,0,,"""triangleSprite=spr_combo_triangle enum=eVictoryClauseWidget"""
+//se_vc_haveres_type,Combo,,,,,,0,0,0,0,100,32,spr_scenedit_button2,,,fs_std_small_bold_white,,8,4,,,,0,,"""triangleSprite=spr_combo_triangle enum=eVictoryClauseResources""",
+//se_vc_haveres_amount,NumEditText,,,,,,0,0,0,0,56,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_bold_white,,4,0,,,,0,,"""min=0 max=9999""",
+//se_vc_epoch_which,Combo,,,,,,0,0,0,0,100,32,spr_scenedit_button2,,,fs_std_small_bold_white,,8,4,,,,0,,"""triangleSprite=spr_combo_triangle enum=eTechTreeEpoch""",
+//se_vc_killsomeone_who,NumEditText,,,,,,0,0,0,0,56,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_bold_white,,4,0,,,,0,,"""min=1 max=12""",
+se_vc_number_of_crown_lbl,Text,,0,,,,,0,0,0,0,100,32,,,,fs_std_small_bold_white,,0,0,tx_se_vc_number,,,1,,""""""
+se_vc_number_of_crown,NumEditText,,0,,,,,0,0,0,0,56,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_bold_white,,0,0,,,,0,,"""min=1 max=4"""
+se_vc_number_of_hot_spots_lbl,Text,,0,,,,,0,0,0,0,100,32,,,,fs_std_small_bold_white,,0,0,tx_se_vc_number,,,1,,""""""
+se_vc_number_of_hot_spots,NumEditText,,0,,,,,0,0,0,0,56,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_bold_white,,0,0,,,,0,,"""min=1 max=20"""
+se_vc_time_lbl,Text,,0,,,,,0,0,0,0,100,32,,,,fs_std_small_bold_white,,0,0,tx_se_vc_minutes,,,1,,""""""
+se_vc_time,NumEditText,,0,,,,,0,0,0,0,56,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_bold_white,,0,0,,,,0,,"""min=1 max=240"""
+se_vc_container,Widget,se_vc,0,,,,,20,52,0,0,760,740,,,,,,0,0,,,,1,,""""""
+se_vc_ok,Button,se_vc,0,,,,,528,740,0,0,128,32,,,,,,0,0,tx_se_vc_accept,,,0,,""""""
+se_vc_close,Button,se_vc,0,,,,,664,740,0,0,128,32,,,,,,0,0,tx_se_vc_cancel,,,0,,""""""
+
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// --------------------------- TOOLS PANELS ------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+
+
+// ---------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// BRUSH SHAPE PICKER (used in multiple panels),,,,,,,,,,,,,,,,,,,,,,,,,,
+//se_brushshape,Unknown,,,,,,0,0,0,0,460,180,,,,,,0,0,,,,1,,"""""",
+se_brush_shape_text,Text,,0,,,,,20,20,0,0,200,32,,,,fs_std_small_bold_white,,0,0,tx_se_brush_brushshape,,,1,,""""""
+se_brush_size_text,Text,,0,,,,,220,20,0,0,200,32,,,,fs_std_small_bold_white,,0,0,tx_se_brush_brushsize,,,1,,""""""
+//se_brush_separator,Sprite,,,,,,0,176,0,0,460,4,spr_separator,,,,,0,0,,,,1,,"""""",
+se_brush_circle,RadioButton,,0,,,,,15,56,0,0,200,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_brush_circle,,,0,,"""family=se_brush_shape_family"""
+se_brush_square,RadioButton,,0,,,,,15,92,0,0,200,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_brush_square,,,0,,"""family=se_brush_shape_family"""
+se_brush_diamond,RadioButton,,0,,,,,15,128,0,0,200,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_brush_diamond,,,0,,"""family=se_brush_shape_family"""
+se_brush_size,SliderEdit,,0,,,,,220,56,0,0,210,32,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_int_editbox min=1 max=7"""
+
+// -----------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// STUFF FOR TINT PICKER,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_tint_red_slider_spr,Sprite,,0,,,,,0,0,0,0,256,16,spr_slider_horiz_red,wfs_tint_slider,,,,0,0,,,,1,,""""""
+se_tint_green_slider_spr,Sprite,,0,,,,,0,0,0,0,256,16,spr_slider_horiz_green,wfs_tint_slider,,,,0,0,,,,1,,""""""
+se_tint_blue_slider_spr,Sprite,,0,,,,,0,0,0,0,256,16,spr_slider_horiz_blue,wfs_tint_slider,,,,0,0,,,,1,,""""""
+se_tint_red_slider,Slider,,0,,,,,20,65,0,0,256,32,,,,,,0,0,,,,0,,"""sliderSprite=se_tint_red_slider_spr, thumbSprite=se_slider_spriteThumb, offset=4"""
+se_tint_green_slider,Slider,,0,,,,,20,115,0,0,256,32,,,,,,0,0,,,,0,,"""sliderSprite=se_tint_green_slider_spr, thumbSprite=se_slider_spriteThumb, offset=4"""
+se_tint_blue_slider,Slider,,0,,,,,20,165,0,0,256,32,,,,,,0,0,,,,0,,"""sliderSprite=se_tint_blue_slider_spr, thumbSprite=se_slider_spriteThumb, offset=4"""
+se_tint_red,SliderEdit,,0,,,,,0,0,0,0,330,32,,,,,,0,0,,,,0,,"""sliderWidget=se_tint_red_slider editWidget=se_float_editbox sliderFirst=1"""
+se_tint_green,SliderEdit,,0,,,,,0,0,0,0,330,32,,,,,,0,0,,,,0,,"""sliderWidget=se_tint_green_slider editWidget=se_float_editbox sliderFirst=1"""
+se_tint_blue,SliderEdit,,0,,,,,0,0,0,0,330,32,,,,,,0,0,,,,0,,"""sliderWidget=se_tint_blue_slider editWidget=se_float_editbox sliderFirst=1"""
+se_tint_preview,Sprite,,0,,,,,0,0,0,0,54,50,spr_whitepixel,wfs_scenedit_edittext,,,,0,0,,,,1,,""""""
+
+// and stuff for color-picker dialog,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_colorpicker_dialog,Unknown,,0,,,,,0,0,0,0,420,232,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_color_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox modal center"""
+se_colorpicker_dialog_picker,RGBPicker,,0,,,,,0,47,0,0,420,120,,,,,,0,0,,,,1,,"""red_picker=se_tint_red green_picker=se_tint_green blue_picker=se_tint_blue preview=se_tint_preview"""
+se_colorpicker_dialog_ok,Button,,0,,,,,-168,-20,0,0,128,32,spr_scenedit_button2,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_color_ok,,,0,,"""clickFlags=5 blink=1"""
+se_colorpicker_dialog_cancel,Button,,0,,,,,-20,-20,0,0,128,32,spr_scenedit_button2,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_color_cancel,,,0,,"""clickFlags=5 blink=1"""
+
+
+
+// -------------------------------------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// TERRAIN TOOLS PANEL,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_terrain,Unknown,,0,,,,,10,74,0,0,460,770,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_terr_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_terrain_tab_filler1,Sprite,se_terrain,0,,,,,0,40,0,0,10,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+se_terrain_tab_elev,FolderTab,se_terrain,0,,,,,10,40,0,0,110,32,,,,,,0,0,tx_se_terr_elevation,,,0,,"""family=terrain_tab_family pane=se_terrain_elev_pane"""
+se_terrain_tab_terr,FolderTab,se_terrain,0,,,,,120,40,0,0,110,32,,,,,,0,0,tx_se_terr_terrain,,,0,,"""family=terrain_tab_family pane=se_terrain_terr_pane"""
+se_terrain_tab_water,FolderTab,se_terrain,0,,,,,230,40,0,0,110,32,,,,,,0,0,tx_se_terr_water,,,0,,"""family=terrain_tab_family pane=se_terrain_water_pane"""
+se_terrain_tab_cliff,FolderTab,se_terrain,0,,,,,340,40,0,0,110,32,,,,,,0,0,tx_se_terr_cliffs,,,0,,"""family=terrain_tab_family pane=se_terrain_cliff_pane"""
+se_terrain_tab_filler2,Sprite,se_terrain,0,,,,,450,40,0,0,10,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+
+se_terrain_elev_pane,Unknown,se_terrain,0,,,,,0,72,0,0,460,698,spr_panelback,,,,,0,0,,,,0,,""""""
+se_elev_brush,BrushShapePicker,se_terrain_elev_pane,0,,,,,0,0,0,0,460,184,,,,,,0,0,,,,0,,"""firstWidget=se_brush_shape_text lastWidget=se_brush_size childPrefix=se_brush minSize=1 maxSize=15"""
+se_elev_sep1,Sprite,se_terrain_elev_pane,0,se_elev_brush,SourceLLTargetLL,se_elev_brush,SourceLRTargetLR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_elev_container,Widget,se_terrain_elev_pane,0,,,,SourceLRTargetLR,0,184,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_elev_raiseLower,RadioButton,se_elev_container,0,,,,,15,27,0,0,180,36,,,,,,0,0,tx_se_elev_raiselower,,,0,,"""family=se_elev_family"""
+se_elev_smoothRoughen,RadioButton,se_elev_container,0,,,,,15,87,0,0,180,36,,,,,,0,0,tx_se_elev_smoothroughen,,,0,,"""family=se_elev_family"""
+se_elev_setHeight,RadioButton,se_elev_container,0,,,,,15,147,0,0,180,36,,,,,,0,0,tx_se_elev_setheight,,,0,,"""family=se_elev_family"""
+se_elev_raiseLowerSlider,SliderEdit,se_elev_container,0,,,,,220,20,0,0,210,50,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox sliderFirst=0 min=0.1 max=1"""
+se_elev_smoothRoughenSlider,SliderEdit,se_elev_container,0,,,,,220,80,0,0,210,50,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox sliderFirst=0 min=0.1 max=1"""
+se_elev_setHeightEdit,FloatEditText,se_elev_container,0,,,,,220,145,0,0,56,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=0.01 max=100.0"""
+se_elev_sample,Button,se_elev_container,0,,,,,300,145,0,0,128,30,,,,,,0,0,tx_se_elev_sample,,,0,,""""""
+se_elev_sep2,Sprite,se_elev_container,0,,SourceULTargetUL,,SourceURTargetUR,0,200,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_elev_landToWater_text,Text,se_elev_container,0,se_elev_sep2,SourceLLTargetUL,se_elev_sep2,SourceLRTargetUR,15,15,-15,-15,-1,64,,,,,,0,0,tx_se_elev_landToWater,,,1,,"""wordWrap"""
+se_elev_landToWater_river,RadioButton,se_elev_container,0,se_elev_landToWater_text,SourceLLTargetUL,,,80,-5,0,0,180,36,,,,,,0,0,tx_se_water_river,,,0,,"""family=se_elev_landToWater_family"""
+se_elev_landToWater_ocean,RadioButton,se_elev_container,0,se_elev_landToWater_river,SourceLLTargetUL,,,0,5,0,0,180,36,,,,,,0,0,tx_se_water_ocean,,,0,,"""family=se_elev_landToWater_family"""
+se_elev_landToWater_coastal,RadioButton,se_elev_container,0,se_elev_landToWater_ocean,SourceLLTargetUL,,,0,5,0,0,180,36,,,,,,0,0,tx_se_water_coastal,,,0,,"""family=se_elev_landToWater_family"""
+se_elev_waterToLand_text,Text,se_elev_container,0,,SourceLLTargetLL,,SourceLRTargetLR,15,-15,-15,-15,-1,90,,,,,,0,0,tx_se_elev_waterToLand,,,1,,"""wordWrap"""
+
+
+se_terrain_terr_pane,Unknown,se_terrain,0,,,,,0,72,0,0,460,698,spr_panelback,,,,,0,0,,,,0,,""""""
+se_terr_brush,BrushShapePicker,se_terrain_terr_pane,0,,,,,0,0,0,0,460,184,,,,,,0,0,,,,0,,"""firstWidget=se_brush_shape_text lastWidget=se_brush_size childPrefix=se_brush minSize=1 maxSize=15"""
+se_terr_sep1,Sprite,se_terrain_terr_pane,0,se_terr_brush,SourceLLTargetLL,se_terr_brush,SourceLRTargetLR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_terr_fillRate_text,Text,se_terrain_terr_pane,0,,,,,220,100,0,0,120,32,,,,fs_std_small_bold_white,,0,0,tx_se_terr_fillrate,,,1,,""""""
+se_terr_fillRate,SliderEdit,se_terrain_terr_pane,0,,,,,220,136,0,0,210,32,,,,,,0,0,,tt_se_terr_fillRate,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox min=0.1 max=1.0"""
+se_terr_container,Widget,se_terrain_terr_pane,0,,,,,0,184,0,0,460,514,,,,,,0,0,,,,1,,""""""
+se_terr_selection1,Sprite,se_terr_container,0,,,,,20,15,0,0,170,65,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,tt_se_terr_selection1,,0,,"""clickFlags=5"""
+se_terr_selection1_text,Text,se_terr_selection1,0,,,,,70,7,0,0,100,20,,,,fs_std_tiny_white,LeftMid,0,0,,,,1,,""""""
+se_terr_selection2,Sprite,se_terr_container,0,,,,,205,15,0,0,170,65,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,tt_se_terr_selection2,,0,,"""clickFlags=5"""
+se_terr_selection2_text,Text,se_terr_selection2,0,,,,,70,7,0,0,100,20,,,,fs_std_tiny_white,LeftMid,0,0,,,,1,,""""""
+se_terr_list,Container,se_terr_container,0,,,,,20,125,0,0,420,185,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,,,1,,"""scrollVert=se_scrollbar"""
+se_terr_filter,Combo,se_terr_container,0,,,,,20,93,0,0,192,32,,,,,,0,0,,,,0,,"""enum=eTerrTypeFlags, createFlagsMenu, flagsSelectAll, flagsSelectNone"""
+
+se_terr_sample,Button,se_terr_container,0,,,,,-20,15,0,0,48,48,spr_scenedit_button_sqr,,,,,0,0,,tt_se_terr_sample,,0,,""""""
+se_terr_sample_overlay,Sprite,se_terr_sample,0,,,,,8,8,0,0,32,32,spr_eyedropper_overlay,,,,,0,0,,,,1,,""""""
+se_terr_tint_separator,Sprite,se_terr_container,0,,,,,0,-184,0,0,460,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_terr_tint_container,Widget,se_terr_container,0,,,,,0,-1,0,0,460,182,,,,,,0,0,,,,1,,""""""
+se_terr_tint_text,Text,se_terr_tint_container,0,,,,,20,15,0,0,70,32,,,,fs_std_small_bold_white,,0,0,tx_se_tint_tint,,,1,,""""""
+se_terr_tint_selection1,RadioButton,se_terr_tint_container,0,se_terr_tint_text,SourceURTargetUL,,,10,0,0,0,120,32,,,,,,0,0,tx_se_tint_selection1,,,0,,"""family=se_tint_family"""
+se_terr_tint_selection2,RadioButton,se_terr_tint_container,0,se_terr_tint_selection1,SourceURTargetUL,,,10,0,0,0,120,32,,,,,,0,0,tx_se_tint_selection2,,,0,,"""family=se_tint_family"""
+se_terr_tint_picker,RGBPicker,se_terr_tint_container,0,se_terr_tint_text,SourceLLTargetUL,,SourceLRTargetLR,-20,15,0,0,-1,-1,,,,,,0,0,,,,1,,"""red_picker=se_tint_red green_picker=se_tint_green blue_picker=se_tint_blue preview=se_tint_preview"""
+se_terr_tint_sample,Button,se_terr_tint_container,0,,SourceURTargetUR,,,-20,15,0,0,60,48,spr_scenedit_button_sqr,,,,,0,0,,tt_se_tint_sample,,0,,""""""
+se_terr_tint_sample_overlay,Sprite,se_terr_tint_sample,0,,,,,14,8,0,0,32,32,spr_eyedropper_overlay,,,,,0,0,,,,1,,""""""
+se_terr_tint_reset,Button,se_terr_tint_container,0,,SourceLRTargetLR,,,-20,-15,0,0,60,32,spr_scenedit_button2_small,,,,,0,0,tx_se_tint_reset,tt_se_tint_reset,,0,,""""""
+
+
+
+
+
+se_terr_thumbnail1,Unknown,se_terr_selection1,0,,,,,7,7,0,0,50,50,,wfs_scenedit_edittext,,,,0,0,,,,1,,"""modulate2x"""
+se_terr_thumbnail2,Unknown,se_terr_selection2,0,,,,,7,7,0,0,50,50,,wfs_scenedit_edittext,,,,0,0,,,,1,,"""modulate2x"""
+
+se_terrain_water_pane,Unknown,se_terrain,0,,,,,0,72,0,0,460,698,spr_panelback,,,,,0,0,,,,0,,""""""
+se_water_brush,BrushShapePicker,se_terrain_water_pane,0,,,,,0,0,0,0,460,184,,,,,,0,0,,,,0,,"""firstWidget=se_brush_shape_text lastWidget=se_brush_size childPrefix=se_brush minSize=4 maxSize=15"""
+se_water_sep1,Sprite,se_terrain_water_pane,0,se_water_brush,SourceLLTargetLL,se_water_brush,SourceLRTargetLR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_water_container,Widget,se_terrain_water_pane,0,,,,,0,184,0,0,460,300,,,,,,0,0,,,,1,,""""""
+se_water_river,RadioButton,se_water_container,0,,,,,20,27,0,0,180,36,,,,,,0,0,tx_se_water_river,,,0,,"""family=se_water_family"""
+se_water_ocean,RadioButton,se_water_container,0,,,,,20,63,0,0,180,36,,,,,,0,0,tx_se_water_ocean,,,0,,"""family=se_water_family"""
+se_water_coastal,RadioButton,se_water_container,0,,,,,20,99,0,0,180,36,,,,,,0,0,tx_se_water_coastal,,,0,,"""family=se_water_family"""
+se_water_swamp,RadioButton,se_water_container,0,,,,,20,135,0,0,180,36,,,,,,0,0,tx_se_water_swamp,,,0,,"""family=se_water_family"""
+
+se_terrain_cliff_pane,Unknown,se_terrain,0,,,,,0,72,0,0,460,698,spr_panelback,,,,,0,0,,,,0,,""""""
+se_cliff_brush,BrushShapePicker,se_terrain_cliff_pane,0,,,,,0,0,0,0,460,184,,,,,,0,0,,,,0,,"""firstWidget=se_brush_shape_text lastWidget=se_brush_size childPrefix=se_brush minSize=1 maxSize=15"""
+se_cliff_sep1,Sprite,se_terrain_cliff_pane,0,se_cliff_brush,SourceLLTargetLL,se_cliff_brush,SourceLRTargetLR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_cliff_container,Widget,se_terrain_cliff_pane,0,,,,,0,184,0,0,460,300,,,,,,0,0,,,,1,,""""""
+se_cliff_raiseLower,RadioButton,se_cliff_container,0,,,,,20,27,0,0,180,36,,,,,,0,0,tx_se_cliffs_title,,,0,,"""family=se_cliff_family"""
+se_cliff_setHeight,RadioButton,se_cliff_container,0,,,,,20,107,0,0,180,36,,,,,,0,0,tx_se_cliffs_createcliffs,,,0,,"""family=se_cliff_family"""
+se_cliff_erase,RadioButton,se_cliff_container,0,,,,,20,187,0,0,180,36,,,,,,0,0,tx_se_cliffs_erasecliffs,,,0,,"""family=se_cliff_family"""
+se_cliff_raiseLowerHeight,SliderEdit,se_cliff_container,0,,,,,220,20,0,0,210,50,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox sliderFirst=0 min=0.5 max=2.0"""
+se_cliff_setHeightEdit,FloatEditText,se_cliff_container,0,,,,,225,105,0,0,56,40,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=0.01 max=100.0"""
+se_cliff_raiseLowerText,Text,se_cliff_container,0,,,,,80,52,0,0,100,32,,,,,,0,0,tx_se_cliffs_raiselower,,,1,,""""""
+se_cliff_setHeightText,Text,se_cliff_container,0,,,,,80,132,0,0,100,32,,,,,,0,0,tx_se_cliffs_setheight,,,1,,""""""
+
+
+
+
+// -------------------------------------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// FORESTATION PANEL,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_forest,Unknown,,0,,,,,10,74,0,0,460,700,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_forest_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_forest_brush,BrushShapePicker,se_forest,0,,,,,0,32,0,0,460,184,,,,,,0,0,,,,0,,"""firstWidget=se_brush_shape_text lastWidget=se_brush_size childPrefix=se_brush minSize=1 maxSize=16"""
+se_forest_sep1,Sprite,se_forest,0,se_forest_brush,SourceLLTargetLL,se_forest_brush,SourceLRTargetLR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_forest_container,Widget,se_forest,0,,,,,0,216,0,0,460,484,,,,,,0,0,,,,1,,""""""
+se_forest_texture,CheckBox,se_forest_container,0,,,,,20,20,0,0,300,36,,,,,,0,0,tx_se_forest_applytexture,,,0,,""""""
+se_forest_type_text,Text,se_forest_container,0,,,,,20,70,0,0,120,32,,,,fs_std_small_bold_white,,0,0,tx_se_forest_foresttype,,,1,,""""""
+se_forest_type,Combo,se_forest_container,0,,,,,160,70,0,0,160,32,,,,,,0,0,,,,0,,"""enum=eForestTypes"""
+se_forest_deleteAll,Button,se_forest_container,0,,,,,120,120,0,0,220,32,,,,,,0,0,tx_se_forest_deletealltrees,,,0,,""""""
+se_forest_info,Text,se_forest_container,0,,,,,20,-20,0,0,420,290,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white,Left,10,0,,,,1,,""""""
+
+
+
+// -------------------------------------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// OBJECT PLACEMENT PANEL,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_objects,Unknown,,0,,,,,10,74,0,0,460,710,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_objects_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_objects_panelback,Sprite,se_objects,0,,,,,0,72,0,0,460,638,spr_panelback,,,,,0,0,,,,1,,""""""
+
+se_objects_tab_filler1,Sprite,se_objects,0,,,,,0,40,0,0,10,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+se_objects_tab_player,FolderTab,se_objects,0,,,,,10,40,0,0,110,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_objects_player,,,0,,"""family=object_tab_family pane=se_objects_player_pane snd=sndsty_foldertab"""
+se_objects_tab_world,FolderTab,se_objects,0,,,,,120,40,0,0,110,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_objects_world,,,0,,"""family=object_tab_family pane=se_objects_world_pane snd=sndsty_foldertab"""
+se_objects_tab_filler2,Sprite,se_objects,0,,,,,230,40,0,0,230,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+//se_objects_ok,Button,se_objects,,,,,-20,-15,0,0,128,32,spr_scenedit_button2,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_objects_create,,,0,,"""clickFlags=5 blink=1""",
+
+se_objects_player_pane,Unknown,se_objects_panelback,0,,SourceULTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_objects_player_select,Combo,se_objects_player_pane,0,,,,,20,15,0,0,170,32,,,,fs_std_small_white,Left,0,0,,,,0,,"""enum=ePlayerNames useNumbers stripEnumPrefix"""
+se_objects_player_restrictEpoch,CheckBox,se_objects_player_pane,0,,,,,-20,15,0,0,235,32,,,,fs_std_small_white,Left,0,0,tx_se_objects_restricttoepoch,,,0,,""""""
+se_objects_player_list,ListText,se_objects_player_pane,0,,,,,20,62,0,0,420,330,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white,Left,5,0,,,,0,,"""scrollBar=se_scrollbar itemHilite=spr_listitem folderSprite=spr_folder_closed folderIndent=30 itemIndent=10"""
+se_objects_player_info,Unknown,se_objects_player_pane,0,,,,,20,-15,0,0,420,212,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white,Left,10,0,,,,1,,""""""
+
+se_objects_world_pane,Unknown,se_objects_panelback,0,,SourceULTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_objects_world_list,ListText,se_objects_world_pane,0,,,,,20,20,0,0,420,372,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white,,5,0,,,,0,,"""scrollBar=se_scrollbar itemHilite=spr_listitem folderSprite=spr_folder_closed folderIndent=30 itemIndent=10"""
+se_objects_world_info,Unknown,se_objects_world_pane,0,,,,,20,-15,0,0,420,212,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white,Left,10,0,,,,1,,""""""
+
+
+
+// -----------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// AREAS PLACEMENT PANEL,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_areas,Unknown,,0,,,,,10,74,0,0,400,280,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_areas_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_areas_ok,Button,se_areas,0,,,,,-20,-20,0,0,128,32,,,,,,0,0,tx_se_areas_create,,,0,,""""""
+se_areas_box,RadioButton,se_areas,0,,,,,20,52,0,0,180,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_areas_rectangle,,,0,,"""family=se_areas_family"""
+se_areas_circle,RadioButton,se_areas,0,,,,,20,92,0,0,180,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_areas_circle,,,0,,"""family=se_areas_family"""
+se_areas_freeform,RadioButton,se_areas,0,,,,,20,132,0,0,180,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_areas_freeform,,,0,,"""family=se_areas_family"""
+
+
+// -----------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// CINEMATIC TOOLS PANEL,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_splines,Unknown,,0,,,,,10,74,0,0,300,329,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_splines_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_splines_createStaticShot,Button,se_splines,0,,,,,20,47,0,0,260,32,,,,,,0,0,tx_se_splines_createstaticshot,,,0,,""""""
+se_splines_createSplineShot,Button,se_splines,0,se_splines_createStaticShot,SourceLLTargetUL,,,0,15,0,0,260,32,,,,,,0,0,tx_se_splines_createmovingshot,,,0,,""""""
+se_splines_controlpoint,Button,se_splines,0,se_splines_createSplineShot,SourceLLTargetUL,,,0,15,0,0,260,32,,,,,,0,0,tx_se_splines_insertctrlpt,,,0,,""""""
+se_splines_key,Button,se_splines,0,se_splines_controlpoint,SourceLLTargetUL,,,0,15,0,0,260,32,,,,,,0,0,tx_se_splines_insertkey,,,0,,""""""
+se_splines_createTargetPoint,Button,se_splines,0,se_splines_key,SourceLLTargetUL,,,0,15,0,0,260,32,,,,,,0,0,tx_se_splines_crtargpt,,,0,,""""""
+se_splines_createTargetSpline,Button,se_splines,0,se_splines_createTargetPoint,SourceLLTargetUL,,,0,15,0,0,260,32,,,,,,0,0,tx_se_splines_crtargspline,,,0,,""""""
+
+
+// -----------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// STARTING POSITIONS,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_startingpositions,Unknown,,0,,,,,10,74,0,0,300,329,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_spos_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_startingpositions_add,RadioButton,se_startingpositions,0,,,,,20,52,0,0,260,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_spos_add,,,0,,"""family=se_spos_family"""
+se_startingpositions_remove,RadioButton,se_startingpositions,0,se_startingpositions_add,SourceLLTargetUL,,,0,20,0,0,260,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_spos_remove,,,0,,"""family=se_spos_family"""
+se_startingpositions_iprio,RadioButton,se_startingpositions,0,se_startingpositions_remove,SourceLLTargetUL,,,0,20,0,0,260,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_spos_iprio,,,0,,"""family=se_spos_family"""
+se_startingpositions_dprio,RadioButton,se_startingpositions,0,se_startingpositions_iprio,SourceLLTargetUL,,,0,20,0,0,260,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_spos_dprio,,,0,,"""family=se_spos_family"""
+se_startingpositions_clear,Button,se_startingpositions,0,se_startingpositions_dprio,SourceLLTargetUL,,,0,20,0,0,260,32,,,,,,0,0,tx_se_spos_clear,,,0,,""""""
+
+// -----------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// VICTORY CONDTION POSITIONS,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_vcpositions,Unknown,,0,,,,,10,74,0,0,390,410,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_vcpos_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_vcpositions_koth,RadioButton,se_vcpositions,0,,,,,20,52,0,0,260,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_vcpos_koth,,,0,,"""family=se_vcpos_family"""
+se_vcpositions_hotspots,RadioButton,se_vcpositions,0,se_vcpositions_koth,SourceLLTargetUL,,,0,20,0,0,260,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_vcpos_hotspots,,,0,,"""family=se_vcpos_family"""
+se_vcpositions_clear,Button,se_vcpositions,0,se_vcpositions_hotspots,SourceLLTargetUL,,,0,20,0,0,150,36,,,,,,0,0,tx_se_vcpos_clear,,,0,,""""""
+se_vcpositions_ok,Button,se_vcpositions,0,se_vcpositions_hotspots,SourceLLTargetUL,,,160,20,0,0,150,36,,,,,,0,0,tx_se_vcpos_create,,,0,,""""""
+se_vcpositions_hotspotText,Text,se_vcpositions,0,se_vcpositions_hotspots,SourceLLTargetUL,,,-4,64,0,0,390,90,,,,,,0,0,tx_se_vcpos_hotspottext,,,1,,""""""
+se_vcpositions_hotspotsAdd,RadioButton,se_vcpositions,0,se_vcpositions_hotspotText,SourceLLTargetUL,,,0,20,0,0,260,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_vcpos_hotspots_add,,,0,,"""family=se_vcpos_hs_family"""
+se_vcpositions_hotspotsRemove,RadioButton,se_vcpositions,0,se_vcpositions_hotspotsAdd,SourceLLTargetUL,,,0,20,0,0,260,36,,,,fs_std_small_white,LeftMid,0,0,tx_se_vcpos_hotspots_remove,,,0,,"""family=se_vcpos_hs_family"""
+
+
+// -----------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// ANIMALS,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_animals,Unknown,,0,,,,,10,74,0,0,460,104,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_animals_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_animals_group,Button,se_animals,0,,,,,20,52,0,0,200,32,,,,,,0,0,tx_se_animals_group,,,0,,""""""
+se_animals_break,Button,se_animals,0,se_animals_group,SourceURTargetUL,,,20,0,0,0,200,32,,,,,,0,0,tx_se_animals_break,,,0,,""""""
+
+
+// -----------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// TERRITORIES TOOLS,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_territories,Unknown,,0,,,,,10,74,0,0,460,730,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_terry_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_territories_enable,CheckBox,se_territories,0,,,,,10,42,0,0,235,32,,,,,,0,0,tx_se_terry_enable,,,0,,"""widgetToEnableDisable=se_territories_master"""
+se_territories_master,Widget,se_territories,0,,SourceULTargetUL,,SourceLRTargetLR,0,84,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_territories_sep1,Sprite,se_territories_master,0,,SourceULTargetUL,,SourceURTargetUR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_territories_brush,BrushShapePicker,se_territories_master,0,se_territories_sep1,SourceLLTargetUL,se_territories_sep1,SourceLRTargetUR,0,0,0,0,-1,184,,,,,,0,0,,,,0,,"""firstWidget=se_brush_shape_text lastWidget=se_brush_size childPrefix=se_brush minSize=1 maxSize=15"""
+se_territories_sep2,Sprite,se_territories_master,0,se_territories_brush,SourceLLTargetUL,se_territories_brush,SourceLRTargetUR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_territories_mmrefresh,Button,se_territories_master,0,,SourceLLTargetLL,,,10,-10,0,0,215,32,,,,,,0,0,tx_se_terry_mmrefresh,,,0,,""""""
+se_territories_repaint,Button,se_territories_master,0,se_territories_mmrefresh,SourceURTargetUL,,,10,0,0,0,215,32,,,,,,0,0,tx_se_terry_repaint,,,0,,""""""
+se_territories_random,Button,se_territories_master,0,se_territories_mmrefresh,SourceULTargetLL,,,0,-10,0,0,215,32,,,,,,0,0,tx_se_terry_random,,,0,,""""""
+se_territories_reset,Button,se_territories_master,0,se_territories_random,SourceURTargetUL,,SourceURTargetUR,10,0,-10,0,-1,32,,,,,,0,0,tx_se_terry_reset,,,0,,""""""
+se_territories_newcolor,Button,se_territories_master,0,se_territories_random,SourceULTargetLL,se_territories_random,SourceURTargetLR,0,-10,0,-10,-1,32,,,,,,0,0,tx_se_terry_new,,,0,,""""""
+se_territories_removecolor,Button,se_territories_master,0,se_territories_newcolor,SourceURTargetUL,se_territories_reset,SourceURTargetLR,10,0,0,-10,-1,-1,,,,,,0,0,tx_se_terry_remove,,,0,,""""""
+se_territories_sample,Button,se_territories_master,0,se_territories_sep2,SourceLRTargetUR,,,-10,5,0,0,40,40,spr_scenedit_button_sqr,,,,,0,0,,,,0,,""""""
+se_territories_sample_overlay,Sprite,se_territories_sample,0,,,,,4,4,0,0,32,32,spr_eyedropper_overlay,,,,,0,0,,,,1,,""""""
+se_territories_list,Container,se_territories_master,0,se_territories_sample,SourceLRTargetUR,se_territories_newcolor,SourceULTargetLL,0,5,0,-10,-1,-1,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,,,0,,"""scrollVert=se_scrollbar"""
+se_territories_list_label,Text,se_territories_master,0,se_territories_list,SourceULTargetLL,se_territories_list,SourceURTargetLR,0,-10,0,-10,-1,20,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_terry_colors,,,1,,""""""
+
+se_territories_list_item,Unknown,se_territories_list,0,,SourceULTargetUL,,SourceURTargetUR,0,0,0,0,-1,40,spr_listitem,,TwoState,,,0,0,,,,0,,""""""
+se_territories_list_item_color,Sprite,,0,,SourceULTargetUL,,SourceLLTargetLL,5,5,5,-5,50,-1,spr_whitepixel,,,,,0,0,,,,1,,""""""
+se_territories_list_item_name,Text,,0,se_territories_list_item_color,SourceURTargetUL,se_territories_list_item_color,SourceLRTargetLL,8,0,5,0,190,-1,,,,fs_std_small_white,LeftMid,0,0,,,,1,,""""""
+se_territories_list_item_owner,Text,,0,se_territories_list_item_name,SourceURTargetUL,,SourceLRTargetLR,5,0,-5,-5,-1,-1,,,,fs_std_small_white,LeftMid,0,0,,,,1,,""""""
+
+// gen. random territories dialog,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_terry_rand_dialog,Unknown,,0,,,,,0,0,0,0,420,130,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_terry_rand_title,,,0,,"""titleBar=se_panel_title, modal, center"""
+se_terry_rand_dialog_num,NumEditText,se_terry_rand_dialog,0,,SourceURTargetUR,,,-10,42,0,0,80,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,,,0,,"""min=1 max=100"""
+se_terry_rand_dialog_lbl,Text,se_terry_rand_dialog,0,se_terry_rand_dialog_num,SourceULTargetUR,,SourceULTargetUL,-10,0,10,0,-1,32,,,,fs_std_small_white,RightMid,0,0,tx_se_terry_rand_num,,,1,,""""""
+se_terry_rand_dialog_ok,Button,se_terry_rand_dialog,0,,SourceLRTargetLR,,,-10,-10,0,0,160,32,,,,,,0,0,tx_se_terry_rand_ok,,,0,,""""""
+se_terry_rand_dialog_cancel,Button,se_terry_rand_dialog,0,se_terry_rand_dialog_ok,SourceULTargetUR,,,-10,0,0,0,160,32,,,,,,0,0,tx_se_cancel,,,0,,""""""
+
+// remove territory color dialog,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_terry_remove_dialog,Unknown,,0,,,,,0,0,0,0,350,180,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_terry_remove_title,,,0,,"""titleBar=se_panel_title, modal, center"""
+se_terry_remove_dialog_color1,Sprite,se_terry_remove_dialog,0,,SourceURTargetUR,,,-10,42,0,0,120,32,spr_whitepixel,wfs_scenedit_edittext_inner,,,,0,0,,,,1,,""""""
+se_terry_remove_dialog_color2,ColorCombo,se_terry_remove_dialog,0,se_terry_remove_dialog_color1,SourceLRTargetUR,,,0,10,0,0,120,40,,,,,,0,0,,,,0,,"""enum=eTerritoryColors"""
+se_terry_remove_dialog_lbl1,Text,se_terry_remove_dialog,0,se_terry_remove_dialog_color1,SourceULTargetUR,,SourceULTargetUL,-10,0,10,0,-1,32,,,,fs_std_small_white,RightMid,0,0,tx_se_terry_remove_color1,,,1,,""""""
+se_terry_remove_dialog_lbl2,Text,se_terry_remove_dialog,0,se_terry_remove_dialog_color2,SourceULTargetUR,,SourceULTargetUL,-10,0,10,0,-1,32,,,,fs_std_small_white,RightMid,0,0,tx_se_terry_remove_color2,,,1,,""""""
+se_terry_remove_dialog_ok,Button,se_terry_remove_dialog,0,,SourceLRTargetLR,,,-10,-10,0,0,160,32,,,,,,0,0,tx_se_terry_remove_ok,,,0,,""""""
+se_terry_remove_dialog_cancel,Button,se_terry_remove_dialog,0,se_terry_remove_dialog_ok,SourceULTargetUR,,,-10,0,0,0,160,32,,,,,,0,0,tx_se_cancel,,,0,,""""""
+
+// territories property sheet,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_terry_prop,Unknown,,0,,,,,0,0,0,0,500,344,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_terry_prop_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_terry_prop_nameCat_label,Text,se_terry_prop,0,,SourceULTargetUL,,,10,42,0,0,180,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_terry_prop_nameCat,,,1,,""""""
+se_terry_prop_nameCategory,TerritoryNameCategoryCombo,se_terry_prop,0,se_terry_prop_nameCat_label,SourceURTargetUL,,,10,0,0,0,200,32,,,,,,0,0,,,,0,,"""enum=eCivs useOtherItem otherItemText=tx_se_terry_names_other"""
+se_terry_prop_name_label,Text,se_terry_prop,0,se_terry_prop_nameCat_label,SourceLRTargetUR,,,50,10,0,0,140,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_terry_prop_name,,,1,,""""""
+se_terry_prop_name,Combo,se_terry_prop,0,se_terry_prop_name_label,SourceURTargetUL,,,10,0,0,0,240,32,,,,,,0,0,,,,0,,"""enum=eTerritoryNames"""
+se_terry_prop_owner_label,Text,se_terry_prop,0,se_terry_prop_nameCat_label,SourceLLTargetUL,,,0,70,0,0,140,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_terry_prop_owner,,,1,,""""""
+se_terry_prop_owner,Combo,se_terry_prop,0,se_terry_prop_owner_label,SourceURTargetUL,,,10,0,0,0,200,32,,,,,,0,0,,,,0,,"""enum=ePlayerNames useNumbers stripEnumPrefix useOtherItem otherItemText=tx_se_terry_unowned"""
+se_terry_prop_scriptname_lbl,Text,se_terry_prop,0,se_terry_prop_owner_label,SourceLLTargetUL,,,0,10,0,0,140,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_terry_prop_scriptname,,,1,,""""""
+se_terry_prop_scriptname,EditText,se_terry_prop,0,se_terry_prop_scriptname_lbl,SourceURTargetUL,,SourceURTargetUR,10,0,-10,0,-1,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,,,0,,""""""
+se_terry_prop_cityname_lbl,Text,se_terry_prop,0,se_terry_prop_scriptname_lbl,SourceLLTargetUL,,,0,10,0,0,140,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_terry_prop_cityname,,,1,,""""""
+se_terry_prop_cityname,EditText,se_terry_prop,0,se_terry_prop_cityname_lbl,SourceURTargetUL,,SourceURTargetUR,10,0,-10,0,-1,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,,,0,,""""""
+se_terry_prop_cityname_warn,Text,se_terry_prop,0,se_terry_prop_cityname_lbl,SourceLLTargetUL,,,0,10,0,0,400,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_terry_prop_cityname_warn,,,1,,""""""
+se_terry_prop_ok,Button,se_terry_prop,0,,SourceLRTargetLR,,,-10,-10,0,0,160,32,,,,,,0,0,tx_se_terry_prop_ok,,,0,,""""""
+
+// territories renaming dialog,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_terry_rename_dialog,Unknown,,0,,,,,0,0,0,0,500,350,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_terry_rename_title,,,0,,"""titleBar=se_panel_title, modal, center, close=se_panel_closebox"""
+se_terry_rename_onlyUnnamed,CheckBox,se_terry_rename_dialog,0,,,,,10,42,0,0,350,32,,,,,,0,0,tx_se_terry_rename_onlyUnnamed,,,0,,""""""
+se_terry_rename_unclaimed_lbl,Text,se_terry_rename_dialog,0,se_terry_rename_onlyUnnamed,SourceLLTargetUL,,SourceURTargetUR,0,25,-10,0,-1,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_terry_rename_unclaimed,,,1,,""""""
+se_terry_rename_unclaimed_combo,Combo,se_terry_rename_dialog,0,se_terry_rename_unclaimed_lbl,SourceLLTargetUL,,,20,10,0,0,260,32,,,,,,0,0,,,,0,,"""enum=eTerritoryRenameMode startIndex=2"""
+se_terry_rename_unclaimed_civ,Combo,se_terry_rename_dialog,0,se_terry_rename_unclaimed_combo,SourceURTargetUL,,SourceURTargetUR,10,0,-10,0,-1,32,,,,,,0,0,,,,0,,"""enum=eCivs"""
+se_terry_rename_unclaimed_regn,Combo,se_terry_rename_dialog,0,se_terry_rename_unclaimed_combo,SourceURTargetUL,,SourceURTargetUR,10,0,-10,0,-1,32,,,,,,0,0,,,,0,,"""enum=eCivilizationRegion delLast"""
+se_terry_rename_claimed_lbl,Text,se_terry_rename_dialog,0,se_terry_rename_unclaimed_combo,SourceLLTargetUL,,SourceURTargetUR,-20,25,-10,0,-1,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_terry_rename_claimed,,,1,,""""""
+se_terry_rename_claimed_combo,Combo,se_terry_rename_dialog,0,se_terry_rename_claimed_lbl,SourceLLTargetUL,,,20,10,0,0,260,32,,,,,,0,0,,,,0,,"""enum=eTerritoryRenameMode"""
+se_terry_rename_claimed_civ,Combo,se_terry_rename_dialog,0,se_terry_rename_claimed_combo,SourceURTargetUL,,SourceURTargetUR,10,0,-10,0,-1,32,,,,,,0,0,,,,0,,"""enum=eCivs"""
+se_terry_rename_claimed_regn,Combo,se_terry_rename_dialog,0,se_terry_rename_claimed_combo,SourceURTargetUL,,SourceURTargetUR,10,0,-10,0,-1,32,,,,,,0,0,,,,0,,"""enum=eCivilizationRegion delLast"""
+se_terry_rename_dialog_ok,Button,se_terry_rename_dialog,0,,SourceLRTargetLR,,,-10,-10,0,0,160,32,,,,,,0,0,tx_se_terry_rename_ok,,,0,,""""""
+
+// territories list,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_terrylist,Unknown,,0,,,,,10,74,0,0,950,600,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_terrylist_title,,,0,,"""modal titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_terrylist_refresh,Button,se_terrylist,0,,SourceLRTargetLR,,,-10,-10,0,0,160,32,,,,,,0,0,tx_se_terrylist_refresh,,,0,,""""""
+se_terrylist_goto,Button,se_terrylist,0,se_terrylist_refresh,SourceULTargetUR,,,-10,0,0,0,160,32,,,,,,0,0,tx_se_terrylist_goto,,,0,,""""""
+se_terrylist_list,MultiColumnList,se_terrylist,0,,SourceULTargetUL,se_terrylist_refresh,SourceURTargetLR,10,42,0,-10,-1,-1,,,,,,0,0,,,,1,,"""button=se_columnButton, listText=se_columnList, scrollBar=se_scrollbar, defaultColWidth=200 colNamePrefix=tx_se_terrylist_col_ numCols=6 col3width=125 col4width=100 col5width=-1"""
+
+
+
+// ----------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// GROUPS DIALOG,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_group,Unknown,,0,,,,,0,0,0,0,460,565,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_group_title,,,0,,"""titleBar=se_panel_title, minimize=se_panel_minimize close=se_panel_closebox center"""
+se_group_name,EditText,se_group,0,,,,,20,47,0,0,420,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_group_list,ListText,se_group,0,,,,,20,97,0,0,420,308,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white,,10,0,,,,0,,"""scrollBar=se_scrollbar itemHilite=spr_listitem"""
+se_group_create,Button,se_group,0,,,,,20,-109,0,0,200,32,,,,,,0,0,tx_se_group_creategroup,tt_se_group_create,,0,,""""""
+se_group_delete,Button,se_group,0,,,,,-20,-109,0,0,200,32,,,,,,0,0,tx_se_group_deletegroup,tt_se_group_delete,,0,,""""""
+se_group_assign,Button,se_group,0,,,,,20,-62,0,0,200,32,,,,,,0,0,tx_se_group_assignunits,tt_se_group_assign,,0,,""""""
+se_group_remove,Button,se_group,0,,,,,-20,-62,0,0,200,32,,,,,,0,0,tx_se_group_removeunits,tt_se_group_remove,,0,,""""""
+se_group_select,Button,se_group,0,,,,,20,-15,0,0,200,32,,,,,,0,0,tx_se_group_selectallingroup,tt_se_group_select,,0,,""""""
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// -----------------------------------------------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// PROPERTY SHEETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// ----------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// OBJECTS PROPERTY SHEET,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_objectProp,Unknown,,0,,,,,50,114,0,0,460,725,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_objprop_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_objectProp_ok,Button,se_objectProp,0,,,,,-20,-15,0,0,128,32,,,,,,0,0,tx_se_objprop_apply,,,0,,""""""
+se_objectProp_upgrade,Button,se_objectProp,0,,,,,20,-15,0,0,275,32,spr_scenedit_button2_big,,,,,0,0,,,,0,,""""""
+se_objectProp_utname_text,Text,se_objectProp,0,,,,,-255,47,0,0,190,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_objprop_defdisplayname,,,1,,""""""
+se_objectProp_utname,Text,se_objectProp,0,,,,,-20,47,0,0,220,32,,,,fs_std_small_white,LeftMid,0,0,,,,1,,""""""
+se_objectProp_dispname_text,Text,se_objectProp,0,,,,,-305,97,0,0,140,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_objprop_displayname,,,1,,""""""
+se_objectProp_dispname,EditText,se_objectProp,0,,,,,-20,97,0,0,270,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_objectProp_name_text,Text,se_objectProp,0,,,,,-305,147,0,0,140,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_objprop_nameinscript,,,1,,""""""
+se_objectProp_name,EditText,se_objectProp,0,,,,,-20,147,0,0,270,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_objectProp_player_text,Text,se_objectProp,0,,,,,-325,197,0,0,120,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_objprop_playername,,,1,,""""""
+se_objectProp_player,Combo,se_objectProp,0,,,,,-20,197,0,0,290,32,,,,,,0,0,,,,1,,"""enum=ePlayerNames useNumbers stripEnumPrefix"""
+se_objectProp_group_text,Text,se_objectProp,0,,,,,-325,247,0,0,120,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_objprop_groupname,,,1,,""""""
+se_objectProp_group,Combo,se_objectProp,0,,,,,-20,247,0,0,290,32,,,,,,0,0,,,,0,,"""enum=eGroupNames"""
+se_objectProp_specialForces,CheckBox,se_objectProp,0,,,,,85,297,0,0,290,32,,,,,,0,0,tx_se_objprop_membersf,,,0,,""""""
+se_objectProp_hitpoints_label,Text,se_objectProp,0,,,,,20,347,0,0,110,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_objprop_hitpoints,,,1,,""""""
+se_objectProp_hitpoints,NumEditText,se_objectProp,0,se_objectProp_hitpoints_label,SourceURTargetUL,,,10,0,0,0,80,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,,,0,,"""min=1"""
+se_objectProp_power_label,Text,se_objectProp,0,se_objectProp_hitpoints,SourceURTargetUL,,,20,0,0,0,90,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_objprop_power,,,1,,""""""
+se_objectProp_power,NumEditText,se_objectProp,0,se_objectProp_power_label,SourceURTargetUL,,,10,0,0,0,80,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,,,0,0,,,,0,,"""min=0 max=100"""
+se_objectProp_info_text,Text,se_objectProp,0,,,,,20,-290,0,0,120,32,,,,fs_std_small_bold_white,,0,0,tx_se_objprop_unitinfo,,,1,,""""""
+se_objectProp_info,Unknown,se_objectProp,0,,,,,20,-70,0,0,420,212,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white,Left,10,0,,,,1,,""""""
+
+
+// ----------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// AREAS PROPERTY SHEET,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_areaProp,Unknown,,0,,,,,50,114,0,0,440,200,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_areaprop_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_areaProp_ok,Button,se_areaProp,0,,,,,-20,-15,0,0,128,32,,,,,,0,0,tx_se_areaprop_apply,,,0,,""""""
+se_areaProp_name_text,Text,se_areaProp,0,,,,,-325,47,0,0,100,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_areaprop_areaname,,,1,,""""""
+se_areaProp_name,EditText,se_areaProp,0,,,,,-20,47,0,0,290,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_areaProp_type_text,Text,se_areaProp,0,,,,,-325,97,0,0,100,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_areaprop_areatype,,,1,,""""""
+se_areaProp_type,Text,se_areaProp,0,,,,,-20,97,0,0,290,32,,,,fs_std_small_white,LeftMid,0,0,,,,1,,""""""
+
+
+// ----------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// CINEMATIC SHOTS PROPERTY SHEET,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// child widgets for cinematic preview control,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_preview_rewind,Button,,0,,SourceLLTargetLL,,,20,0,0,0,48,48,spr_scenedit_button_sqr,,,,,0,0,,,,0,,""""""
+se_preview_rewindIcon,Sprite,se_preview_rewind,0,,,,,8,8,0,0,32,32,spr_movie_rewind_overlay,,,,,0,0,,,,1,,""""""
+se_preview_play,Button,,0,se_preview_rewind,SourceURTargetUL,,,0,0,0,0,48,48,spr_scenedit_button_sqr,,,,,0,0,,,,0,,""""""
+se_preview_playIcon,Sprite,se_preview_play,0,,,,,8,8,0,0,32,32,spr_movie_play_overlay,,,,,0,0,,,,1,,""""""
+se_preview_pause,Button,,0,se_preview_play,SourceULTargetUL,,,0,0,0,0,48,48,spr_scenedit_button_sqr,,,,,0,0,,,,0,,""""""
+se_preview_pauseIcon,Sprite,se_preview_pause,0,,,,,8,8,0,0,32,32,spr_movie_pause_overlay,,,,,0,0,,,,1,,""""""
+se_preview_ffwd,Button,,0,se_preview_play,SourceURTargetUL,,,0,0,0,0,48,48,spr_scenedit_button_sqr,,,,,0,0,,,,0,,""""""
+se_preview_ffwdIcon,Sprite,se_preview_ffwd,0,,,,,8,8,0,0,32,32,spr_movie_ffwd_overlay,,,,,0,0,,,,1,,""""""
+se_preview_time,SliderEdit,,0,,SourceLRTargetLR,,,-20,0,0,0,305,48,,,,,,0,0,,,,0,,"""sliderWidget=se_slider_med editWidget=se_float_editbox_big sliderFirst=1"""
+
+
+
+
+se_shot,Unknown,,0,,,,,50,114,0,0,506,1140,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_shot_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_shot_common,Widget,se_shot,0,,,,,0,32,0,0,506,446,,,,,,0,0,,,,1,,""""""
+
+// edit the overall shot,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_shot_editShot,Widget,se_shot_common,0,se_shot_common,SourceULTargetUL,se_shot_common,SourceURTargetUR,0,0,0,0,-1,336,,,,,,0,0,,,,1,,""""""
+se_shot_name_text,Text,se_shot_editShot,0,se_shot_editShot,SourceULTargetUL,,,15,15,0,0,155,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_shot_shotname,,,1,,""""""
+se_shot_name,EditText,se_shot_editShot,0,se_shot_name_text,SourceURTargetUL,,,10,0,0,0,290,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_duration_text,Text,se_shot_editShot,0,se_shot_name_text,SourceLLTargetUL,,,0,15,0,0,155,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_shot_shotduration,,,1,,""""""
+se_shot_duration,FloatEditText,se_shot_editShot,0,se_shot_duration_text,SourceURTargetUL,,,10,0,0,0,90,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=0.01 max=60"""
+se_shot_clipdist_text,Text,se_shot_editShot,0,se_shot_duration_text,SourceLLTargetUL,,,0,15,0,0,155,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_shot_drawdistance,,,1,,""""""
+se_shot_clipdistance,FloatEditText,se_shot_editShot,0,se_shot_clipdist_text,SourceURTargetUL,,,10,0,0,0,90,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=10 max=300"""
+se_shot_useAttachUnit,CheckBox,se_shot_editShot,0,se_shot_clipdist_text,SourceLLTargetUL,,,0,15,0,0,155,32,,,,fs_std_small_bold_white,,0,0,tx_se_shot_attachtounit,,,0,,"""widgetToEnableDisable=se_shot_attachUnitCont"""
+se_shot_attachUnitCont,Widget,se_shot_common,0,se_shot_useAttachUnit,SourceULTargetUL,se_shot_common,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_shot_attachUnit,NameOtherCombo,se_shot_attachUnitCont,0,se_shot_useAttachUnit,SourceURTargetUL,,,10,0,0,0,290,32,spr_scenedit_button2_big,,,,,0,0,,,,0,,"""enum=eUnitNames useOtherItem nameOtherPrompt=se_shot_keys_focus_unitPrompt"""
+se_shot_attachUnit_offset_text,Text,se_shot_attachUnitCont,0,se_shot_useAttachUnit,SourceLLTargetUL,,,0,15,0,0,155,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_shot_offset,,,1,,""""""
+se_shot_attachUnit_offset_x,FloatEditText,se_shot_attachUnitCont,0,se_shot_attachUnit_offset_text,SourceURTargetUL,,,20,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-100 max=100"""
+se_shot_attachUnit_offset_y,FloatEditText,se_shot_attachUnitCont,0,se_shot_attachUnit_offset_x,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-100 max=100"""
+se_shot_attachUnit_offset_z,FloatEditText,se_shot_attachUnitCont,0,se_shot_attachUnit_offset_y,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-20 max=20"""
+se_shot_useFocusSpline,CheckBox,se_shot_editShot,0,se_shot_attachUnit_offset_text,SourceLLTargetUL,,,0,15,0,0,155,32,,,,fs_std_small_bold_white,,0,0,tx_se_shot_targetspline,,,0,,"""widgetToEnableDisable=se_shot_focusSpline"""
+se_shot_focusSpline,Combo,se_shot_editShot,0,se_shot_useFocusSpline,SourceURTargetUL,,,10,0,0,0,290,32,spr_scenedit_button2_big,,,,,0,0,,,,0,,"""enum=eCivs"""
+se_shot_ok,Button,se_shot_editShot,0,,SourceLRTargetLR,,,-20,-10,0,0,200,32,spr_scenedit_button2_big,,,,,0,0,tx_se_shot_applychanges,,,0,,""""""
+
+// controls for previewing the shot,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_shot_preview,CinematicControls,se_shot_common,0,se_shot_editShot,SourceLLTargetUL,se_shot_editShot,SourceLRTargetUR,0,0,0,0,-1,62,,,,,,0,0,,,,1,,"""firstChild=se_preview_rewind, lastChild=se_preview_time"""
+se_shot_preview_sep,Sprite,se_shot_preview,0,se_shot_preview,SourceULTargetUL,se_shot_preview,SourceURTargetUR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+
+// the tabs,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_shot_tab_container,Widget,se_shot_common,0,se_shot_preview,SourceLLTargetUL,se_shot_common,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_shot_tab_filler1,Sprite,se_shot_tab_container,0,se_shot_tab_container,SourceLLTargetLL,,,0,0,0,0,10,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+se_shot_tab_controlPoints,RadioButton,se_shot_tab_container,0,se_shot_tab_filler1,SourceLRTargetLL,,,0,0,0,0,160,32,spr_tab_off,,TwoState,,CenterMid,1,0,tx_se_shot_ctrlpts,,,0,,"""family=shot_tab_family widgetToShowHide=se_shot_controlPoints_pane omitBoxSprite value=1"""
+se_shot_tab_keys,RadioButton,se_shot_tab_container,0,se_shot_tab_controlPoints,SourceLRTargetLL,,,0,0,0,0,110,32,spr_tab_off,,TwoState,,CenterMid,2,0,tx_se_shot_keys,,,0,,"""family=shot_tab_family widgetToShowHide=se_shot_keys_pane omitBoxSprite"""
+se_shot_tab_transitions,RadioButton,se_shot_tab_container,0,se_shot_tab_keys,SourceLRTargetLL,,,0,0,0,0,160,32,spr_tab_off,,TwoState,,CenterMid,3,0,tx_se_shot_transitions,,,0,,"""family=shot_tab_family widgetToShowHide=se_shot_transitions_pane omitBoxSprite"""
+se_shot_tab_filler2,Sprite,se_shot_tab_container,0,se_shot_tab_transitions,SourceLRTargetLL,se_shot_tab_container,SourceLRTargetLR,0,0,0,0,-1,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+
+// backing sprite,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_shot_panelback,Sprite,se_shot,0,se_shot_tab_container,SourceLLTargetUL,se_shot,SourceLRTargetLR,0,0,0,0,-1,-1,spr_panelback,,,,,0,0,,,,1,,""""""
+
+// control points pane,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_shot_controlPoints_pane,Unknown,se_shot_panelback,0,se_shot_panelback,SourceLLTargetLL,se_shot_panelback,SourceURTargetUR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_shot_controlPoints_selector,Widget,se_shot_controlPoints_pane,0,,,,,93,15,0,0,320,48,,,,,,0,0,,,,1,,""""""
+se_shot_controlPoints_text,Text,se_shot_controlPoints_selector,0,,,,,5,8,0,0,135,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotctrl_title,,,1,,""""""
+se_shot_controlPoints_num,NumEditText,se_shot_controlPoints_selector,0,se_shot_controlPoints_text,SourceURTargetUL,,,4,0,0,0,40,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_controlPoints_text2,Text,se_shot_controlPoints_selector,0,se_shot_controlPoints_num,SourceURTargetUL,,,7,0,0,0,10,32,,,,fs_std_small_bold_white,CenterMid,0,0,tx_se_shotctrl_slash,,,1,,""""""
+se_shot_controlPoints_numTotal,Text,se_shot_controlPoints_selector,0,se_shot_controlPoints_text2,SourceURTargetUL,,,4,0,0,0,32,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotctrl_zero,,,1,,""""""
+se_shot_controlPoints_prev,Button,se_shot_controlPoints_selector,0,,,,,-40,0,0,0,32,48,spr_scenedit_leftarrow,,,,,0,0,,,,0,,""""""
+se_shot_controlPoints_next,Button,se_shot_controlPoints_selector,0,,,,,-5,0,0,0,32,48,spr_scenedit_rightarrow,,,,,0,0,,,,0,,""""""
+se_shot_controlPoints_sep1,Sprite,se_shot_controlPoints_pane,0,,,,,103,75,0,0,300,4,spr_separator,,,,,0,0,,,,1,,""""""
+
+se_shot_controlPoints_pos,Widget,se_shot_controlPoints_pane,0,,,,,20,90,0,0,466,48,,,,,,0,0,,,,1,,""""""
+se_shot_controlPoints_posText,Text,se_shot_controlPoints_pos,0,,,,,0,8,0,0,115,32,,,,fs_std_small_bold_white,LeftMid,38,0,tx_se_shotctrl_position,,,1,,""""""
+se_shot_controlPoints_pos_x,FloatEditText,se_shot_controlPoints_pos,0,se_shot_controlPoints_posText,SourceURTargetUL,,,20,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_controlPoints_pos_y,FloatEditText,se_shot_controlPoints_pos,0,se_shot_controlPoints_pos_x,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_controlPoints_pos_z,FloatEditText,se_shot_controlPoints_pos,0,se_shot_controlPoints_pos_y,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-5 max=15"""
+se_shot_controlPoints_posSample,Button,se_shot_controlPoints_pos,0,se_shot_controlPoints_pos_z,SourceURTargetUL,,,20,-8,0,0,48,48,spr_scenedit_button_sqr,,,,,0,0,,,,0,,""""""
+se_shot_controlPoints_posSamp2,Sprite,se_shot_controlPoints_posSample,0,,,,,8,8,0,0,32,32,spr_camera_overlay,,,,,0,0,,,,1,,""""""
+
+se_shot_controlPoints_useTan,CheckBox,se_shot_controlPoints_pane,0,se_shot_controlPoints_posText,SourceLLTargetUL,,,0,15,0,0,115,32,,,,fs_std_small_bold_white,,0,0,tx_se_shotctrl_tangent,tt_se_shot_controlPts_tanRigid,,0,,"""widgetToEnableDisable=se_shot_controlPoints_tanCont"""
+se_shot_controlPoints_tanCont,Widget,se_shot_controlPoints_pane,0,se_shot_controlPoints_useTan,SourceURTargetUL,,,20,0,0,0,212,32,,,,,,0,0,,,,1,,""""""
+se_shot_controlPoints_tan_x,FloatEditText,se_shot_controlPoints_tanCont,0,,,,,0,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-10 max=10"""
+se_shot_controlPoints_tan_y,FloatEditText,se_shot_controlPoints_tanCont,0,se_shot_controlPoints_tan_x,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-10 max=10"""
+se_shot_controlPoints_tan_z,FloatEditText,se_shot_controlPoints_tanCont,0,se_shot_controlPoints_tan_y,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-10 max=10"""
+
+se_shot_controlPoints_apply,Button,se_shot_controlPoints_pane,0,se_shot_controlPoints_pane,SourceLRTargetLR,,,-20,-15,0,0,270,32,spr_scenedit_button2_big,,,,,0,0,tx_se_shotctrl_applychanges,,,0,,""""""
+
+
+// keys pane,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_shot_keys_pane,Unknown,se_shot_panelback,0,se_shot_panelback,SourceLLTargetLL,se_shot_panelback,SourceURTargetUR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_shot_keys_selector,Widget,se_shot_keys_pane,0,,,,,133,15,0,0,240,48,,,,,,0,0,,,,1,,""""""
+se_shot_keys_text,Text,se_shot_keys_selector,0,,,,,5,8,0,0,55,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_keynum,,,1,,""""""
+se_shot_keys_num,NumEditText,se_shot_keys_selector,0,se_shot_keys_text,SourceURTargetUL,,,4,0,0,0,40,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_keys_text2,Text,se_shot_keys_selector,0,se_shot_keys_num,SourceURTargetUL,,,7,0,0,0,10,32,,,,fs_std_small_bold_white,CenterMid,0,0,tx_se_shotkey_slash,,,1,,""""""
+se_shot_keys_numTotal,Text,se_shot_keys_selector,0,se_shot_keys_text2,SourceURTargetUL,,,4,0,0,0,32,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_zero,,,1,,""""""
+se_shot_keys_prev,Button,se_shot_keys_selector,0,,,,,-40,0,0,0,32,48,spr_scenedit_leftarrow,,,,,0,0,,,,0,,""""""
+se_shot_keys_next,Button,se_shot_keys_selector,0,,,,,-5,0,0,0,32,48,spr_scenedit_rightarrow,,,,,0,0,,,,0,,""""""
+se_shot_keys_sep1,Sprite,se_shot_keys_pane,0,se_shot_keys_selector,SourceLLTargetLL,,,10,12,0,0,220,4,spr_separator,,,,,0,0,,,,1,,""""""
+
+se_shot_keys_useTime,CheckBox,se_shot_keys_pane,0,,,,,20,100,0,0,160,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_elapsedtime,,,0,,"""widgetToEnableDisable=se_shot_keys_time"""
+se_shot_keys_time,FloatEditText,se_shot_keys_pane,0,se_shot_keys_useTime,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_keys_useFov,CheckBox,se_shot_keys_pane,0,se_shot_keys_useTime,SourceLLTargetUL,,,0,15,0,0,160,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_fieldofview,,,0,,"""widgetToEnableDisable=se_shot_keys_fov"""
+se_shot_keys_fov,FloatEditText,se_shot_keys_pane,0,se_shot_keys_time,SourceLLTargetUL,,,0,15,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_keys_useRoll,CheckBox,se_shot_keys_pane,0,se_shot_keys_useFov,SourceLLTargetUL,,,0,15,0,0,80,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_roll,,,0,,"""widgetToEnableDisable=se_shot_keys_roll"""
+se_shot_keys_roll,FloatEditText,se_shot_keys_pane,0,se_shot_keys_fov,SourceLLTargetUL,,,0,15,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+
+
+se_shot_keys_useFocus,CheckBox,se_shot_keys_pane,0,se_shot_keys_useRoll,SourceLLTargetUL,,,0,25,0,0,90,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_focus,,,0,,"""widgetToEnableDisable=se_shot_keys_focus"""
+se_shot_keys_focus,Widget,se_shot_keys_pane,0,se_shot_keys_useFocus,SourceLLTargetUL,,,32,10,0,0,435,307,,,,,,0,0,,,,1,,""""""
+
+se_shot_keys_focus_useTan,RadioButton,se_shot_keys_focus,0,se_shot_keys_focus,SourceULTargetUL,,,0,0,0,0,175,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_splinetangent,,,0,,"""family=se_shot_focus_family"""
+
+se_shot_keys_focus_useDir,RadioButton,se_shot_keys_focus,0,se_shot_keys_focus_useTan,SourceLLTargetUL,,,0,15,0,0,165,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_direction,,,0,,"""family=se_shot_focus_family widgetToEnableDisable=se_shot_keys_focus_dirCont"""
+se_shot_keys_focus_dirCont,Widget,se_shot_keys_focus,0,se_shot_keys_focus_useDir,SourceURTargetUL,,,10,-8,0,0,260,48,,,,,,0,0,,,,1,,""""""
+se_shot_keys_focus_dir_azi,FloatEditText,se_shot_keys_focus_dirCont,0,se_shot_keys_focus_dirCont,SourceULTargetUL,,,0,8,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,tt_se_shot_keys_focus_dirAzi,,0,,"""min=0 max=360"""
+se_shot_keys_focus_dir_alt,FloatEditText,se_shot_keys_focus_dirCont,0,se_shot_keys_focus_dir_azi,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,tt_se_shot_keys_focus_dirAlt,,0,,"""min=-89.5 max=89.5"""
+se_shot_keys_focus_dirSample,Button,se_shot_keys_focus_dirCont,0,se_shot_keys_focus_dirCont,SourceLRTargetLR,,,0,0,0,0,48,48,spr_scenedit_button_sqr,,,,,0,0,,,,0,,""""""
+se_shot_keys_focus_dirSamp2,Sprite,se_shot_keys_focus_dirSample,0,,,,,8,8,0,0,32,32,spr_camera_overlay,,,,,0,0,,,,1,,""""""
+
+se_shot_keys_focus_usePoint,RadioButton,se_shot_keys_focus,0,se_shot_keys_focus_useDir,SourceLLTargetUL,,,0,15,0,0,165,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_lookatpt,,,0,,"""family=se_shot_focus_family widgetToEnableDisable=se_shot_keys_focus_pointCont"""
+se_shot_keys_focus_pointCont,Widget,se_shot_keys_focus,0,se_shot_keys_focus_usePoint,SourceURTargetUL,,,10,-8,0,0,260,48,,,,,,0,0,,,,1,,""""""
+se_shot_keys_focus_point_x,FloatEditText,se_shot_keys_focus_pointCont,0,se_shot_keys_focus_pointCont,SourceULTargetUL,,,0,8,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_keys_focus_point_y,FloatEditText,se_shot_keys_focus_pointCont,0,se_shot_keys_focus_point_x,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_keys_focus_point_z,FloatEditText,se_shot_keys_focus_pointCont,0,se_shot_keys_focus_point_y,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-5 max=15"""
+se_shot_keys_focus_pointSample,Button,se_shot_keys_focus_pointCont,0,se_shot_keys_focus_pointCont,SourceLRTargetLR,,,0,0,0,0,48,48,spr_scenedit_button_sqr,,,,,0,0,,,,0,,""""""
+se_shot_keys_focus_pointSamp2,Sprite,se_shot_keys_focus_pointSample,0,,,,,8,8,0,0,32,32,spr_eyedropper_overlay,,,,,0,0,,,,1,,""""""
+
+se_shot_keys_focus_useUnit,RadioButton,se_shot_keys_focus,0,se_shot_keys_focus_usePoint,SourceLLTargetUL,,,0,15,0,0,165,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_lookatunit,,,0,,"""family=se_shot_focus_family widgetToEnableDisable=se_shot_keys_focus_unitCont"""
+se_shot_keys_focus_unitCont,Widget,se_shot_keys_focus,0,se_shot_keys_focus_useUnit,SourceULTargetUL,,,0,0,0,0,435,72,,,,,,0,0,,,,1,,""""""
+se_shot_keys_focus_unit,NameOtherCombo,se_shot_keys_focus_unitCont,0,se_shot_keys_focus_useUnit,SourceURTargetUL,,,10,0,0,0,260,32,spr_scenedit_button2_big,,,,,0,0,,,,0,,"""enum=eUnitNames useOtherItem nameOtherPrompt=se_shot_keys_focus_unitPrompt"""
+se_shot_keys_focus_unit_x,FloatEditText,se_shot_keys_focus_unitCont,0,se_shot_keys_focus_unit,SourceLLTargetUL,,,0,8,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-100 max=100"""
+se_shot_keys_focus_unit_y,FloatEditText,se_shot_keys_focus_unitCont,0,se_shot_keys_focus_unit_x,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-100 max=100"""
+se_shot_keys_focus_unit_z,FloatEditText,se_shot_keys_focus_unitCont,0,se_shot_keys_focus_unit_y,SourceURTargetUL,,,10,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,"""min=-5 max=15"""
+se_shot_keys_focus_unit_offText,Text,se_shot_keys_focus_unitCont,0,se_shot_keys_focus_unit_x,SourceULTargetUR,,,-10,0,0,0,100,32,,,,fs_std_small_white,RightMid,0,0,tx_se_shotkey_offset,,,1,,""""""
+se_shot_keys_focus_useArea,RadioButton,se_shot_keys_focus,0,se_shot_keys_focus_useUnit,SourceLLTargetUL,,,0,55,0,0,165,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_lookatarea,,,0,,"""family=se_shot_focus_family widgetToEnableDisable=se_shot_keys_focus_area"""
+se_shot_keys_focus_area,NameOtherCombo,se_shot_keys_focus,0,se_shot_keys_focus_useArea,SourceURTargetUL,,,10,0,0,0,260,32,spr_scenedit_button2_big,,,,,0,0,,,,0,,"""enum=eAreaNames useOtherItem nameOtherPrompt=se_shot_keys_focus_areaPrompt"""
+se_shot_keys_focus_useTarget,RadioButton,se_shot_keys_focus,0,se_shot_keys_focus_useArea,SourceLLTargetUL,,,0,15,0,0,165,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shotkey_lookattarget,,,0,,"""family=se_shot_focus_family widgetToEnableDisable=se_shot_keys_focus_target"""
+se_shot_keys_focus_target,Combo,se_shot_keys_focus,0,se_shot_keys_focus_useTarget,SourceURTargetUL,,,10,0,0,0,260,32,spr_scenedit_button2_big,,,,,0,0,,,,0,,"""enum=eCivs"""
+
+se_shot_keys_apply,Button,se_shot_keys_pane,0,,,,,-20,-15,0,0,200,32,spr_scenedit_button2_big,,,,,0,0,tx_se_shotkey_applychanges,,,0,,""""""
+
+// transitions pane,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_shot_transitions_pane,Unknown,se_shot_panelback,0,se_shot_panelback,SourceLLTargetLL,se_shot_panelback,SourceURTargetUR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_shot_trans_in,Unknown,se_shot_transitions_pane,0,se_shot_transitions_pane,SourceULTargetUL,se_shot_transitions_pane,SourceURTargetUR,0,0,0,0,-1,200,,,,,,0,0,,,,1,,""""""
+se_shot_trans_out,Unknown,se_shot_transitions_pane,0,se_shot_trans_in,SourceLLTargetUL,se_shot_transitions_pane,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+se_shot_trans_in_text,Text,se_shot_trans_in,0,,,,,20,15,0,0,120,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shottrans_in,,,1,,""""""
+se_shot_trans_sep,Sprite,se_shot_trans_in,0,se_shot_trans_in,SourceLLTargetLL,se_shot_trans_in,SourceLRTargetLR,0,0,0,0,-1,4,spr_separator,,,,,0,0,,,,1,,""""""
+se_shot_trans_out_text,Text,se_shot_trans_out,0,,,,,20,15,0,0,140,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shottrans_out,,,1,,""""""
+se_shot_transitions_apply,Button,se_shot_transitions_pane,0,,,,,-20,-15,0,0,225,32,spr_scenedit_button2_big,,,,,0,0,tx_se_shottrans_applychanges,,,0,,""""""
+
+se_shot_trans_cut,RadioButton,,0,,,,,20,57,0,0,80,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shottrans_cut,,,0,,"""family=se_shot_trans_family"""
+se_shot_trans_fade,RadioButton,,0,se_shot_trans_cut,SourceLLTargetUL,,,0,10,0,0,80,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_shottrans_fade,,,0,,"""family=se_shot_trans_family"""
+se_shot_trans_fadeOpt,Widget,,0,se_shot_trans_fade,SourceURTargetUL,,,20,0,0,0,200,80,,,,,,0,0,,,,1,,""""""
+se_shot_trans_fadeDurText,Text,se_shot_trans_fadeOpt,0,,,,,0,0,0,0,80,32,,,,,LeftMid,0,0,tx_se_shottrans_duration,,,1,,""""""
+se_shot_trans_fadeDuration,FloatEditText,se_shot_trans_fadeOpt,0,se_shot_trans_fadeDurText,SourceURTargetUL,,,20,0,0,0,64,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_shot_trans_fadeClrText,Text,se_shot_trans_fadeOpt,0,se_shot_trans_fadeDurText,SourceLLTargetUL,,,0,10,0,0,80,32,,,,,LeftMid,0,0,tx_se_shottrans_color,,,1,,""""""
+se_shot_trans_fadeColor,SpritePickColor,se_shot_trans_fadeOpt,0,se_shot_trans_fadeClrText,SourceURTargetUL,,,20,0,0,0,64,32,spr_whitepixel,wfs_scenedit_edittext,,,,0,0,,,,0,,""""""
+
+
+
+
+
+// CINEMATICS PANEL,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_cinematics,Unknown,,0,,,,,50,114,0,0,490,600,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_cinematics_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_cinematics_name_text,Text,se_cinematics,0,,,,,20,47,0,0,100,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_cinematics_cinematic,,,1,,""""""
+se_cinematics_name,CinematicNameCombo,se_cinematics,0,se_cinematics_name_text,SourceURTargetUL,,,15,0,0,0,220,32,,,,,,0,0,,,,0,,"""enum=eCinematicNames useOtherItem otherItemText=se_cinematic_new_text"""
+se_cinematics_rename,Button,se_cinematics,0,se_cinematics_name,SourceURTargetUL,,,15,0,0,0,100,32,,,,,,0,0,tx_se_cinematics_rename,,,0,,""""""
+se_cinematics_duration_text,Text,se_cinematics,0,se_cinematics_name_text,SourceLLTargetUL,,,0,10,0,0,100,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_cinematics_duration,,,1,,""""""
+se_cinematics_duration,Text,se_cinematics,0,se_cinematics_duration_text,SourceURTargetUL,,,15,0,0,0,150,32,,,,,LeftMid,0,0,,,,1,,""""""
+se_cinematics_shots_text,Text,se_cinematics,0,se_cinematics_duration_text,SourceLLTargetUL,,,0,15,0,0,100,32,,,,fs_std_small_bold_white,LeftMid,0,0,tx_se_cinematics_shotlist,,,1,,""""""
+se_cinematics_shots,ListText,se_cinematics,0,se_cinematics_shots_text,SourceLLTargetUL,,,0,8,0,0,450,250,,,,,,0,0,,,,0,,""""""
+se_cinematics_shots_add,EnumMenuTitle,se_cinematics,0,se_cinematics_shots,SourceLLTargetUL,,,0,8,0,0,140,32,,,,,,0,0,tx_se_cinematics_addshot,tt_se_cinematics_addshot,,0,,"""enum=eShotNames"""
+se_cinematics_shots_add_tri,Sprite,se_cinematics_shots_add,0,,SourceURTargetUR,,,-10,6,0,0,20,20,spr_combo_triangle,,,,,0,0,,,,1,,""""""
+se_cinematics_shots_insert,EnumMenuTitle,se_cinematics,0,se_cinematics_shots_add,SourceURTargetUL,,,15,0,0,0,140,32,,,,,,0,0,tx_se_cinematics_insertshot,tt_se_cinematics_insshot,,0,,"""enum=eShotNames"""
+se_cinematics_shots_ins_tri,Sprite,se_cinematics_shots_insert,0,,SourceURTargetUR,,,-10,6,0,0,20,20,spr_combo_triangle,,,,,0,0,,,,1,,""""""
+se_cinematics_shots_remove,Button,se_cinematics,0,se_cinematics_shots_insert,SourceURTargetUL,,,15,0,0,0,140,32,,,,,,0,0,tx_se_cinematics_removeshot,tt_se_cinematics_remshot,,0,,""""""
+se_cinematics_controls,CinematicControls,se_cinematics,0,se_cinematics_shots_add,SourceLLTargetUL,,,-20,20,0,0,490,48,,,,,,0,0,,,,1,,"""firstChild=se_preview_rewind, lastChild=se_preview_time"""
+se_cinematics_delete,Button,se_cinematics,0,se_cinematics,SourceLRTargetLR,,,-20,-15,0,0,217,32,,,,,,0,0,tx_se_cinematics_delete,,,0,,""""""
+
+
+
+// MAP OVERVIEW PANEL,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_overview,Panel,,0,,,,,50,114,0,0,460,542,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_overview_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_overview_info,Text,se_overview,0,,,,,20,52,0,0,420,470,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white,Left,10,0,,,,1,,""""""
+
+// -------------------------------------------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// OBJECT LIST,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+se_objectlist,Unknown,,0,,,,,50,114,0,0,1137,770,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_objlist_title,,,0,,"""modal titleBar=se_panel_title, close=se_panel_closebox, minimize=se_panel_minimize"""
+se_objectlist_panelback,Sprite,se_objectlist,0,,SourceULTargetUL,,SourceLRTargetLR,0,72,0,0,-1,-1,spr_panelback,,,,,0,0,,,,1,,""""""
+se_objectlist_tab_filler1,Sprite,se_objectlist,0,,,,,0,40,0,0,10,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+se_objectlist_tab_player,RadioButton,se_objectlist,0,,,,,10,40,0,0,110,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_se_objlist_player,,,0,,"""family=object_tab_family, snd=sndsty_foldertab, omitBoxSprite, value=1"""
+se_objectlist_tab_world,RadioButton,se_objectlist,0,,,,,120,40,0,0,110,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_se_objlist_world,,,0,,"""family=object_tab_family, snd=sndsty_foldertab, omitBoxSprite"""
+se_objectlist_tab_filler2,Sprite,se_objectlist,0,se_objectlist_tab_world,SourceLRTargetLL,,SourceLRTargetLR,0,0,0,0,-1,32,spr_tab_filler,,,,,0,0,,,,1,,""""""
+
+se_objectlist_export,Button,se_objectlist,0,,,,,20,-15,0,0,128,32,,,,,,0,0,tx_se_objlist_export,,,0,,""""""
+se_objectlist_delete,Button,se_objectlist,0,,,,,-168,-15,0,0,128,32,,,,,,0,0,tx_se_objlist_delete,,,0,,""""""
+se_objectlist_goto,Button,se_objectlist,0,,,,,-20,-15,0,0,128,32,,,,,,0,0,tx_se_objlist_goto,,,0,,""""""
+
+se_objectlist_list,MultiColumnList,se_objectlist,0,,,,,15,87,0,0,1107,608,,,,,,0,0,,,,1,,"""button=se_columnButton, listText=se_columnList, scrollBar=se_scrollbar, defaultColWidth=150 colNamePrefix=se_objects_col numCols=8 col4width=75 col7width=-1"""
+
+
+// TEST MISSION CHOOSER (for when there are multiple scenarios using the same map),,,,,,,,,,,,,,,,,,,,,,,,,,
+se_testmission_panel,Unknown,,0,,,,,0,0,0,0,560,188,spr_dark_bkgnd,wfs_scenedit_panel,,,,0,0,tx_se_testmission_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox, modal, center"""
+se_testmission_panel_message,Text,se_testmission_panel,0,,,,,15,47,0,0,530,64,,,,fs_std_small_white,,0,0,,,,1,,"""wordWrap"""
+se_testmission_panel_cancel,Button,se_testmission_panel,0,,,,,-15,-15,0,0,128,32,spr_scenedit_button2,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_gotoxy_cancel,,,0,,"""clickFlags=5 blink=1"""
+se_testmission_panel_ok,Button,se_testmission_panel,0,se_testmission_panel_cancel,SourceULTargetUR,,,-15,0,0,0,128,32,spr_scenedit_button2,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_gotoxy_ok,,,0,,"""clickFlags=5 blink=1"""
+se_testmission_panel_radio,RadioButton,se_testmission_panel,0,,SourceLLTargetUL,,,0,15,0,0,530,32,,,,fs_std_small_white,LeftMid,0,0,,,,0,,"""family=se_testmission_panel_family"""
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
+// MISCELLANEOUS PANELS AND GADGETS,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// MINIMAP (see also in-game minimap widget),,,,,,,,,,,,,,,,,,,,,,,,,,
+se_minimap_panel,Panel,,0,,,,,4,-4,0,0,256,288,,wfs_scenedit_panel,,,,0,0,tx_se_minimap_title,,,0,,"""titleBar=se_panel_title_noMove, close=se_panel_closebox, minimize=se_panel_minimize, minimizeDown"""
+se_minimap_container,Widget,se_minimap_panel,0,,,,,0,32,0,0,256,256,,,,,,0,0,,,,1,,""""""
+
+// CAMERA PREVIEW,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_pip_panel,Panel,,0,,,,,-4,-4,0,0,306,258,,wfs_scenedit_panel,,,,0,0,tx_se_pip_title,,,0,,"""titleBar=se_panel_title_noMove, close=se_panel_closebox, minimize=se_panel_minimize, minimizeDown"""
+se_pip_viewport,Widget,se_pip_panel,0,,,,,0,32,0,0,306,226,,,,,,0,0,,,,0,,""""""
+
+// GOTO XY DIALOG,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_gotoxy,Unknown,,0,,,,,0,0,0,0,380,210,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_gotoxy_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox modal center"""
+se_gotoxy_text,Text,se_gotoxy,0,,,,,0,52,0,0,380,32,,,,fs_std_small_white,,20,0,tx_se_gotoxy_enter,,,1,,""""""
+se_gotoxy_ok,Button,se_gotoxy,0,,,,,-168,-20,0,0,128,32,spr_scenedit_button2,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_gotoxy_ok,,,0,,"""clickFlags=5 blink=1"""
+se_gotoxy_cancel,Button,se_gotoxy,0,,,,,-20,-20,0,0,128,32,spr_scenedit_button2,,TwoState,fs_std_small_white,CenterMid,0,0,tx_se_gotoxy_cancel,,,0,,"""clickFlags=5 blink=1"""
+se_gotoxy_input_x,FloatEditText,se_gotoxy,0,,,,,20,-80,0,0,90,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+se_gotoxy_input_y,FloatEditText,se_gotoxy,0,,,,,130,-80,0,0,90,32,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white_hi,LeftMid,10,0,,,,0,,""""""
+
+// DIPLOMACY DIALOG,,,,,,,,,,,,,,,,,,,,,,,,,,
+//NAME,CLASS,PARENT,,,,,XOFF,YOFF,XOFF ANCHOR2,YOFF ANCHOR2,WIDTH,HEIGHT,SPRITE,FRAMESTYLE,,FONTSTYLE,TEXTJUST,XTEXTOFF,YTEXTOFF,LABEL,TOOLTIP,VERBOSE,NOMOUSE,CMDSTR,ARGSTR,
+se_diplomacy_panel,Panel,,0,,,,,0,0,0,0,1460,560,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_diplomacy_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox modal center"""
+se_diplomacy_root,Widget,se_diplomacy_panel,0,,,,,15,50,0,0,1430,440,,,,,,0,0,,,,1,,""""""
+se_diplomacy_accept,Button,se_diplomacy_panel,0,,,,,-50,-138,0,0,128,32,spr_scenedit_button,,,,,0,0,tx_se_diplomacy_ok,,,0,,""""""
+se_diplomacy_player,Text,se_diplomacy_root,0,,,,,0,0,0,0,130,40,,,,fs_std_small_white_hi,CenterMid,4,0,tx_se_diplomacy_player,,,1,,""""""
+se_diplomacy_combo,Combo,se_diplomacy_root,0,,,,,0,0,0,0,130,40,,,,fs_std_small_white,,14,0,,,,0,,"""enum=eDiplomaticState"""
+
+// SEASONS SLIDER,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_seasons,Unknown,,0,,,,,-10,74,0,0,440,210,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_seaons_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox minimize=se_panel_minimize"""
+se_seasons_monthText,Text,se_seasons,0,,,,,0,47,0,0,75,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_seaons_month,,,0,,""""""
+se_seasons_month,Slider,se_seasons,0,,,,,85,47,0,0,256,32,,,,,,0,0,,,,0,,"""sliderSprite=se_slider_spriteLong, thumbSprite=se_slider_spriteThumb, offset=4, numSteps=12"""
+se_seasons_monthDisp,Text,se_seasons,0,,,,,350,47,0,0,90,32,,,,fs_std_small_white,,0,0,,,,0,,""""""
+se_seasons_timeText,Text,se_seasons,0,,,,,0,97,0,0,75,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_seasons_time,,,0,,""""""
+se_seasons_time,Combo,se_seasons,0,,,,,85,97,0,0,160,32,,,,,,0,0,,,,0,,"""enum=eFeTimeOfDay"""
+//se_seasons_time,Slider,se_seasons,,,,,85,97,0,0,256,32,,,,,,0,0,,,,0,,"""sliderSprite=se_slider_spriteLong, thumbSprite=se_slider_spriteThumb, offset=4, numSteps=24""",
+se_seasons_timeDisp,Text,se_seasons,0,,,,,350,97,0,0,90,32,,,,fs_std_small_white,,0,0,,,,0,,""""""
+se_seasons_cancel,Button,se_seasons,0,,,,,-20,-15,0,0,190,32,spr_scenedit_button2_big,,,,,0,0,tx_se_seasons_reset,tt_se_seasons_cancel,,0,,""""""
+se_seasons_ok,Button,se_seasons,0,,,,,20,-15,0,0,190,32,spr_scenedit_button2_big,,,,,0,0,tx_se_seasons_apply,tt_se_seasons_ok,,0,,""""""
+
+
+// ATMOSPHERE PANEL,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_atmosphere,Unknown,,0,,,,,10,74,0,0,450,570,spr_panelback,wfs_scenedit_panel,,,,0,0,tx_se_atmosphere_title,,,0,,"""titleBar=se_panel_title, close=se_panel_closebox minimize=se_panel_minimize"""
+se_atmosphere_sundir_label,Text,se_atmosphere,0,,,,,20,47,0,0,220,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_sundir,,,0,,""""""
+se_atmosphere_sundir_azi,FloatEditText,se_atmosphere,0,se_atmosphere_sundir_label,SourceURTargetUL,,,10,0,0,0,90,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white,LeftMid,5,0,,tt_se_atmosphere_sundirazi,,0,,"""min=0 max=360"""
+se_atmosphere_sundir_alt,FloatEditText,se_atmosphere,0,se_atmosphere_sundir_azi,SourceURTargetUL,,,10,0,0,0,90,32,spr_extradark_bkgnd,wfs_scenedit_edittext_inner,,fs_std_small_white,LeftMid,5,0,,tt_se_atmosphere_sundiralt,,0,,"""min=0 max=89.5"""
+se_atmosphere_ambcolor_label,Text,se_atmosphere,0,se_atmosphere_sundir_label,SourceLLTargetUL,,,0,20,0,0,220,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_ambcolor,,,1,,""""""
+se_atmosphere_ambientcolor,SpritePickColor,se_atmosphere,0,se_atmosphere_ambcolor_label,SourceURTargetUL,,,10,0,0,0,64,32,spr_whitepixel,wfs_scenedit_edittext,,,,0,0,,,,0,,"""dynamicUpdate rgbTooltip0to255"""
+se_atmosphere_diffcolor_label,Text,se_atmosphere,0,se_atmosphere_ambcolor_label,SourceLLTargetUL,,,0,10,0,0,220,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_diffusecolor,,,1,,""""""
+se_atmosphere_diffusecolor,SpritePickColor,se_atmosphere,0,se_atmosphere_diffcolor_label,SourceURTargetUL,,,10,0,0,0,64,32,spr_whitepixel,wfs_scenedit_edittext,,,,0,0,,,,0,,"""dynamicUpdate rgbTooltip0to255"""
+se_atmosphere_speccolor_label,Text,se_atmosphere,0,se_atmosphere_diffcolor_label,SourceLLTargetUL,,,0,10,0,0,220,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_speccolor,,,1,,""""""
+se_atmosphere_specularcolor,SpritePickColor,se_atmosphere,0,se_atmosphere_speccolor_label,SourceURTargetUL,,,10,0,0,0,64,32,spr_whitepixel,wfs_scenedit_edittext,,,,0,0,,,,0,,"""dynamicUpdate rgbTooltip0to255"""
+se_atmosphere_skycolor_label,Text,se_atmosphere,0,se_atmosphere_speccolor_label,SourceLLTargetUL,,,0,10,0,0,220,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_skycolor,,,1,,""""""
+se_atmosphere_skycolor,SpritePickColor,se_atmosphere,0,se_atmosphere_skycolor_label,SourceURTargetUL,,,10,0,0,0,64,32,spr_whitepixel,wfs_scenedit_edittext,,,,0,0,,,,0,,"""dynamicUpdate rgbTooltip0to255"""
+se_atmosphere_terrcolor_label,Text,se_atmosphere,0,se_atmosphere_skycolor_label,SourceLLTargetUL,,,0,10,0,0,220,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_terrcolor,,,1,,""""""
+se_atmosphere_terrcolor,SpritePickColor,se_atmosphere,0,se_atmosphere_terrcolor_label,SourceURTargetUL,,,10,0,0,0,64,32,spr_whitepixel,wfs_scenedit_edittext,,,,0,0,,,,0,,"""dynamicUpdate rgbTooltip0to255"""
+
+se_atmosphere_fog,CheckBox,se_atmosphere,0,se_atmosphere_terrcolor_label,SourceLLTargetUL,,,0,30,0,0,80,32,,,,fs_std_small_bold_white,,0,0,tx_se_atmosphere_fog,,,0,,"""widgetToEnableDisable=se_atmosphere_fog_cont"""
+se_atmosphere_fog_cont,Widget,se_atmosphere,0,se_atmosphere_fog,SourceULTargetUL,,,0,0,0,0,450,120,,,,,,0,0,,,,1,,""""""
+se_atmosphere_fogcolor_label,Text,se_atmosphere_fog_cont,0,,,,,60,0,0,0,100,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_fog_color,,,1,,""""""
+se_atmosphere_fogcolor,SpritePickColor,se_atmosphere_fog_cont,0,se_atmosphere_fogcolor_label,SourceURTargetUL,,,10,0,0,0,64,32,spr_whitepixel,wfs_scenedit_edittext,,,,0,0,,,,0,,"""dynamicUpdate rgbTooltip0to255"""
+se_atmosphere_fogstart_label,Text,se_atmosphere_fog_cont,0,se_atmosphere_fogcolor_label,SourceLLTargetUL,,,0,15,0,0,100,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_fog_start,,,1,,""""""
+se_atmosphere_fogstart,SliderEdit,se_atmosphere_fog_cont,0,se_atmosphere_fogstart_label,SourceURTargetUL,,,10,0,0,0,200,32,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox sliderFirst=1 min=0.0 max=10.0 value=1.0"""
+se_atmosphere_fogint_label,Text,se_atmosphere_fog_cont,0,se_atmosphere_fogstart_label,SourceLLTargetUL,,,0,10,0,0,100,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_fog_intensity,,,1,,""""""
+se_atmosphere_fogintensity,SliderEdit,se_atmosphere_fog_cont,0,se_atmosphere_fogint_label,SourceURTargetUL,,,10,0,0,0,200,32,,,,,,0,0,,,,0,,"""sliderWidget=se_slider editWidget=se_float_editbox sliderFirst=1 min=0.01 max=1.0 value=0.5"""
+se_atmosphere_fogintavailable,CheckBox,se_atmosphere_fog_cont,0,se_atmosphere_fogint_label,SourceULTargetUR,,,-5,0,0,0,32,32,spr_redlight,,TwoState,,,0,0,,,,1,,"""omitBoxSprite"""
+
+se_atmosphere_weather_label,Text,se_atmosphere,0,se_atmosphere_fog_cont,SourceLLTargetUL,,,0,30,0,0,100,32,,,,fs_std_small_bold_white,RightMid,0,0,tx_se_atmosphere_weather,,,1,,""""""
+se_atmosphere_weather,Combo,se_atmosphere,0,se_atmosphere_weather_label,SourceURTargetUL,,,10,0,0,0,160,32,spr_scenedit_button2,,,fs_std_small_white,LeftMid,10,0,,,,0,,"""enum=eWeatherState startIndex=1 endIndex=7 triangleSprite=spr_combo_triangle useTitleWidthForMenu"""
+
+// save/restore buttons,,,,,,,,,,,,,,,,,,,,,,,,,,
+se_atmosphere_restore,Button,se_atmosphere,0,,SourceLLTargetLL,,,10,-10,0,0,210,32,spr_scenedit_button,,TwoState,fs_std_small_white,,0,0,tx_se_atmosphere_restore,,,0,,""""""
+se_atmosphere_save,Button,se_atmosphere,0,se_atmosphere_restore,SourceURTargetUL,,SourceLRTargetLR,10,0,-10,-10,-1,-1,spr_scenedit_button,,TwoState,fs_std_small_white,,0,0,tx_se_atmosphere_save,,,0,,""""""

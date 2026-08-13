@@ -1,0 +1,27 @@
+// dbnativetribes.csv,,,,,,,,
+// database file for native tribes in EE2X,,,,,,,,
+//////////////////////////////////////////////////////////////,,,,,,,,
+// CLIMATES:  Set of climates this tribe may appear in (if empty tribe appears in all climates),,,,,,,,
+// POWERS:  Set of powers this tribe may grant (must be present in TheNativeTribesPowerSet) (if emtpy tribe may grant any power),,,,,,,,
+// EMPIRE TYPE:  Starting forces empire type for the tribe (Balanced Military Imperial or Economic),,,,,,,,
+// FORCE COMP:  Starting forces force composition for the tribe (Standard Aggressive or Defensive),,,,,,,,
+// NEUTRAL RESOURCE MOD:  Modifier applied to required resources to assimilate when the tribe is neutral,,,,,,,,
+// HOSTILE RESOURCE MOD:  Modifier applied to required resources to assimilate when the tribe is hostile,,,,,,,,
+//////////////////////////////////////////////////////////////,,,,,,,,
+// NAME,DISPLAY NAME,CIV,CLIMATES,POWERS,EMPIRE TYPE,FORCE COMP,NEUTRAL RESOURCE MOD,HOSTILE RESOURCE MOD
+
+Iroquois,tx_tribe_iroquois,Mayan,[Temperate],[],Imperial,Defensive,1,2
+Inuit,tx_tribe_inuit,Inca,[Temperate],[],Economic,Defensive,1,2
+Navajo,tx_tribe_navajo,Aztec,[Arid],[],Military,Standard,1,2
+Mixtec,tx_tribe_mixtec,Aztec,[Arid Tropical],[],Economic,Standard,1,2
+Olmec,tx_tribe_olmec,Mayan,[Arid Tropical],[],Economic,Standard,1,2
+Cherokee,tx_tribe_cherokee,Mayan,[Temperate Arid],[],Balanced,Standard,1,2
+Lakota,tx_tribe_lakota,Mayan,[Temperate Arid],[],Balanced,Standard,1,2
+Aleut,tx_tribe_aleut,Russian,[Temperate],[],Military,Aggressive,1,2
+Mauri,tx_tribe_mauri,Chinese,[Tropical],[],Military,Defensive,1,2
+Ainu,tx_tribe_ainu,Japanese,[Tropical],[],Balanced,Standard,1,2
+Celts,tx_tribe_celtic,English,[Temperate],[],Imperial,Aggressive,1,2
+Visigoths,tx_tribe_visigoth,German,[Temperate],[],Military,Aggressive,1,2
+Vikings,tx_tribe_viking,German,[Temperate],[],Military,Aggressive,1,2
+Roma,tx_tribe_roma,French,[Temperate],[],Economic,Standard,1,2
+Baka,tx_tribe_baka,Zulu,[Tropical],[],Economic,Defensive,1,2

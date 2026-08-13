@@ -1,0 +1,130 @@
+// Explosions for "squishy" things, like humans and horses.  Mostly bloodstains
+// to begin with.
+
+// Here's a generic sequence
+//ExplosionSequence SequenceName
+//{
+//	TimeA = 0
+//	TimeB = 0
+//	StartingPositionMinX = -1
+//	StartingPositionMaxX = 1
+//	StartingPositionMinY = -1
+//	StartingPositionMaxY = 1
+//	StartingPositionMinZ = -1
+//	StartingPositionMaxZ = 1
+//	StartFromMainModel = 1
+//	Replay = 10
+//	FiringProbability = 1
+//	SequenceType = Nif
+//	PlayAll = 0
+//	SequenceNames = [ fx_explosion_1.NIF fx_explosion_1.NIF ]
+//	SequenceWorldScales = [0]
+//	SequenceSoundsNames = [Tank_firing1 Tank_firing1]	
+//}
+
+
+//------------------------------------------------------------------------------------
+// SEQUENCE
+//------------------------------------------------------------------------------------
+
+// A human-sized bloodstain.
+ExplosionSequence	s_organic_stain01
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	PlayAll = false
+	ContainsBlood = true
+	SequenceNames = [ Ambient_Bloodstain01 ]
+}
+
+ExplosionSequence	s_organic_vaporizer01
+{
+	TimeA = 0
+	TimeB = 0
+	DelayBeforeDie = 10
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	SequenceNames = [ TheVaporizerDef ]
+	SequenceWorldScales = [0.05]
+}
+
+// A human-sized scorchmark.
+ExplosionSequence	s_organic_scorch01
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	PlayAll = false
+	SequenceNames = [ Ambient_Scorch_Small01 ]
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION
+//------------------------------------------------------------------------------------
+
+// A bloodstain
+Explosion			Expl_Organic_01
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ s_organic_stain01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// A vaporized unit
+Explosion			Expl_Organic_02
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ s_organic_vaporizer01 s_organic_scorch01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION MAPPER
+//------------------------------------------------------------------------------------
+ExplosionSelector	ExplSelectorHuman01
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (NotNuke)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Organic_01
+									HitPoint = -1
+									Hide = true
+								}
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Nuke)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Organic_02
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorMounted01
+{
+	ExplosionDescriptors =	[
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Nuke)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Organic_02
+									HitPoint = -1
+									Hide = true
+								}
+							]
+}

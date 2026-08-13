@@ -1,0 +1,401 @@
+//
+// misc db stuff for ui unit info panel
+//
+//////////////////////////////////////////////////////////
+
+
+/////////////////////
+// 
+// bonuses
+//
+
+UnitInfoBonus Attack
+{
+	icon 		= spr_game_unitinfo_icon_attack
+	tooltip 	= tt_unitinfo_attack
+	verboseTooltip 	= vtt_unitinfo_attack
+	format		= AmountMod
+}
+
+UnitInfoBonus Range
+{
+	icon 		= spr_game_unitinfo_icon_range
+	tooltip 	= tt_unitinfo_range
+	verboseTooltip 	= vtt_unitinfo_range
+	format		= AmountMod
+}
+
+UnitInfoBonus Speed
+{
+	icon 		= spr_game_unitinfo_icon_speed
+	tooltip 	= tt_unitinfo_speed
+	verboseTooltip 	= vtt_unitinfo_speed
+	format		= AmountMod
+}
+
+UnitInfoBonus PopulationCapacity
+{
+	icon 		= icon_resource_popcap
+	tooltip 	= tt_unitinfo_popCap
+	verboseTooltip 	= vtt_unitinfo_popCap
+	format		= AmountMod
+}
+
+UnitInfoBonus Morale
+{
+	icon 		= spr_game_unitinfo_icon_morale
+	tooltip 	= tt_unitinfo_morale
+	verboseTooltip 	= vtt_unitinfo_morale
+	format		= PercentBonus
+}
+
+UnitInfoBonus Fervor
+{
+	icon 		= spr_game_unitinfo_icon_fervor
+	tooltip 	= tt_unitinfo_fervor
+	verboseTooltip 	= vtt_unitinfo_fervor
+	format		= PercentBonus
+}
+
+// resource dropoff for city center / warehouse
+UnitInfoBonus ResourceDropoff
+{
+	icon 		= spr_game_unitinfo_icon_resDrop
+	tooltip 	= tt_unitinfo_resource_dropoff
+	verboseTooltip 	= vtt_unitinfo_resource_dropoff
+	format		= PercentBonus
+}
+
+// resource dropoff for territory
+UnitInfoBonus ResourceDropoffTerritory
+{
+	icon 		= spr_game_unitinfo_icon_resDrop
+	tooltip 	= tt_unitinfo_resource_dropoff
+	verboseTooltip 	= vtt_unitinfo_res_drop_terr
+	format		= PercentBonus
+}
+
+// EE2X - Number of kills this unit has
+UnitInfoBonus Kills
+{
+	icon 		= spr_game_unitinfo_icon_kills
+	tooltip 	= tt_unitinfo_kills
+	verboseTooltip 	= vtt_unitinfo_kills
+	format		= AmountMod
+}
+
+
+///////////////////////////////////////
+//
+// gold/tech generated from trade
+//
+
+UnitInfoBonus TradeGold
+{
+	icon 		= icon_resource_gold
+	tooltip 	= tt_unitinfo_trade_gold
+	verboseTooltip 	= vtt_unitinfo_trade_gold
+	format		= Amount
+}
+
+UnitInfoBonus TradeTech
+{
+	icon 		= icon_resource_tech
+	tooltip 	= tt_unitinfo_trade_tech
+	verboseTooltip 	= vtt_unitinfo_trade_tech
+	format		= Amount
+}
+
+
+//////////////////////////////////////
+//
+// resources gathered
+//
+
+UnitInfoBonus GatherFood
+{
+	icon 		= icon_resource_food
+	tooltip 	= tt_unitinfo_gather_food
+	verboseTooltip 	= vtt_unitinfo_gather_food
+	format		= CurrentMaxMod
+}
+
+UnitInfoBonus GatherWood
+{
+	icon 		= icon_resource_wood
+	tooltip 	= tt_unitinfo_gather_wood
+	verboseTooltip 	= vtt_unitinfo_gather_wood
+	format		= CurrentMaxMod
+}
+
+UnitInfoBonus GatherStone
+{
+	icon 		= icon_resource_stone
+	tooltip 	= tt_unitinfo_gather_stone
+	verboseTooltip 	= vtt_unitinfo_gather_stone
+	format		= CurrentMaxMod
+}
+
+UnitInfoBonus GatherGold
+{
+	icon 		= icon_resource_gold
+	tooltip 	= tt_unitinfo_gather_gold
+	verboseTooltip 	= vtt_unitinfo_gather_gold
+	format		= CurrentMaxMod
+}
+
+UnitInfoBonus GatherTin
+{
+	icon 		= icon_resource_tin
+	tooltip 	= tt_unitinfo_gather_tin
+	verboseTooltip 	= vtt_unitinfo_gather_tin
+	format		= CurrentMaxMod
+}
+
+UnitInfoBonus GatherIron
+{
+	icon 		= icon_resource_iron
+	tooltip 	= tt_unitinfo_gather_iron
+	verboseTooltip 	= vtt_unitinfo_gather_iron
+	format		= CurrentMaxMod
+}
+
+UnitInfoBonus GatherSaltpeter
+{
+	icon 		= icon_resource_saltpeter
+	tooltip 	= tt_unitinfo_gather_saltpeter
+	verboseTooltip 	= vtt_unitinfo_gather_saltpeter
+	format		= CurrentMaxMod
+}
+
+UnitInfoBonus GatherOil
+{
+	icon 		= icon_resource_oil
+	tooltip 	= tt_unitinfo_gather_oil
+	verboseTooltip 	= vtt_unitinfo_gather_oil
+	format		= CurrentMaxMod
+}
+
+UnitInfoBonus GatherUranium
+{
+	icon 		= icon_resource_uranium
+	tooltip 	= tt_unitinfo_gather_uranium
+	verboseTooltip 	= vtt_unitinfo_gather_uranium
+	format		= CurrentMaxMod
+}
+
+
+
+/////////////////////////////////////////////////////
+//
+// resources (like for resource piles)
+//
+
+UnitInfoBonus Food
+{
+	icon 		= icon_resource_food
+	tooltip 	= text_resource_food
+	verboseTooltip 	= vtt_unitinfo_food
+	format		= Amount
+}
+
+UnitInfoBonus Wood
+{
+	icon 		= icon_resource_wood
+	tooltip 	= text_resource_wood
+	verboseTooltip 	= vtt_unitinfo_wood
+	format		= Amount
+}
+
+UnitInfoBonus Stone
+{
+	icon 		= icon_resource_stone
+	tooltip 	= text_resource_stone
+	verboseTooltip 	= vtt_unitinfo_stone
+	format		= Amount
+}
+
+UnitInfoBonus Gold
+{
+	icon 		= icon_resource_gold
+	tooltip 	= text_resource_gold
+	verboseTooltip 	= vtt_unitinfo_gold
+	format		= Amount
+}
+
+UnitInfoBonus Tin
+{
+	icon 		= icon_resource_tin
+	tooltip 	= text_resource_tin
+	verboseTooltip 	= vtt_unitinfo_tin
+	format		= Amount
+}
+
+UnitInfoBonus Iron
+{
+	icon 		= icon_resource_iron
+	tooltip 	= text_resource_iron
+	verboseTooltip 	= vtt_unitinfo_iron
+	format		= Amount
+}
+
+UnitInfoBonus Saltpeter
+{
+	icon 		= icon_resource_saltpeter
+	tooltip 	= text_resource_saltpeter
+	verboseTooltip 	= vtt_unitinfo_saltpeter
+	format		= Amount
+}
+
+UnitInfoBonus Oil
+{
+	icon 		= icon_resource_oil
+	tooltip 	= text_resource_oil
+	verboseTooltip 	= vtt_unitinfo_oil
+	format		= Amount
+}
+
+UnitInfoBonus Uranium
+{
+	icon 		= icon_resource_uranium
+	tooltip 	= text_resource_uranium
+	verboseTooltip 	= vtt_unitinfo_uranium
+	format		= Amount
+}
+
+
+
+/////////////////////////////////////////////////////
+//
+// meters
+//
+
+UnitInfoMeter HealthMeter
+{
+	tooltip 	= tt_unitinfo_health
+	verboseTooltip 	= vtt_unitinfo_health
+	colors		= [ red, yellow, green ]
+	format		= CurrentMax
+	tooltipFormat	= CurrentMaxMod
+}
+
+UnitInfoMeter PowerMeter
+{
+	icon		= spr_game_unitinfo_icon_power
+	tooltip 	= tt_unitinfo_power
+	verboseTooltip 	= vtt_unitinfo_power
+	colors		= [ medBlue, blue ]
+	tooltipFormat	= Percent
+}
+
+UnitInfoMeter AmmoMeter
+{
+	icon		= spr_game_unitinfo_icon_ammo
+	tooltip 	= tt_unitinfo_ammo
+	verboseTooltip 	= vtt_unitinfo_ammo
+	colors		= [ medBlue, blue ]
+	tooltipFormat	= CurrentMax
+}
+
+UnitInfoMeter TechMeter
+{
+	icon		= icon_resource_tech
+	tooltip 	= tt_unitinfo_gen_tech
+	verboseTooltip 	= vtt_unitinfo_gen_tech
+	colors		= [ medBlue, blue ]
+	tooltipFormat	= Percent
+}
+
+UnitInfoMeter CaptureResistMeter
+{
+	icon		= spr_game_unitinfo_icon_captRes
+	tooltip 	= tt_unitinfo_capt_resist
+	tooltipWithMod 	= tt_unitinfo_capt_resist_mod
+	verboseTooltip 	= vtt_unitinfo_capt_resist
+	verboseTooltipWithMod 	= vtt_unitinfo_capt_resist_mod
+	colors		= [ red, yellow, green ]
+	tooltipFormat	= Percent
+	tooltipModFormat = PercentBonus
+}
+
+UnitInfoMeter ConversionResistMeter
+{
+	icon		= spr_game_unitinfo_icon_captRes
+	tooltip 	= tt_unitinfo_conv_resist
+	tooltipWithMod 	= tt_unitinfo_conv_resist_mod
+	verboseTooltip 	= vtt_unitinfo_conv_resist
+	verboseTooltipWithMod 	= vtt_unitinfo_conv_resist_mod
+	colors		= [ red, yellow, green ]
+	tooltipFormat	= Percent
+	tooltipModFormat = PercentBonus
+}
+
+UnitInfoMeter GarrisonTradeMeter
+{
+	icon		= spr_game_unitinfo_icon_gTrade
+	tooltip 	= tt_unitinfo_garTrade
+	verboseTooltip 	= vtt_unitinfo_garTrade
+	colors		= [ gold, gold ]
+	tooltipFormat	= Percent
+}
+
+
+// icon overlay meters:
+
+UnitInfoMeter HealthMeterOverlay
+{
+	tooltip 	= tt_unitinfo_health
+	tooltipFormat	= CurrentMax
+	colors		= [ redTransp, yellowTransp, greenTransp ]
+}
+
+UnitInfoMeter PowerMeterOverlay
+{
+	tooltip 	= tt_unitinfo_power
+	tooltipFormat	= Percent
+	colors		= [ medBlueTransp, blueTransp ]
+}
+
+UnitInfoMeter AmmoMeterOverlay
+{
+	tooltip 	= tt_unitinfo_ammo
+	tooltipFormat	= CurrentMax
+	colors		= [ medBlueTransp, blueTransp ]
+}
+
+
+// tech button progress meter overlay:
+
+UnitInfoMeter TechProgressOverlay
+{
+	colors		= [ greenTransp ]
+}
+
+
+// crown progress meters colored by branch
+
+UnitInfoMeter CrownProgress_Military
+{
+	colors		= [ red ]
+}
+
+UnitInfoMeter CrownProgress_Economic
+{
+	colors		= [ blue ]
+}
+
+UnitInfoMeter CrownProgress_Imperial
+{
+	colors		= [ green ]
+}
+	
+
+// calendar widget progress meter:
+
+UnitInfoMeter Calendar
+{
+	colors		= [ redTransp ]
+}
+
+
+

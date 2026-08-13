@@ -1,0 +1,176 @@
+//------------------------------------------------------------------------------------------------
+//	EPOCH 1 UPGRADES 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	MAIN
+//------------------------------------------------
+UpgradeSet AdvanceEpoch1 {
+	upgrades = [
+		UpgradeEpoch {epoch = 1;}
+
+	]
+}
+
+// Main1
+UpgradeRefSet MainEpoch1 {
+	upgrades = [
+		AdvanceEpoch1
+		CityPlazaUpgradeEpoch1
+		CitizenUpgradeEpoch1
+		CitizenFUpgradeEpoch1
+		RegionPowerUpgrade_1
+		PalisadeFragmentUpgradeEpoch1	// @TODO we should have a TT node for wall fragment, and just specify this there
+		
+		// LEADERS
+		LeaderEconomicUpgradeEpoch1
+		LeaderMilitaryUpgradeEpoch1
+		LeaderImperialUpgradeEpoch1
+		KingRegicideUpgradeEpoch1
+		// TURN OFF THE OUTPOSTS ATTACK ABILITY BY DEFAULT
+		TurnOffOutpostAttackAbility
+		
+		// EE2X HERO UPGRADES
+		LightInfantryHeroUpgradeEp1
+		HeavyInfantry1HeroUpgradeEp1
+		HeavyInfantry2HeroUpgradeEp1
+		LightMountedHeroUpgradeEp1
+		HeavyMountedHeroUpgradeEp1
+		LightArtillery1HeroUpgradeEp1
+		LightArtillery2HeroUpgradeEp1
+		HeavyArtilleryHeroUpgradeEp1
+		LightTankHeroUpgradeEp1
+		HeavyTankHeroUpgradeEp1
+		LightHercHeroUpgradeEp1
+		HeavyHercHeroUpgradeEp1
+		LightHeliHeroUpgradeEp1
+		HeavyHeliHeroUpgradeEp1
+		UU_Greek1HeroUpgradeEp1
+		UU_Roman1HeroUpgradeEp1
+		UU_German1HeroUpgradeEp1
+		UU_Egyptian1HeroUpgradeEp1
+		UU_Turkish1HeroUpgradeEp1
+		UU_Babylonian1HeroUpgradeEp1
+		UU_Chinese1HeroUpgradeEp1
+		UU_Japanese1HeroUpgradeEp1
+		UU_Korean1HeroUpgradeEp1
+		UU_Inca1HeroUpgradeEp1
+		UU_Aztec1HeroUpgradeEp1
+		UU_Mayan1HeroUpgradeEp1
+		UU_Zulu1HeroUpgradeEp1
+		UU_Maasai1HeroUpgradeEp1
+		UU_Russian1HeroUpgradeEp1
+		UU_French1HeroUpgradeEp1
+		UU_French2HeroUpgradeEp6
+		// UP1.5:
+		RadarICBMTargEnable
+		AMissileDefense
+	]
+}
+
+//------------------------------------------------
+//	MILITARY BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet MilitaryEpoch1Slot1 {
+	upgrades = [
+		MilitaryTechUpgrade_E1_Slot1a
+	]
+}
+
+// Slot 2
+UpgradeRefSet MilitaryEpoch1Slot2 {
+	upgrades = [
+		MilitaryTechUpgrade_E1_Slot2a
+	]
+}
+
+// Slot 3
+UpgradeRefSet MilitaryEpoch1Slot3 {
+	upgrades = [
+		MilitaryTechUpgrade_E1_Slot3a
+		MilitaryTechUpgrade_E1_Slot3b
+	]
+}
+
+// Slot 4
+UpgradeRefSet MilitaryEpoch1Slot4 {
+	upgrades = [
+		MilitaryTechUpgrade_E1_Slot4a
+	]
+} 
+
+//------------------------------------------------
+//	ECONOMIC BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet EconomicEpoch1Slot1 {
+	upgrades = [
+		EconomicTechUpgrade_E1_Slot1a
+		EconomicTechUpgrade_E1_Slot1b
+	]
+}
+
+// Slot 2
+UpgradeRefSet EconomicEpoch1Slot2 {
+	upgrades = [
+		//EconomicTechUpgrade_E1_Slot2a
+		// These are declared in upgrade_factorset.csv
+		BasicGather_Food_NoTooltip
+		BasicGather_Ftree
+		BasicGather_Animal
+		BasicGather_Wood_NoTooltip
+		BasicGather_Stone_NoTooltip
+		BasicGather_Gold_NoTooltip
+		BasicGather_Tooltip
+	]
+}
+
+// Slot 3
+UpgradeRefSet EconomicEpoch1Slot3 {
+	upgrades = [
+		EconomicTechUpgrade_E1_Slot3a
+		EconomicTechUpgrade_E1_Slot3b
+	]
+}
+
+// Slot 4
+UpgradeRefSet EconomicEpoch1Slot4 {
+	upgrades = [
+		EconomicTechUpgrade_E1_Slot4a
+		EconomicTechUpgrade_E1_Slot4b
+	]
+}
+
+//------------------------------------------------
+//	IMPERIAL BRANCH
+//------------------------------------------------
+// Slot 1
+UpgradeRefSet ImperialEpoch1Slot1 {
+	upgrades = [
+		ImperialTechUpgrade_E1_Slot1a
+		ImperialTechUpgrade_E1_Slot1b
+	]
+}
+
+// Slot 2
+UpgradeRefSet ImperialEpoch1Slot2 {
+	upgrades = [
+		ImperialTechUpgrade_E1_Slot2a
+	]
+}
+
+// Slot 3
+UpgradeRefSet ImperialEpoch1Slot3 {
+	upgrades = [
+		ImperialTechUpgrade_E1_Slot3a
+	]
+}
+
+// Slot 4
+UpgradeRefSet ImperialEpoch1Slot4 {
+	upgrades = [
+		ImperialTechUpgrade_E1_Slot4a
+		ImperialTechUpgrade_E1_Slot4b
+	]
+}
+

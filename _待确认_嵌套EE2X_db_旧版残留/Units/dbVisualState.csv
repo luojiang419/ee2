@@ -1,0 +1,129 @@
+//,
+// list of all visual state names,
+//,
+
+// state name,can synch
+Invalid,0
+Idle,1
+Idle1,1
+Walk,1
+Attack1,0
+Attack2,0
+Run,1
+Jog,1
+Death,0
+
+Convert,0
+Heal,0
+Takeoff,0
+Pack,0
+Unpack,0
+PackedDeath,0
+UnpackedDeath,0
+UnpackedWalk,1
+UnpackedIdle,1
+CaptureAttack1,0
+CaptureAttack2,0
+
+Build,1
+Forage,1
+Mine,0
+TreeForage,1
+FarmPlanting,1
+FarmHarvesting,1
+MineGold,0
+MineStone,0
+GatherSaltpeter,0
+ChopWood,0
+CarryWood,1
+ReturnResources,1
+
+
+Produce,0
+Garrisoned,0
+closeMarket,0
+openMarket,0
+
+// gate visual states,
+Open,0
+OpenIdle,0
+Close,0
+
+// building under construction,
+ConstructionSite,0
+
+// farm visual states,
+Seeding_1,0
+Seeding_2,0
+Seeding_3,0
+Seeding_4,0
+
+Harvest_1_1,0
+Harvest_1_2,0
+Harvest_1_3,0
+Harvest_1_4,0
+
+Harvest_2_1,0
+Harvest_2_2,0
+Harvest_2_3,0
+Harvest_2_4,0
+
+Harvest_3_1,0
+Harvest_3_2,0
+Harvest_3_3,0
+Harvest_3_4,0
+
+// special animation states,
+BeingConverted,0
+CaptureSuccess,0
+
+
+Indoctrinate,0
+GatherIntel,0
+Contaminate,0
+Decontaminate,0
+Sabotage,0
+Restore,0
+Bless,0
+
+
+//,
+// road visual states,
+//,
+
+// straight piece,
+Straight,0
+Straight_Damaged,0
+Straight_Dead,0
+
+CapStart,0
+CapStart_Damaged,0
+CapStart_Dead,0
+
+CapBoth,0
+CapBoth_Damaged,0
+CapBoth_Dead,0
+
+// 3-way T piece,
+T,0
+T_Damaged,0
+T_Dead,0
+
+// 4-way piece,
+"4way",0
+"4way_Damaged",0
+"4way_Dead",0
+
+// elbow piece,
+Elbow,0
+Elbow_Damaged,0
+Elbow_Dead,0
+
+
+WaitForMessage,0
+AttackTolerance,0
+
+// @EE2X - Josh - added Flinch and BeingThrown and ThrownDeath,
+Flinch,0
+BeingThrown,0
+ThrownDeath,0

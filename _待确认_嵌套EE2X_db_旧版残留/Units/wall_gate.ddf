@@ -1,0 +1,186 @@
+//------------------------------------------------------------------------------------------------
+//	WALL GATE
+//------------------------------------------------------------------------------------------------
+
+//
+// base gate type for both gate and gate foundation
+//
+UnitType Wall_Gate_Base
+{
+	parent = WallBase
+	properties {
+		SizeX = 3	// the long dimension the wall runs in
+				// this should be approx 4x Wall::SizeX
+		SizeY = 0.72	// the width of the wall
+				// this should be a little bigger than Wall::SizeY
+		mass = 1
+		hitpoints = 1
+		VerboseTooltip = vtt_unit_WallGate
+		displayNameTTTooltip = tx_utn_wallgate_tt_name
+	}
+	sounds {
+		sndSelection = ["WallGate_select"]
+    	}
+	abilities = [
+		Connect { type = kComposite_WallGate; }
+		Gate { DoorWidth = 1.273 }
+	]
+}
+
+//
+// actual gate unit type
+//
+UnitType Wall_Gate
+{
+	parent = Wall_Gate_Base
+	visualName = WallGate
+	abilities = [
+		LOS { range = 2 }
+	]
+}
+
+//
+// gate construction type
+//
+UnitType Wall_Gate_Foundation
+{
+	parent = Wall_Gate_Base
+	properties {
+		mass = 0	// don't block pathing
+		hitpoints = 1
+	}
+	abilities = [
+		Construction {}
+	]
+}
+
+
+
+//------------------------------------------------------------------------------------------------
+//	WALL GATE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+UnitModel WallGateBaseModel
+{
+	ScaleType 		= kScaleWall
+	OutlineType		= kOutlineReceive
+	ChildNames 		= [ TheHealthBar TheBldDamageEffect TheCollapseEffect LargeGlow ExplSelectorBuild_Small WallShadow
+						HemisphereLighting_Wall DynamicLighting_Wall
+					  ]
+	DamageDecalsSetName	= BuildingDamageDecals
+	DefaultState 		= Idle
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.17
+		zOffset = 0.59
+		scale = 1.28
+		angle = 90.00
+		rotationSpeed = 0.00
+		pitch = 10.00
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+UnitModel WallGate
+{
+	Parent		= WallGateBaseModel
+	DefaultModel 	= bld_wall2_gate.NIF
+	ChildNames 	= [ Wall2_GateBuildEffectStep ExplPartsStone ]
+	States = [
+		{ StateName = Idle	AnimName = bld_wall2_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_wall2_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_wall2_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_wall2_gate_open_idle.kf }
+		{	StateName = Death	ModelName = NULL.nif
+					TextKeys = [ 
+					{ Name = PLAY_SOUND	Data = Bld_Collapse } 
+		] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel WallGate_5
+{
+	Parent		= WallGateBaseModel
+	DefaultModel 	= bld_wall5_gate.NIF
+	ChildNames 	= [ Wall5_GateBuildEffectStep ExplPartsWall5 ]
+	States = [
+		{ StateName = Idle	AnimName = bld_wall5_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_wall5_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_wall5_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_wall5_gate_open_idle.kf }
+		{	StateName = Death	ModelName = NULL.nif
+					TextKeys = [ 
+					{ Name = PLAY_SOUND	Data = Bld_Collapse } 
+		] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+UnitModel WallGate_8
+{
+	Parent		= WallGateBaseModel
+	DefaultModel 	= bld_wall8_gate.NIF
+	ChildNames 	= [ Wall8_GateBuildEffectStep ExplPartsWall8 ]
+	States = [
+		{ StateName = Idle	AnimName = bld_wall8_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_wall8_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_wall8_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_wall8_gate_open_idle.kf }
+		{	StateName = Death	ModelName = NULL.nif
+					TextKeys = [ 
+					{ Name = PLAY_SOUND	Data = Bld_Collapse } 
+		] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel WallGate_11
+{
+	Parent		= WallGateBaseModel
+	DefaultModel 	= bld_wall11_gate.NIF
+	ChildNames 	= [ Wall11_GateBuildEffectStep ExplPartsConcrete ]
+	States = [
+		{ StateName = Idle	AnimName = bld_wall11_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_wall11_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_wall11_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_wall11_gate_open_idle.kf }
+		{	StateName = Death	ModelName = NULL.nif
+					TextKeys = [ 
+					{ Name = PLAY_SOUND	Data = Bld_Collapse } 
+		] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel WallGate_14
+{
+	Parent		= WallGateBaseModel
+	DefaultModel 	= bld_wall14_gate.NIF
+	ChildNames 	= [ Wall14_GateBuildEffectStep ExplPartsConcrete ]
+	States = [
+		{ StateName = Idle	AnimName = bld_wall14_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_wall14_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_wall14_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_wall14_gate_open_idle.kf }
+		{	StateName = Death	ModelName = NULL.nif
+					TextKeys = [ 
+					{ Name = PLAY_SOUND	Data = Bld_Collapse } 
+		] }
+	]
+}

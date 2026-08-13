@@ -1,0 +1,37 @@
+//Terrain Type,High detail texture,Medium Detail Texture,Low Detail Texture,Dust Type,MINIMAP_FILENAME,ZMIN,ZMAX,MOVETYPE,GRASS LAYER
+# DbTerrainTexture_ = Temperate,,,,,,,,,
+Grass,Grass_Temperate,Grass_Temperate,Grass_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_temperate_grass.bmp,1,4,kTerrainMoveType_Land,0
+Beach,Beach_Temperate,Beach_Temperate,Beach_Temperate,Snow Snow Snow Sand Sand Sand Sand Sand Sand Sand Sand Sand,terr_dirt.bmp,0,1,kTerrainMoveType_Land,0
+GrassRocky,GrassRocky_Temperate,GrassPatchy_Temperate,GrassDark_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt ,terr_temperate_grass_rocky.bmp,5,8,kTerrainMoveType_Land,0
+MountainTop,MountainTop_Temperate,Mountain01_Temperate,Mountain01_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt , terr_arctic_snow_drift.bmp,0,0,kTerrainMoveType_Mountain,0
+OceanFloor,OceanFloor_Temperate,OceanFloor_Temperate,OceanFloor_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt,terr_water_riverbed.bmp,-9999,-2,kTerrainMoveType_Ocean,0
+OceanFloor2,OceanFloor2_Temperate,OceanFloor2_Temperate,OceanFloor2_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt,terr_water_riverbed.bmp,-9999,-2,kTerrainMoveType_Ocean,0
+OceanFloor3,OceanFloor3_Temperate,OceanFloor3_Temperate,OceanFloor3_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt,terr_water_riverbed.bmp,-9999,-2,kTerrainMoveType_Ocean,0
+GrassPatchy,GrassPatchy_Temperate,GrassPatchy_Temperate,GrassPatchy_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_temperate_grass_patchy.bmp,4,5,kTerrainMoveType_Land,0
+GrassDark,GrassDark_Temperate,GrassDark_Temperate,GrassDark_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_temperate_grass_patchy.bmp,0,0,kTerrainMoveType_Land,0
+Cliff01,Cliff01_Temperate,Cliff01_Temperate,Cliff01_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt ,terr_temperate_cliff01.bmp,0,0,kTerrainMoveType_Cliff,0
+Mountain01,Mountain01_Temperate,Mountain01_Temperate,Mountain01_Temperate,Snow Snow Snow Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt ,terr_temperate_cliff02.bmp,8,9999,kTerrainMoveType_Mountain,0
+MountainGrass,MountainGrass_Temperate,MountainGrass_Temperate,MountainGrass_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_tropical_clay_shrubs.bmp,0,0,kTerrainMoveType_Land,0
+GroundCover,GroundCover_Temperate,GroundCover_Temperate,GroundCover_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_tropical_underbrush.bmp,0,0,kTerrainMoveType_Land,0
+Riverbank,Riverbank_Temperate,Riverbank_Temperate,Riverbank_Temperate,Snow Snow Snow Sand Sand Sand Sand Sand Sand Sand Sand Sand,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+RiverbankGrassy,RiverbankGrassy_Temperate,RiverbankGrassy_Temperate,RiverbankGrassy_Temperate,Snow Snow Snow Sand Sand Sand Sand Sand Sand Sand Sand Sand,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+RiverbankPatchy,RiverbankPatchy_Temperate,RiverbankPatchy_Temperate,RiverbankPatchy_Temperate,Snow Snow Snow Sand Sand Sand Sand Sand Sand Sand Sand Sand,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+ForestRoots,ForestRoots_Temperate,ForestRoots_Temperate,ForestRoots_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+ForestTop,ForestRoots_Temperate,ForestRoots_Temperate,ForestRoots_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_forest.bmp,0,0,kTerrainMoveType_Land,0
+SparseGrass01,SparseGrass01_Temperate,SparseGrass01_Temperate,SparseGrass01_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+SparseGrass02,SparseGrass02_Temperate,SparseGrass02_Temperate,SparseGrass02_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+SparseGrass03,SparseGrass03_Temperate,SparseGrass03_Temperate,SparseGrass03_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+FloodMeadow,FloodMeadow_Temperate,FloodMeadow_Temperate,FloodMeadow_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+HillMeadow,HillMeadow_Temperate,HillMeadow_Temperate,HillMeadow_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+UnderstoryThicket,UnderstoryThicket_Temperate,UnderstoryThicket_Temperate,UnderstoryThicket_Temperate,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+CoastalGrass01,CoastalGrass01_Temperate,CoastalGrass01_Temperate,CoastalGrass01_Temperate,Snow Snow Snow Mud Mud Mud Sand Sand Sand Dirt Dirt Dirt,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+CoastalGrass02,CoastalGrass02_Temperate,CoastalGrass02_Temperate,CoastalGrass02_Temperate,Snow Snow Snow Mud Mud Mud Sand Sand Sand Dirt Dirt Dirt,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+Saltgrass,Saltgrass_Temperate,Saltgrass_Temperate,Saltgrass_Temperate,Snow Snow Snow Mud Mud Mud Sand Sand Sand Dirt Dirt Dirt,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+ShallowWater,ShallowWater_Temperate,ShallowWater_Temperate,ShallowWater_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt,terr_water_riverbed.bmp,0,0,kTerrainMoveType_River,0
+Coastal,Coastal_Temperate,Coastal_Temperate,Coastal_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt,terr_water_riverbed.bmp,-2,0,kTerrainMoveType_Coast,0
+WornPath,Worn_Path_1,Worn_Path_1,Worn_Path_1,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+MidEpochsPath,MidEpochsPath_1,MidEpochsPath_1,MidEpochsPath_1,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+EndEpochsPath,EndEpochsPath_1,EndEpochsPath_1,EndEpochsPath_1,Snow Snow Snow Mud Mud Mud Dirt Dirt Dirt Dirt Dirt Dirt,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+UnderBuilding_1,UnderBuilding_1_Temperate,UnderBuilding_1_Temperate,UnderBuilding_1_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt ,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+UnderBuilding_2,UnderBuilding_2_Temperate,UnderBuilding_2_Temperate,UnderBuilding_2_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt ,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+UnderBuilding_3,UnderBuilding_3_Temperate,UnderBuilding_3_Temperate,UnderBuilding_3_Temperate,Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt Dirt ,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0

@@ -1,0 +1,160 @@
+Objective obj_m2_BringCowsHome {
+	name		= tx_m2_obj_BringCowsHome
+	description	= tx_m2_obj_BringCowsHome_desc
+	type		= Primary
+	startHidden	= 0
+}
+// Objective obj_m2_DefendKwafi {
+// 	name		= tx_m2_obj_DefendKwafi
+// 	description	= tx_m2_obj_DefendKwafi_desc
+// 	type		= Primary
+// 	startHidden	= 1
+// }
+Objective obj_m2_DestroyBurk {
+	name		= tx_m2_obj_DestroyBurk
+	description	= tx_m2_obj_DestroyBurk_desc
+	type		= Primary
+	startHidden	= 1
+}
+
+// Objective Maasai2_Primary1 {
+// 	name		= text_scen_m2_pobj1
+// 	description	= text_scen_m2_pobj1_description
+// 	type		= Primary
+// 	startHidden	= 0
+// }
+// Objective Maasai2_Primary2 {
+// 	name		= text_scen_m2_pobj2
+// 	description	= text_scen_m2_pobj2_description
+// 	type		= Primary
+// 	startHidden	= 1
+// }
+// Objective Maasai2_Primary3 {
+// 	name		= text_scen_m2_pobj3
+// 	description	= text_scen_m2_pobj3_description
+// 	type		= Primary
+// 	startHidden	= 1
+// }
+Objective Maasai2_Defeat1 {
+	name		= text_scen_m2_dobj1
+	description	= text_scen_m2_dobj1_description
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MaasaiHero" ]
+}
+Objective Maasai2_Defeat2 {
+	name		= text_scen_m2_dobj2
+	description	= text_scen_m2_dobj2_description
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MaasaiChief" ]
+}
+Objective Maasai2_Defeat3 {
+	name		= text_scen_m2_dobj3
+	description	= text_scen_m2_dobj3_description
+	type		= Lose
+	startHidden	= 0
+}
+Objective Maasai2_Defeat4 {
+	name		= text_scen_m2_dobj4
+	description	= text_scen_m2_dobj4_description
+	type		= Lose
+	startHidden	= 1
+	targetUnits = [ "KwafiCityCenter" ]
+}
+
+Objective obj_m2_lose_citizens_dead {
+	name		= tx_m2_obj_lose_citz
+	description	= tx_m2_obj_lose_citz_desc
+	type		= Lose
+	startHidden	= 1
+}
+
+Objective Maasai2_Secondary1 {
+	name		= text_scen_m2_sobj1
+	description	= text_scen_m2_sobj1_description
+	type		= Secondary
+	startHidden	= 0
+}
+Objective Maasai2_Secondary2 {
+	name		= text_scen_m2_sobj2
+	description	= text_scen_m2_sobj2_description
+	type		= Secondary
+	startHidden	= 1
+}
+Objective obj_m2_DestroyPirates {
+	name		= tx_m2_obj_DestroyPirates
+	description	= tx_m2_obj_DestroyPirates_desc
+	type		= Secondary
+	startHidden	= 1
+}
+
+
+
+Scenario EE2X_Maasai2 {
+	name = text_scen_m2_name
+	mapfilename = "EE2X_Maasai2.scn"
+	briefing = tx_fe_prog_EE2X_Maasai2
+	sprite = spr_mas2_camp_screenshot
+	thumbnail = spr_mas2_camp_thumb
+
+	reinforcementLocX = 187.96
+	reinforcementLocY = 17.60
+	numReinforcements = 2
+
+	reinforcementGroups = 
+	[
+		{ members = 
+			[
+			{type = Unit amount = 6 unitType = HeavyInfantry1}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = LightInfantry_11_Veteran}
+			{type = Tech tech = LightInfantry_11_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = HeavyInfantry1_11_Veteran}
+			{type = Tech tech = HeavyInfantry1_11_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 2 unitType = HeavyInfantry1}
+			{type = Unit amount = 2 unitType = Medic}
+			]
+		}
+	]
+	
+	victory = text_scen_massai_victory
+	loss = text_scen_massai_loss
+	
+	hints = text_scen_m2_hints
+	
+	historicalInfo = text_scen_m2_history
+	
+	description = tx_fe_prog_EE2X_Maasai2
+	
+	date = text_scen_m2_date
+
+	objectives = 
+		[
+// 		Maasai2_Primary1
+// 		Maasai2_Primary2
+// 		Maasai2_Primary3
+		 obj_m2_BringCowsHome
+// 		 obj_m2_DefendKwafi
+		 obj_m2_DestroyBurk
+		 obj_m2_lose_citizens_dead
+		 Maasai2_Defeat1
+		 Maasai2_Defeat2
+		 Maasai2_Defeat3
+		 Maasai2_Defeat4
+		 Maasai2_Secondary1
+		 Maasai2_Secondary2
+		 obj_m2_DestroyPirates
+		 ]
+}

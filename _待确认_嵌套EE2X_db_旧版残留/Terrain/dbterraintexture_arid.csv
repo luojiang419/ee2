@@ -1,0 +1,37 @@
+//Name,Seasonal Texture,Alpha Mask texture,Tint fraction (1.0 = use tint; 0.0 = ignore tint)
+# DbSeasonalTextureSets_ = Arid,,,
+Grass_Arid,Grass_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Grass2_Arid,Grass2_Arid,terr_mask.tga,0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Beach_Arid,Beach_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Grass_Prairie_Arid,Grass_Prairie_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridDenseGrass_Arid,AridDenseGrass_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+OceanFloor_Arid,OceanFloor_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+OceanFloor2_Arid,OceanFloor2_Arid,terr_mask.tga,0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+OceanFloor3_Arid,OceanFloor3_Arid,terr_mask.tga,0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Mountain_Arid,Mountain_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridSmallScrub_Arid,AridSmallScrub_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Desert_Arid,Desert_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Desert2_Arid,Desert2_Arid,terr_mask.tga,0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridDesertScrub_Arid,AridDesertScrub_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Under_Tree_Arid,Under_Tree_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Cliff01_Arid,Cliff01_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Mountain_Grass_Arid,Mountain_Grass_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridCracked_Arid,AridCracked_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridDesertPlain_Arid,AridDesertPlain_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+ForestRoots_Arid,ForestRoots_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Riverbank_Arid,Riverbank_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridDenseGrassPatch_Arid,AridDenseGrassPatch_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridGrass_Arid,AridGrass_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridLongDryGrass_Arid,AridLongDryGrass_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridFoundation_Arid,AridFoundation_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridRippleDune_Arid,AridRippleDune_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridSageBrush_Arid,AridSageBrush_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridDesertPlainCracked_Arid,AridDesertPlainCracked_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+AridSparseGrass_Arid,AridSparseGrass_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+CoastalGrass01_Arid,CoastalGrass01_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+CoastalGrass02_Arid,CoastalGrass02_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+ShallowWater_Arid,ShallowWater_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Coastal_Arid,Coastal_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderBuilding_1_Arid,UnderBuilding_1_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderBuilding_2_Arid,UnderBuilding_2_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderBuilding_3_Arid,UnderBuilding_3_Arid,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5

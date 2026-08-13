@@ -1,1 +1,8 @@
-三军研究院免费建造/汽车工厂免费/护卫舰攻击减30%装填加速成本调整/运20IL78成本+30%/三超级战舰HP+20%/阿库拉HP-50%DDG1001HP+15%/VLS装填2.5/电子侦察船补给舰强化
+UP1.6.2.005 官方非官方补丁升级（开发者版·MOD兼容）
+- 游戏主程序 EE2X.exe / EE2.exe 升级至 UP1.6 版
+- 新增 UP16.dll 核心运行库
+- 新增 Vulkan 渲染支持（VULKAN_d3d9.dll + dxvk.conf）
+- 更新游戏辅助 DLL（UP15_GameHelper.dll、D3DCompiler_47.dll）
+- 更新 EXE 生成器数据与分辨率文本（EXEGeneratorData）
+- 更新小版本数据至 1.6.2.005（MinorVersion=162005）
+- 注册 MOD 标识为 EE2X远航版（UnofficialDevelopersVersionConfig）

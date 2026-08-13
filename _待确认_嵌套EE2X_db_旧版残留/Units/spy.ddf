@@ -1,0 +1,203 @@
+//------------------------------------------------------------------------------------------------
+//	SPY
+//------------------------------------------------------------------------------------------------
+UnitType Spy
+{
+	parent = Human
+	properties {
+		moveType = FootSpy
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+		displayName = tx_utn_Spy_name
+		VerboseTooltip = vtt_unit_Spy
+		rps = SpecialForces
+		stance = Cautious    // spy can't attack, so it need to run away when attacked
+	}
+	sounds = {
+	}
+	abilities = [
+		Move {speed = 1.3; angSpeed = 180}
+		LOS { range = 6 }
+		SpecialPower { 
+			range = 0.1; 
+			canDisguise = true;
+			spottedTextDBI = tx_spy_spotted_owner
+			spotterTextDBI = tx_spy_spotted_spotter
+			
+			effects = [ Extraction GatherIntelligence ]
+		}
+		Garrisonable { garrisonTypes = [ SpyShip Fortress Tower NavalTransport SeigeTower AirTransport ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+// When the player researches required tech node give spy Sabotage\Restore
+UpgradePowers SpyTechTreeUpgradeEpoch4
+{
+	unitType = Spy
+	effectsToAdd = [ SabotageBuilding RestoreBuilding ]
+}
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+// When the player researches required technology give spy Contaminate\Decontaminate
+UpgradePowers SpyTechTreeUpgradeEpoch9
+{
+	unitType = Spy
+	effectsToAdd = [ ToxicSpill ToxicCleanup ]
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// When the player researches required technology replace Contaminate\Sabotage with improved versions
+UpgradeReplacePower SpyTechTreeUpgradeSabEpoch14
+{
+	unitType = Spy
+	effectToReplace = SabotageBuilding
+	effectToAdd = ImprovedSabotageBuilding
+}
+
+UpgradeReplacePower SpyTechTreeUpgradeContamEpoch14
+{
+	unitType = Spy
+	effectToReplace = ToxicSpill
+	effectToAdd = ImprovedToxicSpill
+}
+
+//------------------------------------------------------------------------------------------------
+//	SPY - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+UnitModel Spy
+{
+	Parent 		= BaseHuman
+	DefaultModel 	= LSF1_spy.nif
+	ChildNames 		= [ UnitShadow ThePowerBar SpyShimmer]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_spy_idle01.KF	}
+		{ 	StateName = Walk	AnimName = sh_spy_walk01.KF	}
+		{ 	StateName = Run	AnimName = sh_spy_jog01.KF	}
+		{ 	StateName = Attack1	AnimName = sh_spy_attack01.KF	}
+		{ 	StateName = Death	AnimName = sh_spy_death01.KF	}
+		{ 	StateName = Contaminate		AnimName = sh_spy_sabotage02.KF	}
+		{ 	StateName = Decontaminate	AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Sabotage		AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Restore			AnimName = sh_spy_sabotage02.KF	}
+		{	StateName = GatherIntel	AnimName = sh_spy_sabotage02.KF }
+		{	StateName = Flinch	AnimName = sh_spy_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_spy_flying01.KF
+			AnimVariants = [ sh_spy_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_spy_ground_death01.KF	}
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+UnitModel Spy_4
+{
+	Parent		= BaseHuman
+	DefaultModel 	= lsf4_spy.nif
+	ChildNames	= [ UnitShadow ThePowerBar SpyShimmer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_spy_idle01.KF	}
+		{ 	StateName = Walk	AnimName = sh_spy_walk01.KF	}
+		{ 	StateName = Run	AnimName = sh_spy_jog01.KF	}
+		{ 	StateName = Attack1	AnimName = sh_spy_attack01.KF	}
+		{ 	StateName = Death	AnimName = sh_spy_death01.KF	}
+		{ 	StateName = Contaminate		AnimName = sh_spy_sabotage02.KF	} // @AA - @TODO - hook up correct animations here
+		{ 	StateName = Decontaminate	AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Sabotage		AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Restore			AnimName = sh_spy_sabotage02.KF	}
+		{	StateName = GatherIntel	AnimName = sh_spy_sabotage02.KF }
+		{	StateName = Flinch	AnimName = sh_spy_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_spy_flying01.KF
+			AnimVariants = [ sh_spy_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_spy_ground_death01.KF	}
+			]		
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+UnitModel Spy_7
+{
+	Parent	= BaseHuman
+	DefaultModel 	= LSF7_spy.nif
+	ChildNames	= [ UnitShadow ThePowerBar SpyShimmer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_spy_idle01.KF	}
+		{ 	StateName = Walk	AnimName = sh_spy_walk01.KF	}
+		{ 	StateName = Run	AnimName = sh_spy_jog01.KF	}
+		{ 	StateName = Attack1	AnimName = sh_spy_attack01.KF	}
+		{ 	StateName = Death	AnimName = sh_spy_death01.KF	}
+		{ 	StateName = Contaminate		AnimName = sh_spy_sabotage02.KF	} // @AA - @TODO - hook up correct animations here
+		{ 	StateName = Decontaminate	AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Sabotage		AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Restore			AnimName = sh_spy_sabotage02.KF	}
+		{	StateName = GatherIntel	AnimName = sh_spy_sabotage02.KF }
+		{	StateName = Flinch	AnimName = sh_spy_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_spy_flying01.KF
+			AnimVariants = [ sh_spy_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_spy_ground_death01.KF	}
+			]		
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel Spy_10
+{
+	Parent	= BaseHuman
+	DefaultModel 	= LSF10_spy.nif
+	ChildNames	= [ UnitShadow ThePowerBar SpyShimmer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_spy_idle01.KF	}
+		{ 	StateName = Walk	AnimName = sh_spy_walk01.KF	}
+		{ 	StateName = Run	AnimName = sh_spy_jog01.KF	}
+		{ 	StateName = Attack1	AnimName = sh_spy_attack01.KF	}
+		{ 	StateName = Death	AnimName = sh_spy_death01.KF	}
+		{ 	StateName = Contaminate		AnimName = sh_spy_sabotage02.KF	} // @AA - @TODO - hook up correct animations here
+		{ 	StateName = Decontaminate	AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Sabotage		AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Restore			AnimName = sh_spy_sabotage02.KF	}
+		{	StateName = GatherIntel	AnimName = sh_spy_sabotage02.KF }
+		{	StateName = Flinch	AnimName = sh_spy_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_spy_flying01.KF
+			AnimVariants = [ sh_spy_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_spy_ground_death01.KF	}
+			]	
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel Spy_13
+{
+	Parent	= BaseHuman
+        DefaultModel 	= LSF13_spy.nif
+	ChildNames	= [ UnitShadow ThePowerBar SpyShimmer ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_spy_idle01.KF	}
+		{ 	StateName = Walk	AnimName = sh_spy_walk01.KF	}
+		{ 	StateName = Run	AnimName = sh_spy_jog01.KF	}
+		{ 	StateName = Attack1	AnimName = sh_spy_attack01.KF	}
+		{ 	StateName = Death	AnimName = sh_spy_death01.KF	}
+		{ 	StateName = Contaminate		AnimName = sh_spy_sabotage02.KF	} // @AA - @TODO - hook up correct animations here
+		{ 	StateName = Decontaminate	AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Sabotage		AnimName = sh_spy_sabotage01.KF	}
+		{ 	StateName = Restore			AnimName = sh_spy_sabotage02.KF	}
+		{	StateName = GatherIntel	AnimName = sh_spy_sabotage02.KF }
+		{	StateName = Flinch	AnimName = sh_spy_protect01.KF	}
+		{	StateName = BeingThrown	AnimName = sh_spy_flying01.KF
+			AnimVariants = [ sh_spy_flying02.KF ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_spy_ground_death01.KF	}
+			]		
+}    

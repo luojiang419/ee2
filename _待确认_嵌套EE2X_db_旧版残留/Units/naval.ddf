@@ -1,0 +1,104 @@
+//------------------------------------------------------------------------------------------------
+//	NAVAL DEEP
+//------------------------------------------------------------------------------------------------
+UnitType NavalDeep
+{
+	properties {
+		moveType = kUnitMoveType_NavalDeep
+		rps = SeaNonCombat
+		popCount = 3
+		stance = Defensive
+		FootprintType	= Ellipse
+	}
+	sounds {
+		sndDeath =  ["fx_tmp_boat_sink_01" "fx_tmp_boat_sink_02"]
+    	}
+	abilities [
+		// the following provide a sample NavalMove parameter setting, remember, since 
+		// we are moving in water, acceleration and turning should be lower.
+		NavalMove {speed = 2.3; accel = 1; angSpeed = 60}		
+		Garrisonable { garrisonTypes = [ Dock ] }
+	]
+	fullMapOverlay { sprite = spr_fullmap_boat }
+	icon = icon_unit_default_human
+}
+
+//------------------------------------------------------------------------------------------------
+//	NAVAL Shallow
+//------------------------------------------------------------------------------------------------
+UnitType NavalShallow
+{
+	properties {
+		moveType = kUnitMoveType_NavalShallow
+		rps = SeaNonCombat
+		popCount = 3
+		stance = Defensive
+		FootprintType	= Ellipse
+	}
+	sounds {
+		sndDeath =  ["fx_tmp_boat_sink_01" "fx_tmp_boat_sink_02"]
+    	}
+	abilities [
+		// the following provide a sample NavalMove parameter setting, remember, since 
+		// we are moving in water, acceleration and turning should be lower.
+		NavalMove {speed = 2.3; accel = 1; angSpeed = 60}	
+		Garrisonable { garrisonTypes = [ Dock ] }
+	]
+	fullMapOverlay { sprite = spr_fullmap_boat }
+	icon = icon_unit_default_human
+}
+
+
+
+//------------------------------------------------------------------------------------------------
+//	NAVAL Base visual, derive from this visual 
+//------------------------------------------------------------------------------------------------
+UnitModel BaseShip
+{
+	ScaleType 	= kScaleVehicle
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	}
+			]
+	ChildNames 	= [ SelectCircleWaterUnit TheHealthBar TheBoatDamageEffect
+					TheVisualFlagBoat LargeGlow MobileStencilShadow]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 1.17
+		zOffset = 0.43
+		scale = 1.66
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 9.47
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+UnitModel BaseSubmarine
+{
+	ScaleType 	= kScaleVehicle
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	}
+			]
+	ChildNames 	= [ SelectCircleSubmarine TheHealthBar TheBoatDamageEffect TheSubmarineWake 
+					TheVisualFlagBoat LargeGlow ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 1.17
+		zOffset = 0.43
+		scale = 1.66
+		angle = 47.37
+		rotationSpeed = 0.00
+		pitch = 9.47
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

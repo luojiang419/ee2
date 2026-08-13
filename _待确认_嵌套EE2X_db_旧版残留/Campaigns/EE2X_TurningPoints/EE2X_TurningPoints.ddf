@@ -1,0 +1,15 @@
+Campaign EE2X_TurningPoints {
+	name = text_camp_ee2x_tpoint_name
+	scenarios = [
+
+		"EE2X_Rorkes_British"
+		"EE2X_Rorkes_Zulu"
+		"EE2X_Kursk_Russia"
+		"EE2X_Kursk_German"
+
+
+	]
+	description = text_camp_ee2x_tpoint_desc
+	lockedScenarios = false
+	useTimeline = false
+}

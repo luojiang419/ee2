@@ -1,0 +1,33 @@
+//Name,Seasonal Texture,Alpha Mask texture,Tint fraction (1.0 = use tint; 0.0 = ignore tint)
+# DbSeasonalTextureSets_ = Tropical,,,
+DenseGrass_Tropical,DenseGrass_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+GrassBig_Tropical,GrassBig_Tropical,terr_mask.tga,0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Beach_Tropical,Beach_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Grass_Tropical,Grass_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+TropicalCoverRocky_Tropical,TropicalCoverRocky_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+OceanFloor_Tropical,OceanFloor_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+OceanFloor2_Tropical,OceanFloor2_Tropical,terr_mask.tga,0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+GrassPatchy_Tropical,GrassPatchy_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Kudzu_Tropical,Kudzu_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Trodden_Tropical,Trodden_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+MountainGrass_Tropical,MountainGrass_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Mountain_Tropical,Mountain_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Cliff01_Tropical,Cliff01_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+ClayShrubs_Tropical,ClayShrubs_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+TropicalCover_Tropical,TropicalCover_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Riverbank_Tropical,Riverbank_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+ForestRoots_Tropical,ForestRoots_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+RiverbankGrassy_Tropical,RiverbankGrassy_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+RiverbankPatchy_Tropical,RiverbankPatchy_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+WornPath_Tropical,WornPath_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+MossRocky_Tropical,MossRocky_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+MossyCover_Tropical,MossyCover_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderstoryCover_Tropical,UnderstoryCover_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+CoastalGrass01_Tropical,CoastalGrass01_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+CoastalGrass02_Tropical,CoastalGrass02_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Saltgrass_Tropical,Saltgrass_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+ShallowWater_Tropical,ShallowWater_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+Coastal_Tropical,Coastal_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderBuilding_1_Tropical,UnderBuilding_1_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderBuilding_2_Tropical,UnderBuilding_2_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5
+UnderBuilding_3_Tropical,UnderBuilding_3_Tropical,terr_mask.tga, 0 0 0 0.5 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.5

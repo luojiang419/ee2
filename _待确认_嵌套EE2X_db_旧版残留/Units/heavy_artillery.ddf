@@ -1,0 +1,831 @@
+//------------------------------------------------------------------------------------------------
+//	HEAVY ARTILLERY - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType HeavyArtillery
+{
+	parent = Artillery
+	properties {
+		SizeX = 1
+		SizeY = 1
+		mass = 2
+	}
+	sounds {
+		sndDeath =  ["fx_death_male_01" "fx_death_male_02" "fx_death_male_03" "fx_death_male_04" "fx_death_male_05" "fx_death_male_06" "fx_death_male_07"]
+    	}
+	abilities = [
+		Attack { range = 0; reloadTime = 1; applyDamageTime = 0.3; damage = 0; missileName = "RockAmmo"; ignoreBlocking = 1; areaDamageRadius = 2.0; packTime = 4; unpackTime = 4; areaDamageFriendlyRatio = 0.5}
+		LOS { range = 0 }
+		Move {speed = 0.8; angSpeed = 120}
+		Garrisonable { garrisonTypes = [  Fortress  NavalTransport  AirTransport ] }	
+	]
+}
+
+ShadowData        SelfPropelledShadow
+{
+	Flags = (IsMobile | ImmutableBounds)
+	FlatBillboard
+	{
+		TextureFilename = LHA12_selfPropelled_shadow.tga
+		WidthScale = 3.2
+		LengthScale = 1.0
+		HeightScale = 0.1
+	}
+}
+
+ShadowData        NetFireLauncherShadow
+{
+	Flags = (IsMobile | ImmutableBounds)
+	FlatBillboard
+	{
+		TextureFilename = LHA14_NetFireLauncher_shadow.tga
+		WidthScale = 2.6
+		LengthScale = 1.0
+		HeightScale = 0.1
+	}
+}
+
+ShadowData        NetFireLauncherShadow2
+{
+	Flags = (IsMobile | ImmutableBounds)
+	FlatBillboard
+	{
+		TextureFilename = LHA14_NetFireLauncher_shadow.tga
+		WidthScale = 1.6
+		LengthScale = 1.2
+		HeightScale = 0.1
+	}
+}
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyArtilleryEpoch2Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 1.78; missileName = "RockAmmo"; ignoreBlocking = 1; areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; minRangeMobile = 7.0; minRangeImmobile = 7.0 }
+	]
+}
+
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch2Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch2Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyArtilleryEpoch4Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 1.75; missileName = "RockAmmo"; ignoreBlocking = 1; areaDamageRadius = 1.5; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; minRangeMobile =9.0; minRangeImmobile = 9.0 }
+	]
+}
+
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch4Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch4Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 6
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyArtilleryEpoch6Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 1.82; missileName = "ProjectileRock"; ignoreBlocking = 1; areaDamageRadius = 1.8; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; minRangeMobile = 10.0; minRangeImmobile = 10.0 }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch6Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch6Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+
+// @EE2X - Josh - added "throwUnits = true" to attack upgrades for epoch 8, 10, 12, 14
+// Attack Ability Upgrade
+UpgradeAbilities HeavyArtilleryEpoch8Attack
+{
+	upgradedAbilities = [
+		Attack { range = 12; reloadTime = 666; applyDamageTime = 0.3; damage = 125; missileName = "CannonBall02"; ignoreBlocking = 1; areaDamageRadius = 1.8; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; minRangeMobile = 11.0; minRangeImmobile = 11.0; throwUnits = true }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch8Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch8Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyArtilleryEpoch10Attack
+{
+	upgradedAbilities = [
+		Attack { range = 13; reloadTime = 6666; applyDamageTime = 0.3; damage = 150; missileName = "CannonBall02"; ignoreBlocking = 1; areaDamageRadius = 2.0; areaDamageFriendlyRatio = 0.5; packTime = 4; unpackTime = 4; minRangeMobile = 12.0; minRangeImmobile =12.0; throwUnits = true }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch10Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch10Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyArtilleryEpoch11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 350; range = 16; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB"; ignoreBlocking = 1;minRangeMobile = 13; minRangeImmobile = 13;  areaDamageRadius = 2.0; areaDamageFriendlyRatio = 0.5;packTime = 4; unpackTime = 4.0; throwUnits = true }
+	]
+}
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch11Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch11Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyArtilleryEpoch12Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.3; missileName = "TankShellB"; ignoreBlocking = 1; areaDamageRadius = 2.5; areaDamageFriendlyRatio = 0.5; minRangeMobile = 14.0; minRangeImmobile = 14.0; throwUnits = true }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch12Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch12Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyArtilleryEpoch13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666;  packTime = 3.0; unpackTime = 3.0; missileName = "TankShellB"; ignoreBlocking = 1; turretControllerName = MRocketLauncherTurret; minRangeMobile = 15; minRangeImmobile = 15; areaDamageRadius = 2.5; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch13Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch13Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch14Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch14Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+// Veteran Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch15Veteran
+{
+	unitType = HeavyArtillery
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove HeavyArtilleryEpoch15Elite
+{
+	unitType = HeavyArtillery
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		HeavyArtillery_Improve_Default
+	]
+}
+//------------------------------------------------------------------------------------------------
+//	HEAVY ARTILLERY - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+// add on a UnitType that you want to cast a shadow
+ShadowData	ArtilleryShadow {
+	Flags = (UseStencil | IsMobile)
+	FlatBillboard {
+		TextureFilename = "ArtilleryShadow_01.tga"
+		WidthScale = 1.0
+		LengthScale = 1.0
+		HeightScale = 0.1
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+UnitModel HeavyArtillery_02
+{	
+	Parent			= BaseArtillery
+	DefaultModel 		= LHA2_onager.nif
+	ChildNames 	= [ ArtilleryTracks TheSiegeUnitDamageEffect ]
+	DamageDecalsSetName = BuildingDamageDecals
+	States 		= [
+		{	StateName = Idle	AnimName = LHA2_onager_idle.KF
+				TextKeys = [
+								{ Name = HIDE_NODE Data = ball KeyTime = 0 }
+				]}
+		{   	StateName = UnpackedIdle  AnimName = lha2_onager_unpackidle01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = ball KeyTime = 0 }
+				]}
+		{ 	StateName = Walk	AnimName = LHA2_onager_walk.KF
+				TextKeys = [
+								{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_wheeled_02 KeyTime = 0}
+								{ Name = HIDE_NODE Data = ball KeyTime = 0 }
+				] }
+		{	StateName = UnpackedWalk  AnimName = lha2_onager_unpackwalk01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = ball KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = LHA2_onager_attack.KF
+				TextKeys = [
+								{ Name = PLAY_SOUND Data = Trebuchet_firing1 KeyTime = 1.78 }
+								{ Name = SHOW_NODE Data = ball 	KeyTime = 0.1 }
+				] }
+		{	StateName = Pack	AnimName = lha2_onager_pack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = ball KeyTime = 0 }
+				]}
+		{	StateName = Unpack	AnimName = lha2_onager_unpack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = ball KeyTime = 0 }
+				]}
+		{ 	StateName = Death	AnimName = lha2_onager_death.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = ball KeyTime = 0 }
+				]}
+		{   	StateName = PackedDeath AnimName = lha2_onager_packdeath01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = ball KeyTime = 0 }
+				]}
+			]
+	UIRenderingParams {
+		xOffset = 0.26
+		yOffset = 0.35
+		zOffset = 0.53
+		scale = 1.53
+		angle = 37.89
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+UnitModel HeavyArtillery_04
+{
+	Parent	= BaseArtillery
+	DefaultModel 		= lha4_Catapult.nif
+	ChildNames 	= [ ArtilleryTracks TheSiegeUnitDamageEffect ]
+	States 		= [
+		{	StateName = Idle	AnimName = lha4_Catapult_idle01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{   	StateName = UnpackedIdle  AnimName = lha4_Catapult_unpackidle01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{ 	StateName = Walk	AnimName = lha4_Catapult_walk.kf
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_wheeled_02 KeyTime = 0}
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }] }
+		{	StateName = UnpackedWalk  AnimName = lha4_Catapult_unpackwalk01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = lha4_Catapult_attack01.kf
+				TextKeys = [
+							
+								{ Name = PLAY_SOUND Data = Trebuchet_firing1 KeyTime = 1.75 }
+								{ Name = SHOW_NODE Data = rock KeyTime = 0 }
+				] }
+		{	StateName = Pack	AnimName = lha4_Catapult_pack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{	StateName = Unpack	AnimName = lha4_Catapult_unpack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{ 	StateName = Death	AnimName = lha4_Catapult_death01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{   	StateName = PackedDeath AnimName = lha4_Catapult_packdeath01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+
+			]
+}
+
+//------------------------------------------------
+//	EPOCH 6   
+//------------------------------------------------
+UnitModel HeavyArtillery_06
+{
+	Parent		= BaseArtillery
+	DefaultModel 	= LHA6_trebuchet.nif
+	ForceScale      = 0.2
+	ChildNames 	= [ ArtilleryTracks TheSiegeUnitDamageEffect ]
+	States 		= [
+		{	StateName = Idle	AnimName = LHA6_trebuchet_idle.KF 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{   StateName = UnpackedIdle  AnimName = lha6_trebuchet_unpackidle01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{ 	StateName = Walk	AnimName = LHA6_trebuchet_walk.KF 
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_wheeled_02 KeyTime = 0}
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }]}
+		{	StateName = UnpackedWalk  AnimName = lha6_trebuchet_unpackwalk01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = LHA6_trebuchet_attack.KF
+			TextKeys = [
+								{ Name = PLAY_SOUND Data = Trebuchet_firing1 KeyTime = 1.82 }
+								{ Name = SHOW_NODE Data = rock KeyTime = 0 }
+					] 
+		}
+		{	StateName = Pack	AnimName = lha6_trebuchet_pack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{	StateName = Unpack	AnimName = lha6_trebuchet_unpack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{ 	StateName = Death	AnimName = lha6_trebuchet_death.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+		{   StateName = PackedDeath AnimName = lha6_trebuchet_packdeath01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = rock KeyTime = 0 }
+				]}
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.30
+		zOffset = 0.29
+		scale = 1.66
+		angle = 56.84
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+UnitModel HeavyArtillery_08
+{
+	Parent		= BaseArtillery
+	DefaultModel 		= lha8_BombardCannon.nif
+	ChildNames 	= [ ArtilleryTracks TheSiegeUnitDamageEffect Muzzle_BombardCannon ]
+	States 		= [
+		{	StateName = Idle	AnimName = lha8_BombardCannon_idle01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{   StateName = UnpackedIdle  AnimName = lha8_BombardCannon_unpackidle01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{ 	StateName = Walk	AnimName = lha8_BombardCannon_walk.kf
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_wheeled_02 KeyTime = 0}
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }]}
+		{	StateName = UnpackedWalk  AnimName = lha8_BombardCannon_unpackwalk01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{ 	StateName = Attack1	AnimName = lha8_BombardCannon_attack.kf
+				TextKeys = [
+								{ Name = PLAY_SOUND Data = Cannon_firing1 KeyTime = 0.31 }
+								{ Name = SHOW_NODE Data = canon_ball KeyTime = 0 }
+				] }
+		{	StateName = Pack	AnimName = lha8_BombardCannon_pack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{	StateName = Unpack	AnimName = lha8_BombardCannon_unpack.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{ 	StateName = Death	AnimName = lha8_BombardCannon_death.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+		{   StateName = PackedDeath AnimName = lha8_BombardCannon_packdeath01.kf 
+				TextKeys = [
+								{ Name = HIDE_NODE Data = canon_ball KeyTime = 0 }
+				]}
+
+			]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 0.26
+		yOffset = 0.49
+		zOffset = 0.26
+		scale = 1.66
+		angle = 37.89
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+UnitModel HeavyArtillery_10
+{
+	Parent		= BaseArtillery
+	DefaultModel	= LHA10_siegegun.nif
+	ChildNames 	= [ ArtilleryTracks TheSiegeUnitDamageEffect Muzzle_BombardCannon ]
+	States 		= [
+		{	StateName = Idle	AnimName = LHA10_siegegun_idle01.KF }
+		{   StateName = UnpackedIdle  AnimName = LHA10_siegegun_unpackidle01.kf }
+		{ 	StateName = Walk	AnimName = LHA10_siegegun_walk.KF 
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_wheeled_04 KeyTime = 0}]}
+		{	StateName = UnpackedWalk  AnimName = LHA10_siegegun_unpackwalk01.kf }
+		{ 	StateName = Attack1	AnimName = LHA10_siegegun_attack01.KF
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_battle_bombard_fire KeyTime = 0.1 }	] }
+		{	StateName = Pack	AnimName = LHA10_siegegun_pack.KF }
+		{	StateName = Unpack	AnimName = LHA10_siegegun_unpack.KF }
+		{ 	StateName = Death	AnimName = LHA10_siegegun_death01.KF }
+		{   StateName = PackedDeath AnimName = LHA10_siegegun_packdeath01.kf }
+
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 1.46
+		zOffset = -0.30
+		scale = 1.53
+		angle = 42.63
+	}
+}
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel HeavyArtillery_11
+{
+	Parent		= BaseArtillery
+	DefaultModel 	=howitzerfr2.nif
+	ChildNames 	= [ Muzzle_FiringShell ArtilleryTracks TheSiegeUnitDamageEffect ]
+	States 		= [
+		{	StateName = Idle	AnimName = LLA11_FieldArtillery_idle01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+		{   	StateName = UnpackedIdle  AnimName = LLA11_FieldArtillery_unpackidle01.kf 
+                                                                 TextKeys = [
+								{ Name = SHOW_NODE Data = boom KeyTime = 0 }
+				]}
+                                { 	StateName = Walk	AnimName = LLA11_FieldArtillery_walk01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+		{	StateName = UnpackedWalk  AnimName = LLA11_FieldArtillery_unpackwalk01.kf 
+                                                                 TextKeys = [
+								{ Name = SHOW_NODE Data = boom KeyTime = 0 }
+				]}
+                { 	StateName = Attack1	AnimName = LLA11_FieldArtillery_attack01.kf
+				TextKeys = [ { Name = PLAY_SOUND Data = Cannon_firing1 KeyTime = 0.5 }
+                                                                                     { Name = SHOW_NODE Data = boom KeyTime = 0 }
+                                                                                     { Name = HIDE_NODE Data = boom KeyTime = 0.5 } 
+                                                                                     { Name = SHOW_NODE Data = boom KeyTime = 1.6}
+                                                                                   ] }
+		{	StateName = Pack	AnimName = LLA11_FieldArtillery_pack01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+		{	StateName = Unpack	AnimName = LLA11_FieldArtillery_unpack01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+                                { Name = SHOW_NODE Data = boom KeyTime = 0.3 }
+				]}
+		{ 	StateName = Death	AnimName = LLA11_FieldArtillery_unpackdeath01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}
+                	{   	StateName = PackedDeath AnimName = LLA11_FieldArtillery_death01.kf 
+                                                                 TextKeys = [
+								{ Name = HIDE_NODE Data = boom KeyTime = 0 }
+				]}  
+			]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 1.05
+		yOffset = 0.34
+		zOffset = 0.13
+		scale = 1.79
+		angle = 28.42
+	}
+}
+//------------------------------------------------
+//	EPOCH 12
+//------------------------------------------------
+UnitModel HeavyArtillery_12
+{
+	Parent		= BaseArtillery
+	ScaleType	= kScaleVehicle
+	DefaultModel 	= LHA12_selfpropelled.NIF
+	ChildNames 	= [ FX_ExaustSmoke1 TankTracks Muzzle_HeavyArtillery ExplSelectorTank01 
+					SelfPropelled_FlyingParts SelfPropelledShadow expl_tank_Tandrill ]
+	//ForceScale      = 0.09
+	States = [
+			{ StateName= Idle AnimName = lha12_selfpropelled_idle.KF	
+				 }
+
+			{ StateName= Walk AnimName = lha12_selfpropelled_walk.KF		
+				TextKeys = [ 
+					     { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_self_propelled KeyTime = 0} 
+					   ] 
+				}
+
+			{ StateName= Attack1	AnimName = lha12_selfpropelled_attack.KF	
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = Tank_firing1 KeyTime = 0.3 }
+					   ] 
+				}
+
+			{ StateName= Death AnimName = lha12_selfpropelled_death.KF		
+				}
+		]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 0.38
+		zOffset = 2.81
+		scale = 2.43
+		angle = 52.11
+	}
+}
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel HeavyArtillery_13
+
+{
+	Parent		= BaseArtillery
+	ScaleType 	= kScaleVehicle
+	ForceScale      = 0.127
+    DefaultModel 	= HeavyArtillery13.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = LLA13_mrls_idle.KF
+			}
+		{ 	StateName = Walk	AnimName = LLA13_mrls_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_self_propelled}
+			]
+			}
+		{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf //LLA13_mrls_attack.KF
+				TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+					     { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+			] 
+			}
+        { 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Death	AnimName = LLA13_mrls_death.KF
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]
+			}
+		{   	StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+            {   	StateName = PackedDeath   AnimName = lla13_mrls_packdeath01.kf  }  
+		{	StateName = UnpackedWalk  AnimName = lla13_mrls_unpackwalk01.kf  }
+			]
+	ChildNames 		= [ TheHealthBar FX_ExaustSmoke1  FX_ExaustSmoke2 MRLSShadow SelectCircleMedium MediumGlow TankTracks Muzzle_Howitzer109
+						DustHeavyMonted expl_tank_Tandrill ExplSelectorTank01 MRLS_FlyingParts Muzzle_FiringShell ]
+	UIRenderingParams {
+		xOffset = 1.84
+		yOffset = 0.91
+		zOffset = -0.65
+		scale = 1.53
+		angle = 47.37
+	}
+}
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel HeavyArtillery_14
+{
+	Parent		= BaseArtillery
+	ScaleType 	= kScaleVehicle
+	ForceScale      = 0.15
+    DefaultModel 	= Sholef.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = LLA13_mrls_idle.KF
+			}
+		{ 	StateName = Walk	AnimName = LLA13_mrls_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_self_propelled}
+			]
+			}
+		{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf //LLA13_mrls_attack.KF
+				TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+					     { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+			] 
+			}
+        { 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Death	AnimName = LLA13_mrls_death.KF
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]
+			}
+		{   	StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+            {   	StateName = PackedDeath   AnimName = lla13_mrls_packdeath01.kf  }  
+		{	StateName = UnpackedWalk  AnimName = lla13_mrls_unpackwalk01.kf  }
+			]
+	ChildNames 		= [ TheHealthBar FX_ExaustSmoke1  FX_ExaustSmoke2 MRLSShadow SelectCircleMedium MediumGlow TankTracks Muzzle_Howitzer109
+						DustHeavyMonted expl_tank_Tandrill ExplSelectorTank01 MRLS_FlyingParts Muzzle_FiringShell ]
+	UIRenderingParams {
+		xOffset = 1.84
+		yOffset = 0.91
+		zOffset = -0.65
+		scale = 1.53
+		angle = 47.37
+	}
+}
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel HeavyArtillery_15
+{
+	Parent		= BaseArtillery
+	ScaleType 	= kScaleVehicle
+	ForceScale      = 0.15
+    DefaultModel 	= ArmorySiegeTank.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = LLA13_mrls_idle.KF
+			}
+		{ 	StateName = Walk	AnimName = LLA13_mrls_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_self_propelled}
+			]
+			}
+		{ 	StateName = Attack1	  AnimName = howitzerfr2_attack.kf //LLA13_mrls_attack.KF
+				TextKeys = [ { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+					     { Name = PLAY_SOUND Data = fx_howitzer_fire1 KeyTime = 0.3 }
+			] 
+			}
+        { 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Death	AnimName = LLA13_mrls_death.KF
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]
+			}
+		{   	StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+            {   	StateName = PackedDeath   AnimName = lla13_mrls_packdeath01.kf  }  
+		{	StateName = UnpackedWalk  AnimName = lla13_mrls_unpackwalk01.kf  }
+			]
+	ChildNames 		= [ TheHealthBar FX_ExaustSmoke1  FX_ExaustSmoke2 MRLSShadow SelectCircleMedium MediumGlow TankTracks Muzzle_Howitzer109
+						DustHeavyMonted expl_tank_Tandrill ExplSelectorTank01 MRLS_FlyingParts Muzzle_FiringShell ]
+	UIRenderingParams {
+		xOffset = 1.84
+		yOffset = 0.91
+		zOffset = -0.65
+		scale = 1.53
+		angle = 47.37
+	}
+}

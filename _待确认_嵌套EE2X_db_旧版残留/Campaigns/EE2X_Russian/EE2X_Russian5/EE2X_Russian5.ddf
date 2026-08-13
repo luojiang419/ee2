@@ -1,0 +1,127 @@
+Objective Russian5_Objective1 {
+	name		= tx_r5_paris
+	description	= tx_r5_paris_desc
+	type		= Primary
+	startHidden	= 0
+	targetUnits 	= [ 	"cityParis" 	]
+}
+
+Objective Russian5_Objective2 {
+	name		= tx_r5_napoleon
+	description	= tx_r5_napoleon_desc
+	type		= Primary
+	startHidden	= 0
+	targetUnits 	= [ "Napoleon" ]
+}
+
+Objective Russian5_Objective3 {
+	name		= tx_r5_prussia_ally
+	description	= tx_r5_prussia_ally_desc
+	type		= Secondary
+	startHidden	= 0
+	targetTerritories = [ "territoryBrandenburg" ]
+}
+
+Objective Russian5_Objective4 {
+	name		= tx_r5_austria_ally
+	description	= tx_r5_austria_ally_desc
+	type		= Secondary
+	startHidden	= 0
+	targetTerritories = [ "territoryAustria" ]
+}
+
+Objective Russian5_Objective5 {
+	name		= tx_r5_defend_alexander
+	description	= tx_r5_defend_alexander_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits 	= [ "Alexander" ]
+}
+
+Objective Russian5_Objective6 {
+	name		= tx_r5_defend_warsaw
+	description	= tx_r5_defend_warsaw_desc
+	type		= Lose
+	startHidden	= 0
+	targetUnits 	= [ 	"cityWarsaw" 	]
+
+}
+
+Objective Russian5_Objective7 {
+	name		= tx_r5_tread_lightly
+	description	= tx_r5_tread_lightly_desc
+	type		= Lose
+	startHidden	= 0
+
+}
+
+
+Scenario EE2X_Russian5 {
+	name = text_scen_r5_name
+	mapfilename = "EE2X_Russian5.scn"
+	briefing = text_scen_r5_desc
+	sprite = spr_rus5_camp_screenshot
+	thumbnail = spr_rus5_camp_thumb
+
+	reinforcementLocX = 206.0
+	reinforcementLocY = 73.0
+	numReinforcements = 1
+	suppressReinforcementsDescription = 1
+
+	reinforcementGroups = 
+[
+		{ members = 
+			[
+			{type = Resource amount = 1000 resType = Gold}
+			{type = Resource amount = 1250 resType = Food}
+			{type = Resource amount = 1250 resType = Wood}
+			{type = Resource amount = 750 resType = Stone}
+			]
+		}
+		{ members = 
+			[
+			{type = Resource amount = 500 resType = Gold}
+			{type = Resource amount = 500 resType = Food}
+			{type = Resource amount = 500 resType = Wood}
+			{type = Resource amount = 250 resType = Stone}
+			{type = Unit amount = 8 unitType = HeavyInfantry1}
+			{type = Unit amount = 8 unitType = LightInfantry}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 12 unitType = HeavyInfantry1}
+			{type = Unit amount = 12 unitType = LightInfantry}
+			{type = Unit amount = 2 unitType = LightArtillery1}
+			{type = Unit amount = 1 unitType = HeavyArtillery}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 6 unitType = HeavyInfantry1}
+			{type = Unit amount = 6 unitType = LightInfantry}
+			{type = Unit amount = 2 unitType = LightMounted1}
+			{type = Unit amount = 2 unitType = HeavyMounted1}
+			{type = Unit amount = 4 unitType = LightArtillery1}
+			{type = Unit amount = 2 unitType = HeavyArtillery}
+			]
+		}
+]
+
+	victory = text_scen_r5_victory
+	loss = text_scen_r5_loss	
+	hints = text_scen_r5_hints	
+	historicalInfo = text_scen_r5_history	
+	description = text_scen_r5_desc	
+	date = text_scen_r5_date
+
+	objectives = [
+		Russian5_Objective1
+		Russian5_Objective2
+		Russian5_Objective3
+		Russian5_Objective4
+		Russian5_Objective5
+		Russian5_Objective6
+		Russian5_Objective7
+	]
+}

@@ -1,0 +1,313 @@
+//------------------------------------------------------------------------------------------------
+//	HEAVY INFANTRY 1 HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType HeavyInfantry1Hero
+{
+	parent = HeavyInfantry1
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	properties {
+		SizeX = 0.17
+		SizeY = 0.17
+	}
+	abilities = [
+		Hero { HeroClass = HeavyInfantry; HeroForUnit = HeavyInfantry1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1HeroEp1Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1HeroEp3Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1HeroEp5Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1HeroEp7Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.2; missileName = "MusketBullet"; WeaponType = LightProjectile; packTime = 2.0; unpackTime = 2.0 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1HeroEp9Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.2; missileName = "MusketBullet"; WeaponType = LightProjectile }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1HeroEp11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 2.0; missileName = "MortarShell"; ignoreBlocking = 1; packTime = 1.5; unpackTime = 1.5; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1HeroEp13Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 2.0; missileName = "MortarShell"; ignoreBlocking = 1; packTime = 2.0; unpackTime = 2.0; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry1HeroEp15Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; angularRange = 30; applyDamageTime = 0.2; missileName = "TankShell"; ignoreBlocking = 1; packTime = 2.0; unpackTime = 2.0; areaDamageRadius = 0; areaDamageFriendlyRatio = 0.5 }
+	]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	HEAVY INFANTRY 1 HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+UnitModel	HeavyInfantry1Hero_01
+{
+	Parent 		= HeavyInfantry1_01
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+UnitModel	HeavyInfantry1Hero_03
+{
+	Parent 		= HeavyInfantry1_03
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel	HeavyInfantry1Hero_05
+{
+	Parent 		= HeavyInfantry1_05
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+UnitModel	HeavyInfantry1Hero_07
+{
+	Parent		= HeavyInfantry1_07
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 9
+//------------------------------------------------
+UnitModel	HeavyInfantry1Hero_09
+{
+	Parent		= HeavyInfantry1_09
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel	HeavyInfantry1Hero_11
+{
+	Parent		= HeavyInfantry1_11
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel	HeavyInfantry1Hero_13
+{
+	Parent		= HeavyInfantry1_13
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 15
+//------------------------------------------------
+UnitModel	HeavyInfantry1Hero_15
+{
+	Parent		= HeavyInfantry1_15
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	HEAVY INFANTRY 2 HERO - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType HeavyInfantry2Hero
+{
+	parent = HeavyInfantry2
+	placementType = Unplaceable	// @TODO maybe make heroes placeable, but that causes problems with the HeroManager...
+	properties {
+		SizeX = 0.17
+		SizeY = 0.17
+	}
+	abilities = [
+		Hero { HeroClass = HeavyInfantry; HeroForUnit = HeavyInfantry2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry2HeroEp2Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry2HeroEp5Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry2HeroEp8Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.4; WeaponType = Melee }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry2HeroEp11Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; packTime = 1.5; unpackTime = 1.5 }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities HeavyInfantry2HeroEp14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5 }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HEAVY INFANTRY 2 HERO - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+UnitModel HeavyInfantry2Hero_02
+{
+	Parent		= HeavyInfantry2_02
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel HeavyInfantry2Hero_05
+{
+	Parent		= HeavyInfantry2_05
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 8
+//------------------------------------------------
+UnitModel HeavyInfantry2Hero_08
+{
+	Parent		= HeavyInfantry2_08
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+UnitModel HeavyInfantry2Hero_11
+{
+	Parent		= HeavyInfantry2_11
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------
+//	EPOCH 14
+//------------------------------------------------
+UnitModel HeavyInfantry2Hero_14
+{
+	Parent		= HeavyInfantry2_14
+	ScaleType	= kScaleHero
+	ChildNames	= [ TheHeroArmyFlag ]
+}

@@ -1,0 +1,184 @@
+//------------------------------------------------------------------------------------------------
+//	PALISADE GATE
+//------------------------------------------------------------------------------------------------
+
+//
+// base unit type for palisade gate and palisade gate foundation
+//
+UnitType Palisade_Gate_Base
+{
+	parent = PalisadeBase
+	properties {
+		SizeX = 2.7676		// the long dimension the palisade runs in
+					// (should be approx 4x Palisade::SizeX)
+		SizeY = 0.3		// the width of the gate
+		VerboseTooltip = vtt_unit_PalisadeGate
+		displayNameTTTooltip = tx_utn_PalsdeGate_tt_name
+	}
+	sounds {
+		sndSelection = ["PalisadeGate_select"]
+    	}
+	abilities = [
+		Connect { type = kComposite_WallGate; }
+		Gate { DoorWidth = 1.273 }
+	]
+}
+
+//
+// the actual palisade gate type
+//
+UnitType Palisade_Gate
+{
+	parent = Palisade_Gate_Base
+	abilities = [
+		LOS { range = 2 }
+	]
+}
+
+//
+// gate construction type
+//
+UnitType Palisade_Gate_Foundation
+{
+	parent = Palisade_Gate_Base
+	properties {
+		mass = 0	// don't block pathing
+		hitpoints = 1
+	}
+	abilities = [
+		Construction {}
+	]
+}
+
+
+//------------------------------------------------------------------------------------------------
+//	PALISADE GATE - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+UnitModel PalisadeGateBaseModel
+{
+	parent 		= PalisadeBaseModel
+	ChildNames 	= [ TheHealthBar ExplSelectorBuild_Tiny MediumGlow2
+					HemisphereLighting_Wall DynamicLighting_Wall
+				  ]
+	DefaultState	= Idle
+	UIRenderingParams {
+		xOffset = -2.11
+		yOffset = 0.01
+		zOffset = 0.01
+		scale = 1.40
+		angle = 90.00
+		rotationSpeed = 0.00
+		pitch = 0.01
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+
+UnitModel Palisade_Gate
+{
+	parent 		= PalisadeGateBaseModel
+	DefaultModel 	= bld_palisade1_gate.NIF
+	ChildNames	= [ Palisade1_GateBuildEffectStep ExplPartsWood ]
+	States = [
+		{ StateName = Idle	AnimName = bld_palisade1_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_palisade1_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_palisade1_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_palisade1_gate_open_idle.kf }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 4
+//------------------------------------------------
+
+UnitModel Palisade_Gate_4
+{
+	parent 		= PalisadeGateBaseModel
+	DefaultModel 	= bld_palisade4_gate.NIF
+	ChildNames	= [ Palisade4_GateBuildEffectStep ExplPartsWood ]
+	States = [
+		{ StateName = Idle	AnimName = bld_palisade4_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_palisade4_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_palisade4_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_palisade4_gate_open_idle.kf }
+	]
+}
+
+
+//------------------------------------------------
+//	EPOCH 7
+//------------------------------------------------
+
+UnitModel Palisade_Gate_7
+{
+	parent 		= PalisadeGateBaseModel
+	DefaultModel 	= bld_palisade7_gate.NIF
+	ChildNames	= [ Palisade7_GateBuildEffectStep ExplPartsPalisade7 ]
+	States = [
+		{ StateName = Idle	AnimName = bld_palisade7_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_palisade7_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_palisade7_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_palisade7_gate_open_idle.kf }
+	]
+}
+
+
+//------------------------------------------------
+//	EPOCH 10
+//------------------------------------------------
+
+UnitModel Palisade_Gate_10
+{
+	parent 		= PalisadeGateBaseModel
+	DefaultModel 	= bld_palisade10_gate.NIF
+	ChildNames	= [ Palisade10_GateBuildEffectStep ExplPartsWood ]
+	States = [
+		{ StateName = Idle	AnimName = bld_palisade10_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_palisade10_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_palisade10_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_palisade10_gate_open_idle.kf }
+	]
+}
+
+
+//------------------------------------------------
+//	EPOCH 11
+//------------------------------------------------
+
+UnitModel Palisade_Gate_11
+{
+	parent 		= PalisadeGateBaseModel
+	DefaultModel 	= bld_palisade10_gate.NIF
+	ChildNames	= [ Palisade10_GateBuildEffectStep ExplPartsWood ]
+	States = [
+		{ StateName = Idle	AnimName = bld_palisade10_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_palisade10_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_palisade10_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_palisade10_gate_open_idle.kf }
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+
+UnitModel Palisade_Gate_13
+{
+	parent 		= PalisadeGateBaseModel
+	DefaultModel 	= bld_palisade13_gate.NIF
+	ChildNames	= [ Palisade13_GateBuildEffectStep ExplPartsConcrete ]
+	States 		= [
+		{ StateName = Idle	AnimName = bld_palisade13_gate_close_idle.kf}
+		{ StateName = Open 	AnimName = bld_palisade13_gate_open.kf }
+		{ StateName = Close 	AnimName = bld_palisade13_gate_close.kf }
+		{ StateName = OpenIdle	AnimName = bld_palisade13_gate_open_idle.kf }
+	]
+}

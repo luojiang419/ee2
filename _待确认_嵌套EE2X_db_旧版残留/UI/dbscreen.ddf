@@ -1,0 +1,98 @@
+//
+// database of game screens
+//
+// --------------------------------------------------------------------
+
+
+//
+// main game screen
+//
+Screen GameMainScreen
+{
+	styleSet = GameStyles
+	conciseTooltipStyle = Tooltips
+	verboseTooltipWidget = game_verbose_tooltip
+	messageBoxWidget = glass_messagebox
+}
+
+//
+// fullmap game screen
+//
+Screen GameFullmapScreen
+{
+	styleSet = GameStyles
+	conciseTooltipStyle = Tooltips
+	verboseTooltipWidget = fullmap_verbose_tooltip
+	messageBoxWidget = glass_messagebox
+	dontAllowUIBinSorter = 1
+}
+
+
+//
+// generic front-end screen
+//
+Screen FrontEndScreen
+{
+	styleSet = FrontEndStyles
+	conciseTooltipStyle = fe_Tooltips
+	verboseTooltipWidget = -1
+	messageBoxWidget = fe_messagebox
+	dontAllowUIBinSorter = 1
+}
+
+
+Screen EEEScreen
+{
+	styleSet = EEEStyles
+	conciseTooltipStyle = Tooltips
+	verboseTooltipWidget = -1
+	messageBoxWidget = fe_messagebox
+	dontAllowUIBinSorter = 1
+}
+
+Screen EndGameStatsScreen
+{
+	styleSet = EEEStyles
+	conciseTooltipStyle = Tooltips
+	verboseTooltipWidget = -1
+	messageBoxWidget = fe_messagebox
+	dontAllowUIBinSorter = 1
+}
+
+
+//
+// scenario editor screen
+//
+Screen ScenEditScreen
+{
+	styleSet = ScenEditStyles
+	conciseTooltipStyle = Tooltips
+	verboseTooltipWidget = scenedit_verbose_tooltip
+	messageBoxWidget = fe_messagebox
+	dontAllowUIBinSorter = 1
+}
+
+
+//
+// load screen
+//
+Screen LoadScreen
+{
+	styleSet = FrontEndStyles
+	conciseTooltipStyle = -1
+	verboseTooltipWidget = -1
+	messageBoxWidget = fe_messagebox
+	dontAllowUIBinSorter = 1
+}
+
+//
+// demo exit
+//
+Screen DemoExitScreen
+{
+	styleSet = FrontEndStyles
+	conciseTooltipStyle = -1
+	verboseTooltipWidget = -1
+	messageBoxWidget = fe_messagebox
+	dontAllowUIBinSorter = 1
+}

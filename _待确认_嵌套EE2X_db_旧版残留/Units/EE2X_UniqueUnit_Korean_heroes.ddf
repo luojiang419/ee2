@@ -1,0 +1,71 @@
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT KOREAN HWARANG (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitKorean1Hero
+{
+	parent = UniqueUnitKorean1
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.46
+		SizeY = 0.23
+	}
+	abilities = [
+		Hero { HeroClass = HeavyMounted; HeroForUnit = UniqueUnitKorean1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitKorean1Hero
+{
+	Parent		= UniqueUnitKorean1
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT KOREAN HWACHA (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitKorean2Hero
+{
+	parent = UniqueUnitKorean2
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.805
+		SizeY = 0.805
+	}
+	abilities = [
+		Hero { HeroClass = LightArtillery; HeroForUnit = UniqueUnitKorean2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitKorean2Hero
+{
+	Parent		= UniqueUnitKorean2
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT KOREAN MORTAR TEAM (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitKorean3Hero
+{
+	parent = UniqueUnitKorean3
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.259
+		SizeY = 0.259
+	}
+	abilities = [
+		Hero { HeroClass = LightInfantry; HeroForUnit = UniqueUnitKorean3 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitKorean3Hero
+{
+	Parent		= UniqueUnitKorean3
+	ScaleType	= kScaleHero
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

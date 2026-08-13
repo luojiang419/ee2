@@ -1,0 +1,151 @@
+// = 0 = "Destroy Bandit Leader"
+Objective EE2X_Egypt2_Objective1 {
+	name		= text_scen_e2_pobj1
+	description	= text_scenario_e2_verbose1
+	type		= Primary
+	startHidden	= 0
+}
+
+// = 0 = "Destroy Bandit Stronghold"
+Objective EE2X_Egypt2_Objective2 {
+	name		= text_scen_e2_pobj2
+	description	= text_scenario_e2_verbose2
+	type		= Primary
+	startHidden	= 0
+	//targetAreas = [ "BanditCamp1" ]
+}
+
+// = 0 = "Destroy Bandit Camps"
+Objective EE2X_Egypt2_Objective3 {
+	name		= text_scen_e2_pobj3
+	description	= text_scenario_e2_verbose3
+	type		= Primary
+	startHidden	= 0
+	//targetAreas = [ "BanditCamp2" ]
+}
+
+// = 0 = "Fill Grain Stores"
+Objective EE2X_Egypt2_Objective4 {
+	name		= text_scen_e2_sobj1
+	description	= text_scenario_e2_verbose4
+	type		= Secondary
+	startHidden	= 1
+// 	targetAreas = [ "areaFarmland" ]
+}
+
+// = 0 = "Ally with Baraka"
+Objective EE2X_Egypt2_Objective5 {
+	name		= text_scen_e2_sobj2
+	description	= text_scenario_e2_verbose5
+	type		= Secondary
+	startHidden	= 1
+	targetUnits = [ "BarakaCity" ]
+}
+
+// = 0 = "Defend Monument"
+Objective EE2X_Egypt2_Objective6 {
+	name		= text_scen_e2_sobj3
+	description	= text_scenario_e2_verbose6
+	type		= Secondary
+	startHidden	= 1
+	//targetUnits = [ "Monument1" ]
+}
+
+// = 0 = "Main Base destroyed is a loss"
+Objective EE2X_Egypt2_Objective7 {
+	name		= text_scen_e2_lobj1
+	description	= text_scenario_e2_lose1
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MainCity" ]
+}
+
+// = 0 = "Hero is killed"
+Objective EE2X_Egypt2_Objective8 {
+	name		= text_scen_e2_lobj2
+	description	= text_scenario_e2_lose2
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "Kemsa" ]
+}
+
+Scenario EE2X_Egypt2 {
+	name = text_scen_e2_name
+	mapfilename = "EE2X_Egypt2.scn"
+	briefing = text_scen_e2_desc
+	sprite = spr_egy2_camp_screenshot
+	thumbnail = spr_egy2_camp_thumb
+	
+	victory = text_scen_e2_victory
+	loss = text_scen_e2_loss
+	
+	reinforcementLocX = 42.99
+	reinforcementLocY = 39.59
+	numReinforcements = 1
+
+	reinforcementGroups = 
+	[
+		{ members = 
+			[
+			{type = Resource amount = 1000 resType = Gold}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 8 unitType = HeavyInfantry1}
+			]
+		}
+		{ members = 
+			[
+			{type = Unit amount = 8 unitType = LightInfantry}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = HeavyInfantry1_03_Veteran}
+			{type = Tech tech = HeavyInfantry1_03_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = LightInfantry_03_Veteran}
+			{type = Tech tech = LightInfantry_03_Elite}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = Military3_3}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = Economic3_1}
+			]
+		}
+		{ members = 
+			[
+			{type = Tech tech = Imperial3_3}
+			]
+		}
+	]
+
+	hints = text_scen_e2_hints
+	
+	historicalInfo = text_scen_e2_history
+	
+	description = text_scen_e2_desc
+	
+	date = text_scen_e2_date
+
+	objectives = [
+		EE2X_Egypt2_Objective1
+		EE2X_Egypt2_Objective2
+		EE2X_Egypt2_Objective3
+		EE2X_Egypt2_Objective4
+		EE2X_Egypt2_Objective5
+		EE2X_Egypt2_Objective6
+		EE2X_Egypt2_Objective7
+		EE2X_Egypt2_Objective8
+
+	]
+}

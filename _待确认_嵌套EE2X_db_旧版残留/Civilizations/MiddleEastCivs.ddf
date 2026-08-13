@@ -1,0 +1,623 @@
+//////////////////////////////////////////////////////////
+//														//
+// MiddleEast.ddf										//
+// civilization definitions for the MiddleEast region	//
+//														//
+//////////////////////////////////////////////////////////
+
+
+////////////////////////
+// Egyptian
+
+Civilization Egyptian
+{
+	CityNames = [
+		tx_ms_cityname_Abedju
+		tx_ms_cityname_Abydos
+		tx_ms_cityname_AbuSimbel
+		tx_ms_cityname_Akhetaten
+		tx_ms_cityname_Alexandria
+		tx_ms_cityname_Aswan
+		tx_ms_cityname_Bubastis
+		tx_ms_cityname_Cairo
+		tx_ms_cityname_Djane
+		tx_ms_cityname_Edfu
+		tx_ms_cityname_Esna
+		tx_ms_cityname_Heliopolis
+		tx_ms_cityname_Hermopolis
+		tx_ms_cityname_Iunet
+		tx_ms_cityname_Khmunu
+		tx_ms_cityname_Luxor
+		tx_ms_cityname_Nebet
+		tx_ms_cityname_PrBastet
+		tx_ms_cityname_TaSna
+		tx_ms_cityname_TmnHor
+		tx_ms_cityname_ToShe
+		tx_ms_cityname_Yunu
+	]
+	
+	TerritoryNames = [
+		tx_terr_egyptian_0
+		tx_terr_egyptian_1
+		tx_terr_egyptian_2
+		tx_terr_egyptian_3
+		tx_terr_egyptian_4
+		tx_terr_egyptian_5
+		tx_terr_egyptian_6
+		tx_terr_egyptian_7
+		tx_terr_egyptian_8
+		tx_terr_egyptian_9
+		tx_terr_egyptian_10
+		tx_terr_egyptian_11
+		tx_terr_egyptian_12
+		tx_terr_egyptian_13
+		tx_terr_egyptian_14
+		tx_terr_egyptian_15
+		tx_terr_egyptian_16
+		tx_terr_egyptian_17
+		tx_terr_egyptian_18
+		tx_terr_egyptian_19
+		tx_terr_egyptian_20
+		tx_terr_egyptian_21
+		tx_terr_egyptian_22
+		tx_terr_egyptian_23
+		tx_terr_egyptian_24
+		tx_terr_egyptian_25
+	]
+	
+	PlayerNames = [
+		tx_player_Egyptian_0
+		tx_player_Egyptian_1
+		tx_player_Egyptian_2
+		tx_player_Egyptian_3
+		tx_player_Egyptian_4
+		tx_player_Egyptian_5
+		tx_player_Egyptian_6
+		tx_player_Egyptian_7
+		tx_player_Egyptian_8
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_Egyptian_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Egyptian_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Egyptian_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitEgyptian1
+		UniqueUnitEgyptian2
+		UniqueUnitEgyptian3
+	]
+	
+	CivAttributes = [
+		CivAtt_Wond_Cost
+		CivAtt_LMount_Health
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// Turkish
+
+Civilization Turkish
+{
+	CityNames = [
+		tx_ms_cityname_Adana
+		tx_ms_cityname_Ankara
+		tx_ms_cityname_Antalya
+		tx_ms_cityname_Balikesir
+		tx_ms_cityname_Bursa
+		tx_ms_cityname_Diyarbakir
+		tx_ms_cityname_Eskisehir
+		tx_ms_cityname_Erzurum
+		tx_ms_cityname_Gaziantep
+		tx_ms_cityname_Gemlik
+		tx_ms_cityname_Hopa
+		tx_ms_cityname_Icel
+		tx_ms_cityname_Iskenderum
+		tx_ms_cityname_Istanbul
+		tx_ms_cityname_Izmir
+		tx_ms_cityname_Kayseri
+		tx_ms_cityname_Kocaeli
+		tx_ms_cityname_Konya
+		tx_ms_cityname_Manisa
+		tx_ms_cityname_Samsun
+		tx_ms_cityname_Sanliurfa
+		tx_ms_cityname_Sivas
+		tx_ms_cityname_Trabzon
+	]
+	
+	TerritoryNames = [
+		tx_terr_turkish_0
+		tx_terr_turkish_1
+		tx_terr_turkish_2
+		tx_terr_turkish_3
+		tx_terr_turkish_4
+		tx_terr_turkish_5
+		tx_terr_turkish_6
+		tx_terr_turkish_7
+		tx_terr_turkish_8
+		tx_terr_turkish_9
+		tx_terr_turkish_10
+		tx_terr_turkish_11
+		tx_terr_turkish_12
+		tx_terr_turkish_13
+		tx_terr_turkish_14
+		tx_terr_turkish_15
+		tx_terr_turkish_16
+		tx_terr_turkish_17
+		tx_terr_turkish_18
+		tx_terr_turkish_19
+		tx_terr_turkish_20
+		tx_terr_turkish_21
+		tx_terr_turkish_22
+		tx_terr_turkish_23
+		tx_terr_turkish_24
+		tx_terr_turkish_25
+		tx_terr_turkish_26
+		tx_terr_turkish_27
+		tx_terr_turkish_28
+		tx_terr_turkish_29
+		tx_terr_turkish_30
+		tx_terr_turkish_31
+		tx_terr_turkish_32
+		tx_terr_turkish_33
+		tx_terr_turkish_34
+		tx_terr_turkish_35
+		tx_terr_turkish_36
+		tx_terr_turkish_37
+		tx_terr_turkish_38
+		tx_terr_turkish_39
+		tx_terr_turkish_40
+		tx_terr_turkish_41
+		tx_terr_turkish_42
+		tx_terr_turkish_43
+		tx_terr_turkish_44
+		tx_terr_turkish_45
+		tx_terr_turkish_46
+		tx_terr_turkish_47
+		tx_terr_turkish_48
+		tx_terr_turkish_49
+		tx_terr_turkish_50
+		tx_terr_turkish_51
+		tx_terr_turkish_52
+		tx_terr_turkish_53
+		tx_terr_turkish_54
+		tx_terr_turkish_55
+		tx_terr_turkish_56
+		tx_terr_turkish_57
+		tx_terr_turkish_58
+		tx_terr_turkish_59
+		tx_terr_turkish_60
+		tx_terr_turkish_61
+		tx_terr_turkish_62
+		tx_terr_turkish_63
+		tx_terr_turkish_64
+		tx_terr_turkish_65
+		tx_terr_turkish_66
+		tx_terr_turkish_67
+		tx_terr_turkish_68
+		tx_terr_turkish_69
+		tx_terr_turkish_70
+		tx_terr_turkish_71
+		tx_terr_turkish_72
+		tx_terr_turkish_73
+		tx_terr_turkish_74
+		tx_terr_turkish_75
+		tx_terr_turkish_76
+		tx_terr_turkish_77
+	]
+	
+	PlayerNames = [
+		tx_player_Turkish_0
+		tx_player_Turkish_1
+		tx_player_Turkish_2
+		tx_player_Turkish_3
+		tx_player_Turkish_4
+		tx_player_Turkish_5
+		tx_player_Turkish_6
+		tx_player_Turkish_7
+		tx_player_Turkish_8
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_Turkish_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Turkish_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Turkish_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitTurkish1
+		UniqueUnitTurkish2
+		UniqueUnitTurkish3
+	]
+	
+	CivAttributes = [
+//		CivAtt_WallPal_Cost
+		CivAtt_WallPal_Health
+		CivAtt_HArt_Dmg
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// Babylonian
+
+Civilization Babylonian
+{
+	CityNames = [
+		tx_ms_cityname_Agade
+		tx_ms_cityname_Babylon
+		tx_ms_cityname_Calneh
+		tx_ms_cityname_Eridu
+		tx_ms_cityname_Eshunna
+		tx_ms_cityname_Hit
+		tx_ms_cityname_Isla
+		tx_ms_cityname_Kish
+		tx_ms_cityname_Larsa
+		tx_ms_cityname_Nippur
+		tx_ms_cityname_Sippar
+		tx_ms_cityname_Umma
+		tx_ms_cityname_Ur
+		tx_ms_cityname_Uruk
+	]
+	
+	TerritoryNames = [
+		tx_terr_babylonian_0
+		tx_terr_babylonian_1
+		tx_terr_babylonian_2
+		tx_terr_babylonian_3
+		tx_terr_babylonian_4
+		tx_terr_babylonian_5
+		tx_terr_babylonian_6
+		tx_terr_babylonian_7
+		tx_terr_babylonian_8
+		tx_terr_babylonian_9
+	]
+	
+	PlayerNames = [
+		tx_player_Babylonian_0
+		tx_player_Babylonian_1
+		tx_player_Babylonian_2
+		tx_player_Babylonian_3
+		tx_player_Babylonian_4
+		tx_player_Babylonian_5
+		tx_player_Babylonian_6
+		tx_player_Babylonian_7
+		tx_player_Babylonian_8
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_Babylonian_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Babylonian_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Babylonian_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitBabylonian1
+		UniqueUnitBabylonian2
+		UniqueUnitBabylonian3
+	]
+	
+	CivAttributes = [
+		CivAtt_PriestSpy_Recharge
+		CivAtt_LInf_Dmg
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+

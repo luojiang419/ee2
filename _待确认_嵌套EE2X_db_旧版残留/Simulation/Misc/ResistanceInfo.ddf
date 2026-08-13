@@ -1,0 +1,9 @@
+DbResistanceInfo TheResistanceInfo
+{
+	Duration = 300.0
+	AttackBonus = 0.18
+	AttackUnitMask = AttackingUnits
+	DefenseBonus = -0.18
+	DefenseUnitMask = LandRPS
+	GlowEffect = ResistanceGlow
+}

@@ -1,0 +1,71 @@
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT EGYPTIAN ROYAL ELEPHANT (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitEgyptian1Hero
+{
+	parent = UniqueUnitEgyptian1
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.69
+		SizeY = 0.345
+	}
+	abilities = [
+		Hero { HeroClass = HeavyMounted; HeroForUnit = UniqueUnitEgyptian1 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitEgyptian1Hero
+{
+	Parent		= UniqueUnitEgyptian1
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]         
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT EGYPTIAN BEDOUIN (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitEgyptian2Hero
+{
+	parent = UniqueUnitEgyptian2
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.46
+		SizeY = 0.23
+	}
+	abilities = [
+		Hero { HeroClass = LightMounted; HeroForUnit = UniqueUnitEgyptian2 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitEgyptian2Hero
+{
+	Parent		= UniqueUnitEgyptian2
+	ScaleType	= kScaleHeroMountedUnit
+	ChildNames 	= [ TheHeroArmyFlag ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	HERO UNIQUE UNIT EGYPTIAN EIFV (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitEgyptian3Hero
+{
+	parent = UniqueUnitEgyptian3
+	placementType = Unplaceable
+	properties {
+		SizeX = 0.46
+		SizeY = 0.46
+	}
+	abilities = [
+		Hero { HeroClass = LightTank; HeroForUnit = UniqueUnitEgyptian3 }
+		AreaEffect { effects = [ PrimaryHeroArmyBonus SupportingHeroArmyBonus ] }
+	]
+}
+
+UnitModel UniqueUnitEgyptian3Hero
+{
+	Parent		= UniqueUnitEgyptian3
+	ScaleType	= kScaleHeroVehicle
+	ChildNames 	= [ TheHeroArmyFlag ]
+}

@@ -1,0 +1,1027 @@
+///-----------------------------西方船
+UnitType WesternBoat2
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 1.5
+		SizeY = 0.8
+		mass = 4
+		displayName = tx_utn_MaChuan_name
+		verboseTooltip = vtt_unit_MaChuan
+		popCount = 3
+		hitpoints = 3000
+	}
+	abilities = [
+		Attack { damage = 200; range = 13; reloadTime = 3; applyDamageTime = 0.5; missileName = "BoatCannonBall"; turretControllerName = GalleonTurret;areaDamageRadius = 2; }
+		LOS { range = 5 }
+		NavalMove {speed = 1.4; angSpeed = 30; accel = 1.0}
+	]
+	icon = icon_unit_MaChuan
+}
+// Size Upgrade
+UpgradeSize WesternBoat210Size
+{
+	unitType = WesternBoat2
+	sizeX = 3.0
+	SizeY = 0.5
+}
+UnitModel WesternBoat2_02
+{
+	parent		= BaseShip
+	DefaultModel 	= ladia3.nif
+	ForceScale = 0.12
+	States = [
+		{	StateName = Idle	AnimName = NWG1_Galley_idle.kf  }
+        	{ 	StateName = Walk	AnimName = NWG1_Galley_walk.kf	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }
+					   ] 
+				}
+		{ StateName= Death }
+			
+	]
+
+	ChildNames=[ WarGalleySail TheBoatWake2 ExplSelectorNaval Galley_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitModel WesternBoat2_04
+{
+	parent		= BaseShip
+	DefaultModel 	= vikingboat.nif
+	ForceScale = 0.11
+	States = [
+		{	StateName = Idle	AnimName = NWG1_Galley_idle.kf  }
+        	{ 	StateName = Walk	AnimName = NWG1_Galley_walk.kf	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }
+					   ] 
+				}
+		{ StateName= Death }
+			
+	]
+
+	ChildNames=[ WarGalleySail TheBoatWake2 ExplSelectorNaval Galley_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel WesternBoat2_06
+{
+	parent		= BaseShip
+	DefaultModel 	= Ruskaravel.nif
+	ForceScale = 0.12
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect CarrackSail TheBoatWake2 Carrack_FlyingParts ExplSelectorNaval ]
+}
+UnitModel WesternBoat2_08
+{
+	Parent		= FightingSail_08
+	DefaultModel 	= galeontrade.NIF
+	  ForceScale = 0.08
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames = [ TheTradePath TheBoatWake3 ShipOfTheLineSail TheCollapseEffect ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.05
+		zOffset = 1.37
+		scale = 1.66
+		angle = 47.37
+	}
+}
+UnitModel WesternBoat2_10
+{
+	parent		= BaseShip
+	DefaultModel 	= Apollo.NIF
+	ForceScale = 0.17
+	States = [
+		{ StateName = Idle }
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_boat_4 KeyTime = 0}]}
+		{ 	StateName = Death	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_tmp_boat_sink_01 KeyTime = 0}]}
+		{ StateName= Attack1		
+			TextKeys = [ 
+				{ Name = PLAY_SOUND Data = Tank_firing1 KeyTime=0.5 }  
+				] 
+		}	
+	]
+
+	ChildNames 	= [FX_Smoke_Chimney_Large FX_ExaustSmoke1 TheCollapseEffect Muzzle_Battleship ExplSelectorBattleship11 TheBoatWake6 Destroyer_FlyingParts ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.91
+		zOffset = 0.62
+		scale = 1.66
+		angle = 47.37
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType WesternBoat1
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 1.5
+		SizeY = 0.8
+		mass = 4
+		displayName = tx_utn_MaChuan_name
+		verboseTooltip = vtt_unit_MaChuan
+		popCount = 3
+		hitpoints = 3000
+	}
+	abilities = [
+		Attack { damage = 200; range = 13; reloadTime = 3; applyDamageTime = 0.5; missileName = "BoatCannonBall"; turretControllerName = GalleonTurret;areaDamageRadius = 2; }
+		LOS { range = 5 }
+		NavalMove {speed = 1.4; angSpeed = 30; accel = 1.0}
+	]
+	icon = icon_unit_MaChuan
+}
+//------------------------------------------------
+//	EPOCH 2
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities WesternBoat1Epoch4Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "FireBoulder"; turretControllerName = TankTurret; ignoreBlocking = 1; areaDamageRadius = 1.0;}
+	]
+}
+// Size Upgrade
+UpgradeSize WesternBoat110Size
+{
+	unitType = WesternBoat1
+	sizeX = 3.0
+	SizeY = 0.5
+}
+UnitModel WesternBoat1_03
+{
+	parent		= BaseShip
+	DefaultModel 	= kirenia.nif
+	ForceScale = 0.11
+	States = [
+		{	StateName = Idle	AnimName = NWG1_Galley_idle.kf  }
+        	{ 	StateName = Walk	AnimName = NWG1_Galley_walk.kf	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }
+					   ] 
+				}
+		{ StateName= Death }
+			
+	]
+
+	ChildNames=[ WarGalleySail TheBoatWake2 ExplSelectorNaval Galley_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitModel WesternBoat1_04
+{
+	parent		= BaseShip
+	DefaultModel 	= siegeship4.nif
+	ForceScale = 0.11
+	States 		= [
+		{	StateName = Idle	AnimName = nwg3_trireme_idle.KF 	}
+		{ StateName= Walk AnimName = nwg3_trireme_walk.KF		
+			TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = lha4_Catapult_attack01.kf
+				TextKeys = [
+							
+								{ Name = PLAY_SOUND Data = Trebuchet_firing1 KeyTime = 1.75 }
+								{ Name = SHOW_NODE Data = rock KeyTime = 0 }
+				] }
+
+		{ 	StateName = Death	AnimName = nwg3_trireme_death.KF	}
+		]
+	ChildNames=[WarGalleySail2 TheBoatWake3 ExplSelectorNaval TheCollapseEffect Trireme_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.22
+		zOffset = 0.79
+		scale = 1.66
+		angle = 47.37
+	}
+}
+UnitModel WesternBoat1_06
+{
+	parent		= BaseShip
+	DefaultModel 	= Rusxebek.nif
+	ForceScale = 0.12
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect CarrackSail TheBoatWake2 Carrack_FlyingParts ExplSelectorNaval ]
+}
+UnitModel WesternBoat1_08
+{
+	Parent			= BaseShip
+	DefaultModel 		= GenEnglishMan.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitModel WesternBoat1_10
+{
+	parent		= BaseShip
+	DefaultModel 	= Dupuydelome.NIF
+	ForceScale = 0.17
+	States = [
+		{ StateName = Idle }
+		{ 	StateName = Walk	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_boat_4 KeyTime = 0}]}
+		{ 	StateName = Death	
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_tmp_boat_sink_01 KeyTime = 0}]}
+		{ StateName= Attack1		
+			TextKeys = [ 
+				{ Name = PLAY_SOUND Data = Tank_firing1 KeyTime=0.5 }  
+				] 
+		}	
+	]
+	ChildNames 	= [FX_Smoke_Chimney_Large FX_ExaustSmoke1 TheCollapseEffect Muzzle_Battleship ExplSelectorBattleship11 TheBoatWake6 Destroyer_FlyingParts ]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.91
+		zOffset = 0.62
+		scale = 1.66
+		angle = 47.37
+	}
+DamageDecalsSetName = BuildingDamageDecals
+}
+UnitType germlinkor
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 0.75
+		mass = 4
+	displayName = tx_utn_germlinkor_name
+	verboseTooltip = vtt_unit_germlinkor
+	popCount = 3
+	hitpoints = 3600
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 260; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret; areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origShipOfTheLine
+}
+UnitModel germlinkor
+{
+	Parent			= BaseShip
+	DefaultModel 		= germlinkor.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheBoatWake3 TheCollapseEffect ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType germgaleon
+{
+	parent = NavalShallow
+	properties {
+		rps = FightingSail
+		SizeX = 2.0
+		SizeY = 0.75
+		mass = 4
+displayName = tx_utn_germgaleon_name
+verboseTooltip = vtt_unit_germgaleon
+hitpoints = 3400
+popCount = 3
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 230; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret; areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+icon = icon_unit_origGalleon
+}
+UnitModel germgaleon
+{
+	Parent			= BaseShip
+	DefaultModel 		= germgaleon.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheBoatWake3 TheCollapseEffect ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType HMSVictory
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 4
+		popCount = 3
+		hitpoints = 3600
+		displayName = tx_utn_HMSVictory_name
+		verboseTooltip = vtt_unit_HMSVictory
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 260; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret; areaDamageRadius = 2; throwUnits = true}
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+		]
+		icon = icon_unit_origlikor2
+}
+
+
+
+UnitModel HMSVictory
+{
+	Parent			= BaseShip
+	DefaultModel 		= HMSVictory.nif
+	ForceScale = 0.145
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType LinkorEng
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 4
+		displayName = tx_utn_LinkorEng_name
+		verboseTooltip = vtt_unit_LinkorEng
+		hitpoints = 3400
+		popCount = 3
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 230; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret;  areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origShipOfTheLine
+}
+UnitModel LinkorEng
+{
+	Parent			= BaseShip
+	DefaultModel 		= LinkorEng.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType Itallinkor
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 4
+		popCount = 3
+		hitpoints = 3600
+		displayName = tx_utn_Itallinkor_name
+		verboseTooltip = vtt_unit_Itallinkor
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 260; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret;  areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origShipOfTheLine
+}
+UnitModel Itallinkor
+{
+	Parent			= BaseShip
+	DefaultModel 		= Itallinkor.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType Galleon_91
+{
+	parent = NavalShallow
+	properties {
+		rps = FightingSail
+		SizeX = 2.0
+		SizeY = 1.75
+		mass = 1
+        hitpoints = 3400
+		popCount = 3
+	displayName = tx_utn_Galleon_91_name
+	verboseTooltip = vtt_unit_Galleon_91	
+	}
+	
+      sounds = {
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 230; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret;  areaDamageRadius = 2; throwUnits = true}
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origGalleon
+}
+UnitModel Galleon_91
+{
+	Parent			= FightingSail_08
+	DefaultModel 		= galeon.nif
+	ForceScale = 0.1
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheBoatWake3 TheCollapseEffect ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType SpainwargALeon
+{
+	parent = NavalShallow
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 4
+		popCount = 3
+		hitpoints = 3600
+		displayName = tx_utn_SpainwargALeon_name
+		verboseTooltip = vtt_unit_SpainwargALeon
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 260; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret;  areaDamageRadius = 2; throwUnits = true}
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origShipOfTheLine
+}
+UnitModel SpainwargALeon
+{
+	Parent			= BaseShip
+	DefaultModel 		= SpainwargALeon.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType origFrigate
+{
+	parent = NavalShallow
+	properties {
+		rps = Frigate
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 1
+		displayName = tx_utn_origFrigate_name
+		verboseTooltip = vtt_unit_origFrigate
+		hitpoints = 3400
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 230; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret;  areaDamageRadius = 2; throwUnits = true}
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origGalleon
+}
+UnitModel origFrigate
+{
+	parent		= BaseShip
+	DefaultModel 	= NF10_Frigate.nif
+	ForceScale = 0.13
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 	= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 FrigateSail ExplSelectorNaval Frigate_FlyingParts ]
+}
+UnitType Greclin
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 4
+		popCount = 3
+		hitpoints = 3600
+		displayName = tx_utn_Greclin_name
+		verboseTooltip = vtt_unit_Greclin
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 260; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret;  areaDamageRadius = 2; throwUnits = true}
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origShipOfTheLine
+}
+UnitModel Greclin
+{
+	Parent			= BaseShip
+	DefaultModel 		= Greclin.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType origGalleon
+{
+	parent = NavalShallow
+	properties {
+		rps = Galleon
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 1
+		displayName = tx_utn_origGalleon_name
+		verboseTooltip = vtt_unit_origGalleon
+		hitpoints = 3400
+		popCount = 3
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 230; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret; areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origGalleon
+}
+UnitModel origGalleon
+{
+	parent		= BaseShip
+	DefaultModel 	= NG10_Galleon.nif
+	ForceScale = 0.08
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect galleonSail TheBoatWake2 Galleon_FlyingParts ExplSelectorNaval ]
+}
+UnitType Franlin
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 4
+		displayName = tx_utn_Franlin_name
+		verboseTooltip = vtt_unit_Franlin
+		popCount = 3
+		hitpoints = 3600
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 260; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret;  areaDamageRadius = 2; throwUnits = true}
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origShipOfTheLine
+}
+UnitModel Franlin
+{
+	Parent			= BaseShip
+	DefaultModel 		= Franlin.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType Frangaleon
+{
+	parent = NavalShallow
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 4
+		displayName = tx_utn_Frangaleon_name
+		verboseTooltip = vtt_unit_Frangaleon
+		hitpoints = 3400
+		popCount = 3
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 230; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret; areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origGalleon
+}
+UnitModel Frangaleon
+{
+	Parent			= BaseShip
+	DefaultModel 		= Frangaleon.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType Ruslinkor
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 4
+		displayName = tx_utn_Ruslinkor_name
+		verboseTooltip = vtt_unit_Ruslinkor
+		popCount = 3
+		hitpoints = 3600
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 260; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret; areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origShipOfTheLine
+}
+UnitModel Ruslinkor
+{
+	Parent			= BaseShip
+	DefaultModel 		= Ruslinkor.nif
+	ForceScale = 0.18
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+UnitType Rusgaleon
+{
+	parent = NavalShallow
+	properties {
+		rps = FightingSail
+		SizeX = 2.5
+		SizeY = 1.75
+		mass = 4
+		hitpoints = 3400
+		popCount = 3
+		displayName = tx_utn_Rusgaleon_name
+		verboseTooltip = vtt_unit_Rusgaleon
+	}
+	abilities = [
+		Attack { range = 13; reloadTime = 3; applyDamageTime = 0.5; damage = 230; missileName = "BoatCannonBall"; turretControllerName = ShipOfTheLineTurret; areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 8 }
+		NavalMove {speed = 1.4; angSpeed = 50; accel = 1.0}
+	]
+	icon = icon_unit_origGalleon
+}
+UnitModel Rusgaleon
+{
+	Parent			= BaseShip
+	DefaultModel 		= Rusgaleon.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+///-----------------------------非洲船
+UnitType AfricanBoat
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 1.5
+		SizeY = 0.8
+		mass = 4
+		displayName = tx_utn_MaChuan_name
+		verboseTooltip = vtt_unit_MaChuan
+		popCount = 3
+		hitpoints = 3000
+	}
+	abilities = [
+		Attack { damage = 200; range = 13; reloadTime = 3; applyDamageTime = 0.5; missileName = "BoatCannonBall"; turretControllerName = GalleonTurret;areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 5 }
+		NavalMove {speed = 1.4; angSpeed = 30; accel = 1.0}
+	]
+	icon = icon_unit_MaChuan
+}
+
+UnitModel AfricanBoat_02
+{
+	parent		= BaseShip
+	DefaultModel 	= AfricanBoat2.nif
+	ForceScale = 0.11
+	States = [
+		{	StateName = Idle	AnimName = NWG1_Galley_idle.kf  }
+        	{ 	StateName = Walk	AnimName = NWG1_Galley_walk.kf	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }
+					   ] 
+				}
+		{ StateName= Death }
+			
+	]
+
+	ChildNames=[ WarGalleySail TheBoatWake2 ExplSelectorNaval Galley_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitModel AfricanBoat_04
+{
+	parent		= BaseShip
+	DefaultModel 	= tradeMK.nif
+	ForceScale = 0.12
+	States = [
+		{	StateName = Idle	AnimName = NWG1_Galley_idle.kf  }
+        	{ 	StateName = Walk	AnimName = NWG1_Galley_walk.kf	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }
+					   ] 
+				}
+		{ StateName= Death }
+			
+	]
+
+	ChildNames=[ WarGalleySail TheBoatWake2 ExplSelectorNaval Galley_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel AfricanBoat_06
+{
+	parent		= BaseShip
+	DefaultModel 	= mesogalleon.nif
+	ForceScale = 0.1
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect CarrackSail TheBoatWake2 Carrack_FlyingParts ExplSelectorNaval ]
+}
+UnitModel AfricanBoat_08
+{
+	Parent		= FightingSail_08
+	DefaultModel 	= mesosotl.NIF
+	  ForceScale = 0.1
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames = [ TheTradePath TheBoatWake3 ShipOfTheLineSail TheCollapseEffect ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.05
+		zOffset = 1.37
+		scale = 1.66
+		angle = 47.37
+	}
+}
+///////////////////////////////////////////////美洲船
+UnitType MesoAmerBoat
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 1.5
+		SizeY = 0.8
+		mass = 4
+		displayName = tx_utn_MaChuan_name
+		verboseTooltip = vtt_unit_MaChuan
+		popCount = 3
+		hitpoints = 3000
+	}
+	abilities = [
+		Attack { damage = 200; range = 13; reloadTime = 3; applyDamageTime = 0.5; missileName = "BoatCannonBall"; turretControllerName = GalleonTurret; areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 5 }
+		NavalMove {speed = 1.4; angSpeed = 30; accel = 1.0}
+	]
+	icon = icon_unit_MaChuan
+}
+
+UnitModel MesoAmerBoat_02
+{
+	parent		= BaseShip
+	DefaultModel 	= MesoAmerBoat2.nif
+	ForceScale = 0.11
+	States = [
+		{	StateName = Idle	AnimName = NWG1_Galley_idle.kf  }
+        	{ 	StateName = Walk	AnimName = NWG1_Galley_walk.kf	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }
+					   ] 
+				}
+		{ StateName= Death }
+			
+	]
+
+	ChildNames=[ WarGalleySail TheBoatWake2 ExplSelectorNaval Galley_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitModel MesoAmerBoat_04
+{
+	parent		= BaseShip
+	DefaultModel 	= MesoAmerBoat4.nif
+	ForceScale = 0.115
+	States = [
+		{	StateName = Idle	AnimName = NWG1_Galley_idle.kf  }
+        	{ 	StateName = Walk	AnimName = NWG1_Galley_walk.kf	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }
+					   ] 
+				}
+		{ StateName= Death }
+			
+	]
+	ChildNames=[ WarGalleySail TheBoatWake2 ExplSelectorNaval Galley_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel MesoAmerBoat_06
+{
+	parent		= BaseShip
+	DefaultModel 	= mesogalleon.nif
+	ForceScale = 0.1
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect CarrackSail TheBoatWake2 Carrack_FlyingParts ExplSelectorNaval ]
+}
+UnitModel MesoAmerBoat_08
+{
+	Parent			= BaseShip
+	DefaultModel 		= mesosotl.nif
+	ForceScale = 0.1
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}
+///////////////////////////////////////////////美洲船
+UnitType MiddleEastBoat
+{
+	parent = NavalDeep
+	properties {
+		rps = FightingSail
+		SizeX = 1.5
+		SizeY = 0.8
+		mass = 4
+		displayName = tx_utn_MaChuan_name
+		verboseTooltip = vtt_unit_MaChuan
+		popCount = 3
+		hitpoints = 3000
+	}
+	abilities = [
+		Attack { damage = 200; range = 13; reloadTime = 3; applyDamageTime = 0.5; missileName = "BoatCannonBall"; turretControllerName = GalleonTurret; areaDamageRadius = 2; throwUnits = true }
+		LOS { range = 5 }
+		NavalMove {speed = 1.4; angSpeed = 30; accel = 1.0}
+	]
+	icon = icon_unit_MaChuan
+}
+
+UnitModel MiddleEastBoat_02
+{
+	parent		= BaseShip
+	DefaultModel 	= AfricanBoat4.nif
+	ForceScale = 0.11
+	States = [
+		{	StateName = Idle	AnimName = NWG1_Galley_idle.kf  }
+        	{ 	StateName = Walk	AnimName = NWG1_Galley_walk.kf	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }
+					   ] 
+				}
+		{ StateName= Death }
+			
+	]
+
+	ChildNames=[ WarGalleySail TheBoatWake2 ExplSelectorNaval Galley_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+UnitModel MiddleEastBoat_04
+{
+	parent		= BaseShip
+	DefaultModel 	= MiddleEastBoat04.nif
+	ForceScale = 0.11
+	States = [
+		{	StateName = Idle	AnimName = NG6_Galleas_idle.kf  	}
+
+        	{ 	StateName = Walk	AnimName = NG6_Galleas_walk.kf	}
+				{ StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = fx_bow_shoot  }
+					   ] 
+				}
+			
+	]
+
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship GalleassSail TheBoatWake5 Galleas_FlyingParts ExplSelectorNaval ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel MiddleEastBoat_06
+{
+	parent		= BaseShip
+	DefaultModel 	= MiddleEastBoat06.nif
+	ForceScale = 0.14
+	States = [
+		{	StateName = Idle	AnimName = NG6_Galleas_idle.kf  	}
+
+        	{ 	StateName = Walk	AnimName = NG6_Galleas_walk.kf	}
+				{ StateName= Attack1		
+				TextKeys = [ 
+					     { Name = PLAY_SOUND Data = Tank_firing1  }
+					   ] 
+				}
+			
+	]
+
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship GalleassSail TheBoatWake5 Galleas_FlyingParts ExplSelectorNaval ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+UnitModel MiddleEastBoat_08
+{
+	Parent			= BaseShip
+	DefaultModel 		= MiddleEastBoat08.nif
+	ForceScale = 0.14
+	DefaultState	= Idle
+	States = [
+		{ StateName = Idle	}
+		{ StateName= Attack1	TextKeys = [{ Name = PLAY_SOUND Data = Tank_firing1 }] }
+	
+	]
+	ChildNames 		= [ TheMuzzleSmokeEffectWarship TheCollapseEffect TheBoatWake3 ShipOfTheLineSail ExplSelectorNaval ShipOfTheLine_FlyingParts ]
+}

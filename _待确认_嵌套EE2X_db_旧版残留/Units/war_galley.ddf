@@ -1,0 +1,238 @@
+//------------------------------------------------------------------------------------------------
+//	WAR GALLEY - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType WarGalley
+{
+	parent = NavalShallow
+	properties {
+		rps = WarGalley
+		SizeX = 1.4
+		SizeY = 0.55
+		mass = 2
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { range = 5; reloadTime = 2; applyDamageTime = 0.5; damage = 5; missileName = "Arrow" }
+		Garrison { 
+			garrisonType = NavalTransport; 
+			numOfSlots = 9;
+			GarrisonFlagModelName = "GarrisonShip"
+			}
+		LOS { range = 0 }
+		NavalMove {speed = 1.4; angSpeed = 90; accel = 1.0}
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities WarGalleyEpoch1Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "BallistaAmmo" }
+	]
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove WarGalleyEpoch1Veteran
+{
+	unitType = WarGalley
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		WarGalley_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove WarGalleyEpoch1Elite
+{
+	unitType = WarGalley
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		WarGalley_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities WarGalleyEpoch3Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "BallistaAmmo" }
+	]
+}
+
+UpgradeAbilities WarGalleyEpoch3Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = NavalTransport; 
+			numOfSlots = 12;
+			GarrisonFlagModelName = "GarrisonShip"
+			}
+	]
+}
+
+// Size Upgrade
+UpgradeSize WarGalleyEpoch3Size
+{
+	unitType = WarGalley
+	sizeX = 1.5
+	SizeY = 0.55
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove WarGalleyEpoch3Veteran
+{
+	unitType = WarGalley
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		WarGalley_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove WarGalleyEpoch3Elite
+{
+	unitType = WarGalley
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		WarGalley_Improve_Default
+	]
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+// Attack Ability Upgrade
+UpgradeAbilities WarGalleyEpoch5Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; missileName = "BallistaAmmo" }
+	]
+}
+
+UpgradeAbilities WarGalleyEpoch5Garrison
+{
+	upgradedAbilities = [
+		Garrison { 
+			garrisonType = NavalTransport; 
+			numOfSlots = 15;
+			GarrisonFlagModelName = "GarrisonShip"
+			}
+	]
+}
+
+// Size Upgrade
+UpgradeSize WarGalleyEpoch5Size
+{
+	unitType = WarGalley
+	sizeX = 1.6
+	SizeY = 0.7
+}
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove WarGalleyEpoch5Veteran
+{
+	unitType = WarGalley
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		WarGalley_Improve_Default
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove WarGalleyEpoch5Elite
+{
+	unitType = WarGalley
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		WarGalley_Improve_Default
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	WAR GALLEY - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 1
+//------------------------------------------------
+UnitModel WarGalley_01
+{
+	parent		= BaseShip
+	DefaultModel 	= nwg1_galley.nif
+States = [
+		{	StateName = Idle	AnimName = NWG1_Galley_idle.kf  }
+        	{ 	StateName = Walk	AnimName = NWG1_Galley_walk.kf	
+				TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName= Attack1		
+				TextKeys = [ 
+//					     { Name = ATTACH_VISUAL	Data = ArrowStates }
+					     { Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }
+					   ] 
+				}
+		{ StateName= Death }
+			
+	]
+
+	ChildNames=[ WarGalleySail TheBoatWake2 ExplSelectorNaval Galley_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+}
+
+//------------------------------------------------
+//	EPOCH 3
+//------------------------------------------------
+UnitModel WarGalley_03
+{
+	parent		= BaseShip
+	DefaultModel 	= NWG3_trireme.nif
+
+	States 		= [
+		{	StateName = Idle	AnimName = nwg3_trireme_idle.KF 	}
+		{ StateName= Walk AnimName = nwg3_trireme_walk.KF		
+			TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = nwg3_trireme_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }]}
+		{ 	StateName = Death	AnimName = nwg3_trireme_death.KF	}
+		]
+	ChildNames=[WarGalleySail2 TheBoatWake3 ExplSelectorNaval Trireme_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.22
+		zOffset = 0.79
+		scale = 1.66
+		angle = 47.37
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 5
+//------------------------------------------------
+UnitModel WarGalley_05
+{
+	parent		= BaseShip
+	DefaultModel 	= NWG5_decareme.nif
+
+	States 		= [
+		{	StateName = Idle	AnimName = nwg5_decareme_idle.KF	}
+		{ StateName= Walk AnimName = nwg5_decareme_walk.KF		
+			TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data =  fx_move_boat_2 KeyTime = 0}]}
+		{ 	StateName = Attack1	AnimName = nwg5_decareme_attack.KF
+               			TextKeys = [{ Name = PLAY_SOUND Data = fx_bow_shoot KeyTime = 0.5 }]}
+		{ 	StateName = Death	AnimName = nwg5_decareme_death.KF	}
+		]
+	ChildNames=[WarGalleySail3 TheBoatWake3 ExplSelectorNaval Decareme_FlyingParts ]
+	DamageDecalsSetName = BuildingDamageDecals
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = 2.38
+		zOffset = 0.43
+		scale = 1.66
+		angle = 47.37
+	}
+}

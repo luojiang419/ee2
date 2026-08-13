@@ -1,0 +1,447 @@
+﻿// NAME,TEXT
+// PIP,
+tx_ig_pip_disabled,"""子母画面\n关闭"""
+
+// Tech Tree,
+tx_ig_techtree_title,"""科技树"""
+
+// Unit picker,
+tx_ig_unitpick_text,"""<Some Unit>"""
+
+// Screenshot,
+tx_ig_screenshot_text,"""撷取图片"""
+
+// game is paused
+tx_ig_gameIsPaused,"""游戏已暂停"""
+
+// traderoute cursor
+tx_ig_traderoute_home,"""主领地"""
+tx_ig_traderoute_dest,"""目的地"""
+
+// techtree headers,
+tx_ig_techtree_military,"""军事"""
+tx_ig_techtree_economic,"""经济"""
+tx_ig_techtree_imperial,"""帝国主义"""
+
+// crown score
+tx_ig_crownscore,"""分数：%SCORE%"""
+
+// Chat dialog,
+tx_ig_chat_title,"""交谈"""
+tx_ig_chat_allies,"""盟国"""
+tx_ig_chat_enemies,"""敌国"""
+tx_ig_chat_all,"""全部"""
+tx_ig_chat_team,"""队伍"""
+tx_ig_chat_custom,"""自订"""
+tx_ig_chat_observers,"""所有观战者"""
+tx_ig_chat_history_title,"""交谈纪录"""
+
+// Pause panel,
+tx_ig_pause_title,"""暂停面板"""
+tx_ig_pause_return,"""继续游戏"""
+tx_ig_pause_savegame,"""储存游戏"""
+
+tx_ig_pause_recordgamestart,"""记录游戏"""
+tx_ig_pause_recordgamestop,"""停止记录"""
+
+tx_ig_bookmark_title,"""制作有名称的标记"""
+tx_ig_bookmark_go,"""制作标记"""
+tx_ig_bookmark_untitled,"""（未命名）"""
+tx_ig_bookmark_def,"""标记#%NUMBER% - %TIMESTAMP%"""
+
+tx_ig_pause_restart,"""重新开始游戏"""
+tx_ig_pause_restartScenario,"""重新开始剧本"""
+tx_ig_pause_resign,"""放弃"""
+tx_ig_pause_loadgame,"""载入游戏"""
+tx_ig_pause_settings,"""设定"""
+tx_ig_pause_quit,"""离开游戏"""
+tx_ig_pause_quitScenario,"""离开剧本"""
+tx_ig_pause_quitDesktop,"""回到桌面"""
+tx_ig_pause_continue,"""继续"""
+tx_ig_pause_returnEditor,"""回到编辑器"""
+
+// Endgame panel,
+tx_ig_endgame_youwon,"""你赢了"""
+tx_ig_endgame_youlost,"""你输了"""
+tx_ig_endgame_examinemap,"""查看地图"""
+tx_ig_endgame_replay,"""重新开始"""
+tx_ig_endgame_continue,"""继续"""
+
+// Diplomacy panel,
+tx_ig_diplo_title,"""外交"""
+tx_ig_diplo_diplomacy,"""外交"""
+tx_ig_diplo_tribres,"""资源"""
+tx_ig_diplo_tribunit,"""单位"""
+tx_ig_diplo_tribterr,"""地区"""
+tx_ig_diplo_sendtribute,"""送出"""
+tx_ig_diplo_clear,"""清除"""
+tx_ig_diplo_close,"""关闭"""
+tx_ig_diplo_playername,"""玩家"""
+tx_ig_diplo_civilization,"""文明"""
+tx_ig_diplo_yourstance,"""你的行为模式"""
+tx_ig_diplo_hisstance,"""他的状态"""
+tx_ig_diplo_team,"""队伍"""
+tx_ig_diplo_player_name,"""<player_name>"""
+tx_ig_diplo_player_civ,"""<player_civ>"""
+tx_ig_diplo_towards,"""<towards>"""
+tx_ig_diplo_from,"""<from>"""
+tx_ig_diplo_alliance_op,"""<alliance_op>"""
+tx_ig_diplo_neutrality,"""中立"""
+tx_ig_diplo_declarewar,"""宣战"""
+tx_ig_diplo_demand,"""要求"""
+tx_ig_diplo_offer,"""提出"""
+tx_ig_diplo_receive,"""你获得"""
+tx_ig_diplo_give,"""你赠予"""
+tx_ig_diplo_header_to,"""给%s"""
+tx_ig_diplo_header_from,"""从%s"""
+tx_ig_diplo_header_fromto,"""%FROM%与%TO%"""
+tx_ig_diplo_tribunit_cursel,"""目前的选择"""
+tx_ig_diplo_tribunit_select,"""选择"""
+tx_ig_diplo_tribunit_clear,"""清除"""
+tx_ig_diplo_totalWithTax,"""总数(贡品税%PERCENT%\\\\%)："""
+tx_ig_diplo_tax,"""现在的贡品税金：%PERCENT%\\\\%"""
+tx_ig_diplo_stockPile,"""目前蕴藏量："""
+
+// DIPLOMACY TOOLTIPS
+tt_ig_diplo_status,"""此玩家对你表示%STATUS%。"""
+// items that replace tx_ig_diplo_status %STATUS%
+tt_ig_diplo_status_war,"""交战对象"""
+tt_ig_diplo_status_neutral,"""中立对象"""
+tt_ig_diplo_status_allied,"""结盟对象"""
+
+tt_ig_diplo_diplomacy_tab,"""外交选项"""
+tt_ig_diplo_resource_tab,"""贡献资源"""
+tt_ig_diplo_unit_tab,"""贡献单位"""
+tt_ig_diplo_territory_tab,"""贡献地区"""
+tt_ig_diplo_close,"""关闭此面板"""
+tt_ig_diplo_select_units,"""按下此钮可选择要贡献的单位"""
+tt_ig_diplo_cursel_units,"""点选此按钮来将你现在选择的单位加入贡品中"""
+tt_ig_diplo_clear_units,"""按下此钮可移除掉所有选择为要贡献的单位"""
+tt_ig_diplo_send_tribute,"""按下此钮可移除掉所有选择为要贡献的资源、单位以及地区"""
+tt_ig_diplo_clear_tribute,"""按下此钮可清除所有贡品"""
+tt_ig_diplo_territory_trib,"""要选择一个地区做为贡品时，请在它上面按下鼠标左键。要取消时，请按下鼠标右键。"""
+
+// Alliance proposal,
+tx_ig_allprop_tribute_hdr,"贡品"
+tx_ig_allprop_tab_terms,"条款"
+tx_ig_allprop_tab_res,"资源"
+tx_ig_allprop_tab_unit,"单位"
+tx_ig_allprop_tab_terr,"地区"
+tx_ig_allprop_duration,"""持续时间："""
+tx_ig_allprop_timeRemaining,"""剩余时间：%TIME%"""
+tx_ig_allprop_lossharing,"""分享视野范围："""
+tx_ig_allprop_borderpermissions,"""边界许可："""
+tx_ig_allprop_resourcerights,"""资源关税："""
+tx_ig_allprop_tribute,"""贡品"""
+tx_ig_allprop_cancel,"""取消"""
+tx_ig_allprop_send,"""送出"""
+tx_ig_allprop_reject,"""拒绝"""
+tx_ig_allprop_reset,"""重设"""
+tx_ig_allprop_givedemand,"""<give/demand>"""
+tx_ig_allprop_accept,"""接受"""
+tx_ig_allprop_counterprop,"""修改"""
+tx_ig_allprop_ok,"""同意"""
+tx_ig_allprop_tax_lbl,"""总成本"""
+tx_ig_allprop_currRes_lbl,"""资源数量"""
+
+// ALLIANCE PROPOSAL TOOLTIPS
+tt_ig_allprop_dur_UntilWar,"""直至发生战争：\n这个盟约将会持续直到其中一位玩家进行宣战动作。"""
+tt_ig_allprop_dur_Timed,"""时间：\n盟约将会持续一定的分钟数，或是直到其中一位玩家进行宣战动作。如果无法撕毁的盟约选项有开启的话，那么盟约在持续时间内将无法被撕毁。"""
+tt_ig_allprop_los_Full,"""全部：\n每一个玩家可以看到从他们的盟国所拥有的所有单位和建筑物的视野范围。"""
+tt_ig_allprop_los_Buildings,"""建筑物：\n每一个玩家可以看到从他们的盟国所拥有的所有建筑物的视野范围。"""
+tt_ig_allprop_los_MobileUnits,"""机动单位：\n每一个玩家可以看到从他们的盟国所拥有的所有机动单位的视野范围。"""
+tt_ig_allprop_los_None,"""全部禁止：\n不将视野范围跟同盟分享。"""
+tt_ig_allprop_bord_Full,"""全部：\n你的同盟所拥有的任何单位可以无限制的进入你的领地。"""
+tt_ig_allprop_bord_Civilian,"""人民：\n只有你的同盟的人民可以进入你的领地。"""
+tt_ig_allprop_bord_Trade,"""贸易：\n只有你的同盟的贸易单位可以进入你的领地。"""
+tt_ig_allprop_bord_None,"""全部禁止：\n你的同盟的任何单位皆无法进入你的领地。"""
+tt_ig_allprop_tarriff,"""资源关税：\n如果你的同盟的人民允许进入你的领地的话，这个设定将会决定他们将需要为他们在你的领地内采集的资源支付税金。当资源卸货的时候，这个关税将会被支付。"""
+tt_ig_allprop_restrib_costT,"""这些被选择要作为贡品的资源数量总成本"""
+tt_ig_allprop_restrib_cost,"""被选择要作为贡品的%RESOURCE%数量成本，包含贡品税"""
+tt_ig_allprop_restrib_availT,"""可以花费的资源数量"""
+tt_ig_allprop_restrib_avail,"""现有的%RESOURCE%蕴藏量"""
+tt_ig_allprop_restrib_clear,"""清除所有被选为贡品的资源"""
+tt_ig_allprop_unit_clearF,"""清除要贡献给你的单位"""
+tt_ig_allprop_unit_clearT,"""清除你想要当做贡品的单位"""
+tt_ig_allprop_unit_select,"""选择要当做贡品的单位"""
+
+tx_ig_allprop_terrtrib,"""左键点选一个地区来当做贡品，右键点选则是取消选取地区。"""
+
+
+// Ceasefire proposal
+tx_ig_cf_title,"""停火"""
+tx_ig_cf_duration,"""持续时间"""
+tx_ig_cf_propose,"""提议"""
+tx_ig_cf_accept,"""接受"""
+tx_ig_cf_reject,"""拒绝"""
+tx_ig_cf_durlabel,"""持续时间：%.2f"""
+
+// Scenario information,
+tx_ig_sceninfo_title,"""剧本信息"""
+tx_ig_sceninfo_briefing,"""简报"""
+tx_ig_sceninfo_history,"""历史"""
+tx_ig_sceninfo_hints,"""提示"""
+tx_ig_sceninfo_heroes,"""英雄"""
+tx_ig_sceninfo_reinf,"""援军"""
+tx_ig_sceninfo_close,"""关闭"""
+tx_ig_sceninfo_objects,"""目标"""
+
+// Reinforcements
+tx_ig_reinf_available,"""可用援军 - Choose %d"""
+
+// scenario objective dialog
+tx_ig_scenobj_title,"""剧本更新！"""
+tx_ig_scenobj_gotoLoc,"""目标位置"""
+tx_ig_scenobj_gotoMap,"""全地图目标"""
+
+// Crown power selection,
+tx_ig_crownsel_title,"""桂冠能力选择"""
+tx_ig_crownsel_accept,"""接受"""
+tx_ig_crownsel_cancel,"""取消"""
+
+// Crowns status,
+tx_ig_crownstatus_title,"""桂冠面板"""
+tx_ig_crown_timeremaining,"""剩余时间：%.2f\n"""
+tx_ig_crown_placement,"""%PLACE%/%TOTAL%"""
+
+// Player selection dialog
+tx_ig_playerchoose_title,"""选择一位玩家"""
+tx_ig_playerchoose_noplayers,"""没有适合的目标玩家。"""
+
+// Input dialog,
+tx_ig_input_ok,"""同意"""
+tx_ig_input_cancel,"""取消"""
+
+// Fullmap options,
+tx_ig_fullmapopt_units,"""单位"""
+tx_ig_fullmapopt_buildings,"""建筑物与城墙"""
+tx_ig_fullmapopt_roads,"""道路与桥梁"""
+tx_ig_fullmapopt_resources,"""资源与树木"""
+tx_ig_fullmapopt_worldobjs,"""世界目标"""
+tx_ig_fullmapopt_battles,"""会战"""
+tx_ig_fullmapopt_territories,"""地区"""
+tx_ig_fullmapopt_cityNames,"""城市名称"""
+tx_ig_fullmapopt_terrNames,"""地区名称"""
+
+// Citizen manager,
+tx_ig_fullmapcit_idle,"""闲置"""
+tx_ig_fullmapcit_gather,"""采集中："""
+tx_ig_fullmapcit_amount,"""数量："""
+tx_ig_fullmapcit_numgathering,"""%COUNT%/%MAX%"""
+tx_ig_fullmapcit_build,"""建造："""
+
+// Warplans,
+tx_ig_warplans_create,"""建立"""
+tx_ig_warplans_clear,"""清除"""
+tx_ig_warplans_send,"""送出…"""
+tx_ig_warplans_send_allies,"""送给同盟"""
+tx_ig_warplans_untitled,"""未命名"""
+tx_ig_warplans_sendwarplan,"""送出作战计划"""
+tx_ig_warplans_sendcaps,"""送出"""
+tx_ig_warplans_cancel,"""取消"""
+tx_ig_warplans_allies,"""盟国"""
+tx_ig_warplans_enemies,"""敌国"""
+tx_ig_warplans_all,"""全部"""
+
+// for the history picker:
+tx_ig_warplans_plansent,"""计划于%TIME%时送出"""
+tx_ig_warplans_planreceived,"""计划于%TIME%时收到"""
+
+// for warplan titles
+tx_ig_warplans_title_new,"""新的作战计划"""
+tx_ig_warplans_title_sent,"""在%TIME%时送出作战计划"""
+tx_ig_warplans_title_received,"""在%TIME%时收到%PLAYER%送来的作战计划"""
+
+// for recipients status printout
+tx_ig_warplans_status,"""收件人：\n%RECIPIENTS%"""
+tx_ig_warplans_recipient,"""%PLAYER% (%STATUS%) """
+
+// fullmap objectives
+tx_ig_objectives_primary,"""<color blue>主要目标："""
+tx_ig_objectives_secondary,"""<colorRGB 0 80 30>次要目标："""
+tx_ig_objectives_lose,"""<color red>失败条件："""
+tx_ig_objectives_info,"""信息"""
+
+tx_ig_tech_military,"""军事科技"""
+tx_ig_tech_economic,"""经济科技"""
+tx_ig_tech_cultural,"""文化科技"""
+tx_ig_tech_imperial,"""帝国科技"""
+
+tx_ig_dip_prop_cancel,"""取消提案"""
+tx_ig_dip_prop_review,"""查看提案"""
+tx_ig_dip_prop_view,"""查看目前盟国"""
+tx_ig_dip_prop_propose,"""提议结盟"""
+tx_ig_dip_cf_review,"""查看停火提案"""
+tx_ig_dip_cf_propose,"""停火提案"""
+tx_ig_dip_neutral,"""你对此玩家表示中立。"""
+tx_ig_dip_hostile,"""你和此玩家正交战中。"""
+
+// frame rate
+tx_ig_framerate,"""每秒格数：%.1f"""
+
+// victory status
+tx_ig_victorystatus,"""%PLAYER%"""
+tx_ig_victorystatus_team,"""%PLAYER%(队伍：%TEAM%)"""
+tx_ig_crownprogress_number,"""桂冠进度：%PLAYERCROWNS%/%TOTALCROWNS%"""
+tx_ig_crownprogress_time,"""桂冠进度：%POSTIME%秒/%REQTIME%秒"""
+tx_ig_terrcontrol_status,"""控制：%TOTAL%个地区中的%PLAYERCOUNT%个地区，（还需要%REMAINING%个地区以获得胜利）"""
+tx_ig_terrcontrolteam_status, """控制：%TOTAL%个地区中的%PLAYERCOUNT%个地区（+队友所控制的%TEAMMATECOUNT%个地区），（还需要%REMAINING%个地区以获得胜利）"""
+tx_ig_koth_status,"""山丘之王：%PLAYER%倒数计时：%REMAININGTIME%"""
+
+// Unit Info
+
+// unitinfo techtree mode text
+tx_unitinfo_tech_req,"""需要："""
+tx_unitinfo_tech_researched,"""(研发完成)"""
+
+// generic amount/bonus format strings
+tx_unitinfo_amount,"""%AMOUNT%"""
+tx_unitinfo_amount_mod,"""%AMOUNT%(%MODIFIER%)"""
+tx_unitinfo_amount_infinite,"""无限"""
+tx_unitinfo_curMax,"""%CURRENT%/%MAX%"""
+tx_unitinfo_curMax_mod,"""%CURRENT%/%MAX%(%MODIFIER%)"""
+tx_unitinfo_pct,"""%PERCENT%\\\\%"""
+
+tx_unitinfo_trade_import,"""货物：%CARGO%"""
+tx_unitinfo_trade_export,"""货物：%CARGO%"""
+tx_unitinfo_garrison,"""%CURRENT%/%MAX%"""
+tx_unitinfo_weather_current,"""目前"""
+tx_unitinfo_weather_next,"""下一个"""
+tx_unitinfo_weather_next_timed,"""下一个(%TIME%)"""
+tx_unitinfo_name_otherPlayer,"""(<dropColor Black>%PLAYER%<dropOff>)"""
+
+tx_unitinfo_terr_needToClaim,"""需要占领：<indent 16 16>"""
+tx_unitinfo_terr_needToClaimEnd,"""</indent>"""
+tx_unitinfo_terr_unitName,"""%UNITS%："""
+tx_unitinfo_terr_unitCount,"""%CUR%/%MAX%"""
+
+// unitinfo animated crown tooltips
+tx_unitinfo_crownpow_military,"""军事桂冠效果："""
+tx_unitinfo_crownpow_economic,"""经济桂冠效果："""
+tx_unitinfo_crownpow_imperial,"""帝国桂冠效果："""
+
+tx_ig_unit_dead,""" (死亡) """
+tx_ig_unit_capitol,""" (国会) \n"""
+tx_ig_unit_resource,"""资源种类：%RESOURCE%\n数量：%AMOUNT%\n"""
+tx_ig_unit_attack_unmod,"""攻击：%d\n"""
+tx_ig_unit_attack_mod,"""攻击：%DAMAGE%(%PLUS%%MODIFIER%) \n"""
+tx_ig_unit_range_unmod,"""范围：%d\n"""
+tx_ig_unit_range_mod,"""范围：%RANGE%(%PLUS%%MODIFIER%) \n"""
+tx_ig_unit_speed_unmod,"""速度：%3.1f\n"""
+tx_ig_unit_speed_mod,"""速度：%SPEED%(%PLUS%%MODIFIER%) \n"""
+tx_ig_unit_hitpoints_unmod,"""生命值：%CURRENT%/%MAX%\n"""
+tx_ig_unit_hitpoints_mod,"""生命值：%CURRENT%/%MAX% (%PLUS%%MODIFIER%) \n"""
+tx_ig_unit_power,"""能力：%CURRENT%/%MAX%\n"""
+tx_ig_unit_gather_unmod,"""采集：%CURRENT%/%MAX%\n"""
+tx_ig_unit_gather_mod,"""采集：%CURRENT%/%MAX%(%PLUS%%MODIFIER%)\n"""
+tx_ig_unit_garrison,"""驻扎：%CURRENT%/%MAX%\n"""
+tx_ig_unit_convresist_bonus,"""变节抵抗：%RESIST%（%PLUS%%BONUS%\\\\%）\n"""
+tx_ig_unit_convresist,"""变节抵抗：%RESIST%\n"""
+tx_ig_unit_captresist_bonus,"""占领抵抗力：%RESIST%（%PLUS%%BONUS%\\\\%）\n"""
+tx_ig_unit_captresist,"""占领抵抗力：%RESIST%\n"""
+tx_ig_unit_gate_locked,"""城门已上锁"""
+tx_ig_unit_gate_unlocked,"""城门已打开"""
+tx_ig_unit_morale,"""士气：+%d%%"""
+tx_ig_unit_fervor,"""热情：+%d%%\n"""
+tx_ig_unit_res_food,"""食物：+%d%%"""
+tx_ig_unit_res_wood,"""木材：+%d%%\n"""
+tx_ig_unit_res_stone,"""石头：+%d%%"""
+tx_ig_unit_res_gold,"""黄金：+%d%%\n"""
+tx_ig_unit_res_other,"""其它资源：+%d%%\n"""
+tx_ig_units_number,"""%NUMBEROFUNITS%%UNITNAME%"""
+tx_ig_units_hurt_singular,"""\n少于%HURTFRACTION%\\\\%生命"""
+tx_ig_units_hurt_plural,"""\n%NUMHURT%少于%HURTFRACTION%\\\\%生命"""
+tx_ig_units_constr_singular,"""\n施工中"""
+tx_ig_units_constr_plural,"""\n%NUMCONSTR%施工中"""
+
+// Recording Playback Panel
+tx_ig_playback_title,"""回放"""
+tx_ig_playback_viewasplayer,"""以玩家身份查看："""
+tx_ig_playback_camFollow,"""视野跟随"""
+tx_ig_playback_revealmap,"""显示地图"""
+tx_ig_playback_entergame,"""进入游戏"""
+tx_ig_playback_jumpto,"""跳到…"""
+tx_ig_playback_enter_confirm,"""你确定你要停止回放并且进入游戏？"""
+
+// Jump To... Panel
+tx_ig_jumpto_title,"""跳到"""
+tx_ig_jumpto_bookmarks,"""标记"""
+tx_ig_jumpto_time,"""时间"""
+tx_ig_jumpto_go_button,"""前往"""
+tx_ig_jumpto_cancel_button,"""取消"""
+
+// Rename City
+tx_ig_renamecity_title,"""更改城市名称"""
+tx_ig_renamecity_text,"""为此城市命名："""
+
+// Rename City
+tx_ig_renameterr_title,"""更改地区名称"""
+tx_ig_renameterr_text,"""为此地区命名："""
+
+// GWCombo
+tx_ig_combo_all,"""全部"""
+tx_ig_combo_none,"""无"""
+tx_ig_combo_custom,"""自订"""
+
+// tutorial dialog
+tx_ig_tut_title,"""教学课程对话方框"""
+
+//////////////////////
+// GAME STATUS WIDGET
+
+// diplomacy status header
+tx_gs_gameStat_diplomacy,"""外交形势"""
+
+// Initial ceasefire in game status 
+tx_ig_init_ceasefire,"""最初停火 - %MINUTES%:%SECONDS%"""
+tx_ig_init_ceasefire_lt_ten,"""最初停火 - %MINUTES%:0%SECONDS%"""
+
+// expiring alliances in game status
+tx_ig_gameStat_alliance,"""联盟 %PLAYER% 终止  - %MINUTES%:%SECONDS%"""
+tx_ig_gameStat_alliance_ltTen,"""联盟 %PLAYER% 终止 - %MINUTES%:0%SECONDS%"""
+
+// EE2X native tribes in game status
+tx_ig_gameStat_NT_unass,"""%TRIBE% 退出 - %MINUTES%:%SECONDS%"""
+tx_ig_gameStat_NT_unass_ltTen,"""%TRIBE% 退出 - %MINUTES%:0%SECONDS%"""
+
+
+// unit rendering tester
+tx_ig_unitRenderTest_model,"""模块/摄影机"""
+tx_ig_unitRenderTest_lighting,"""光影"""
+tx_ig_unitRenderTest_offset,"""模型补偿值："""
+tx_ig_unitRenderTest_scale,"""模型规模："""
+tx_ig_unitRenderTest_angle,"""模型角度："""
+tx_ig_unitRenderTest_rot,"""旋转模型"""
+tx_ig_unitRenderTest_rotSpeed,"""模型旋转速度："""
+tx_ig_unitRenderTest_pitch,"""视野角度："""
+tx_ig_unitRenderTest_lightDir,"""光影方向："""
+tx_ig_unitRenderTest_lightAng,"""角度"""
+tx_ig_unitRenderTest_lightPitch,"""仰角："""
+tx_ig_unitRenderTest_lightDiff,"""扩散色彩："""
+tx_ig_unitRenderTest_lightSpec,"""反射色彩："""
+tx_ig_unitRenderTest_lightAmb,"""环境色彩："""
+tx_ig_unitRenderTest_restore,"""回复数据库数值"""
+tx_ig_unitRenderTest_log,"""记录目前数值"""
+tx_ig_unitRenderTest_logDefault,"""默认值："""
+tx_ig_unitRenderTest_logParVal,"""数值比照父系："""
+tx_ig_eUnitRenderLogMode_0,"""记录"""
+tx_ig_eUnitRenderLogMode_1,"""记录和标示"""
+tx_ig_eUnitRenderLogMode_2,"""忽略"""
+
+// user music controller
+tx_ig_musicCtrl_title,"""EE2Amp"""
+tx_ig_musicCtrl_select_title,"""选择使用者的音乐目录"""
+tx_ig_musicCtrl_select_msg,"""指定一个目录来放置使用者控制的音乐。请指定一个完整的路径名称，并在界定目录时以前斜线(\"/\")来做为区隔。这个目录不能被命名为\"Music\"。"""
+tx_ig_musicCtrl_menu_0,"""选择目录"""
+tx_ig_musicCtrl_menu_1,"""启动游戏"""
+tx_ig_musicCtrl_menu_2,"""聊天讯息"""
+tx_ig_musicCtrl_menu_on,"""(开)"""
+tx_ig_musicCtrl_menu_off,"""(关)"""
+
+// one-line (ol) headers for the game status widget when it's minimized
+tx_ig_gamestat_ol_hotspots,"""据点状态"""
+tx_ig_gamestat_ol_terrcont,"""地区占领状态"""
+tx_ig_gamestat_ol_capitol,"""首都状态"""
+tx_ig_gamestat_ol_kingofhill,"""山丘之王状态"""
+tx_ig_gamestat_ol_crowns,"""桂冠状态"""
+tx_ig_gamestat_ol_scenario,"""剧本资讯"""

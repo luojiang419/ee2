@@ -1,0 +1,281 @@
+// Explosions for EMP weapons
+
+//------------------------------------------------------------------------------------
+// OTHER EMP DEFINITIONS
+//------------------------------------------------------------------------------------
+
+VisualEmpDC		TheVisualEmp
+{
+	SparkLife =			1.5
+	FirstSparkLife =	0.05
+	EffectDelay =		0.0
+	LinkDelay =			0.05
+	GeometryWidth =		0.2
+	CrossGeometry =		true
+	AnimationType =		Random
+	AnimationOn =		true
+	AnimationSpeed =	0.01
+	PoleSegmentLenght = 0.25
+	PoleNbrMax =		16
+	PoleLenght =		0.2
+	TextureName =		ElectricSpark_1.tga
+	DynamicUv =			true
+}
+
+VisualUnitElecSpark TheVisualUnitElecSpark
+{
+	NbrSpark =					5
+	SparkMinLife =				5
+	SparkMaxLife =				5
+	MinLifeBeforeSwitchingBone= 0.1
+	MaxLifeBeforeSwitchingBone=	0.4 
+	GeometryWidth =				0.2
+	CrossGeometry =				true
+	AnimationType =				Random
+	AnimationOn =				true
+	AnimationSpeed =			0.01
+	PoleSegmentLenght =			0.25
+	PoleNbrMax =				16
+	PoleLenght =				0.2
+	TextureName =				ElectricSpark_1.tga
+	DynamicUv =					true
+}
+
+ScreenFlash EMPFlash
+{
+	PeakColor = [ 255, 255, 255, 100 ]
+	TimeIn = 0.1
+	TimeDur = 0.1
+	TimeOut = 1.3
+
+	FadeInType = QuadFastStart
+	FadeOutType = QuadSlowStart
+}
+		
+ScreenFlash EMPFlash02
+{
+	PeakColor = [ 255, 255, 255, 40 ]
+	TimeIn = 0.3
+	TimeDur = 0.3
+	TimeOut = 0.6
+
+	FadeInType = QuadSlowStart
+	FadeOutType = QuadSlowStart
+}
+
+WorldLightFlash EMPLightFlash
+{
+	FlashPeakColor = [172 172 172 0]
+	TimeIn = 0.2
+	TimeDur = 0.1
+	TimeOut = .9
+
+	FadeInType = QuadFastStart
+	FadeOutType = QuadSlowStart
+}
+
+WorldLightFlash EMPLightFlash02
+{
+	FlashPeakColor = [50 50 50 0]
+	TimeIn = 0.5
+	TimeDur = 0.1
+	TimeOut = 0.6
+
+	FadeInType = QuadSlowStart
+	FadeOutType = QuadSlowStart
+}
+
+AnimatedTerrainTexture EMPTerrainFlash
+{	
+	Texture = fx_emp_terrain.tga
+	StartColor = [ 255, 255, 255, 0 ]
+	MidColor = [ 255, 255, 255, 255 ]
+	EndColor = [ 255, 255, 255, 0 ]
+
+	TimeColorUp = .1
+	TimeColorPeak = .8
+	TimeColorDown = .2
+
+	ColorUpType = Linear
+	ColorDownType = Linear
+
+	StartScale = 0
+	MidScale = 20
+	EndScale = 20
+
+	TimeScaleUp = 1
+	TimeScalePeak = .1
+	TimeScaleDown = 0
+
+	ScaleUpType = QuadFastStart
+	ScaleDownType = QuadSlowStart
+}
+
+AnimatedTerrainTexture EMPTerrainLight01
+{	
+	Texture = fx_emp_light.tga
+	StartColor = [ 245, 255, 255, 0 ]
+	MidColor = [ 245, 255, 255, 75 ]
+	EndColor = [ 245, 255, 255, 0 ]
+
+	TimeColorUp = .2
+	TimeColorPeak = .8
+	TimeColorDown = .5
+
+	ColorDownType = QuadSlowStart
+
+	StartScale = 2
+	MidScale = 6
+	EndScale = 4
+
+	TimeScaleUp = 1
+	TimeScalePeak = .5
+	TimeScaleDown = 0
+}
+
+//------------------------------------------------------------------------------------
+// SEQUENCES
+//------------------------------------------------------------------------------------
+// An EMP blast
+ExplosionSequence	sq_emp_blast01
+{
+	TimeA = 1
+	TimeB = 1
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	StartingPositionMinZ = 0.25
+	StartingPositionMaxZ = 0.25
+	SequenceType = Nif
+	SequenceNames = [ fx_EMP_noflash.nif ]
+	SequenceWorldScales = [0.05]
+	SequenceSoundsNames = []
+}
+
+// An EMP blast
+ExplosionSequence	sq_emp_blast02
+{
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	StartingPositionMinZ = 0.45
+	StartingPositionMaxZ = 0.45
+	SequenceType = Nif
+	SequenceNames = [ fx_EMP_flash2.nif ]
+	SequenceWorldScales = [0.03]
+	SequenceSoundsNames = [fx_battle_emp]
+}
+
+// An EMP blast
+ExplosionSequence	sq_emp_blast03
+{
+	TimeA = 1.8
+	TimeB = 1.8
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	StartingPositionMinZ = 0.25
+	StartingPositionMaxZ = 0.25
+	SequenceType = Nif
+	SequenceNames = [ fx_EMP_flash.nif ]
+	SequenceWorldScales = [0.04]
+	SequenceSoundsNames = []
+}
+
+// An EMP blast
+ExplosionSequence	sq_emp_spark01
+{
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	SequenceNames = [ TheVisualEmp ]
+	SequenceWorldScales = [0.05]
+}
+
+// Lighting the terrain
+ExplosionSequence	sq_emp_ground01
+{
+	TimeA = 1.9
+	TimeB = 1.9
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	SequenceNames = [ EMPTerrainFlash ]
+	SequenceWorldScales = [0.05]
+}
+
+ExplosionSequence	sq_emp_screenflash01
+{
+	TimeA = 0.15
+	TimeB = 0.15
+	FiringProbability = 1
+	SequenceNames = [ EMPFlash ]
+	SequenceType = FlashScreenPanel
+}
+
+ExplosionSequence	sq_emp_screenflash02
+{
+	TimeA = 1.7
+	TimeB = 1.7
+	FiringProbability = 1
+	SequenceNames = [ EMPFlash02 ]
+	SequenceType = FlashScreenPanel
+}
+
+ExplosionSequence	sq_emp_worldflash01
+{
+	TimeA = 0.15
+	TimeB = 0.15
+	FiringProbability = 1
+	SequenceNames = [ EMPLightFlash ]
+	SequenceType = FlashWorldLight
+}
+
+ExplosionSequence	sq_emp_worldflash02
+{
+	TimeA = 1.7
+	TimeB = 1.7
+	FiringProbability = 1
+	SequenceNames = [ EMPLightFlash02 ]
+	SequenceType = FlashWorldLight
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION
+//------------------------------------------------------------------------------------
+// Explosion with an EMP burst
+Explosion			Expl_emp01
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_emp_blast01 sq_emp_blast02 sq_emp_blast03 sq_emp_screenflash01 
+								sq_emp_screenflash02 sq_emp_spark01 
+								sq_emp_ground01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION SELECTOR
+//------------------------------------------------------------------------------------
+// An emp explosion
+ExplosionSelector	ExplSelectorEmp01
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_emp01
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+

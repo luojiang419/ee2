@@ -1,0 +1,14 @@
+Campaign EE2X_Egypt {
+	name = text_camp_egypt_name
+	scenarios = [
+		"EE2X_Egypt1"
+		"EE2X_Egypt2"
+		"EE2X_Egypt3"
+		"EE2X_Egypt4"
+		"EE2X_Egypt5"
+
+	]
+	description = text_camp_egypt_desc
+	lockedScenarios = true
+	useTimeline = true
+}

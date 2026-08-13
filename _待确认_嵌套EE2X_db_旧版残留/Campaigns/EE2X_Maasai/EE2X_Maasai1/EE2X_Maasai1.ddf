@@ -1,0 +1,97 @@
+Objective Maasai1_Primary1 {
+	name		= text_scen_m1_pobj1
+	description	= text_scen_m1_pobj1_description
+	type		= Primary
+	startHidden	= 0
+	targetLocations = [ { x = 20 y = 12 } ]
+}
+Objective Maasai1_Primary2 {
+	name		= text_scen_m1_pobj2
+	description	= text_scen_m1_pobj2_description
+	type		= Primary
+	startHidden	= 1
+	targetLocations = [ { x = 39 y = 76 } ]
+}
+Objective Maasai1_Primary3 {
+	name		= text_scen_m1_pobj3
+	description	= text_scen_m1_pobj3_description
+	type		= Primary
+	startHidden	= 1
+}
+Objective Maasai1_Primary4 {
+	name		= text_scen_m1_pobj4
+	description	= text_scen_m1_pobj4_description
+	type		= Primary
+	startHidden	= 1
+}
+Objective Maasai1_Defend_Kwafi {
+	name		= text_scen_m1_sobj1
+	description	= text_scen_m1_sobj1_description
+	type		= Secondary
+	startHidden	= 1
+}
+Objective Maasai1_CaptureCorpFort {
+	name		= text_scen_m1_CapFort_short
+	description	= text_scen_m1_CapFort_desc
+	type		= Secondary
+	startHidden	= 1
+}
+Objective Maasai1_EliminateCorpFort {
+	name		= text_scen_m1_KillFort_short
+	description	= text_scen_m1_KillFort_desc
+	type		= Primary
+	startHidden	= 1
+}
+Objective Maasai1_Defeat1 {
+	name		= text_scen_m1_dobj1
+	description	= text_scen_m1_dobj1_description
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MaasaiHero" ]
+}
+Objective Maasai1_Defeat2 {
+	name		= text_scen_m1_dobj2
+	description	= text_scen_m1_dobj2_description
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MaasaiChief" ]
+}
+Objective Maasai1_Defeat3 {
+	name		= text_scen_m1_dobj3
+	description	= text_scen_m1_dobj3_description
+	type		= Lose
+	startHidden	= 0
+	targetUnits = [ "MaasaiCityCenter" ]
+}
+
+Scenario EE2X_Maasai1 {
+	name = text_scen_m1_name
+	mapfilename = "EE2X_Maasai1.scn"
+	briefing = tx_fe_prog_EE2X_Maasai1
+	sprite = spr_mas1_camp_screenshot
+	thumbnail = spr_mas1_camp_thumb
+	
+	victory = text_scen_massai_victory
+	loss = text_scen_massai_loss
+	
+	hints = text_scen_m1_hints
+	
+	historicalInfo = text_camp_maasai_desc
+	
+	description = tx_fe_prog_EE2X_Maasai1
+	
+	date = text_scen_m1_date
+
+	objectives = [
+		"Maasai1_Primary1"
+		"Maasai1_Primary2"
+		"Maasai1_Primary3"
+		"Maasai1_Primary4"
+		"Maasai1_Defend_Kwafi"
+		"Maasai1_CaptureCorpFort"
+		"Maasai1_EliminateCorpFort"
+		"Maasai1_Defeat1"
+		"Maasai1_Defeat2"
+		"Maasai1_Defeat3"
+	]
+}

@@ -1,0 +1,26 @@
+//NAME,CLASS,PARENT,INC ACCUM DEPTH,ANCHORNAME1,ANCHORTYPE1,ANCHORNAME2,ANCHORTYPE2,XOFF,YOFF,XOFF ANCHOR2,YOFF ANCHOR2,WIDTH,HEIGHT,SPRITE,FRAMESTYLE,BUTTONSTYLE,FONTSTYLE,TEXTJUST,XTEXTOFF,YTEXTOFF,LABEL,TOOLTIP,VERBOSE,NOMOUSE,CMDSTR,ARGSTR
+// Debug Console,,,,,,,,,,,,,,,,,,,,,,,,,,
+debugconsole_panel,Panel,,0,,,,,0,0,0,0,700,850,spr_panelback,,,,,0,0,,,,0,,"""center titleBar=se_panel_title close=se_panel_closebox minimize=se_panel_minimize"""
+debugconsole_input_cont,Widget,debugconsole_panel,0,,SourceLLTargetLL,,SourceLRTargetLR,0,0,0,0,-1,52,,,,,,0,0,,,,1,,""""""
+debugconsole_input,DebugConsoleInput,debugconsole_input_cont,0,,SourceULTargetUL,,SourceLRTargetLR,10,10,-10,-10,-1,-1,spr_extradark_bkgnd,,,fs_std_small_white,Mid,0,0,,,,0,,"""maxLen=128"""
+debugconsole_main_cont,Widget,debugconsole_panel,0,,SourceULTargetUL,debugconsole_input_cont,SourceURTargetLR,0,32,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+debugconsole_tabs_cont,Widget,debugconsole_main_cont,0,,SourceLLTargetLL,,SourceLRTargetLR,0,0,0,0,-1,64,,,,,,0,0,,,,1,,""""""
+debugconsole_output,DebugConsoleOutput,debugconsole_main_cont,0,,SourceULTargetUL,debugconsole_tabs_cont,SourceURTargetLR,10,10,-10,-10,-1,-1,spr_extradark_bkgnd,,,fs_std_small_white,,0,0,,,,0,,"""scrollBar=se_scrollbar autoScroll"""
+debugconsole_list,ListText,debugconsole_main_cont,0,debugconsole_output,SourceULTargetUL,debugconsole_output,SourceLRTargetLR,0,0,0,0,-1,-1,spr_extradark_bkgnd,wfs_scenedit_edittext,,fs_std_small_white,Left,5,0,,,,0,,"""scrollBar=se_scrollbar itemHilite=spr_listitem folderSprite=spr_folder_closed folderIndent=30 itemIndent=10 programmedItemTooltips"""
+debugconsole_tab1,RadioButton,debugconsole_tabs_cont,0,,SourceULTargetUL,,,0,0,0,0,145,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_dbgcons_output,,,0,,"""family=console_tab_family, value=1, omitBoxSprite"""
+debugconsole_tab2,RadioButton,debugconsole_tabs_cont,0,debugconsole_tab1,SourceURTargetUL,,,0,0,0,0,145,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_dbgcons_cmds,,,0,,"""family=console_tab_family, value=0, omitBoxSprite"""
+debugconsole_tab3,RadioButton,debugconsole_tabs_cont,0,debugconsole_tab2,SourceURTargetUL,,,0,0,0,0,145,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_dbgcons_config,,,0,,"""family=console_tab_family, value=0, omitBoxSprite"""
+debugconsole_tab4,RadioButton,debugconsole_tabs_cont,0,debugconsole_tab3,SourceURTargetUL,,,0,0,0,0,145,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_dbgcons_hotkeys,,,0,,"""family=console_tab_family, value=0, omitBoxSprite"""
+debugconsole_tab5,RadioButton,debugconsole_tabs_cont,0,,SourceLLTargetLL,,,0,0,0,0,145,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_dbgcons_cheats,,,0,,"""family=console_tab_family, value=0, omitBoxSprite"""
+debugconsole_tab6,RadioButton,debugconsole_tabs_cont,0,debugconsole_tab5,SourceURTargetUL,,,0,0,0,0,145,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_dbgcons_logout,,,0,,"""family=console_tab_family, value=0, omitBoxSprite"""
+debugconsole_tab7,RadioButton,debugconsole_tabs_cont,0,debugconsole_tab6,SourceURTargetUL,,,0,0,0,0,145,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_dbgcons_logsrc,,,0,,"""family=console_tab_family, value=0, omitBoxSprite"""
+debugconsole_tab8,RadioButton,debugconsole_tabs_cont,0,debugconsole_tab7,SourceURTargetUL,,,0,0,0,0,145,32,spr_tab_off,,TwoState,fs_std_small_white,CenterMid,1,0,tx_dbgcons_other,,,0,,"""family=console_tab_family, value=0, omitBoxSprite"""
+
+//debugconsole_help,Text,debugconsole_cont,0,,,,,20,810,0,0,570,58,,,,fs_std_med_white,,0,0,tx_dbgcons_instructions,,,1,,""""""
+//debugconsole_input,DebugConsoleInput,debugconsole_panel,0,,,,,20,870,0,0,570,32,spr_extradark_bkgnd,,,fs_std_small_white,Mid,0,0,,,,0,,"""maxLen=128"""
+
+// debug widgets for widget debugging modes,,,,,,,,,,,,,,,,,,,,,,,,,,
+debug_widget_parent,Widget,,1,,SourceULTargetUL,,SourceLRTargetLR,0,0,0,0,-1,-1,,,,,,0,0,,,,1,,""""""
+debug_widget,Unknown,debug_widget_parent,0,,,,,0,0,0,0,2,2,spr_blackpixel_alpha25,,,fs_std_small_white_outline,Left,8,8,,,,1,,""""""
+debug_widget_frame,Widget,debug_widget_parent,0,,,,,0,0,0,0,2,2,,,,,,0,0,,,,1,,""""""
+debug_widget_mouse_loc,Text,debug_widget_parent,0,,,,,0,0,0,0,75,24,spr_blackpixel_alpha25,wfs_debug_mouseLoc,,fs_std_small_white_outline,CenterMid,0,0,,,,1,,""""""

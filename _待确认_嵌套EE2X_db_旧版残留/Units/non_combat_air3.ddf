@@ -1,0 +1,99 @@
+//------------------------------------------------------------------------------------------------
+//	NON COMBAT AIR 3 (SATELLITE) - UNIT TYPE INFO
+//------------------------------------------------------------------------------------------------
+UnitType Satellite
+{
+	properties {
+		moveType = Air
+		rps = AirNonCombat
+		FootprintType = Ellipse
+		DisplayName = tx_utn_NonCmbtAir3_e13_name
+		DisplayNameScenEdit = tx_utn_NonCmbtAir3_e13_sname
+		Hitpoints = 50
+		popCount = 1
+		SizeX = 1
+		SizeY = 1
+		mass = 1
+		VerboseTooltip = vtt_unit_Satellite
+	}
+	sounds = {
+	}
+	fullMapOverlay { sprite = spr_fullmap_smallunit ignoreOrientation = 1 }
+	abilities = [
+		AircraftMove {speed = 3.45; angSpeed = 90; CruisingHeight = 10.0; ElevChangeRate = 0.5; canHover = 1}
+		LOS { range = 10 }
+		Garrisonable { garrisonTypes = [ Heliport ] }
+	//	SpecialPower { 
+	//		range = 5; 
+	//		canDisguise = true;
+	//		spottedTextDBI = tx_sat_spotted_owner
+	//		spotterTextDBI = tx_sat_spotted_spotter
+	//		doesNotRequirePowerReserve = true; // disable "power bar" and "power reserve ability"
+	//	}
+	]
+}
+
+// Add to mobile units for a blobby ellipsoid shadow
+ShadowData        satelliteShadow
+{
+	Flags = (IsMobile | ImmutableBounds)
+	FlatBillboard
+	{
+		TextureFilename = anc13_satellite_shadow.tga
+		WidthScale = 0.9
+		LengthScale = 0.9
+		HeightScale = 0.1
+	}
+}
+
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+// NonCombatAir3UpgradeEpoch13 is in upgrade_unittypes.csv
+
+//------------------------------------------------------------------------------------------------
+//	NON COMBAT AIR 3 - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------
+//	EPOCH 13
+//------------------------------------------------
+UnitModel Satellite
+{
+	ScaleType 		= kScaleUnit
+	DefaultModel 	= ANC13_Satellite.nif
+	OutlineType		= kOutlineMake
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = anc13_satellite_idle.kf	}
+		{ 	StateName = Walk	AnimName = anc13_satellite_walk.kf
+               			//TextKeys = [{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_satellite_01 KeyTime = 0.5 }]
+			}
+		{ 	StateName = Death	AnimName = anc13_satellite_death.kf	}
+			]
+	ChildNames 	= [ TheHealthBar 
+					ExplSelectorHeli01
+					SelectCircleAircraft
+					VaporTrail1
+					VaporTrail2
+					VaporTrail3
+					VaporTrail4
+					satelliteShadow
+					Satellite_FlyingParts
+					//SpyShimmer 
+					]
+					
+	UIRenderingParams {
+		xOffset = 0.00
+		yOffset = 0.76
+		zOffset = -5.37
+		scale = 4.87
+		angle = 45.00
+		rotationSpeed = 0.00
+		pitch = -14.21
+		lightAngle = 30.00
+		lightPitch = 90.00
+		lightDiffuse = [50 50 45 255]
+		lightSpecular = [0 0 0 255]
+		lightAmbient = [40 40 40 255]
+	}
+}

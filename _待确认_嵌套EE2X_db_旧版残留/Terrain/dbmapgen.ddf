@@ -1,0 +1,253 @@
+/////////////////////////////////////
+//
+// Map Geographies...
+
+MapGeography SmallIslands
+{
+	// correlation length for water/land random perlin field
+	landScaleFrac = 0
+	// min correlation length
+	minLandScale = 5
+	// Maximum effective distance from 'forced' land as a fraction of land scale length 
+	// for purposes of land/water determination.
+	// negative values mean 'no maximum'
+	maxLandDist = -1
+	maxWaterDist = -1
+	// minimum forced land radius for small maps
+	startLocLandRadius      = 22 //开局地盘大小
+	// if specified, place a ring of forced water around start locations
+	landMassMaxRadius   = 26   //开局地盘大小
+	// radius around start locations to be flattened.  Should always be set larger than
+	// the config variable g_fAutoPlacementResourceMaxDist (currently 10)
+	startLocFlattenRadius   = 13 //开局木材距离城市半径
+	border = Any
+	mapType = Islands
+}
+
+MapGeography LargeIslands
+{
+	// correlation length for water/land random perlin field
+	landScaleFrac = 0.1
+	// min correlation length
+	minLandScale = 35
+	maxLandDist = 1
+	maxWaterDist = 3
+	startLocLandRadius      = 35
+	landMassMaxRadius   = 60
+	startLocFlattenRadius   = 20
+	border = Any	
+	mapType = Islands
+}
+
+MapGeography Continents
+{
+	// THE OLD CONTINENTS
+	// @NOTE actually reverting to old continents will involve more than just uncommenting
+	// these lines, like maybe changing code...
+	//landScaleFrac = 0
+	//minLandScale = 10
+	//maxLandDist = -1
+	//maxWaterDist = -1
+	//startLocLandRadius      = 15
+	//startLocFlattenRadius   = 20
+	//landMassMaxRadius   = -1
+	//border = Any
+	//mapType = Continents
+	
+	
+	// THE NEW CONTINENTS
+	
+	// min/max continent radius
+	// min radius determines the forced land carved out around the continent center 最小半径决定了大陆中心周围的强制土地
+	// (with a hard minumum of startLocLandRadius)
+	// max radius determines the forced water carved out around the continent center 最大半径决定了大陆中心周围的强制水流
+	// (with a hard minumum of landMassMaxRadius)
+	continentMinRadiusMult = 0.5
+	continentMaxRadiusMult = 0.8
+	
+	// radius from special loc center (as frac of continent radius) used  使用的特殊位置中心的半径（作为大陆半径的分数）
+	// for carving out water 用于雕刻水
+	// (with a hard minimum of landMassMaxRadius) （硬最小值为landMassMaxRadius）
+	continentSpecialLocForcedWaterRadiusMult = 0.4
+	
+	// radius from continent center used for placing starting locations 用于放置起始位置的距大陆中心的半径
+	continentStartLocRadiusMult = 0.5
+
+	// fraction of map radius used for placing continent centers 用于放置大陆中心的地图半径分数
+	continentSpacingRadiusMult = 0.7
+
+	// distribution of the continent centers   大陆中心分布
+	continentSpacingArcRandomness = 0.5
+	continentSpacingRadialRandomness = 0.15
+	
+	// distribution of starting locations on each continent  各大洲起始位置的分布
+	continentStartLocArcRandomness = 0.9
+	continentStartLocRadialRandomness = 0.9
+	
+	// eccentricity for each continent is randomly chosen between 1.0 and this 
+	// value (>= 1.0)
+	continentMaxEccentricity = 6.0
+	
+	landScaleFrac = 0
+	minLandScale = 10
+	
+	maxLandDist = -1
+	maxWaterDist = -1
+	
+	// this is the amount of forced-land carved out around each special location 这是每个特殊地点周围的强制土地数量
+	// also serves as a hard minimum for continent min radius 也是大陆最小半径的硬最小值
+	startLocLandRadius      = 10
+	
+	startLocFlattenRadius   = 20
+	
+	// this just carves water circle around special loc
+	// nothing 'max radius' about it, really.  given the
+	// way the continents code is written, this is a minimum,
+	// and the radius is actually determined by 
+	// continentSpecialLocForcedWaterRadiusMult
+	landMassMaxRadius   = 15		
+									
+	border = Any
+	mapType = Continents
+}
+
+MapGeography Plains
+{
+	landScaleFrac = 0.2
+	minLandScale = 30
+	maxLandDist = 0
+	maxWaterDist = -1
+	startLocLandRadius      = 12
+	startLocFlattenRadius      = 20
+	border = Land	
+	borderWidth = 10
+	mapType = Waterless
+}
+
+MapGeography Mediterranean
+{
+	landScaleFrac = 0.2
+	minLandScale = 30
+	maxLandDist = 0.5
+	maxWaterDist = -1
+	startLocLandRadius      = 12
+	startLocFlattenRadius   = 20
+	forcedWater [
+		{xLoc = 0.5 yLoc = 0.5 radiusFraction = 0.3 minRadius = 25}
+	]
+	border = Land	
+	borderWidth = 15
+	mapType = OneLandMass
+	//mapType = Waterless
+}
+
+MapGeography Pangea
+{
+	landScaleFrac = 0.15
+	minLandScale = 20
+	maxLandDist = 0.5
+	maxWaterDist = -1
+	//startLocLandRadius      = 12
+	startLocLandRadius      = 12
+	startLocFlattenRadius   = 20
+	forcedLand [
+		// make sure the center is land for king of the hill
+		{xLoc = 0.5 yLoc=0.5 radiusFraction = 0.1 minRadius = 15}
+	]
+	border = Water
+	borderWidth = 10
+	mapType = Waterless
+	//1.5.5.007 fix. Waterless instead of OneLandMass to fix stupid map generation bug. Not sure how AI will behave, but still it's for the greater good.
+	//mapType = OneLandMass
+}
+
+
+
+/////////////////////////////////////
+//
+// @HACK Random Map Geographies...
+
+RandomMapGeography Any
+{
+	name = tx_fe_mapset_geo_rand_any
+	AllowedGeographies = [ "Any" ]
+}
+
+RandomMapGeography NotIslands
+{
+	name = tx_fe_mapset_geo_rand_notIs
+	AllowedGeographies = [ "Continents", "Plains", "Mediterranean", "Pangea" ]
+}
+
+
+
+/////////////////////////////////////
+//
+// Map sizes...
+
+MapSize Tiny
+{
+	name = tx_mapsize_tiny
+	width = 100
+	height = 100
+	maxPlayers = 2
+	maxPlayersWithTribes = 4
+	minContinents = 2
+	maxContinents = 2
+}
+
+MapSize Small
+{
+	name = tx_mapsize_small
+	width = 150
+	height = 150
+	maxPlayers = 4
+	maxPlayersWithTribes = 6
+	minContinents = 2
+	maxContinents = 2
+}
+
+MapSize Medium
+{
+	name = tx_mapsize_medium
+	width = 200
+	height = 200
+	maxPlayers = 6
+	maxPlayersWithTribes = 8
+	minContinents = 2
+	maxContinents = 3
+}
+
+MapSize Large
+{
+	name = tx_mapsize_large
+	width = 250
+	height = 250
+	maxPlayers = 8
+	maxPlayersWithTribes = 13
+	minContinents = 2
+	maxContinents = 4
+}
+
+MapSize Huge
+{
+	name = tx_mapsize_huge
+	width = 300
+	height = 300
+	maxPlayers = 10
+	maxPlayersWithTribes = 15
+	minContinents = 2
+	maxContinents = 4
+}
+
+MapSize Gigantic
+{
+	name = tx_mapsize_gigantic
+	width = 400
+	height = 400
+	maxPlayers = 10
+	maxPlayersWithTribes = 15
+	minContinents = 2
+	maxContinents = 4
+}
+

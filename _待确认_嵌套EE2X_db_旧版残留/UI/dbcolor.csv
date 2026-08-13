@@ -1,0 +1,98 @@
+//NAME,COLOR
+
+// General use colors,
+black,0 0 0
+white,255 255 255
+lightgrey,200 200 200
+red,255 0 0
+green,0 255 0
+blue,0 0 255
+yellow,255 255 0 
+darkBlue,0 0 64
+medBlue,0 0 128
+darkRed,64 0 0
+medRed,128 0 0
+darkGreen,0 64 0
+medGreen,0 128 0
+purple,130 0 198
+gold,254 188 52
+
+// general colors with some alpha,
+redTransp,255 0 0 160
+greenTransp,0 255 0 160
+blueTransp,0 0 255 160
+yellowTransp,255 255 0 160
+medBlueTransp,0 0 128 160
+
+// player colors,
+playerColor_blue,0 0 200
+playerColor_red,250 9 9
+playerColor_green,0 200 0
+playerColor_orange,241 101 0
+playerColor_magenta,181 4 117
+playerColor_cyan,4 218 221
+playerColor_yellow,247 247 7
+playerColor_lavender,154 158 236
+playerColor_purple,120 4 163
+playerColor_gold,254 188 52
+playerColor_grey,25 25 25 
+
+// alternate player color for some UI text,
+playerUIColor_blue,65 65 255
+playerUIColor_red,250 9 9
+playerUIColor_green,0 200 0
+playerUIColor_orange,241 101 0
+playerUIColor_magenta,181 4 117
+playerUIColor_cyan,4 218 221
+playerUIColor_yellow,247 247 7
+playerUIColor_lavender,154 158 236
+playerUIColor_purple,120 4 163
+playerUIColor_gold,254 188 52
+playerUIColor_grey,100 100 100
+
+// player territory colors,
+playerTerritoryColor_blue,0 0 200
+playerTerritoryColor_red,250 9 9
+playerTerritoryColor_green,0 200 0
+playerTerritoryColor_orange,241 101 0
+playerTerritoryColor_magenta,181 4 117
+playerTerritoryColor_cyan,4 189 192
+playerTerritoryColor_yellow,237 252 5
+playerTerritoryColor_lavender,126 130 193
+playerTerritoryColor_purple,120 4 163
+playerTerritoryColor_gold,254 188 52
+playerTerritoryColor_grey,25 25 25 
+
+// player territory map colors,
+playerMTerritoryColor_blue,84 142 213
+playerMTerritoryColor_red,194 69 69
+playerMTerritoryColor_green,54 183 72
+playerMTerritoryColor_orange,247 138 0
+playerMTerritoryColor_magenta,209 66 157
+playerMTerritoryColor_cyan,144 250 249
+playerMTerritoryColor_yellow,255 255 106
+playerMTerritoryColor_lavender,183 185 234
+playerMTerritoryColor_purple,143 114 154
+playerMTerritoryColor_gold,254 188 52
+playerMTerritoryColor_grey,25 25 25 
+
+// Neutral Territory Color,
+territoryColor_neutral,25 25 25 
+territoryMapColor_neutral,25 25 25 
+
+// name colors on fullscreen map,
+fullmap_cityNameColor,255 255 255
+fullmap_territoryNameColor,210 210 210
+
+// chat message colors,
+chatColor_gameMessage,255 255 255
+chatColor_scriptMessage,255 255 255
+chatColor_systemMessage,210 210 210
+
+// gamespy lobby chat colors,
+gs_sysMsg,255 255 255
+gs_errMsg,255 0 0
+gs_inviteMsg,0 90 30
+gs_addBuddyMsg,0 90 30
+gs_chatPrivate,0 0 255
+gs_chatTeam,0 90 30

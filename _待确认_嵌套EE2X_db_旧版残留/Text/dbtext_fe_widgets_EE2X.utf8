@@ -1,0 +1,191 @@
+﻿// front end widgets text for EE2X
+tx_fe_widgets_donotuse_EE2X,"""@BUG"""
+
+// Lighting detail on options screen
+tx_fe_optvid_lightdetail,"""光源细致度："""
+
+// Single Player Screen addition
+tx_fe_sp_playtowgame,"""进行拉锯战游戏"""
+
+
+// new game settings
+tx_fe_gameset_teamstate,"""队伍状态："""
+
+tx_fe_progress_sk_stgame_ts,"""队伍状态：%VALUE%"""
+
+// Native tribes widgets
+tx_fe_gameset_NativeTribes,"""原住民部落"""
+tx_fe_gameset_NT_amount,"""数量："""
+tx_fe_gameset_NT_diff,"""困难度："""
+tx_fe_gameset_NT_armySize,"""部队规模："""
+tx_fe_gameset_NT_exactAmount,"""确切的原住民部落数量："""
+
+// allow custom civs checkbox
+tx_fe_gameset_allowCCivs,"""允许自订文明"""
+
+// Victory Condition stuff
+tx_fe_vcond_terrhs_st,"""启始地区："""
+
+// Tools Screen:
+tx_fe_toolsScreen_civEditor,"""文明编辑器"""
+tx_fe_toolsScreen_qStartEditor,"""启始军力编辑器"""
+tx_fe_toolsScreen_mapEditor,"""地图编辑器"""
+
+// Tug Of War
+tx_fe_ToW_title,"""拉锯战"""
+tx_fe_ToW_save,"""储存战争"""
+tx_fe_ToW_quit,"""离开战争"""
+tx_fe_ToW_forces,"""选择部队"""
+tx_fe_ToW_battleCount,"""已进行的战役数：%d / %d"""
+
+tx_fe_gametype_savedtow,"""载入拉锯战游戏"""
+
+tx_fe_ToW_rope,"""绳索"""
+tx_fe_ToW_timeline,"""时间表"""
+
+// timeline labels
+tx_fe_ToW_map,"""地图"""
+tx_fe_ToW_battle,"""战争"""
+
+
+tx_fe_vcond_ToW_maps,"""地图数："""
+tx_fe_vcond_ToW_battles,"""最大战争数："""
+
+tx_fe_towforces_title,"""选择部队"""
+tx_fe_towforces_clear,"""清除"""
+tx_fe_towforces_done,"""完成"""
+
+tx_fe_towforces_points,"""可用点数："""
+tx_fe_towforces_help,"""在可选择之处按下滑鼠左钮，便可为你的军团购买援军。在已购买列表上按下滑鼠左钮，便可将之移除。按下Shift键不放便可一次增加或移除5支部队。这些部队会被归到你上一场战争的英雄和领袖的行列中。"""
+
+tx_fe_towforces_heroes,"""英雄与领袖"""
+
+// save load dialog stuff for ToW
+tx_fe_savegame_title_ToW,"""选择拉锯战游戏"""
+
+
+// Endgame stats screen - flags pane
+tx_fe_eg_flags,"""旗帜"""
+tx_fe_eg_statsflags,"""旗帜"""
+
+///////////////////////
+// Custom Quick Start
+tx_fe_cqstart_title,"""建立自订快速开始"""
+tx_fe_cqstart_save,"""储存"""
+tx_fe_cqstart_load,"""载入"""
+tx_fe_cqstart_clear,"""清除"""
+tx_fe_cqstart_loadBuiltIn,"""载入内建选择"""
+
+tx_fe_cqstart_available,"""可购买的军力"""
+tx_fe_cqstart_purchased,"""已购买的军力"""
+
+tx_fe_cqstart_All,"""编辑全部"""
+
+tx_fe_qstart_custom,"""载入自订选择"""
+tx_fe_qstart_default,"""预设"""
+
+// for when you've selected custom quickstart in the quickstart choose forces screen
+tx_fe_qstart_customtitle,"""自订快速开始"""
+
+tx_fe_qstart_extrapts_start,"""你尚有未用掉的点数："""
+tx_fe_qstart_extrapts_end,"""你确定要储存吗？"""
+
+tx_fe_cqstart_landlbl,"""陆上："""
+tx_fe_cqstart_sealbl,"""海上："""
+tx_fe_cqstart_airlbl,"""空中："""
+
+tx_fe_cqstart_empiretype,"""选择帝国种类："""
+tx_fe_cqstart_forcecomp,"""选择军力组成方式："""
+
+tx_fe_cqstart_size,"""选择快速开始的军团规模："""
+tx_fe_cqstart_cancel,"""取消"""
+tx_fe_cqstart_ok,"""同意"""
+
+tx_fe_cqstart_help,"""标上星号的单位是同一系列的。依照游戏开始的纪元会变成不同的单位，他们必须以特定的规模购买，你可以在游标提示上看到相关资讯。"""
+
+
+
+///////////////////////
+// EAX Settings
+tx_fe_optaud_eax,"""EAX"""
+
+// VoiceChat settings
+tx_fe_optaud_voicechat,"""启动语音交谈"""
+tx_fe_optaud_voicechat_mute,"""自动静音"""
+tx_fe_optaud_voicechat_vol,"""语音交谈音量"""
+tx_fe_optaud_voicechat_gain,"""语音交谈优势"""
+
+
+///////////////////////
+// Custom Civ editor
+
+// civ options
+tx_fe_cciv_main,"""文明资讯："""
+//tx_fe_cciv_name,"""Name:"""
+tx_fe_cciv_displayName,"""名称："""
+tx_fe_cciv_region,"""区域："""
+tx_fe_cciv_attributes,"""文明特性："""
+tx_fe_cciv_attr1,"""文明特性1："""
+tx_fe_cciv_attr2,"""文明特性2："""
+tx_fe_cciv_uniqueUnits,"""区域："""
+tx_fe_cciv_unique_1to5,"""纪元1至5："""
+tx_fe_cciv_unique_6to10,"""纪元6至10："""
+tx_fe_cciv_unique_11to15,"""纪元11至15："""
+tx_fe_cciv_autoResTechs,"""自动研发的科技："""
+tx_fe_cciv_autoResTechs_pick,"""剩下%NUMBER%"""
+tx_fe_cciv_autoResTechs_tt,"""为%EPOCH%纪元选择多%NUMBER%种的科技。"""
+tx_fe_cciv_autoRes_epoch,"""纪元："""
+tx_fe_cciv_cityNames,"""城市名称："""
+tx_fe_cciv_territoryNames,"""地区名称："""
+tx_fe_cciv_addName,"""新增"""
+tx_fe_cciv_deleteName,"""刪除"""
+
+// buttons
+tx_fe_cciv_save,"""储存"""
+tx_fe_cciv_load,"""载入"""
+tx_fe_cciv_loadBuiltIn,"""载入内建选择"""
+tx_fe_cciv_clear,"""清除"""
+tx_fe_cciv_random,"""随机"""
+tx_fe_playQS,"""快速开始游戏"""
+
+// untitled civ name
+tx_fe_cciv_name_default,"""未命名的自订文明"""
+
+tx_fe_cciv_unselected,"""未命名的自订文明"""
+
+tx_fe_cciv_load_title,"""载入自订文明"""
+tx_fe_cciv_loadBuiltIn_title,"""载入内建文名"""
+
+tx_fe_cciv_save_title,"""储存自订文明"""
+
+tx_fe_creategame_qstart,"""快速开始："""
+tx_fe_creategame_qsnone,"""无"""
+
+tx_fe_cciv_civatt_choose,"""按下以选取文明的特殊属性"""
+tx_fe_cciv_civatt_ok,"""同意"""
+
+// points spent text on force chooser
+tx_fe_forcechooser_ptsspent,"""已使用点数：%CURRENT% / %MAX%"""
+
+// Fealty stats
+tx_fe_eg_dipl_vassals,"""附庸"""
+tx_fe_eg_dipl_sworefealty,"""宣誓效忠"""
+tx_fe_eg_dipl_nofealty,""" """
+
+// Heroes stats
+tx_fe_eg_misc_heroes,"""英雄"""
+tx_fe_eg_misc_armiesformed,"""成立军队"""
+
+// Quickstart screen
+tx_fe_quickstart,"""快速开始"""
+tx_fe_quickstart_skirmish,"""小规模战斗快速开始"""
+tx_fe_quickstart_mpInternet,"""主持网际网路快速开始"""
+tx_fe_quickstart_mpLan,"""主持区域网路快速开始"""
+
+tx_fe_skirmish_qs_title,"""单人玩家快速开始"""
+
+tx_fe_qschooser_dialog_ttl,"""自订快速开始部队"""
+tx_fe_qschooser_dialog_body,"""你想要自己建立一支启始部队吗？\n\n如果你现在选择自己建立部队，将会跳出目前的游戏。"""
+tx_fe_qschooser_dialog_check,"""不要再显示这个讯息。"""
+
+tx_fe_screentitle_qs,"""快速开始"""

@@ -1,0 +1,17 @@
+/////////////////////////////////////////////////////
+//
+// named audio sample set for settings screen
+//
+
+NamedAudioSampleSet SettingsTestAudioSet
+{
+	namedAudioSamples = [
+		{dbNameIndex = tx_audio_v_cit_f_ack_02_me; dbSoundIndex = v_cit_f_ack_02_me;}
+		{dbNameIndex = tx_audio_fx_thunder_crack; dbSoundIndex = fx_thunder_crack;}
+		{dbNameIndex = tx_audio_fx_mortar_fire; dbSoundIndex = fx_mortar_fire;}
+		{dbNameIndex = tx_audio_cannon_firing1; dbSoundIndex = cannon_firing1;}
+		{dbNameIndex = tx_audio_Sword_medium; dbSoundIndex = Sword_medium;}
+		{dbNameIndex = tx_audio_Laser_firing; dbSoundIndex = Laser_firing;}
+		{dbNameIndex = tx_audio_fx_exp_01; dbSoundIndex = fx_exp_01;}
+	]
+}

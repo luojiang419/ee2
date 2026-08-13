@@ -1,0 +1,224 @@
+//------------------------------------------------
+//	grass1
+//------------------------------------------------
+UnitType grass1
+{
+	parent = AmbientDoesNotBlockPathing
+	properties {
+		SizeX = 0.1
+		SizeY = 0.1
+		mass = 0
+		hitpoints = 6666666
+		displayName = tx_utn_grass1_name
+		DisplayNameScenEdit = tx_utn_grass1_sname
+	}
+	abilities = [
+	]
+}
+
+UnitModel grass1
+{	
+	ScaleType 		= kScaleTree
+	DefaultModel 	= grass1.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 		= [TreeShadow]
+}
+//------------------------------------------------
+//	grass2
+//------------------------------------------------
+UnitType grass2
+{
+	parent = AmbientDoesNotBlockPathing
+	properties {
+		SizeX = 0.1
+		SizeY = 0.1
+		mass = 0
+		hitpoints = 6666666
+		displayName = tx_utn_grass2_name
+		DisplayNameScenEdit = tx_utn_grass2_sname
+	}
+	abilities = [
+	]
+}
+
+UnitModel grass2
+{	
+	ScaleType 		= kScaleTree
+	DefaultModel 	= grass2.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 		= [TreeShadow]
+}
+//------------------------------------------------
+//	grass3
+//------------------------------------------------
+UnitType grass3
+{
+	parent = AmbientDoesNotBlockPathing
+	properties {
+		SizeX = 0.1
+		SizeY = 0.1
+		mass = 0
+		hitpoints = 6666666
+		displayName = tx_utn_grass3_name
+		DisplayNameScenEdit = tx_utn_grass3_sname
+	}
+	abilities = [
+	]
+}
+
+UnitModel grass3
+{	
+	ScaleType 		= kScaleTree
+	DefaultModel 	= grass3.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 		= [TreeShadow]
+}
+//------------------------------------------------
+//	grass4
+//------------------------------------------------
+UnitType grass4
+{
+	parent = AmbientDoesNotBlockPathing
+	properties {
+		SizeX = 0.1
+		SizeY = 0.1
+		mass = 0
+		hitpoints = 6666666
+		displayName = tx_utn_grass4_name
+		DisplayNameScenEdit = tx_utn_grass4_sname
+	}
+	abilities = [
+	]
+}
+
+UnitModel grass4
+{	
+	ScaleType 		= kScaleTree
+	DefaultModel 	= grass4.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 		= [TreeShadow]
+}
+//------------------------------------------------
+//	grass5
+//------------------------------------------------
+UnitType grass5
+{
+	parent = AmbientDoesNotBlockPathing
+	properties {
+		SizeX = 0.1
+		SizeY = 0.1
+		mass = 0
+		hitpoints = 6666666
+		displayName = tx_utn_grass5_name
+		DisplayNameScenEdit = tx_utn_grass5_sname
+	}
+	abilities = [
+	]
+}
+
+UnitModel grass5
+{	
+	ScaleType 		= kScaleTree
+	DefaultModel 	= grass5.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 		= [TreeShadow]
+}
+//------------------------------------------------
+//	grass6
+//------------------------------------------------
+UnitType grass6
+{
+	parent = AmbientDoesNotBlockPathing
+	properties {
+		SizeX = 0.1
+		SizeY = 0.1
+		mass = 0
+		hitpoints = 6666666
+		displayName = tx_utn_grass6_name
+		DisplayNameScenEdit = tx_utn_grass6_sname
+	}
+	abilities = [
+	]
+}
+
+UnitModel grass6
+{	
+	ScaleType 		= kScaleTree
+	DefaultModel 	= grass6.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 		= [TreeShadow]
+}
+//------------------------------------------------
+//	grass7
+//------------------------------------------------
+UnitType grass7
+{
+	parent = AmbientDoesNotBlockPathing
+	properties {
+		SizeX = 0.1
+		SizeY = 0.1
+		mass = 0
+		hitpoints = 6666666
+		displayName = tx_utn_grass7_name
+		DisplayNameScenEdit = tx_utn_grass7_sname
+	}
+	abilities = [
+	]
+}
+
+UnitModel grass7
+{	
+	ScaleType 		= kScaleTree
+	DefaultModel 	= grass7.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 		= [TreeShadow]
+}
+//------------------------------------------------
+//	grass8
+//------------------------------------------------
+UnitType grass8
+{
+	parent = AmbientDoesNotBlockPathing
+	properties {
+		SizeX = 0.1
+		SizeY = 0.1
+		mass = 0
+		hitpoints = 6666666
+		displayName = tx_utn_grass8_name
+		DisplayNameScenEdit = tx_utn_grass8_sname
+	}
+	abilities = [
+	]
+}
+
+UnitModel grass8
+{	
+ScaleType 		= kScaleTree
+	DefaultModel 	= grass8.NIF
+	DefaultState 	= Idle
+	States = [
+		{ StateName="Idle" }
+		]
+	ChildNames 		= [TreeShadow]
+}

@@ -1,0 +1,2072 @@
+// General ammo explosions.  Tank shells and plane bombs, etc.
+
+//------------------------------------------------------------------------------------
+// OTHER AMMO DEFINITIONS
+//------------------------------------------------------------------------------------
+AnimatedTerrainTexture AmmoExplosionTerrainFlash
+{	
+	Texture = fx_explode_terrain1.tga
+	StartColor = [ 255, 255, 255, 255 ]
+	MidColor = [ 255, 255, 255, 255 ]
+	EndColor = [ 255, 255, 255, 0 ]
+
+	TimeColorUp = .01
+	TimeColorPeak = .1
+	TimeColorDown = 1.5
+
+	ColorUpType = QuadFastStart
+	ColorDownType = QuadSlowStart
+
+	StartScale = 0
+	MidScale = 6
+	EndScale = 6
+
+	TimeScaleUp = .04
+	TimeScalePeak = .1
+	TimeScaleDown = 5.5
+
+	ScaleUpType = QuadFastStart
+	ScaleDownType = QuadSlowStart
+}
+
+AnimatedTerrainTexture BomberExplosionTerrainFlash
+{	
+	Texture = fx_explode_terrain1.tga
+	StartColor = [ 255, 255, 255, 0 ]
+	MidColor = [ 255, 255, 255, 0 ]
+	EndColor = [ 255, 255, 255, 0 ]
+
+	TimeColorUp = .04
+	TimeColorPeak = .1
+	TimeColorDown = .6
+
+	ColorUpType = QuadFastStart
+	ColorDownType = QuadSlowStart
+
+	StartScale = 0
+	MidScale = 8
+	EndScale = 8
+
+	TimeScaleUp = .04
+	TimeScalePeak = .1
+	TimeScaleDown = 8.8
+
+	ScaleUpType = QuadFastStart
+	ScaleDownType = QuadSlowStart
+}
+//------------------------------------------------------------------------------------
+// SEQUENCE
+//------------------------------------------------------------------------------------
+
+
+// A scorch mark.
+ExplosionSequence	sq_ammo_scorch01
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	SequenceNames = [ Ambient_Scorch01 ]
+	MaxHeightForDecal = 1.5
+}
+ExplosionSequence	sq_ammo_scorch02
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	SequenceNames = [ Ambient_Scorch02 ]
+	MaxHeightForDecal = 4.0
+}
+ExplosionSequence	sq_ammo_scorch03
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	SequenceNames = [ Ambient_Scorch03 ]
+	MaxHeightForDecal = 4.0
+}
+ExplosionSequence	sq_ammo_scorch04
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	SequenceNames = [ Ambient_Scorch04 ]
+	MaxHeightForDecal = 4.0
+}
+ExplosionSequence	sq_ammo_scorch05
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	SequenceNames = [ Ambient_Scorch05 ]
+	MaxHeightForDecal = 4.0
+}
+ExplosionSequence	sq_ammo_scorch06
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	SequenceNames = [ Ambient_Scorch06 ]
+	MaxHeightForDecal = 4.0
+}
+ExplosionSequence	sq_ammo_scorch07
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	SequenceNames = [ Ambient_Scorch07 ]
+	MaxHeightForDecal = 4.0
+}
+ExplosionSequence	sq_ammo_scorch08
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	SequenceNames = [ Ambient_Scorch08 ]
+	MaxHeightForDecal = 4.0
+}
+ExplosionSequence	sq_ammo_scorch11
+{
+	FiringProbability = 1
+	SequenceType = Decal 
+	SequenceNames = [ Ambient_Scorch11 ]
+	MaxHeightForDecal = 4.0
+}
+// TORPEDO ww1
+ExplosionSequence	sq_ammo_torpedosplash01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+//	SequenceType = Nif
+	SequenceType = Visual
+	PlayAll = 1
+//	SequenceNames = [ fx_watersplash_1.nif ]
+//	SequenceNames = [ AnimatedTorpedoExplosion1 AnimatedTorpedoExplosionSmoke1 AnimatedTorpedoSplash1 AnimatedTorpedoExplosionFlash1 ]
+	SequenceNames = [ AnimatedTorpedoSplash1 AnimatedTorpedoExplosion1 AnimatedTorpedoExplosionFlash1 ]
+//	SequenceWorldScales = [0.4]
+	SequenceSoundsNames = [fx_exp_underwater_1]
+}
+// TORPEDO 
+ExplosionSequence	sq_ammo_torpedosplash02
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+//	SequenceType = Nif
+	SequenceType = Visual
+	PlayAll = 1
+//	SequenceNames = [ fx_watersplash_1.nif ]
+//	SequenceNames = [ AnimatedTorpedoExplosion1 AnimatedTorpedoExplosionSmoke1 AnimatedTorpedoSplash1 AnimatedTorpedoExplosionFlash1 ]
+	SequenceNames = [ AnimatedTorpedoSplash1 AnimatedTorpedoExplosion1 AnimatedTorpedoExplosionFlash1] //
+//	SequenceWorldScales = [0.4]
+	SequenceSoundsNames = [fx_exp_underwater_3]
+}
+// TORPEDO air
+ExplosionSequence	sq_ammo_torpedosplash03
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+//	SequenceType = Nif
+	SequenceType = Visual
+	PlayAll = 1
+//	SequenceNames = [ fx_watersplash_1.nif ]
+//	SequenceNames = [ AnimatedTorpedoExplosion1 AnimatedTorpedoExplosionSmoke1 AnimatedTorpedoSplash1 AnimatedTorpedoExplosionFlash1 ]
+	SequenceNames = [ AnimatedTorpedoSplash1 ]//AnimatedTorpedoExplosion1 AnimatedTorpedoExplosionFlash1
+//	SequenceWorldScales = [0.4]
+	SequenceSoundsNames = [fx_exp_underwater_2]
+}
+ExplosionSequence	sq_ammo_torpedosplash04
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+//	SequenceType = Nif
+	SequenceType = Visual
+	PlayAll = 1
+//	SequenceNames = [ fx_watersplash_1.nif ]
+//	SequenceNames = [ AnimatedTorpedoExplosion1 AnimatedTorpedoExplosionSmoke1 AnimatedTorpedoSplash1 AnimatedTorpedoExplosionFlash1 ]
+	SequenceNames = [ AnimatedTorpedoSplash1 AnimatedTorpedoExplosion1 AnimatedTorpedoExplosionFlash1 ]
+//	SequenceWorldScales = [0.6]
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+// Bullet Splash
+ExplosionSequence	sq_ammo_bulletsplash01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	SequenceNames = [ fx_bullet_smoke01.nif ]
+	SequenceWorldScales = [1.0]
+	SequenceSoundsNames = []
+}
+ExplosionSequence	sq_ammo_torpedofire01
+{
+	TimeA = 0.3
+	TimeB = 0.3
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	SequenceNames = [ fx_explosion_1.nif ]
+	SequenceWorldScales = [0.005]
+}
+ExplosionSequence	sq_bomb_light01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_explosion_bomb_light01.nif]
+	SequenceWorldScales = [1.0]
+	SequenceDrawingOrderLayer = [1]	
+}
+
+ExplosionSequence	sq_bomb_dark02
+{
+	BoundingSphereRadius = 1
+	StartingPositionMinX = -0.5
+	StartingPositionMaxX = 0.5
+	StartingPositionMinY = -0.5
+	StartingPositionMaxY = 0.5
+	StartingPositionMinZ = 0.5
+	StartingPositionMaxZ = 0.5
+	Replay = 0
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_explosion_bomb_dark01.nif]
+	SequenceWorldScales = [0.5]
+	SequenceDrawingOrderLayer = [1]	
+}
+ExplosionSequence	sq_bomb_flash01
+{
+	BoundingSphereRadius = 1
+	Replay = 0
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_explosion_flash01.nif]
+	SequenceWorldScales = [1.0]
+	SequenceDrawingOrderLayer = [2]
+}
+ExplosionSequence	sq_bomb_flash02
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_explosion_flash02.nif]
+	SequenceWorldScales = [1.0]
+	SequenceDrawingOrderLayer = [2]	
+}
+ExplosionSequence	sq_bomb_flash03
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_explosion_flash03.nif]
+	SequenceWorldScales = [1.0]
+	SequenceDrawingOrderLayer = [2]	
+}
+
+ExplosionSequence	sq_flak_smoke01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_flak_smoke01.nif]
+	SequenceWorldScales = [0.5]
+	SequenceDrawingOrderLayer = [0]	
+}
+
+ExplosionSequence	sq_flak_smoke02
+{
+	BoundingSphereRadius = 1
+	TimeA = 0.5
+	TimeB = 0.5
+	StartingPositionMinX = -0.25
+	StartingPositionMaxX = 0.25
+	StartingPositionMinY = -0.25
+	StartingPositionMaxY = 0.25
+	StartingPositionMinZ = 2.0
+	StartingPositionMaxZ = 2.0
+	Replay = 0
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_flak_smoke02.nif]
+	SequenceWorldScales = [0.5]
+	SequenceDrawingOrderLayer = [0]	
+}
+ExplosionSequence	sq_missile_flash01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_flash01.nif]
+	SequenceWorldScales = [0.1]
+	SequenceDrawingOrderLayer = [2]	
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+ExplosionSequence	sq_missile_flash02
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_flash01.nif]
+	SequenceWorldScales = [0.05]
+	SequenceDrawingOrderLayer = [2]	
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+ExplosionSequence	sq_missile_flash03
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_flash01.nif]
+	SequenceWorldScales = [0.03]
+	SequenceDrawingOrderLayer = [2]	
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+ExplosionSequence	sq_missile_flash04
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_flash01.nif]
+	SequenceWorldScales = [0.1]
+	SequenceDrawingOrderLayer = [2]	
+	SequenceSoundsNames = []
+}
+ExplosionSequence	sq_missile_dark01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_dark01.nif]
+	SequenceWorldScales = [0.1]
+	SequenceDrawingOrderLayer = [1]	
+}
+ExplosionSequence	sq_missile_dark02
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_dark01.nif]
+	SequenceWorldScales = [0.05]
+	SequenceDrawingOrderLayer = [1]	
+}
+ExplosionSequence	sq_missile_dark03
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_dark01.nif]
+	SequenceWorldScales = [0.03]
+	SequenceDrawingOrderLayer = [1]	
+}
+ExplosionSequence	sq_missile_light01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_light01.nif]
+	SequenceWorldScales = [0.1]
+	SequenceDrawingOrderLayer = [0]	
+}
+ExplosionSequence	sq_missile_light02
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_light01.nif]
+	SequenceWorldScales = [0.05]
+	SequenceDrawingOrderLayer = [0]	
+}
+ExplosionSequence	sq_missile_light03
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_light01.nif]
+	SequenceWorldScales = [0.05]
+	SequenceDrawingOrderLayer = [0]	
+}
+ExplosionSequence	sq_missile_debris01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_debris01.nif]
+	SequenceWorldScales = [0.1]
+	SequenceDrawingOrderLayer = [1]	
+}
+
+ExplosionSequence	sq_missile_debris02
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_debris01.nif]
+	SequenceWorldScales = [0.05]
+	SequenceDrawingOrderLayer = [1]	
+}
+
+ExplosionSequence	sq_missile_debris03
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_missile_debris01.nif]
+	SequenceWorldScales = [0.03]
+	SequenceDrawingOrderLayer = [1]	
+}
+
+ExplosionSequence	sq_flak_fire01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_flak_01.nif]
+	SequenceWorldScales = [0.5]
+	SequenceDrawingOrderLayer = [2]	
+}
+ExplosionSequence	sq_smoke_dark01
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Nif
+	PlayAll = 1
+	StartFromMainModel = 1
+	SequenceNames = [ fx_smoke_dark01.nif]
+	SequenceWorldScales = [0.025]
+	SequenceDrawingOrderLayer = [1]	
+}
+// Lighting the terrain
+ExplosionSequence	sq_bomb_ground
+{
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	SequenceNames = [ AmmoExplosionTerrainFlash ]
+	SequenceWorldScales = [0.05]
+}
+ExplosionSequence	sq_bomb_ground02
+{
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	SequenceNames = [ BomberExplosionTerrainFlash ]
+	SequenceWorldScales = [0.05]
+}
+ExplosionSequence	sq_bomb_ground03
+{
+	BoundingSphereRadius = 1
+	StartFromMainModel = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	SequenceNames = []
+	SequenceWorldScales = [0.1]
+}
+ExplosionSequence	sq_carpet_bomb
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedAirExplosion2 AnimatedAirExplosionSmoke2 AnimatedAirExplosionFlash2 ]
+//	SequenceNames = [ AnimatedAirExplosion2 ]
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+ExplosionSequence	sq_howitzer_shell
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedAirExplosion2 AnimatedAirExplosionSmoke2 AnimatedAirExplosionFlash2 ]
+}
+ExplosionSequence	sq_westhow_shell
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedAirExplosion2 AnimatedAirExplosionSmoke2 AnimatedAirExplosionFlash2 ]
+}
+ExplosionSequence	sq_westhow08_shell
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true	
+      SequenceNames = [ AnimatedCannonExplosion1 AnimatedCannonExplosionSmoke1 AnimatedExplosionSmoke3 AnimatedCannonSplash1 AnimatedCannonExplosionFlash1 AnimatedDebrisSplash1 AnimatedMissileSplash1 AnimatedMissileFlash2 ]
+}
+ExplosionSequence	sq_bertha_shell
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedCannonExplosion1 AnimatedCannonExplosionSmoke1 AnimatedExplosionSmoke3 AnimatedCannonSplash1 AnimatedCannonExplosionFlash1 AnimatedDebrisSplash1 AnimatedMissileSplash1 AnimatedMissileFlash2 ]      
+}
+ExplosionSequence	sq_bertha_shell2
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedCannonExplosion1 AnimatedCannonExplosionSmoke1 AnimatedExplosionSmoke3 AnimatedCannonSplash1 AnimatedCannonExplosionFlash1 AnimatedDebrisSplash1 AnimatedMissileSplash1 AnimatedMissileFlash2 ]      
+}
+ExplosionSequence	sq_boulder_bomb
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+//	SequenceNames = [ AnimatedStoneExplosion1 AnimatedStoneSplash1 ]
+	SequenceNames = [ AnimatedStoneExplosion1 AnimatedStoneExplosionSmoke1 AnimatedExplosionSmoke2 AnimatedStoneSplash1 ]
+	SequenceSoundsNames = [fx_artillery_impact]
+}
+ExplosionSequence	sq_boulder_wsound
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedMissileSplash1 AnimatedMissileFlash2 ]
+}
+ExplosionSequence	sq_cannonball
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedCannonExplosion1 AnimatedCannonSplash1 ]  
+//	SequenceNames = [ AnimatedCannonExplosion1 AnimatedCannonExplosionSmoke1 AnimatedExplosionSmoke3 AnimatedCannonSplash1 AnimatedCannonExplosionFlash1 AnimatedDebrisSplash1 ]
+	SequenceSoundsNames = [fx_artillery_impact]
+}
+ExplosionSequence	sq_canballlight
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedCannonExplosion1 AnimatedCannonExplosionSmoke1 AnimatedExplosionSmoke3 AnimatedCannonSplash1 AnimatedCannonExplosionFlash1 AnimatedDebrisSplash1 ]	
+}
+ExplosionSequence	sq_grenadebullet_1
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedGrenadeSplash1 AnimatedGrenadeFlash1 ]
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+ExplosionSequence	sq_bullet_1
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedBulletSplash1 AnimatedBulletFlash1 ]
+}
+ExplosionSequence	sq_fire_arrow
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedFireSplash1 AnimatedFireFlash1 ]
+	SequenceSoundsNames = [fx_exp_flaming_bolt_1]
+}
+ExplosionSequence	sq_fire_boulder
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedFireSplash2 AnimatedFireFlash2 ]
+	SequenceSoundsNames = [fx_exp_flaming_bolt_2]
+}
+ExplosionSequence	sq_missile_1
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedMissileSplash1 AnimatedMissileFlash2 ]
+	SequenceSoundsNames = [fx_bomb_explosion]
+}
+ExplosionSequence	sq_missileT_1
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedMissileSplash1 AnimatedMissileFlash2 ]
+	SequenceSoundsNames = [fx_exp_small_1]
+}
+ExplosionSequence	sq_missile_wsound
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedMissileSplash1 AnimatedMissileFlash2 ]
+}
+ExplosionSequence	sq_shell_1
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedShellSplash1 AnimatedShellSmoke1 AnimatedShellFlash2 ]
+	SequenceSoundsNames = [fx_exp_small_1]
+}
+ExplosionSequence	sq_shell_art1
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedShellSplash1 AnimatedShellSmoke1 AnimatedShellFlash2 ]
+	SequenceSoundsNames = []
+}
+ExplosionSequence	sq_shell_handgrenade
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedGrenadeSplash1 AnimatedGrenadeFlash1 ]
+	SequenceSoundsNames = []
+}
+ExplosionSequence	sq_shell_landmine
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = Visual
+	PlayAll = true
+	SequenceNames = [ AnimatedGrenadeSplash1 AnimatedGrenadeFlash1 AnimatedShellFlash2 AnimatedShellSplash1 ]
+	SequenceSoundsNames = []
+}
+ExplosionSequence	sq_missile_1B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = []
+}
+ExplosionSequence	sq_missile_2B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = [fx_exp_artillery_1]
+}
+ExplosionSequence	sq_missile_3B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = [fx_exp_artillery_2]
+}
+ExplosionSequence	sq_missile_4B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = [fx_exp_artillery_3]
+}
+ExplosionSequence	sq_missile_5B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = [fx_exp_artillery_4]
+}
+ExplosionSequence	sq_missile_6B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = [fx_exp_plasma_4]
+}
+ExplosionSequence	sq_missile_7B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = [fx_exp_cannonball_4]
+}
+ExplosionSequence	sq_missile_8B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = [fx_exp_claypot_2]
+}
+ExplosionSequence	sq_missile_9B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = [fx_exp_cannonball_3]
+}
+ExplosionSequence	sq_missile_10B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ DL_Missile ]
+	SequenceSoundsNames = [fx_exp_cannonball_2]
+}
+ExplosionSequence	sq_missile_11B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [DL_Missile]
+	SequenceSoundsNames = [fx_exp_cannonball_1]
+}
+ExplosionSequence	sq_missile_12B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [DL_Missile]
+	SequenceSoundsNames = [fx_exp_grenade_2]
+}
+ExplosionSequence	sq_missile_13B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [DL_Missile]
+	SequenceSoundsNames = [fx_exp_landmine_1]
+}
+ExplosionSequence	sq_missile_14B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [DL_Missile]
+	SequenceSoundsNames = [fx_exp_underwater_4]
+}
+ExplosionSequence	sq_earthquake_1B
+{
+	BoundingSphereRadius = 1
+	FiringProbability = 1
+	SequenceType = DynamicLight
+	PlayAll = true
+	SequenceNames = [ AnimatedShellFlash2 ]
+	SequenceSoundsNames = [fx_earthquake_explode]
+}
+
+//------------------------------------------------------------------------------------
+// EXPLOSION
+//------------------------------------------------------------------------------------
+
+// Explosion with only a scorch mark.
+Explosion			Expl_Ammo_03
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_scorch01 sq_boulder_bomb sq_missile_1B]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Splash explosion for torpedo impact.
+Explosion			Expl_Ammo_07
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_torpedosplash01 sq_ammo_torpedofire01 sq_missile_1B]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Splash explosion for torpedo impact.
+Explosion			Expl_Ammo_072
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_torpedosplash02 sq_ammo_torpedofire01 sq_missile_1B]//
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Splash explosion for torpedo impact.
+Explosion			Expl_Ammo_073
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_torpedosplash03 ]//sq_ammo_torpedofire01 sq_missile_1B
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Splash explosion for fighter bomber.Visual will need to get updated
+Explosion			Expl_Ammo_08
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_bomb_ground02 sq_carpet_bomb sq_missile_1B]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Splash explosion for carpet bombs.
+Explosion			Expl_Ammo_08a
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_bomb_ground02 sq_carpet_bomb sq_missile_1B]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Splash explosion for aa guns.
+Explosion			Expl_Ammo_09
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_boulder_bomb sq_missile_1B]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Splash explosion for missiles.
+Explosion			Expl_Ammo_10
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_1 sq_missile_1B]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Splash explosion for tank shells.
+Explosion			Expl_Ammo_Shell
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_shell_1 sq_ammo_scorch01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for tank shells
+Explosion			Expl_Ammo_11
+{
+	BoundingSphereRadius = 1
+//	ExplosionSequences =	[ sq_missile_debris02 sq_missile_dark02 sq_missile_light02 sq_missile_flash02 ]
+	ExplosionSequences =	[ sq_missile_1 sq_missile_1B ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for artillery light
+Explosion			Expl_Ammo_12
+{
+	BoundingSphereRadius = 1
+//	ExplosionSequences =	[ sq_missile_debris02 sq_missile_dark02 sq_missile_light02 sq_missile_flash02 ]
+	ExplosionSequences =	[ sq_missile_2B sq_ammo_scorch01 sq_shell_art1]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for tanks
+Explosion			Expl_Ammo_12b
+{
+	BoundingSphereRadius = 1
+//	ExplosionSequences =	[ sq_missile_debris02 sq_missile_dark02 sq_missile_light02 sq_missile_flash02 ]
+	ExplosionSequences =	[ sq_missile_1B sq_ammo_scorch01 sq_shell_1]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for howitzers
+Explosion			Expl_Ammo_13
+{
+	BoundingSphereRadius = 1
+//	ExplosionSequences =	[ sq_missile_debris02 sq_missile_dark02 sq_missile_light02 sq_missile_flash02 ]
+	ExplosionSequences =	[ sq_missile_3B sq_ammo_scorch02 sq_howitzer_shell]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Explosion for howitzers
+Explosion			Expl_Ammo_14
+{
+	BoundingSphereRadius = 1
+//	ExplosionSequences =	[ sq_missile_debris02 sq_missile_dark02 sq_missile_light02 sq_missile_flash02 ]
+	ExplosionSequences =	[ sq_missile_4B sq_ammo_scorch01 sq_bertha_shell2]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Explosion for westhow 11-12
+Explosion			Expl_Ammo_15
+{
+	BoundingSphereRadius = 1
+//	ExplosionSequences =	[ sq_missile_debris02 sq_missile_dark02 sq_missile_light02 sq_missile_flash02 ]
+	ExplosionSequences =	[ sq_missile_5B sq_ammo_scorch06 sq_westhow_shell ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Explosion for westhow 8
+Explosion			Expl_Ammo_16
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_6B sq_ammo_scorch11 sq_westhow08_shell ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for westhow 8
+Explosion			Expl_Ammo_17
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_7B sq_ammo_scorch11 sq_westhow08_shell ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for westhow 8
+Explosion			Expl_Ammo_18
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_8B sq_ammo_scorch05 sq_shell_art1 sq_smoke_dark01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for westhow 8
+Explosion			Expl_Ammo_19
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_9B sq_ammo_scorch11 sq_missile_wsound sq_smoke_dark01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for heavy art 8-10
+Explosion			Expl_Ammo_20
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_10B sq_ammo_scorch11 sq_bertha_shell ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for light art 7-9
+Explosion			Expl_Ammo_21
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_11B sq_ammo_scorch01 sq_canballlight ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for hand grenade
+Explosion			Expl_Ammo_HGrenade
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_12B sq_ammo_scorch01 sq_shell_handgrenade ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for land mine
+Explosion			Expl_Ammo_LandMine
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_13B sq_ammo_scorch01 sq_shell_landmine ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for land mine
+Explosion			Expl_Ammo_NavalMine
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_14B sq_ammo_torpedosplash04 sq_ammo_torpedofire01 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Explosion for mortar shells
+Explosion			Expl_Ammo_Mortar
+{
+	BoundingSphereRadius = 1
+//	ExplosionSequences =	[ sq_missile_debris03 sq_missile_dark03 sq_missile_light03 sq_missile_flash03 ]
+//	ExplosionSequences =	[ sq_missile_1 sq_missile_1B]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Explosion for cannonballs
+Explosion			Expl_Ammo_Cannonball01
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_cannonball ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Splash explosion for grenade bullet impact.
+Explosion			Expl_Ammo_GrenadeBullet
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_grenadebullet_1 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Splash explosion for bullet impact.
+Explosion			Expl_Ammo_Bullet1
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_bullet_1 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Splash explosion for fire arrow impact.
+Explosion			Expl_Ammo_FireArrow
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_fire_arrow ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Splash explosion for fire arrow impact.
+Explosion			Expl_Ammo_FireBoulder
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_fire_boulder ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+
+// Splash explosion for Missile Impact.
+Explosion			Expl_Ammo_Missile1
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_missile_1 sq_missile_1B]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+// Splash explosion for Howitzer Impact.
+Explosion			Expl_Ammo_BigWeapon
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_scorch02  sq_boulder_bomb sq_missile_1B ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+Explosion			Expl_Ammo_EarthQuake
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_scorch07  sq_boulder_bomb sq_missile_1B sq_earthquake_1B sq_nuke_Shake3 ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+Explosion			Expl_Ammo_BChem
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_scorch03  sq_boulder_bomb sq_missile_1B ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+Explosion			Expl_Ammo_LChem
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_scorch04  sq_boulder_bomb sq_missile_1B ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+Explosion			Expl_Ammo_LFlame
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_scorch05  sq_boulder_wsound sq_missile_6B ]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+Explosion			Expl_Ammo_BigOne
+{
+	BoundingSphereRadius = 1
+	ExplosionSequences =	[ sq_ammo_scorch06  sq_boulder_bomb sq_missile_1B]
+	VelocityOn = 0
+	VelocityAngle = 0
+	SpeedMin = 0
+	SpeedMax = 0
+	GravityOn = 0
+}
+//------------------------------------------------------------------------------------
+// EXPLOSION MAPPER
+//------------------------------------------------------------------------------------
+// For bombs.  Includes fire and appropriate scorch marks.
+ExplosionSelector	ExplSelectorBomb01
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_10
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_10
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_10
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+// For Guided Missiles.  Includes fire and appropriate scorch marks.
+ExplosionSelector	ExplSelectorMissile01
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_10
+									HitPoint = -1
+									Hide = false
+								}								
+							]
+}
+
+// For lobbed stones.  Possibly other non-explosive ammo.  Scorches terrain.
+// Should probably eventually contain dusty, dirty explosions.  But no fire!
+ExplosionSelector	ExplSelectorStone01
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_03
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_03
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_03
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+// An torpedo impact
+ExplosionSelector	ExplSelectorTorp01
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_07
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+// An torpedo impact
+ExplosionSelector	ExplSelectorTorp02
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_072
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+// An torpedo impact
+ExplosionSelector	ExplSelectorTorp03
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_073
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+// An torpedo impact
+ExplosionSelector	ExplSelectorNavalMine
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_NavalMine
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorBomb02
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_08
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorBomb03
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_08a
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorBomb04
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_08a
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorHandGrenade
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_HGrenade
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorBigWeapon
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_BigWeapon
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorBallWest08
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_16
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorBallWest02
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_17
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorHowBall07
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_19
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorEarthQuake
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_EarthQuake
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorBigOne
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_BigOne
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorBChem
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_BChem
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorLChem
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_LChem
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorLFlame
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_LFlame
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorFlak01
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_09
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+// Explosion selector for the tank shells.
+ExplosionSelector	ExplSelectorTankShell01
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_11
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_11
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_11
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+// Explosion selector for the light artillery shells.
+ExplosionSelector	ExplSelectorArtShell01
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_12
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_12
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_12
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+// Explosion selector for the howitzers shells.
+ExplosionSelector	ExplSelectorHowitzer
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_13
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_13
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_13
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+// Explosion selector for the heavy artillery shells.
+ExplosionSelector	ExplSelectorBertha
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_14
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_14
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_14
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+// Explosion selector for the Westhow shells.
+ExplosionSelector	ExplSelectorWestShell
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_15
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_15
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_15
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorMortar01
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_Mortar
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_Mortar
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_Mortar
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorCannonball01
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_Cannonball01
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_Cannonball01
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_Cannonball01
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorShellN2
+{
+	ExplosionDescriptors =	[
+								// Use this on terrain hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Terrain)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_12b
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on unit hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (MobileUnit)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_12b
+									HitPoint = -1
+									Hide = false
+								}
+								// Use this on building hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Building)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_12b
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorGrenadeBullet01
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_GrenadeBullet
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorBullet01
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_Bullet1
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorFireArrow
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_FireArrow
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorFireBoulder
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_FireBoulder
+									HitPoint = -1
+									Hide = false
+								}
+							]
+
+}
+ExplosionSelector	ExplSelectorFireBoulder03
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_18
+									HitPoint = -1
+									Hide = false
+								}
+							]
+
+}
+ExplosionSelector	ExplSelectorMissile1
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_Missile1
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorfkjqAmmo
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 0.05
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_FireArrow
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorHeavyart08
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_20
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorCanonLight01
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_21
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+ExplosionSelector	ExplSelectorLandMine
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_LandMine
+									HitPoint = -1
+									Hide = false
+								}
+							]
+}
+
+ExplosionSelector	ExplSelectorShell1
+{
+	ExplosionDescriptors =	[
+								// Use this on all hits.
+								{
+									BoundingSphereRadius = 1
+									Weapon = (Any)
+									Trigger = DynamicMessage
+									MessageName = DamagedToDeath
+									ExplosionName = Expl_Ammo_Shell
+									HitPoint = -1
+									Hide = false
+								}
+							]
+
+}
+

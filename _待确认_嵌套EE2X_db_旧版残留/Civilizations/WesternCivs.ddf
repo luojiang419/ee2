@@ -1,0 +1,1429 @@
+//////////////////////////////////////////////////////////
+//														//
+// WesternCivs.ddf										//
+// civilization definitions for the Western region		//
+//														//
+//////////////////////////////////////////////////////////
+
+
+////////////////////////
+// German
+
+Civilization German
+{
+	CityNames = [
+		tx_ms_cityname_Berlin
+		tx_ms_cityname_Bremen
+		tx_ms_cityname_Dresden
+		tx_ms_cityname_Dusseldorf
+		tx_ms_cityname_Erfurt
+		tx_ms_cityname_Hamburg
+		tx_ms_cityname_Hanover
+		tx_ms_cityname_Kiel
+		tx_ms_cityname_Magdeburg
+		tx_ms_cityname_Mainz
+		tx_ms_cityname_Munich
+		tx_ms_cityname_Potsdam
+		tx_ms_cityname_Saarbrucken
+		tx_ms_cityname_Schwerin
+		tx_ms_cityname_Stuttgart
+		tx_ms_cityname_Wiesbaden
+	]
+	
+	TerritoryNames = [
+		tx_terr_german_0
+		tx_terr_german_1
+		tx_terr_german_2
+		tx_terr_german_3
+		tx_terr_german_4
+		tx_terr_german_5
+		tx_terr_german_6
+		tx_terr_german_7
+		tx_terr_german_8
+		tx_terr_german_9
+		tx_terr_german_10
+		tx_terr_german_11
+		tx_terr_german_12
+		tx_terr_german_13
+		tx_terr_german_14
+	]
+	
+	PlayerNames = [
+		tx_player_German_0
+		tx_player_German_1
+		tx_player_German_2
+		tx_player_German_3
+		tx_player_German_4
+		tx_player_German_5
+		tx_player_German_6
+		tx_player_German_7
+		tx_player_German_8
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_German_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_German_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_German_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitGerman1
+		UniqueUnitGerman2
+		UniqueUnitGerman3
+	]
+	
+	CivAttributes = [
+		CivAtt_SpecRes_Cost
+		CivAtt_Hinf_Health
+	]
+	
+AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	
+						upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// English
+
+Civilization English
+{
+	CityNames = [
+		tx_ms_cityname_Aberdeen
+		tx_ms_cityname_Belfast
+		tx_ms_cityname_Birmingham
+		tx_ms_cityname_Bristol
+		tx_ms_cityname_Cardiff
+		tx_ms_cityname_Dover
+		tx_ms_cityname_Dundee
+		tx_ms_cityname_Edinburgh
+		tx_ms_cityname_Falmouth
+		tx_ms_cityname_Felixstowe
+		tx_ms_cityname_Forth
+		tx_ms_cityname_Glasgow
+		tx_ms_cityname_Grangemouth
+		tx_ms_cityname_KingstonUponHull
+		tx_ms_cityname_Liverpool
+		tx_ms_cityname_London
+		tx_ms_cityname_Londonderry
+		tx_ms_cityname_Manchester
+		tx_ms_cityname_Middlesbrough
+		tx_ms_cityname_Newcastle
+		tx_ms_cityname_Peterhead
+		tx_ms_cityname_Plymouth
+		tx_ms_cityname_Portsmouth
+		tx_ms_cityname_Southampton
+	]
+	
+	TerritoryNames = [
+		tx_terr_english_0
+		tx_terr_english_1
+		tx_terr_english_2
+		tx_terr_english_3
+		tx_terr_english_4
+		tx_terr_english_5
+		tx_terr_english_6
+		tx_terr_english_7
+		tx_terr_english_8
+		tx_terr_english_9
+		tx_terr_english_10
+		tx_terr_english_11
+		tx_terr_english_12
+		tx_terr_english_13
+		tx_terr_english_14
+		tx_terr_english_15
+		tx_terr_english_16
+		tx_terr_english_17
+		tx_terr_english_18
+		tx_terr_english_19
+		tx_terr_english_20
+		tx_terr_english_21
+		tx_terr_english_22
+		tx_terr_english_23
+		tx_terr_english_24
+		tx_terr_english_25
+		tx_terr_english_26
+		tx_terr_english_27
+		tx_terr_english_28
+		tx_terr_english_29
+		tx_terr_english_30
+		tx_terr_english_31
+		tx_terr_english_32
+		tx_terr_english_33
+		tx_terr_english_34
+		tx_terr_english_35
+		tx_terr_english_36
+		tx_terr_english_37
+	]
+	
+	PlayerNames = [
+		tx_player_English_0
+		tx_player_English_1
+		tx_player_English_2
+		tx_player_English_3
+		tx_player_English_4
+		tx_player_English_5
+		tx_player_English_6
+		tx_player_English_7
+		tx_player_English_8
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_English_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_English_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_English_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitEnglish1
+		UniqueUnitEnglish2
+		UniqueUnitEnglish3
+	]
+	
+	CivAttributes = [
+		CivAtt_MarkDock_Cost
+		CivAtt_Boat_Dmg
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// Roman
+
+Civilization Roman
+{
+	CityNames = [
+		tx_ms_cityname_Aquilonia
+		tx_ms_cityname_Arpinum
+		tx_ms_cityname_Brundisium
+		tx_ms_cityname_Caerleon
+		tx_ms_cityname_Capua
+		tx_ms_cityname_Cividale
+		tx_ms_cityname_Colossae
+		tx_ms_cityname_Constantinople
+		tx_ms_cityname_Ephesus
+		tx_ms_cityname_Epirus
+		tx_ms_cityname_Glanum
+		tx_ms_cityname_Herculaneum
+		tx_ms_cityname_Lanivium
+		tx_ms_cityname_Londinium
+		tx_ms_cityname_Lutetia
+		tx_ms_cityname_Ostia
+		tx_ms_cityname_Philippi
+		tx_ms_cityname_Pompeii
+		tx_ms_cityname_Puteoli
+		tx_ms_cityname_Ravenna
+		tx_ms_cityname_Rome
+		tx_ms_cityname_Saguntum
+		tx_ms_cityname_Sutri
+		tx_ms_cityname_Taranto
+		tx_ms_cityname_Thapsus
+		tx_ms_cityname_Thurii
+		tx_ms_cityname_Tiberias
+		tx_ms_cityname_Tripontium
+		tx_ms_cityname_Verulamium
+		tx_ms_cityname_Viroconium
+	]
+	
+	TerritoryNames = [
+		tx_terr_roman_0
+		tx_terr_roman_1
+		tx_terr_roman_2
+		tx_terr_roman_3
+		tx_terr_roman_4
+		tx_terr_roman_5
+		tx_terr_roman_6
+		tx_terr_roman_7
+		tx_terr_roman_8
+		tx_terr_roman_9			
+		tx_terr_roman_10
+		tx_terr_roman_11
+		tx_terr_roman_12
+		tx_terr_roman_13
+		tx_terr_roman_14
+		tx_terr_roman_15
+		tx_terr_roman_16
+		tx_terr_roman_17
+		tx_terr_roman_18
+		tx_terr_roman_19
+		tx_terr_roman_20
+		tx_terr_roman_21
+		tx_terr_roman_22
+		tx_terr_roman_23
+		tx_terr_roman_24
+		tx_terr_roman_25
+		tx_terr_roman_26
+		tx_terr_roman_27
+		tx_terr_roman_28
+		tx_terr_roman_29
+		tx_terr_roman_30
+		tx_terr_roman_31
+		tx_terr_roman_32
+	]
+	
+	PlayerNames = [
+		tx_player_Roman_0
+		tx_player_Roman_1
+		tx_player_Roman_2
+		tx_player_Roman_3
+		tx_player_Roman_4
+		tx_player_Roman_5
+		tx_player_Roman_6
+		tx_player_Roman_7
+		tx_player_Roman_8
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_Roman_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Roman_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Roman_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitRoman1
+		UniqueUnitRoman2
+		UniqueUnitRoman3
+	]
+	
+	CivAttributes = [
+		CivAtt_BarrWkshp_Cost
+		CivAtt_HInf_Dmg
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// American
+
+Civilization American
+{
+	CityNames = [
+		tx_ms_cityname_Austin
+		tx_ms_cityname_Baltimore
+		tx_ms_cityname_Boston
+		tx_ms_cityname_Chicago
+		tx_ms_cityname_Columbus
+		tx_ms_cityname_Dallas
+		tx_ms_cityname_Denver
+		tx_ms_cityname_Detroit
+		tx_ms_cityname_ElPaso
+		tx_ms_cityname_Houston
+		tx_ms_cityname_Indianapolis
+		tx_ms_cityname_Jacksonville
+		tx_ms_cityname_LosAngeles
+		tx_ms_cityname_Memphis
+		tx_ms_cityname_Milwaukee
+		tx_ms_cityname_Nashville
+		tx_ms_cityname_NewYork
+		tx_ms_cityname_Philadelphia
+		tx_ms_cityname_Phoenix
+		tx_ms_cityname_SanAntonio
+		tx_ms_cityname_SanDiego
+		tx_ms_cityname_SanFrancisco
+		tx_ms_cityname_SanJose
+		tx_ms_cityname_Seattle
+		tx_ms_cityname_Washington
+	]
+	
+	TerritoryNames = [
+		tx_terr_american_0
+		tx_terr_american_1
+		tx_terr_american_2
+		tx_terr_american_3
+		tx_terr_american_4
+		tx_terr_american_5
+		tx_terr_american_6
+		tx_terr_american_7
+		tx_terr_american_8
+		tx_terr_american_9
+		tx_terr_american_10
+		tx_terr_american_11
+		tx_terr_american_12
+		tx_terr_american_13
+		tx_terr_american_14
+		tx_terr_american_15
+		tx_terr_american_16
+		tx_terr_american_17
+		tx_terr_american_18
+		tx_terr_american_19
+		tx_terr_american_20
+		tx_terr_american_21
+		tx_terr_american_22
+		tx_terr_american_23
+		tx_terr_american_24
+		tx_terr_american_25
+		tx_terr_american_26
+		tx_terr_american_27
+		tx_terr_american_28
+		tx_terr_american_29
+		tx_terr_american_30
+		tx_terr_american_31
+		tx_terr_american_32
+		tx_terr_american_33
+		tx_terr_american_34
+		tx_terr_american_35
+		tx_terr_american_36
+		tx_terr_american_37
+		tx_terr_american_38
+		tx_terr_american_39
+		tx_terr_american_40
+		tx_terr_american_41
+		tx_terr_american_42
+		tx_terr_american_43
+		tx_terr_american_44
+		tx_terr_american_45
+		tx_terr_american_46
+		tx_terr_american_47
+		tx_terr_american_48
+		tx_terr_american_49
+	]
+	
+	PlayerNames = [
+		tx_player_American_0
+		tx_player_American_1
+		tx_player_American_2
+		tx_player_American_3
+		tx_player_American_4
+		tx_player_American_5
+		tx_player_American_6
+		tx_player_American_7
+		tx_player_American_8
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_American_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_American_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_American_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitAmerican1
+		UniqueUnitAmerican2
+		UniqueUnitAmerican3
+	]
+	
+	CivAttributes = [
+		CivAtt_Trade_Drop
+		CivAtt_Plane_Dmg
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// Greek
+
+Civilization Greek
+{
+	CityNames = [
+		tx_ms_cityname_Argos
+		tx_ms_cityname_Athens
+		tx_ms_cityname_Chalkis
+		tx_ms_cityname_Corinth
+		tx_ms_cityname_Delphi
+		tx_ms_cityname_Elefsis
+		tx_ms_cityname_Irakleion
+		tx_ms_cityname_Kavala
+		tx_ms_cityname_Kerkyra
+		tx_ms_cityname_Larisa
+		tx_ms_cityname_Lavrion
+		tx_ms_cityname_Loannina
+		tx_ms_cityname_Megara
+		tx_ms_cityname_Mycenae
+		tx_ms_cityname_Olympia
+		tx_ms_cityname_Patrai
+		tx_ms_cityname_Peiraiefs
+		tx_ms_cityname_Sikyon
+		tx_ms_cityname_Sparta
+		tx_ms_cityname_Thebes
+		tx_ms_cityname_Thessaloniki
+		tx_ms_cityname_Volos
+	]
+	
+	TerritoryNames = [
+		tx_terr_greek_0
+		tx_terr_greek_1
+		tx_terr_greek_2
+		tx_terr_greek_3
+		tx_terr_greek_4
+		tx_terr_greek_5
+		tx_terr_greek_6
+		tx_terr_greek_7
+		tx_terr_greek_8
+		tx_terr_greek_9
+		tx_terr_greek_10
+		tx_terr_greek_11
+		tx_terr_greek_12
+		tx_terr_greek_13
+		tx_terr_greek_14
+		tx_terr_greek_15
+		tx_terr_greek_16
+		tx_terr_greek_17
+		tx_terr_greek_18
+		tx_terr_greek_19
+		tx_terr_greek_20
+		tx_terr_greek_21
+		tx_terr_greek_22
+		tx_terr_greek_23
+		tx_terr_greek_24
+		tx_terr_greek_25
+		tx_terr_greek_26
+		tx_terr_greek_27
+		tx_terr_greek_28
+		tx_terr_greek_29
+		tx_terr_greek_30
+		tx_terr_greek_31
+		tx_terr_greek_32
+		tx_terr_greek_33
+		tx_terr_greek_34
+		tx_terr_greek_35
+		tx_terr_greek_36
+		tx_terr_greek_37
+		tx_terr_greek_38
+		tx_terr_greek_39
+		tx_terr_greek_40
+		tx_terr_greek_41
+		tx_terr_greek_42
+		tx_terr_greek_43
+		tx_terr_greek_44
+		tx_terr_greek_45
+		tx_terr_greek_46
+		tx_terr_greek_47
+		tx_terr_greek_48
+		tx_terr_greek_49
+		tx_terr_greek_50
+	]
+	
+	PlayerNames = [
+		tx_player_Greek_0
+		tx_player_Greek_1
+		tx_player_Greek_2
+		tx_player_Greek_3
+		tx_player_Greek_4
+		tx_player_Greek_5
+		tx_player_Greek_6
+		tx_player_Greek_7
+		tx_player_Greek_8			
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_Greek_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Greek_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Greek_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitGreek1
+		UniqueUnitGreek2
+		UniqueUnitGreek3
+	]
+	
+	CivAttributes = [
+		CivAtt_UnivTemp_Cost
+		CivAtt_LInf_Health
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// French
+
+Civilization French
+{
+	CityNames = [
+		tx_ms_cityname_Paris
+		tx_ms_cityname_Marseille
+		tx_ms_cityname_Lyon
+		tx_ms_cityname_Avignon
+		tx_ms_cityname_Bordeaux
+		tx_ms_cityname_Besancon
+		tx_ms_cityname_Blois
+		tx_ms_cityname_Bourges
+		tx_ms_cityname_Calais
+		tx_ms_cityname_Colmar
+		tx_ms_cityname_Dunkerque
+		tx_ms_cityname_Gravelines
+		tx_ms_cityname_LaRochelle
+		tx_ms_cityname_Lille
+		tx_ms_cityname_Metz
+		tx_ms_cityname_Montpellier
+		tx_ms_cityname_Orleans
+		tx_ms_cityname_Rouen
+		tx_ms_cityname_Tours
+		tx_ms_cityname_Nice
+		tx_ms_cityname_Caen
+		tx_ms_cityname_Strasbourg
+	]
+	
+	TerritoryNames = [
+		tx_terr_french_0
+		tx_terr_french_1
+		tx_terr_french_2
+		tx_terr_french_3
+		tx_terr_french_4
+		tx_terr_french_5
+		tx_terr_french_6
+		tx_terr_french_7
+		tx_terr_french_8
+		tx_terr_french_9
+		tx_terr_french_10
+		tx_terr_french_11
+		tx_terr_french_12
+		tx_terr_french_13
+		tx_terr_french_14
+		tx_terr_french_15
+		tx_terr_french_16
+		tx_terr_french_17
+		tx_terr_french_18
+		tx_terr_french_19
+		tx_terr_french_20
+		tx_terr_french_21
+	]
+	
+	PlayerNames = [
+		tx_player_French_0
+		tx_player_French_1
+		tx_player_French_2
+		tx_player_French_3
+		tx_player_French_4
+		tx_player_French_5
+		tx_player_French_6
+		tx_player_French_7
+		tx_player_French_8			
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_French_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_French_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_French_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitFrench1
+		UniqueUnitFrench2
+		UniqueUnitFrench3
+	]
+	
+	CivAttributes = [
+		CivAtt_FortOutp_Health
+		CivAtt_HMount_Health
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+
+
+////////////////////////
+// Russian
+
+Civilization Russian
+{
+	CityNames = [
+		tx_ms_cityname_Moscow
+		tx_ms_cityname_St.Petersburg
+		tx_ms_cityname_Novosibirsk
+		tx_ms_cityname_Arkhangelsk
+		tx_ms_cityname_Novgorod
+		tx_ms_cityname_Smolensk
+		tx_ms_cityname_Kursk
+		tx_ms_cityname_Belgorod
+		tx_ms_cityname_Voronezh
+		tx_ms_cityname_Irkutsk
+		tx_ms_cityname_Kaliningrad
+		tx_ms_cityname_Petrozavodsk
+		tx_ms_cityname_Kirov
+		tx_ms_cityname_Krasnodar
+		tx_ms_cityname_Krasnoyarsk
+		tx_ms_cityname_Kurgan
+		tx_ms_cityname_Lipets
+		tx_ms_cityname_Saransk
+		tx_ms_cityname_Murmansk
+		tx_ms_cityname_Volgograd
+		tx_ms_cityname_Vladivostok
+		tx_ms_cityname_Kaluga
+	]
+	
+	TerritoryNames = [
+		tx_terr_russian_0
+		tx_terr_russian_1
+		tx_terr_russian_2
+		tx_terr_russian_3
+		tx_terr_russian_4
+		tx_terr_russian_5
+		tx_terr_russian_6
+		tx_terr_russian_7
+		tx_terr_russian_8
+		tx_terr_russian_9
+		tx_terr_russian_10
+		tx_terr_russian_11
+		tx_terr_russian_12
+		tx_terr_russian_13
+		tx_terr_russian_14
+		tx_terr_russian_15
+		tx_terr_russian_16
+		tx_terr_russian_17
+		tx_terr_russian_18
+		tx_terr_russian_19
+		tx_terr_russian_20
+		tx_terr_russian_21
+	]
+	
+	PlayerNames = [
+		tx_player_Russian_0
+		tx_player_Russian_1
+		tx_player_Russian_2
+		tx_player_Russian_3
+		tx_player_Russian_4
+		tx_player_Russian_5
+		tx_player_Russian_6
+		tx_player_Russian_7
+		tx_player_Russian_8			
+	]
+	
+	LeaderNames = [
+		{ Name = tx_leader_Russian_0    crown = Military  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Russian_1    crown = Imperial  startEpoch = 1  endEpoch = 15 }
+		{ Name = tx_leader_Russian_2    crown = Economic  startEpoch = 1  endEpoch = 15 }
+	]
+	
+	UniqueUnits = [
+		UniqueUnitRussian1
+		UniqueUnitRussian2
+		UniqueUnitRussian3
+	]
+	
+	CivAttributes = [
+		CivAtt_WkshpStab_Cost
+		CivAtt_LArt_Dmg
+	]
+	
+	AutoResearchedTechs = [
+		{ 	
+			Epoch = 1
+			Techs = [ 	Military1_1 Military1_2 
+					  	Economic1_1 Economic1_2 Economic1_4 
+					  	Imperial1_1 
+			]
+		}
+		{ 	
+			Epoch = 2
+			Techs = [ 	Military2_2 Military2_3 
+					  	Economic2_2 Economic2_3 
+					  	Imperial2_2 Imperial2_3
+			]
+		}
+		{ 	
+			Epoch = 3
+			Techs = [ 	Military3_4
+					  	Economic3_1 Economic3_2 Economic3_3 
+					  	Imperial3_1 Imperial3_2
+			]
+		}
+		{ 	
+			Epoch = 4
+			Techs = [ 	Military4_2 Military4_4 
+					  	Economic4_2 Economic4_3 
+					  	Imperial4_1 Imperial4_3 
+			]
+		}
+		{ 	
+			Epoch = 5
+			Techs = [ 	Military5_3 Military5_4 
+					  	Economic5_1 Economic5_3 
+						Imperial5_1 Imperial5_2 
+			]
+		}
+		{ 	
+			Epoch = 6
+			Techs = [ 	Military6_1 Military6_2
+					  	Economic6_1 Economic6_2  
+					  	Imperial6_2 Imperial6_4 
+			]
+		}
+		{ 	
+			Epoch = 7
+			Techs = [ 	Military7_1 Military7_2 Military7_3 
+					  	Economic7_3 Economic7_4 
+					  	Imperial7_3
+			]
+		}
+		{ 	
+			Epoch = 8
+			Techs = [ 	Military8_3 Military8_4 
+					  	Economic8_2 Economic8_3 
+					  	Imperial8_1 Imperial8_2
+			]
+		}
+		{ 	
+			Epoch = 9
+			Techs = [ 	Military9_3 Military9_4 
+					  	Economic9_2 Economic9_3 Economic9_4 
+					  	Imperial9_4
+			]
+		}
+		{ 	
+			Epoch = 10
+			Techs = [ 	Military10_2 Military10_3 Military10_4 
+					  	Economic10_3
+					  	Imperial10_2 Imperial10_3
+			]
+		}
+		{ 	
+			Epoch = 11
+			Techs = [ 	upArmoredCar_11 upfighter_11 upFregatten_11
+						Military11_1 
+					  	Economic11_2 Economic11_3 Economic11_4 
+					  	Imperial11_2 Imperial11_3 
+			]
+		}
+		{ 	
+			Epoch = 12
+			Techs = [ 	upAIunit_12 upAIfighter_12 upAINaval_12 
+						Military12_2 Military12_3 Military12_4
+					  	Economic12_1 Economic12_3 
+					  	Imperial12_3
+			]
+		}
+		{ 	
+			Epoch = 13
+			Techs = [ 	upAIunit_13 upAIfighter_13 upAINaval_13  upHelicopter_13
+						Military13_1 Military13_2 Military13_3 
+					  	Economic13_2 Economic13_3
+					  	Imperial13_1
+			]
+		}
+		{ 	
+			Epoch = 14
+			Techs = [ 	upAIunit_14 upAIfighter_14 upAINaval_14 upJ16_13 upStealthPlane_14 upMisslo_14 upVLSTech_14
+						Military14_1
+					  	Economic14_1 Economic14_2 Economic14_3 Economic14_4 
+					  	Imperial14_3 
+			]
+		}
+	]
+}
+

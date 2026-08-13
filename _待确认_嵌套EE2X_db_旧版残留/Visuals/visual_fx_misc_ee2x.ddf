@@ -1,0 +1,62 @@
+
+
+// SUPREME LEADERS
+// Effects to attach to a fortress when the supreme leader is garrisoned.
+BaseModel	SupremeLeaderGarrison_Imperial
+{
+	ModelFileName 	= fx_supreme_imperial.nif
+	DeletionMode	= eNEVER	
+	UseTopOfParent = true
+	Offset = [ 0.0 0.0 1.0] // X Y Z
+	RotateOffsetWithParent = true
+}
+
+BaseModel	SupremeLeaderGarrison_Military
+{
+	ModelFileName 	= fx_supreme_military.nif
+	DeletionMode	= eNEVER	
+	UseTopOfParent = true
+	Offset = [ 0.0 0.0 1.0] // X Y Z
+	RotateOffsetWithParent = true
+}
+
+BaseModel	SupremeLeaderGarrison_Economic
+{
+	ModelFileName 	= fx_supreme_economic.nif
+	DeletionMode	= eNEVER	
+	UseTopOfParent = true
+	Offset = [ 0.0 0.0 1.0] // X Y Z
+	RotateOffsetWithParent = true
+}
+
+// Effects to attach to the supreme leaders, themselves.
+BaseModel	SupremeLeaderUnit_Imperial
+{
+	ModelFileName 	= fx_supreme_imperial.nif
+	DeletionMode	= eNEVER	
+	UseTopOfParent = true
+	Offset = [ 0.0 0.0 1.0] // X Y Z
+	RotateOffsetWithParent = true
+	Scale = 0.1
+}
+
+BaseModel	SupremeLeaderUnit_Military
+{
+	ModelFileName 	= fx_supreme_military.nif
+	DeletionMode	= eNEVER	
+	UseTopOfParent = true
+	Offset = [ 0.0 0.0 1.0] // X Y Z
+	RotateOffsetWithParent = true
+	Scale = 0.1
+}
+
+BaseModel	SupremeLeaderUnit_Economic
+{
+	ModelFileName 	= fx_supreme_economic.nif
+	DeletionMode	= eNEVER	
+	UseTopOfParent = true
+	Offset = [ 0.0 0.0 1.0] // X Y Z
+	RotateOffsetWithParent = true
+	Scale = 0.1
+}
+

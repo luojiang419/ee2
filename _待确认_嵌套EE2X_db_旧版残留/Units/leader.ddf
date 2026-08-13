@@ -1,0 +1,28 @@
+//------------------------------------------------------------------------------------------------
+//	LEADER
+//------------------------------------------------------------------------------------------------
+UnitType Leader
+{
+	parent = HumanNoConvert
+	properties {
+		moveType = kUnitMoveType_Foot
+		rps = SpecialForces
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 1
+		hitpoints = 50
+		popCount = -1	// means 0, overrides parent
+	}
+	sounds = {
+//		sndCmdMove = [""]
+//		sndCmdAttack = [""]
+//		sndSelection = ["" ""]
+	}
+	abilities [
+		Move {speed = 1.2; angSpeed = 180}
+		LOS { range = 5 }
+	]
+	attributes = [
+		CanJoinHeroArmy
+	]
+}

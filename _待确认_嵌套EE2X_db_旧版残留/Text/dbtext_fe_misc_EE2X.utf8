@@ -1,0 +1,22 @@
+﻿// front end miscellaneous text for EE2X
+tx_fe_misc_donotuse_EE2X,"""@BUG"""
+
+// GAME INFO CHANGE MESSAGES
+tx_fe_chng_game_teamstate,"""<color red>队伍状态改变为%VALUE%</color>\n"""
+
+// vcond
+tx_fe_chng_vc_tow_maps,"""<color red>地图数量改变为%VALUE%</color>\n"""
+tx_fe_chng_vc_tow_btls,"""<color red>要进行的战争数改变为%VALUE%</color>\n"""
+
+// native tribes stuff
+tx_fe_chng_NT_amount,"""<color red>原住民部落数量改变为%VALUE%</color>\n"""
+tx_fe_chng_NT_diff,"""<color red>原住民部落的困难度改变为%VALUE%</color>\n"""
+tx_fe_chng_NT_armySize,"""<color red>原住民部落的军团规模改变为%VALUE%</color>\n"""
+
+// custom civs allowed
+tx_fe_chng_CCivs_allow,"""<color red>允许自订文明</color>\n"""
+tx_fe_chng_CCivs_disallow,"""<color red>不允许自订文明</color>\n"""
+
+// army size changes messages for custom quick start
+tx_fe_chng_qstart_armySize_3,"""<color red>你自订的启始军团规模使用%CURRENT% / %MAX% 点数来购买此规模的军力</color>\n"""
+

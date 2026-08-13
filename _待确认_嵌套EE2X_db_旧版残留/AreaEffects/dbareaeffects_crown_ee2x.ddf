@@ -1,0 +1,352 @@
+//////////////////////////////Crown Area Effects for EE2X///////////////////////////////
+
+// Player effect to propogate when military leader is garrisoned
+DbAreaEffectInfo SuperemeLeader_Mil_GarrEffect
+{
+	effects = [
+		// Glow on units that have improved attack
+		EffectVisualGlow {
+			range = Global
+			mask = LandRPS
+			player = Self
+
+			GlowType = Good
+			Icon = icon_crown_superspies_s
+			Tooltip = text_carea_sl_mil_fervor_name
+			VTooltip = vtt_carea_sl_mil_fervor
+		}
+		// Nearby units attack better
+		EffectAttack {
+			range = Global
+			mask = LandRPS
+			player = Self
+
+			scale = 1.05
+		}
+	]
+}
+
+// Host effect to propogate when military leader is garrisoned
+DbAreaEffectInfo SuperemeLeader_Mil_GarrEffectH
+{
+	effects = [
+		EffectVisual {
+			range = Unit
+			player = Self
+
+			visualEffect = SupremeLeaderGarrison_Military
+			AttachWhenCulled = true
+			OnlyForOwner = true
+		}
+	]
+}
+
+// Military Supreme leader crown effect
+DbAreaEffectInfo CrownSupremeLeader_Mil
+{
+	name = text_carea_sl_mil_name
+	desc = text_carea_sl_mil_desc
+	
+	selectionType = LeaderOrHero
+
+	effects = [
+		// Glow on the supreme leader
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			GlowType = SupremeLeader
+			Icon = icon_crown_sleader_mil_s
+			Tooltip = text_carea_sl_mil_name
+			VTooltip = text_carea_sl_mil_desc
+		}
+		// Visual above the supreme leader
+		EffectVisual {
+			range = Unit
+			player = Self
+
+			visualEffect = SupremeLeaderUnit_Military
+			AttachWhenCulled = true
+		}
+		// Nearby units attack better
+		EffectAttack {
+			range = RadiusFromUnit
+			mask = LandRPS
+			player = Self
+			radius = 5
+
+			scale = 1.10
+		}
+		// Glow on units that have improved attack
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			mask = LandRPS
+			player = Self
+			radius = 5
+			GlowType = Good
+			Icon = icon_crown_superspies_s
+			Tooltip = text_carea_sl_mil_fervor_name
+			VTooltip = vtt_carea_sl_mil_fervor
+		}
+		// When the supreme leader is garrisoned, propagate the effect globally
+		EffectPropagateWhenGarrisoned{
+			range = Unit
+			HostMask = Fortress
+			EffectsToPropagate = [ SuperemeLeader_Mil_GarrEffect ]
+		}
+		// Put a visual on the garrison host
+		EffectPropagateWhenGarrisoned{
+			range = Unit
+			HostMask = Fortress
+			EffectsToPropagate = [ SuperemeLeader_Mil_GarrEffectH ]
+			AttachToGarrisonHost = true
+		}
+	]
+}
+
+DbAreaEffectInfo SuperemeLeader_Eco_GarrEffect
+{
+	effects = [
+		// Global units gather faster
+		EffectResourceGatherRate {
+			range = Global
+			mask = ResourceGatherers
+			player = Self
+
+			affectedResourceTypes = [AllNaturalResource]
+			affectedResourceSources = Anything	//gather from anything
+
+			scale = 1.05
+		}
+		// Glow on units gathering faster
+		EffectVisualGlow {
+			range = Global
+			mask = ResourceGatherers
+			player = Self
+			GlowType = Good
+			Icon = icon_crown_superspies_s
+			Tooltip = text_carea_sl_eco_gather_name
+			VTooltip = vtt_carea_sl_eco_gather
+		}
+	]
+}
+
+// Host effect to propogate when economic leader is garrisoned
+DbAreaEffectInfo SuperemeLeader_Eco_GarrEffectH
+{
+	effects = [
+		EffectVisual {
+			range = Unit
+			player = Self
+
+			visualEffect = SupremeLeaderGarrison_Economic
+			AttachWhenCulled = true
+			OnlyForOwner = true
+		}
+	]
+}
+
+// Economic Supreme leader crown effect
+DbAreaEffectInfo CrownSupremeLeader_Eco
+{
+	name = text_carea_sl_eco_name
+	desc = text_carea_sl_eco_desc
+	
+	selectionType = LeaderOrHero
+
+	effects = [
+		// Glow on the supreme leader
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			GlowType = SupremeLeader
+			Icon = icon_crown_sleader_eco_s
+			Tooltip = text_carea_sl_eco_name
+			VTooltip = text_carea_sl_eco_desc
+		}
+		// Visual above the supreme leader
+		EffectVisual {
+			range = Unit
+			player = Self
+
+			visualEffect = SupremeLeaderUnit_Economic
+			AttachWhenCulled = true
+		}
+		// Nearby units gather faster
+		EffectResourceGatherRate {
+			range = RadiusFromUnit
+			radius = 7
+			mask = ResourceGatherers
+			player = Self
+
+			affectedResourceTypes = [AllNaturalResource]
+			affectedResourceSources = Anything	//gather from anything
+
+			scale = 1.25
+		}
+		// Glow on units gathering faster
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 7
+			mask = ResourceGatherers
+			player = Self
+			GlowType = Good
+			Icon = icon_crown_superspies_s
+			Tooltip = text_carea_sl_eco_gather_name
+			VTooltip = vtt_carea_sl_eco_gather
+		}
+		// When the supreme leader is garrisoned, propagate the effect globally
+		EffectPropagateWhenGarrisoned{
+			range = Unit
+			HostMask = Fortress
+			EffectsToPropagate = [ SuperemeLeader_Eco_GarrEffect ]
+		}
+		// Put a visual on the garrison host
+		EffectPropagateWhenGarrisoned{
+			range = Unit
+			HostMask = Fortress
+			EffectsToPropagate = [ SuperemeLeader_Eco_GarrEffectH ]
+			AttachToGarrisonHost = true
+		}
+	]
+}
+
+DbAreaEffectInfo SuperemeLeader_Imp_GarrEffect
+{
+	effects = [
+		// Global priests and spies recharge faster
+		EffectSpecialPowerRechargeTime {
+			range = Global
+			mask = TT_PriestSpy
+			player = Self
+
+			scale = 0.95
+		}
+		// Glow on priests and spies
+		EffectVisualGlow {
+			range = Global
+			mask = TT_PriestSpy
+			player = Self
+			Icon = icon_crown_superspies_s
+			Tooltip = text_carea_sl_imp_recharge_name
+			VTooltip = vtt_carea_sl_imp_recharge
+		}
+		// Priests get +1 LOS 
+		EffectAddLOS {
+			range = Global
+			mask = Priests
+			player = Self
+
+			additionalLOS = 1.0
+		}
+		// Priests get increased conversion range
+		EffectConversionRange {
+			range = Global
+			mask = Priests
+			player = Self
+
+			scale = 1.10
+		}
+		// Glow on priets
+		EffectVisualGlow {
+			range = Global
+			mask = Priests
+			player = Self
+			Icon = icon_crown_superspies_s
+			Tooltip = text_carea_sl_imp_LOSRange_name
+			VTooltip = text_carea_sl_imp_LOSRange
+		}
+	]
+}
+
+// Host effect to propogate when imperial leader is garrisoned
+DbAreaEffectInfo SuperemeLeader_Imp_GarrEffectH
+{
+	effects = [
+		EffectVisual {
+			range = Unit
+			player = Self
+
+			visualEffect = SupremeLeaderGarrison_Imperial
+			AttachWhenCulled = true
+			OnlyForOwner = true
+		}
+	]
+}
+
+// Imperial Supreme leader crown effect
+DbAreaEffectInfo CrownSupremeLeader_Imp
+{
+	name = text_carea_sl_imp_name
+	desc = text_carea_sl_imp_desc
+	
+	selectionType = LeaderOrHero
+
+	effects = [
+		// Supreme leader glow
+		EffectVisualGlow {
+			range = Unit
+			player = Self
+			GlowType = SupremeLeader
+			Icon = icon_crown_sleader_imp_s
+			Tooltip = text_carea_sl_imp_name
+			VTooltip = text_carea_sl_imp_desc
+		}
+		// Visual above the supreme leader
+		EffectVisual {
+			range = Unit
+			player = Self
+
+			visualEffect = SupremeLeaderUnit_Imperial
+			AttachWhenCulled = true
+		}
+		// Nearby priests and spies recharge faster
+		EffectSpecialPowerRechargeTime {
+			range = RadiusFromUnit
+			radius = 7
+			mask = TT_PriestSpy
+			player = Self
+
+			scale = 0.8
+		}
+		// Glow on priests and spies
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 7
+			mask = TT_PriestSpy
+			player = Self
+			Icon = icon_crown_superspies_s
+			Tooltip = text_carea_sl_imp_recharge_name
+			VTooltip = vtt_carea_sl_imp_recharge
+		}
+		// Nearby units may not be converted
+		EffectNoConversion {
+			range = RadiusFromUnit
+			radius = 7
+			mask = SubjectToConversion
+			player = Self
+		}
+		// Glow on convertable units
+		EffectVisualGlow {
+			range = RadiusFromUnit
+			radius = 7
+			mask = SubjectToConversion
+			player = Self
+			Icon = icon_crown_superspies_s
+			Tooltip = text_carea_sl_imp_loyalty_name
+			VTooltip = vtt_carea_sl_imp_loyalty
+		}
+		// When the supreme leader is garrisoned, propagate the effect globally
+		EffectPropagateWhenGarrisoned{
+			range = Unit
+			HostMask = Fortress
+			EffectsToPropagate = [ SuperemeLeader_Imp_GarrEffect ]
+		}
+		// Put a visual on the garrison host
+		EffectPropagateWhenGarrisoned{
+			range = Unit
+			HostMask = Fortress
+			EffectsToPropagate = [ SuperemeLeader_Imp_GarrEffectH ]
+			AttachToGarrisonHost = true
+		}
+	]
+}

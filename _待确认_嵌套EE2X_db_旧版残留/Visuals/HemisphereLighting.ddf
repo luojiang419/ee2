@@ -1,0 +1,30 @@
+
+// attach hemisphere lighting to buildings
+HemisphereLightingReceiver HemisphereLighting_Building
+{
+	LowestDetailLevel = Medium;
+}
+
+// attach hemisphere lighting to walls
+HemisphereLightingReceiver HemisphereLighting_Wall
+{
+	LowestDetailLevel = Medium;
+}
+
+// attach hemisphere lighting to (non-tree, non-animal) resources
+HemisphereLightingReceiver HemisphereLighting_Resource
+{
+	LowestDetailLevel = Medium;
+}
+
+// attach hemisphere lighting to trees
+HemisphereLightingReceiver HemisphereLighting_Tree
+{
+	LowestDetailLevel = High;
+}
+
+// attach hemisphere lighting to mobile units
+HemisphereLightingReceiver HemisphereLighting_Unit
+{
+	LowestDetailLevel = High;
+}

@@ -1,0 +1,104 @@
+﻿// NAME,TEXT
+// FORMAT: text_scenario_<scenario>_<name>,"""Your text should be in quotes"""
+// EXAMPLE: text_scenario_e5_killed,"""Your leader has been killed."""
+//,
+text_scenario_e5_shot0,"""埃及，公元前2152年－赫拉克莱奥波利坦正遭受攻击！"""
+text_scenario_e5_shot1,"""帕缪，底比斯的统治者，想等着法老交出科美特的统治权，\n这样他的部队就可以长驱直入，并且以武力夺下这个王国。"""
+text_scenario_e5_shot2,"""人民加速在帕缪的军队抵达前，进入城墙里面，\n围绕着神庙，向神明祈祷解救他们。"""
+text_scenario_e5_shot3,"""科姆萨，被选中的人，必须要复原王国仅存的军事力量，并且希望他们能够击退帕缪的第一波攻势。"""
+text_scenario_e5_shot4,"""以他所知的，底比斯的军队受过良好的训练，而且数量众多...\n这第一波的攻势只是刚开始而已。"""
+text_scenario_e5_shot5,"""科美特被称为黑乡…而这也真的是它最黑暗的时期。"""
+//
+text_scenario_e5_open1,"""我们必须保护城墙，否则底比斯人将会像蝗虫一样袭来。\n如果城墙被攻陷，必须要立刻重建。另外，记得要用利用配备额外火力的部队来驻守高塔。"""
+//,
+//,
+text_scenario_e5_timer1,"""保护城市！"""
+//,
+text_scenario_e5_statue1,"""我们已经收集到足够的资源来建立奥西利斯雕像。寻找一个保护良好的地区，然后开始进行雕像兴建的工程。要注意底比斯人会试图阻碍我们获得奥西利斯的欢心。"""
+//,
+text_scenario_e5_beachraid1,"""他们从海上攻击盖勒尤卜！击退他们，击退他们！"""
+text_scenario_e5_beachraid2,"""科姆萨，我们必须要全面进行警戒。记得，底比斯人及他们的同盟将会想办法攻进我们的防线。"""
+text_scenario_e5_docksgone,"""我们已经摧毁了底比斯人的码头，在红海上再也看不到他们的踪影。"""
+//,
+//,
+text_scenario_e5_baraka1,"""巴拉卡人传话说他们很同情我们的处境。底比斯人为了黄金突击他们的矿区，用以进行对抗我们的行动，巴拉卡人将会加入我们的行列，来阻止这种不公义的行为。"""
+text_scenario_e5_baraka2,"""如果我们贡献5000黄金及30个重骑兵给巴拉卡，他们就允许我们使用巴拉卡的军用建筑物。"""
+text_scenario_e5_baraka3,"""我们已经获准使用巴拉卡的军用建筑物，现在我们可以从这个地方来展开攻击行动。"""
+//,
+text_scenario_e5_win1,"""胜利！我们摧毁了底比斯人的堡垒及贪婪的领导者。奥西利斯给予我们他的关爱！\n现在科美特将会再次的繁盛。"""
+//,
+text_scenario_e5_monument1,"""我们已经开始进行大金字塔的工程。"""
+text_scenario_e5_name0,"""科姆萨"""
+text_scenario_e5_name1,"""赫拉克莱奥波利坦"""
+text_scenario_e5_name2,"""大金字塔"""
+text_scenario_e5_name3,"""底比斯"""
+text_scenario_e5_name4,"""底比斯保护的城市"""
+text_scenario_e5_name5,"""底比斯议会厅"""
+text_scenario_e5_name6,"""敌人要塞"""
+text_scenario_e5_name7,"""奥西利斯神庙"""
+text_scenario_e5_name8,"""埃及部落圣殿"""
+text_scenario_e5_name9,"""佣兵要塞"""
+text_scenario_e5_name10,"""帕缪"""
+text_scenario_e5_name11,"""大金字塔"""
+text_scenario_e5_name12,"""依莎诺福特王后"""
+
+tx_e5_name_nubian,"""努比亚人"""
+
+tx_eg_monument_osiris_name,"""奥西利斯雕像"""
+tx_eg_monument_osiris_verbose,"""奥西利斯雕像"""
+
+// text_scenario_e5_commandry1,"""Kemsa, we have a visitor! Queen Isetnofret of the Nubians has arrived with her retainers and seeks an audience with Great Pharaoh. \nShe claims that the Thebans have overrun her settlement and wishes us to aid her by taking revenge on them. \nIn return she will grant us the use of her settlement as a forward Commandry. \nThis is a great oppurtunity to establish a military presence deep into Theban territroy"""
+// text_scenario_e5_commandry2,"""In order to aid the Queen in seeking her revenge, fortify the Nubian settlement with three Outposts, and then have Kemsa visit himself."""
+//,
+text_scenario_e5_verbose6,"""与巴拉卡结盟获得他们军用建筑物的控制权，这样一来我们就可以从底比斯防线后发动攻击。如果要获得他们的信任，需要贡献5000黄金及2000木材。"""
+// text_scenario_e5_verbose6,"""Tribute resources and units to the Baraka tribe to gain control of their military buildings so that we may launch attacks behind the Thebans main defenses. To gain their trust we must tribute them 5000 gold and 30 Heavy Cavalry. (to simulate tribute of the Cavalry, tribute 2000 Wood until the script command to check for tributed units is implemented)"""
+// text_scenario_e5_verbose7,"""Construct 10 War Engines to batter down the thick walls of the Theban City."""
+// text_scenario_e5_verbose8,"""By eliminating any enemy presence on the Red Sea, we will be free to harvest its abundant fish to help feed our starving people."""
+text_scenario_e5_verbose10,"""科姆萨必须存活。如果这个英雄在战斗中死去，那么将会使这场战役失败。"""
+text_scenario_e5_verbose11,"""赫拉克莱奥波利坦市中心必须存在。如果他被攻陷，那么将会使这场战役失败。"""
+
+
+
+//CAMP
+text_scen_e5_name,"""何洛斯星位"""
+text_scen_e5_brief,""""""
+text_scen_e5_victory,"""你赢了！"""
+text_scen_e5_loss,"""你输了。"""
+text_scen_e5_hints,"""专心防御赫拉克莱奥波利坦。就算是在第一波攻击之后，底比斯及佣兵部队仍然是存在的威胁。\n\n封住出入口将会使防御赫拉克莱奥波利坦的任务容易一些。\n\n不要相信任何人。底比斯人的表现让人不相信他们是站在埃及这一边的。"""
+text_scen_e5_history,"""在尼夫里尔卡尔统治期间，他的权力不断的扩张。一直到他在位期间结束之前，尼夫里尔卡尔指派了第二高官来统治埃及。他身处底比斯，统治下埃及。尼夫里尔卡尔极长的在位时间，也造成了不满，而且中断了正常的继承方式。此外，由于埃及古王国的问题，使得这段期间与外国的关系中断。在尼夫里尔卡尔过世之后，继位的问题变得非常不明确。"""
+text_scen_e5_desc,"""背景说明：\n\n埃及，公元前2164年─埃及，公元前2152年。－很清楚的，奥西利斯遗弃了居住在赫拉克莱奥波利坦王国的人们。有近30年的时间，尼罗河始终不放弃这一群人，留下了一小部份的淤积及土壤让他们可以生存。但是环绕在旁边的其它邻国，却对这个地方虎视眈眈。而现在，底比斯南方的王国已经放话他们想要这一块土地。过去许多年间，他们提议并主张奥西利斯仍然存在，而他们可以让尼罗河沿岸再次富饶，回复国王谷的旧有风貌。如果不贡献给他们的话，他们将会攻击该城，并占为己有。战争，已经是无法避免的。英雄科姆萨，必须再次带领他的人民，透过坚强的战力及敏捷的智慧，迎向光明的胜利。"""
+text_scen_e5_date,"""公元前2152年"""
+
+text_scen_e5_pobj1,"""歼灭底比斯人的统治者"""
+text_scenario_e5_verbose1,"""为了确保与底比斯的战争一定会获得胜利，他们专制的统治者帕缪一定要被歼灭。\n他会在城墙内发号司令，所以击败城市的防线去找到他。"""
+
+text_scen_e5_pobj2,"""在赫拉克莱奥波利坦围城行动存活下来"""
+text_scenario_e5_verbose2,"""斥候回报底比斯正在准备向赫拉克莱奥波利坦进行攻击行动！保护赫拉克莱奥波利坦免于底比斯的突击。"""
+
+text_scen_e5_pobj3,"""摧毁底比斯的堡垒"""
+text_scenario_e5_verbose3,"""底比斯建立了为数众多的前进军事堡垒，而他们可以从这些地方向城市发动攻击。摧毁两座前进基地可以打击他们的士气。"""
+
+text_scen_e5_pobj4,"""摧毁佣兵堡垒"""
+text_scenario_e5_verbose4,"""为了防止底比斯向佣兵求援，寻找并摧毁所有位于赫拉克莱奥波利坦及底比斯城间的佣兵建筑。"""
+
+
+text_scen_e5_pobj5,"""与努比亚人一起建立基地"""
+text_scenario_e5_verbose5,"""将科姆萨带到努比亚殖民地，并且建立三座前哨基地加强保护，我们可以更快速的对底比斯城发动攻击。将科姆萨带到殖民地中，并在领土上建立三座前哨基地，以正式提供努比亚人援助。"""
+
+// text_scen_e5_pobj6,"""Gain Help from Baraka"""
+text_scenario_e5_commandry1,"""科姆萨，我们有访客前来！努比亚的依莎诺福特王后与随从前来拜访，希望能够晋见法老王。\n她主张底比斯人不断侵扰殖民地，希望我们能协助向底比斯展开报复。\n她会让我们使用殖民地做为前进指挥所做为回报。\n这是一个非常好的机会，能够在深入底比斯的领土中建立军事单位。\n\n > 如果要协助王后进行报复行动，就必须在殖民地中建立三座前哨基地，然后让科姆萨坐镇指挥。"""
+text_scenario_e5_commandry3,"""这是个陷阱！努比亚背叛我们，而且联合底比斯设下埋伏诱补科姆萨及我们的部队！"""
+
+// text_scen_e5_sobj1,"""Construct 10 War Engines"""
+// text_scen_e5_sobj2,"""Rule the Waves"""
+
+text_scen_e5_sobj3,"""建立奥西利斯纪念碑"""
+text_scenario_e5_verbose9,"""我们必须要赢回奥西利斯的关爱。\n\n > 建立一座宏伟的奥西利斯纪念碑，这样所有的人都知道谁才是真正被神明所喜爱。"""
+
+text_scen_e5_lobj1,"""科姆萨必须存活"""
+text_scen_e5_lobj2,"""议会城市必须要存活"""
+
+
+
+tx_e5_reinforce_title,"""援军！"""
+tx_e5_reinforce_desc,"""援军到了！"""

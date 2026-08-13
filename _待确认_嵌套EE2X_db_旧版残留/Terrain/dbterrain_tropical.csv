@@ -1,0 +1,34 @@
+//Terrain Type,High detail texture,Medium Detail Texture,Low Detail Texture,Dust Type,MINIMAP_FILENAME,ZMIN,ZMAX,MOVETYPE,GRASS LAYER
+# DbTerrainTexture_ = Tropical,,,,,,,,,
+Grass,DenseGrass_Tropical,DenseGrass_Tropical,DenseGrass_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,1,4,kTerrainMoveType_Land,0
+GrassBig,GrassBig_Tropical,GrassBig_Tropical,GrassBig_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,1,4,kTerrainMoveType_Land,0
+Beach,Beach_Tropical,Beach_Tropical,Beach_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_dirt.bmp,0,1,kTerrainMoveType_Land,0
+GrassTropical,Grass_Tropical,Grass_Tropical,Grass_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass_rocky.bmp,5,7,kTerrainMoveType_Land,0
+TropicalCoverRocky,TropicalCoverRocky_Tropical,TropicalCoverRocky_Tropical,TropicalCoverRocky_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_trop_cover_rocky.bmp,7,9999,kTerrainMoveType_Land,0
+OceanFloor,OceanFloor_Tropical,OceanFloor_Tropical,OceanFloor_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_water_riverbed.bmp,-9999,-2,kTerrainMoveType_Ocean,0
+OceanFloor2,OceanFloor2_Tropical,OceanFloor2_Tropical,OceanFloor2_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_water_riverbed.bmp,-9999,-2,kTerrainMoveType_Ocean,0
+GrassPatchy,GrassPatchy_Tropical,GrassPatchy_Tropical,GrassPatchy_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass_patchy.bmp,4,5,kTerrainMoveType_Land,0
+Kudzu,Kudzu_Tropical,Kudzu_Tropical,Kudzu_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass_patchy.bmp,0,0,kTerrainMoveType_Land,0
+TroddenDirt,Trodden_Tropical,Trodden_Tropical,Trodden_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+MountainGrass,MountainGrass_Tropical,MountainGrass_Tropical,MountainGrass_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_tropical_clay_shrubs.bmp,0,0,kTerrainMoveType_Land,0
+Mountain,Mountain_Tropical,Mountain_Tropical,Mountain_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_cliff02.bmp,8,9999,kTerrainMoveType_Mountain,0
+Cliff01,Cliff01_Tropical,Cliff01_Tropical,Cliff01_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_cliff01.bmp,0,0,kTerrainMoveType_Cliff,0
+ClayShrubs,ClayShrubs_Tropical,ClayShrubs_Tropical,ClayShrubs_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_tropical_clay_shrubs.bmp,0,0,kTerrainMoveType_Land,0
+TropicalCover,TropicalCover_Tropical,TropicalCover_Tropical,TropicalCover_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_tropical_underbrush.bmp,0,0,kTerrainMoveType_Land,0
+Riverbank,Riverbank_Tropical,Riverbank_Tropical,Riverbank_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+ForestTop,ForestRoots_Tropical,ForestRoots_Tropical,ForestRoots_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_forest.bmp,0,0,kTerrainMoveType_Land,0
+RiverbankGrassy,RiverbankGrassy_Tropical,RiverbankGrassy_Tropical,RiverbankGrassy_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+RiverbankPatchy,RiverbankPatchy_Tropical,RiverbankPatchy_Tropical,RiverbankPatchy_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+ForestRoots,ForestRoots_Tropical,ForestRoots_Tropical,ForestRoots_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_cliff02.bmp,0,0,kTerrainMoveType_Land,0
+WornPath,WornPath_Tropical,WornPath_Tropical,WornPath_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_dirt.bmp,0,0,kTerrainMoveType_Land,0
+MossRocky,MossRocky_Tropical,MossRocky_Tropical,MossRocky_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+MossyCover,MossyCover_Tropical,MossyCover_Tropical,MossyCover_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+UnderstoryCover,UnderstoryCover_Tropical,UnderstoryCover_Tropical,UnderstoryCover_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+CoastalGrass01,CoastalGrass01_Tropical,CoastalGrass01_Tropical,CoastalGrass01_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+CoastalGrass02,CoastalGrass02_Tropical,CoastalGrass02_Tropical,CoastalGrass02_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+Saltgrass,Saltgrass_Tropical,Saltgrass_Tropical,Saltgrass_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+ShallowWater,ShallowWater_Tropical,ShallowWater_Tropical,ShallowWater_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_water_riverbed.bmp,0,0,kTerrainMoveType_River,0
+Coastal,Coastal_Tropical,Coastal_Tropical,Coastal_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_water_riverbed.bmp,-2,0,kTerrainMoveType_Coast,0
+UnderBuilding_1,UnderBuilding_1_Tropical,UnderBuilding_1_Tropical,UnderBuilding_1_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+UnderBuilding_2,UnderBuilding_2_Tropical,UnderBuilding_2_Tropical,UnderBuilding_2_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0
+UnderBuilding_3,UnderBuilding_3_Tropical,UnderBuilding_3_Tropical,UnderBuilding_3_Tropical,Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud Mud,terr_temperate_grass.bmp,0,0,kTerrainMoveType_Land,0

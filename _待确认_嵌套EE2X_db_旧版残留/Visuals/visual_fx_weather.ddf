@@ -1,0 +1,82 @@
+//---------------------------------------------------------------------------
+// Effects to be used with weather
+//---------------------------------------------------------------------------
+
+////////////////////////////////////////////////////
+// THUNDER AND LIGHTNING
+ThunderLightningDef TheThunderLightning
+{
+	FlashNames = [LightningFlash01 LightningFlash02 LightningFlash03]
+
+	DelayBetweenLightningMin = 7
+	DelayBetweenLightningMax = 15
+
+	DelayBetweenFlashMin = 0.1
+	DelayBetweenFlashMax = 0.3
+
+	ThunderFarNames = [fx_thunder_rumble_distant fx_thunder_crack fx_thunder_crack_02 fx_thunder_crack_03]
+	ThunderDelay = 0.5
+
+	ThunderNearNames = [fx_lightning_strike]
+}
+
+WorldLightFlash LightningFlash01
+{
+	FlashPeakColor = [50 50 50 0]
+	TimeIn = 0.05
+	TimeDur = 0.0
+	TimeOut = 1
+
+	FadeInType = QuadSlowStart
+	FadeOutType = QuadFastStart
+}
+
+WorldLightFlash LightningFlash02
+{
+	FlashPeakColor = [70 70 70 0]
+	TimeIn = 0.05
+	TimeDur = 0.0
+	TimeOut = 1
+
+	FadeInType = QuadSlowStart
+	FadeOutType = QuadFastStart
+}
+
+WorldLightFlash LightningFlash03
+{
+	FlashPeakColor = [60 60 60 0]
+	TimeIn = 0.1
+	TimeDur = 0.0
+	TimeOut = 1
+
+	FadeInType = QuadSlowStart
+	FadeOutType = QuadFastStart
+}
+
+VisualLightningDC		TheLightningBolt
+{
+	SparkLife =				0.1
+	TimeToDie =				0.5
+	FirstSparkLife =		0.1
+	EffectDelay =			0.0
+	LinkDelay =				0.05
+	GeometryWidth =			1.0
+	CrossGeometry =			true
+	AnimationType =			Random
+	AnimationOn =			true
+	AnimationSpeed =		0.01
+	StopAnimationwhenDie =	true
+	SmoothValue =			0.3
+	PercentChanceToSmooth=	1.0
+	PoleSegmentLenght =		0.5
+	PoleNbrMax =			100
+	PoleLenght =			0.5
+	TextureName =			ElectricSpark_2.tga
+	DynamicUv =				false
+	TextureNameBranch =		ElectricSpark_2b.tga
+	NbrBranchesMin =		2
+	NbrBranchesMax =		5
+	PositionMinRadius =		2
+	PositionMaxRadius =		4
+}
+

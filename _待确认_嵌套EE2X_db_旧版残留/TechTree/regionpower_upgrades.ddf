@@ -1,0 +1,213 @@
+//////////////////////////////Region power upgrades ///////////////////////////
+// Definitions of the upgrades that give the region powers to the players.
+// These include the required region for each upgrade, the duration and recharge
+// times, and the icon for the button for each power.  Also, there are sets that
+// can be used to group all powers together that are given out at the same time.
+
+///////////////////////////// EASTERN REGION POWERS ///////////////////////////
+
+// First far east upgrade : Citadel
+UpgradeRegionPower RegionPowerUpgradeFarEast_1
+{
+	regionPowerName = "RegionPowerEastern_1"; 
+	requiredRegion = LastFarEast;
+	rechargeTime = 300;
+	icon = "icon_regionpower_citadel";
+	verboseTooltipIndex = text_rarea_citadel_desc;
+	duration = 60;
+}
+
+// Second far east upgrade: Mercantilism
+UpgradeRegionPower RegionPowerUpgradeFarEast_6
+{
+	regionPowerName = "RegionPowerEastern_6"; 
+	requiredRegion = LastFarEast;
+	rechargeTime = 300;
+	icon = "icon_regionpower_mercantilism";
+	verboseTooltipIndex = text_rarea_burgmarkets_desc;
+	duration = 60;
+}
+
+UpgradeRegionPower RegionPowerUpgradeFarEast_11
+{
+	regionPowerName = "RegionPowerEastern_11"; 
+	requiredRegion = LastFarEast;
+	rechargeTime = 300;
+	icon = "icon_regionpower_overtime";
+	verboseTooltipIndex = tx_rarea_Overtime_desc;
+	duration = 60;
+}
+
+////////////////////////// MIDEASTERN REGION POWERS ///////////////////////////
+
+UpgradeRegionPower RegionPowerUpgradeMidEast_1
+{
+	regionPowerName = "RegionPowerMidEast_1"; 
+	requiredRegion = LastMiddleEast;
+	rechargeTime = 300;
+	icon = "icon_regionpower_supeffort";
+	verboseTooltipIndex = text_rarea_supeffort_desc;
+	duration = 60;
+}
+
+UpgradeRegionPower RegionPowerUpgradeMidEast_6
+{
+	regionPowerName = "RegionPowerMidEast_6"; 
+	requiredRegion = LastMiddleEast;
+	rechargeTime = 300;
+	icon = "icon_regionpower_lostcity";
+	verboseTooltipIndex = tx_rarea_LostCity_desc;
+	duration = 60;
+}
+
+UpgradeRegionPower RegionPowerUpgradeMidEast_11
+{
+	regionPowerName = "RegionPowerMidEast_11"; 
+	requiredRegion = LastMiddleEast;
+	rechargeTime = 300;
+	icon = "icon_regionpower_bmarket";
+	verboseTooltipIndex = text_rarea_bmarket_desc;
+	duration = 60;
+}
+
+
+///////////////////////////// WESTERN REGION POWERS ///////////////////////////
+
+UpgradeRegionPower RegionPowerUpgradeWestern_1
+{
+	regionPowerName = "RegionPowerWestern_1"; 
+	requiredRegion = LastWestern;
+	rechargeTime = 300;
+	icon = "icon_regionpower_tribcust";
+	verboseTooltipIndex = text_rarea_tribcust_desc;
+	duration = 60;
+}
+
+// Second Western : Scientific Freedom
+UpgradeRegionPower RegionPowerUpgradeWestern_6
+{
+	regionPowerName = "RegionPowerWestern_6"; 
+	requiredRegion = LastWestern;
+	rechargeTime = 300;
+	icon = "icon_regionpower_scifreedom";
+	verboseTooltipIndex = text_rarea_scifree_desc;
+	duration = 60;
+}
+
+// First Western : Trade Sanctions
+UpgradeRegionPower RegionPowerUpgradeWestern_11
+{
+	regionPowerName = "RegionPowerWestern_11"; 
+	requiredRegion = LastWestern;
+	rechargeTime = 300;
+	icon = "icon_regionpower_tradesanctions";
+	verboseTooltipIndex = text_rarea_tradsanc_desc;
+	duration = 60;
+}
+
+///////////////////////////// MESO-AMERICAN REGION POWERS /////////////////////
+
+UpgradeRegionPower RegionPowerUpgradeMesoAmer_1
+{
+	regionPowerName = "RegionPowerMesoAmer_1"; 
+	requiredRegion = LastMesoAmer;
+	rechargeTime = 300;
+	icon = "icon_regionpower_massconv";
+	verboseTooltipIndex = tx_rarea_MassConversion_desc;
+	duration = 60;
+}
+
+UpgradeRegionPower RegionPowerUpgradeMesoAmer_6
+{
+	regionPowerName = "RegionPowerMesoAmer_6"; 
+	requiredRegion = LastMesoAmer;
+	rechargeTime = 300;
+	icon = "icon_regionpower_favorofgods";
+	verboseTooltipIndex = text_rarea_favorofgods_desc;
+	duration = 60;
+}
+
+UpgradeRegionPower RegionPowerUpgradeMesoAmer_11
+{
+	regionPowerName = "RegionPowerMesoAmer_11"; 
+	requiredRegion = LastMesoAmer;
+	rechargeTime = 300;
+	icon = "icon_regionpower_cloning";
+	verboseTooltipIndex = text_rarea_cloning_desc;
+	duration = 60;
+}
+
+///////////////////////////// AFRICAN REGION POWERS ///////////////////////////
+
+// First far east upgrade : Spirit of the Tribe
+UpgradeRegionPower RegionPowerUpgradeAfrican_1
+{
+	regionPowerName = "RegionPowerAfrican_1"; 
+	requiredRegion = LastAfrican;
+	rechargeTime = 300;
+	icon = "icon_regionpower_sotribe";
+	verboseTooltipIndex = text_rarea_sotribe_desc;
+	duration = 30;
+}
+
+// Second far east upgrade: Bad Voudon
+UpgradeRegionPower RegionPowerUpgradeAfrican_6
+{
+	regionPowerName = "RegionPowerAfrican_6"; 
+	requiredRegion = LastAfrican;
+	rechargeTime = 300;
+	icon = "icon_regionpower_bvoudon";
+	verboseTooltipIndex = text_rarea_bvoudon_desc;
+	duration = 60;
+}
+
+// Third far east upgrade: Technology Trance
+UpgradeRegionPower RegionPowerUpgradeAfrican_11
+{
+	regionPowerName = "RegionPowerAfrican_11"; 
+	requiredRegion = LastAfrican;
+	rechargeTime = 300;
+	icon = "icon_regionpower_ttrance";
+	verboseTooltipIndex = text_rarea_ttrance_desc;
+	duration = 60;
+}
+
+///////////////////////////// UPGRADE GROUS ///////////////////////////////////
+// It's convenient to group the upgrades together here.
+
+
+// Upgrade set for all Epoch 1-5 region powers
+UpgradeRefSet RegionPowerUpgrade_1
+{
+	upgrades = [
+		RegionPowerUpgradeFarEast_1
+		RegionPowerUpgradeMidEast_1
+		RegionPowerUpgradeWestern_1
+		RegionPowerUpgradeMesoAmer_1
+		RegionPowerUpgradeAfrican_1
+	]
+}
+
+// Upgrade set for all Epoch 6-10 region powers
+UpgradeRefSet RegionPowerUpgrade_6
+{
+	upgrades = [
+		RegionPowerUpgradeFarEast_6
+		RegionPowerUpgradeMidEast_6
+		RegionPowerUpgradeWestern_6
+		RegionPowerUpgradeMesoAmer_6
+		RegionPowerUpgradeAfrican_6
+	]
+}
+
+// Upgrade set for all Epoch 11-15 region powers
+UpgradeRefSet RegionPowerUpgrade_11
+{
+	upgrades = [
+		RegionPowerUpgradeFarEast_11
+		RegionPowerUpgradeMidEast_11
+		RegionPowerUpgradeWestern_11
+		RegionPowerUpgradeMesoAmer_11
+		RegionPowerUpgradeAfrican_11
+	]
+}

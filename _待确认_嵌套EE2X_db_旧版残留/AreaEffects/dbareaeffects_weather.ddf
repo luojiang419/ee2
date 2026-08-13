@@ -1,0 +1,180 @@
+//////////////////////////////Weather Area Effects//////////////////////////////
+
+// Rain Storm Effects //////////////////////////////
+DbAreaEffectInfo RainLight
+{
+	effects = [	
+		EffectLOS {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 10% less
+			scale = 0.9
+		}
+		
+		EffectWeatherSpeed {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 15% slower
+			scale = 0.85
+		}
+	]
+}
+DbAreaEffectInfo RainHeavy
+{
+	effects = [	
+		EffectLOS {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 15% less
+			scale = 0.85
+		}
+		
+		EffectWeatherSpeed {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 30% slower
+			scale = 0.70
+		}
+
+		EffectShotSuccessRate {
+			range = Global
+			mask = Anything
+			player = Anybody
+			
+			affectedProjectileMoveTypes = [
+				RegularProjectile,	// arrow, etc.
+				Bomb,				// bombs dropped from airplanes
+				GuidedMissile,		// self-guided missile
+			]
+			
+			// allow 80% of shots to succeed
+			successRate = 0.8
+		}
+	]
+}
+
+// Snow Storm Effects //////////////////////////////	
+DbAreaEffectInfo SnowLight
+{
+	effects = [
+		EffectLOS {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 15% less
+			scale = 0.85
+		}
+
+		EffectWeatherSpeed {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 15% slower
+			scale = 0.85
+		}
+	]
+}	
+	
+
+	
+DbAreaEffectInfo SnowHeavy
+{
+	effects = [
+		EffectLOS {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 20% less
+			scale = 0.8
+		}
+
+		EffectWeatherSpeed {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 30% slower
+			scale = 0.70
+		}
+		
+		EffectShotSuccessRate {
+			range = Global
+			mask = Anything
+			player = Anybody
+			
+			affectedProjectileMoveTypes = [
+				RegularProjectile,	// arrow, etc.
+				Bomb,				// bombs dropped from airplanes
+				GuidedMissile,		// self-guided missile
+			]
+			
+			// allow 80% of shots to succeed
+			successRate = 0.8
+		}
+	]
+}	
+
+// Dust Storm Effects //////////////////////////////
+DbAreaEffectInfo DustLight
+{
+	effects = [
+		EffectLOS {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 15% less
+			scale = 0.85
+		}
+
+		EffectWeatherSpeed {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 15% slower
+			scale = 0.85
+		}
+	]
+}	
+
+
+DbAreaEffectInfo DustHeavy
+{
+	effects = [
+		EffectLOS {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 20% less
+			scale = 0.8
+		}
+
+		EffectWeatherSpeed {
+			range = Global
+			mask = Anything
+			player = Anybody
+			// 30% slower
+			scale = 0.70
+		}
+
+
+		EffectShotSuccessRate {
+			range = Global
+			mask = Anything
+			player = Anybody
+			
+			affectedProjectileMoveTypes = [
+				RegularProjectile,	// arrow, etc.
+				Bomb,				// bombs dropped from airplanes
+				GuidedMissile,		// self-guided missile
+			]
+			
+			// allow 80% of shots to succeed
+			successRate = 0.8
+		}
+	]
+}
+
+// THE END //////////////////////////////

@@ -1,0 +1,71 @@
+﻿
+// Scenario Info
+text_scen_m3_name,"""比黄金更有价值"""
+text_scen_m3_hints,""">尽可能的输出贝里尼姆，这将会解开任务中的一些关键。指挥运送贝里尼姆的卡车到来斯特克的市场。\n\n> 避免直接攻击内罗毕，它的守卫过于坚强，同时也非你的主要目标。"""
+text_scen_m3_history,"""马赛和他们的新盟友在维多利亚的湖岸边日益繁荣。马赛的军事力量和卡瓦非的科技能力组成了一个强大的联盟。一种新的能源，贝里尼姆，被大量的发现在马赛的领土上，使得许多政府喊企业竞相争夺开采的权力。这的确会威胁到马赛的未来。"""
+tx_fe_prog_EE2X_Maasai3,"""在公元2037年，卡尔贝博士，一位德国的地质学跟物理学家，作出了令人惊奇的发现。当他在肯尼亚进行电磁铁轨的实验时发现了埋藏在地下岩层中的一种元素，这元素不存在于地球的其他任何地方。这个元素后来用得过诺贝尔奖科学家的名字来命名，被称为贝里尼姆，它有惊人的能量长期稳定的储存在这个元素之中。这个发现引发了能源工业的革命，让那些贪婪的政客和企业家饥渴的目光转向非洲前进。\n\n庞大数量的贝里尼姆被发现在马赛人的土地上，你必须在伯科尼吉控制这些区域之前，尽可能的扩张并且并吞更多的矿区。你将需要利用卡车来将贝里尼姆运送到来斯特克的市场，以稳定的供给贝里尼姆来交易军事设备。不像葛洛伯公司，他们并不希望自己主导开采的任务。\n\n> 你的第一个目标是建造你的第一座贝里尼姆抽取器。"""
+text_scen_m3_date,"""2038年，夏季"""
+
+// Objectives
+text_scen_m3_pobj1,"""建造一座贝里尼姆的抽取器"""
+text_scen_m3_pobj1_description,"""贝里尼姆可以被重新精炼成一种强而有力的能源。一旦你建造了一座抽取器在贝里尼姆的矿区上，你将可以开始开采贝里尼姆。只要你拥有抽取器，一个运送单位的贝里尼姆将会在几分钟内出现在你起始点的贝里尼姆矿区附近。派遣卡车运送到来斯特克在马拉赖的市场来获取资源、单位、科技点数及更多的先进单位及建筑。你控制了越多的矿区，你就可以运送越多的矿产。 """
+text_scen_m3_pobj2,"""控制六个贝里尼姆矿区。"""
+text_scen_m3_pobj2_description,"""我们必须控制这些地区伯科尼吉的补给，来避免葛洛伯公司支配了交易市场。控制一个矿区并且建造一座抽取器在上面。"""
+text_scen_m3_pobj3,"""与来斯特克交易"""
+text_scen_m3_pobj3_description,"""为了打断伯科尼吉继续组饶这个国家的发展，马赛必须要在这场贝里尼姆的贸易赛中具有竞争性。运送25单位的贝里尼姆到来斯特克公司的市场。"""
+text_scen_m3_sobj1,"""与卡兰津联盟"""
+text_scen_m3_sobj1_description,"""与卡兰津联盟，以换取他们的协助来跟伯科尼吉作战。"""
+text_scen_m3_sobj2,"""阻挡空袭行动"""
+text_scen_m3_sobj2_description,"""葛洛伯公司已经开始对我们的任务展开空袭行动！如果我们可以摧毁或占领他们的机棚或是机场，我们将可以化解这个打击行动！"""
+text_scen_m3_dobj1,"""保护巴利迪·海特利·尼亚马"""
+text_scen_m3_dobj1_description,"""如果巴利迪·海特利·尼亚马死亡，你将会失败。"""
+text_scen_m3_dobj2,"""保护酋长达克塔利·邦德·尼亚马"""
+text_scen_m3_dobj2_description,"""如果达克塔利·邦德·尼亚马死亡，你将会失败。"""
+text_scen_m3_dobj3,"""保护你的矿产"""
+text_scen_m3_dobj3_description,"""如果你无法控制一个贝里尼姆矿区超过五分钟以上，那么你将会失败。"""
+text_scen_m3_dobj4,"""保卫卡瓦非"""
+text_scen_m3_dobj4_description,"""卡瓦非宣示在未来将在对伯科尼吉的作战时，与他们神秘的盟友一起提供协助。保卫他们市中心的安全，不然你的临时联盟将会失败!"""
+
+// Territories
+txt_m3_Upper_Namanga,"""上纳门格"""
+txt_m3_Upper_Nairobi,"""上内罗毕"""
+
+// Mission text
+text_m3_Barracks,"""利用运送贝里尼姆来作交换，你已经接收到了一个先进科技，现在你已经可以建造军营。"""
+text_m3_Stable,"""利用运送贝里尼姆来作交换，你已经接收到了一个先进科技，现在你已经可以建造飞机和战车。"""
+text_m3_University,"""利用运送贝里尼姆来作交换，你已经接收到了一个先进科技，现在你已经可以建造大学。"""
+text_m3_Mill,"""利用运送贝里尼姆来作交换，你已经接收到了一个先进科技，现在你已经可以建造工厂。"""
+text_m3_Airport,"""利用运送贝里尼姆来作交换，你已经接收到了一个先进科技，现在你已经可以建造机场。"""
+text_m3_Sirit,"""我们的科学家与来斯特克公司合作发展希利特重型轰炸机的计划！"""
+text_m3_Fortress,"""利用运送贝里尼姆来作交换，你已经从来斯特克接收到了先进科技，现在你已经可以建造堡垒。"""
+text_m3_Tech,"""利用运送贝里尼姆来作交换，你已经从来斯特克接收到了科技点数。"""
+text_m3_Techs,"""你现在可以研究发展更先进的科技了。"""
+text_m3_alpha_Resources,"""利用运送贝里尼姆来作交换，你已经从来斯特克接收到了资源。"""
+txt_m3_truck_produce,"""一个新的贝里尼姆即将被运送输出。"""
+txt_kalenjin_troops,"""一些卡兰津人志愿帮助我们来跟伯科尼吉作战。"""
+txt_recapture_mine,"""重新占领一个矿区"""
+txt_mine_spotted,"""我们发现了一个贝里尼姆的矿区。"""
+text_maasai_trade_status,"""贝里尼姆交易：%TRADES%"""
+txt_m3_helicopter,"""我们从与来斯特克的交易中取得了直升机。"""
+txt_m3_globo_hurt,"""空袭中断！"""
+txt_m3_globo_hurt_desc,"""葛洛伯公司的空中设施被破坏，所以他们将无法利用空中打击来破坏我们的采矿任务。"""
+
+
+tx_m3_lose_mines,"""没有贝里尼姆！"""
+tx_m3_lose_mines_desc,"""如果没有控制贵重的贝里尼姆矿产，马赛将无法对抗他的敌人。"""
+tx_m3_win,"""胜利！"""
+tx_m3_win_desc,"""马赛在控制世界上最大的贝里尼姆矿藏之后，他们开始繁荣发展。他们打败了敌人而且达到从未有过的强大势力。"""
+tx_m3_lose_Kwafi,"""卡瓦非大屠杀！"""
+tx_m3_lose_Kwafi_desc,"""卡瓦非被毁灭，马赛联合这块土地的美梦已经破灭了！"""
+
+// Narration
+// Intro
+text_m3_cin_intro,"""一年已经过去，马赛在维多利亚的湖岸边日益繁荣。卡瓦非的族长告诉马赛有一种新的能源叫做贝里尼姆矿产，蕴藏在这个区域。酋长相信贝里尼姆好可以帮助这个室族繁荣起来。"""
+// Text for lose cinematic for hero death for all scenarios in Maasai1.utf8
+//text_maasai_cin_lose_hero,"""With the death of Baridi Hatari Nyama the Maasai were quickly subjugated.""" 
+// Text for lose cinematic for chief death for first 3 scenarios in Maasai1.utf8
+//text_maasai_cin_lose_chief,"""Without the chief's wise leadership the Maasai were driven from their lands."""
+// Text for lose cinematic "Lose control of Behrinium mine"
+text_m3_cin_resource,"""如果没有控制贵重的贝里尼姆矿产，马赛将无法对抗他的敌人。"""
+// Text for win cinematic
+text_m3_cin_win,"""利用控制世界上仅存最大的贝里尼姆矿产让马赛变得越来越繁荣了。他们击退了入侵的敌人，同时变得比以前更加的强大。"""

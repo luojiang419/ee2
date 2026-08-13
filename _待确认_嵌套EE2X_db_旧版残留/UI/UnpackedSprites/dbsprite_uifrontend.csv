@@ -1,0 +1,408 @@
+//NAME,FILENAME,U,V,WIDTH,HEIGHT,FLAGS
+
+// front end screens,,,,,,
+spr_bkg_main,ui_fe_bkg_main.tga,0,64,512,384,0
+spr_bkg_sp,ui_fe_bkg_sp.tga,0,64,512,384,0
+spr_bkg_camp,ui_fe_bkg_camp.tga,0,64,512,384,0
+spr_bkg_options,ui_fe_bkg_options.tga,0,64,512,384,0
+spr_bkg_endstats,ui_fe_bkg_egstats.tga,0,64,512,384,0
+spr_bkg_panel_grey,ui_fe_bkg_panel_grey.tga,0,0,2,2,0
+spr_fe_button,ui_fe_button_pressed.tga,0,0,240,48,0
+spr_fe_button_hilite,ui_fe_button_norm.tga,0,0,240,48,0
+spr_fe_radiobutton_off,ui_fe_radiobutton_off.tga,0,0,32,32,0
+spr_fe_radiobutton_on,ui_fe_radiobutton_on.tga,0,0,32,32,0
+spr_fe_listitem,ui_empty.tga,0,0,4,4,0
+spr_fe_listitem_hilite,ui_fe_colorSample_listHilite.tga,0,0,4,4,0
+spr_fe_bkg_combo,ui_fe_bkg_combo.tga,0,0,2,2,0
+spr_fe_tab_off,ui_fe_tab_unselected.tga,9,0,110,32,0
+spr_fe_tab_on,ui_fe_tab_selected.tga,9,0,110,32,0
+//spr_fe_slider_horiz,ui_fe_slider1_horiz.tga,0,0,128,32,0
+//spr_fe_slider_horiz_thumb,ui_fe_slider1_horiz_thumb.tga,4,0,24,32,0
+spr_fe_star,ui_fe_star.tga,0,0,32,32,0
+spr_fe_lose,ui_fe_lose.tga,0,0,64,64,0
+
+// scrollbar colors,,,,,,
+
+// @DEPRECATE,,,,,,
+spr_fe_bkg_scroll,ui_fe_bkg_scroll.tga,0,0,2,2,0
+
+spr_fe_scroll_bkg,ui_fe_scrollcolors.tga,1,1,2,2,0
+spr_fe_scroll_vert,ui_fe_scrollcolors.tga,5,1,2,2,0
+spr_fe_scroll_vert_p,ui_fe_scrollcolors.tga,1,5,2,2,0
+
+// scrollbar buttons,,,,,,
+spr_fe_scroll_down,ui_fe_scrollbar_button_bottom.tga,0,0,25,25,0
+spr_fe_scroll_down_r,ui_fe_scrollbar_button_bottom_rollover.tga,0,0,25,25,0
+spr_fe_scroll_down_p,ui_fe_scrollbar_button_bottom_pressed.tga,0,0,25,25,0
+spr_fe_scroll_down_rp,ui_fe_scrollbar_button_bottom_pressed.tga,0,0,25,25,0
+spr_fe_scroll_up,ui_fe_scrollbar_button_top.tga,0,0,25,25,0
+spr_fe_scroll_up_r,ui_fe_scrollbar_button_top_rollover.tga,0,0,25,25,0
+spr_fe_scroll_up_p,ui_fe_scrollbar_button_top_pressed.tga,0,0,25,25,0
+spr_fe_scroll_up_rp,ui_fe_scrollbar_button_top_pressed.tga,0,0,25,25,0
+
+// slider,,,,,,
+spr_fe_slider_horiz_bkg,ui_fe_slider_bkg.tga,0,0,128,11,0
+spr_fe_slider_horiz_thumb,ui_fe_slider_thumb.tga,0,0,19,40,0
+spr_fe_slider_horiz_thumb_on,ui_fe_slider_thumb.tga,19,0,19,40,0
+
+// DEMO sprites,,,,,,
+spr_bkg_demo_1,ui_fe_demo_screen_top.tga,0,0,1024,512,0
+spr_bkg_demo_2,ui_fe_demo_screen_bottom.tga,0,0,1024,256,0
+spr_demo_button,ui_fe_demo_button.tga,0,0,256,64,0
+spr_demo_button_roll,ui_fe_demo_button_roll.tga,0,0,256,64,0
+spr_demo_button_press,ui_fe_demo_button_pressed.tga,0,0,256,64,0
+spr_demo_button_rollpress,ui_fe_demo_button_pressed.tga,0,0,256,64,0
+spr_bkg_demo_exit_1_top,ui_fe_exit_screen_1_top.tga,0,0,1024,512,0
+spr_bkg_demo_exit_1_bot,ui_fe_exit_screen_1_bottom.tga,0,0,1024,256,0
+spr_bkg_demo_exit_2_top,ui_fe_exit_screen_2_top.tga,0,0,1024,512,0
+spr_bkg_demo_exit_2_bot,ui_fe_exit_screen_2_bottom.tga,0,0,1024,256,0
+// demo exit screens,,,,,,
+demo_exit_bkg_1,exit_screen_1.tga,0,0,1024,768,0
+demo_exit_bkg_2,exit_screen_2.tga,0,0,1024,768,0
+demo_exit_button,ui_fe_demo_star_normal.tga,46,46,156,156,0
+demo_exit_button_roll,ui_fe_demo_star_roll.tga,46,46,156,156,0
+demo_exit_button_press,ui_fe_demo_star_press.tga,46,46,156,156,0
+demo_exit_button_rollpress,ui_fe_demo_star_roll.tga,46,46,156,156,0
+
+
+
+////////////////////////////////////////////////////////////////////////////////,,,,,,
+// THE LATEST GREATEST UI REVISION STARTS HERE,,,,,,
+
+////////////////////////////////////,,,,,,
+// background pieces,,,,,,
+
+// panel background in 6 pieces (3x2),,,,,,
+spr_fe_panel_bkg_top_left,ui_fe_bkg_parch_top_left.tga,0,0,256,256,0
+spr_fe_panel_bkg_bot_left,ui_fe_bkg_parch_bottom_left.tga,0,0,256,256,0
+spr_fe_panel_bkg_top_mid,ui_fe_bkg_parch_top_mid.tga,0,0,256,256,0
+spr_fe_panel_bkg_bot_mid,ui_fe_bkg_parch_bottom_mid.tga,0,0,256,256,0
+spr_fe_panel_bkg_top_right,ui_fe_bkg_parch_top_right.tga,0,0,256,256,0
+spr_fe_panel_bkg_bot_right,ui_fe_bkg_parch_bottom_right.tga,0,0,256,256,0
+
+// hi-res variants for main screen,,,,,,
+// (bottom piece has embedded ee2 logo),,,,,,
+spr_fe_panel_bkg_top_left_hires,ui_fe_bkg_parch_top_left_hires.tga,0,0,512,512,0
+spr_fe_panel_bkg_bot_left_hr_lg,ui_fe_bkg_parch_bottom_left_hires_logo2.tga,0,0,512,512,0
+
+//////////////////////////////////,,,,,,
+// frames,,,,,,
+
+// panel frame,,,,,,
+spr_fe_frame_panel_corner_ul,ui_fe_frame_panel.tga,0,52,12,12,0
+spr_fe_frame_panel_corner_ll,ui_fe_frame_panel.tga,13,52,12,12,0
+spr_fe_frame_panel_corner_lr,ui_fe_frame_panel.tga,26,52,12,12,0
+spr_fe_frame_panel_corner_ur,ui_fe_frame_panel.tga,39,52,12,12,0
+spr_fe_frame_panel_edge_top,ui_fe_frame_panel.tga,0,0,256,12,0
+spr_fe_frame_panel_edge_left,ui_fe_frame_panel.tga,0,13,256,12,(Rotate)
+spr_fe_frame_panel_edge_bottom,ui_fe_frame_panel.tga,0,26,256,12,0
+spr_fe_frame_panel_edge_right,ui_fe_frame_panel.tga,0,39,256,12,(Rotate)
+
+// screen frame,,,,,,
+spr_fe_frame_screen_corner_ul,ui_fe_frame_screen.tga,0,56,13,13,0
+spr_fe_frame_screen_corner_ll,ui_fe_frame_screen.tga,14,56,13,13,0
+spr_fe_frame_screen_corner_lr,ui_fe_frame_screen.tga,28,56,13,13,0
+spr_fe_frame_screen_corner_ur,ui_fe_frame_screen.tga,42,56,13,13,0
+spr_fe_frame_screen_edge_top,ui_fe_frame_screen.tga,0,0,256,13,0
+spr_fe_frame_screen_edge_left,ui_fe_frame_screen.tga,0,14,256,13,(Rotate)
+spr_fe_frame_screen_edge_bottom,ui_fe_frame_screen.tga,0,28,256,13,0
+spr_fe_frame_screen_edge_right,ui_fe_frame_screen.tga,0,42,256,13,(Rotate)
+
+// small inset copper frame,,,,,,
+spr_fe_frame_inset_corner_ul,ui_fe_frame_inset.tga,0,28,6,6,0
+spr_fe_frame_inset_corner_ll,ui_fe_frame_inset.tga,7,28,6,6,0
+spr_fe_frame_inset_corner_lr,ui_fe_frame_inset.tga,14,28,6,6,0
+spr_fe_frame_inset_corner_ur,ui_fe_frame_inset.tga,21,28,6,6,0
+spr_fe_frame_inset_edge_top,ui_fe_frame_inset.tga,0,0,128,6,0
+spr_fe_frame_inset_edge_left,ui_fe_frame_inset.tga,0,7,128,6,(Rotate)
+spr_fe_frame_inset_edge_bottom,ui_fe_frame_inset.tga,0,14,128,6,0
+spr_fe_frame_inset_edge_right,ui_fe_frame_inset.tga,0,21,128,6,(Rotate)
+
+
+//////////////////////////////////,,,,,,
+// buttons (and the like),,,,,,
+
+// small button,,,,,,
+spr_fe_button_small,ui_fe_button_small.tga,0,0,128,44,0
+spr_fe_button_small_r,ui_fe_button_small_rollover.tga,0,0,128,44,0
+spr_fe_button_small_p,ui_fe_button_small_pressed.tga,0,0,128,44,0
+spr_fe_button_small_rp,ui_fe_button_small_pressed.tga,0,0,128,44,0
+
+// small long button,,,,,,
+spr_fe_button_smallLong,ui_fe_button_smallLong.tga,0,0,512,44,0
+spr_fe_button_smallLong_r,ui_fe_button_smallLong_rollover.tga,0,0,512,44,0
+spr_fe_button_smallLong_p,ui_fe_button_smallLong_pressed.tga,0,0,512,44,0
+spr_fe_button_smallLong_rp,ui_fe_button_smallLong_pressed.tga,0,0,512,44,0
+
+// medium narrow button,,,,,,
+spr_fe_button_medNarrow,ui_fe_button_medNarrow.tga,0,0,169,64,0
+spr_fe_button_medNarrow_r,ui_fe_button_medNarrow_rollover.tga,0,0,169,64,0
+spr_fe_button_medNarrow_p,ui_fe_button_medNarrow_pressed.tga,0,0,169,64,0
+spr_fe_button_medNarrow_rp,ui_fe_button_medNarrow_pressed.tga,0,0,169,64,0
+
+// medium button,,,,,,
+spr_fe_button_med,ui_fe_button_med.tga,0,0,256,64,0
+spr_fe_button_med_r,ui_fe_button_med_rollover.tga,0,0,256,64,0
+spr_fe_button_med_p,ui_fe_button_med_pressed.tga,0,0,256,64,0
+spr_fe_button_med_rp,ui_fe_button_med_pressed.tga,0,0,256,64,0
+
+// medium long button,,,,,,
+spr_fe_button_medLong,ui_fe_button_medLong.tga,0,0,344,64,0
+spr_fe_button_medLong_r,ui_fe_button_medLong_rollover.tga,0,0,344,64,0
+spr_fe_button_medLong_p,ui_fe_button_medLong_pressed.tga,0,0,344,64,0
+spr_fe_button_medLong_rp,ui_fe_button_medLong_pressed.tga,0,0,344,64,0
+
+// big button,,,,,,
+spr_fe_button_big,ui_fe_button_big.tga,0,0,344,87,0
+spr_fe_button_big_r,ui_fe_button_big_rollover.tga,0,0,344,87,0
+spr_fe_button_big_p,ui_fe_button_big_pressed.tga,0,0,344,87,0
+spr_fe_button_big_rp,ui_fe_button_big_pressed.tga,0,0,344,87,0
+
+// medium tab,,,,,,
+spr_fe_tab_med,ui_fe_tab_med.tga,0,0,200,50,0
+spr_fe_tab_med_r,ui_fe_tab_med_rollover.tga,0,0,200,50,0
+spr_fe_tab_med_p,ui_fe_tab_med_pressed.tga,0,0,200,50,0
+spr_fe_tab_med_rp,ui_fe_tab_med_pressed.tga,0,0,200,50,0
+
+// big tab,,,,,,
+spr_fe_tab_big,ui_fe_tab_big.tga,0,0,325,50,0
+spr_fe_tab_big_r,ui_fe_tab_big_rollover.tga,0,0,325,50,0
+spr_fe_tab_big_p,ui_fe_tab_big_pressed.tga,0,0,325,50,0
+spr_fe_tab_big_rp,ui_fe_tab_big_pressed.tga,0,0,325,50,0
+
+// gigantic tab,,,,,,
+spr_fe_tab_gigantic,ui_fe_tab_gigantic.tga,0,0,700,50,0
+spr_fe_tab_gigantic_r,ui_fe_tab_gigantic_rollover.tga,0,0,700,50,0
+spr_fe_tab_gigantic_p,ui_fe_tab_gigantic_pressed.tga,0,0,700,50,0
+spr_fe_tab_gigantic_rp,ui_fe_tab_gigantic_pressed.tga,0,0,700,50,0
+
+// small combo box,,,,,,
+spr_fe_combo_small,ui_fe_combo_small.tga,0,0,101,32,0
+spr_fe_combo_small_r,ui_fe_combo_small_rollover.tga,0,0,101,32,0
+
+// medium combo box,,,,,,
+spr_fe_combo_med,ui_fe_combo_med.tga,0,0,200,32,0
+spr_fe_combo_med_r,ui_fe_combo_med_rollover.tga,0,0,200,32,0
+
+// long combo box,,,,,,
+spr_fe_combo_long,ui_fe_combo_large.tga,0,0,341,32,0
+spr_fe_combo_long_r,ui_fe_combo_large_rollover.tga,0,0,341,32,0
+
+// combo triangle,,,,,,
+spr_fe_combo_triangle,ui_fe_combo_triangle.tga,0,0,28,19,0
+
+// checkbox,,,,,,
+spr_fe_checkbox,ui_fe_checkbox_unchecked.tga,0,0,32,32,0
+spr_fe_checkbox_on,ui_fe_checkbox_checked.tga,0,0,32,32,0
+
+// radio button,,,,,,
+spr_fe_radio,ui_fe_radioButton.tga,0,0,32,32,0
+spr_fe_radio_on,ui_fe_radioButton_pressed.tga,0,0,32,32,0
+
+
+//////////////////////////////////,,,,,,
+// misc reusable elements,,,,,,
+
+// divider elements,,,,,,
+spr_fe_divider_horiz,ui_fe_divider.tga,0,0,377,8,0
+spr_fe_divider_vert,ui_fe_divider.tga,0,0,377,8,(Rotate)
+
+// text field backgrounds,,,,,,
+spr_fe_textfield_small,ui_fe_textfield_small.tga,0,0,128,32,0
+spr_fe_textfield_med,ui_fe_textfield_small.tga,0,0,256,64,0
+spr_fe_textfield_large,ui_fe_textfield_large.tga,0,0,512,64,0
+
+// inset metal panel backgrounds (eg. for text output),,,,,,
+//spr_fe_insetpanel_med,ui_fe_insetpanel_small.tga,0,0,256,256,0
+spr_fe_insetpanel_large,ui_fe_insetpanel_large.tga,0,0,512,256,0
+spr_fe_insetpanel_tall,ui_fe_insetpanel_tall.tga,0,0,256,512,0
+
+// quick-start force comp background,,,,,,
+spr_fe_qstart_forceComp_bkg,ui_fe_quickStart_forceComp_bkg.tga,0,0,256,458,0
+
+
+
+
+
+
+
+
+
+// loading screens,,,,,,
+spr_load_bkg_1A,loading_screen_1A.tga,0,0,1024,512,0
+spr_load_bkg_1B,loading_screen_1B.tga,0,0,1024,256,0
+spr_progress1_color1,load_progress_red.tga,0,0,64,1,0
+spr_progress1_color2,ui_empty.tga,0,0,1,1,0
+
+spr_progress_mp_progress,load_progress_red.tga,0,0,64,1,0
+spr_progress_mp_progress_empty,ui_empty.tga,0,0,1,1,0
+
+// editor loading screens,,,,,,
+spr_load_edit_bkg_1A,loading_editor_1A_2x.tga,0,0,1024,512,0
+spr_load_edit_bkg_1B,loading_editor_1B_2x.tga,0,0,1024,256,0
+spr_load_edit_bkg_2A,loading_editor_2A_2x.tga,0,0,1024,512,0
+spr_load_edit_bkg_2B,loading_editor_2B_2x.tga,0,0,1024,256,0
+spr_load_edit_bkg_3A,loading_editor_3A_2x.tga,0,0,1024,512,0
+spr_load_edit_bkg_3B,loading_editor_3B_2x.tga,0,0,1024,256,0
+spr_load_edit_bkg_4A,loading_editor_4A_2x.tga,0,0,1024,512,0
+spr_load_edit_bkg_4B,loading_editor_4B_2x.tga,0,0,1024,256,0
+spr_load_edit_bkg_5A,loading_editor_5A_2x.tga,0,0,1024,512,0
+spr_load_edit_bkg_5B,loading_editor_5B_2x.tga,0,0,1024,256,0
+// kick buttons,,,,,,
+spr_kick_butt,ui_kick_button.tga,0,0,32,32,0
+spr_kick_butt_roll,ui_kick_button_rollover.tga,0,0,32,32,0
+spr_kick_butt_press,ui_kick_button_pressed.tga,0,0,32,32,0
+spr_kick_butt_rollpress,ui_kick_button_pressed.tga,0,0,32,32,0
+
+
+
+// temp background sprites,,,,,,
+spr_fe_bkg_top,ui_fe_bkg_top.tga,0,0,1024,512,0
+spr_fe_bkg_bot,ui_fe_bkg_bottom.tga,0,0,1024,256,0
+
+// panel expand/collapse (left/right pointing triangles),,,,,,
+spr_fe_panel_expand,ui_panel_expandCollapse_expand_parch.tga,0,0,32,256,0
+spr_fe_panel_expand_r,ui_panel_expandCollapse_expand_rollover_parch.tga,0,0,32,256,0
+spr_fe_panel_collapse,ui_panel_expandCollapse_collapse_parch.tga,0,0,32,256,0
+spr_fe_panel_collapse_r,ui_panel_expandCollapse_collapse_rollover_parch.tga,0,0,32,256,0
+
+/////////////////////////////////////////////////////////////,,,,,,
+// GameSpy,,,,,,
+
+spr_fe_mp_gs_ignored,ui_mp_gs_ignored.tga,0,0,16,16,0
+spr_fe_mp_gs_ingame,ui_mp_gs_ingame.tga,0,0,16,16,0
+spr_fe_mp_gs_private,ui_mp_gs_private.tga,0,0,16,16,0
+spr_fe_mp_gs_public,ui_mp_gs_public.tga,0,0,16,16,0
+
+spr_fe_list_sort,ui_fe_combo_triangle.tga,0,0,28,19,(FlipV)
+spr_fe_list_sortDescending,ui_fe_combo_triangle.tga,0,0,28,19,0
+
+/////////////////////////////////////////////////////////////,,,,,,
+// CAMPAIGN SCREEN,,,,,,
+
+// timeline sprites,,,,,,
+spr_fe_camp_timeline,ui_fe_campaign_timeline.tga,0,0,1024,28,0
+spr_fe_camp_timeline_empty,ui_empty.tga,0,0,1,1,0
+spr_fe_camp_timeline_bkg,ui_fe_campaign_timeline.tga,0,36,1024,28,0
+spr_fe_camp_timeline_shadow,ui_fe_campaign_timeline_shadow.tga,0,0,256,16,0
+spr_fe_camp_timeline_date_bkg,ui_fe_combo_med.tga,0,0,200,32,0
+
+// screenshots for campaign screen,,,,,,
+spr_fe_ee2logo,spr_ee2_logo.tga,0,0,512,290,0
+spr_fe_camp_screenshot_ee2logo,ui_fe_insetpanel_small_logo2.tga,0,0,256,192,0
+spr_fe_camp_screenshot,campaign_screenshot.tga,0,0,512,311,0
+spr_tut1_camp_screenshot,spr_tut1_camp_screenshot.bmp,0,0,512,384,0
+spr_tut2_camp_screenshot,spr_tut2_camp_screenshot.bmp,0,0,512,384,0
+spr_tut3_camp_screenshot,spr_tut3_camp_screenshot.bmp,0,0,512,384,0
+spr_tut4_camp_screenshot,spr_tut4_camp_screenshot.bmp,0,0,512,384,0
+spr_kor1_camp_screenshot,spr_kor1_camp_screenshot.bmp,0,0,512,384,0
+spr_kor2_camp_screenshot,spr_kor2_camp_screenshot.bmp,0,0,512,384,0
+spr_kor3_camp_screenshot,spr_kor3_camp_screenshot.bmp,0,0,512,384,0
+spr_kor4_camp_screenshot,spr_kor4_camp_screenshot.bmp,0,0,512,384,0
+spr_kor5_camp_screenshot,spr_kor5_camp_screenshot.bmp,0,0,512,384,0
+spr_kor6_camp_screenshot,spr_kor6_camp_screenshot.bmp,0,0,512,384,0
+spr_kor7_camp_screenshot,spr_kor7_camp_screenshot.bmp,0,0,512,384,0
+spr_kor8_camp_screenshot,spr_kor8_camp_screenshot.bmp,0,0,512,384,0
+spr_ger1_camp_screenshot,spr_ger1_camp_screenshot.bmp,0,0,512,384,0
+spr_ger2_camp_screenshot,spr_ger2_camp_screenshot.bmp,0,0,512,384,0
+spr_ger3_camp_screenshot,spr_ger3_camp_screenshot.bmp,0,0,512,384,0
+spr_ger4_camp_screenshot,spr_ger4_camp_screenshot.bmp,0,0,512,384,0
+spr_ger5_camp_screenshot,spr_ger5_camp_screenshot.bmp,0,0,512,384,0
+spr_ger6_camp_screenshot,spr_ger6_camp_screenshot.bmp,0,0,512,384,0
+spr_ger7_camp_screenshot,spr_ger7_camp_screenshot.bmp,0,0,512,384,0
+spr_ger8_camp_screenshot,spr_ger8_camp_screenshot.bmp,0,0,512,384,0
+spr_ame1_camp_screenshot,spr_ame1_camp_screenshot.bmp,0,0,512,384,0
+spr_ame2_camp_screenshot,spr_ame2_camp_screenshot.bmp,0,0,512,384,0
+spr_ame3_camp_screenshot,spr_ame3_camp_screenshot.bmp,0,0,512,384,0
+spr_ame4_camp_screenshot,spr_ame4_camp_screenshot.bmp,0,0,512,384,0
+spr_ame5_camp_screenshot,spr_ame5_camp_screenshot.bmp,0,0,512,384,0
+spr_ame6_camp_screenshot,spr_ame6_camp_screenshot.bmp,0,0,512,384,0
+spr_ame7_camp_screenshot,spr_ame7_camp_screenshot.bmp,0,0,512,384,0
+spr_ame8_camp_screenshot,spr_ame8_camp_screenshot.bmp,0,0,512,384,0
+spr_t1we_camp_screenshot,spr_t1we_camp_screenshot.bmp,0,0,512,384,0
+spr_t1wu_camp_screenshot,spr_t1wu_camp_screenshot.bmp,0,0,512,384,0
+spr_t2al_camp_screenshot,spr_t2al_camp_screenshot.bmp,0,0,512,384,0
+spr_t2ax_camp_screenshot,spr_t2ax_camp_screenshot.bmp,0,0,512,384,0
+spr_rus1_camp_screenshot,spr_rus1_camp_screenshot.bmp,0,0,512,384,0
+spr_rus2_camp_screenshot,spr_rus2_camp_screenshot.bmp,0,0,512,384,0
+spr_rus3_camp_screenshot,spr_rus3_camp_screenshot.bmp,0,0,512,384,0
+spr_rus4_camp_screenshot,spr_rus4_camp_screenshot.bmp,0,0,512,384,0
+spr_rus5_camp_screenshot,spr_rus5_camp_screenshot.bmp,0,0,512,384,0
+spr_egy1_camp_screenshot,spr_egy1_camp_screenshot.bmp,0,0,512,384,0
+spr_egy2_camp_screenshot,spr_egy2_camp_screenshot.bmp,0,0,512,384,0
+spr_egy3_camp_screenshot,spr_egy3_camp_screenshot.bmp,0,0,512,384,0
+spr_egy4_camp_screenshot,spr_egy4_camp_screenshot.bmp,0,0,512,384,0
+spr_egy5_camp_screenshot,spr_egy5_camp_screenshot.bmp,0,0,512,384,0
+spr_mas1_camp_screenshot,spr_mas1_camp_screenshot.bmp,0,0,512,384,0
+spr_mas2_camp_screenshot,spr_mas2_camp_screenshot.bmp,0,0,512,384,0
+spr_mas3_camp_screenshot,spr_mas3_camp_screenshot.bmp,0,0,512,384,0
+spr_mas4_camp_screenshot,spr_mas4_camp_screenshot.bmp,0,0,512,384,0
+spr_mas5_camp_screenshot,spr_mas5_camp_screenshot.bmp,0,0,512,384,0
+spr_kurG_camp_screenshot,spr_kurG_camp_screenshot.bmp,0,0,512,384,0
+spr_kurR_camp_screenshot,spr_kurR_camp_screenshot.bmp,0,0,512,384,0
+spr_rorB_camp_screenshot,spr_rorB_camp_screenshot.bmp,0,0,512,384,0
+spr_rorZ_camp_screenshot,spr_rorZ_camp_screenshot.bmp,0,0,512,384,0
+
+
+// thumbnails for campaign screen,,,,,,
+spr_campaign_ee2logo_thumb,spr_ee2_logo_thumb.bmp,0,0,120,90,0
+spr_tut1_camp_thumb,spr_tut1_camp_thumb.bmp,0,0,120,90,0
+spr_tut2_camp_thumb,spr_tut2_camp_thumb.bmp,0,0,120,90,0
+spr_tut3_camp_thumb,spr_tut3_camp_thumb.bmp,0,0,120,90,0
+spr_tut4_camp_thumb,spr_tut4_camp_thumb.bmp,0,0,120,90,0
+spr_kor1_camp_thumb,spr_kor1_camp_thumb.bmp,0,0,120,90,0
+spr_kor2_camp_thumb,spr_kor2_camp_thumb.bmp,0,0,120,90,0
+spr_kor3_camp_thumb,spr_kor3_camp_thumb.bmp,0,0,120,90,0
+spr_kor4_camp_thumb,spr_kor4_camp_thumb.bmp,0,0,120,90,0
+spr_kor5_camp_thumb,spr_kor5_camp_thumb.bmp,0,0,120,90,0
+spr_kor6_camp_thumb,spr_kor6_camp_thumb.bmp,0,0,120,90,0
+spr_kor7_camp_thumb,spr_kor7_camp_thumb.bmp,0,0,120,90,0
+spr_kor8_camp_thumb,spr_kor8_camp_thumb.bmp,0,0,120,90,0
+spr_ger1_camp_thumb,spr_ger1_camp_thumb.bmp,0,0,120,90,0
+spr_ger2_camp_thumb,spr_ger2_camp_thumb.bmp,0,0,120,90,0
+spr_ger3_camp_thumb,spr_ger3_camp_thumb.bmp,0,0,120,90,0
+spr_ger4_camp_thumb,spr_ger4_camp_thumb.bmp,0,0,120,90,0
+spr_ger5_camp_thumb,spr_ger5_camp_thumb.bmp,0,0,120,90,0
+spr_ger6_camp_thumb,spr_ger6_camp_thumb.bmp,0,0,120,90,0
+spr_ger7_camp_thumb,spr_ger7_camp_thumb.bmp,0,0,120,90,0
+spr_ger8_camp_thumb,spr_ger8_camp_thumb.bmp,0,0,120,90,0
+spr_ame1_camp_thumb,spr_ame1_camp_thumb.bmp,0,0,120,90,0
+spr_ame2_camp_thumb,spr_ame2_camp_thumb.bmp,0,0,120,90,0
+spr_ame3_camp_thumb,spr_ame3_camp_thumb.bmp,0,0,120,90,0
+spr_ame4_camp_thumb,spr_ame4_camp_thumb.bmp,0,0,120,90,0
+spr_ame5_camp_thumb,spr_ame5_camp_thumb.bmp,0,0,120,90,0
+spr_ame6_camp_thumb,spr_ame6_camp_thumb.bmp,0,0,120,90,0
+spr_ame7_camp_thumb,spr_ame7_camp_thumb.bmp,0,0,120,90,0
+spr_ame8_camp_thumb,spr_ame8_camp_thumb.bmp,0,0,120,90,0
+spr_t1we_camp_thumb,spr_t1we_camp_thumb.bmp,0,0,120,90,0
+spr_t1wu_camp_thumb,spr_t1wu_camp_thumb.bmp,0,0,120,90,0
+spr_t2al_camp_thumb,spr_t2al_camp_thumb.bmp,0,0,120,90,0
+spr_t2ax_camp_thumb,spr_t2ax_camp_thumb.bmp,0,0,120,90,0
+spr_rus1_camp_thumb,spr_rus1_camp_thumb.bmp,0,0,120,90,0
+spr_rus2_camp_thumb,spr_rus2_camp_thumb.bmp,0,0,120,90,0
+spr_rus3_camp_thumb,spr_rus3_camp_thumb.bmp,0,0,120,90,0
+spr_rus4_camp_thumb,spr_rus4_camp_thumb.bmp,0,0,120,90,0
+spr_rus5_camp_thumb,spr_rus5_camp_thumb.bmp,0,0,120,90,0
+spr_egy1_camp_thumb,spr_egy1_camp_thumb.bmp,0,0,120,90,0
+spr_egy2_camp_thumb,spr_egy2_camp_thumb.bmp,0,0,120,90,0
+spr_egy3_camp_thumb,spr_egy3_camp_thumb.bmp,0,0,120,90,0
+spr_egy4_camp_thumb,spr_egy4_camp_thumb.bmp,0,0,120,90,0
+spr_egy5_camp_thumb,spr_egy5_camp_thumb.bmp,0,0,120,90,0
+spr_mas1_camp_thumb,spr_mas1_camp_thumb.bmp,0,0,120,90,0
+spr_mas2_camp_thumb,spr_mas2_camp_thumb.bmp,0,0,120,90,0
+spr_mas3_camp_thumb,spr_mas3_camp_thumb.bmp,0,0,120,90,0
+spr_mas4_camp_thumb,spr_mas4_camp_thumb.bmp,0,0,120,90,0
+spr_mas5_camp_thumb,spr_mas5_camp_thumb.bmp,0,0,120,90,0
+spr_kurG_camp_thumb,spr_kurG_camp_thumb.bmp,0,0,120,90,0
+spr_kurR_camp_thumb,spr_kurR_camp_thumb.bmp,0,0,120,90,0
+spr_rorB_camp_thumb,spr_rorB_camp_thumb.bmp,0,0,120,90,0
+spr_rorZ_camp_thumb,spr_rorZ_camp_thumb.bmp,0,0,120,90,0
+
+
+// sprite used to denote selected campaign scenario,,,,,,
+spr_focus_camp_scen,ui_fe_focus_camp_scenario.tga,0,0,130,100,0
+
+// shows unvisited maps on tug of war screen,,,,,,
+spr_tow_unvisited,ui_fe_fog_map.bmp,0,0,120,90,0
+
+spr_yellowlight,ui_light_yellow.tga,0,0,32,32,0

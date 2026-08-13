@@ -1,0 +1,592 @@
+﻿// NAME,TEXT
+// Scenario editor tooltips,
+se_widgets_donotuse,"""零式入口－不要使用"""
+
+tx_se_cancel,"""取消"""
+
+se_shot_keys_focus_unitPrompt,"""请设定一个单位名称:"""
+se_shot_keys_focus_areaPrompt,"""请设定一个地域名称:"""
+se_cinematic_new_text,"""新建..."""
+se_player_ai_none_text,"""无"""
+
+// column headings for object list,
+se_objects_col0,"""玩家"""
+se_objects_col1,"""名称"""
+se_objects_col2,"""单位类型"""
+se_objects_col3,"""群组"""
+se_objects_col4,"""纪元"""
+se_objects_col5,"""所属单位类型"""
+se_objects_col6,"""位置"""
+se_objects_col7,"""角度"""
+
+// column headings for territories list,
+se_territories_col0,"""领土标识"""
+se_territories_col1,"""领土名称"""
+se_territories_col2,"""拥有的玩家"""
+
+// Title and titlebar,
+tx_se_title,"""Empire Earth II 剧本/地图编辑器"""
+tx_se_titlebar_mouse,"""鼠标: %X%, %Y%, %Z%"""
+
+// File menu,
+tx_se_file_title,"""文件"""
+tx_se_file_new,"""生成新地图..."""
+tx_se_file_resize,"""调整地图大小..."""
+tx_se_file_open,"""打开剧本..."""
+tx_se_file_openmap,"""打开地图..."""
+tx_se_file_importdem,"""导入DEM模型..."""
+tx_se_file_close,"""关闭"""
+tx_se_file_save,"""保存"""
+tx_se_file_saveas,"""另存剧本为..."""
+tx_se_file_saveasmap,"""另存地图为..."""
+tx_se_file_testmission,"""启动测试"""
+tx_se_file_autobalance,"""兵力平衡度测试工具"""
+tx_se_file_exit,"""退出"""
+
+// Edit menu,
+tx_se_edit_title,"""编辑"""
+tx_se_edit_undo,"""撤销"""
+tx_se_edit_redo,"""恢复"""
+tx_se_edit_copy,"""复制"""
+tx_se_edit_cut,"""剪切"""
+tx_se_edit_paste,"""粘贴"""
+tx_se_edit_delete,"""删除"""
+tx_se_edit_createassigngroups,"""创建/指派群组..."""
+tx_se_edit_selectionprops,"""被选物属性..."""
+tx_se_edit_objectprops,"""物件属性..."""
+tx_se_edit_areaprops,"""地域属性..."""
+tx_se_edit_missionprops,"""任务属性..."""
+tx_se_edit_diplomacy,"""外交关系..."""
+tx_se_edit_victoryconditions,"""游戏类型..."""
+tx_se_edit_cinematics,"""电影..."""
+tx_se_edit_terry_names,"""重命名所有领土..."""
+
+// Tools menu,
+tx_se_tools_title,"""工具"""
+tx_se_tools_terrainmod,"""修改地形"""
+tx_se_tools_forestpainting,"""绘制森林"""
+tx_se_tools_objectplacement,"""放置物件"""
+tx_se_tools_areaplacement,"""地域工具"""
+tx_se_tools_cinematicsplines,"""为电影创建镜头"""
+tx_se_tools_startingpositions,"""AI优先建设位置"""
+tx_se_tools_vcpositions,"""据点/山丘布局"""
+tx_se_tools_animals,"""动物工具"""
+tx_se_tools_territories,"""领土绘制工具"""
+
+// View menu,
+tx_se_view_title,"""视图"""
+tx_se_view_objects,"""物件"""
+tx_se_view_forest,"""森林"""
+tx_se_view_areas,"""地域"""
+tx_se_view_cinematics,"""电影镜头轨迹"""
+tx_se_view_water,"""水域"""
+tx_se_view_objectshadows,"""物件阴影"""
+tx_se_view_gridoverlay,"""网格图形"""
+tx_se_view_cinematicpreview,"""电影预览窗口"""
+tx_se_view_minimap,"""小地图"""
+tx_se_view_minimap_terr,"""小地图上显示领土"""
+tx_se_view_previewseasons,"""季节预览窗口"""
+tx_se_view_goto_start,"""转到起始位置"""
+tx_se_view_save_start,"""保存当前位置为起始位置"""
+tx_se_view_centercamera,"""转到地图中央"""
+tx_se_view_goto,"""转到..."""
+
+// Map menu,
+tx_se_map_title,"""地图"""
+tx_se_map_mapoverview,"""地图概览"""
+tx_se_map_objectlist,"""物件列表"""
+tx_se_map_arealist,"""地域列表"""
+tx_se_map_cinematiclist,"""电影列表"""
+tx_se_map_territories_list,"""领土列表"""
+
+// Help menu,
+//tx_se_help_title,"""帮助"""
+//tx_se_help_help,"""EE2 剧本编辑器 帮助"""
+
+// XY,
+tx_se_xy_mapdimension,"""地图尺寸:"""
+tx_se_xy_x,"""X"""
+tx_se_xy_y,"""Y"""
+tx_se_xy_lockaspectratio,"""锁定宽高比例"""
+
+// Saveload dialog,
+tx_se_saveload_title,"""保存/载入地图"""
+tx_se_saveload_ok,"""确定"""
+tx_se_saveload_cancel,"""取消"""
+
+// Input dialog,
+tx_se_input_ok,"""确定"""
+tx_se_input_cancel,"""取消"""
+
+// Mapgen dialog,
+tx_se_mapgen_title,"""生成新地图"""
+tx_se_mapgen_flat,"""生成平地"""
+tx_se_mapgen_random,"""随机地图"""
+tx_se_mapgen_generate,"""生成"""
+tx_se_mapgen_done,"""完成"""
+tx_se_mapgen_climate,"""气候:"""
+tx_se_mapgen_elevation,"""海拔:"""
+tx_se_mapgen_maxelevation,"""最高海拔:"""
+tx_se_mapgen_roughness,"""地面粗糙程度:"""
+tx_se_mapgen_geography,"""地形:"""
+tx_se_mapgen_forestation,"""造林:"""
+tx_se_mapgen_rivers,"""河流数量:"""
+tx_se_mapgen_randomseed,"""真随机地图特征值:"""
+tx_se_mapgen_seedfromclock,"""通过系统时钟产生"""
+tx_se_mapgen_preview,"""预览"""
+tx_se_mapgen_preview_pan,"""预览新地图"""
+
+// Resize Dialog,
+tx_se_resize_title,"""调整地图大小"""
+tx_se_resize_xoffset,"""X坐标偏移:"""
+tx_se_resize_yoffset,"""Y坐标偏移:"""
+tx_se_resize_width,"""新宽度:"""
+tx_se_resize_height,"""新高度:"""
+tx_se_resize_ok,"""应用"""
+tx_se_resize_preview,"""预览"""
+tx_se_resize_cancel,"""取消"""
+
+// DEM import dialog,
+tx_se_dem_title,"""DEM模型设置"""
+tx_se_dem_elevationscale,"""海拔标度:"""
+tx_se_dem_maxelevation,"""最高海拔:"""
+tx_se_dem_cliffify,"""陡峭程度:"""
+tx_se_dem_climate,"""气候"""
+tx_se_dem_rotate180,"""旋转180度"""
+tx_se_dem_generate,"""生成"""
+tx_se_dem_done,"""完成"""
+
+// Mission properties dialog,
+tx_se_props_title,"""任务属性"""
+tx_se_props_missionname,"""任务名称:"""
+tx_se_props_scriptfile,"""剧本文件:"""
+tx_se_props_dll_browse,"""DLL文件..."""
+tx_se_props_ies_browse,"""IES文件..."""
+tx_se_props_interp,"""{脚本文件编译成功}"""
+tx_se_props_techtree,"""科技树:"""
+tx_se_props_maptype,"""AI地图类型:"""
+tx_se_props_accept,"""接受"""
+tx_se_props_cancel,"""取消"""
+tx_se_props_saveDefaults,"""保存为默认值"""
+tx_se_props_selectscript,"""选择剧本文件"""
+tx_se_props_selectscript_ok,"""选择"""
+
+// Player setup dialog,
+tx_se_player_title,"""玩家设置:"""
+tx_se_player_tab_settings,"""玩家设置"""
+tx_se_player_tab_res,"""起始资源"""
+tx_se_player_defaultname,"""玩家 %d"""
+tx_se_player_type,"""类型"""
+tx_se_player_civilization,"""文明"""
+tx_se_player_epoch,"""纪元"""
+tx_se_player_color,"""颜色"""
+tx_se_player_aiscript,"""AI脚本"""
+tx_se_player_cinematic,"""次要"""
+tx_se_player_startingresources,"""- 起始资源 -"""
+tx_se_player_name,"""名称"""
+tx_se_player_name_local,"""位置."""
+tx_se_player_civCustName,"""自定义文明名称"""
+
+// Victory conditions panel,
+tx_se_vc_title,"""游戏类型"""
+tx_se_vc_number,"""数量:"""
+tx_se_vc_minutes,"""时间(分钟):"""
+tx_se_vc_accept,"""接受"""
+tx_se_vc_cancel,"""取消"""
+
+// Brush shape picker,
+tx_se_brush_brushshape,"""画笔形状:"""
+tx_se_brush_brushsize,"""画笔尺寸:"""
+tx_se_brush_circle,"""圆形"""
+tx_se_brush_square,"""方形"""
+tx_se_brush_diamond,"""菱形"""
+
+// Color picker,
+tx_se_color_title,"""请选择一种颜色"""
+tx_se_color_ok,"""确定"""
+tx_se_color_cancel,"""取消"""
+
+// Terrain tools,
+tx_se_terr_title,"""地形工具"""
+tx_se_terr_elevation,"""高度"""
+tx_se_terr_terrain,"""地形"""
+tx_se_terr_water,"""水域"""
+tx_se_terr_cliffs,"""悬崖"""
+
+// Elevation,
+tx_se_elev_raiselower,"""地势升高程度"""
+tx_se_elev_smoothroughen,"""光滑/粗糙程度"""
+tx_se_elev_setheight,"""设定高度"""
+tx_se_elev_sample,"""地图上某点取样"""
+tx_se_elev_landToWater,"""使用本选项卡产生的凹地由以下类型的水域填充:"""
+tx_se_elev_waterToLand,"""(选择以上任意一个选项，然后绘制凹地，退出工具后凹地会由所选类型的水域填充；不同于“水域”选项卡，通过本选项卡生成凹地较细较慢，一般用来使陆地与水域过渡更自然。)"""
+
+// Terrain fill,
+tx_se_terr_fillrate,"""填充速度:"""
+
+// Terrain tinting,
+tx_se_tint_tint,"""色彩:"""
+tx_se_tint_selection1,"""左选项"""
+tx_se_tint_selection2,"""右选项"""
+tx_se_tint_reset,"""重置"""
+
+// Water,
+tx_se_water_river,"""河流"""
+tx_se_water_ocean,"""海洋"""
+tx_se_water_coastal,"""海岸"""
+tx_se_water_swamp,"""沼泽"""
+
+// Cliffs,
+tx_se_cliffs_title,"""创建悬崖"""
+tx_se_cliffs_createcliffs,"""创建悬崖"""
+tx_se_cliffs_erasecliffs,"""擦除悬崖"""
+tx_se_cliffs_raiselower,"""(升高/降低)"""
+tx_se_cliffs_setheight,"""(设定高度)"""
+
+// Forestation,
+tx_se_forest_title,"""造林工具"""
+tx_se_forest_applytexture,"""使用森林地被物层"""
+tx_se_forest_foresttype,"""森林类型 :"""
+tx_se_forest_deletealltrees,"""删除所有树木"""
+tx_se_forest_treecomp,"""植被组成结构:"""
+tx_se_forest_treepercentage,"""\n   %TREENAME% :  %PERCENTAGE%\\\\%"""
+
+// Object placement,
+tx_se_objects_title,"""物件安置工具"""
+tx_se_objects_player,"""玩家"""
+tx_se_objects_world,"""世界"""
+tx_se_objects_create,"""创建"""
+tx_se_objects_restricttoepoch,"""限制到玩家所在的纪元"""
+tx_se_objects_landunits,"""陆军单位"""
+tx_se_objects_navalunits,"""海军单位"""
+tx_se_objects_airunits,"""空军单位"""
+tx_se_objects_structures,"""建筑物"""
+tx_se_objects_wonders,"""奇迹"""
+tx_se_objects_resources,"""资源"""
+tx_se_objects_trees,"""树木"""
+tx_se_objects_ambients,"""营造环境的物件"""
+tx_se_objects_destroyedBld,"""夷平的建筑"""
+tx_se_objects_unique,"""独有单位"""
+tx_se_objects_campaign,"""战役里的单位"""
+tx_se_objects_demo,"""演示单位"""
+tx_se_objects_animals,"""动物"""
+
+// Area placement,
+tx_se_areas_title,"""地域创建工具"""
+tx_se_areas_create,"""创建"""
+tx_se_areas_rectangle,"""矩形"""
+tx_se_areas_circle,"""圆形"""
+tx_se_areas_freeform,"""多边形"""
+
+// Cinematics,
+tx_se_splines_title,"""电影工具"""
+tx_se_splines_createstaticshot,"""为电影创建一张静态镜头"""
+tx_se_splines_createmovingshot,"""为电影创建一段动态镜头"""
+tx_se_splines_insertctrlpt,"""插入控制点"""
+tx_se_splines_insertkey,"""插入关键点"""
+tx_se_splines_crtargpt,"""创建目标点"""
+tx_se_splines_crtargspline,"""创建目标轨迹"""
+
+// Starting positions,
+tx_se_spos_title,"""AI优先建设位置"""
+tx_se_spos_add,"""添加位置"""
+tx_se_spos_remove,"""移除位置"""
+tx_se_spos_iprio,"""提升优先级"""
+tx_se_spos_dprio,"""降低优先级"""
+tx_se_spos_clear,"""全部清除"""
+
+// Victory Condition positions
+tx_se_vcpos_title,"""据点/山丘布局"""
+tx_se_vcpos_koth,"""山丘之王"""
+tx_se_vcpos_hotspots,"""据点"""
+tx_se_vcpos_clear,"""全部清除"""
+tx_se_vcpos_create,"""创建"""
+tx_se_vcpos_hotspottext,"""最多允许%NUMBER%个据点\n你现有%HOTSPOT%个据点\n在一块领土中，你不\n能放置超过两个据点"""
+tx_se_vcpos_hotspots_add,"""添加据点"""
+tx_se_vcpos_hotspots_remove,"""移除据点"""
+
+// Animals,
+tx_se_animals_title,"""动物管理工具"""
+tx_se_animals_group,"""形成牧群"""
+tx_se_animals_break,"""拆散牧群"""
+
+// Territories,
+tx_se_terry_title,"""领土绘制工具"""
+tx_se_terry_enable,"""启用领土"""
+tx_se_terry_colors,"""颜色:"""
+tx_se_terry_random,"""随机创建"""
+tx_se_terry_new,"""新建颜色"""
+tx_se_terry_reset,"""重置"""
+tx_se_terry_remove,"""更改颜色"""
+tx_se_terry_mmrefresh,"""刷新小地图"""
+tx_se_terry_repaint,"""重新绘制"""
+tx_se_terry_rand_title,"""随机生成领土"""
+tx_se_terry_rand_num,"""领土数目:"""
+tx_se_terry_rand_ok,"""生成"""
+tx_se_terry_remove_title,"""移除领土颜色"""
+tx_se_terry_remove_color1,"""移除颜色"""
+tx_se_terry_remove_color2,"""更改颜色为"""
+tx_se_terry_remove_ok,"""确定"""
+tx_se_terry_prop_title,"""领土属性"""
+tx_se_terry_prop_nameCat,"""国家:"""
+tx_se_terry_prop_name,"""名称:"""
+tx_se_terry_prop_cityname,"""城市名称:"""
+tx_se_terry_prop_cityname_warn,"""城市名称不在文本数据库中."""
+tx_se_terry_prop_owner,"""拥有者:"""
+tx_se_terry_prop_scriptname,"""脚本用名:"""
+tx_se_terry_prop_ok,"""应用"""
+tx_se_terry_unowned,"""暂无领主"""
+tx_se_terry_names_other,"""自定义"""
+tx_se_terry_rename_title,"""重命名所有领土"""
+tx_se_terry_rename_onlyUnnamed,"""仅将未命名的领土重命名"""
+tx_se_terry_rename_unclaimed,"""暂无领主的领土:"""
+tx_se_terry_rename_claimed,"""确定领主的领土:"""
+tx_se_terry_rename_ok,"""应用"""
+
+// territory status
+tx_se_terry_status_unclaimed,"""暂无领主"""
+tx_se_terry_status_disputed,"""有争议"""
+tx_se_terry_status_claimed,"""确定领主"""
+
+// territories list
+tx_se_terrylist_title,"""领土列表"""
+tx_se_terrylist_col_0,"""名称"""
+tx_se_terrylist_col_1,"""脚本用名"""
+tx_se_terrylist_col_2,"""拥有者"""
+tx_se_terrylist_col_3,"""状态"""
+tx_se_terrylist_col_4,"""中心位置"""
+tx_se_terrylist_col_5,"""面积"""
+tx_se_terrylist_goto,"""转到"""
+tx_se_terrylist_refresh,"""刷新列表"""
+
+// Groups,
+tx_se_group_title,"""创建/指派群组"""
+tx_se_group_creategroup,"""创建群组"""
+tx_se_group_deletegroup,"""删除群组"""
+tx_se_group_assignunits,"""指派单位"""
+tx_se_group_removeunits,"""移除单位"""
+tx_se_group_selectallingroup,"""选定群组内所有内容"""
+
+tx_se_group_groupinfo,"""%GROUPNAME% (%UNITCOUNT% units)"""
+
+// Object properties,
+tx_se_objprop_title,"""物件属性"""
+tx_se_objprop_apply,"""应用"""
+tx_se_objprop_defdisplayname,"""默认显示名称:"""
+tx_se_objprop_displayname,"""显示名称:"""
+tx_se_objprop_nameinscript,"""脚本用名:"""
+tx_se_objprop_playername,"""玩家名称:"""
+tx_se_objprop_groupname,"""所属群组:"""
+tx_se_objprop_membersf,"""拥有特殊能力"""
+tx_se_objprop_hitpoints,"""生命值:"""
+tx_se_objprop_power,"""能力:"""
+tx_se_objprop_unitinfo,"""单位信息:"""
+tx_se_objprop_worldplayer,"""所有玩家"""
+tx_se_objprop_upgradetotower,"""升级到城塔"""
+tx_se_objprop_upgradetogate,"""升级到城门"""
+tx_se_objprop_noupgrades,"""不能进行升级"""
+
+// Area properites,
+tx_se_areaprop_title,"""地域属性"""
+tx_se_areaprop_apply,"""应用"""
+tx_se_areaprop_areaname,"""地域名称:"""
+tx_se_areaprop_areatype,"""地域类型:"""
+tx_se_areaprop_circular,"""圆形地域"""
+tx_se_areaprop_rectangular,"""矩形地域"""
+tx_se_areaprop_freeform,"""多边形地域"""
+
+// Cinematic shot properties,
+tx_se_shot_title,"""电影镜头属性"""
+tx_se_shot_shotname,"""镜头名称:"""
+tx_se_shot_shotduration,"""镜头时长:"""
+tx_se_shot_drawdistance,"""镜头视野范围:"""
+tx_se_shot_attachtounit,"""跟踪某单位:"""
+tx_se_shot_offset,"""偏移:"""
+tx_se_shot_targetspline,"""轨迹目标:"""
+tx_se_shot_applychanges,"""应用"""
+tx_se_shot_ctrlpts,"""控制点"""
+tx_se_shot_keys,"""关键点"""
+tx_se_shot_transitions,"""转场"""
+
+// Cinematic shot control points,
+tx_se_shotctrl_title,"""控制点 #"""
+tx_se_shotctrl_slash,"""/"""
+tx_se_shotctrl_zero,"""0"""
+tx_se_shotctrl_position,"""坐标位置:"""
+tx_se_shotctrl_tangent,"""弧线切点:"""
+tx_se_shotctrl_applychanges,"""应用"""
+
+// Cinematic shot keys,
+tx_se_shotkey_keynum,"""关键点 #"""
+tx_se_shotkey_slash,"""/"""
+tx_se_shotkey_zero,"""0"""
+tx_se_shotkey_elapsedtime,"""到达该点用时:"""
+tx_se_shotkey_fieldofview,"""视野:"""
+tx_se_shotkey_roll,"""转度:"""
+tx_se_shotkey_focus,"""视线:"""
+tx_se_shotkey_splinetangent,"""指向该点切线方向"""
+tx_se_shotkey_direction,"""指向该角度:"""
+tx_se_shotkey_lookatpt,"""指向该点:"""
+tx_se_shotkey_lookatunit,"""指向该单位:"""
+tx_se_shotkey_offset,"""偏移:"""
+tx_se_shotkey_lookatarea,"""指向该地域"""
+tx_se_shotkey_lookattarget,"""指向目标位置:"""
+tx_se_shotkey_applychanges,"""应用"""
+
+// Cinematic transitions,
+tx_se_shottrans_in,"""转场入特效:"""
+tx_se_shottrans_out,"""转场出特效:"""
+tx_se_shottrans_applychanges,"""应用"""
+tx_se_shottrans_cut,"""切入"""
+tx_se_shottrans_fade,"""淡入:"""
+tx_se_shottrans_duration,"""特效时长:"""
+tx_se_shottrans_color,"""颜色:"""
+
+// Cinematics,
+tx_se_cinematics_title,"""电影"""
+tx_se_cinematics_cinematic,"""电影:"""
+tx_se_cinematics_rename,"""重命名..."""
+tx_se_cinematics_duration,"""时长:"""
+tx_se_cinematics_shotlist,"""镜头列表:"""
+tx_se_cinematics_addshot,"""添加镜头..."""
+tx_se_cinematics_insertshot,"""插入镜头..."""
+tx_se_cinematics_removeshot,"""移除镜头"""
+tx_se_cinematics_delete,"""删除这个电影"""
+tx_se_cinematics_rename_title,"""重命名电影"""
+tx_se_cinematics_defaultname,"""Cinematic"""
+
+// Create Shot Dialog
+tx_se_shot_create_title,"""为电影创建一个镜头"""
+tx_se_shot_create_text,"""请为这个镜头命名."""
+tx_se_shot_create_defaultname,"""Shot"""
+
+// Map overview,
+tx_se_overview_title,"""地图概览"""
+
+// Object list,
+tx_se_objlist_title,"""物件列表"""
+tx_se_objlist_player,"""玩家"""
+tx_se_objlist_world,"""世界"""
+tx_se_objlist_export,"""导出..."""
+tx_se_objlist_delete,"""删除"""
+tx_se_objlist_goto,"""转到"""
+tx_se_objlist_noScriptName,"""无"""
+tx_se_objlist_noGroupName,"""无"""
+
+// Test mission panel,
+tx_se_testmission_title,"""选择一个剧本:"""
+
+// Minimap,
+tx_se_minimap_title,"""小地图"""
+
+// PIP,
+tx_se_pip_title,"""电影预览"""
+
+// Goto xy,
+tx_se_gotoxy_title,"""跳转到地图上的地点:"""
+tx_se_gotoxy_enter,"""输入地图上的(X,Y)坐标以跳转到:"""
+tx_se_gotoxy_ok,"""确定"""
+tx_se_gotoxy_cancel,"""取消"""
+
+// Diplomacy,
+tx_se_diplomacy_title,"""外交关系"""
+tx_se_diplomacy_ok,"""确定"""
+tx_se_diplomacy_player,"""<player>"""
+
+// Seasons,
+tx_se_seaons_title,"""季节预览:"""
+tx_se_seaons_month,"""月份:"""
+tx_se_seasons_time,"""时间:"""
+tx_se_seasons_reset,"""重置"""
+tx_se_seasons_apply,"""应用"""
+
+// Atmosphere panel,
+tx_se_atmosphere_title,"""Atmospheric Settings"""
+tx_se_atmosphere_sundir,"""Sun Direction:"""
+tx_se_atmosphere_diffusecolor,"""Diffuse Color:"""
+tx_se_atmosphere_ambcolor,"""Ambient Color:"""
+tx_se_atmosphere_speccolor,"""Specular Color:"""
+tx_se_atmosphere_fog,"""Fog:"""
+tx_se_atmosphere_fog_color,"""Color:"""
+tx_se_atmosphere_fog_start,"""Start:"""
+tx_se_atmosphere_fog_intensity,"""Intensity:"""
+tx_se_atmosphere_weather,"""Weather:"""
+
+// Map OverviewPanel
+tx_se_map_missionname,"""任务名称: """
+tx_se_map_untitled,"""Untitled\n"""
+tx_se_map_filename,"""剧情文件名: """
+tx_se_map_climate,"""MAP CLIMATE: %s\n"""
+tx_se_map_dimensions,"""MAP DIMENSIONS: %WIDTH% x %HEIGHT%\n"""
+tx_se_map_trees,"""TREES: %d\n"""
+tx_se_map_totalresources,"""TOTAL RESOURCE PILES: %d\n"""
+tx_se_map_resourceamount,"""    %RESOURCENAME%: %NUMBER%\n"""
+tx_se_map_totalunits,"""单位总数: %d\n"""
+tx_se_map_playerunits,"""    %PLAYER%: %NUMUNITS%\n"""
+
+// Load Scenario Dialog
+tx_se_loadscenario_title,"""载入剧情"""
+tx_se_loadscenario_oktext,"""打开"""
+// Load Map Dialog
+tx_se_loadmap_title,"""载入地图"""
+// Import DEM Dialog
+tx_se_importdem_title,"""导入DEM模型"""
+tx_se_importdem_oktext,"""导入"""
+
+// Save Scenario Dialog
+tx_se_savescenario_untitled,"""Untitled.scn"""
+tx_se_savescenario_title,"""保存剧本"""
+tx_se_savescenario_oktext,"""保存"""
+
+// Save Map Dialog
+tx_se_savemap_untitled,"""Untitled.map"""
+tx_se_savemap_title,"""保存地图"""
+tx_se_savemap_oktext,"""保存"""
+
+// Save/Load Error Dialog
+tx_se_saveload_err_title,"""错误!"""
+tx_se_saveload_warn_title,"""警告!"""
+
+// Autobalance Dialog
+tx_se_autobalance_title,"""载入兵力平衡度测试程序"""
+tx_se_autobalance_oktext,"""执行"""
+
+// Unit Info Dialog
+tx_se_unitinfo_type,"""单位类型:  """
+tx_se_unitinfo_epoch,"""\n纪元:  %d"""
+tx_se_unitinfo_rps,"""\n所属单位类型:  """
+tx_se_unitinfo_hitpoints,"""\n生命值:  %d"""
+tx_se_unitinfo_speed,"""\n速度:  %.1f"""
+tx_se_unitinfo_attackdamage,"""\n攻击力:  %.1f"""
+tx_se_unitinfo_areadamage,""" (拥有广域杀伤力)"""
+tx_se_unitinfo_attackrange,"""\n射程:  %.1f"""
+tx_se_unitinfo_los,"""\n视野范围:  %.1f"""
+tx_se_unitinfo_abilities,"""\n特殊能力:  """
+tx_se_unitinfo_areaeffect,"""广域作用效果, """
+tx_se_unitinfo_build,"""建设能力, """
+tx_se_unitinfo_capture,"""占领能力, """
+tx_se_unitinfo_convert,"""变节能力, """
+tx_se_unitinfo_garrison,"""卫戍能力, """
+tx_se_unitinfo_gatherfarm,"""采集/种植能力, """
+tx_se_unitinfo_heal,"""医疗能力, """
+tx_se_unitinfo_produce,"""生产能力, """
+tx_se_unitinfo_none,"""无"""
+
+// Area Creation Dialog
+tx_se_createarea_initname,"""地域"""
+tx_se_createarea_rect_title,"""创建矩形地域"""
+tx_se_createarea_free_title,"""创建多边形地域"""
+tx_se_createarea_circle_title,"""创建圆形地域"""
+tx_se_createarea_specifyname,"""请为这个地域命名."""
+
+// Command Names for Undo 
+tx_se_command_create,"""创建 %UNITNAME%"""
+tx_se_command_delete,"""删除 %s"""
+tx_se_command_createriver,"""创建河流"""
+tx_se_command_createocean,"""创建海洋"""
+tx_se_command_createcoast,"""创建海岸"""
+
+tx_se_enum_none,"""无"""
+
+tx_se_deleteObsolete_title, """Obsolete Unit Notification"""
+tx_se_deleteObsolete_message, """Player Info has changed leaving some units no longer available for %PLAYER%.\n\nThe following units have been deleted:\n%UNITLIST%"""

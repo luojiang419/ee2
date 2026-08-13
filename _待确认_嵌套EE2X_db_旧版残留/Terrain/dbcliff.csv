@@ -1,0 +1,7 @@
+//NAME,FILENAME,BOTTOM,RIGHT,TOP,LEFT,SPLIT
+CliffU000,CliffU000.nif,1,0,0,0,0
+CliffU0D0,CliffU0D0.nif,1,0,-1,0,0
+CliffU00D,CliffU00D.nif,1,0,0,-1,1
+CliffD00U,CliffD00U.nif,-1,0,0,1,1
+CliffUDUD,CliffUDUD.nif,1,-1,1,-1,1
+CliffUDU0,CliffUDU0.nif,1,-1,1,0,1

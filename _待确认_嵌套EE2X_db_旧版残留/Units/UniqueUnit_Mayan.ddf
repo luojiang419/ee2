@@ -1,0 +1,259 @@
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT MAYAN QUETZAL WARRIOR (EPOCHS 1-5)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitMayan1
+{
+	parent = HeavyInfantry1
+	properties {
+		DisplayName = tx_utn_UUMayan1_name
+		DisplayNameScenEdit = tx_utn_UUMayan1_sname
+		VerboseTooltip = vtt_unit_UUMayan1
+		HitPoints = 0
+		rps = HeavyInfantry
+		SizeX = 0.125
+		SizeY = 0.125
+		mass = 1
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.5; WeaponType = Melee }
+		ConvertAttack { convertTimeModifier = 10.0; range = 5.0; reloadTime = 4.0; applyDamageTime = 1.0; capture = 1 } // capture ability
+		LOS { range = 0 }
+		Move {speed = 1.2; angSpeed = 720}
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitMayan1Veteran
+{
+	unitType = UniqueUnitMayan1
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitMayan1Elite
+{
+	unitType = UniqueUnitMayan1
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitMayan1
+{
+	Parent		= HeavyInfantry1_01
+        ScaleType	= kScaleUnit
+	DefaultModel 	= CIV1_QuetzalWarrior_Mayan.nif
+	ChildNames 	= [ UnitShadow ]
+	States 		= [
+		{	StateName = Idle	AnimName = sh_sword_idle01.KF
+                              AnimVariants = [ sh_sword_idle03.KF 
+						sh_sword_idle02.KF 
+                                                 sh_sword_idle04.KF ]
+                              AnimVariantsWeights = [0.1 0.1 0.1]
+                 }
+		{ 	StateName = Walk	AnimName = sh_sword_walk01.KF
+		}
+		{ 	StateName = Run	AnimName = sh_sword_jog01.KF
+		}
+		{ 	StateName = Attack1	AnimName = CIV1_Barbarian_German_attack01.KF
+                              AnimVariants = [ CIV1_Barbarian_German_attack03.KF CIV1_Barbarian_German_attack02.KF ]
+                              AnimVariantsWeights = [0.3 0.3] 
+			TextKeys = [
+							{ Name = PLAY_SOUND Data = fx_sword_swing KeyTime = 0.40 }
+							] }
+
+		{ 	StateName = Death	AnimName = sh_sword_death01.KF	}
+		{	StateName = Flinch	AnimName = sh_sword_protect01.kf }
+		{	StateName = BeingThrown	AnimName = sh_sword_flying01.kf
+			AnimVariants = [ sh_sword_flying02.kf ] AnimVariantsWeights = [ 0.5 ]	}
+		{	StateName = ThrownDeath	AnimName = sh_sword_ground_death01.kf }
+			]
+	UIRenderingParams {
+		xOffset = 0.01
+		yOffset = -0.78
+		zOffset = -9.82
+		scale = 3.07
+		angle = 23.68
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT MAYAN HORNET THROWER (EPOCHS 6-10)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitMayan2
+{
+	parent = LightArtillery1
+	properties {
+		DisplayName = tx_utn_UUMayan2_name
+		DisplayNameScenEdit = tx_utn_UUMayan2_sname
+		VerboseTooltip = vtt_unit_UUMayan2
+		HitPoints = 0
+		rps = LightArtillery
+		SizeX = 0.5
+		SizeY = 0.5
+		mass = 5
+	}
+	sounds = {
+	}
+	abilities = [
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.29; missileName = "CannonBall" }
+		LOS { range = 0 }
+		VehicleMove {speed = 1.3; angSpeed = 180; followTerrainSlope = 1 }
+	]
+}
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitMayan2Veteran
+{
+	unitType = UniqueUnitMayan2
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitMayan2Elite
+{
+	unitType = UniqueUnitMayan2
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_2_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+UnitModel UniqueUnitMayan2
+{
+	Parent			= LightArtillery1_07
+	DefaultModel 	= civ7_hornetthrower_maya.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = civ7_hornetthrower_maya_idle.kf   }
+		{ 	StateName = Walk	AnimName = civ7_hornetthrower_maya_walk.kf
+				TextKeys = [	{ Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_wheeled_04 KeyTime = 0 }]}
+		{ 	StateName = Attack1	 AnimName = civ7_hornetthrower_maya_attack.kf
+				TextKeys = [
+								{ Name = PLAY_SOUND Data = Cannon_firing1 KeyTime = 0.29 }
+						]}
+
+		{ 	StateName = Death	AnimName = civ7_hornetthrower_maya_death.kf  }
+			]
+	ChildNames 		= [ TheHealthBar SelectCircleMedium UnitShadow MediumGlow Muzzle_FieldGun ArtilleryTracks ]
+}
+
+//------------------------------------------------------------------------------------------------
+//	UNIQUE UNIT SUNRAY (EPOCHS 11-15)
+//------------------------------------------------------------------------------------------------
+UnitType UniqueUnitMayan3
+{
+	parent = HeavyArtillery
+	properties {
+		DisplayName = tx_utn_UUMayan3_name
+		DisplayNameScenEdit = tx_utn_UUMayan3_sname
+		VerboseTooltip = vtt_unit_UUMayan3
+		HitPoints = 0
+		rps = LightArtillery
+		SizeX = 0.5
+		SizeY = 0.5
+		mass = 5
+	}
+	sounds = {
+	}
+	abilities = [
+		PowerReserve { timeToRecharge = 60 }
+		SpecialPower { 		
+			effects = [ Change_Range ]
+		}
+		Attack { damage = 0; range = 0; reloadTime = 666; applyDamageTime = 0.3; packTime = 2.0; unpackTime =2.0;minRangeMobile = 16; minRangeImmobile = 16; missileName = "MlrsRocket_PHL03"; turretControllerName = MRocketLauncherTurret; }
+		LOS { range = 0 }
+		VehicleMove {speed = 0.8; angSpeed = 180; followTerrainSlope = 1 }
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT IMPROVEMENTS
+//------------------------------------------------
+
+// Veteran Upgrade
+UpgradeUnitTypeImprove UniqueUnitMayan3Veteran
+{
+	unitType = UniqueUnitMayan3
+	name = tx_utn_veteran_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+// Elite Upgrade
+UpgradeUnitTypeImprove UniqueUnitMayan3Elite
+{
+	unitType = UniqueUnitMayan3
+	name = tx_utn_elite_modify_name
+	upgradeRefs = [
+		UniqueUnit_Improve_5
+	]
+}
+
+//------------------------------------------------
+//	UNIQUE UNIT MODEL
+//------------------------------------------------
+
+UnitModel UniqueUnitMayan3
+{
+	Parent		= LightArtillery1_11
+	ScaleType 	= kScaleVehicle
+	DefaultModel 	= civ12_sunray_maya.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = LLA13_mrls_idle.KF
+			}
+		{ 	StateName = Walk	AnimName = LLA13_mrls_walk.KF
+				TextKeys = [ { Name = START_SOUND_UNTIL_ANIM_CHANGE Data = fx_move_self_propelled}
+			]
+			}
+		{ 	StateName = Attack1	AnimName = LLA13_mrls_attack.KF
+				TextKeys = [ { Name = PLAY_SOUND Data = Tank_firing1 KeyTime = 0.3 }
+					     { Name = PLAY_SOUND Data = fx_battle_rocket_launch KeyTime = 0.3 }
+			] 
+			}
+        { 	StateName = Pack	AnimName = LLA13_mrls_pack.KF   
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Unpack	AnimName = LLA13_mrls_unpack.KF 
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]}
+		{ 	StateName = Death	AnimName = LLA13_mrls_death.KF
+				TextKeys = [{ Name = PLAY_SOUND Data = fx_mrls_unpack}]
+			}
+            {   	StateName = UnpackedIdle  AnimName = lla13_mrls_unpackidle01.kf  }
+            {   	StateName = PackedDeath   AnimName = lla13_mrls_packdeath01.kf  }  
+		{	StateName = UnpackedWalk  AnimName = lla13_mrls_unpackwalk01.kf  }
+			]
+	ChildNames 		= [ TheHealthBar FX_ExaustSmoke1 
+						MobileStencilShadow SelectCircleMedium MediumGlow TankTracks 
+						expl_tank_Tandrill ExplSelectorTank01 MRLS_FlyingParts]
+	UIRenderingParams {
+		xOffset = 1.05
+		yOffset = 1.02
+		zOffset = -0.35
+		scale = 1.40
+		angle = 47.37
+	}
+}

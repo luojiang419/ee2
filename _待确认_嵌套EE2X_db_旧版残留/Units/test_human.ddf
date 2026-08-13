@@ -1,0 +1,54 @@
+//------------------------------------------------------------------------------------------------
+//	TEST_HUMAN
+//------------------------------------------------------------------------------------------------
+UnitType TestHumanParent
+{
+	parent = Human
+	properties {
+		SizeX = 0.225
+		SizeY = 0.225
+		mass = 1
+	}
+	sounds {
+	}
+	abilities = [
+		Attack { range = 0.2; reloadTime = 1.5; applyDamageTime = 0.5; damage = 0 }
+		Move {speed = 1.25; angSpeed = 720}
+		LOS { range = 4 }
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	TEST - UnitType INFO
+//------------------------------------------------------------------------------------------------
+UnitType TestHuman
+{
+	parent = TestHumanParent
+	properties {		
+		displayName = tx_utn_TestHuman_name	
+		hitpoints = 1
+	}
+	abilities = [
+	]
+}
+
+//------------------------------------------------------------------------------------------------
+//	TEST - VISUAL INFO
+//------------------------------------------------------------------------------------------------
+
+
+UnitModel TestHuman
+{
+	ScaleType 		= kScaleUnit
+	DefaultModel 	= LHI9_regular.nif
+	DefaultState 	= Idle
+	States 		= [
+		{	StateName = Idle	AnimName = }
+		{ 	StateName = Walk	AnimName = }
+		{ 	StateName = Attack1	AnimName = }
+		{ 	StateName = Death	AnimName = }
+			]
+	ChildNames 		= [ TheHealthBar  SelectCircleSmall ]
+}
+
+

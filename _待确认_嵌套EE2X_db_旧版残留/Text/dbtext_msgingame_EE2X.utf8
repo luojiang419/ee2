@@ -1,0 +1,90 @@
+﻿// NAME,TEXT
+msg_ingame_donotuse_EE2X,"""零式入口－不要使用"""
+
+// hero messages,
+msg_ingame_hero_win,"""在你所属的英勇庞大军队%UNIT%中产生一位伟大的英雄！"""
+
+// flag messages
+msg_ig_flag_youwon,"""你获得了%FLAG%旗帜！"""
+msg_ig_flag_youlost,"""你丧失了%FLAG%旗帜！"""
+
+// native tribes messages
+msg_ig_NT_discover,"""你发现了%TRIBE%部落，一个原始部落！"""
+msg_ig_NT_assimOther,"""%PLAYER%已经同化了%TRIBE%部落！"""
+msg_ig_NT_unassimOther,"""%TRIBE%部落从%PLAYER%麾下脱离！"""
+msg_ig_NT_berserk,"""你触怒了%TRIBE%部落！"""
+msg_ig_NT_wipedOut,"""%PLAYER%已经被赶走！"""
+msg_ig_NT_power_get,"""%TRIBE%给了你%POWER%能力：%POWERDESC%！"""
+msg_ig_NT_power_lose,"""%TRIBE%不再给你%POWER%能力。"""
+msg_ig_NT_capture_loot_robber, """我们从%PLAYER%那里抢到了资源。"""
+msg_ig_NT_capture_tech_robber,"""我们从%PLAYER%那里抢到了科技。"""
+msg_ig_NT_noleader_warning,"""由于缺乏领袖，%TRIBE%将会在%SECONDS%秒内脱离。"""
+msg_ig_NT_leader_return,"""由于领袖回来，%TRIBE%已经恢复他们的忠诚度。"""
+
+// native tribes diplomacy messages
+msg_ig_dip_NT_proposal_to,"""对%PLAYER%所提出同化的提议成功。"""
+msg_ig_dip_NT_proposal_to_ret,"""取消对%PLAYER%所提出的同化提议。"""
+msg_ig_dip_NT_proposal_from_ret,"""%PLAYER%取消他们回复的同化对等提议。"""
+msg_ig_dip_NT_proposal_to_rej,"""%PLAYER%拒绝了你同化的提议！"""
+msg_ig_dip_NT_proposal_from_rej,"""你拒绝了%PLAYER%所回复的同化对等提议。"""
+msg_ig_dip_NT_proposal_to_acc,"""你已经同化了%PLAYER%！"""
+msg_ig_dip_NT_proposal_from_acc,"""你已经同化了%PLAYER%！"""
+msg_ig_dip_NT_prop_to_counter,"""提供同化对等提议的回复给%PLAYER%。"""
+msg_ig_dip_NT_prop_from_counter,"""%PLAYER%提供了同化对等提议的回复给你。"""
+msg_ig_dip_NT_state_changed,"""%PLAYER%现在的%STATE%接近你。"""
+
+
+// reinforcements
+msg_ig_reinf_mustchoose,"""你必须在关闭这个面板前选择增援部队。"""
+
+// victory conditions
+msg_ig_hotspotterr_hdr,"""热点地区：%HOTSPOT%\n"""
+msg_ig_hotspotterr_player,"""%HOTSPOTS%/%TOTAL%"""
+msg_ig_hotstpotterr_count,"""倒数计时%TIME%"""
+
+// when a player takes a majority of hotspots
+msg_ig_hotspotterr_majclaimed,"""%PLAYER%控制了过半数的热点地区。当倒数计时结束的时后，%PLAYER%将会获得胜利！"""
+// all hotspots are taken but there's a tie
+msg_ig_hotspotterr_tie,"""所有的热点地区都已经被占领，但是目前是平手。需要占领过半数的热点领土获得胜利。"""
+// when we have a team instead of a player in control
+msg_ig_hotspotterr_teamname,"""队伍%NUM%"""
+msg_ig_hotspotterr_timerstop,"""已经不再持有过半数的地区。胜利倒数已经中止。"""
+
+// Fealty
+msg_ig_dip_demand_fealty,"""你希望对%s效忠还是要求他效忠？"""
+msg_ig_dip_offer_fealty,"""接受%s的要求并向他效忠？这个决定将不能反悔！"""
+msg_ig_dip_declare_indep,"""你的附庸向%PLAYER%宣誓效忠。你可以选择宣告独立，或是也向%PLAYER%宣誓效忠。你希望宣布独立？选取不要以宣誓效忠。"""
+msg_ig_dip_execute_vassal,"""你确定要处决附庸吗？这将会将他们由游戏中完全移除。"""
+msg_ig_dip_fealty_demanded,"""%s要求我们有忠诚度及服从！"""
+msg_ig_dip_fealty_offered,"""%s向我们宣誓效忠！"""
+msg_ig_dip_fealty_rejected,"""%s选择拒绝你自大的要求！"""
+msg_ig_dip_fealty_sworn,"""%s已经向你宣誓效忠！"""
+msg_ig_dip_vassal_executed,"""你的领主已经剥夺你的势力！"""
+msg_ig_dip_fealty_demand_exp,"""你对%s的宣誓效忠已经无效。"""
+msg_ig_dip_fealty_offer_exp,"""%s对你的宣誓效忠已经无效。"""
+msg_ig_dip_offer_response,"""你要接受%s的效忠并且让他成为附庸吗？这个决定将不能反悔！"""
+msg_ig_dip_offer_accepted,"""你的效忠提议已经被%s接受。"""
+msg_ig_dip_offer_rejected,"""%s选择拒绝你的效忠提议。"""
+msg_ig_dip_liege_resigned,"""你的领主已经辞职。你已经回复自由之身，并且不再需要效忠任何人。"""
+msg_ig_dip_liege_lost,"""你的领主已经输了。你已经回复自由之身，并且不再需要效忠任何人。"""
+
+// text on the buttons in the demand/offer fealty dialog
+msg_ig_dip_fealty_demand,"""要求"""
+msg_ig_dip_fealty_offer,"""提出"""
+
+// fealty diplomacy messages
+msg_ig_to_liege_state_changed,"""%PLAYER%现在%STATE%朝你的领主而来。"""
+msg_ig_from_liege_state_changed,"""你的领主现在%STATE%朝玩家而来。"""
+msg_ig_liege_changed,"""你现在是%s的附庸。"""
+
+
+// tug of war retreat
+msg_ig_player_retreated_title, """玩家撤退。"""
+msg_ig_player_retreated, """%NAME%已经撤退。"""
+
+// tribute to neutral player warning
+msg_ig_dip_trib_neutral,"""你想要向中立玩家进贡吗？"""
+
+
+// tried to make a dead unit supreme leader
+msg_ig_crown_leaderdead,"""这个单位已经死亡，无法成为最高领袖。"""

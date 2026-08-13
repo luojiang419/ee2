@@ -1,0 +1,18 @@
+//
+// SpecularLighting.ddf
+// --------------------
+//
+// @EE2X
+// specifies specular lighting effects that can
+// be attached as children to unit visuals to specify
+// that they receive specular lighting
+//
+///////////////////////////////////////////
+
+
+// attach specular lighting to hercs
+SpecularLightingReceiver SpecularLighting_Herc
+{
+	LowestDetailLevel = High;
+	MaterialSpecularColor = [ 255 255 255 ]
+}
