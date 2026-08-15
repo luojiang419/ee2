@@ -1207,7 +1207,7 @@ DbAreaEffectInfo LumberBonus
 			player = Self
 			affectedResourceTypes = [Wood]	
             affectedResourceSources = Anything		
-			scale = 1.5
+			scale = 2.0
 
 		}
             

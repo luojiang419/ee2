@@ -208,7 +208,9 @@
 | 180 | EE2X_db-180-伐木场光环全局化奇迹化-pre.zip | pre | Lumber(伐木场) 光环范围+奇迹化 | dbareaeffects_unittype.ddf, Yuanhang_720_units.ddf | LumberBonus光环range从SelfClaimedTerritoryUnitIsIn改为Global(任意领土生效)，Lumber加attributes=[IsWonder]防无限建造叠加 | — | 2026-08-15 18:35 |
 | 181 | EE2X_db-181-伐木场光环全局化奇迹化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 180修改应用后的完整游戏ZIP | 异常(range=Global导致光环完全不生效，领土内外均无加成) | 2026-08-15 18:35 |
 | 182 | EE2X_db-182-伐木场光环RadiusFromUnit修复-pre.zip | pre | Lumber(伐木场) 光环范围修复 | dbareaeffects_unittype.ddf | 修复#181异常：range从Global改为RadiusFromUnit+radius10000（参照AIResourcePower先例） | — | 2026-08-15 19:10 |
-| 183 | EE2X_db-183-伐木场光环RadiusFromUnit修复-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 182修改应用后的完整游戏ZIP（IsWonder保留） | 待测试 | 2026-08-15 19:10 |
+| 183 | EE2X_db-183-伐木场光环RadiusFromUnit修复-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 182修改应用后的完整游戏ZIP（IsWonder保留） | 测试通过 | 2026-08-15 19:10 |
+| 184 | EE2X_db-184-伐木场加成100-pre.zip | pre | Lumber(伐木场) 加成倍率 | dbareaeffects_unittype.ddf | 加成scale从1.5(+50%)提高到2.0(+100%) | — | 2026-08-15 19:45 |
+| 185 | EE2X_db-185-伐木场加成100-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 184修改应用后的完整游戏ZIP | 待测试 | 2026-08-15 19:45 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 

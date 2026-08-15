@@ -74,3 +74,32 @@
 - radius 10000 为推测安全值（先例为500），超大地图边缘是否覆盖待测试确认
 - IsWonder 防叠加机制保留，与90+奇迹同款
 
+---
+
+## 第3次修改 — 2026-08-15 19:45
+
+**关联快照**: `进度快照\136-伐木场加成100.md`
+**关联备份**: #184 (pre) / #185 (runtime)
+**修改类型**: [数值调整]
+
+### 修改前数据（第2次修改后）
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| LumberBonus.EffectResourceGatherRate.scale | 1.5 (+50%) | dbareaeffects_unittype.ddf:1210 |
+
+### 修改后数据
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| LumberBonus.EffectResourceGatherRate.scale | 2.0 (+100%) | dbareaeffects_unittype.ddf:1210 |
+
+### 关联文件
+- `EE2X_db/AreaEffects/dbareaeffects_unittype.ddf` — DbAreaEffectInfo LumberBonus 块 EffectResourceGatherRate.scale 行
+
+### 修改依据
+- 需求: 用户实测#183光环生效后，要求加成从+50%提高到+100%
+- 理由: 木材采集速率 ×1.5 → ×2.0（与 QuarryBonus 采石场 scale=2.0 一致）
+
+### 已知影响
+- 己方市民在任意领土采集木材速率翻倍
+- range/radius/mask/IsWonder 均未改动
+
