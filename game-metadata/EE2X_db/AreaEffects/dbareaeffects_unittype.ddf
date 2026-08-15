@@ -1190,7 +1190,7 @@ DbAreaEffectInfo LumberBonus
 	selectionType = None
       effects = [
 		 EffectVisualGlow {
-			range = SelfClaimedTerritoryUnitIsIn
+			range = Global
 			mask = Citizens
 			player = Self
             GlowType = SupremeLeader
@@ -1200,7 +1200,7 @@ DbAreaEffectInfo LumberBonus
 			VTooltip = vtt_power_lumber_fallout
 		}
         EffectResourceGatherRate {
-			range = SelfClaimedTerritoryUnitIsIn
+			range = Global
 			mask = Citizens
 			player = Self
 			affectedResourceTypes = [Wood]	

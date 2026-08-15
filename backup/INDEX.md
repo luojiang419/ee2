@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-07-16 22:51
+> 最后更新: 2026-08-15 18:35
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -205,6 +205,8 @@
 | 178 | EE2X_db-178-取消间谍采集光环-pre.zip | pre | Spy(间谍) | spy.ddf | 移除Spy的AreaEffect AIResourcePower光环 | — | 2026-07-25 |
 | 178r | EE2X_db-178-取消间谍采集光环-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 178修改应用后的完整游戏ZIP(间谍无采集光环) | 待测试 | 2026-07-25 |
 | 179 | EE2X_db-179-UP1.6开发者版部署前-pre.zip | pre | 游戏目录UP1.6升级 | EE2X.exe, UP15_GameHelper.dll, D3DCompiler_47.dll, zips/hdrs.zip, MinorVersion-data, EXEGeneratorData文本×11 | UP1.6.2.005开发者版(MOD兼容)部署前，13个被覆盖文件备份(用户配置myconfig*/myhotkeys/UnofficialVersionConfig.txt及占位EXE已排除不覆盖) | — | 2026-08-13 23:39 |
+| 180 | EE2X_db-180-伐木场光环全局化奇迹化-pre.zip | pre | Lumber(伐木场) 光环范围+奇迹化 | dbareaeffects_unittype.ddf, Yuanhang_720_units.ddf | LumberBonus光环range从SelfClaimedTerritoryUnitIsIn改为Global(任意领土生效)，Lumber加attributes=[IsWonder]防无限建造叠加 | — | 2026-08-15 18:35 |
+| 181 | EE2X_db-181-伐木场光环全局化奇迹化-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 180修改应用后的完整游戏ZIP | 待测试 | 2026-08-15 18:35 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 

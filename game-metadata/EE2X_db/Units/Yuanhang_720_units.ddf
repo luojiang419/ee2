@@ -573121,6 +573121,7 @@ UnitType Lumber
 
 
 
+	attributes = [IsWonder]
 }
 
 
