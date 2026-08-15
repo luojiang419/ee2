@@ -103,3 +103,38 @@
 - 己方市民在任意领土采集木材速率翻倍
 - range/radius/mask/IsWonder 均未改动
 
+---
+
+## 第4次修改 — 2026-08-15 20:20
+
+**关联快照**: `进度快照\137-伐木场取消奇迹半径30.md`
+**关联备份**: #186 (pre) / #187 (runtime)
+**修改类型**: [数值调整 - 回退奇迹化]
+
+### 修改前数据（第3次修改后）
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| LumberBonus.EffectVisualGlow.radius | 10000 | dbareaeffects_unittype.ddf:1194 |
+| LumberBonus.EffectResourceGatherRate.radius | 10000 | dbareaeffects_unittype.ddf:1205 |
+| Lumber.attributes | [IsWonder] | Yuanhang_720_units.ddf:573124 |
+
+### 修改后数据
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| LumberBonus.EffectVisualGlow.radius | 30 | dbareaeffects_unittype.ddf:1194 |
+| LumberBonus.EffectResourceGatherRate.radius | 30 | dbareaeffects_unittype.ddf:1205 |
+| Lumber.attributes | (移除) | Yuanhang_720_units.ddf |
+
+### 关联文件
+- `EE2X_db/AreaEffects/dbareaeffects_unittype.ddf` — LumberBonus 两处 radius 10000→30
+- `EE2X_db/Units/Yuanhang_720_units.ddf` — UnitType Lumber 块删除 attributes = [IsWonder] 行
+
+### 修改依据
+- 需求: 用户决定不再将伐木场作为奇迹建筑（恢复普通建筑，可重复建造），生效范围改为伐木场周围30格半径，任意领土均可生效
+- 理由: RadiusFromUnit 是纯距离判断不看领土归属，radius=30 即伐木场30格范围内己方市民采集木材均享受加成；取消 IsWonder 后玩家可自由多建（加成是否叠加由引擎决定）
+
+### 已知影响
+- 伐木场恢复为普通经济建筑：无建造数量限制，奇迹体系无关联
+- 光环作用半径 30 格（原 10000 全图 → 30 局部），+100% 加成保持（scale=2.0）
+- 多个伐木场并存时加成叠加行为未知，需实测
+

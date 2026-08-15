@@ -1191,7 +1191,7 @@ DbAreaEffectInfo LumberBonus
       effects = [
 		 EffectVisualGlow {
 			range = RadiusFromUnit
-			radius = 10000
+			radius = 30
 			mask = Citizens
 			player = Self
             GlowType = SupremeLeader
@@ -1202,7 +1202,7 @@ DbAreaEffectInfo LumberBonus
 		}
         EffectResourceGatherRate {
 			range = RadiusFromUnit
-			radius = 10000
+			radius = 30
 			mask = Citizens
 			player = Self
 			affectedResourceTypes = [Wood]	
