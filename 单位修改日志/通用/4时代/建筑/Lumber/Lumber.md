@@ -39,3 +39,38 @@
 - AI 若原计划建造多个伐木场，将受奇迹限额约束（aips 不在工作库，影响待测）
 - QuarryBonus/GranaryBonus 等其他采集光环未改，仍为领土内生效
 
+---
+
+## 第2次修改 — 2026-08-15 19:10
+
+**关联快照**: `进度快照\135-伐木场光环RadiusFromUnit修复.md`
+**关联备份**: #182 (pre) / #183 (runtime)
+**修改类型**: [数值调整 - 修复]
+
+### 修改前数据（第1次修改后、修复前）
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| LumberBonus.EffectVisualGlow.range | Global | dbareaeffects_unittype.ddf:1193 |
+| LumberBonus.EffectResourceGatherRate.range | Global | dbareaeffects_unittype.ddf:1204 |
+
+### 修改后数据
+| 属性 | 值 | 来源文件 |
+|:-----|:---|:--------|
+| LumberBonus.EffectVisualGlow.range | RadiusFromUnit | dbareaeffects_unittype.ddf:1193 |
+| LumberBonus.EffectVisualGlow.radius | 10000 | dbareaeffects_unittype.ddf:1194 |
+| LumberBonus.EffectResourceGatherRate.range | RadiusFromUnit | dbareaeffects_unittype.ddf:1204 |
+| LumberBonus.EffectResourceGatherRate.radius | 10000 | dbareaeffects_unittype.ddf:1205 |
+| Lumber.attributes | [IsWonder]（保留不变） | Yuanhang_720_units.ddf:573124 |
+
+### 关联文件
+- `EE2X_db/AreaEffects/dbareaeffects_unittype.ddf` — DbAreaEffectInfo LumberBonus 块，2处range改RadiusFromUnit+各插入radius行
+
+### 修改依据
+- 需求: 修复用户测试反馈"领土内外均无任何加成效果"（#181 runtime 异常）
+- 理由: range=Global 对采集类 effect（EffectResourceGatherRate）无先例，引擎不触发导致光环完全失效（连领土内也失效）。诊断排除 IsWonder 嫌疑——90+个奇迹建筑（bigben/stonehenge/HeavenTemple等）均 IsWonder+AreaEffect 并存且正常。改为参照 AIResourcePower（#177已调过的采集光环）的正宗先例组合：RadiusFromUnit + radius=500，本处取 radius=10000 覆盖全图实现"任意领土生效"
+
+### 已知影响
+- 己方所有市民在距伐木场10000格范围内采集木材+50%（≈全图任意领土）
+- radius 10000 为推测安全值（先例为500），超大地图边缘是否覆盖待测试确认
+- IsWonder 防叠加机制保留，与90+奇迹同款
+
