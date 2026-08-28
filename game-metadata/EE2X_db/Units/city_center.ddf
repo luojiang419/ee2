@@ -97,7 +97,7 @@ UnitType CityCenter
 		// Empty area effect set so more can be added later.
 		AreaEffect {
 			effects = [ 
-				
+				effectattackforplayer
 			]
 		}
 	]
