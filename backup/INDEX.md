@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-09-03 22:22
+> 最后更新: 2026-09-03 22:27
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -219,6 +219,8 @@
 | 191 | EE2X_db-191-英法日E14火炮调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 190修改应用后的完整游戏ZIP | 待测试 | 2026-09-03 22:16 |
 | 192 | EE2X_db-192-七国E14火炮HP调整-pre.zip | pre | 中美俄英法德日 E14 自行榴弹炮 HP | TechTree/upgrade_unittypes.csv | 依次调整为 HP 500/600/650/700/750/550/520 | — | 2026-09-03 22:18 |
 | 193 | EE2X_db-193-七国E14火炮HP调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 192修改应用后的完整游戏ZIP | 待测试 | 2026-09-03 22:22 |
+| 194 | EE2X_db-194-IL76通用E14替代大型运输机-pre.zip | pre | IL-76 E14 通用运输机替换 | TechTree/dbtechtreenode.csv, Text/dbtext_unittypenames.utf8 | 将 IL-76 设为所有文明 E14 生产，并替代重型伞兵运输机入口 | — | 2026-09-03 22:26 |
+| 195 | EE2X_db-195-IL76通用E14替代大型运输机-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 194修改应用后的完整游戏ZIP | 待测试 | 2026-09-03 22:27 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 

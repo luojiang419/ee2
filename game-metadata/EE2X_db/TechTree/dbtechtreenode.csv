@@ -894,7 +894,7 @@ M3AT37mm,text_BMP1_name,,11,0,,,0,0,3,Barracks,M3AT37mm,M3AT37mmUpgradeEpoch11,6
 //AnatraDS,text_Fighter_11_name,,11,0,,,0,2,3,Airport,AnatraDS,,80,0,400,0,400,0,0,400,400,0,2,Russian,[],(None)
 //AnatraVKh,text_Fighter_11_name,,11,0,,,0,2,0,Airport,AnatraVKh,,80,0,400,0,400,0,0,400,400,0,2,Russian,[],(None)
 
-il76,text_mig15_name,,12,0,,,0,3,0,Airport2,il76,il76UpgradeEpoch12,55,100,200,0,200,0,0,0,200,0,10,,[],(None)
+//il76,text_mig15_name,,12,0,,,0,3,0,Airport2,il76,il76UpgradeEpoch12,55,100,200,0,200,0,0,0,200,0,10,,[],(None) // Replaced by the E14 generic IL-76 node below.
 //------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
 //	TW10 Napoleon 1.0,,,,,,,,,,,,,,,,,,,,,,,,,,
 //------------------------------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -1452,7 +1452,7 @@ Military11_4,text_Military11_4_name,,11,3,Military,icon_tech_e11_military4,3,3,2
 
 // ------------------------- EPOCH 12 ------------------------,,,,,,,,,,,,,,,,,,,,,,,,,,
 // UNITS,,,,,,,,,,,,,,,,,,,,,,,,,,
-NonCombatAir2,text_NonCombatAir2_12_name,,12,0,,,0,1,2,Airport2,NonCombatAir2,NonCombatAir2UpgradeEpoch12,20,0,0,0,0,0,0,0,0,0,0,,[],(None)
+il76,text_Il76_name,,14,0,,,0,1,2,Airport2,il76,il76UpgradeEpoch14,55,100,200,0,200,0,0,0,200,0,10,,[],(None)
 NuclearBomber,text_NuclearBomber_12_name,,12,0,,,0,2,0,Airport,NuclearBomber,NuclearBomberUpgradeEpoch12,0,0,0,0,0,0,0,0,0,0,4,,[],(None)
 MachineGunNest12,tx_utn_machinegunnest12_name,,13,0,,,3,2,2,Citizen,MachineGunNest12,,50,0,100,100,100,0,0,0,0,0,0,,[],(None)
 
