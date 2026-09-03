@@ -1,6 +1,6 @@
 # 备份索引
 
-> 最后更新: 2026-09-01 20:34
+> 最后更新: 2026-09-03 22:16
 > 格式 v3: 8 列（类型 + 运行状态），备份文件名使用中文描述
 
 ---
@@ -215,6 +215,8 @@
 | 187 | EE2X_db-187-伐木场取消奇迹半径30-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 186修改应用后的完整游戏ZIP | 测试通过 | 2026-08-15 20:20 |
 | 188 | EE2X_db-188-运20与IL78运输机成本统一-pre.zip | pre | yun20 / IL78 运输机成本 | TechTree/dbtechtreenode.csv | 将 yun20 与 IL78 成本统一为 食2000 木3000 石2000 金2000 油2000 铀2000 | — | 2026-09-01 20:34 |
 | 189 | EE2X_db-189-运20与IL78运输机成本统一-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 188修改应用后的完整游戏ZIP | 待测试 | 2026-09-01 20:34 |
+| 190 | EE2X_db-190-英法日E14火炮调整-pre.zip | pre | AS90 / AUF1 / Type75_155m E14 | TechTree/upgrade_unittypes.csv, Units/Yuanhang_Tao_13zhuangjia_units.ddf | 调整英法日E14自行榴弹炮射程、英国装填与成本、法国黄金成本 | — | 2026-09-03 22:11 |
+| 191 | EE2X_db-191-英法日E14火炮调整-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 190修改应用后的完整游戏ZIP | 待测试 | 2026-09-03 22:16 |
 | 149 | EE2X_db-149-三攻击机E14溅射AOE减70-pre.zip | pre | JH7A/A10/su25 E14溅射AOE | Chinese_army.ddf, American_army.ddf, Russian_army.ddf | 三款专用对地攻击机E14溅射AOE减70%(JH7A 1.0→0.3, A10 1.3→0.39, su25 1.3→0.39) | — | 2026-05-30 16:00 |
 | 150 | EE2X_db-150-三攻击机E14溅射AOE减70-runtime.zip | runtime | 游戏运行态快照 | EE2X_db.zip 完整 | 149修改应用后的完整游戏ZIP | 待测试 | 2026-05-30 16:00 |
 

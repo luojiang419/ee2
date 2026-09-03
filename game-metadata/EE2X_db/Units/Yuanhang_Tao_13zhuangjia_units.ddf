@@ -4833,11 +4833,25 @@ UnitModel T300
 		angle = 45.00
 	}
 }
+// Attack Ability Upgrade (English AS90 E14 - independent from shared Plz45Epoch13Attack)
+UpgradeAbilities As90Epoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 700; range = 33; angularRange = 360; reloadTime = 2.5; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 15; minRangeImmobile = 15; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 5.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
+// Attack Ability Upgrade (French AUF1 E14 - independent from shared Plz45Epoch13Attack)
+UpgradeAbilities AUF1Epoch14Attack
+{
+	upgradedAbilities = [
+		Attack { damage = 700; range = 28; angularRange = 360; reloadTime = 4.0; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 15; minRangeImmobile = 15; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 5.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+	]
+}
 // Attack Ability Upgrade (Japan Type75_155m E14 - clone of Plz45Epoch14Attack, damage x0.95)
 UpgradeAbilities Type75_155mEpoch14Attack
 {
 	upgradedAbilities = [
-		Attack { damage = 665; range = 19; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 16; minRangeImmobile = 16; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 5.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
+		Attack { damage = 665; range = 34; angularRange = 360; reloadTime = 8; applyDamageTime = 0.5; missileName = "TankShellB";packTime = 2.0;unpackTime = 2.0; ignoreBlocking = 1;minRangeMobile = 16; minRangeImmobile = 16; turretControllerName = MRocketLauncherTurret; areaDamageRadius = 5.0; areaDamageFriendlyRatio = 0.5; throwUnits = true }
 	]
 }
 UnitType Type75_Japan
