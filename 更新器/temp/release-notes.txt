@@ -1,8 +1,9 @@
-UP1.6.2.005 官方非官方补丁升级（开发者版·MOD兼容）
-- 游戏主程序 EE2X.exe / EE2.exe 升级至 UP1.6 版
-- 新增 UP16.dll 核心运行库
-- 新增 Vulkan 渲染支持（VULKAN_d3d9.dll + dxvk.conf）
-- 更新游戏辅助 DLL（UP15_GameHelper.dll、D3DCompiler_47.dll）
-- 更新 EXE 生成器数据与分辨率文本（EXEGeneratorData）
-- 更新小版本数据至 1.6.2.005（MinorVersion=162005）
-- 注册 MOD 标识为 EE2X远航版（UnofficialDevelopersVersionConfig）
+1. IL-76 运输机调整
+- IL-76 现为 E14 通用运输机，所有文明可在 Airport2 原重型伞兵运输机槽位生产。
+- 单位名称更新为“伊尔-76运输机”，原重型伞兵运输机生产入口已替换。
+
+2. E14 自行榴弹炮调整
+- 中国、美国、俄罗斯、英国、法国、德国、日本七国自行榴弹炮 HP 调整为 500、600、650、700、750、550、520。
+- 英国 AS90 射程提升至 33、装填缩短至 2.5 秒，成本提升。
+- 法国 AUF1 射程提升至 28，黄金成本降至 1200。
+- 日本 Type75_155m 射程提升至 34。
